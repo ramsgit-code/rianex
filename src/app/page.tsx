@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
 import { Problems } from "@/components/sections/Problems";
 import { Solution } from "@/components/sections/Solution";
+import { VideoDemo } from "@/components/sections/VideoDemo";
 import { Services } from "@/components/sections/Services";
 import { CaseStudies } from "@/components/sections/CaseStudies";
 import { Process } from "@/components/sections/Process";
@@ -69,6 +70,7 @@ export default function Home() {
       <Hero />
       <Problems />
       <Solution />
+      <VideoDemo />
       <Services />
       <CaseStudies />
       <Process />
