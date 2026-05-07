@@ -1,11 +1,31 @@
-// Go High Level integration
-// Docs: https://highlevel.stoplight.io/docs/integrations
+// Go High Level API v2
+// https://highlevel.stoplight.io/docs/integrations
 
 const GHL_API_KEY = process.env.GHL_API_KEY!;
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID!;
 const GHL_BASE_URL = "https://services.leadconnectorhq.com";
 
-interface GHLContactPayload {
+// ─── Opportunity custom field IDs (created once, stable forever) ──────────────
+const OPP_FIELDS = {
+  sector:             "ILDbsVEh6od6MJVII6oW",
+  tipo_negocio:       "A2UjVb5Kt7HhGcwhCIHW",
+  tamano_equipo:      "MVzlQ8W1TZQ2ksXMvVtp",
+  volumen_leads:      "zoxT5vU9qQmpKOVXEfV7",
+  crm_actual:         "spOahcIeVsvlqtG96tfC",
+  usa_whatsapp:       "8KG5VT0jhrY6JYUHpGys",
+  tiempo_propuesta:   "w6ejaMdnWvV7Yz03HAFO",
+  problema_principal: "79KsdRBBvQjVBSjr6lj2",
+  objetivos:          "Rnfk0yksNzmWdAEVDLfx",
+  urgencia:           "BkqOkyDhjvKFs7NQ0FL7",
+  presupuesto:        "cUKhFWVjHjLzFkGDq8l5",
+  pais:               "72EfbndFsWh6EIUB5VGe",
+  como_conociste:     "fbPfyHZH4dmRmSvana5P",
+  notas:              "Po2l4Wy3YHbiIGJXgill",
+  lead_score:         "fNL28BSYx01ywetdxnNu",
+  lead_tier:          "j94ZI6j12pGLi2EGwKJY",
+};
+
+export interface GHLContactPayload {
   firstName: string;
   lastName?: string;
   email: string;
@@ -13,19 +33,22 @@ interface GHLContactPayload {
   website?: string;
   source?: string;
   tags?: string[];
-  customField?: Record<string, string>;
 }
 
-interface GHLOpportunityPayload {
-  title: string;
+export interface GHLOpportunityPayload {
+  name: string;
   pipelineId: string;
   pipelineStageId: string;
   contactId: string;
-  monetaryValue?: number;
   status: "open" | "won" | "lost" | "abandoned";
+  customFields?: { id: string; field_value: string }[];
 }
 
 async function ghlFetch(path: string, options: RequestInit) {
+  if (!GHL_API_KEY || !GHL_LOCATION_ID) {
+    throw new Error("GHL env vars missing: GHL_API_KEY or GHL_LOCATION_ID not set");
+  }
+
   const res = await fetch(`${GHL_BASE_URL}${path}`, {
     ...options,
     headers: {
@@ -36,14 +59,16 @@ async function ghlFetch(path: string, options: RequestInit) {
     },
   });
 
+  const body = await res.text();
+
   if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`GHL API error ${res.status}: ${body}`);
+    throw new Error(`GHL ${res.status} ${path}: ${body}`);
   }
 
-  return res.json();
+  return JSON.parse(body);
 }
 
+// Contact: only basic fields — name, email, phone, website, source, tags
 export async function createOrUpdateContact(payload: GHLContactPayload) {
   return ghlFetch("/contacts/", {
     method: "POST",
@@ -54,6 +79,7 @@ export async function createOrUpdateContact(payload: GHLContactPayload) {
   });
 }
 
+// Opportunity: includes all form fields as custom fields
 export async function createOpportunity(payload: GHLOpportunityPayload) {
   return ghlFetch("/opportunities/", {
     method: "POST",
@@ -64,36 +90,30 @@ export async function createOpportunity(payload: GHLOpportunityPayload) {
   });
 }
 
-export async function addTagsToContact(contactId: string, tags: string[]) {
-  return ghlFetch(`/contacts/${contactId}/tags/`, {
-    method: "POST",
-    body: JSON.stringify({ tags }),
-  });
-}
+// Builds the customFields array for the opportunity from form data
+export function buildOpportunityFields(
+  data: Record<string, unknown>,
+  score: number,
+  tier: string
+): { id: string; field_value: string }[] {
+  const str = (v: unknown) => String(v ?? "").trim();
 
-export async function getPipelines() {
-  return ghlFetch(`/opportunities/pipelines?locationId=${GHL_LOCATION_ID}`, {
-    method: "GET",
-  });
-}
-
-// Map form data to GHL custom fields
-// Custom field IDs must be created in GHL first and set in .env
-export function buildCustomFields(data: Record<string, unknown>): Record<string, string> {
-  return {
-    [process.env.GHL_FIELD_SECTOR ?? "sector"]: String(data.sector ?? ""),
-    [process.env.GHL_FIELD_TIPO_NEGOCIO ?? "tipo_negocio"]: String(data.tipo_negocio ?? ""),
-    [process.env.GHL_FIELD_TAMANO_EQUIPO ?? "tamano_equipo"]: String(data.tamano_equipo ?? ""),
-    [process.env.GHL_FIELD_VOLUMEN_LEADS ?? "volumen_leads"]: String(data.volumen_leads ?? ""),
-    [process.env.GHL_FIELD_CRM_ACTUAL ?? "crm_actual"]: String(data.crm_actual ?? ""),
-    [process.env.GHL_FIELD_USA_WHATSAPP ?? "usa_whatsapp"]: String(data.usa_whatsapp ?? ""),
-    [process.env.GHL_FIELD_TIEMPO_PROPUESTA ?? "tiempo_propuesta"]: String(data.tiempo_propuesta ?? ""),
-    [process.env.GHL_FIELD_PROBLEMA ?? "problema_principal"]: String(data.problema_principal ?? ""),
-    [process.env.GHL_FIELD_URGENCIA ?? "urgencia"]: String(data.urgencia ?? ""),
-    [process.env.GHL_FIELD_PRESUPUESTO ?? "presupuesto_estimado"]: String(data.presupuesto ?? ""),
-    [process.env.GHL_FIELD_LEAD_SCORE ?? "lead_score"]: String(data.lead_score ?? ""),
-    [process.env.GHL_FIELD_LEAD_TIER ?? "lead_tier"]: String(data.lead_tier ?? ""),
-    [process.env.GHL_FIELD_COMO_CONOCISTE ?? "lead_source_detail"]: String(data.como_conociste ?? ""),
-    [process.env.GHL_FIELD_NOTAS ?? "notas"]: String(data.notas ?? ""),
-  };
+  return [
+    { id: OPP_FIELDS.sector,             field_value: str(data.sector) },
+    { id: OPP_FIELDS.tipo_negocio,       field_value: str(data.tipo_negocio) },
+    { id: OPP_FIELDS.tamano_equipo,      field_value: str(data.tamano_equipo) },
+    { id: OPP_FIELDS.volumen_leads,      field_value: str(data.volumen_leads) },
+    { id: OPP_FIELDS.crm_actual,         field_value: str(data.crm_actual) },
+    { id: OPP_FIELDS.usa_whatsapp,       field_value: str(data.usa_whatsapp) },
+    { id: OPP_FIELDS.tiempo_propuesta,   field_value: str(data.tiempo_propuesta) },
+    { id: OPP_FIELDS.problema_principal, field_value: str(data.problema_principal) },
+    { id: OPP_FIELDS.objetivos,          field_value: Array.isArray(data.objetivo) ? (data.objetivo as string[]).join(", ") : str(data.objetivo) },
+    { id: OPP_FIELDS.urgencia,           field_value: str(data.urgencia) },
+    { id: OPP_FIELDS.presupuesto,        field_value: str(data.presupuesto) },
+    { id: OPP_FIELDS.pais,               field_value: str(data.pais) },
+    { id: OPP_FIELDS.como_conociste,     field_value: str(data.como_conociste) },
+    { id: OPP_FIELDS.notas,              field_value: str(data.notas) },
+    { id: OPP_FIELDS.lead_score,         field_value: String(score) },
+    { id: OPP_FIELDS.lead_tier,          field_value: tier.toUpperCase() },
+  ].filter((f) => f.field_value !== "");
 }

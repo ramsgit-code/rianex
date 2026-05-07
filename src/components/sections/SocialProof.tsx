@@ -2,6 +2,13 @@
 
 import { m } from "framer-motion";
 
+const metrics = [
+  { value: "3", label: "empresas con sistemas activos" },
+  { value: "+60%", label: "mejora media en tiempo de respuesta" },
+  { value: "2–4 sem", label: "tiempo medio de implementacion" },
+  { value: "30 dias", label: "soporte incluido tras la entrega" },
+];
+
 const testimonials = [
   {
     quote:
@@ -19,7 +26,7 @@ const testimonials = [
 
 export function SocialProof() {
   return (
-    <section>
+    <section className="bg-surface border-y border-border">
       <div className="section">
         <m.div
           initial={{ opacity: 0, y: 20 }}
@@ -34,6 +41,23 @@ export function SocialProof() {
           </h2>
         </m.div>
 
+        {/* Metrics row */}
+        <m.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+        >
+          {metrics.map((m_item, i) => (
+            <div key={i} className="bg-background border border-border rounded-xl p-5">
+              <p className="text-3xl font-bold text-accent leading-none mb-1">{m_item.value}</p>
+              <p className="text-xs text-muted leading-snug">{m_item.label}</p>
+            </div>
+          ))}
+        </m.div>
+
+        {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((t, i) => (
             <m.div

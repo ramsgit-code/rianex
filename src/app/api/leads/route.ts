@@ -1,56 +1,78 @@
 import { NextRequest, NextResponse } from "next/server";
 import { calculateScore, getTier, getTags } from "@/lib/lead-scoring";
-import { createOrUpdateContact, createOpportunity, buildCustomFields } from "@/lib/ghl";
+import { createOrUpdateContact, createOpportunity, buildOpportunityFields } from "@/lib/ghl";
 
 export async function POST(req: NextRequest) {
-  try {
-    const data = await req.json();
+  let data: Record<string, unknown> = {};
 
-    // 1. Calculate score and tier
+  try {
+    data = await req.json();
+
+    // 1. Lead scoring
     const score = calculateScore({
-      presupuesto: data.presupuesto,
-      urgencia: data.urgencia,
-      volumen_leads: data.volumen_leads,
-      tamano_equipo: data.tamano_equipo,
-      crm_actual: data.crm_actual,
-      sector: data.sector,
+      presupuesto:    data.presupuesto    as string,
+      urgencia:       data.urgencia       as string,
+      volumen_leads:  data.volumen_leads  as string,
+      tamano_equipo:  data.tamano_equipo  as string,
+      crm_actual:     data.crm_actual     as string,
+      sector:         data.sector         as string,
     });
 
     const tier = getTier(score);
-    const tags = getTags({ ...data, tier });
-
-    const enriched = { ...data, lead_score: score, lead_tier: tier };
-
-    // 2. Create contact in GHL
-    const [firstName, ...rest] = (data.nombre as string).split(" ");
-    const lastName = rest.join(" ");
-
-    const contact = await createOrUpdateContact({
-      firstName,
-      lastName,
-      email: data.email,
-      phone: data.telefono,
-      website: data.web,
-      source: data.como_conociste,
-      tags,
-      customField: buildCustomFields(enriched),
+    const tags = getTags({
+      presupuesto:    data.presupuesto    as string,
+      urgencia:       data.urgencia       as string,
+      volumen_leads:  data.volumen_leads  as string,
+      tamano_equipo:  data.tamano_equipo  as string,
+      crm_actual:     data.crm_actual     as string,
+      sector:         data.sector         as string,
+      como_conociste: data.como_conociste as string,
+      tier,
     });
 
-    // 3. Create opportunity in pipeline "Nuevo Lead" stage
-    if (contact?.contact?.id) {
+    // 2. Parse name
+    const [firstName, ...rest] = (data.nombre as string).trim().split(" ");
+    const lastName = rest.join(" ");
+
+    // 3. Create contact — solo campos básicos
+    const contactRes = await createOrUpdateContact({
+      firstName,
+      lastName,
+      email:   data.email    as string,
+      phone:   data.telefono as string,
+      website: data.web      as string | undefined,
+      source:  data.como_conociste as string,
+      tags,
+    });
+
+    const contactId: string | undefined = contactRes?.contact?.id;
+
+    if (!contactId) {
+      console.error("[leads API] No contact ID returned:", JSON.stringify(contactRes));
+      return NextResponse.json({ ok: true, score, tier, warn: "no contact id" });
+    }
+
+    // 4. Create opportunity — con todos los campos del formulario como custom fields
+    if (!process.env.GHL_PIPELINE_ID || !process.env.GHL_STAGE_NUEVO_LEAD) {
+      console.warn("[leads API] GHL_PIPELINE_ID or GHL_STAGE_NUEVO_LEAD not set");
+    } else {
+      const opportunityName = `${data.nombre} — ${data.empresa} [${tier.toUpperCase()} · ${score}pts]`;
+
       await createOpportunity({
-        title: `${data.nombre} — ${data.empresa}`,
-        pipelineId: process.env.GHL_PIPELINE_ID!,
-        pipelineStageId: process.env.GHL_STAGE_NUEVO_LEAD!,
-        contactId: contact.contact.id,
-        status: "open",
+        name:            opportunityName,
+        pipelineId:      process.env.GHL_PIPELINE_ID,
+        pipelineStageId: process.env.GHL_STAGE_NUEVO_LEAD,
+        contactId,
+        status:          "open",
+        customFields:    buildOpportunityFields(data, score, tier),
       });
     }
 
     return NextResponse.json({ ok: true, score, tier });
+
   } catch (err) {
-    console.error("[leads API]", err);
-    // Return 200 anyway — don't block the user if GHL is down
-    return NextResponse.json({ ok: true, fallback: true });
+    console.error("[leads API] ERROR:", err instanceof Error ? err.message : String(err));
+    console.error("[leads API] Lead:", { nombre: data.nombre, empresa: data.empresa, email: data.email });
+    return NextResponse.json({ ok: true, fallback: true, error: (err as Error).message });
   }
 }
