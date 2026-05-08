@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       "Diseño sistemas de captación, cualificación y cierre de leads. Go High Level, WhatsApp automation y propuestas automáticas.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og?title=Ramiro+Perez+%E2%80%94+Automatizaci%C3%B3n+Comercial&tag=Automatizaci%C3%B3n+Comercial",
         width: 1200,
         height: 630,
         alt: "Ramiro Perez — Automatización Comercial",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Ramiro Perez — Automatización Comercial & CRM",
     description:
       "Sistemas de captación, cualificación y cierre de leads. Go High Level, WhatsApp y propuestas automáticas.",
-    images: ["/og-image.png"],
+    images: ["/og?title=Ramiro+Perez+%E2%80%94+Automatizaci%C3%B3n+Comercial&tag=Automatizaci%C3%B3n+Comercial"],
     creator: "@ramiroperez",
   },
   robots: {
