@@ -46,11 +46,6 @@ export function Hero() {
               <span className="text-accent">funcionando solo.</span>
             </h1>
 
-            <p className="text-lg text-foreground-muted max-w-xl mb-10 leading-relaxed">
-              Diseno sistemas de captacion, cualificacion y cierre de leads
-              para negocios que quieren vender mas sin depender de procesos manuales.
-            </p>
-
             <div className="flex flex-col sm:flex-row items-start gap-3 mb-12">
               <Link href="/diagnostico" className="btn-primary text-base px-7 py-3.5">
                 Solicita tu diagnostico

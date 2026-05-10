@@ -3,22 +3,20 @@
 import { m } from "framer-motion";
 
 const metrics = [
-  { value: "3", label: "empresas con sistemas activos" },
-  { value: "+60%", label: "mejora media en tiempo de respuesta" },
-  { value: "2–4 sem", label: "tiempo medio de implementacion" },
-  { value: "30 dias", label: "soporte incluido tras la entrega" },
+  { value: "3", label: "sistemas activos" },
+  { value: "+60%", label: "mejora en tiempo de respuesta" },
+  { value: "2–4 sem", label: "implementacion" },
+  { value: "30 dias", label: "soporte incluido" },
 ];
 
 const testimonials = [
   {
-    quote:
-      "Antes tardabamos 2 dias en enviar una propuesta. Ahora tarda 8 minutos y la recibe el cliente mejor presentada que antes.",
+    quote: "Antes tardabamos 2 dias en enviar una propuesta. Ahora tarda 8 minutos.",
     author: "Director comercial",
     company: "Empresa de eventos",
   },
   {
-    quote:
-      "Redujo el ruido de leads malos en el pipeline. Ahora el equipo solo habla con quien tiene intencion real de compra.",
+    quote: "El equipo solo habla con quien tiene intencion real de compra.",
     author: "Gerente comercial",
     company: "Clinica capilar",
   },
@@ -35,19 +33,18 @@ export function SocialProof() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <span className="tag">Lo que dicen</span>
+          <span className="tag">Resultados</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Resultados que puedes medir.
+            Numeros reales.
           </h2>
         </m.div>
 
-        {/* Metrics row */}
         <m.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10"
         >
           {metrics.map((m_item, i) => (
             <div key={i} className="bg-background border border-border rounded-xl p-5">
@@ -57,8 +54,7 @@ export function SocialProof() {
           ))}
         </m.div>
 
-        {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {testimonials.map((t, i) => (
             <m.div
               key={i}
@@ -68,8 +64,8 @@ export function SocialProof() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="card"
             >
-              <p className="text-accent text-4xl font-serif leading-none mb-4">"</p>
-              <p className="text-foreground-muted leading-relaxed mb-6 text-[15px]">{t.quote}</p>
+              <p className="text-accent text-3xl font-serif leading-none mb-3">"</p>
+              <p className="text-foreground-muted leading-relaxed mb-5 text-[15px]">{t.quote}</p>
               <div>
                 <p className="text-sm font-medium text-foreground">{t.author}</p>
                 <p className="text-xs text-muted">{t.company}</p>
