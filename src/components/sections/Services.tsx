@@ -2,29 +2,36 @@
 
 import Link from "next/link";
 import { m } from "framer-motion";
-import { ArrowRight, Filter, FileText, MessageSquare } from "lucide-react";
+import { ArrowRight, Filter, FileText, MessageSquare, Phone } from "lucide-react";
 
 const services = [
   {
     icon: Filter,
     tag: "Sistema A",
-    title: "Lead Qualification System",
+    title: "Lead Qualification",
     desc: "Filtra automaticamente quien vale tu tiempo antes de que hables con ellos.",
     href: "/servicios#lead-qualification-system",
   },
   {
     icon: FileText,
     tag: "Sistema B",
-    title: "Proposal Automation System",
+    title: "Proposal Automation",
     desc: "Propuestas profesionales listas en minutos, no en dias.",
     href: "/servicios#proposal-automation",
   },
   {
     icon: MessageSquare,
     tag: "Sistema C",
-    title: "WhatsApp + CRM Automation",
+    title: "WhatsApp + CRM",
     desc: "Seguimiento automatico que no suena a robot, integrado con Go High Level.",
     href: "/servicios#whatsapp-crm-automation",
+  },
+  {
+    icon: Phone,
+    tag: "Sistema D",
+    title: "Voice AI Agents",
+    desc: "Agentes de voz con Vapi y Retell que califican, agendan y atienden 24/7.",
+    href: "/servicios#voice-ai-agents",
   },
 ];
 
@@ -41,11 +48,11 @@ export function Services() {
         >
           <span className="tag">Servicios</span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Tres sistemas. Un objetivo.
+            Cuatro sistemas. Un objetivo.
           </h2>
         </m.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => {
             const Icon = s.icon;
             return (
@@ -54,7 +61,7 @@ export function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
                 className="card group hover:border-accent/40 transition-colors"
               >
                 <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4">

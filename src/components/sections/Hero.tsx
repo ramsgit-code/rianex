@@ -5,7 +5,6 @@ import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { LogoHospitalCapilar } from "@/components/logos/LogoHospitalCapilar";
 import { LogoEventosBarcelona } from "@/components/logos/LogoEventosBarcelona";
-import { LogoHermetic } from "@/components/logos/LogoHermetic";
 
 const stats = [
   { value: "−40%", label: "tiempo en leads sin cualificar" },
@@ -81,10 +80,9 @@ export function Hero() {
               <p className="text-xs text-muted uppercase tracking-widest mb-5">
                 Sistemas implementados en
               </p>
-              <div className="flex flex-wrap items-center gap-8">
-                <LogoHospitalCapilar className="h-5 w-auto text-foreground opacity-40 hover:opacity-70 transition-opacity" />
-                <LogoEventosBarcelona className="h-7 w-auto text-foreground opacity-40 hover:opacity-70 transition-opacity" />
-                <LogoHermetic className="h-5 w-auto text-foreground opacity-40 hover:opacity-70 transition-opacity" />
+              <div className="flex flex-wrap items-center gap-10">
+                <LogoHospitalCapilar className="h-6 w-auto text-foreground opacity-50 hover:opacity-90 transition-opacity" />
+                <LogoEventosBarcelona className="h-8 w-auto text-foreground opacity-50 hover:opacity-90 transition-opacity" />
               </div>
             </m.div>
           </m.div>

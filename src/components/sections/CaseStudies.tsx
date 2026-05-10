@@ -1,9 +1,9 @@
 "use client";
 
 import { m } from "framer-motion";
+import { Phone } from "lucide-react";
 import { LogoHospitalCapilar } from "@/components/logos/LogoHospitalCapilar";
 import { LogoEventosBarcelona } from "@/components/logos/LogoEventosBarcelona";
-import { LogoHermetic } from "@/components/logos/LogoHermetic";
 
 const cases = [
   {
@@ -21,11 +21,12 @@ const cases = [
     result: "De 3 dias a 8 minutos. El cliente recibe precio antes que la competencia.",
   },
   {
-    Logo: LogoHermetic,
-    tag: "WhatsApp + CRM",
-    metric: "0",
-    metricLabel: "leads sin respuesta",
-    result: "Todos los leads reciben respuesta automatica en los primeros 5 minutos.",
+    Logo: null,
+    label: "Voice AI",
+    tag: "Vapi + Retell",
+    metric: "24/7",
+    metricLabel: "cobertura comercial",
+    result: "Agentes de voz IA que califican y agendan llamadas sin intervencion humana.",
   },
 ];
 
@@ -47,23 +48,30 @@ export function CaseStudies() {
         </m.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {cases.map(({ Logo, tag, metric, metricLabel, result }, i) => (
+          {cases.map(({ Logo, label, tag, metric, metricLabel, result }, i) => (
             <m.div
               key={tag}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08, duration: 0.45 }}
-              className="card flex flex-col gap-6"
+              className="card flex flex-col gap-6 hover:border-accent/30 transition-colors"
             >
               {/* Logo */}
               <div className="h-10 flex items-center">
-                <Logo className="h-6 w-auto text-foreground-muted opacity-70" />
+                {Logo ? (
+                  <Logo className="h-6 w-auto text-foreground-muted opacity-70" />
+                ) : (
+                  <div className="flex items-center gap-2 text-foreground-muted opacity-70">
+                    <Phone size={18} />
+                    <span className="text-sm font-semibold tracking-tight">{label}</span>
+                  </div>
+                )}
               </div>
 
               {/* Metric */}
               <div>
-                <p className="text-5xl font-bold text-foreground tracking-tight leading-none">
+                <p className="text-5xl font-bold text-foreground tracking-tight leading-none tabular-nums">
                   {metric}
                 </p>
                 <p className="text-sm text-muted mt-1">{metricLabel}</p>
