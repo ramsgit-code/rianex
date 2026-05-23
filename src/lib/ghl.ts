@@ -33,6 +33,7 @@ export interface GHLContactPayload {
   website?: string;
   source?: string;
   tags?: string[];
+  customField?: { id: string; field_value: string }[];
 }
 
 export interface GHLOpportunityPayload {
@@ -135,4 +136,8 @@ export function buildOpportunityFields(
     { id: OPP_FIELDS.lead_score,         field_value: String(score) },
     { id: OPP_FIELDS.lead_tier,          field_value: tier.toUpperCase() },
   ].filter((f) => f.field_value !== "");
+}
+
+export function buildCustomFields(data: Record<string, unknown>) {
+  return buildOpportunityFields(data, data.lead_score as number, data.lead_tier as string);
 }

@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
     if (contact?.contact?.id) {
       ghlContactId = contact.contact.id;
       await createOpportunity({
-        title: `${data.nombre} — ${data.empresa}`,
+        name: `${data.nombre} — ${data.empresa}`,
         pipelineId: process.env.GHL_PIPELINE_ID!,
         pipelineStageId: process.env.GHL_STAGE_NUEVO_LEAD!,
         contactId: contact.contact.id,
