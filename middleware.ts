@@ -1,19 +1,37 @@
-import { withAuth } from "next-auth/middleware";
+import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-export default withAuth(
-  function middleware(req) {
+export async function middleware(req: NextRequest) {
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+  const { pathname } = req.nextUrl;
+
+  const isLoginPage = pathname === "/admin/login";
+  const isAdminPage = pathname.startsWith("/admin") && !isLoginPage;
+  const isAdminApi = pathname.startsWith("/api/admin");
+
+  if (isLoginPage) {
+    if (token) return NextResponse.redirect(new URL("/admin", req.url));
     return NextResponse.next();
-  },
-  {
-    callbacks: {
-      authorized: ({ token }) => !!token,
-    },
-    pages: { signIn: "/admin/login" },
-    secret: process.env.NEXTAUTH_SECRET,
   }
-);
+
+  if (isAdminPage || isAdminApi) {
+    if (!token) {
+      if (isAdminApi) {
+        return new NextResponse(JSON.stringify({ error: "Unauthorized" }), {
+          status: 401,
+          headers: { "Content-Type": "application/json" },
+        });
+      }
+      const loginUrl = new URL("/admin/login", req.url);
+      loginUrl.searchParams.set("callbackUrl", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+  }
+
+  return NextResponse.next();
+}
 
 export const config = {
-  matcher: ["/admin", "/admin/((?!login).*)", "/api/admin/:path*"],
+  matcher: ["/admin/:path*", "/api/admin/:path*"],
 };
