@@ -4,8 +4,8 @@ import { PublicLayout } from "@/components/PublicLayout";
 
 export const metadata: Metadata = {
   title: {
-    default: "Ramiro Perez — Automatizacion Comercial & CRM",
-    template: "%s | Ramiro Perez",
+    default: "RIA Consulting — Automatizacion Comercial & CRM",
+    template: "%s | RIA Consulting",
   },
   description:
     "Diseno sistemas de captacion, cualificacion y cierre de leads para negocios que quieren vender mas sin trabajar mas. Especialista en Go High Level, WhatsApp automation y propuestas automaticas.",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_ES",
     alternateLocale: "en_US",
-    siteName: "Ramiro Perez — Automatizacion Comercial",
+    siteName: "RIA Consulting — Automatizacion Comercial",
   },
 };
 

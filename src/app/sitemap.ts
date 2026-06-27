@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { promises as fs } from "fs";
 import path from "path";
 
-const BASE_URL = "https://ramiroperez.com";
+const BASE_URL = "https://ria-consulting.com";
 
 async function getBlogSlugs(): Promise<{ slug: string; date: string }[]> {
   const blogDir = path.join(process.cwd(), "src", "content", "blog");

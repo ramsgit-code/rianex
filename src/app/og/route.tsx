@@ -4,7 +4,7 @@ export const runtime = "edge";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title") || "Ramiro Perez — Automatización Comercial";
+  const title = searchParams.get("title") || "RIA Consulting — Automatización Comercial";
   const tag = searchParams.get("tag") || "Blog";
 
   return new ImageResponse(
@@ -61,7 +61,7 @@ export async function GET(request: Request) {
           >
             <div style={{ width: "8px", height: "8px", background: "#0a0a0a", borderRadius: "50%" }} />
           </div>
-          <span style={{ color: "#f5f5f5", fontSize: "18px", fontWeight: 600 }}>Ramiro Perez</span>
+          <span style={{ color: "#f5f5f5", fontSize: "18px", fontWeight: 600 }}>RIA Consulting</span>
           <span style={{ color: "#e8ff00", fontSize: "18px" }}>.</span>
         </div>
 
@@ -102,7 +102,7 @@ export async function GET(request: Request) {
             zIndex: 1,
           }}
         >
-          <span style={{ color: "#666", fontSize: "14px" }}>ramiroperez.com</span>
+          <span style={{ color: "#666", fontSize: "14px" }}>ria-consulting.com</span>
           <span
             style={{
               color: "#e8ff00",

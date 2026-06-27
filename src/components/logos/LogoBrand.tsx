@@ -1,4 +1,4 @@
-// Logomark de Ramiro Perez — red de tres nodos (web · CRM · AI)
+// Logomark de RIA Consulting — red de tres nodos (web · CRM · AI)
 // Tres círculos conectados en triángulo sobre fondo oscuro con acento amarillo
 export function LogoBrand({ className = "" }: { className?: string }) {
   return (

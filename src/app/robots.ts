@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://ramiroperez.com/sitemap.xml",
-    host: "https://ramiroperez.com",
+    sitemap: "https://ria-consulting.com/sitemap.xml",
+    host: "https://ria-consulting.com",
   };
 }

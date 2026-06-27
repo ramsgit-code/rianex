@@ -6,7 +6,7 @@ export function Footer() {
       <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row justify-between gap-6 text-sm">
         <div>
           <p className="font-medium text-foreground mb-1">
-            Ramiro Perez<span className="text-accent">.</span>
+            RIA Consulting<span className="text-accent">.</span>
           </p>
           <p className="text-foreground-muted text-xs max-w-xs">
             Sistemas comerciales en Go High Level.
@@ -23,7 +23,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 pb-6">
-        <p className="text-xs text-muted">© {new Date().getFullYear()} Ramiro Perez</p>
+        <p className="text-xs text-muted">© {new Date().getFullYear()} RIA Consulting</p>
       </div>
     </footer>
   );
