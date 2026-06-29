@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { renderMarkdown } from "@/lib/markdown";
-import { PageCTA } from "@/components/layout/PageCTA";
 
 export const revalidate = 60;
 
@@ -35,7 +34,7 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const post = await getPost(params.slug);
-  if (!post) return { title: "Articulo no encontrado" };
+  if (!post) return { title: "Artículo no encontrado" };
   return { title: post.title, description: post.description };
 }
 
@@ -44,12 +43,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   if (!post) notFound();
 
   return (
-    <>
-      <div className="pt-24 pb-16">
-        <div className="section">
-          <Link href="/blog" className="text-sm text-muted hover:text-foreground">
-            ← Blog
-          </Link>
+    <div className="pt-36 pb-16 md:pt-40">
+      <div className="section">
+        <Link href="/blog" className="text-sm text-muted hover:text-foreground">
+          ← Blog
+        </Link>
           <div className="mt-6 mb-8">
             <p className="text-xs text-muted mb-2">
               {post.publishedAt
@@ -62,10 +60,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             </p>
             <h1 className="section-title">{post.title}</h1>
           </div>
-          <div>{renderMarkdown(post.content)}</div>
-        </div>
+        <div>{renderMarkdown(post.content)}</div>
       </div>
-      <PageCTA />
-    </>
+    </div>
   );
 }

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
-import { PageCTA } from "@/components/layout/PageCTA";
 import { Reveal } from "@/components/Reveal";
 
 export function ServiciosView() {
@@ -69,7 +68,6 @@ export function ServiciosView() {
           ))}
         </ol>
       </PageShell>
-      <PageCTA />
     </>
   );
 }

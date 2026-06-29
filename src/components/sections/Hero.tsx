@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Sparkles, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { LOGOS } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
@@ -22,13 +22,6 @@ export function Hero() {
 
       <div className="section-wide relative !py-0">
         <Reveal>
-          <span className="tag">
-            <Sparkles size={12} className="text-accent" />
-            {h.eyebrow}
-          </span>
-        </Reveal>
-
-        <Reveal delay={0.05}>
           <h1 className="max-w-3xl text-balance font-display text-5xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-7xl">
             {h.titlePre}
             <span className="gradient-text">{h.titleHighlight}</span>
@@ -36,13 +29,13 @@ export function Hero() {
           </h1>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.05}>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground-muted">
             {h.subtitle}
           </p>
         </Reveal>
 
-        <Reveal delay={0.15}>
+        <Reveal delay={0.1}>
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <Link href="/diagnostico" className="btn-primary">
               {h.ctaPrimary}
@@ -55,9 +48,30 @@ export function Hero() {
           <p className="mt-4 text-sm text-muted">{h.note}</p>
         </Reveal>
 
-        {/* qué se vende */}
+        {/* clientes */}
+        <Reveal delay={0.15}>
+          <div className="mt-14 border-t border-white/[0.08] pt-8">
+            <p className="mb-5 text-xs uppercase tracking-wider text-muted">
+              {h.logosLabel}
+            </p>
+            <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+              {clientLogos.map((logo) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={`${logo.h} w-auto object-contain opacity-60 transition-opacity duration-300 hover:opacity-100`}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* qué construyo */}
         <Reveal delay={0.18}>
-          <div className="mt-10">
+          <div className="mt-14">
             <p className="mb-3 text-xs uppercase tracking-wider text-muted">
               {h.offeringTitle}
             </p>
@@ -75,9 +89,9 @@ export function Hero() {
           </div>
         </Reveal>
 
-        {/* bento de métricas */}
+        {/* métricas */}
         <Reveal delay={0.22}>
-          <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
             {c.metrics.map((s) => (
               <div
                 key={s.label}
@@ -89,27 +103,6 @@ export function Hero() {
                 <p className="mt-1 text-sm text-foreground-muted">{s.label}</p>
               </div>
             ))}
-          </div>
-        </Reveal>
-
-        {/* logos */}
-        <Reveal delay={0.26}>
-          <div className="mt-14 border-t border-white/[0.08] pt-8">
-            <p className="mb-5 text-xs uppercase tracking-wider text-muted">
-              {h.logosLabel}
-            </p>
-            <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
-              {clientLogos.map((logo) => (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  key={logo.alt}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className={`${logo.h} w-auto object-contain opacity-60 transition-opacity duration-300 hover:opacity-100`}
-                  loading="lazy"
-                />
-              ))}
-            </div>
           </div>
         </Reveal>
       </div>

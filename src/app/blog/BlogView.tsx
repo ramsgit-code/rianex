@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
-import { PageCTA } from "@/components/layout/PageCTA";
 import { Reveal } from "@/components/Reveal";
 
 type Post = {
@@ -54,7 +53,6 @@ export function BlogView({ posts }: { posts: Post[] }) {
           </ul>
         )}
       </PageShell>
-      <PageCTA />
     </>
   );
 }

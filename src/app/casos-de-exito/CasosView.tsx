@@ -2,7 +2,6 @@
 
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
-import { PageCTA } from "@/components/layout/PageCTA";
 import { Reveal } from "@/components/Reveal";
 
 export function CasosView() {
@@ -54,7 +53,6 @@ export function CasosView() {
           ))}
         </ul>
       </PageShell>
-      <PageCTA />
     </>
   );
 }
