@@ -14,17 +14,22 @@ export function Process() {
           <h2 className="section-title max-w-2xl">{c.process.title}</h2>
         </Reveal>
 
-        <ol className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-10 grid grid-cols-1 divide-y divide-white/[0.06] sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
           {c.process.steps.map((step, i) => (
-            <Reveal as="li" key={step.title} delay={i * 0.08}>
-              <div className="card group relative h-full">
-                <span className="font-display text-4xl font-bold text-white/10 transition-colors duration-300 group-hover:text-accent/40">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 font-display text-base font-semibold text-foreground">
+            <Reveal
+              as="li"
+              key={step.title}
+              delay={i * 0.08}
+              className="flex items-start gap-4 py-5 sm:flex-col sm:gap-3 sm:px-6 sm:py-0 sm:first:pl-0 lg:border-l lg:border-white/[0.06] lg:first:border-l-0"
+            >
+              <span className="font-display text-3xl font-bold leading-none text-accent/50">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="font-display text-base font-semibold text-foreground">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+                <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
                   {step.desc}
                 </p>
               </div>

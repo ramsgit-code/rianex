@@ -71,46 +71,44 @@ export function Hero() {
           </div>
         </Reveal>
 
-        {/* qué construyo — bento visual */}
+        {/* qué construyo — lista ligera con iconos */}
         <Reveal delay={0.18}>
           <div className="mt-16">
             <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               {h.offeringTitle}
             </h2>
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+            <ul className="mt-6 grid grid-cols-1 gap-x-12 sm:grid-cols-2">
               {h.offering.map((o, i) => {
                 const Icon = offeringIcons[i % offeringIcons.length];
                 return (
-                  <div
+                  <li
                     key={o}
-                    className="card group relative overflow-hidden !p-5 transition-transform duration-300 sm:!p-6 sm:hover:-translate-y-1"
+                    className="flex items-center gap-3.5 border-b border-white/[0.06] py-3.5"
                   >
-                    <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/10 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-accent/25 bg-accent/[0.08] text-accent transition-colors group-hover:border-accent/50">
-                      <Icon size={22} />
-                    </div>
-                    <p className="text-[15px] font-medium leading-snug text-foreground">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent/[0.08] text-accent">
+                      <Icon size={18} />
+                    </span>
+                    <span className="text-[15px] font-medium text-foreground">
                       {o}
-                    </p>
-                  </div>
+                    </span>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
         </Reveal>
 
-        {/* métricas */}
+        {/* métricas — franja única, sin tarjetas */}
         <Reveal delay={0.22}>
-          <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-white/[0.08] pt-8 sm:grid-cols-4 sm:divide-x sm:divide-white/[0.08]">
             {c.metrics.map((s) => (
-              <div
-                key={s.label}
-                className="card !p-5 transition-transform duration-300 sm:hover:-translate-y-1"
-              >
-                <p className="font-display text-3xl font-semibold tracking-tight text-foreground">
+              <div key={s.label} className="sm:px-6 sm:first:pl-0 sm:last:pr-0">
+                <p className="font-display text-3xl font-semibold tracking-tight text-accent">
                   {s.value}
                 </p>
-                <p className="mt-1 text-sm text-foreground-muted">{s.label}</p>
+                <p className="mt-1 text-sm leading-snug text-foreground-muted">
+                  {s.label}
+                </p>
               </div>
             ))}
           </div>
