@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const cases = [
   {
-    client: "Clinica capilar",
+    client: "Hospital Capilar",
     sector: "Salud · Madrid",
     challenge: "Llamadas a candidatos sin criterio previo.",
     solution: "Formulario, scoring y pipeline en Go High Level.",
@@ -21,7 +21,7 @@ const cases = [
     tag: "Lead Qualification",
   },
   {
-    client: "Empresa de eventos",
+    client: "Eventos Barcelona",
     sector: "Eventos · Barcelona",
     challenge: "Propuestas que tardaban 1-3 dias.",
     solution: "Intake + propuesta automatica en GHL.",
@@ -29,12 +29,12 @@ const cases = [
     tag: "Proposal Automation",
   },
   {
-    client: "Academia online",
-    sector: "Formacion",
-    challenge: "Leads sin seguimiento en email y WhatsApp.",
-    solution: "Agente WhatsApp + nurturing en Go High Level.",
-    result: "0 leads sin respuesta en 24h.",
-    tag: "WhatsApp + CRM",
+    client: "Growth4U",
+    sector: "Marketing · Captacion",
+    challenge: "Captacion manual, sin cualificacion de leads.",
+    solution: "Funnel de captacion + scoring en Go High Level.",
+    result: "Proyecto en curso.",
+    tag: "Lead Qualification",
   },
 ];
 

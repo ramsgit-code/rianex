@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { LogoHospitalCapilar } from "@/components/logos/LogoHospitalCapilar";
-import { LogoGrowth4U } from "@/components/logos/LogoGrowth4U";
-import { LogoEventosBarcelona } from "@/components/logos/LogoEventosBarcelona";
 import { Reveal } from "@/components/Reveal";
 
 const stats = [
   { value: "8 min", label: "para enviar una propuesta" },
   { value: "−40%", label: "tiempo en llamadas sin filtro" },
   { value: "24/7", label: "seguimiento automatico" },
+];
+
+const clientLogos = [
+  { src: "/logos/hospital-capilar.png", alt: "Hospital Capilar", h: "h-9" },
+  { src: "/logos/eventos-barcelona.png", alt: "EB Eventos Barcelona", h: "h-9" },
+  { src: "/logos/growth4u.png", alt: "Growth4U", h: "h-5" },
 ];
 
 export function Hero() {
@@ -78,10 +81,17 @@ export function Hero() {
             <p className="mb-5 text-xs uppercase tracking-wider text-muted">
               Clientes con sistema activo
             </p>
-            <div className="flex flex-wrap items-center gap-x-10 gap-y-6 opacity-60">
-              <LogoHospitalCapilar className="h-8 w-auto text-foreground" />
-              <LogoGrowth4U className="h-6 w-auto text-foreground" />
-              <LogoEventosBarcelona className="h-9 w-auto text-foreground" />
+            <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+              {clientLogos.map((logo) => (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className={`${logo.h} w-auto object-contain opacity-60 transition-opacity duration-300 hover:opacity-100`}
+                  loading="lazy"
+                />
+              ))}
             </div>
           </div>
         </Reveal>

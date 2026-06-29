@@ -20,7 +20,7 @@ export default function ServiciosPage() {
         title="Tres sistemas en Go High Level"
         description="Cada uno resuelve una parte del proceso comercial. Se pueden implementar juntos o por separado."
       >
-        <ul className="grid grid-cols-1 gap-5 md:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {services.map((s, i) => (
             <li key={s.slug} id={s.slug} className="scroll-mt-28">
               <Reveal delay={i * 0.06} className="h-full">
