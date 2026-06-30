@@ -20,9 +20,9 @@ const config: Config = {
         aurora1: "#e8ff00",
         aurora2: "#7c5cff",
         aurora3: "#19e3b1",
-        muted: "#6b7280",
+        muted: "#8b909c",
         foreground: "#f5f5f5",
-        "foreground-muted": "#a3a3a3",
+        "foreground-muted": "#b4b8c0",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

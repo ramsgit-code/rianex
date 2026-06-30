@@ -33,6 +33,18 @@ model LeadSubmission {
   @@index([createdAt])
 }
 
+model Testimonial {
+  id        String   @id @default(cuid())
+  name      String
+  company   String?
+  role      String?
+  quote     String   @db.Text
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([approved, createdAt])
+}
+
 model PageView {
   id        String   @id @default(cuid())
   path      String

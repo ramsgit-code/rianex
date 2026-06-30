@@ -102,7 +102,7 @@ export async function GET(request: Request) {
             zIndex: 1,
           }}
         >
-          <span style={{ color: "#666", fontSize: "14px" }}>ria-consulting.com</span>
+          <span style={{ color: "#666", fontSize: "14px" }}>ria-consulting.vercel.app</span>
           <span
             style={{
               color: "#e8ff00",

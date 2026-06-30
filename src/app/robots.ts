@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://ria-consulting.com/sitemap.xml",
-    host: "https://ria-consulting.com",
+    sitemap: "https://ria-consulting.vercel.app/sitemap.xml",
+    host: "https://ria-consulting.vercel.app",
   };
 }

@@ -93,6 +93,29 @@ export const content = {
       ],
     },
 
+    testimonials: {
+      tag: "Testimonios",
+      title: "Lo que dicen los clientes",
+      addCta: "Deja tu testimonio",
+      pageTitle: "Testimonios",
+      pageDesc:
+        "Opiniones reales de clientes con sistema activo. ¿Trabajaste conmigo? Cuéntalo.",
+      formTitle: "Deja tu testimonio",
+      nameLabel: "Tu nombre *",
+      companyLabel: "Empresa",
+      roleLabel: "Cargo",
+      quoteLabel: "Tu testimonio *",
+      namePh: "Nombre y apellido",
+      companyPh: "Tu empresa",
+      rolePh: "Tu cargo",
+      quotePh: "Cuéntame qué montamos y qué resultado tuviste...",
+      submit: "Enviar testimonio",
+      sending: "Enviando...",
+      success: "¡Gracias! Lo revisaré antes de publicarlo.",
+      error: "No se pudo enviar. Inténtalo de nuevo.",
+      empty: "Aún no hay testimonios publicados.",
+    },
+
     process: {
       tag: "Cómo trabajo",
       title: "Cuatro pasos. Sin sorpresas.",
@@ -358,6 +381,29 @@ export const content = {
           metricLabel: "of the sales process automated",
         },
       ],
+    },
+
+    testimonials: {
+      tag: "Testimonials",
+      title: "What clients say",
+      addCta: "Leave a testimonial",
+      pageTitle: "Testimonials",
+      pageDesc:
+        "Real feedback from clients with a live system. Worked with me? Share it.",
+      formTitle: "Leave a testimonial",
+      nameLabel: "Your name *",
+      companyLabel: "Company",
+      roleLabel: "Role",
+      quoteLabel: "Your testimonial *",
+      namePh: "First and last name",
+      companyPh: "Your company",
+      rolePh: "Your role",
+      quotePh: "Tell me what we built and the result you got...",
+      submit: "Send testimonial",
+      sending: "Sending...",
+      success: "Thanks! I'll review it before publishing.",
+      error: "Couldn't send. Please try again.",
+      empty: "No testimonials published yet.",
     },
 
     process: {
