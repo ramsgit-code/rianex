@@ -1,7 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { PublicLayout } from "@/components/PublicLayout";
+
+export const viewport: Viewport = {
+  themeColor: "#070708",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+};
 
 const inter = Inter({
   subsets: ["latin"],
