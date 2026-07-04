@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Bot, LayoutGrid, Workflow, FileText } from "lucide-react";
+import {
+  ArrowRight,
+  Bot,
+  LayoutGrid,
+  Workflow,
+  FileText,
+  ListChecks,
+  Magnet,
+} from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { LOGOS } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
@@ -13,7 +21,7 @@ const clientLogos = [
   { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5" },
 ];
 
-const offeringIcons = [Bot, LayoutGrid, Workflow, FileText];
+const offeringIcons = [ListChecks, Magnet, FileText, Workflow, LayoutGrid, Bot];
 
 export function Hero() {
   const { c } = useLang();

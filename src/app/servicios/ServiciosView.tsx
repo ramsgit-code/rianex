@@ -13,6 +13,21 @@ export function ServiciosView() {
   return (
     <>
       <PageShell tag={s.tag} title={s.title} description={s.description} wide>
+        <Reveal>
+          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/gohighlevel-icon.png"
+              alt="Go High Level"
+              className="h-5 w-5 rounded"
+            />
+            <span className="text-sm text-foreground-muted">
+              {s.builtOn}{" "}
+              <span className="font-medium text-foreground">Go High Level</span>
+            </span>
+          </div>
+        </Reveal>
+
         <ol className="flex flex-col gap-6">
           {s.items.map((item, i) => (
             <li key={item.slug} id={item.slug} className="scroll-mt-28">
