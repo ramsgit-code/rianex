@@ -33,16 +33,13 @@ export function Navbar() {
             : "border border-transparent bg-transparent"
         }`}
       >
-        <Link href="/" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center" aria-label="Rianex">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logos/ria-mark.png"
+            src="/logos/rianex-mark.png"
             alt="Rianex"
-            className="h-4 w-auto sm:h-5"
+            className="h-[18px] w-auto sm:h-5"
           />
-          <span className="font-display text-sm font-semibold tracking-tight text-foreground">
-            Rianex<span className="text-accent">.</span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
