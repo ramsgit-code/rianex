@@ -30,9 +30,14 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
           <h2 className="section-title max-w-2xl">{t.title}</h2>
         </Reveal>
 
-        <ul className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
+        <ul className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-3">
           {items.slice(0, 3).map((item, i) => (
-            <Reveal as="li" key={item.id} delay={i * 0.08}>
+            <Reveal
+              as="li"
+              key={item.id}
+              delay={i * 0.08}
+              className={i > 0 ? "hidden sm:block" : ""}
+            >
               <figure className="card flex h-full flex-col">
                 <Quote size={22} className="text-accent/70" />
                 <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-foreground">
