@@ -12,7 +12,7 @@ const inputClass =
   "bg-background border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent transition-colors";
 
 export function TestimoniosView({ items }: { items: TestimonialItem[] }) {
-  const { c } = useLang();
+  const { c, lang } = useLang();
   const t = c.testimonials;
 
   const [form, setForm] = useState({ name: "", company: "", role: "", quote: "" });
@@ -54,7 +54,7 @@ export function TestimoniosView({ items }: { items: TestimonialItem[] }) {
               <figure className="card flex h-full flex-col">
                 <Quote size={20} className="text-accent/70" />
                 <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed text-foreground">
-                  “{item.quote}”
+                  “{lang === "en" ? item.quoteEn ?? item.quote : item.quote}”
                 </blockquote>
                 <figcaption className="mt-5 flex items-center gap-3 border-t border-white/[0.08] pt-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] text-sm font-semibold text-accent">
@@ -74,7 +74,12 @@ export function TestimoniosView({ items }: { items: TestimonialItem[] }) {
                       {item.name}
                     </span>
                     <span className="block text-xs text-foreground-muted">
-                      {[item.role, item.company].filter(Boolean).join(" · ")}
+                      {[
+                        lang === "en" ? item.roleEn ?? item.role : item.role,
+                        item.company,
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
                     </span>
                   </span>
                 </figcaption>

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { translate } from "@/lib/translate";
 
 export async function PATCH(
   req: NextRequest,
@@ -18,6 +19,14 @@ export async function PATCH(
     if (!existing) return NextResponse.json({ error: "Not found" }, { status: 404 });
 
     const published = Boolean(body.published);
+
+    // re-traducir al inglés al actualizar (gratis, con fallback)
+    const [titleEn, descriptionEn, contentEn] = await Promise.all([
+      translate(body.title),
+      translate(body.description),
+      translate(body.content),
+    ]);
+
     const post = await prisma.blogPost.update({
       where: { id: params.id },
       data: {
@@ -25,6 +34,9 @@ export async function PATCH(
         slug: body.slug,
         description: body.description,
         content: body.content,
+        titleEn,
+        descriptionEn,
+        contentEn,
         tags,
         published,
         publishedAt:

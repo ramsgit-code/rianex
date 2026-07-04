@@ -11,11 +11,13 @@ export type TestimonialItem = {
   company: string | null;
   role: string | null;
   quote: string;
+  roleEn: string | null;
+  quoteEn: string | null;
   imageUrl: string | null;
 };
 
 export function Testimonials({ items }: { items: TestimonialItem[] }) {
-  const { c } = useLang();
+  const { c, lang } = useLang();
   const t = c.testimonials;
 
   if (!items.length) return null;
@@ -34,7 +36,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
               <figure className="card flex h-full flex-col">
                 <Quote size={22} className="text-accent/70" />
                 <blockquote className="mt-4 flex-1 text-[15px] leading-relaxed text-foreground">
-                  “{item.quote}”
+                  “{lang === "en" ? item.quoteEn ?? item.quote : item.quote}”
                 </blockquote>
                 <figcaption className="mt-5 flex items-center gap-3 border-t border-white/[0.08] pt-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] text-sm font-semibold text-accent">
@@ -54,7 +56,12 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
                       {item.name}
                     </span>
                     <span className="block text-xs text-foreground-muted">
-                      {[item.role, item.company].filter(Boolean).join(" · ")}
+                      {[
+                        lang === "en" ? item.roleEn ?? item.role : item.role,
+                        item.company,
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
                     </span>
                   </span>
                 </figcaption>

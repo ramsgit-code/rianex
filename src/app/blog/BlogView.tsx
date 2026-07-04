@@ -9,6 +9,8 @@ type Post = {
   slug: string;
   title: string;
   description: string;
+  titleEn: string | null;
+  descriptionEn: string | null;
   publishedAt: string | null;
   tags: string[];
 };
@@ -32,10 +34,12 @@ export function BlogView({ posts }: { posts: Post[] }) {
                     className="card group flex h-full flex-col"
                   >
                     <h2 className="font-display text-lg font-semibold text-foreground transition-colors group-hover:text-accent">
-                      {post.title}
+                      {lang === "en" ? post.titleEn ?? post.title : post.title}
                     </h2>
                     <p className="mb-4 mt-2 flex-1 text-sm leading-relaxed text-foreground-muted">
-                      {post.description}
+                      {lang === "en"
+                        ? post.descriptionEn ?? post.description
+                        : post.description}
                     </p>
                     <p className="text-xs text-muted">
                       {post.publishedAt

@@ -15,7 +15,7 @@ async function getTestimonials() {
     return await prisma.testimonial.findMany({
       where: { approved: true },
       orderBy: { createdAt: "desc" },
-      select: { id: true, name: true, company: true, role: true, quote: true, imageUrl: true },
+      select: { id: true, name: true, company: true, role: true, quote: true, roleEn: true, quoteEn: true, imageUrl: true },
     });
   } catch {
     return [];

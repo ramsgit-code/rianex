@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { requireAdminSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { slugify } from "@/lib/slug";
+import { translate } from "@/lib/translate";
 
 export async function GET() {
   if (!(await requireAdminSession())) {
@@ -20,6 +21,13 @@ export async function POST(req: NextRequest) {
   const slug = body.slug || slugify(body.title);
   const tags: string[] = Array.isArray(body.tags) ? body.tags : [];
 
+  // traducción automática al inglés (gratis, con fallback al original)
+  const [titleEn, descriptionEn, contentEn] = await Promise.all([
+    translate(body.title),
+    translate(body.description),
+    translate(body.content),
+  ]);
+
   try {
     const post = await prisma.blogPost.create({
       data: {
@@ -27,6 +35,9 @@ export async function POST(req: NextRequest) {
         slug,
         description: body.description,
         content: body.content,
+        titleEn,
+        descriptionEn,
+        contentEn,
         tags,
         published: Boolean(body.published),
         publishedAt: body.published ? new Date() : null,

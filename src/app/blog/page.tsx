@@ -14,6 +14,8 @@ export default async function BlogPage() {
     slug: string;
     title: string;
     description: string;
+    titleEn: string | null;
+    descriptionEn: string | null;
     publishedAt: Date | null;
     tags: string[];
   }[] = [];
@@ -26,6 +28,8 @@ export default async function BlogPage() {
         slug: true,
         title: true,
         description: true,
+        titleEn: true,
+        descriptionEn: true,
         publishedAt: true,
         tags: true,
       },

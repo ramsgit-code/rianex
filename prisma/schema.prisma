@@ -8,16 +8,19 @@ datasource db {
 }
 
 model BlogPost {
-  id          String    @id @default(cuid())
-  slug        String    @unique
-  title       String
-  description String
-  content     String    @db.Text
-  tags        String[]
-  published   Boolean   @default(false)
-  publishedAt DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id            String    @id @default(cuid())
+  slug          String    @unique
+  title         String
+  description   String
+  content       String    @db.Text
+  titleEn       String?
+  descriptionEn String?
+  contentEn     String?   @db.Text
+  tags          String[]
+  published     Boolean   @default(false)
+  publishedAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
 model LeadSubmission {
@@ -39,6 +42,8 @@ model Testimonial {
   company   String?
   role      String?
   quote     String   @db.Text
+  roleEn    String?
+  quoteEn   String?  @db.Text
   imageUrl  String?  @db.Text
   approved  Boolean  @default(false)
   createdAt DateTime @default(now())

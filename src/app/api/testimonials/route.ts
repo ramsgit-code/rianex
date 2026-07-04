@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { translate } from "@/lib/translate";
 
 export async function POST(req: NextRequest) {
   try {
@@ -26,12 +27,23 @@ export async function POST(req: NextRequest) {
       img = imageUrl;
     }
 
+    const cleanRole = role ? String(role).trim().slice(0, 120) : null;
+    const cleanQuote = quote.trim().slice(0, 1000);
+
+    // traducción automática al inglés (gratis, con fallback al original)
+    const [quoteEn, roleEn] = await Promise.all([
+      translate(cleanQuote),
+      translate(cleanRole),
+    ]);
+
     await prisma.testimonial.create({
       data: {
         name: name.trim().slice(0, 120),
         company: company ? String(company).trim().slice(0, 120) : null,
-        role: role ? String(role).trim().slice(0, 120) : null,
-        quote: quote.trim().slice(0, 1000),
+        role: cleanRole,
+        quote: cleanQuote,
+        roleEn,
+        quoteEn,
         imageUrl: img,
         approved: false, // pendiente de revisión antes de publicarse
       },

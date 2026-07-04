@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
-import { renderMarkdown } from "@/lib/markdown";
 import { JsonLd } from "@/components/JsonLd";
+import { BlogPostContent } from "./BlogPostContent";
 
 const SITE_URL = "https://rianex.vercel.app";
 
@@ -79,26 +78,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   };
 
   return (
-    <div className="pt-36 pb-16 md:pt-40">
+    <>
       <JsonLd data={articleJsonLd} />
-      <div className="section">
-        <Link href="/blog" className="text-sm text-muted hover:text-foreground">
-          ← Blog
-        </Link>
-          <div className="mt-6 mb-8">
-            <p className="text-xs text-muted mb-2">
-              {post.publishedAt
-                ? new Date(post.publishedAt).toLocaleDateString("es-ES", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })
-                : ""}
-            </p>
-            <h1 className="section-title">{post.title}</h1>
-          </div>
-        <div>{renderMarkdown(post.content)}</div>
-      </div>
-    </div>
+      <BlogPostContent
+        post={{
+          title: post.title,
+          titleEn: post.titleEn,
+          content: post.content,
+          contentEn: post.contentEn,
+          publishedAt: post.publishedAt ? post.publishedAt.toISOString() : null,
+        }}
+      />
+    </>
   );
 }
