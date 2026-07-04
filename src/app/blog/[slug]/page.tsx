@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { renderMarkdown } from "@/lib/markdown";
 import { JsonLd } from "@/components/JsonLd";
 
-const SITE_URL = "https://ria-consulting.vercel.app";
+const SITE_URL = "https://rianex.vercel.app";
 
 export const revalidate = 60;
 
@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     datePublished: post.publishedAt?.toISOString(),
     dateModified: post.updatedAt.toISOString(),
     author: { "@type": "Person", name: "Ramiro Pérez" },
-    publisher: { "@type": "Organization", name: "RIA Consulting" },
+    publisher: { "@type": "Organization", name: "Rianex" },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
     inLanguage: "es-ES",
   };

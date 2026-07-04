@@ -23,13 +23,13 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const SITE_URL = "https://ria-consulting.vercel.app";
+const SITE_URL = "https://rianex.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "RIA Consulting — Automatización Comercial con IA & CRM",
-    template: "%s | RIA Consulting",
+    default: "Rianex — Automatización Comercial con IA & CRM",
+    template: "%s | Rianex",
   },
   description:
     "Capta, cualifica y cierra clientes en automático con IA. Sistemas de captación, cualificación y propuestas en Go High Level: WhatsApp, Telegram, correo y CRM conectados.",
@@ -48,15 +48,15 @@ export const metadata: Metadata = {
     locale: "es_ES",
     alternateLocale: "en_US",
     url: SITE_URL,
-    siteName: "RIA Consulting",
-    title: "RIA Consulting — Automatización Comercial con IA",
+    siteName: "Rianex",
+    title: "Rianex — Automatización Comercial con IA",
     description:
       "Capta, cualifica y cierra clientes en automático con IA. Especialista en Go High Level.",
-    images: [{ url: "/og", width: 1200, height: 630, alt: "RIA Consulting" }],
+    images: [{ url: "/og", width: 1200, height: 630, alt: "Rianex" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "RIA Consulting — Automatización Comercial con IA",
+    title: "Rianex — Automatización Comercial con IA",
     description:
       "Capta, cualifica y cierra clientes en automático con IA. Especialista en Go High Level.",
     images: ["/og"],

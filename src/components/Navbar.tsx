@@ -37,11 +37,11 @@ export function Navbar() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/logos/ria-mark.png"
-            alt="RIA"
+            alt="Rianex"
             className="h-4 w-auto sm:h-5"
           />
           <span className="font-display text-sm font-semibold tracking-tight text-foreground">
-            RIA Consulting<span className="text-accent">.</span>
+            Rianex<span className="text-accent">.</span>
           </span>
         </Link>
 

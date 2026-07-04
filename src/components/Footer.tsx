@@ -18,8 +18,8 @@ export function Footer() {
           <div className="relative">
             <p className="flex items-center justify-center gap-2.5 font-display text-xl font-semibold tracking-tight text-foreground">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logos/ria-mark.png" alt="RIA" className="h-6 w-auto" />
-              RIA Consulting<span className="text-accent">.</span>
+              <img src="/logos/ria-mark.png" alt="Rianex" className="h-6 w-auto" />
+              Rianex<span className="text-accent">.</span>
             </p>
             <p className="mx-auto mt-2 max-w-sm text-sm text-foreground-muted">
               {c.footer.tagline}
@@ -41,7 +41,7 @@ export function Footer() {
         </div>
 
         <p className="mt-8 text-center text-xs text-muted">
-          © {year} RIA Consulting · {c.footer.rights}
+          © {year} Rianex · {c.footer.rights}
         </p>
       </div>
     </footer>

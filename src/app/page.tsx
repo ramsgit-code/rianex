@@ -6,12 +6,12 @@ import { prisma } from "@/lib/prisma";
 
 export const revalidate = 60;
 
-const SITE_URL = "https://ria-consulting.vercel.app";
+const SITE_URL = "https://rianex.vercel.app";
 
 const businessJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "RIA Consulting",
+  name: "Rianex",
   url: SITE_URL,
   image: `${SITE_URL}/og`,
   description:
@@ -32,7 +32,7 @@ const businessJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "RIA Consulting",
+  name: "Rianex",
   url: SITE_URL,
   inLanguage: "es-ES",
 };
