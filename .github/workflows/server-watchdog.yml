@@ -1,0 +1,67 @@
+# Vigilante externo del servidor rianex-server.
+#
+# El servidor manda un latido cada 5 min a un topic privado de ntfy.sh
+# (cron RIANEX_HEARTBEAT en el servidor). Este workflow comprueba cada
+# ~10 min que el latido sigue llegando; si lleva >20 min sin llegar,
+# avisa por Telegram. Solo avisa en la transicion (caida / recuperacion),
+# no repite el aviso en cada ejecucion.
+#
+# Secrets necesarios (Settings -> Secrets and variables -> Actions):
+#   NTFY_TOPIC          topic privado de ntfy.sh del latido
+#   TELEGRAM_BOT_TOKEN  token del bot (@BotFather)
+#   TELEGRAM_CHAT_ID    chat al que avisar
+
+name: Vigilante del servidor
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  vigilar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restaurar estado anterior
+        uses: actions/cache/restore@v4
+        with:
+          path: estado.txt
+          key: watchdog-estado-${{ github.run_id }}
+          restore-keys: watchdog-estado-
+
+      - name: Comprobar latido y avisar
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$NTFY_TOPIC" ] || [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT" ]; then
+            echo "Faltan secrets (NTFY_TOPIC / TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID); no hago nada."
+            exit 0
+          fi
+          prev=$(cat estado.txt 2>/dev/null || echo up)
+          last=$(curl -fsS "https://ntfy.sh/${NTFY_TOPIC}/json?poll=1&since=40m" \
+                 | jq -rs '[.[] | select(.event=="message")] | last | .time // 0')
+          now=$(date +%s)
+          age=$(( now - last ))
+          if [ "$last" = "0" ] || [ "$age" -gt 1200 ]; then estado=down; else estado=up; fi
+          echo "$estado" > estado.txt
+          echo "estado=$estado (ultimo latido hace ${age}s, anterior=$prev)"
+
+          enviar() {
+            curl -fsS -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+              -d chat_id="$TG_CHAT" --data-urlencode text="$1" >/dev/null
+          }
+          if [ "$estado" = "down" ] && [ "$prev" != "down" ]; then
+            [ "$last" = "0" ] && desde="mas de 40 min" || desde="$(( age / 60 )) min"
+            enviar "🔴 ALERTA: rianex-server lleva ${desde} sin dar señales de vida. Puede estar apagado o sin internet."
+          elif [ "$estado" = "up" ] && [ "$prev" = "down" ]; then
+            enviar "🟢 rianex-server vuelve a estar en línea."
+          fi
+
+      - name: Guardar estado
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: estado.txt
+          key: watchdog-estado-${{ github.run_id }}
