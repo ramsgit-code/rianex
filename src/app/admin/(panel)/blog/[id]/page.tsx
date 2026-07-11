@@ -21,6 +21,9 @@ export default async function EditBlogPostPage({ params }: { params: { id: strin
           slug: post.slug,
           description: post.description,
           content: post.content,
+          titleEn: post.titleEn ?? "",
+          descriptionEn: post.descriptionEn ?? "",
+          contentEn: post.contentEn ?? "",
           tags: post.tags.join(", "),
           published: post.published,
         }}

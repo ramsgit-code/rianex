@@ -21,12 +21,14 @@ export async function POST(req: NextRequest) {
   const slug = body.slug || slugify(body.title);
   const tags: string[] = Array.isArray(body.tags) ? body.tags : [];
 
-  // traducción automática al inglés (gratis, con fallback al original)
-  const [titleEn, descriptionEn, contentEn] = await Promise.all([
-    translate(body.title),
-    translate(body.description),
-    translate(body.content),
-  ]);
+  // si el admin escribió el inglés a mano, se respeta; si no, se traduce
+  const titleEn = body.titleEn?.trim() ? body.titleEn : await translate(body.title);
+  const descriptionEn = body.descriptionEn?.trim()
+    ? body.descriptionEn
+    : await translate(body.description);
+  const contentEn = body.contentEn?.trim()
+    ? body.contentEn
+    : await translate(body.content);
 
   try {
     const post = await prisma.blogPost.create({

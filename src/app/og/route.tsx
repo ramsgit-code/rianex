@@ -46,23 +46,19 @@ export async function GET(request: Request) {
           }}
         />
 
-        {/* Top — brand */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", zIndex: 1 }}>
-          <div
+        {/* Top — brand (wordmark Rianex) */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px", zIndex: 1 }}>
+          <span
             style={{
-              width: "32px",
-              height: "32px",
-              background: "#e8ff00",
-              borderRadius: "6px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              color: "#f5f5f5",
+              fontSize: "30px",
+              fontWeight: 700,
+              letterSpacing: "8px",
             }}
           >
-            <div style={{ width: "8px", height: "8px", background: "#0a0a0a", borderRadius: "50%" }} />
-          </div>
-          <span style={{ color: "#f5f5f5", fontSize: "18px", fontWeight: 600 }}>Rianex</span>
-          <span style={{ color: "#e8ff00", fontSize: "18px" }}>.</span>
+            RIANEX
+          </span>
+          <div style={{ width: "44px", height: "4px", background: "#e8ff00", borderRadius: "2px" }} />
         </div>
 
         {/* Middle — content */}
