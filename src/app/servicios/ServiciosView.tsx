@@ -1,88 +1,136 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
+
+type Service = {
+  slug: string;
+  title: string;
+  tagline: string;
+  problem: string;
+  forWho: string;
+  deliverables: readonly string[];
+};
+
+function ServiceCard({
+  item,
+  i,
+  s,
+}: {
+  item: Service;
+  i: number;
+  s: {
+    problemLabel: string;
+    forWhoLabel: string;
+    cta: string;
+  };
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <article className="card !p-6 sm:!p-9">
+      {/* cabecera: siempre visible. En móvil actúa de toggle */}
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex w-full items-start justify-between gap-3 text-left sm:pointer-events-none"
+      >
+        <div className="flex items-start gap-3">
+          <span className="font-display text-xl font-bold text-accent/40 sm:text-2xl">
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <div>
+            <h2 className="font-display text-lg font-semibold text-foreground sm:text-2xl">
+              {item.title}
+            </h2>
+            <p className="mt-1 text-sm text-accent">{item.tagline}</p>
+          </div>
+        </div>
+        <ChevronDown
+          size={20}
+          className={`mt-1 shrink-0 text-muted transition-transform sm:hidden ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      {/* detalle: colapsable en móvil, siempre visible en escritorio */}
+      <div
+        className={`${open ? "mt-6 block" : "hidden"} sm:mt-8 sm:grid sm:grid-cols-[1.1fr_1fr] sm:gap-8`}
+      >
+        <div>
+          <p className="mb-3 text-sm leading-relaxed text-foreground-muted">
+            <span className="text-muted">{s.problemLabel} </span>
+            {item.problem}
+          </p>
+          <p className="text-sm leading-relaxed text-foreground-muted">
+            <span className="text-muted">{s.forWhoLabel} </span>
+            {item.forWho}
+          </p>
+          <Link
+            href="/diagnostico"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
+          >
+            {s.cta}
+            <ArrowRight size={15} />
+          </Link>
+        </div>
+
+        <div className="mt-4 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 sm:mt-0">
+          <ul className="flex flex-col gap-3">
+            {item.deliverables.map((d) => (
+              <li
+                key={d}
+                className="flex items-start gap-2.5 text-sm text-foreground-muted"
+              >
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent">
+                  <Check size={12} />
+                </span>
+                {d}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </article>
+  );
+}
 
 export function ServiciosView() {
   const { c } = useLang();
   const s = c.servicios;
 
   return (
-    <>
-      <PageShell tag={s.tag} title={s.title} description={s.description} wide>
-        <Reveal>
-          <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logos/gohighlevel-icon.png"
-              alt="Go High Level"
-              className="h-5 w-5 rounded"
-            />
-            <span className="text-sm text-foreground-muted">
-              {s.builtOn}{" "}
-              <span className="font-medium text-foreground">Go High Level</span>
-            </span>
-          </div>
-        </Reveal>
+    <PageShell tag={s.tag} title={s.title} description={s.description} wide>
+      <Reveal>
+        <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logos/gohighlevel-icon.png"
+            alt="Go High Level"
+            className="h-5 w-5 rounded"
+          />
+          <span className="text-sm text-foreground-muted">
+            {s.builtOn}{" "}
+            <span className="font-medium text-foreground">Go High Level</span>
+          </span>
+        </div>
+      </Reveal>
 
-        <ol className="flex flex-col gap-6">
-          {s.items.map((item, i) => (
-            <li key={item.slug} id={item.slug} className="scroll-mt-28">
-              <Reveal delay={i * 0.05}>
-                <article className="card grid grid-cols-1 gap-8 !p-7 md:grid-cols-[1.1fr_1fr] md:!p-9">
-                  {/* izquierda */}
-                  <div>
-                    <div className="mb-4 flex items-center gap-3">
-                      <span className="font-display text-2xl font-bold text-accent/40">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h2 className="font-display text-2xl font-semibold text-foreground">
-                        {item.title}
-                      </h2>
-                    </div>
-                    <p className="mb-5 text-accent">{item.tagline}</p>
-                    <p className="mb-3 text-sm leading-relaxed text-foreground-muted">
-                      <span className="text-muted">{s.problemLabel} </span>
-                      {item.problem}
-                    </p>
-                    <p className="text-sm leading-relaxed text-foreground-muted">
-                      <span className="text-muted">{s.forWhoLabel} </span>
-                      {item.forWho}
-                    </p>
-                    <Link
-                      href="/diagnostico"
-                      className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
-                    >
-                      {s.cta}
-                      <ArrowRight size={15} />
-                    </Link>
-                  </div>
-
-                  {/* derecha: entregables */}
-                  <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6">
-                    <ul className="flex flex-col gap-3">
-                      {item.deliverables.map((d) => (
-                        <li
-                          key={d}
-                          className="flex items-start gap-2.5 text-sm text-foreground-muted"
-                        >
-                          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent">
-                            <Check size={12} />
-                          </span>
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              </Reveal>
-            </li>
-          ))}
-        </ol>
-      </PageShell>
-    </>
+      <ol className="flex flex-col gap-4 sm:gap-6">
+        {s.items.map((item, i) => (
+          <li key={item.slug} id={item.slug} className="scroll-mt-28">
+            <Reveal delay={i * 0.04}>
+              <ServiceCard item={item} i={i} s={s} />
+            </Reveal>
+          </li>
+        ))}
+      </ol>
+    </PageShell>
   );
 }
