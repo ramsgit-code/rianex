@@ -52,14 +52,14 @@ export const metadata: Metadata = {
     title: "Rianex — Automatización Comercial con IA",
     description:
       "Capta, cualifica y cierra clientes en automático con IA. Especialista en Go High Level.",
-    images: [{ url: "/og", width: 1200, height: 630, alt: "Rianex" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Rianex" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Rianex — Automatización Comercial con IA",
     description:
       "Capta, cualifica y cierra clientes en automático con IA. Especialista en Go High Level.",
-    images: ["/og"],
+    images: ["/og.png"],
   },
   robots: { index: true, follow: true },
   verification: process.env.GOOGLE_SITE_VERIFICATION

@@ -13,7 +13,7 @@ const businessJsonLd = {
   "@type": "ProfessionalService",
   name: "Rianex",
   url: SITE_URL,
-  image: `${SITE_URL}/og`,
+  image: `${SITE_URL}/og.png`,
   description:
     "Automatización comercial con IA: captación, cualificación y cierre de clientes en Go High Level (WhatsApp, Telegram, correo y CRM).",
   email: "ramiroperez12@hotmail.com",

@@ -37,7 +37,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const post = await getPost(params.slug);
   if (!post) return { title: "Artículo no encontrado" };
-  const ogImg = `/og?title=${encodeURIComponent(post.title)}&tag=Blog`;
+  const ogImg = "/og.png";
   return {
     title: post.title,
     description: post.description,
@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `${SITE_URL}/og?title=${encodeURIComponent(post.title)}&tag=Blog`,
+    image: `${SITE_URL}/og.png`,
     datePublished: post.publishedAt?.toISOString(),
     dateModified: post.updatedAt.toISOString(),
     author: { "@type": "Person", name: "Ramiro Pérez" },
