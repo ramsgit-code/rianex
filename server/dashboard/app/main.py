@@ -18,6 +18,13 @@ from fastapi.responses import FileResponse, JSONResponse
 if os.path.exists("/host/proc"):
     psutil.PROCFS_PATH = "/host/proc"
 ROOT_FS = "/host/root" if os.path.exists("/host/root") else "/"
+SYS = "/host/sys" if os.path.exists("/host/sys") else "/sys"
+RAPL = f"{SYS}/class/powercap/intel-rapl:0"
+
+# consumo: RAPL mide solo el paquete de la CPU; el resto (placa, RAM, SSD, red)
+# se estima con una base fija configurable
+BASE_WATTS = float(os.environ.get("BASE_WATTS", "8"))
+PRICE_EUR_KWH = float(os.environ.get("PRICE_EUR_KWH", "0.15"))
 
 HISTORY_LEN = 150  # 150 muestras x 2s = 5 min
 SAMPLE_EVERY = 2
@@ -32,11 +39,29 @@ history = {
     "mem": deque(maxlen=HISTORY_LEN),
     "rx_kbps": deque(maxlen=HISTORY_LEN),
     "tx_kbps": deque(maxlen=HISTORY_LEN),
+    "watts": deque(maxlen=HISTORY_LEN),
+    "io_r_kbps": deque(maxlen=HISTORY_LEN),
+    "io_w_kbps": deque(maxlen=HISTORY_LEN),
 }
 current: dict = {}
 containers_cache: list = []
 vaultwarden_cache: dict = {"alive": False, "checked_at": 0}
 _prev_docker_cpu: dict = {}
+
+
+def read_energy_uj():
+    try:
+        with open(f"{RAPL}/energy_uj") as f:
+            return int(f.read().strip())
+    except OSError:
+        return None
+
+
+try:
+    with open(f"{RAPL}/max_energy_range_uj") as f:
+        MAX_ENERGY_UJ = int(f.read().strip())
+except OSError:
+    MAX_ENERGY_UJ = None
 
 
 def read_temp_c():
@@ -56,6 +81,8 @@ def sampler():
     psutil.cpu_percent()
     psutil.cpu_percent(percpu=True)
     prev_net = psutil.net_io_counters()
+    prev_io = psutil.disk_io_counters()
+    prev_energy = read_energy_uj()
     prev_t = time.time()
     while True:
         time.sleep(SAMPLE_EVERY)
@@ -64,7 +91,25 @@ def sampler():
         dt = now - prev_t
         rx_kbps = (net.bytes_recv - prev_net.bytes_recv) / dt / 1024
         tx_kbps = (net.bytes_sent - prev_net.bytes_sent) / dt / 1024
-        prev_net, prev_t = net, now
+        prev_net = net
+
+        io = psutil.disk_io_counters()
+        io_r_kbps = io_w_kbps = 0.0
+        if io and prev_io:
+            io_r_kbps = (io.read_bytes - prev_io.read_bytes) / dt / 1024
+            io_w_kbps = (io.write_bytes - prev_io.write_bytes) / dt / 1024
+        prev_io = io
+
+        pkg_watts = None
+        energy = read_energy_uj()
+        if energy is not None and prev_energy is not None:
+            delta = energy - prev_energy
+            if delta < 0 and MAX_ENERGY_UJ:  # el contador da la vuelta
+                delta += MAX_ENERGY_UJ
+            if delta >= 0:
+                pkg_watts = delta / 1e6 / dt
+        prev_energy = energy
+        prev_t = now
 
         cpu = psutil.cpu_percent()
         percore = psutil.cpu_percent(percpu=True)
@@ -73,7 +118,23 @@ def sampler():
         disk = psutil.disk_usage(ROOT_FS)
         load1, load5, load15 = os.getloadavg()
 
+        total_watts = round(pkg_watts + BASE_WATTS, 1) if pkg_watts is not None else None
+        power = None
+        if total_watts is not None:
+            kwh_day = total_watts * 24 / 1000
+            power = {
+                "pkg_watts": round(pkg_watts, 1),
+                "base_watts": BASE_WATTS,
+                "total_watts": total_watts,
+                "kwh_day": round(kwh_day, 2),
+                "eur_month": round(kwh_day * 30 * PRICE_EUR_KWH, 2),
+                "price_eur_kwh": PRICE_EUR_KWH,
+            }
+
         snapshot = {
+            "power": power,
+            "nproc": len(psutil.pids()),
+            "net_total": {"rx": net.bytes_recv, "tx": net.bytes_sent},
             "cpu_percent": cpu,
             "cpu_percore": percore,
             "cpu_count": len(percore),
@@ -93,6 +154,9 @@ def sampler():
             history["mem"].append(snapshot["mem"]["percent"])
             history["rx_kbps"].append(round(rx_kbps, 1))
             history["tx_kbps"].append(round(tx_kbps, 1))
+            history["watts"].append(total_watts)
+            history["io_r_kbps"].append(round(io_r_kbps, 1))
+            history["io_w_kbps"].append(round(io_w_kbps, 1))
 
 
 def docker_sampler():

@@ -7,8 +7,11 @@ services:
     pid: host                   # metricas de CPU/procesos del host
     environment:
       - TZ=Europe/Madrid
+      - BASE_WATTS=8            # consumo estimado de placa+RAM+SSD (RAPL solo mide la CPU)
+      - PRICE_EUR_KWH=0.15      # precio de la luz para la estimacion de coste
     volumes:
       - /proc:/host/proc:ro     # psutil lee el /proc del host
+      - /sys:/host/sys:ro       # sensores RAPL de consumo electrico
       - /:/host/root:ro         # uso de disco real de la raiz
       - /var/run/docker.sock:/var/run/docker.sock:ro
     labels:

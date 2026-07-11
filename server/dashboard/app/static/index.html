@@ -15,8 +15,9 @@
   --grid: #e1e0d9;
   --baseline: #c3c2b7;
   --border: rgba(11,11,11,0.10);
-  --series-1: #2a78d6;  /* azul  — CPU / red descarga */
-  --series-2: #1baf7a;  /* aqua  — RAM / red subida   */
+  --series-1: #2a78d6;  /* azul     — CPU / descarga / lectura */
+  --series-2: #1baf7a;  /* aqua     — RAM / subida / escritura */
+  --series-3: #eda100;  /* amarillo — consumo electrico        */
   --good: #0ca30c;
   --warning: #fab219;
   --serious: #ec835a;
@@ -34,6 +35,7 @@
     --border: rgba(255,255,255,0.10);
     --series-1: #3987e5;
     --series-2: #199e70;
+    --series-3: #c98500;
   }
 }
 * { box-sizing: border-box; margin: 0; }
@@ -83,6 +85,17 @@ tr:last-child td { border-bottom: none; }
 .tooltip b { font-variant-numeric: tabular-nums; }
 footer { color: var(--muted); font-size: .72rem; margin-top: 16px; }
 .table-wrap { overflow-x: auto; }
+@media (max-width: 640px) {
+  body { padding: 10px; }
+  header h1 { font-size: 1.05rem; }
+  .tiles { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .card { padding: 10px 12px; border-radius: 8px; }
+  .tile .value { font-size: 1.35rem; }
+  .charts { grid-template-columns: 1fr; }
+  canvas { height: 96px; }
+  td.col-img, th.col-img { display: none; }  /* la imagen sobra en movil */
+  table { font-size: .78rem; }
+}
 </style>
 </head>
 <body>
@@ -97,6 +110,7 @@ footer { color: var(--muted); font-size: .72rem; margin-top: 16px; }
   <div class="card tile"><div class="label">RAM</div><div class="value" id="t-mem">–</div><div class="detail" id="t-mem-d"></div></div>
   <div class="card tile"><div class="label">Disco /</div><div class="value" id="t-disk">–</div><div class="detail" id="t-disk-d"></div></div>
   <div class="card tile"><div class="label">Temperatura</div><div class="value" id="t-temp">–</div><div class="detail">zona más caliente</div></div>
+  <div class="card tile"><div class="label">Consumo</div><div class="value" id="t-power">–</div><div class="detail" id="t-power-d"></div></div>
   <div class="card tile"><div class="label">Carga (1m)</div><div class="value" id="t-load">–</div><div class="detail" id="t-load-d"></div></div>
 </div>
 
@@ -111,6 +125,15 @@ footer { color: var(--muted); font-size: .72rem; margin-top: 16px; }
     </div>
     <canvas id="c-net"></canvas>
   </div>
+  <div class="card"><h2>Consumo eléctrico · últimos 5 min (W)</h2><canvas id="c-power"></canvas><div class="legend" id="power-note" style="margin:6px 0 0"></div></div>
+  <div class="card">
+    <h2>Disco I/O · últimos 5 min (KB/s)</h2>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--series-1)"></span>Lectura</span>
+      <span><span class="sw" style="background:var(--series-2)"></span>Escritura</span>
+    </div>
+    <canvas id="c-io"></canvas>
+  </div>
 </div>
 
 <div class="card" style="margin-bottom:12px">
@@ -122,7 +145,7 @@ footer { color: var(--muted); font-size: .72rem; margin-top: 16px; }
   <h2>Contenedores Docker</h2>
   <div class="table-wrap">
   <table>
-    <thead><tr><th>Nombre</th><th>Imagen</th><th>Estado</th><th class="num">CPU %</th><th class="num">RAM</th></tr></thead>
+    <thead><tr><th>Nombre</th><th class="col-img">Imagen</th><th>Estado</th><th class="num">CPU %</th><th class="num">RAM</th></tr></thead>
     <tbody id="containers"></tbody>
   </table>
   </div>
@@ -159,7 +182,7 @@ function makeChart(canvas, seriesDefs, opts = {}) {
     const n = data.t.length;
     if (n < 2) return;
 
-    let max = opts.max ?? Math.max(1, ...data.series.flat());
+    let max = opts.max ?? Math.max(1, ...data.series.flat().filter(v => v != null));
     if (!opts.max) max *= 1.15;
     const pad = { l: 2, r: 2, t: 4, b: 14 };
     const iw = w - pad.l - pad.r, ih = h - pad.t - pad.b;
@@ -176,7 +199,12 @@ function makeChart(canvas, seriesDefs, opts = {}) {
       const color = css(def.color);
       ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.lineJoin = 'round';
       ctx.beginPath();
-      vals.forEach((v, i) => i ? ctx.lineTo(X(i), Y(v)) : ctx.moveTo(X(i), Y(v)));
+      let started = false;
+      vals.forEach((v, i) => {
+        if (v == null) { started = false; return; }
+        started ? ctx.lineTo(X(i), Y(v)) : ctx.moveTo(X(i), Y(v));
+        started = true;
+      });
       ctx.stroke();
       if (opts.fill && seriesDefs.length === 1) {
         ctx.lineTo(X(n - 1), Y(0)); ctx.lineTo(X(0), Y(0)); ctx.closePath();
@@ -195,8 +223,10 @@ function makeChart(canvas, seriesDefs, opts = {}) {
         ctx.strokeStyle = css('--baseline'); ctx.lineWidth = 1;
         ctx.beginPath(); ctx.moveTo(X(i), pad.t); ctx.lineTo(X(i), pad.t + ih); ctx.stroke();
         seriesDefs.forEach((def, si) => {
+          const v = data.series[si][i];
+          if (v == null) return;
           ctx.fillStyle = css(def.color);
-          ctx.beginPath(); ctx.arc(X(i), Y(data.series[si][i]), 4, 0, 7); ctx.fill();
+          ctx.beginPath(); ctx.arc(X(i), Y(v), 4, 0, 7); ctx.fill();
           ctx.strokeStyle = css('--surface-1'); ctx.lineWidth = 2; ctx.stroke();
         });
         return i;
@@ -230,6 +260,11 @@ const chartNet = makeChart($('c-net'), [
   { name: 'Descarga', color: '--series-1' },
   { name: 'Subida', color: '--series-2' },
 ], { unit: ' KB/s' });
+const chartPower = makeChart($('c-power'), [{ name: 'Consumo', color: '--series-3' }], { unit: ' W', fill: true });
+const chartIo = makeChart($('c-io'), [
+  { name: 'Lectura', color: '--series-1' },
+  { name: 'Escritura', color: '--series-2' },
+], { unit: ' KB/s' });
 
 function badgeFor(pct, warnAt, critAt) {
   return pct >= critAt ? 'var(--critical)' : pct >= warnAt ? 'var(--warning)' : 'var(--ink-1)';
@@ -258,7 +293,17 @@ async function refreshStats() {
     $('t-temp').textContent = s.temp_c ? s.temp_c.toFixed(0) + ' °C' : 'n/d';
     if (s.temp_c) $('t-temp').style.color = badgeFor(s.temp_c, 70, 85);
     $('t-load').textContent = s.load[0].toFixed(2);
-    $('t-load-d').textContent = '5m ' + s.load[1].toFixed(2) + ' · 15m ' + s.load[2].toFixed(2);
+    $('t-load-d').textContent = s.nproc + ' procesos';
+
+    if (s.power) {
+      $('t-power').textContent = s.power.total_watts.toFixed(1) + ' W';
+      $('t-power-d').textContent = '≈ ' + s.power.eur_month.toFixed(2) + ' €/mes';
+      $('power-note').textContent = 'CPU medida (' + s.power.pkg_watts.toFixed(1) + ' W) + resto estimado (' +
+        s.power.base_watts + ' W) · ' + s.power.kwh_day + ' kWh/día · a ' + s.power.price_eur_kwh + ' €/kWh';
+    } else {
+      $('t-power').textContent = 'n/d';
+      $('t-power-d').textContent = 'sensor no disponible';
+    }
 
     const cores = $('cores');
     if (cores.children.length !== s.cpu_percore.length) {
@@ -275,6 +320,8 @@ async function refreshStats() {
     chartCpu.update(H.t, [H.cpu]);
     chartMem.update(H.t, [H.mem]);
     chartNet.update(H.t, [H.rx_kbps, H.tx_kbps]);
+    chartPower.update(H.t, [H.watts]);
+    chartIo.update(H.t, [H.io_r_kbps, H.io_w_kbps]);
   } catch (e) { /* servidor inaccesible: se reintenta */ }
 }
 
@@ -292,7 +339,7 @@ async function refreshDocker() {
       .sort((a, b) => (a.status === 'running' ? 0 : 1) - (b.status === 'running' ? 0 : 1) || a.name.localeCompare(b.name))
       .map(c => `<tr>
         <td><b>${c.name}</b></td>
-        <td style="color:var(--ink-2)">${c.image.split('@')[0]}</td>
+        <td class="col-img" style="color:var(--ink-2)">${c.image.split('@')[0]}</td>
         <td>${statusBadge(c)}</td>
         <td class="num">${c.cpu_percent == null ? '–' : c.cpu_percent.toFixed(1)}</td>
         <td class="num">${fmtMB(c.mem_bytes)}</td>
