@@ -1,0 +1,13 @@
+services:
+  telegram-bot:
+    build: .
+    container_name: telegram-bot
+    restart: unless-stopped
+    network_mode: host          # para llegar al dashboard en localhost:8090
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}   # definido en .env (no versionado)
+      - TZ=Europe/Madrid
+    volumes:
+      - ./data:/data            # chat vinculado y estado de alertas
+    labels:
+      - com.centurylinklabs.watchtower.enable=false
