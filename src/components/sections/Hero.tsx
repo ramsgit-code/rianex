@@ -9,6 +9,7 @@ import {
   FileText,
   ListChecks,
   Magnet,
+  CalendarCheck,
 } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { LOGOS } from "@/lib/content";
@@ -21,7 +22,15 @@ const clientLogos = [
   { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5" },
 ];
 
-const offeringIcons = [ListChecks, Magnet, FileText, Workflow, LayoutGrid, Bot];
+const offeringIcons = [
+  ListChecks,
+  Magnet,
+  CalendarCheck,
+  FileText,
+  Workflow,
+  LayoutGrid,
+  Bot,
+];
 
 export function Hero() {
   const { c } = useLang();

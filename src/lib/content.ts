@@ -39,6 +39,7 @@ export const content = {
       offering: [
         "Sistema de cualificación de leads",
         "Embudo de captación de clientes",
+        "Booking SDR: agendado de reuniones",
         "Generador de propuestas automático",
         "Automatización del proceso comercial",
         "Implementación CRM GoHighLevel",
@@ -65,10 +66,10 @@ export const content = {
           client: "Hospital Capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Salud · Madrid",
-          tag: "Lead Qualification + IA",
+          tag: "Lead Qualification + Booking SDR",
           challenge: "Captación sin filtro y sin medir el embudo.",
           solution:
-            "Sistema en Go High Level que capta y cualifica leads con quiz/scoring, automatiza WhatsApp, agenda en Koibox y mide conversión, abandono, citas y ventas.",
+            "Sistema en Go High Level que capta y cualifica leads con quiz/scoring, automatiza WhatsApp y con un Booking SDR agenda las citas en Koibox; mide conversión, abandono, citas y ventas.",
           metric: "−32%",
           metricLabel: "coste por paciente (CPP)",
         },
@@ -161,7 +162,7 @@ export const content = {
       tag: "Servicios",
       title: "Lo que construyo en Go High Level",
       description:
-        "Seis servicios que cubren todo el proceso comercial. Se implementan juntos o por separado.",
+        "Servicios que cubren todo el proceso comercial. Se implementan juntos o por separado.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Solicitar diagnóstico",
@@ -193,6 +194,21 @@ export const content = {
             "Formularios de captación integrados",
             "Segmentación y etiquetado automático",
             "Nurturing por correo y WhatsApp",
+          ],
+        },
+        {
+          slug: "booking-sdr",
+          title: "Booking SDR (agendado de reuniones)",
+          tagline: "Un SDR que cualifica y agenda reuniones por ti.",
+          problem:
+            "Leads cualificados que nunca acaban en reuniones agendadas; seguimiento manual e inconsistente.",
+          forWho:
+            "Negocios que necesitan más reuniones agendadas sin montar un equipo comercial entero.",
+          deliverables: [
+            "SDR (con IA o asistido) que contacta y cualifica leads",
+            "Agendado directo en tu calendario o agenda",
+            "Recordatorios y recuperación de no-shows",
+            "Todo registrado en Go High Level",
           ],
         },
         {
@@ -374,6 +390,7 @@ export const content = {
       offering: [
         "Lead qualification system",
         "Client acquisition funnel",
+        "SDR booking service",
         "Automated proposal generator",
         "Sales process automation",
         "Go High Level CRM implementation",
@@ -399,10 +416,10 @@ export const content = {
           client: "Hospital Capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Healthcare · Madrid",
-          tag: "Lead Qualification + AI",
+          tag: "Lead Qualification + Booking SDR",
           challenge: "Capture with no filtering and no funnel tracking.",
           solution:
-            "A Go High Level system that captures and qualifies leads with a quiz/scoring, automates WhatsApp, books into Koibox and tracks conversion, drop-off, appointments and sales.",
+            "A Go High Level system that captures and qualifies leads with a quiz/scoring, automates WhatsApp and, with a Booking SDR, books appointments into Koibox; it tracks conversion, drop-off, appointments and sales.",
           metric: "−32%",
           metricLabel: "cost per patient (CPP)",
         },
@@ -495,7 +512,7 @@ export const content = {
       tag: "Services",
       title: "What I build on Go High Level",
       description:
-        "Six services covering the whole sales process. Built together or separately.",
+        "Services covering the whole sales process. Built together or separately.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Request a diagnosis",
@@ -527,6 +544,21 @@ export const content = {
             "Integrated capture forms",
             "Automatic segmentation and tagging",
             "Nurturing over email and WhatsApp",
+          ],
+        },
+        {
+          slug: "booking-sdr",
+          title: "SDR booking service",
+          tagline: "An SDR that qualifies and books meetings for you.",
+          problem:
+            "Qualified leads that never turn into booked meetings; manual, inconsistent follow-up.",
+          forWho:
+            "Businesses that need more booked meetings without hiring a full sales team.",
+          deliverables: [
+            "SDR (AI or assisted) that contacts and qualifies leads",
+            "Booking straight into your calendar or agenda",
+            "Reminders and no-show recovery",
+            "Everything logged in Go High Level",
           ],
         },
         {
