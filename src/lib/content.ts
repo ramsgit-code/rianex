@@ -26,12 +26,12 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "Go High Level · Automatización comercial con IA",
+      eyebrow: "Consultoría de IA aplicada a ventas",
       titlePre: "Capta, cualifica y cierra clientes. ",
       titleHighlight: "En automático con IA.",
       titlePost: "",
       subtitle:
-        "Diseño tu sistema de captación, cualificación y cierre en Go High Level, potenciado con IA.",
+        "Consultoría de IA aplicada a ventas: diseño y monto tu sistema de captación, cualificación y cierre en Go High Level, con agentes de IA a medida.",
       ctaPrimary: "Solicitar diagnóstico gratuito",
       ctaSecondary: "Ver los sistemas",
       note: "30 min · Sin compromiso · Respuesta en 24 h",
@@ -377,12 +377,12 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "Go High Level · AI-powered sales automation",
+      eyebrow: "AI consulting for sales",
       titlePre: "Capture, qualify and close clients. ",
       titleHighlight: "On autopilot with AI.",
       titlePost: "",
       subtitle:
-        "I design your lead capture, qualification and closing system on Go High Level, powered by AI.",
+        "AI consulting for sales: I design and build your lead capture, qualification and closing system on Go High Level, with custom AI agents.",
       ctaPrimary: "Request a free diagnosis",
       ctaSecondary: "See the systems",
       note: "30 min · No commitment · Reply within 24 h",

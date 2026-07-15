@@ -28,14 +28,16 @@ function Chip({
 export function HeroVisual() {
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[13rem] sm:max-w-[17rem] lg:max-w-[23rem]">
-      {/* glow de fondo */}
-      <div className="absolute inset-[10%] rounded-full bg-accent/10 blur-[60px]" />
+      {/* glow de fondo (pulsa) */}
+      <div className="absolute inset-[10%] animate-glow-pulse rounded-full bg-accent/10 blur-[60px]" />
 
       {/* anillo exterior giratorio (lento) */}
       <div className="absolute inset-[4%] animate-spin rounded-full border border-dashed border-white/10 [animation-duration:30s]" />
       {/* anillos concéntricos */}
       <div className="absolute inset-[22%] rounded-full border border-white/[0.07]" />
       <div className="absolute inset-[38%] rounded-full border border-white/[0.05]" />
+      {/* señal que emana del núcleo (AI ambient) */}
+      <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 animate-ping-slow rounded-full border border-accent/25" />
 
       {/* núcleo IA */}
       <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 animate-glow-pulse items-center justify-center rounded-2xl border border-accent/30 bg-accent/[0.1] text-accent shadow-glow backdrop-blur-md">

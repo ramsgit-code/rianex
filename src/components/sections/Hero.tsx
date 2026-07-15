@@ -46,6 +46,10 @@ export function Hero() {
           <div className="flex flex-1 flex-col justify-center gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
             <div>
               <Reveal>
+                <span className="tag uppercase tracking-wider">{h.eyebrow}</span>
+              </Reveal>
+
+              <Reveal delay={0.05}>
                 <h1 className="max-w-2xl text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl">
                   {h.titlePre}
                   <span className="gradient-text">{h.titleHighlight}</span>
@@ -53,7 +57,7 @@ export function Hero() {
                 </h1>
               </Reveal>
 
-              <Reveal delay={0.05}>
+              <Reveal delay={0.1}>
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground-muted">
                   {h.subtitle}
                 </p>
