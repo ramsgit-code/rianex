@@ -28,7 +28,7 @@ const SITE_URL = "https://rianex.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rianex — Consultoría de IA aplicada a ventas",
+    default: "Rianex — IA aplicada a ventas",
     template: "%s | Rianex",
   },
   description:

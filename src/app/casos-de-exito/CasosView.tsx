@@ -16,7 +16,7 @@ export function CasosView() {
             <li key={item.client}>
               <Reveal delay={i * 0.06} className="h-full">
                 <article className="card flex h-full flex-col">
-                  <div className="flex h-10 items-center justify-between gap-3">
+                  <div className="flex h-8 items-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={item.logo}
@@ -24,12 +24,14 @@ export function CasosView() {
                       className="h-7 w-auto max-w-[150px] object-contain opacity-85"
                       loading="lazy"
                     />
-                    <span className="inline-flex shrink-0 items-center rounded-full border border-accent/20 bg-accent/[0.06] px-2.5 py-0.5 text-xs text-accent">
-                      {item.tag}
-                    </span>
                   </div>
 
-                  <p className="mt-2 text-xs text-muted">{item.sector}</p>
+                  <div className="mt-3 flex flex-wrap items-center gap-2">
+                    <span className="inline-flex max-w-full items-center rounded-full border border-accent/20 bg-accent/[0.06] px-2.5 py-1 text-[11px] font-medium leading-tight text-accent">
+                      {item.tag}
+                    </span>
+                    <span className="text-xs text-muted">{item.sector}</span>
+                  </div>
 
                   {/* métrica destacada */}
                   <p className="mt-6 font-display text-5xl font-semibold tracking-tight text-accent">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -38,6 +39,8 @@ export function Hero() {
   const { c } = useLang();
   const h = c.hero;
   const spotRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const chatY = useTransform(scrollY, [0, 600], [0, -48]);
 
   const onMove = (e: React.MouseEvent<HTMLElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -101,7 +104,9 @@ export function Hero() {
             </div>
 
             <Reveal delay={0.12} className="flex justify-center">
-              <AgentChat />
+              <motion.div style={{ y: chatY }}>
+                <AgentChat />
+              </motion.div>
             </Reveal>
           </div>
 
