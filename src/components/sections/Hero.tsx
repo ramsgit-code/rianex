@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -14,7 +15,8 @@ import {
 import { useLang } from "@/components/LanguageProvider";
 import { LOGOS } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
-import { HeroVisual } from "@/components/sections/HeroVisual";
+import { Typewriter } from "@/components/Typewriter";
+import { AgentChat } from "@/components/sections/AgentChat";
 
 const clientLogos = [
   { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9" },
@@ -35,12 +37,30 @@ const offeringIcons = [
 export function Hero() {
   const { c } = useLang();
   const h = c.hero;
+  const spotRef = useRef<HTMLDivElement>(null);
+
+  const onMove = (e: React.MouseEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    if (spotRef.current) {
+      spotRef.current.style.background = `radial-gradient(520px circle at ${x}px ${y}px, rgba(232,255,0,0.07), transparent 45%)`;
+    }
+  };
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 md:pt-44 md:pb-20">
-      <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[36rem] max-w-full -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
+    <section
+      onMouseMove={onMove}
+      className="relative overflow-hidden pt-28 pb-16 sm:pt-36 md:pt-44 md:pb-20"
+    >
+      {/* spotlight que sigue el cursor */}
+      <div
+        ref={spotRef}
+        className="pointer-events-none absolute inset-0 z-0 hidden md:block"
+      />
+      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-72 w-[36rem] max-w-full -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
 
-      <div className="section-wide relative !py-0">
+      <div className="section-wide relative z-10 !py-0">
         {/* primera pantalla: titular + visual (rellena) + clientes (abajo) */}
         <div className="flex min-h-[calc(100svh-7rem)] flex-col sm:min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-10rem)]">
           <div className="flex flex-1 flex-col justify-center gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
@@ -50,9 +70,12 @@ export function Hero() {
               </Reveal>
 
               <Reveal delay={0.05}>
-                <h1 className="max-w-2xl text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl">
+                <h1
+                  aria-label={`${h.titlePre}${h.titleHighlight}${h.titlePost}`}
+                  className="max-w-2xl text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl"
+                >
                   {h.titlePre}
-                  <span className="gradient-text">{h.titleHighlight}</span>
+                  <Typewriter text={h.titleHighlight} className="gradient-text" />
                   {h.titlePost}
                 </h1>
               </Reveal>
@@ -78,7 +101,7 @@ export function Hero() {
             </div>
 
             <Reveal delay={0.12} className="flex justify-center">
-              <HeroVisual />
+              <AgentChat />
             </Reveal>
           </div>
 

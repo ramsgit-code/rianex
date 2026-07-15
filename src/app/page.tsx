@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { Process } from "@/components/sections/Process";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { Marquee } from "@/components/Marquee";
 import { JsonLd } from "@/components/JsonLd";
 import { prisma } from "@/lib/prisma";
 
@@ -58,6 +59,7 @@ export default async function Home() {
       <JsonLd data={businessJsonLd} />
       <JsonLd data={websiteJsonLd} />
       <Hero />
+      <Marquee />
       <Testimonials items={testimonials} />
       {/* pasos: ocultos en móvil (home light), visibles en escritorio */}
       <div className="hidden sm:block">
