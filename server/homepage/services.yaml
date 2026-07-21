@@ -1,0 +1,54 @@
+# Lista de servicios mostrados en el dashboard, agrupados por categoria.
+# Documentacion: https://gethomepage.dev/configs/services/
+#
+# NOTA: mientras no haya dominio (FASE 6), los enlaces usan la IP/hostname
+# de Tailscale del servidor con el puerto publicado de cada servicio.
+# Sustituir "rianex-server" por el hostname/IP real si difiere.
+
+- Web:
+    - Rianex (web publica):
+        href: https://rianex.vercel.app/
+        description: Web personal de Ramiro Perez (alojada en Vercel)
+        icon: si-vercel
+        siteMonitor: https://rianex.vercel.app/
+    - Dashboard Servidor:
+        href: http://rianex-server:8090/
+        description: Monitorizacion en vivo (CPU, RAM, disco, consumo, contenedores)
+        icon: mdi-chart-line
+
+- Infraestructura:
+    - Traefik:
+        href: http://rianex-server:8080/
+        description: Reverse proxy y dashboard
+        icon: traefik.png
+    - Portainer:
+        href: https://rianex-server:9443/
+        description: Gestion de contenedores (ya existente)
+        icon: portainer.png
+    - Dozzle:
+        href: http://rianex-server:8081/
+        description: Visor de logs de contenedores en vivo
+        icon: dozzle.png
+    - Uptime Kuma:
+        href: http://rianex-server:3001/
+        description: Monitorizacion de disponibilidad
+        icon: uptime-kuma.png
+    - Vaultwarden:
+        href: https://rianex-server.tail254060.ts.net:8443/
+        description: Gestor de contrasenas (Bitwarden). Requiere HTTPS (puerto
+          8443, cert real de Tailscale); http://8082 solo sirve para /admin.
+        icon: vaultwarden.png
+    - Watchtower:
+        description: Actualizacion automatica de contenedores (sin UI)
+        icon: watchtower.png
+
+- IA:
+    - Open WebUI:
+        href: http://rianex-server:8083/
+        description: Interfaz web para modelos Ollama
+        icon: ollama.png
+    - Paperclip:
+        # Paperclip valida el Host header: usar el hostname .ts.net permitido.
+        href: http://rianex-server.tail254060.ts.net:3100/
+        description: Orquestacion de agentes de IA (empresa autonoma)
+        icon: mdi-robot

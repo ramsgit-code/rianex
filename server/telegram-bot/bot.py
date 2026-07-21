@@ -104,13 +104,33 @@ def fmt_vaultwarden():
     )
 
 
+def fmt_paperclip():
+    s = get_json("/api/stats")
+    pc = s.get("paperclip", {})
+    alive = pc.get("alive")
+    boot = pc.get("bootstrap")
+    if not alive:
+        estado = "🔴 no responde"
+    elif boot == "bootstrap_pending":
+        estado = "🟡 operativo (sin configurar — falta crear la cuenta CEO)"
+    else:
+        estado = "✅ operativo"
+    return (
+        f"🤖 <b>Paperclip</b>\n"
+        f"Servicio: {estado}\n"
+        f"Web: http://rianex-server.tail254060.ts.net:3100"
+    )
+
+
 HELP = (
     "🤖 <b>Rianex Server Bot</b>\n"
     "/status — CPU, RAM, disco, temperatura\n"
     "/contenedores — estado de los contenedores\n"
     "/vaultwarden — estado del gestor de contraseñas\n"
+    "/paperclip — estado de Paperclip (agentes de IA)\n"
     "\nAlertas automáticas activas: disco &gt;90%, RAM &gt;92%, "
-    "temperatura &gt;80 °C, contenedores caídos, Vaultwarden sin responder."
+    "temperatura &gt;80 °C, contenedores caídos, Vaultwarden sin responder, "
+    "Paperclip sin responder."
 )
 
 
@@ -127,6 +147,8 @@ def check_alerts(state):
             alerts.append(("temp", f"🌡🚨 Temperatura a {s['temp_c']:.0f} °C"))
         if not s.get("vaultwarden", {}).get("alive"):
             alerts.append(("vaultwarden", "🔐🚨 Vaultwarden no responde"))
+        if not s.get("paperclip", {}).get("alive"):
+            alerts.append(("paperclip", "🤖🚨 Paperclip no responde"))
         d = get_json("/api/docker")
         for c in d["containers"]:
             if c["name"] == "hello-world" or c["image"].startswith("hello-world"):
@@ -158,6 +180,8 @@ def handle(state, chat_id, text):
             send(chat_id, fmt_containers())
         elif cmd == "/vaultwarden":
             send(chat_id, fmt_vaultwarden())
+        elif cmd == "/paperclip":
+            send(chat_id, fmt_paperclip())
         else:
             send(chat_id, HELP)
     except Exception as e:

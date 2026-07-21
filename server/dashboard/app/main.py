@@ -46,7 +46,10 @@ history = {
 current: dict = {}
 containers_cache: list = []
 vaultwarden_cache: dict = {"alive": False, "checked_at": 0}
+paperclip_cache: dict = {"alive": False, "bootstrap": None, "checked_at": 0}
 _prev_docker_cpu: dict = {}
+
+PAPERCLIP_URL = os.environ.get("PAPERCLIP_URL", "http://100.72.30.94:3100")
 
 
 def read_energy_uj():
@@ -206,9 +209,22 @@ def docker_sampler():
         except Exception:
             alive = False
 
+        pc_alive = False
+        pc_bootstrap = None
+        try:
+            import json as _json
+            with urllib.request.urlopen(f"{PAPERCLIP_URL}/api/health", timeout=3) as r:
+                pc_alive = r.status == 200
+                body = _json.loads(r.read().decode())
+                pc_bootstrap = body.get("bootstrapStatus")
+        except Exception:
+            pc_alive = False
+
         with lock:
             containers_cache = result
             vaultwarden_cache.update({"alive": alive, "checked_at": int(time.time())})
+            paperclip_cache.update({"alive": pc_alive, "bootstrap": pc_bootstrap,
+                                    "checked_at": int(time.time())})
         time.sleep(DOCKER_EVERY)
 
 
@@ -225,6 +241,7 @@ def api_stats():
             **current,
             "history": {k: list(v) for k, v in history.items()},
             "vaultwarden": dict(vaultwarden_cache),
+            "paperclip": dict(paperclip_cache),
         })
 
 

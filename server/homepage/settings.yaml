@@ -1,0 +1,21 @@
+# Configuracion general del dashboard Homepage
+# Documentacion completa: https://gethomepage.dev/configs/settings/
+
+title: Rianex Server
+favicon: https://raw.githubusercontent.com/gethomepage/homepage/main/public/favicon.ico
+theme: dark
+color: slate
+
+layout:
+  Web:
+    style: row
+    columns: 2
+  Infraestructura:
+    style: row
+    columns: 4
+  IA:
+    style: row
+    columns: 2
+
+quicklaunch:
+  searchDescriptions: true

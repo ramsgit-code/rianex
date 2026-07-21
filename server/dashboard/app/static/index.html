@@ -103,6 +103,7 @@ footer { color: var(--muted); font-size: .72rem; margin-top: 16px; }
   <h1 id="hostname">servidor</h1>
   <span class="sub" id="uptime"></span>
   <span class="sub" id="vw-badge"></span>
+  <span class="sub" id="pc-badge"></span>
 </header>
 
 <div class="grid tiles">
@@ -280,6 +281,15 @@ async function refreshStats() {
     $('vw-badge').innerHTML = vw.alive
       ? '<span class="badge b-good">Vaultwarden operativo</span>'
       : '<span class="badge b-critical">Vaultwarden caído</span>';
+    const pc = s.paperclip || {};
+    if (pc.alive) {
+      const pend = pc.bootstrap === 'bootstrap_pending';
+      $('pc-badge').innerHTML = pend
+        ? '<span class="badge b-warning">Paperclip operativo (sin configurar)</span>'
+        : '<span class="badge b-good">Paperclip operativo</span>';
+    } else {
+      $('pc-badge').innerHTML = '<span class="badge b-critical">Paperclip caído</span>';
+    }
 
     $('t-cpu').textContent = s.cpu_percent.toFixed(0) + '%';
     $('t-cpu').style.color = badgeFor(s.cpu_percent, 75, 90);
