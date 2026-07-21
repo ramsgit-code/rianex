@@ -1,10 +1,13 @@
 """Bot de Telegram para monitorizar rianex-server.
 
-Comandos: /status, /contenedores, /vaultwarden, /help
+Comandos: /status, /contenedores, /vaultwarden, /paperclip, /help
 Alertas automaticas: disco lleno, temperatura alta, RAM critica,
-contenedor caido/unhealthy, Vaultwarden sin responder.
+contenedor caido/unhealthy, Vaultwarden sin responder, Paperclip sin
+responder, aprobaciones pendientes y umbrales de presupuesto (80%/100%).
 
-Reusa la API del dashboard (localhost:8090) como fuente de metricas.
+Metricas del sistema via la API del dashboard (localhost:8090).
+Datos de Paperclip (coste, agentes, aprobaciones, actividad) via su API
+autenticada con un token de board (variables PAPERCLIP_* del entorno).
 El primer chat que envie /start queda registrado como propietario;
 el bot ignora a cualquier otro chat.
 """
@@ -18,6 +21,11 @@ TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 API = f"https://api.telegram.org/bot{TOKEN}"
 DASHBOARD = os.environ.get("DASHBOARD_URL", "http://localhost:8090")
 STATE_FILE = "/data/state.json"
+
+# Paperclip (opcional): si hay token, el bot muestra coste/aprobaciones/actividad.
+PC_BASE = os.environ.get("PAPERCLIP_API_BASE", "http://100.72.30.94:3100")
+PC_KEY = os.environ.get("PAPERCLIP_API_KEY", "")
+PC_COMPANY = os.environ.get("PAPERCLIP_COMPANY_ID", "")
 
 ALERT_EVERY = 60          # segundos entre chequeos de alertas
 ALERT_COOLDOWN = 3600     # no repetir la misma alerta en 1h
@@ -55,6 +63,109 @@ def send(chat_id, text):
 def get_json(path):
     with urllib.request.urlopen(DASHBOARD + path, timeout=10) as r:
         return json.load(r)
+
+
+# ---------- Paperclip (API autenticada con token de board) ----------
+
+def pc_enabled():
+    return bool(PC_KEY and PC_COMPANY)
+
+
+def pc_get(path):
+    req = urllib.request.Request(
+        f"{PC_BASE}/api/companies/{PC_COMPANY}{path}",
+        headers={"Authorization": f"Bearer {PC_KEY}"})
+    with urllib.request.urlopen(req, timeout=10) as r:
+        return json.load(r)
+
+
+def _eur(cents):
+    return f"{(cents or 0) / 100:.2f} €"
+
+
+# Traduce acciones del log de actividad a texto legible.
+_ACTION_ES = {
+    "run.succeeded": "completó una tarea",
+    "run.failed": "falló en una tarea",
+    "run.started": "empezó a trabajar",
+    "issue.created": "creó una tarea",
+    "issue.updated": "actualizó una tarea",
+    "issue.status_changed": "cambió el estado de una tarea",
+    "issue.completed": "terminó una tarea",
+    "approval.created": "pidió tu aprobación",
+    "approval.approved": "recibió aprobación",
+    "approval.rejected": "fue rechazada una propuesta",
+    "comment.created": "dejó un comentario",
+    "agent.paused": "fue pausado",
+    "agent.resumed": "se reanudó",
+    "budget.policy_upserted": "se actualizó el presupuesto",
+    "budget.incident_opened": "alcanzó el límite de presupuesto",
+}
+
+
+def _humaniza(action):
+    if action in _ACTION_ES:
+        return _ACTION_ES[action]
+    return action.replace("_", " ").replace(".", " · ")
+
+
+def fmt_paperclip():
+    if not pc_enabled():
+        # sin token: estado basico via dashboard
+        s = get_json("/api/stats")
+        pc = s.get("paperclip", {})
+        estado = "✅ operativo" if pc.get("alive") else "🔴 no responde"
+        return (f"🤖 <b>Paperclip</b>\nServicio: {estado}\n"
+                f"(token no configurado — sin datos de coste/agentes)")
+    try:
+        d = pc_get("/dashboard")
+    except Exception as e:
+        return f"🤖 <b>Paperclip</b>\n⚠️ No puedo leer los datos: {e}"
+
+    costs = d.get("costs", {})
+    spend = costs.get("monthSpendCents", 0)
+    budget = costs.get("monthBudgetCents", 0)
+    util = costs.get("monthUtilizationPercent", 0)
+    ag = d.get("agents", {})
+    tk = d.get("tasks", {})
+    pend = d.get("pendingApprovals", 0)
+
+    lines = [
+        "🤖 <b>Paperclip</b>",
+        f"💰 Gasto este mes: <b>{_eur(spend)}</b> de {_eur(budget)} ({util:.0f}%)",
+        f"🧩 Agentes: {ag.get('active', 0)} activos · {ag.get('paused', 0)} en pausa"
+        + (f" · ⚠️ {ag['error']} con error" if ag.get("error") else ""),
+        f"📋 Tareas: {tk.get('open', 0)} abiertas · {tk.get('inProgress', 0)} en curso"
+        + (f" · ⛔ {tk['blocked']} bloqueadas" if tk.get("blocked") else ""),
+    ]
+    if pend:
+        lines.append(f"✋ <b>{pend} tarea(s) esperando tu aprobación</b>")
+        try:
+            appr = pc_get("/approvals")
+            items = appr if isinstance(appr, list) else appr.get("items", appr.get("data", []))
+            for a in items[:3]:
+                t = a.get("title") or a.get("summary") or a.get("id", "")[:8]
+                lines.append(f"   • {t}")
+        except Exception:
+            pass
+    else:
+        lines.append("✋ Aprobaciones pendientes: 0")
+
+    # ultimas novedades de los agentes
+    try:
+        act = pc_get("/activity")
+        items = act if isinstance(act, list) else act.get("items", act.get("data", []))
+        agent_acts = [a for a in items if a.get("actorType") == "agent"][:4]
+        if agent_acts:
+            lines.append("\n📣 <b>Últimas novedades</b>")
+            for a in agent_acts:
+                when = (a.get("createdAt") or "")[11:16]
+                lines.append(f"   {when} · un agente {_humaniza(a.get('action', ''))}")
+    except Exception:
+        pass
+
+    lines.append(f"\n🔗 http://rianex-server.tail254060.ts.net:3100")
+    return "\n".join(lines)
 
 
 def fmt_status():
@@ -104,24 +215,6 @@ def fmt_vaultwarden():
     )
 
 
-def fmt_paperclip():
-    s = get_json("/api/stats")
-    pc = s.get("paperclip", {})
-    alive = pc.get("alive")
-    boot = pc.get("bootstrap")
-    if not alive:
-        estado = "🔴 no responde"
-    elif boot == "bootstrap_pending":
-        estado = "🟡 operativo (sin configurar — falta crear la cuenta CEO)"
-    else:
-        estado = "✅ operativo"
-    return (
-        f"🤖 <b>Paperclip</b>\n"
-        f"Servicio: {estado}\n"
-        f"Web: http://rianex-server.tail254060.ts.net:3100"
-    )
-
-
 HELP = (
     "🤖 <b>Rianex Server Bot</b>\n"
     "/status — CPU, RAM, disco, temperatura\n"
@@ -150,6 +243,32 @@ def check_alerts(state):
         if not s.get("paperclip", {}).get("alive"):
             alerts.append(("paperclip", "🤖🚨 Paperclip no responde"))
         d = get_json("/api/docker")
+
+        # Paperclip: aprobaciones pendientes y umbrales de presupuesto
+        if pc_enabled():
+            try:
+                pcd = pc_get("/dashboard")
+                pend = pcd.get("pendingApprovals", 0)
+                if pend:
+                    alerts.append(("pc_approvals",
+                                   f"✋🤖 Tienes <b>{pend}</b> tarea(s) de Paperclip esperando tu aprobación.\n"
+                                   f"Mira /paperclip o entra en http://rianex-server.tail254060.ts.net:3100"))
+                util = pcd.get("costs", {}).get("monthUtilizationPercent", 0)
+                spend = pcd.get("costs", {}).get("monthSpendCents", 0)
+                budget = pcd.get("costs", {}).get("monthBudgetCents", 0)
+                if util >= 100:
+                    alerts.append(("pc_budget_100",
+                                   f"💰🛑 Paperclip alcanzó el límite de presupuesto "
+                                   f"({_eur(spend)} de {_eur(budget)}). Los agentes se han parado."))
+                elif util >= 80:
+                    alerts.append(("pc_budget_80",
+                                   f"💰⚠️ Paperclip al {util:.0f}% del presupuesto del mes "
+                                   f"({_eur(spend)} de {_eur(budget)})."))
+                if pcd.get("agents", {}).get("error"):
+                    alerts.append(("pc_agent_error",
+                                   f"🤖⚠️ {pcd['agents']['error']} agente(s) de Paperclip en estado de error."))
+            except Exception:
+                pass
         for c in d["containers"]:
             if c["name"] == "hello-world" or c["image"].startswith("hello-world"):
                 continue
