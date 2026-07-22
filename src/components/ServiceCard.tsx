@@ -3,11 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown } from "lucide-react";
-import { useLang } from "@/components/LanguageProvider";
-import { PageShell } from "@/components/layout/PageShell";
-import { Reveal } from "@/components/Reveal";
 
-type Service = {
+export type Service = {
   slug: string;
   title: string;
   tagline: string;
@@ -16,7 +13,7 @@ type Service = {
   deliverables: readonly string[];
 };
 
-function ServiceCard({
+export function ServiceCard({
   item,
   i,
   s,
@@ -45,9 +42,9 @@ function ServiceCard({
             {String(i + 1).padStart(2, "0")}
           </span>
           <div>
-            <h2 className="font-display text-lg font-semibold text-foreground sm:text-2xl">
+            <h3 className="font-display text-lg font-semibold text-foreground sm:text-2xl">
               {item.title}
-            </h2>
+            </h3>
             <p className="mt-1 text-sm text-accent">{item.tagline}</p>
           </div>
         </div>
@@ -98,39 +95,5 @@ function ServiceCard({
         </div>
       </div>
     </article>
-  );
-}
-
-export function ServiciosView() {
-  const { c } = useLang();
-  const s = c.servicios;
-
-  return (
-    <PageShell tag={s.tag} title={s.title} description={s.description} wide>
-      <Reveal>
-        <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logos/gohighlevel-icon.png"
-            alt="Go High Level"
-            className="h-5 w-5 rounded"
-          />
-          <span className="text-sm text-foreground-muted">
-            {s.builtOn}{" "}
-            <span className="font-medium text-foreground">Go High Level</span>
-          </span>
-        </div>
-      </Reveal>
-
-      <ol className="flex flex-col gap-4 sm:gap-6">
-        {s.items.map((item, i) => (
-          <li key={item.slug} id={item.slug} className="scroll-mt-28">
-            <Reveal delay={i * 0.04}>
-              <ServiceCard item={item} i={i} s={s} />
-            </Reveal>
-          </li>
-        ))}
-      </ol>
-    </PageShell>
   );
 }

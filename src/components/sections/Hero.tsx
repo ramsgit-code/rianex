@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import dynamic from "next/dynamic";
-import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -32,21 +31,19 @@ const clientLogos = [
 ];
 
 const offeringIcons = [
-  ListChecks,
-  Magnet,
-  CalendarCheck,
-  FileText,
   Workflow,
+  Magnet,
   LayoutGrid,
   Bot,
+  ListChecks,
+  CalendarCheck,
+  FileText,
 ];
 
 export function Hero() {
   const { c } = useLang();
   const h = c.hero;
   const spotRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  const chatY = useTransform(scrollY, [0, 600], [0, -48]);
 
   const onMove = (e: React.MouseEvent<HTMLElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -70,7 +67,7 @@ export function Hero() {
       <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-72 w-[36rem] max-w-full -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
 
       <div className="section-wide relative z-10 !py-0">
-        {/* primera pantalla: titular + visual (rellena) + clientes (abajo) */}
+        {/* primera pantalla: titular + objeto 3D + clientes (abajo) */}
         <div className="flex min-h-[calc(100svh-7rem)] flex-col sm:min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-10rem)]">
           <div className="flex flex-1 flex-col justify-center gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
             <div>
@@ -101,7 +98,7 @@ export function Hero() {
                     {h.ctaPrimary}
                     <ArrowRight size={16} />
                   </Link>
-                  <Link href="/servicios" className="btn-secondary">
+                  <Link href="/casos-de-exito" className="btn-secondary">
                     {h.ctaSecondary}
                   </Link>
                 </div>
@@ -109,15 +106,10 @@ export function Hero() {
               </Reveal>
             </div>
 
-            <Reveal delay={0.12} className="flex justify-center">
-              <div className="relative">
-                {/* objeto 3D interactivo detrás del chat (oculto en móvil) */}
-                <div className="pointer-events-none absolute -inset-x-24 -inset-y-20 z-0 hidden md:block">
-                  <Hero3D />
-                </div>
-                <motion.div style={{ y: chatY }} className="relative z-10">
-                  <AgentChat />
-                </motion.div>
+            {/* objeto 3D interactivo (solo escritorio, para mantener el móvil ligero) */}
+            <Reveal delay={0.12} className="hidden md:flex md:justify-center">
+              <div className="relative h-[380px] w-[380px] lg:h-[460px] lg:w-[460px]">
+                <Hero3D />
               </div>
             </Reveal>
           </div>
@@ -160,30 +152,37 @@ export function Hero() {
           </div>
         </Reveal>
 
-        {/* qué construyo — oculto en móvil (versión light), visible en escritorio */}
-        <Reveal delay={0.24} className="hidden sm:block">
-          <div className="mt-20 sm:mt-24">
+        {/* qué hago con IA — lista de servicios + agente IA dinámico */}
+        <Reveal delay={0.24}>
+          <div id="que-hago" className="mt-20 scroll-mt-28 sm:mt-24">
             <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               {h.offeringTitle}
             </h2>
-            <ul className="mt-6 grid grid-cols-1 gap-x-12 sm:grid-cols-2">
-              {h.offering.map((o, i) => {
-                const Icon = offeringIcons[i % offeringIcons.length];
-                return (
-                  <li
-                    key={o}
-                    className="flex items-center gap-3.5 border-b border-white/[0.06] py-3.5"
-                  >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent/[0.08] text-accent">
-                      <Icon size={18} />
-                    </span>
-                    <span className="text-[15px] font-medium text-foreground">
-                      {o}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+              <ul className="grid grid-cols-1 gap-x-12">
+                {h.offering.map((o, i) => {
+                  const Icon = offeringIcons[i % offeringIcons.length];
+                  return (
+                    <li
+                      key={o}
+                      className="flex items-center gap-3.5 border-b border-white/[0.06] py-3.5"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent/[0.08] text-accent">
+                        <Icon size={18} />
+                      </span>
+                      <span className="text-[15px] font-medium text-foreground">
+                        {o}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              {/* agente IA dinámico (cicla conversaciones: agenda / cualifica / propuesta) */}
+              <div className="flex justify-center lg:justify-end">
+                <AgentChat />
+              </div>
+            </div>
           </div>
         </Reveal>
       </div>

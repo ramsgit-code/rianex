@@ -15,8 +15,7 @@ export const content = {
   es: {
     nav: {
       links: [
-        { href: "/servicios", label: "Servicios" },
-        { href: "/casos-de-exito", label: "Casos" },
+        { href: "/casos-de-exito", label: "Casos y servicios" },
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "Sobre mí" },
       ],
@@ -365,8 +364,7 @@ export const content = {
   en: {
     nav: {
       links: [
-        { href: "/servicios", label: "Services" },
-        { href: "/casos-de-exito", label: "Cases" },
+        { href: "/casos-de-exito", label: "Cases & services" },
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "About" },
       ],
