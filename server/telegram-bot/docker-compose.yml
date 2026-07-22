@@ -7,6 +7,7 @@ services:
     environment:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}   # definido en .env (no versionado)
       - TZ=Europe/Madrid
+      - DIGEST_HOUR=${DIGEST_HOUR:-9}              # hora local del resumen diario
       # Paperclip: coste/agentes/aprobaciones (todo en .env, no versionado)
       - PAPERCLIP_API_BASE=${PAPERCLIP_API_BASE:-http://100.72.30.94:3100}
       - PAPERCLIP_API_KEY=${PAPERCLIP_API_KEY:-}

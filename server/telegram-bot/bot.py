@@ -30,6 +30,7 @@ PC_COMPANY = os.environ.get("PAPERCLIP_COMPANY_ID", "")
 ALERT_EVERY = 60          # segundos entre chequeos de alertas
 ALERT_COOLDOWN = 3600     # no repetir la misma alerta en 1h
 THRESHOLDS = {"disk": 90, "temp": 80, "mem": 92}
+DIGEST_HOUR = int(os.environ.get("DIGEST_HOUR", "9"))  # hora local del resumen diario
 
 
 def load_state():
@@ -307,11 +308,36 @@ def handle(state, chat_id, text):
         send(chat_id, f"⚠️ Error consultando métricas: {e}")
 
 
+def fmt_digest():
+    """Resumen diario: estado del servidor + Paperclip."""
+    partes = ["☀️ <b>Resumen diario · rianex-server</b>\n"]
+    try:
+        partes.append(fmt_status())
+    except Exception:
+        pass
+    if pc_enabled():
+        partes.append("")
+        try:
+            partes.append(fmt_paperclip())
+        except Exception:
+            pass
+    return "\n".join(partes)
+
+
 def main():
     state = load_state()
     print("bot arrancado; chat vinculado:", state["chat_id"], flush=True)
     last_alert_check = 0.0
     while True:
+        # resumen diario (una vez al dia, a la hora local configurada)
+        lt = time.localtime()
+        hoy = time.strftime("%Y-%m-%d", lt)
+        if (state["chat_id"] and lt.tm_hour == DIGEST_HOUR
+                and state.get("last_digest") != hoy):
+            send(state["chat_id"], fmt_digest())
+            state["last_digest"] = hoy
+            save_state(state)
+
         # alertas
         now = time.time()
         if state["chat_id"] and now - last_alert_check >= ALERT_EVERY:
