@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 
@@ -8,7 +9,10 @@ const EMAIL = "ramiroperez12@hotmail.com";
 
 export function Footer() {
   const { c, lang } = useLang();
+  const pathname = usePathname();
   const year = new Date().getFullYear();
+  // en /diagnostico no repetimos el CTA de diagnóstico
+  const showCta = pathname !== "/diagnostico";
 
   return (
     <footer className="relative mt-16 border-t border-white/[0.08]">
@@ -23,10 +27,12 @@ export function Footer() {
             <p className="mx-auto mt-2 max-w-sm text-sm text-foreground-muted">
               {c.footer.tagline}
             </p>
-            <Link href="/diagnostico" className="btn-primary mt-6">
-              {c.footer.cta}
-              <ArrowUpRight size={16} />
-            </Link>
+            {showCta && (
+              <Link href="/diagnostico" className="btn-primary mt-6">
+                {c.footer.cta}
+                <ArrowUpRight size={16} />
+              </Link>
+            )}
             <div className="mt-6">
               <a
                 href={`mailto:${EMAIL}`}

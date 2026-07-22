@@ -4,7 +4,7 @@ import { SobreMiView } from "./SobreMiView";
 export const metadata: Metadata = {
   title: "Nosotros",
   description:
-    "Especialistas en sistemas de captación y automatización comercial con Go High Level.",
+    "Grupo de ingenieros industriales con experiencia en plantas industriales y automatización con IA. Sistemas de IA de extremo a extremo sobre Go High Level.",
 };
 
 export default function SobreMiPage() {

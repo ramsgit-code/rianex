@@ -24,11 +24,23 @@ const Hero3D = dynamic(
   { ssr: false }
 );
 
-const clientLogos = [
-  { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9" },
-  { src: LOGOS.eventosBarcelona, alt: "EB Eventos Barcelona", h: "h-6 sm:h-9" },
-  { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5" },
-  { src: LOGOS.tribeca, alt: "Tribeca Media", h: "h-8 sm:h-11" },
+const clientLogos: {
+  src: string;
+  alt: string;
+  h: string;
+  href?: string;
+  label?: string;
+}[] = [
+  { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9", href: "" },
+  { src: LOGOS.eventosBarcelona, alt: "EB Eventos Barcelona", h: "h-6 sm:h-9", href: "" },
+  { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5", href: "" },
+  {
+    src: LOGOS.tribeca,
+    alt: "Tribeca Media",
+    h: "h-8 sm:h-11",
+    href: "",
+    label: "Tribeca Media",
+  },
 ];
 
 const offeringIcons = [
@@ -122,16 +134,40 @@ export function Hero() {
                 {h.logosLabel}
               </p>
               <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-5 sm:justify-start sm:gap-x-10 sm:gap-y-6">
-                {clientLogos.map((logo) => (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    key={logo.alt}
-                    src={logo.src}
-                    alt={logo.alt}
-                    className={`${logo.h} w-auto object-contain opacity-60 transition-opacity duration-300 hover:opacity-100`}
-                    loading="lazy"
-                  />
-                ))}
+                {clientLogos.map((logo) => {
+                  const inner = (
+                    <span className="flex flex-col items-center gap-1.5">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={logo.src}
+                        alt={logo.alt}
+                        className={`${logo.h} w-auto object-contain opacity-60 transition-opacity duration-300 group-hover:opacity-100`}
+                        loading="lazy"
+                      />
+                      {logo.label && (
+                        <span className="text-[10px] uppercase tracking-wider text-muted transition-colors group-hover:text-foreground-muted">
+                          {logo.label}
+                        </span>
+                      )}
+                    </span>
+                  );
+                  return logo.href ? (
+                    <a
+                      key={logo.alt}
+                      href={logo.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={logo.alt}
+                      className="group inline-flex"
+                    >
+                      {inner}
+                    </a>
+                  ) : (
+                    <span key={logo.alt} className="group inline-flex">
+                      {inner}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </Reveal>
