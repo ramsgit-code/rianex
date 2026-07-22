@@ -1,1 +1,15 @@
+# Secretos y estado runtime de Paperclip — NUNCA versionar
 .pcenv
+.env
+*.env
+!.env.example
+pcvars.env
+
+# Estado de Paperclip: BD embebida (postgres), claves, tokens, backups
+data/
+
+# Dependencias
+node_modules/
+
+# Logs
+*.log
