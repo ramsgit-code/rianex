@@ -31,14 +31,14 @@ const clientLogos: {
   href?: string;
   label?: string;
 }[] = [
-  { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9", href: "" },
-  { src: LOGOS.eventosBarcelona, alt: "EB Eventos Barcelona", h: "h-6 sm:h-9", href: "" },
-  { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5", href: "" },
+  { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9", href: "https://hospitalcapilar.com" },
+  { src: LOGOS.eventosBarcelona, alt: "EB Eventos Barcelona", h: "h-6 sm:h-9", href: "https://www.eventosbarcelona.com" },
+  { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5", href: "https://growth4u.io" },
   {
     src: LOGOS.tribeca,
     alt: "Tribeca Media",
     h: "h-8 sm:h-11",
-    href: "",
+    href: "https://www.tribecamedia.com",
     label: "Tribeca Media",
   },
 ];
