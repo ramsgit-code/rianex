@@ -9,15 +9,16 @@ export const LOGOS = {
   hospitalCapilar: "/logos/hospital-capilar.png",
   eventosBarcelona: "/logos/eventos-barcelona.png",
   growth4u: "/logos/growth4u.png",
+  tribeca: "/logos/tribeca.png",
 };
 
 export const content = {
   es: {
     nav: {
       links: [
-        { href: "/casos-de-exito", label: "Casos y servicios" },
+        { href: "/casos-de-exito", label: "Casos" },
         { href: "/blog", label: "Blog" },
-        { href: "/sobre-mi", label: "Sobre mí" },
+        { href: "/sobre-mi", label: "Nosotros" },
       ],
       cta: "Diagnóstico",
       switchTo: "EN",
@@ -30,11 +31,11 @@ export const content = {
       titleHighlight: "vende más con IA.",
       titlePost: "",
       subtitle:
-        "Diseño y monto sistemas de IA para tu negocio: automatización de procesos, embudos de venta, integraciones con tu CRM y agentes a medida. Del go-to-market al producto.",
+        "Diseñamos y montamos sistemas de IA para tu negocio: automatización de procesos, embudos de venta, integraciones con tu CRM/ERP/MES y creamos agentes a medida. Del go-to-market al producto.",
       ctaPrimary: "Solicitar diagnóstico gratuito",
       ctaSecondary: "Ver los sistemas",
       note: "30 min · Sin compromiso · Respuesta en 24 h",
-      offeringTitle: "Qué hago con IA",
+      offeringTitle: "Qué hacemos con IA",
       offering: [
         "Automatización de procesos con IA",
         "Embudos de venta (captación → cierre)",
@@ -64,10 +65,11 @@ export const content = {
           client: "Hospital Capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Salud · Madrid",
-          tag: "Lead Qualification + Booking SDR",
-          challenge: "Captación sin filtro y sin medir el embudo.",
+          tag: "Cualificación de leads + Booking SDR",
+          challenge:
+            "Captaban muchos leads pero sin filtro previo ni métricas del embudo: no sabían qué contactos valían la pena ni en qué punto se perdían las oportunidades.",
           solution:
-            "Sistema en Go High Level que capta y cualifica leads con quiz/scoring, automatiza WhatsApp y con un Booking SDR agenda las citas en Koibox; mide conversión, abandono, citas y ventas.",
+            "Montamos un sistema en Go High Level que capta y cualifica los leads con un quiz de scoring, automatiza el seguimiento por WhatsApp y, con un Booking SDR, agenda las citas directamente en Koibox. Todo el embudo queda medido: conversión, abandono, citas y ventas.",
           metric: "−32%",
           metricLabel: "coste por paciente (CPP)",
         },
@@ -75,9 +77,11 @@ export const content = {
           client: "Eventos Barcelona",
           logo: LOGOS.eventosBarcelona,
           sector: "Eventos · Barcelona",
-          tag: "Proposal Automation",
-          challenge: "Propuestas que tardaban entre 1 y 3 días.",
-          solution: "Intake + propuesta automática en Go High Level.",
+          tag: "Automatización de propuestas",
+          challenge:
+            "Cada propuesta tardaba entre 1 y 3 días en salir, y para entonces el cliente ya se había enfriado o había pedido presupuesto a la competencia.",
+          solution:
+            "Creamos un formulario de intake tras la llamada que genera la propuesta automáticamente en Go High Level, lista para revisar y enviar en minutos, con recordatorios de seguimiento.",
           metric: "−85%",
           metricLabel: "tiempo de respuesta al cliente",
         },
@@ -85,9 +89,11 @@ export const content = {
           client: "Growth4U",
           logo: LOGOS.growth4u,
           sector: "Marketing · Captación",
-          tag: "CRM Automation",
-          challenge: "Captación manual y sin cualificación de leads.",
-          solution: "Funnel de captación + scoring en Go High Level.",
+          tag: "Automatización de CRM",
+          challenge:
+            "La captación era 100% manual, sin cualificación ni seguimiento sistemático: los leads se enfriaban en hojas de cálculo y se perdía trazabilidad.",
+          solution:
+            "Implementamos un funnel de captación con scoring automático y seguimiento en Go High Level, con todo el proceso comercial medido de punta a punta.",
           metric: "100%",
           metricLabel: "del proceso comercial automatizado",
         },
@@ -100,7 +106,7 @@ export const content = {
       addCta: "Deja tu testimonio",
       pageTitle: "Testimonios",
       pageDesc:
-        "Opiniones reales de clientes con sistema activo. ¿Trabajaste conmigo? Cuéntalo.",
+        "Opiniones reales de clientes con sistema activo. ¿Trabajaste con nosotros? Cuéntalo.",
       formTitle: "Deja tu testimonio",
       nameLabel: "Tu nombre *",
       companyLabel: "Empresa",
@@ -109,16 +115,16 @@ export const content = {
       namePh: "Nombre y apellido",
       companyPh: "Tu empresa",
       rolePh: "Tu cargo",
-      quotePh: "Cuéntame qué montamos y qué resultado tuviste...",
+      quotePh: "Cuéntanos qué montamos y qué resultado tuviste...",
       submit: "Enviar testimonio",
       sending: "Enviando...",
-      success: "¡Gracias! Lo revisaré antes de publicarlo.",
+      success: "¡Gracias! Lo revisaremos antes de publicarlo.",
       error: "No se pudo enviar. Inténtalo de nuevo.",
       empty: "Aún no hay testimonios publicados.",
     },
 
     process: {
-      tag: "Cómo trabajo",
+      tag: "Cómo trabajamos",
       title: "Cuatro pasos. Sin sorpresas.",
       steps: [
         { title: "Diagnóstico", desc: "30 min. Vemos tu proceso y qué sistema encaja." },
@@ -132,7 +138,7 @@ export const content = {
       titlePre: "¿Quieres saber qué ",
       titleHighlight: "sistema necesitas?",
       subtitle:
-        "Diagnóstico gratuito de 30 minutos. Te digo si tiene sentido trabajar juntos, sin compromiso.",
+        "Diagnóstico gratuito de 30 minutos. Te decimos si tiene sentido trabajar juntos, sin compromiso.",
       button: "Solicitar diagnóstico",
     },
 
@@ -149,7 +155,7 @@ export const content = {
         { href: "/servicios", label: "Servicios" },
         { href: "/casos-de-exito", label: "Casos" },
         { href: "/soluciones", label: "Soluciones" },
-        { href: "/sobre-mi", label: "Sobre mí" },
+        { href: "/sobre-mi", label: "Nosotros" },
         { href: "/blog", label: "Blog" },
         { href: "/diagnostico", label: "Diagnóstico" },
       ],
@@ -158,7 +164,7 @@ export const content = {
 
     servicios: {
       tag: "Servicios",
-      title: "Lo que construyo en Go High Level",
+      title: "Lo que construimos en Go High Level",
       description:
         "Servicios que cubren todo el proceso comercial. Se implementan juntos o por separado.",
       problemLabel: "Problema:",
@@ -317,12 +323,12 @@ export const content = {
     },
 
     sobreMi: {
-      tag: "Sobre mí",
-      title: "Construyo el sistema, no solo la herramienta",
+      tag: "Nosotros",
+      title: "Construimos el sistema, no solo la herramienta",
       intro: [
-        "Diseño y construyo sistemas comerciales en Go High Level: captación, cualificación y cierre.",
-        "No vendo plantillas. Entrego procesos que funcionan desde el primer día.",
-        "He implementado sistemas reales en clínicas, eventos y captación.",
+        "Diseñamos y construimos sistemas comerciales en Go High Level: captación, cualificación y cierre.",
+        "No vendemos plantillas. Entregamos procesos que funcionan desde el primer día.",
+        "Hemos implementado sistemas reales en clínicas, eventos y captación.",
       ],
       specialtiesLabel: "Especialidades",
       specialties: [
@@ -344,7 +350,7 @@ export const content = {
     diagnostico: {
       tag: "Diagnóstico gratuito",
       title: "30 minutos para saber qué necesitas",
-      description: "Rellena el formulario. Lo reviso antes de la llamada.",
+      description: "Rellena el formulario. Lo revisamos antes de la llamada.",
       bullets: [
         "Sin compromiso ni venta agresiva",
         "Análisis de tu proceso actual",
@@ -364,7 +370,7 @@ export const content = {
   en: {
     nav: {
       links: [
-        { href: "/casos-de-exito", label: "Cases & services" },
+        { href: "/casos-de-exito", label: "Cases" },
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "About" },
       ],
@@ -379,11 +385,11 @@ export const content = {
       titleHighlight: "sell more with AI.",
       titlePost: "",
       subtitle:
-        "I design and build AI systems for your business: process automation, sales funnels, CRM integrations and custom agents. From go-to-market to product.",
+        "We design and build AI systems for your business: process automation, sales funnels, CRM/ERP/MES integrations and custom agents. From go-to-market to product.",
       ctaPrimary: "Request a free diagnosis",
       ctaSecondary: "See the systems",
       note: "30 min · No commitment · Reply within 24 h",
-      offeringTitle: "What I do with AI",
+      offeringTitle: "What we do with AI",
       offering: [
         "AI process automation",
         "Sales funnels (capture → close)",
@@ -412,10 +418,11 @@ export const content = {
           client: "Hospital Capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Healthcare · Madrid",
-          tag: "Lead Qualification + Booking SDR",
-          challenge: "Capture with no filtering and no funnel tracking.",
+          tag: "Lead qualification + Booking SDR",
+          challenge:
+            "They captured plenty of leads but with no upfront filtering or funnel metrics: they didn't know which contacts were worth it or where opportunities were lost.",
           solution:
-            "A Go High Level system that captures and qualifies leads with a quiz/scoring, automates WhatsApp and, with a Booking SDR, books appointments into Koibox; it tracks conversion, drop-off, appointments and sales.",
+            "We built a Go High Level system that captures and qualifies leads with a scoring quiz, automates WhatsApp follow-up and, with a Booking SDR, books appointments straight into Koibox. The whole funnel is measured: conversion, drop-off, appointments and sales.",
           metric: "−32%",
           metricLabel: "cost per patient (CPP)",
         },
@@ -423,9 +430,11 @@ export const content = {
           client: "Eventos Barcelona",
           logo: LOGOS.eventosBarcelona,
           sector: "Events · Barcelona",
-          tag: "Proposal Automation",
-          challenge: "Proposals that took 1 to 3 days.",
-          solution: "Intake + automated proposal on Go High Level.",
+          tag: "Proposal automation",
+          challenge:
+            "Each proposal took 1 to 3 days to go out, and by then the client had cooled off or already asked a competitor for a quote.",
+          solution:
+            "We created a post-call intake form that generates the proposal automatically on Go High Level, ready to review and send in minutes, with follow-up reminders.",
           metric: "−85%",
           metricLabel: "client response time",
         },
@@ -433,9 +442,11 @@ export const content = {
           client: "Growth4U",
           logo: LOGOS.growth4u,
           sector: "Marketing · Lead gen",
-          tag: "CRM Automation",
-          challenge: "Manual capture with no lead qualification.",
-          solution: "Capture funnel + scoring on Go High Level.",
+          tag: "CRM automation",
+          challenge:
+            "Capture was 100% manual, with no qualification or systematic follow-up: leads went cold in spreadsheets and traceability was lost.",
+          solution:
+            "We implemented a capture funnel with automatic scoring and follow-up on Go High Level, with the entire sales process measured end to end.",
           metric: "100%",
           metricLabel: "of the sales process automated",
         },
@@ -448,7 +459,7 @@ export const content = {
       addCta: "Leave a testimonial",
       pageTitle: "Testimonials",
       pageDesc:
-        "Real feedback from clients with a live system. Worked with me? Share it.",
+        "Real feedback from clients with a live system. Worked with us? Share it.",
       formTitle: "Leave a testimonial",
       nameLabel: "Your name *",
       companyLabel: "Company",
@@ -457,16 +468,16 @@ export const content = {
       namePh: "First and last name",
       companyPh: "Your company",
       rolePh: "Your role",
-      quotePh: "Tell me what we built and the result you got...",
+      quotePh: "Tell us what we built and the result you got...",
       submit: "Send testimonial",
       sending: "Sending...",
-      success: "Thanks! I'll review it before publishing.",
+      success: "Thanks! We'll review it before publishing.",
       error: "Couldn't send. Please try again.",
       empty: "No testimonials published yet.",
     },
 
     process: {
-      tag: "How I work",
+      tag: "How we work",
       title: "Four steps. No surprises.",
       steps: [
         { title: "Diagnosis", desc: "30 min. We review your process and which system fits." },
@@ -506,7 +517,7 @@ export const content = {
 
     servicios: {
       tag: "Services",
-      title: "What I build on Go High Level",
+      title: "What we build on Go High Level",
       description:
         "Services covering the whole sales process. Built together or separately.",
       problemLabel: "Problem:",
@@ -665,11 +676,11 @@ export const content = {
 
     sobreMi: {
       tag: "About",
-      title: "I build the system, not just the tool",
+      title: "We build the system, not just the tool",
       intro: [
-        "I design and build sales systems on Go High Level: capture, qualification and closing.",
-        "I don't sell templates. I deliver processes that work from day one.",
-        "I've built real systems for clinics, events and lead generation.",
+        "We design and build sales systems on Go High Level: capture, qualification and closing.",
+        "We don't sell templates. We deliver processes that work from day one.",
+        "We've built real systems for clinics, events and lead generation.",
       ],
       specialtiesLabel: "Specialties",
       specialties: [
@@ -679,7 +690,7 @@ export const content = {
         "Funnels and nurturing",
         "AI agents and MCP & API integrations",
       ],
-      principlesLabel: "How I work",
+      principlesLabel: "How we work",
       principles: [
         "Always a diagnosis first",
         "Clear deliverables",
@@ -691,7 +702,7 @@ export const content = {
     diagnostico: {
       tag: "Free diagnosis",
       title: "30 minutes to know what you need",
-      description: "Fill in the form. I review it before the call.",
+      description: "Fill in the form. We review it before the call.",
       bullets: [
         "No commitment, no hard selling",
         "Analysis of your current process",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SobreMiView } from "./SobreMiView";
 
 export const metadata: Metadata = {
-  title: "Sobre mí",
+  title: "Nosotros",
   description:
-    "Especialista en sistemas de captación y automatización comercial con Go High Level.",
+    "Especialistas en sistemas de captación y automatización comercial con Go High Level.",
 };
 
 export default function SobreMiPage() {

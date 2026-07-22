@@ -28,6 +28,7 @@ const clientLogos = [
   { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9" },
   { src: LOGOS.eventosBarcelona, alt: "EB Eventos Barcelona", h: "h-6 sm:h-9" },
   { src: LOGOS.growth4u, alt: "Growth4U", h: "h-3.5 sm:h-5" },
+  { src: LOGOS.tribeca, alt: "Tribeca Media", h: "h-8 sm:h-11" },
 ];
 
 const offeringIcons = [
