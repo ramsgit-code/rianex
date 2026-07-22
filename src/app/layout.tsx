@@ -28,20 +28,20 @@ const SITE_URL = "https://rianex.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rianex — IA aplicada a ventas",
+    default: "Rianex — IA para negocios",
     template: "%s | Rianex",
   },
   description:
-    "Capta, cualifica y cierra clientes en automático con IA. Sistemas de captación, cualificación y propuestas en Go High Level: WhatsApp, Telegram, correo y CRM conectados.",
+    "IA para negocios: automatización de procesos, embudos de venta, integraciones con tu CRM y agentes de IA a medida. Del go-to-market al producto.",
   keywords: [
-    "automatización comercial",
+    "IA para negocios",
     "automatización con IA",
-    "agentes de IA ventas",
+    "agentes de IA",
+    "embudos de venta",
+    "go-to-market engineering",
+    "founding engineering",
+    "integraciones crm",
     "crm gohighlevel",
-    "lead qualification system",
-    "propuestas automáticas",
-    "automatización whatsapp",
-    "funnel captación leads",
   ],
   openGraph: {
     type: "website",
@@ -49,16 +49,16 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: SITE_URL,
     siteName: "Rianex",
-    title: "Rianex — Automatización Comercial con IA",
+    title: "Rianex — IA para negocios",
     description:
-      "Capta, cualifica y cierra clientes en automático con IA. Especialista en Go High Level.",
+      "Automatización de procesos, embudos de venta, integraciones CRM y agentes de IA a medida.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Rianex" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rianex — Automatización Comercial con IA",
+    title: "Rianex — IA para negocios",
     description:
-      "Capta, cualifica y cierra clientes en automático con IA. Especialista en Go High Level.",
+      "Automatización de procesos, embudos de venta, integraciones CRM y agentes de IA a medida.",
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },

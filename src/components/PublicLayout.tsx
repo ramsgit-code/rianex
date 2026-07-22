@@ -6,6 +6,8 @@ import { Footer } from "@/components/Footer";
 import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import { AuroraBackground } from "@/components/AuroraBackground";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { CookieConsent } from "@/components/CookieConsent";
+import { GHLChat } from "@/components/GHLChat";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export function PublicLayout({ children }: { children: React.ReactNode }) {
@@ -24,6 +26,8 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
       <Navbar />
       <main>{children}</main>
       <Footer />
+      <CookieConsent />
+      <GHLChat />
     </LanguageProvider>
   );
 }

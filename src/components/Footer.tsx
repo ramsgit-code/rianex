@@ -7,7 +7,7 @@ import { useLang } from "@/components/LanguageProvider";
 const EMAIL = "ramiroperez12@hotmail.com";
 
 export function Footer() {
-  const { c } = useLang();
+  const { c, lang } = useLang();
   const year = new Date().getFullYear();
 
   return (
@@ -39,9 +39,18 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-8 text-center text-xs text-muted">
-          © {year} Rianex · {c.footer.rights}
-        </p>
+        <div className="mt-8 flex flex-col items-center gap-2 text-center text-xs text-muted">
+          <div className="flex items-center gap-4">
+            <Link href="/privacidad" className="transition-colors hover:text-accent">
+              {lang === "en" ? "Privacy policy" : "Política de privacidad"}
+            </Link>
+            <span aria-hidden>·</span>
+            <Link href="/cookies" className="transition-colors hover:text-accent">
+              {lang === "en" ? "Cookie policy" : "Política de cookies"}
+            </Link>
+          </div>
+          <p>© {year} Rianex · {c.footer.rights}</p>
+        </div>
       </div>
     </footer>
   );
