@@ -5,7 +5,8 @@ Alertas automaticas: disco lleno, temperatura alta, RAM critica,
 contenedor caido/unhealthy, Vaultwarden sin responder, Paperclip sin
 responder, aprobaciones pendientes y umbrales de presupuesto (80%/100%).
 
-Metricas del sistema via la API del dashboard (localhost:8090).
+Metricas del sistema recogidas directamente del host (modulo metrics.py:
+psutil + /proc,/sys montados + socket de Docker), sin depender de nada mas.
 Datos de Paperclip (coste, agentes, aprobaciones, actividad) via su API
 autenticada con un token de board (variables PAPERCLIP_* del entorno).
 El primer chat que envie /start queda registrado como propietario;
@@ -17,9 +18,10 @@ import time
 import urllib.parse
 import urllib.request
 
+import metrics  # recolección de métricas del host (reemplaza al dashboard)
+
 TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 API = f"https://api.telegram.org/bot{TOKEN}"
-DASHBOARD = os.environ.get("DASHBOARD_URL", "http://localhost:8090")
 STATE_FILE = "/data/state.json"
 
 # Paperclip (opcional): si hay token, el bot muestra coste/aprobaciones/actividad.
@@ -61,9 +63,12 @@ def send(chat_id, text):
         print("sendMessage fallo:", e, flush=True)
 
 
-def get_json(path):
-    with urllib.request.urlopen(DASHBOARD + path, timeout=10) as r:
-        return json.load(r)
+def paperclip_alive():
+    try:
+        with urllib.request.urlopen(f"{PC_BASE}/api/health", timeout=3) as r:
+            return r.status == 200
+    except Exception:
+        return False
 
 
 # ---------- Paperclip (API autenticada con token de board) ----------
@@ -112,10 +117,7 @@ def _humaniza(action):
 
 def fmt_paperclip():
     if not pc_enabled():
-        # sin token: estado basico via dashboard
-        s = get_json("/api/stats")
-        pc = s.get("paperclip", {})
-        estado = "✅ operativo" if pc.get("alive") else "🔴 no responde"
+        estado = "✅ operativo" if paperclip_alive() else "🔴 no responde"
         return (f"🤖 <b>Paperclip</b>\nServicio: {estado}\n"
                 f"(token no configurado — sin datos de coste/agentes)")
     try:
@@ -169,13 +171,21 @@ def fmt_paperclip():
     return "\n".join(lines)
 
 
+def _fmt_power(power):
+    if not power:
+        return ""
+    return (f"\n⚡ Consumo: <b>{power['watts']:.0f} W</b> "
+            f"≈ <b>{power['eur_month']:.2f} €/mes</b> "
+            f"({power['kwh_day']} kWh/día)")
+
+
 def fmt_status():
-    s = get_json("/api/stats")
+    s = metrics.host_metrics()
     up = int(time.time() - s["boot_time"])
     d, rem = divmod(up, 86400)
     h, m = divmod(rem, 3600)
     temp = f"{s['temp_c']:.0f} °C" if s.get("temp_c") else "n/d"
-    vw = "✅ operativo" if s.get("vaultwarden", {}).get("alive") else "🔴 caído"
+    vw = "✅ operativo" if metrics.vaultwarden_alive() else "🔴 caído"
     return (
         f"🖥 <b>{s['hostname']}</b>\n"
         f"⏱ Encendido: {d} d {h} h {m // 60} min\n"
@@ -184,18 +194,19 @@ def fmt_status():
         f"({s['mem']['used'] / 1e9:.1f}/{s['mem']['total'] / 1e9:.1f} GB)\n"
         f"💿 Disco: <b>{s['disk']['percent']:.0f}%</b> "
         f"({s['disk']['used'] / 1e9:.1f}/{s['disk']['total'] / 1e9:.1f} GB)\n"
-        f"🌡 Temperatura: <b>{temp}</b>\n"
+        f"🌡 Temperatura: <b>{temp}</b>"
+        f"{_fmt_power(s.get('power'))}\n"
         f"🔐 Vaultwarden: {vw}"
     )
 
 
 def fmt_containers():
-    d = get_json("/api/docker")
+    conts = metrics.host_containers()
     lines = ["📦 <b>Contenedores</b>"]
-    for c in sorted(d["containers"], key=lambda x: (x["status"] != "running", x["name"])):
+    for c in sorted(conts, key=lambda x: (x["status"] != "running", x["name"])):
         if c["status"] == "running":
             icon = "🟡" if c["health"] == "unhealthy" else "🟢"
-            extra = f" · {c['mem_bytes'] / 1e6:.0f} MB" if c["mem_bytes"] else ""
+            extra = ""
         else:
             icon, extra = "🔴", f" · {c['status']}"
         lines.append(f"{icon} <b>{c['name']}</b>{extra}")
@@ -203,11 +214,9 @@ def fmt_containers():
 
 
 def fmt_vaultwarden():
-    s = get_json("/api/stats")
-    alive = s.get("vaultwarden", {}).get("alive")
-    d = get_json("/api/docker")
-    cont = next((c for c in d["containers"] if c["name"] == "vaultwarden"), None)
-    health = cont["health"] or cont["status"] if cont else "no encontrado"
+    alive = metrics.vaultwarden_alive()
+    cont = next((c for c in metrics.host_containers() if c["name"] == "vaultwarden"), None)
+    health = (cont["health"] or cont["status"]) if cont else "no encontrado"
     return (
         f"🔐 <b>Vaultwarden</b>\n"
         f"Servicio web: {'✅ responde' if alive else '🔴 no responde'}\n"
@@ -218,7 +227,7 @@ def fmt_vaultwarden():
 
 HELP = (
     "🤖 <b>Rianex Server Bot</b>\n"
-    "/status — CPU, RAM, disco, temperatura\n"
+    "/status — CPU, RAM, disco, temperatura, consumo de luz\n"
     "/contenedores — estado de los contenedores\n"
     "/vaultwarden — estado del gestor de contraseñas\n"
     "/paperclip — estado de Paperclip (agentes de IA)\n"
@@ -232,18 +241,18 @@ def check_alerts(state):
     """Devuelve lista de (clave, mensaje). La clave evita repetir la misma alerta."""
     alerts = []
     try:
-        s = get_json("/api/stats")
+        s = metrics.host_metrics()
         if s["disk"]["percent"] >= THRESHOLDS["disk"]:
             alerts.append(("disk", f"🚨 Disco al {s['disk']['percent']:.0f}%"))
         if s["mem"]["percent"] >= THRESHOLDS["mem"]:
             alerts.append(("mem", f"🚨 RAM al {s['mem']['percent']:.0f}%"))
         if s.get("temp_c") and s["temp_c"] >= THRESHOLDS["temp"]:
             alerts.append(("temp", f"🌡🚨 Temperatura a {s['temp_c']:.0f} °C"))
-        if not s.get("vaultwarden", {}).get("alive"):
+        if not metrics.vaultwarden_alive():
             alerts.append(("vaultwarden", "🔐🚨 Vaultwarden no responde"))
-        if not s.get("paperclip", {}).get("alive"):
+        if not paperclip_alive():
             alerts.append(("paperclip", "🤖🚨 Paperclip no responde"))
-        d = get_json("/api/docker")
+        conts = metrics.host_containers()
 
         # Paperclip: aprobaciones pendientes y umbrales de presupuesto
         if pc_enabled():
@@ -270,17 +279,15 @@ def check_alerts(state):
                                    f"🤖⚠️ {pcd['agents']['error']} agente(s) de Paperclip en estado de error."))
             except Exception:
                 pass
-        for c in d["containers"]:
-            if c["name"] == "hello-world" or c["image"].startswith("hello-world"):
+        for c in conts:
+            if c["name"] in ("hello-world", "unruffled_visvesvaraya"):
                 continue
-            if c["status"] == "exited" and c["name"] == "unruffled_visvesvaraya":
-                continue  # resto del hello-world de prueba
             if c["status"] != "running":
                 alerts.append((f"cont:{c['name']}", f"📦🚨 Contenedor <b>{c['name']}</b> está {c['status']}"))
             elif c["health"] == "unhealthy":
                 alerts.append((f"health:{c['name']}", f"📦⚠️ Contenedor <b>{c['name']}</b> unhealthy"))
     except Exception as e:
-        alerts.append(("dashboard", f"⚠️ No puedo leer las métricas del dashboard: {e}"))
+        alerts.append(("metrics", f"⚠️ No puedo leer las métricas del host: {e}"))
     return alerts
 
 

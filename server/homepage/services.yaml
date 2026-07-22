@@ -11,10 +11,6 @@
         description: Web personal de Ramiro Perez (alojada en Vercel)
         icon: si-vercel
         siteMonitor: https://rianex.vercel.app/
-    - Dashboard Servidor:
-        href: http://rianex-server:8090/
-        description: Monitorizacion en vivo (CPU, RAM, disco, consumo, contenedores)
-        icon: mdi-chart-line
 
 - Infraestructura:
     - Traefik:
