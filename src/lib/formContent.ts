@@ -4,11 +4,11 @@ import type { Lang } from "@/lib/content";
 export const formContent = {
   es: {
     stepTitles: [
+      "Datos de contacto",
       "Tu negocio",
       "Tu mercado",
       "Situación actual",
       "Tu objetivo",
-      "Datos de contacto",
     ],
     progress: (s: number, t: number, title: string) => `Paso ${s} de ${t} — ${title}`,
     prev: "Anterior",
@@ -16,6 +16,10 @@ export const formContent = {
     submit: "Enviar solicitud",
     sending: "Enviando...",
     select: "Selecciona...",
+    contactHint: "Empezamos por tus datos de contacto. Te escribo yo personalmente — sin spam.",
+    consentPre: "He leído y acepto la ",
+    consentLink: "política de privacidad",
+    consentPost: ".",
     errors: {
       nombre: "Nombre obligatorio",
       empresa: "Empresa obligatoria",
@@ -26,6 +30,7 @@ export const formContent = {
       objetivo: "Selecciona al menos un objetivo",
       email: "Email no válido",
       telefono: "Teléfono obligatorio",
+      consent: "Debes aceptar la política de privacidad",
       sendFail: "No se pudo enviar. Inténtalo de nuevo.",
       connFail: "Error de conexión. Comprueba tu red e inténtalo de nuevo.",
     },
@@ -143,11 +148,11 @@ export const formContent = {
 
   en: {
     stepTitles: [
+      "Contact details",
       "Your business",
       "Your market",
       "Current situation",
       "Your goal",
-      "Contact details",
     ],
     progress: (s: number, t: number, title: string) => `Step ${s} of ${t} — ${title}`,
     prev: "Back",
@@ -155,6 +160,10 @@ export const formContent = {
     submit: "Send request",
     sending: "Sending...",
     select: "Select...",
+    contactHint: "Let's start with your contact details. I'll reach out personally — no spam.",
+    consentPre: "I have read and accept the ",
+    consentLink: "privacy policy",
+    consentPost: ".",
     errors: {
       nombre: "Name is required",
       empresa: "Company is required",
@@ -165,6 +174,7 @@ export const formContent = {
       objetivo: "Select at least one goal",
       email: "Invalid email",
       telefono: "Phone is required",
+      consent: "You must accept the privacy policy",
       sendFail: "Couldn't send. Please try again.",
       connFail: "Connection error. Check your network and try again.",
     },

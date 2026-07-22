@@ -26,24 +26,23 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "Consultoría de IA aplicada a ventas",
-      titlePre: "Capta, cualifica y cierra clientes. ",
-      titleHighlight: "En automático con IA.",
+      eyebrow: "IA para negocios",
+      titlePre: "Automatiza tu negocio y ",
+      titleHighlight: "vende más con IA.",
       titlePost: "",
       subtitle:
-        "Consultoría de IA aplicada a ventas: diseño y monto tu sistema de captación, cualificación y cierre en Go High Level, con agentes de IA a medida.",
+        "Diseño y monto sistemas de IA para tu negocio: automatización de procesos, embudos de venta, integraciones con tu CRM y agentes a medida. Del go-to-market al producto.",
       ctaPrimary: "Solicitar diagnóstico gratuito",
       ctaSecondary: "Ver los sistemas",
       note: "30 min · Sin compromiso · Respuesta en 24 h",
-      offeringTitle: "Qué construyo",
+      offeringTitle: "Qué hago con IA",
       offering: [
-        "Sistema de cualificación de leads",
-        "Embudo de captación de clientes",
-        "Booking SDR: agendado de reuniones",
-        "Generador de propuestas automático",
-        "Automatización del proceso comercial",
-        "Implementación CRM GoHighLevel",
-        "Creación de Agentes con IA en servidor VPS",
+        "Automatización de procesos con IA",
+        "Embudos de venta (captación → cierre)",
+        "Go-to-Market Engineering",
+        "Founding Engineering (producto y MVPs)",
+        "Integraciones con tu CRM",
+        "Agentes de IA a medida",
       ],
       logosLabel: "Clientes con sistema activo",
     },
@@ -145,7 +144,7 @@ export const content = {
     },
 
     footer: {
-      tagline: "Sistemas de captación, cualificación y cierre en Go High Level.",
+      tagline: "Sistemas de IA para negocios: automatización, embudos de venta e integraciones.",
       cta: "Diagnóstico gratuito",
       links: [
         { href: "/servicios", label: "Servicios" },
@@ -155,7 +154,7 @@ export const content = {
         { href: "/blog", label: "Blog" },
         { href: "/diagnostico", label: "Diagnóstico" },
       ],
-      rights: "Automatización comercial",
+      rights: "IA para negocios",
     },
 
     servicios: {
@@ -377,24 +376,23 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "AI consulting for sales",
-      titlePre: "Capture, qualify and close clients. ",
-      titleHighlight: "On autopilot with AI.",
+      eyebrow: "AI for business",
+      titlePre: "Automate your business and ",
+      titleHighlight: "sell more with AI.",
       titlePost: "",
       subtitle:
-        "AI consulting for sales: I design and build your lead capture, qualification and closing system on Go High Level, with custom AI agents.",
+        "I design and build AI systems for your business: process automation, sales funnels, CRM integrations and custom agents. From go-to-market to product.",
       ctaPrimary: "Request a free diagnosis",
       ctaSecondary: "See the systems",
       note: "30 min · No commitment · Reply within 24 h",
-      offeringTitle: "What I build",
+      offeringTitle: "What I do with AI",
       offering: [
-        "Lead qualification system",
-        "Client acquisition funnel",
-        "SDR booking service",
-        "Automated proposal generator",
-        "Sales process automation",
-        "Go High Level CRM implementation",
-        "AI agent development on a VPS server",
+        "AI process automation",
+        "Sales funnels (capture → close)",
+        "Go-to-Market Engineering",
+        "Founding Engineering (product & MVPs)",
+        "Integrations with your CRM",
+        "Custom AI agents",
       ],
       logosLabel: "Clients with a live system",
     },
@@ -495,7 +493,7 @@ export const content = {
     },
 
     footer: {
-      tagline: "Lead capture, qualification and closing systems on Go High Level.",
+      tagline: "AI systems for business: automation, sales funnels and integrations.",
       cta: "Free diagnosis",
       links: [
         { href: "/servicios", label: "Services" },
@@ -505,7 +503,7 @@ export const content = {
         { href: "/blog", label: "Blog" },
         { href: "/diagnostico", label: "Diagnosis" },
       ],
-      rights: "Sales automation",
+      rights: "AI for business",
     },
 
     servicios: {

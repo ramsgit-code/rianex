@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
       phone: data.telefono,
       website: data.web,
       source: data.como_conociste,
-      tags,
+      tags: [...tags, "lead-completo"],
     });
 
     if (contact?.contact?.id) {

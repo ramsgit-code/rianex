@@ -18,6 +18,7 @@ export const leadFormSchema = z.object({
   presupuesto: z.string().min(1),
   email: z.string().email(),
   telefono: z.string().min(7),
+  consent: z.literal(true).optional(),
   como_conociste: z.string().min(1),
   notas: z.string().optional(),
 });

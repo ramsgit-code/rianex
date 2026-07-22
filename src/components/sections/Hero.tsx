@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import dynamic from "next/dynamic";
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import {
@@ -18,6 +19,11 @@ import { LOGOS } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { Typewriter } from "@/components/Typewriter";
 import { AgentChat } from "@/components/sections/AgentChat";
+
+const Hero3D = dynamic(
+  () => import("@/components/Hero3D").then((m) => m.Hero3D),
+  { ssr: false }
+);
 
 const clientLogos = [
   { src: LOGOS.hospitalCapilar, alt: "Hospital Capilar", h: "h-6 sm:h-9" },
@@ -104,9 +110,15 @@ export function Hero() {
             </div>
 
             <Reveal delay={0.12} className="flex justify-center">
-              <motion.div style={{ y: chatY }}>
-                <AgentChat />
-              </motion.div>
+              <div className="relative">
+                {/* objeto 3D interactivo detrás del chat (oculto en móvil) */}
+                <div className="pointer-events-none absolute -inset-x-24 -inset-y-20 z-0 hidden md:block">
+                  <Hero3D />
+                </div>
+                <motion.div style={{ y: chatY }} className="relative z-10">
+                  <AgentChat />
+                </motion.div>
+              </div>
             </Reveal>
           </div>
 

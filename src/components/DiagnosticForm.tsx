@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -64,6 +65,9 @@ export function DiagnosticForm() {
         presupuesto: z.string().min(1, f.errors.required),
         email: z.string().email(f.errors.email),
         telefono: z.string().min(7, f.errors.telefono),
+        consent: z.literal(true, {
+          errorMap: () => ({ message: f.errors.consent }),
+        }),
         como_conociste: z.string().min(1, f.errors.required),
         notas: z.string().optional(),
       }),
@@ -95,16 +99,40 @@ export function DiagnosticForm() {
   };
 
   const stepFields: Record<number, (keyof FormData)[]> = {
-    1: ["nombre", "empresa", "pais"],
-    2: ["sector", "tipo_negocio", "tamano_equipo", "volumen_leads"],
-    3: ["crm_actual", "usa_whatsapp", "tiempo_propuesta", "problema_principal"],
-    4: ["objetivo", "urgencia", "presupuesto"],
-    5: ["email", "telefono", "como_conociste"],
+    1: ["nombre", "email", "telefono", "consent"],
+    2: ["empresa", "pais", "sector"],
+    3: ["tipo_negocio", "tamano_equipo", "volumen_leads"],
+    4: ["crm_actual", "usa_whatsapp", "tiempo_propuesta", "problema_principal"],
+    5: ["objetivo", "urgencia", "presupuesto", "como_conociste"],
+  };
+
+  // Captura parcial: en cuanto el lead da contacto (paso 1) lo mandamos a GHL
+  // con etiqueta "lead-incompleto" para arrancar el nurturing aunque abandone.
+  const partialSent = useRef(false);
+  const sendPartial = () => {
+    if (partialSent.current) return;
+    partialSent.current = true;
+    const nombre = watch("nombre");
+    const email = watch("email");
+    const telefono = watch("telefono");
+    if (!email || !telefono) return;
+    // no bloqueante: si falla, el usuario sigue igual
+    fetch("/api/leads/partial", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombre, email, telefono }),
+      keepalive: true,
+    }).catch(() => {
+      partialSent.current = false;
+    });
   };
 
   const nextStep = async () => {
     const valid = await trigger(stepFields[step]);
-    if (valid) setStep((s) => Math.min(s + 1, TOTAL_STEPS));
+    if (valid) {
+      if (step === 1) sendPartial();
+      setStep((s) => Math.min(s + 1, TOTAL_STEPS));
+    }
   };
 
   const prevStep = () => setStep((s) => Math.max(s - 1, 1));
@@ -203,9 +231,40 @@ export function DiagnosticForm() {
           >
             {step === 1 && (
               <>
+                <p className="-mt-1 text-sm text-muted">{f.contactHint}</p>
                 <Field label={f.labels.nombre} error={errors.nombre?.message}>
                   <input {...register("nombre")} placeholder={f.ph.nombre} className={inputClass} />
                 </Field>
+                <Field label={f.labels.email} error={errors.email?.message}>
+                  <input {...register("email")} type="email" placeholder={f.ph.email} className={inputClass} />
+                </Field>
+                <Field label={f.labels.telefono} error={errors.telefono?.message}>
+                  <input {...register("telefono")} placeholder={f.ph.telefono} className={inputClass} />
+                </Field>
+                <div className="flex flex-col gap-1.5">
+                  <label className="flex items-start gap-2.5 text-sm text-foreground-muted">
+                    <input
+                      type="checkbox"
+                      {...register("consent")}
+                      className="mt-0.5 h-4 w-4 shrink-0 accent-accent"
+                    />
+                    <span>
+                      {f.consentPre}
+                      <Link href="/privacidad" target="_blank" className="text-accent underline underline-offset-2">
+                        {f.consentLink}
+                      </Link>
+                      {f.consentPost}
+                    </span>
+                  </label>
+                  {errors.consent && (
+                    <p className="text-xs text-red-400">{errors.consent.message}</p>
+                  )}
+                </div>
+              </>
+            )}
+
+            {step === 2 && (
+              <>
                 <Field label={f.labels.empresa} error={errors.empresa?.message}>
                   <input {...register("empresa")} placeholder={f.ph.empresa} className={inputClass} />
                 </Field>
@@ -215,14 +274,14 @@ export function DiagnosticForm() {
                 <Field label={f.labels.pais} error={errors.pais?.message}>
                   <input {...register("pais")} placeholder={f.ph.pais} className={inputClass} />
                 </Field>
-              </>
-            )}
-
-            {step === 2 && (
-              <>
                 <Field label={f.labels.sector} error={errors.sector?.message}>
                   <Select name="sector" options={f.opts.sector} />
                 </Field>
+              </>
+            )}
+
+            {step === 3 && (
+              <>
                 <Field label={f.labels.tipoNegocio} error={errors.tipo_negocio?.message}>
                   <Select name="tipo_negocio" options={f.opts.tipoNegocio} />
                 </Field>
@@ -235,7 +294,7 @@ export function DiagnosticForm() {
               </>
             )}
 
-            {step === 3 && (
+            {step === 4 && (
               <>
                 <Field label={f.labels.crmActual} error={errors.crm_actual?.message}>
                   <Select name="crm_actual" options={f.opts.crmActual} />
@@ -257,7 +316,7 @@ export function DiagnosticForm() {
               </>
             )}
 
-            {step === 4 && (
+            {step === 5 && (
               <>
                 <Field label={f.labels.objetivo} error={errors.objetivo?.message}>
                   <div className="grid grid-cols-1 gap-2">
@@ -282,17 +341,6 @@ export function DiagnosticForm() {
                 </Field>
                 <Field label={f.labels.presupuesto} error={errors.presupuesto?.message}>
                   <Select name="presupuesto" options={f.opts.presupuesto} />
-                </Field>
-              </>
-            )}
-
-            {step === 5 && (
-              <>
-                <Field label={f.labels.email} error={errors.email?.message}>
-                  <input {...register("email")} type="email" placeholder={f.ph.email} className={inputClass} />
-                </Field>
-                <Field label={f.labels.telefono} error={errors.telefono?.message}>
-                  <input {...register("telefono")} placeholder={f.ph.telefono} className={inputClass} />
                 </Field>
                 <Field label={f.labels.comoConociste} error={errors.como_conociste?.message}>
                   <Select name="como_conociste" options={f.opts.comoConociste} />
