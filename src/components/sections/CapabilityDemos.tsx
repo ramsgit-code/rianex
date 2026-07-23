@@ -1,14 +1,44 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Workflow, Boxes, Rocket, Database, Server, Cpu } from "lucide-react";
+import {
+  Zap,
+  Bot as BotIcon,
+  MessageCircle,
+  Database,
+  Server,
+  Cpu,
+  Mail,
+  Plug,
+  TrendingUp,
+} from "lucide-react";
 import { AgentChat } from "@/components/sections/AgentChat";
 import { useLang } from "@/components/LanguageProvider";
 
-// Marco común de los ejemplos: tarjeta con fondo de rejilla y glow, tamaño estable.
+const ACCENT = "#e8ff00";
+
+// Contador que sube de 0 a `to` con easing (sin dependencias).
+function Counter({ to, duration = 1400 }: { to: number; duration?: number }) {
+  const [v, setV] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / duration);
+      setV(Math.round(to * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [to, duration]);
+  return <>{v.toLocaleString()}</>;
+}
+
+// Marco común: tarjeta con rejilla + glow, tamaño estable.
 function Frame({ children, caption }: { children: React.ReactNode; caption?: string }) {
   return (
-    <div className="card relative flex h-[360px] w-full max-w-sm flex-col items-center justify-center overflow-hidden">
+    <div className="card relative flex h-[280px] w-full max-w-sm flex-col items-center justify-center overflow-hidden sm:h-[360px]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(232,255,0,0.08),transparent_55%)]" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.04]"
@@ -18,9 +48,7 @@ function Frame({ children, caption }: { children: React.ReactNode; caption?: str
           backgroundSize: "26px 26px",
         }}
       />
-      <div className="relative flex flex-1 items-center justify-center px-6">
-        {children}
-      </div>
+      <div className="relative flex flex-1 items-center justify-center px-4 sm:px-6">{children}</div>
       {caption && (
         <p className="relative w-full border-t border-white/[0.06] px-5 py-3 text-center text-xs text-muted">
           {caption}
@@ -30,30 +58,180 @@ function Frame({ children, caption }: { children: React.ReactNode; caption?: str
   );
 }
 
-// 1 · Automatización de procesos — nodos con un pulso que viaja por el flujo
-function Automation({ caption }: { caption: string }) {
-  const icons = [Workflow, Boxes, Rocket];
+function FlowPath({ d, delay = 0 }: { d: string; delay?: number }) {
+  return (
+    <>
+      <path d={d} fill="none" stroke="rgba(255,255,255,0.10)" strokeWidth={2} />
+      <motion.path
+        d={d}
+        fill="none"
+        stroke={ACCENT}
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeDasharray="5 12"
+        animate={{ strokeDashoffset: [0, -34] }}
+        transition={{ duration: 1.1, repeat: Infinity, ease: "linear", delay }}
+      />
+    </>
+  );
+}
+
+// 1 · Automatización — canvas de flujo ramificado con datos moviéndose
+function Automation({ caption, labels }: { caption: string; labels: string[] }) {
+  const nodes = [
+    { x: 6, y: 56, Icon: Zap, label: labels[0] },
+    { x: 104, y: 6, Icon: BotIcon, label: labels[1] },
+    { x: 104, y: 106, Icon: MessageCircle, label: labels[2] },
+    { x: 202, y: 56, Icon: Database, label: labels[3] },
+  ];
+  return (
+    <Frame caption={caption}>
+      <div className="relative h-40 w-[248px]" style={{ transform: "perspective(900px) rotateX(10deg)" }}>
+        <svg viewBox="0 0 248 160" className="absolute inset-0 h-full w-full">
+          <FlowPath d="M34 78 Q 80 52 128 30" delay={0} />
+          <FlowPath d="M34 78 Q 80 104 128 130" delay={0.2} />
+          <FlowPath d="M128 30 Q 176 52 222 78" delay={0.45} />
+          <FlowPath d="M128 130 Q 176 104 222 78" delay={0.65} />
+        </svg>
+        {nodes.map((n, i) => (
+          <motion.div
+            key={i}
+            className="absolute flex w-14 flex-col items-center gap-1"
+            style={{ left: n.x, top: n.y }}
+            animate={{ scale: [1, 1.08, 1] }}
+            transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-accent/30 bg-background text-accent shadow-[0_0_16px_-6px_#e8ff00]">
+              <n.Icon size={17} />
+            </span>
+            <span className="text-[10px] text-foreground-muted">{n.label}</span>
+          </motion.div>
+        ))}
+      </div>
+    </Frame>
+  );
+}
+
+// 2 · Embudos — embudo de 4 etapas con contadores reales y % de conversión
+function Funnel({
+  caption,
+  stages,
+}: {
+  caption: string;
+  stages: { label: string; n: number; w: string }[];
+}) {
   return (
     <Frame caption={caption}>
       <div
-        className="relative mx-auto h-16 w-[248px]"
-        style={{ transform: "perspective(700px) rotateX(12deg)" }}
+        className="flex w-full max-w-[280px] flex-col items-center gap-1.5"
+        style={{ transform: "perspective(900px) rotateX(8deg)" }}
       >
-        <div className="absolute left-8 right-8 top-1/2 h-[2px] -translate-y-1/2 bg-white/10" />
-        <motion.div
-          className="absolute top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_#e8ff00]"
-          animate={{ left: [18, 228] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <div className="absolute inset-0 flex items-center justify-between">
-          {icons.map((Icon, i) => (
-            <motion.span
+        {stages.map((s, i) => (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.18 }}
+            className={`${s.w} flex items-center justify-between rounded-lg border border-accent/25 bg-gradient-to-r from-accent/[0.04] to-accent/[0.12] px-3 py-2`}
+          >
+            <span className="text-[11px] font-medium text-foreground">{s.label}</span>
+            <span className="font-display text-sm font-bold text-accent">
+              <Counter to={s.n} duration={1200 + i * 250} />
+            </span>
+          </motion.div>
+        ))}
+      </div>
+    </Frame>
+  );
+}
+
+// 3 · Go-to-Market — barras + línea de crecimiento SVG + KPI
+function Growth({ caption, kpi }: { caption: string; kpi: string }) {
+  const bars = [30, 42, 38, 58, 74, 92];
+  return (
+    <Frame caption={caption}>
+      <div className="relative" style={{ transform: "perspective(900px) rotateX(10deg)" }}>
+        <div className="flex h-32 items-end gap-2">
+          {bars.map((h, i) => (
+            <motion.div
               key={i}
-              className="flex h-12 w-12 items-center justify-center rounded-xl border border-accent/30 bg-background text-accent"
-              animate={{ scale: [1, 1.15, 1] }}
-              transition={{ duration: 2, repeat: Infinity, delay: i * 0.65 }}
+              className="w-6 rounded-t-md bg-gradient-to-t from-accent/20 to-accent/70"
+              initial={{ height: 6 }}
+              animate={{ height: (h / 100) * 128 }}
+              transition={{ duration: 1, delay: i * 0.12, ease: "easeOut" }}
+            />
+          ))}
+        </div>
+        <svg viewBox="0 0 200 128" className="absolute inset-0 h-32 w-full overflow-visible">
+          <motion.path
+            d="M6 112 L40 96 L74 100 L108 74 L142 60 L184 20"
+            fill="none"
+            stroke={ACCENT}
+            strokeWidth={2.5}
+            strokeLinecap="round"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 1.6, ease: "easeInOut" }}
+          />
+          <motion.circle
+            cx={184}
+            cy={20}
+            r={4}
+            fill={ACCENT}
+            initial={{ scale: 0 }}
+            animate={{ scale: [0, 1.4, 1] }}
+            transition={{ delay: 1.6, duration: 0.5 }}
+          />
+        </svg>
+        <motion.div
+          className="absolute -right-2 -top-3 flex items-center gap-1 rounded-full border border-accent/40 bg-background px-2.5 py-1 text-xs font-bold text-accent"
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.7 }}
+        >
+          <TrendingUp size={13} /> {kpi}
+        </motion.div>
+      </div>
+    </Frame>
+  );
+}
+
+// 4 · Founding Engineering — torre isométrica que se ensambla por capas
+function Blocks({ caption, layers }: { caption: string; layers: string[] }) {
+  return (
+    <Frame caption={caption}>
+      <div className="relative" style={{ transformStyle: "preserve-3d" }}>
+        <div style={{ transform: "rotateX(58deg) rotateZ(45deg)", transformStyle: "preserve-3d" }}>
+          {layers.map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute h-16 w-16 rounded-md border border-accent/40 bg-accent/[0.12]"
+              style={{
+                left: -32,
+                top: -32,
+                boxShadow: "0 6px 0 rgba(232,255,0,0.15)",
+                transform: `translateZ(${i * 16}px)`,
+              }}
+              animate={{ opacity: [0, 1, 1, 0], y: [-24, 0, 0, -24] }}
+              transition={{
+                duration: 3.6,
+                repeat: Infinity,
+                delay: i * 0.5,
+                times: [0, 0.2, 0.85, 1],
+              }}
+            />
+          ))}
+        </div>
+        <div className="absolute left-24 top-1/2 flex -translate-y-1/2 flex-col gap-2">
+          {layers.map((l, i) => (
+            <motion.span
+              key={l}
+              className="text-[11px] text-foreground-muted"
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 3.6, repeat: Infinity, delay: i * 0.5 }}
             >
-              <Icon size={18} />
+              <span className="mr-1.5 text-accent">▸</span>
+              {l}
             </motion.span>
           ))}
         </div>
@@ -62,118 +240,69 @@ function Automation({ caption }: { caption: string }) {
   );
 }
 
-// 2 · Embudos de venta — leads cayendo por un embudo de 3 etapas
-function Funnel({ caption, stages }: { caption: string; stages: string[] }) {
-  const widths = ["w-52", "w-40", "w-28"];
-  return (
-    <Frame caption={caption}>
-      <div
-        className="relative flex flex-col items-center gap-2"
-        style={{ transform: "perspective(800px) rotateX(14deg)" }}
-      >
-        {[0, 1, 2].map((i) => (
-          <motion.div
-            key={i}
-            className={`${widths[i]} rounded-lg border border-accent/25 bg-accent/[0.07] py-2 text-center text-[11px] font-medium text-foreground`}
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.4 }}
-          >
-            {stages[i]}
-          </motion.div>
-        ))}
-        {[0, 1, 2].map((i) => (
-          <motion.span
-            key={`d${i}`}
-            className="absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-accent shadow-[0_0_10px_#e8ff00]"
-            style={{ top: 0 }}
-            animate={{ y: [0, 96], opacity: [0, 1, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity, delay: i * 0.5, ease: "easeIn" }}
-          />
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
-// 3 · Go-to-Market — barras que crecen + curva de crecimiento
-function Growth({ caption }: { caption: string }) {
-  const bars = [40, 55, 48, 72, 90];
-  return (
-    <Frame caption={caption}>
-      <div
-        className="flex h-32 items-end gap-2.5"
-        style={{ transform: "perspective(800px) rotateX(10deg)" }}
-      >
-        {bars.map((h, i) => (
-          <motion.div
-            key={i}
-            className="w-7 rounded-t-md bg-gradient-to-t from-accent/30 to-accent"
-            initial={{ height: 8 }}
-            animate={{ height: [8, (h / 100) * 128, (h / 100) * 128] }}
-            transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.18, ease: "easeOut" }}
-          />
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
-// 4 · Founding Engineering — bloques que se ensamblan (isométrico)
-function Blocks({ caption }: { caption: string }) {
-  return (
-    <Frame caption={caption}>
-      <div
-        className="relative h-28 w-28"
-        style={{ transform: "rotateX(55deg) rotateZ(45deg)", transformStyle: "preserve-3d" }}
-      >
-        {[0, 1, 2, 3].map((i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-md border border-accent/40 bg-accent/[0.12]"
-            style={{
-              width: 48,
-              height: 48,
-              left: (i % 2) * 44,
-              top: Math.floor(i / 2) * 44,
-            }}
-            animate={{ opacity: [0, 1, 1, 0], scale: [0.6, 1, 1, 0.6] }}
-            transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 }}
-          />
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
-// 5 · Integraciones CRM — hub central con satélites conectados
-function Integrations({ caption }: { caption: string }) {
+// 5 · Integraciones — hub central con 6 sistemas y datos fluyendo
+function Integrations({ caption, hub }: { caption: string; hub: string }) {
   const sats = [
-    { label: "CRM", Icon: Database, pos: "left-0 top-2" },
-    { label: "ERP", Icon: Server, pos: "right-0 top-2" },
-    { label: "MES", Icon: Cpu, pos: "left-0 bottom-2" },
-    { label: "API", Icon: Workflow, pos: "right-0 bottom-2" },
+    { label: "CRM", Icon: Database },
+    { label: "ERP", Icon: Server },
+    { label: "MES", Icon: Cpu },
+    { label: "API", Icon: Plug },
+    { label: "Email", Icon: Mail },
+    { label: "Chat", Icon: MessageCircle },
   ];
+  const R = 92;
+  const cx = 140;
+  const cy = 84;
   return (
     <Frame caption={caption}>
-      <div className="relative h-40 w-56" style={{ transform: "perspective(800px) rotateX(8deg)" }}>
+      <div className="relative h-[168px] w-[280px]" style={{ transform: "perspective(900px) rotateX(8deg)" }}>
+        <svg viewBox="0 0 280 168" className="absolute inset-0 h-full w-full">
+          <motion.circle
+            cx={cx}
+            cy={cy}
+            r={R}
+            fill="none"
+            stroke="rgba(255,255,255,0.06)"
+            strokeWidth={1}
+            strokeDasharray="3 6"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
+            style={{ transformOrigin: `${cx}px ${cy}px` }}
+          />
+          {sats.map((_, i) => {
+            const a = (i / sats.length) * Math.PI * 2 - Math.PI / 2;
+            const x = cx + Math.cos(a) * R;
+            const y = cy + Math.sin(a) * R;
+            return <FlowPath key={i} d={`M${x} ${y} L${cx} ${cy}`} delay={i * 0.15} />;
+          })}
+        </svg>
+
         <motion.div
-          className="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-accent/40 bg-accent/[0.1] text-xs font-semibold text-accent"
-          animate={{ boxShadow: ["0 0 0 rgba(232,255,0,0)", "0 0 26px rgba(232,255,0,0.4)", "0 0 0 rgba(232,255,0,0)"] }}
+          className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/50 bg-accent/[0.1] text-xs font-bold text-accent"
+          style={{ left: cx - 32, top: cy - 32 }}
+          animate={{ boxShadow: ["0 0 0 rgba(232,255,0,0)", "0 0 28px rgba(232,255,0,0.45)", "0 0 0 rgba(232,255,0,0)"] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          Rianex
+          {hub}
         </motion.div>
-        {sats.map((s, i) => (
-          <motion.div
-            key={s.label}
-            className={`absolute ${s.pos} flex items-center gap-1.5 rounded-lg border border-white/10 bg-background/80 px-2 py-1 text-[11px] text-foreground-muted`}
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
-          >
-            <s.Icon size={13} className="text-accent" />
-            {s.label}
-          </motion.div>
-        ))}
+
+        {sats.map((s, i) => {
+          const a = (i / sats.length) * Math.PI * 2 - Math.PI / 2;
+          const x = cx + Math.cos(a) * R;
+          const y = cy + Math.sin(a) * R;
+          return (
+            <motion.div
+              key={s.label}
+              className="absolute flex items-center gap-1 rounded-lg border border-white/10 bg-background/90 px-2 py-1 text-[10px] text-foreground-muted"
+              style={{ left: x - 24, top: y - 12 }}
+              animate={{ opacity: [0.45, 1, 0.45], scale: [1, 1.06, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: i * 0.25 }}
+            >
+              <s.Icon size={12} className="text-accent" />
+              {s.label}
+            </motion.div>
+          );
+        })}
       </div>
     </Frame>
   );
@@ -185,27 +314,61 @@ export function CapabilityDemo({ index }: { index: number }) {
 
   switch (index) {
     case 0:
-      return <Automation caption={en ? "Automated flow · no manual work" : "Flujo automatizado · sin intervención"} />;
+      return (
+        <Automation
+          caption={en ? "Automated flow · no manual work" : "Flujo automatizado · sin intervención"}
+          labels={
+            en
+              ? ["Lead", "AI", "Chat", "CRM"]
+              : ["Lead", "IA", "Chat", "CRM"]
+          }
+        />
+      );
     case 1:
       return (
         <Funnel
-          caption={en ? "Capture → qualify → close" : "Captación → cualificación → cierre"}
+          caption={en ? "From lead to client" : "Del lead al cliente"}
           stages={
             en
-              ? ["Capture", "Qualification", "Close"]
-              : ["Captación", "Cualificación", "Cierre"]
+              ? [
+                  { label: "Leads", n: 1000, w: "w-full" },
+                  { label: "Qualified", n: 640, w: "w-4/5" },
+                  { label: "Meetings", n: 180, w: "w-3/5" },
+                  { label: "Clients", n: 42, w: "w-2/5" },
+                ]
+              : [
+                  { label: "Leads", n: 1000, w: "w-full" },
+                  { label: "Cualificados", n: 640, w: "w-4/5" },
+                  { label: "Citas", n: 180, w: "w-3/5" },
+                  { label: "Clientes", n: 42, w: "w-2/5" },
+                ]
           }
         />
       );
     case 2:
-      return <Growth caption={en ? "Launch and scale your sales" : "Lanza y escala tu venta"} />;
+      return (
+        <Growth
+          caption={en ? "Launch and scale your sales" : "Lanza y escala tu venta"}
+          kpi={en ? "+320% sales" : "+320% ventas"}
+        />
+      );
     case 3:
-      return <Blocks caption={en ? "From MVP to production" : "Del MVP a producción"} />;
+      return (
+        <Blocks
+          caption={en ? "From MVP to production" : "Del MVP a producción"}
+          layers={en ? ["Data", "Logic", "API", "Product"] : ["Datos", "Lógica", "API", "Producto"]}
+        />
+      );
     case 4:
-      return <Integrations caption={en ? "Your systems, connected" : "Tus sistemas, conectados"} />;
+      return (
+        <Integrations
+          caption={en ? "Your systems, connected" : "Tus sistemas, conectados"}
+          hub="Rianex"
+        />
+      );
     case 5:
       return <AgentChat />;
     default:
-      return <Automation caption={en ? "Automated flow" : "Flujo automatizado"} />;
+      return <Automation caption="" labels={["Lead", "IA", "Chat", "CRM"]} />;
   }
 }

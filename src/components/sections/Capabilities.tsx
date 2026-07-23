@@ -92,7 +92,7 @@ export function Capabilities() {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                           >
-                            <div className="flex justify-center pt-4">
+                            <div className="mx-auto flex max-w-[300px] origin-top scale-[0.92] justify-center pt-3">
                               <CapabilityDemo index={i} />
                             </div>
                           </motion.div>
