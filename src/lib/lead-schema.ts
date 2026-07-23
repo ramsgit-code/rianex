@@ -16,7 +16,7 @@ export const leadFormSchema = z.object({
   objetivo: z.array(z.string()).min(1),
   urgencia: z.string().min(1),
   presupuesto: z.string().min(1),
-  email: z.string().email(),
+  email: z.string().email().transform((v) => v.trim().toLowerCase()),
   telefono: z.string().min(7),
   consent: z.literal(true).optional(),
   como_conociste: z.string().min(1),

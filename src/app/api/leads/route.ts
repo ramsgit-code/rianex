@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { calculateScore, getTier, getTags } from "@/lib/lead-scoring";
-import { createOrUpdateContact, updateContact, createOpportunity, buildCustomFields } from "@/lib/ghl";
+import { upsertContact, removeContactTags, createOpportunity, buildCustomFields } from "@/lib/ghl";
 import { leadFormSchema } from "@/lib/lead-schema";
 import { prisma } from "@/lib/prisma";
 
@@ -62,7 +62,9 @@ export async function POST(req: NextRequest) {
     const [firstName, ...rest] = data.nombre.split(" ");
     const lastName = rest.join(" ");
 
-    const contact = await createOrUpdateContact({
+    // Upsert: actualiza el MISMO contacto creado en la captura parcial
+    // (match por email/teléfono), sin crear duplicados, y fija "lead-completo".
+    const contact = await upsertContact({
       firstName,
       lastName,
       email: data.email,
@@ -76,23 +78,14 @@ export async function POST(req: NextRequest) {
       const contactId: string = contact.contact.id;
       ghlContactId = contactId;
 
-      // Formulario completo: refrescamos la info GENERAL del contacto (por si
-      // ya existía desde la captura parcial) y fijamos el tag "lead-completo",
-      // reemplazando "lead-incompleto".
-      await updateContact(contactId, {
-        firstName,
-        lastName,
-        email: data.email,
-        phone: data.telefono,
-        website: data.web,
-        tags: [...tags, "lead-completo"],
-      });
+      // Quitamos el tag "lead-incompleto" ahora que el formulario está completo.
+      await removeContactTags(contactId, ["lead-incompleto"]).catch(() => {});
 
       await createOpportunity({
         name: `${data.nombre} — ${data.empresa}`,
         pipelineId: process.env.GHL_PIPELINE_ID!,
         pipelineStageId: process.env.GHL_STAGE_NUEVO_LEAD!,
-        contactId: contact.contact.id,
+        contactId,
         status: "open",
         customFields: buildCustomFields(enriched),
       });

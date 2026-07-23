@@ -69,6 +69,38 @@ async function ghlFetch(path: string, options: RequestInit) {
   return JSON.parse(body);
 }
 
+// Upsert: crea o ACTUALIZA el contacto haciendo match por email/teléfono.
+// Evita duplicados aunque el contacto ya exista (p. ej. de la captura parcial).
+export async function upsertContact(payload: GHLContactPayload) {
+  if (!GHL_API_KEY || !GHL_LOCATION_ID) {
+    throw new Error("GHL env vars missing: GHL_API_KEY or GHL_LOCATION_ID not set");
+  }
+
+  const res = await fetch(`${GHL_BASE_URL}/contacts/upsert`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${GHL_API_KEY}`,
+      "Content-Type": "application/json",
+      Version: "2021-07-28",
+    },
+    body: JSON.stringify({ locationId: GHL_LOCATION_ID, ...payload }),
+  });
+
+  const body = await res.text();
+  if (!res.ok) {
+    throw new Error(`GHL ${res.status} /contacts/upsert: ${body}`);
+  }
+  return JSON.parse(body);
+}
+
+// Quita tags de un contacto (p. ej. "lead-incompleto" al completar el form).
+export async function removeContactTags(contactId: string, tags: string[]) {
+  return ghlFetch(`/contacts/${contactId}/tags`, {
+    method: "DELETE",
+    body: JSON.stringify({ tags }),
+  });
+}
+
 // Contact: creates or returns existing if email already in GHL
 export async function createOrUpdateContact(payload: GHLContactPayload) {
   if (!GHL_API_KEY || !GHL_LOCATION_ID) {

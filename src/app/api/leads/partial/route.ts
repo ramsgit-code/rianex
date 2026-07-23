@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { createOrUpdateContact } from "@/lib/ghl";
+import { upsertContact } from "@/lib/ghl";
 
 // Captura parcial de contacto (paso 1 del formulario) para arrancar el
 // nurturing en GHL aunque el lead no termine el diagnóstico.
 const partialSchema = z.object({
   nombre: z.string().optional(),
-  email: z.string().email(),
+  email: z.string().email().transform((v) => v.trim().toLowerCase()),
   telefono: z.string().min(7),
 });
 
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
   const lastName = rest.join(" ");
 
   try {
-    await createOrUpdateContact({
+    await upsertContact({
       firstName: firstName || "Lead",
       lastName,
       email,
