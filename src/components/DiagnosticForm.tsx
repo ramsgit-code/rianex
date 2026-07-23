@@ -120,7 +120,7 @@ export function DiagnosticForm() {
     fetch("/api/leads/partial", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, email, telefono }),
+      body: JSON.stringify({ nombre, email: email.trim().toLowerCase(), telefono }),
       keepalive: true,
     }).catch(() => {
       partialSent.current = false;
@@ -138,6 +138,9 @@ export function DiagnosticForm() {
   const prevStep = () => setStep((s) => Math.max(s - 1, 1));
 
   const onSubmit = async (data: FormData) => {
+    // normalizamos email y web siempre en minúsculas
+    data.email = data.email.trim().toLowerCase();
+    if (data.web) data.web = data.web.trim().toLowerCase();
     setLoading(true);
     setSubmitError("");
     try {
@@ -236,7 +239,17 @@ export function DiagnosticForm() {
                   <input {...register("nombre")} placeholder={f.ph.nombre} className={inputClass} />
                 </Field>
                 <Field label={f.labels.email} error={errors.email?.message}>
-                  <input {...register("email")} type="email" placeholder={f.ph.email} className={inputClass} />
+                  <input
+                    {...register("email")}
+                    type="email"
+                    inputMode="email"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck={false}
+                    autoComplete="email"
+                    placeholder={f.ph.email}
+                    className={inputClass}
+                  />
                 </Field>
                 <Field label={f.labels.telefono} error={errors.telefono?.message}>
                   <input {...register("telefono")} placeholder={f.ph.telefono} className={inputClass} />
@@ -269,7 +282,15 @@ export function DiagnosticForm() {
                   <input {...register("empresa")} placeholder={f.ph.empresa} className={inputClass} />
                 </Field>
                 <Field label={f.labels.web}>
-                  <input {...register("web")} placeholder={f.ph.web} className={inputClass} />
+                  <input
+                    {...register("web")}
+                    inputMode="url"
+                    autoCapitalize="none"
+                    autoCorrect="off"
+                    spellCheck={false}
+                    placeholder={f.ph.web}
+                    className={inputClass}
+                  />
                 </Field>
                 <Field label={f.labels.pais} error={errors.pais?.message}>
                   <input {...register("pais")} placeholder={f.ph.pais} className={inputClass} />

@@ -99,6 +99,19 @@ export async function createOrUpdateContact(payload: GHLContactPayload) {
   return json;
 }
 
+// Update contact general info (name, phone, website, tags).
+// Se usa al completar el formulario para refrescar los datos del contacto
+// creado en la captura parcial y sustituir el tag "lead-incompleto".
+export async function updateContact(
+  contactId: string,
+  payload: Partial<GHLContactPayload>
+) {
+  return ghlFetch(`/contacts/${contactId}`, {
+    method: "PUT",
+    body: JSON.stringify(payload),
+  });
+}
+
 // Opportunity: includes all form fields as custom fields
 export async function createOpportunity(payload: GHLOpportunityPayload) {
   return ghlFetch("/opportunities/", {
