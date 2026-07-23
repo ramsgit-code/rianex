@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import {
-  Zap,
-  Bot as BotIcon,
+  Mail,
+  Send,
+  Sparkles,
+  Check,
   MessageCircle,
   Database,
   Server,
   Cpu,
-  Mail,
   Plug,
   TrendingUp,
 } from "lucide-react";
@@ -76,37 +77,69 @@ function FlowPath({ d, delay = 0 }: { d: string; delay?: number }) {
   );
 }
 
-// 1 · Automatización — canvas de flujo ramificado con datos moviéndose
+// 1 · Automatización — correo entra → IA redacta propuesta → correo la envía
 function Automation({ caption, labels }: { caption: string; labels: string[] }) {
-  const nodes = [
-    { x: 6, y: 56, Icon: Zap, label: labels[0] },
-    { x: 104, y: 6, Icon: BotIcon, label: labels[1] },
-    { x: 104, y: 106, Icon: MessageCircle, label: labels[2] },
-    { x: 202, y: 56, Icon: Database, label: labels[3] },
-  ];
   return (
     <Frame caption={caption}>
-      <div className="relative h-40 w-[248px]" style={{ transform: "perspective(900px) rotateX(10deg)" }}>
-        <svg viewBox="0 0 248 160" className="absolute inset-0 h-full w-full">
-          <FlowPath d="M34 78 Q 80 52 128 30" delay={0} />
-          <FlowPath d="M34 78 Q 80 104 128 130" delay={0.2} />
-          <FlowPath d="M128 30 Q 176 52 222 78" delay={0.45} />
-          <FlowPath d="M128 130 Q 176 104 222 78" delay={0.65} />
-        </svg>
-        {nodes.map((n, i) => (
-          <motion.div
-            key={i}
-            className="absolute flex w-14 flex-col items-center gap-1"
-            style={{ left: n.x, top: n.y }}
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ duration: 2, repeat: Infinity, delay: i * 0.5 }}
-          >
-            <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-accent/30 bg-background text-accent shadow-[0_0_16px_-6px_#e8ff00]">
-              <n.Icon size={17} />
+      <div className="relative w-[256px] lg:[transform:perspective(900px)_rotateX(10deg)]">
+        {/* línea de flujo + pulso viajando */}
+        <div className="absolute left-9 right-9 top-[26px] h-[2px] bg-white/10" />
+        <motion.div
+          className="absolute top-[26px] z-20 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_#e8ff00]"
+          animate={{ left: [26, 224] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <div className="relative flex items-start justify-between">
+          {/* 1 · correo entra */}
+          <div className="flex w-16 flex-col items-center gap-1.5">
+            <span className="flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent shadow-[0_0_16px_-6px_#e8ff00]">
+              <Mail size={20} />
             </span>
-            <span className="text-[10px] text-foreground-muted">{n.label}</span>
-          </motion.div>
-        ))}
+            <span className="text-center text-[10px] leading-tight text-foreground-muted">
+              {labels[0]}
+            </span>
+          </div>
+
+          {/* 2 · IA redacta la propuesta */}
+          <div className="flex flex-col items-center gap-1.5">
+            <div className="relative w-[54px] rounded-lg border border-accent/40 bg-background p-2">
+              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-accent/40 bg-background text-accent">
+                <Sparkles size={11} />
+              </span>
+              <span className="mb-1.5 block h-1.5 w-7 rounded bg-white/25" />
+              {[0, 1, 2].map((i) => (
+                <motion.span
+                  key={i}
+                  className="mb-1 block h-1 rounded bg-accent/60"
+                  initial={{ width: 0 }}
+                  animate={{ width: ["0%", "100%", "100%", "0%"] }}
+                  transition={{ duration: 2.6, repeat: Infinity, delay: i * 0.3, times: [0, 0.3, 0.85, 1] }}
+                />
+              ))}
+            </div>
+            <span className="text-center text-[10px] leading-tight text-foreground-muted">
+              {labels[1]}
+            </span>
+          </div>
+
+          {/* 3 · correo envía la propuesta */}
+          <div className="flex w-16 flex-col items-center gap-1.5">
+            <span className="relative flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent shadow-[0_0_16px_-6px_#e8ff00]">
+              <Send size={19} />
+              <motion.span
+                className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-background"
+                animate={{ scale: [0, 0, 1, 1, 0], opacity: [0, 0, 1, 1, 0] }}
+                transition={{ duration: 2.4, repeat: Infinity, times: [0, 0.75, 0.85, 0.96, 1] }}
+              >
+                <Check size={10} strokeWidth={3} />
+              </motion.span>
+            </span>
+            <span className="text-center text-[10px] leading-tight text-foreground-muted">
+              {labels[2]}
+            </span>
+          </div>
+        </div>
       </div>
     </Frame>
   );
@@ -122,10 +155,7 @@ function Funnel({
 }) {
   return (
     <Frame caption={caption}>
-      <div
-        className="flex w-full max-w-[280px] flex-col items-center gap-1.5"
-        style={{ transform: "perspective(900px) rotateX(8deg)" }}
-      >
+      <div className="flex w-full max-w-[280px] flex-col items-center gap-1.5 lg:[transform:perspective(900px)_rotateX(8deg)]">
         {stages.map((s, i) => (
           <motion.div
             key={s.label}
@@ -150,7 +180,7 @@ function Growth({ caption, kpi }: { caption: string; kpi: string }) {
   const bars = [30, 42, 38, 58, 74, 92];
   return (
     <Frame caption={caption}>
-      <div className="relative" style={{ transform: "perspective(900px) rotateX(10deg)" }}>
+      <div className="relative lg:[transform:perspective(900px)_rotateX(10deg)]">
         <div className="flex h-32 items-end gap-2">
           {bars.map((h, i) => (
             <motion.div
@@ -214,8 +244,7 @@ function ProductBuild({
   return (
     <Frame caption={caption}>
       <div
-        className="relative w-[236px]"
-        style={{ transform: "perspective(1100px) rotateY(-13deg) rotateX(6deg)" }}
+        className="relative w-[236px] lg:[transform:perspective(1100px)_rotateY(-13deg)_rotateX(6deg)]"
       >
         <div className="overflow-hidden rounded-xl border border-white/[0.12] bg-[#0c0c0e] shadow-2xl">
           {/* chrome del navegador */}
@@ -285,7 +314,7 @@ function Integrations({ caption, hub }: { caption: string; hub: string }) {
   const cy = 84;
   return (
     <Frame caption={caption}>
-      <div className="relative h-[168px] w-[280px]" style={{ transform: "perspective(900px) rotateX(8deg)" }}>
+      <div className="relative h-[168px] w-[280px] lg:[transform:perspective(900px)_rotateX(8deg)]">
         <svg viewBox="0 0 280 168" className="absolute inset-0 h-full w-full">
           <motion.circle
             cx={cx}
@@ -346,11 +375,11 @@ export function CapabilityDemo({ index }: { index: number }) {
     case 0:
       return (
         <Automation
-          caption={en ? "Automated flow · no manual work" : "Flujo automatizado · sin intervención"}
+          caption={en ? "From email to sent proposal" : "Del correo a la propuesta enviada"}
           labels={
             en
-              ? ["Lead", "AI", "Chat", "CRM"]
-              : ["Lead", "IA", "Chat", "CRM"]
+              ? ["Email in", "AI drafts", "Sent"]
+              : ["Correo", "IA redacta", "Enviada"]
           }
         />
       );
