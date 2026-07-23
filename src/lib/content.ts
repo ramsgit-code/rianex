@@ -53,6 +53,7 @@ export const content = {
       subtitle: "Sistemas de IA de punta a punta: del primer lead al producto.",
       chatLabel: "Ejemplo en vivo",
       kpiLabel: "Resultados",
+      scrollHint: "Ver más servicios",
       items: [
         {
           title: "Automatización de procesos con IA",
@@ -493,6 +494,7 @@ export const content = {
       subtitle: "End-to-end AI systems: from the first lead to the product.",
       chatLabel: "Live example",
       kpiLabel: "Results",
+      scrollHint: "See more services",
       items: [
         {
           title: "AI process automation",
