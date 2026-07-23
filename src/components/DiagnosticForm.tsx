@@ -44,6 +44,13 @@ export function DiagnosticForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  // datos para prellenar el formulario del calendario de GHL tras enviar
+  const [booking, setBooking] = useState<{
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+  } | null>(null);
 
   const schema = useMemo(
     () =>
@@ -154,6 +161,13 @@ export function DiagnosticForm() {
         setSubmitError(err.error ?? f.errors.sendFail);
         return;
       }
+      const [bFirst, ...bRest] = data.nombre.trim().split(" ");
+      setBooking({
+        firstName: bFirst,
+        lastName: bRest.join(" "),
+        email: data.email,
+        phone: data.telefono,
+      });
       setSubmitted(true);
     } catch {
       setSubmitError(f.errors.connFail);
@@ -179,6 +193,20 @@ export function DiagnosticForm() {
     </select>
   );
 
+  // Enlace al calendario de GHL con los datos del lead como parámetros,
+  // para que su formulario de reserva salga ya prellenado (solo confirmar).
+  const buildCalendarUrl = () => {
+    const base = process.env.NEXT_PUBLIC_CALENDAR_URL || "#";
+    if (!booking || base === "#") return base;
+    const params = new URLSearchParams({
+      first_name: booking.firstName,
+      last_name: booking.lastName,
+      email: booking.email,
+      phone: booking.phone,
+    });
+    return `${base}${base.includes("?") ? "&" : "?"}${params.toString()}`;
+  };
+
   if (submitted) {
     return (
       <motion.div
@@ -190,7 +218,7 @@ export function DiagnosticForm() {
         <h2 className="mb-3 text-2xl font-bold text-foreground">{f.success.title}</h2>
         <p className="mx-auto mb-8 max-w-md text-foreground-muted">{f.success.body}</p>
         <a
-          href={process.env.NEXT_PUBLIC_CALENDAR_URL || "#"}
+          href={buildCalendarUrl()}
           target="_blank"
           rel="noopener noreferrer"
           className="btn-primary px-8 py-3 text-base"
