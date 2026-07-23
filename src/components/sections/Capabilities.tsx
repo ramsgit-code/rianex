@@ -14,6 +14,7 @@ export function Capabilities() {
   const { c } = useLang();
   const cap = c.capabilities;
   const [active, setActive] = useState(5); // por defecto: el bot
+  const activeItem = cap.items[active];
 
   const demo = (
     <AnimatePresence mode="wait">
@@ -39,68 +40,85 @@ export function Capabilities() {
           <p className="mt-3 max-w-xl text-foreground-muted">{cap.subtitle}</p>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-start lg:gap-10">
-          {/* rejilla de tarjetas 3D */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {/* tira horizontal de tarjetas de servicio */}
+        <Reveal delay={0.05}>
+          <div className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-6 sm:px-6">
             {cap.items.map((item, i) => {
               const Icon = icons[i % icons.length];
               const isActive = active === i;
               return (
-                <Reveal key={item.title} delay={i * 0.05} className="h-full">
-                  <div
-                    onMouseEnter={() => setActive(i)}
-                    onClick={() => setActive(i)}
-                    className="h-full cursor-pointer"
-                  >
-                    <TiltCard className="h-full">
-                      <div
-                        className={`card relative h-full overflow-hidden !p-6 transition-shadow ${
+                <div
+                  key={item.title}
+                  onMouseEnter={() => setActive(i)}
+                  onClick={() => setActive(i)}
+                  className="w-[220px] shrink-0 snap-start cursor-pointer sm:w-[240px]"
+                >
+                  <TiltCard>
+                    <div
+                      className={`card relative h-full overflow-hidden !p-5 transition-shadow ${
+                        isActive
+                          ? "shadow-[0_0_0_1px_rgba(232,255,0,0.45),0_0_30px_-8px_rgba(232,255,0,0.4)]"
+                          : ""
+                      }`}
+                    >
+                      <span
+                        className={`flex h-10 w-10 items-center justify-center rounded-xl border text-accent transition-colors ${
                           isActive
-                            ? "shadow-[0_0_0_1px_rgba(232,255,0,0.45),0_0_30px_-8px_rgba(232,255,0,0.4)]"
-                            : ""
+                            ? "border-accent/50 bg-accent/[0.15]"
+                            : "border-accent/25 bg-accent/[0.08]"
                         }`}
                       >
-                        <span className="absolute right-4 top-3 font-display text-2xl font-bold text-white/[0.06]">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span
-                          className={`flex h-11 w-11 items-center justify-center rounded-xl border text-accent transition-colors ${
-                            isActive
-                              ? "border-accent/50 bg-accent/[0.15]"
-                              : "border-accent/25 bg-accent/[0.08]"
-                          }`}
-                        >
-                          <Icon size={20} />
-                        </span>
-                        <h3 className="mt-4 font-display text-lg font-semibold leading-snug text-foreground">
-                          {item.title}
-                        </h3>
-                        <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </TiltCard>
-                  </div>
-                </Reveal>
+                        <Icon size={18} />
+                      </span>
+                      <h3 className="mt-3.5 font-display text-sm font-semibold leading-snug text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="mt-1.5 text-xs leading-relaxed text-foreground-muted">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </TiltCard>
+                </div>
               );
             })}
           </div>
+        </Reveal>
 
-          {/* panel del ejemplo 3D — escritorio (sticky a la derecha) */}
-          <div className="hidden lg:sticky lg:top-28 lg:block">
-            <p className="mb-4 text-xs uppercase tracking-wider text-muted">
+        {/* panel: ejemplo 3D + kpis del servicio activo */}
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-10">
+          <div>
+            <p className="mb-4 text-center text-xs uppercase tracking-wider text-muted lg:text-left">
               {cap.chatLabel}
             </p>
             {demo}
           </div>
-        </div>
 
-        {/* panel del ejemplo 3D — móvil/tablet (bajo la rejilla, centrado) */}
-        <div className="mt-8 lg:hidden">
-          <p className="mb-4 text-center text-xs uppercase tracking-wider text-muted">
-            {cap.chatLabel}
-          </p>
-          {demo}
+          <div>
+            <p className="mb-4 text-center text-xs uppercase tracking-wider text-muted lg:text-left">
+              {cap.kpiLabel}
+            </p>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.28 }}
+                className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1"
+              >
+                {activeItem.kpis.map((k) => (
+                  <div key={k.label} className="card !p-5">
+                    <p className="font-display text-2xl font-semibold tracking-tight text-accent sm:text-3xl">
+                      {k.value}
+                    </p>
+                    <p className="mt-1.5 text-sm leading-snug text-foreground-muted">
+                      {k.label}
+                    </p>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </section>

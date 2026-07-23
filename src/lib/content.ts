@@ -47,49 +47,66 @@ export const content = {
       logosLabel: "Clientes con sistema activo",
     },
 
-    metrics: [
-      { value: "1 min", label: "en enviar una propuesta (antes, 4 días)" },
-      { value: "< 5 min", label: "en responder a cada lead nuevo" },
-      { value: "24/7", label: "captación y seguimiento automático" },
-      { value: "100%", label: "del embudo medido: conversión, citas y ventas" },
-    ],
-
-    results: {
-      tag: "Resultados",
-      title: "Qué conseguimos con IA",
-      subtitle:
-        "Números reales de los sistemas que montamos para nuestros clientes.",
-    },
-
     capabilities: {
       tag: "Servicios",
       title: "Qué hacemos con IA",
       subtitle: "Sistemas de IA de punta a punta: del primer lead al producto.",
       chatLabel: "Ejemplo en vivo",
+      kpiLabel: "Resultados",
       items: [
         {
           title: "Automatización de procesos con IA",
           desc: "Eliminamos tareas repetitivas: tu operativa funciona sola.",
+          kpis: [
+            { value: "-70%", label: "tiempo en tareas manuales" },
+            { value: "1 min", label: "en enviar una propuesta (antes, 4 días)" },
+            { value: "24/7", label: "operativa funcionando sin intervención" },
+          ],
         },
         {
           title: "Embudos de venta",
           desc: "De la captación al cierre, cualificando en automático.",
+          kpis: [
+            { value: "+64%", label: "leads cualificados antes de hablar con ventas" },
+            { value: "< 5 min", label: "en responder a cada lead nuevo" },
+            { value: "3.2x", label: "más citas agendadas por lead" },
+          ],
         },
         {
           title: "Go-to-Market Engineering",
           desc: "Sistemas para lanzar y escalar tu venta con método.",
+          kpis: [
+            { value: "+320%", label: "en ventas tras el lanzamiento" },
+            { value: "6 sem", label: "de diseño del sistema a primeras ventas" },
+            { value: "100%", label: "del embudo medido: conversión, citas y ventas" },
+          ],
         },
         {
           title: "Founding Engineering",
           desc: "Del prototipo al producto en producción, MVPs incluidos.",
+          kpis: [
+            { value: "4-8 sem", label: "de la idea al producto en producción" },
+            { value: "1", label: "MVP listo para los primeros usuarios" },
+            { value: "0", label: "deuda técnica heredada: build desde cero" },
+          ],
         },
         {
           title: "Integraciones",
           desc: "Conectamos tu CRM, ERP y MES por API y MCP.",
+          kpis: [
+            { value: "6+", label: "sistemas conectados por cliente" },
+            { value: "-90%", label: "trabajo manual entre herramientas" },
+            { value: "100%", label: "datos sincronizados en tiempo real" },
+          ],
         },
         {
           title: "Agentes de IA a medida",
           desc: "Asistentes que trabajan por ti, 24/7.",
+          kpis: [
+            { value: "24/7", label: "disponibilidad sin turnos ni festivos" },
+            { value: "< 10 s", label: "en responder a cualquier lead" },
+            { value: "-80%", label: "carga en el equipo comercial" },
+          ],
         },
       ],
     },
@@ -470,48 +487,66 @@ export const content = {
       logosLabel: "Clients with a live system",
     },
 
-    metrics: [
-      { value: "1 min", label: "to send a proposal (was 4 days)" },
-      { value: "< 5 min", label: "to respond to every new lead" },
-      { value: "24/7", label: "automated capture and follow-up" },
-      { value: "100%", label: "of the funnel measured: conversion, bookings, sales" },
-    ],
-
-    results: {
-      tag: "Results",
-      title: "What we achieve with AI",
-      subtitle: "Real numbers from the systems we build for our clients.",
-    },
-
     capabilities: {
       tag: "Services",
       title: "What we do with AI",
       subtitle: "End-to-end AI systems: from the first lead to the product.",
       chatLabel: "Live example",
+      kpiLabel: "Results",
       items: [
         {
           title: "AI process automation",
           desc: "We remove repetitive work: your operation runs itself.",
+          kpis: [
+            { value: "-70%", label: "time spent on manual tasks" },
+            { value: "1 min", label: "to send a proposal (was 4 days)" },
+            { value: "24/7", label: "operation running with no intervention" },
+          ],
         },
         {
           title: "Sales funnels",
           desc: "From capture to close, qualifying on autopilot.",
+          kpis: [
+            { value: "+64%", label: "leads qualified before sales talks to them" },
+            { value: "< 5 min", label: "to respond to every new lead" },
+            { value: "3.2x", label: "more meetings booked per lead" },
+          ],
         },
         {
           title: "Go-to-Market Engineering",
           desc: "Systems to launch and scale your sales with method.",
+          kpis: [
+            { value: "+320%", label: "in sales after launch" },
+            { value: "6 wks", label: "from system design to first sales" },
+            { value: "100%", label: "of the funnel measured: conversion, bookings, sales" },
+          ],
         },
         {
           title: "Founding Engineering",
           desc: "From prototype to production-ready product, MVPs included.",
+          kpis: [
+            { value: "4-8 wks", label: "from idea to product in production" },
+            { value: "1", label: "MVP ready for first users" },
+            { value: "0", label: "legacy tech debt: built from scratch" },
+          ],
         },
         {
           title: "Integrations",
           desc: "We connect your CRM, ERP and MES via API and MCP.",
+          kpis: [
+            { value: "6+", label: "systems connected per client" },
+            { value: "-90%", label: "manual work between tools" },
+            { value: "100%", label: "data synced in real time" },
+          ],
         },
         {
           title: "Custom AI agents",
           desc: "Assistants that work for you, 24/7.",
+          kpis: [
+            { value: "24/7", label: "availability, no shifts or holidays" },
+            { value: "< 10 s", label: "to respond to any lead" },
+            { value: "-80%", label: "load on the sales team" },
+          ],
         },
       ],
     },
