@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -16,7 +14,6 @@ export function CasosView() {
     reto: en ? "Challenge" : "Reto",
     solucion: en ? "Solution" : "Solución",
     resultado: en ? "Result" : "Resultado",
-    cta: en ? "Request a free diagnosis" : "Solicitar diagnóstico gratuito",
   };
 
   return (
@@ -93,16 +90,6 @@ export function CasosView() {
           </Reveal>
         ))}
       </div>
-
-      {/* CTA */}
-      <Reveal delay={0.1}>
-        <div className="mt-14 text-center">
-          <Link href="/diagnostico" className="btn-primary">
-            {L.cta}
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </Reveal>
     </PageShell>
   );
 }

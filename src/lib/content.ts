@@ -327,8 +327,7 @@ export const content = {
       title: "Ingenieros industriales que automatizan tu negocio con IA",
       intro: [
         "Somos un grupo de ingenieros industriales con experiencia en plantas industriales y en automatización con IA.",
-        "Venimos de la operación real: procesos productivos, control, integración de sistemas (CRM, ERP, MES) y optimización. Ese rigor de ingeniería es el que aplicamos a tu negocio.",
-        "Diseñamos y construimos sistemas de IA de extremo a extremo: del diagnóstico y la arquitectura al despliegue en producción, con datos, integraciones y agentes a medida.",
+        "Diseñamos y montamos sistemas de IA de extremo a extremo —del diagnóstico al despliegue en producción— con el rigor de la ingeniería aplicado a tu negocio.",
       ],
       pillarsLabel: "Nuestro terreno",
       pillars: [
@@ -709,8 +708,7 @@ export const content = {
       title: "Industrial engineers who automate your business with AI",
       intro: [
         "We're a team of industrial engineers with experience in industrial plants and AI automation.",
-        "We come from real operations: production processes, control, systems integration (CRM, ERP, MES) and optimization. That engineering rigor is what we bring to your business.",
-        "We design and build end-to-end AI systems: from diagnosis and architecture to production deployment, with data, integrations and custom agents.",
+        "We design and build end-to-end AI systems —from diagnosis to production— bringing engineering rigor to your business.",
       ],
       pillarsLabel: "Our ground",
       pillars: [
