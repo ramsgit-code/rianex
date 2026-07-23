@@ -40,9 +40,9 @@ export function Capabilities() {
           <p className="mt-3 max-w-xl text-foreground-muted">{cap.subtitle}</p>
         </Reveal>
 
-        {/* tira horizontal de tarjetas de servicio */}
+        {/* rejilla horizontal: las 6 tarjetas de servicio, siempre visibles sin scroll */}
         <Reveal delay={0.05}>
-          <div className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-6 sm:px-6">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
             {cap.items.map((item, i) => {
               const Icon = icons[i % icons.length];
               const isActive = active === i;
@@ -51,29 +51,29 @@ export function Capabilities() {
                   key={item.title}
                   onMouseEnter={() => setActive(i)}
                   onClick={() => setActive(i)}
-                  className="w-[220px] shrink-0 snap-start cursor-pointer sm:w-[240px]"
+                  className="cursor-pointer"
                 >
-                  <TiltCard>
+                  <TiltCard className="h-full">
                     <div
-                      className={`card relative h-full overflow-hidden !p-5 transition-shadow ${
+                      className={`card relative h-full overflow-hidden !p-4 transition-shadow sm:!p-5 ${
                         isActive
                           ? "shadow-[0_0_0_1px_rgba(232,255,0,0.45),0_0_30px_-8px_rgba(232,255,0,0.4)]"
                           : ""
                       }`}
                     >
                       <span
-                        className={`flex h-10 w-10 items-center justify-center rounded-xl border text-accent transition-colors ${
+                        className={`flex h-9 w-9 items-center justify-center rounded-xl border text-accent transition-colors sm:h-10 sm:w-10 ${
                           isActive
                             ? "border-accent/50 bg-accent/[0.15]"
                             : "border-accent/25 bg-accent/[0.08]"
                         }`}
                       >
-                        <Icon size={18} />
+                        <Icon size={17} />
                       </span>
-                      <h3 className="mt-3.5 font-display text-sm font-semibold leading-snug text-foreground">
+                      <h3 className="mt-3 font-display text-xs font-semibold leading-snug text-foreground sm:mt-3.5 sm:text-sm">
                         {item.title}
                       </h3>
-                      <p className="mt-1.5 text-xs leading-relaxed text-foreground-muted">
+                      <p className="mt-1.5 hidden text-xs leading-relaxed text-foreground-muted sm:block">
                         {item.desc}
                       </p>
                     </div>
