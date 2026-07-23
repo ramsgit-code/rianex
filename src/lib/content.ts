@@ -65,7 +65,7 @@ export const content = {
       tag: "Servicios",
       title: "Qué hacemos con IA",
       subtitle: "Sistemas de IA de punta a punta: del primer lead al producto.",
-      chatLabel: "El agente, en acción",
+      chatLabel: "Ejemplo en vivo · pasa el ratón por cada servicio",
       items: [
         {
           title: "Automatización de procesos con IA",
@@ -487,7 +487,7 @@ export const content = {
       tag: "Services",
       title: "What we do with AI",
       subtitle: "End-to-end AI systems: from the first lead to the product.",
-      chatLabel: "The agent, in action",
+      chatLabel: "Live example · hover each service",
       items: [
         {
           title: "AI process automation",
