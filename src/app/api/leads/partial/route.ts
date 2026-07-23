@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
       email,
       phone: telefono,
       source: "web-form-parcial",
-      tags: ["lead-incompleto", "web-diagnostico"],
+      tags: ["lead-incompleto"],
     });
   } catch (err) {
     // no bloqueante: el formulario sigue su curso; si GHL falla, se captura al final

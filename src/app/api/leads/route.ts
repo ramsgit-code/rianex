@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { calculateScore, getTier, getTags } from "@/lib/lead-scoring";
+import { calculateScore, getTier } from "@/lib/lead-scoring";
 import { upsertContact, removeContactTags, createOpportunity, buildCustomFields } from "@/lib/ghl";
 import { leadFormSchema } from "@/lib/lead-schema";
 import { prisma } from "@/lib/prisma";
@@ -32,7 +32,6 @@ export async function POST(req: NextRequest) {
   });
 
   const tier = getTier(score);
-  const tags = getTags({ ...data, tier });
   const enriched = { ...data, lead_score: score, lead_tier: tier };
 
   let submissionId: string | null = null;
@@ -71,7 +70,7 @@ export async function POST(req: NextRequest) {
       phone: data.telefono,
       website: data.web,
       source: data.como_conociste,
-      tags: [...tags, "lead-completo"],
+      tags: ["lead-completo"],
     });
 
     if (contact?.contact?.id) {
