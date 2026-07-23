@@ -196,44 +196,74 @@ function Growth({ caption, kpi }: { caption: string; kpi: string }) {
   );
 }
 
-// 4 · Founding Engineering — torre isométrica que se ensambla por capas
-function Blocks({ caption, layers }: { caption: string; layers: string[] }) {
+// 4 · Founding Engineering — una app/producto que se construye sola
+function ProductBuild({
+  caption,
+  live,
+  cta,
+}: {
+  caption: string;
+  live: string;
+  cta: string;
+}) {
+  const build = (i: number) => ({
+    initial: { opacity: 0, y: 8 },
+    animate: { opacity: 1, y: 0 },
+    transition: { delay: 0.25 + i * 0.28, duration: 0.4 },
+  });
   return (
     <Frame caption={caption}>
-      <div className="relative" style={{ transformStyle: "preserve-3d" }}>
-        <div style={{ transform: "rotateX(58deg) rotateZ(45deg)", transformStyle: "preserve-3d" }}>
-          {layers.map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute h-16 w-16 rounded-md border border-accent/40 bg-accent/[0.12]"
-              style={{
-                left: -32,
-                top: -32,
-                boxShadow: "0 6px 0 rgba(232,255,0,0.15)",
-                transform: `translateZ(${i * 16}px)`,
-              }}
-              animate={{ opacity: [0, 1, 1, 0], y: [-24, 0, 0, -24] }}
-              transition={{
-                duration: 3.6,
-                repeat: Infinity,
-                delay: i * 0.5,
-                times: [0, 0.2, 0.85, 1],
-              }}
-            />
-          ))}
-        </div>
-        <div className="absolute left-24 top-1/2 flex -translate-y-1/2 flex-col gap-2">
-          {layers.map((l, i) => (
-            <motion.span
-              key={l}
-              className="text-[11px] text-foreground-muted"
-              animate={{ opacity: [0.3, 1, 0.3] }}
-              transition={{ duration: 3.6, repeat: Infinity, delay: i * 0.5 }}
+      <div
+        className="relative w-[236px]"
+        style={{ transform: "perspective(1100px) rotateY(-13deg) rotateX(6deg)" }}
+      >
+        <div className="overflow-hidden rounded-xl border border-white/[0.12] bg-[#0c0c0e] shadow-2xl">
+          {/* chrome del navegador */}
+          <div className="flex items-center gap-1.5 border-b border-white/[0.07] px-3 py-2">
+            <span className="h-2 w-2 rounded-full bg-white/20" />
+            <span className="h-2 w-2 rounded-full bg-white/20" />
+            <span className="h-2 w-2 rounded-full bg-white/20" />
+            <span className="ml-2 h-3 flex-1 rounded bg-white/[0.06]" />
+          </div>
+          {/* cuerpo del producto */}
+          <div className="flex flex-col gap-2.5 p-3.5">
+            <motion.div {...build(0)} className="flex items-center justify-between">
+              <span className="h-2.5 w-16 rounded bg-white/15" />
+              <span className="flex items-center gap-1 rounded-full border border-accent/30 bg-accent/[0.1] px-1.5 py-0.5">
+                <motion.span
+                  className="h-1.5 w-1.5 rounded-full bg-accent"
+                  animate={{ opacity: [1, 0.3, 1] }}
+                  transition={{ duration: 1.4, repeat: Infinity }}
+                />
+                <span className="text-[8px] font-semibold uppercase tracking-wide text-accent">
+                  {live}
+                </span>
+              </span>
+            </motion.div>
+
+            <motion.div {...build(1)} className="flex items-end gap-1.5">
+              {[40, 68, 52, 84].map((h, i) => (
+                <motion.span
+                  key={i}
+                  className="w-4 rounded-sm bg-gradient-to-t from-accent/25 to-accent/70"
+                  animate={{ height: [8, h * 0.45, h * 0.35] }}
+                  transition={{ duration: 1.8, repeat: Infinity, delay: 1 + i * 0.15 }}
+                />
+              ))}
+            </motion.div>
+
+            <motion.div {...build(2)} className="flex flex-col gap-1.5">
+              <span className="h-2 w-full rounded bg-white/[0.08]" />
+              <span className="h-2 w-3/4 rounded bg-white/[0.08]" />
+            </motion.div>
+
+            <motion.button
+              {...build(3)}
+              className="mt-0.5 rounded-lg bg-accent py-1.5 text-center text-[11px] font-semibold text-background"
             >
-              <span className="mr-1.5 text-accent">▸</span>
-              {l}
-            </motion.span>
-          ))}
+              {cta}
+            </motion.button>
+          </div>
         </div>
       </div>
     </Frame>
@@ -354,9 +384,10 @@ export function CapabilityDemo({ index }: { index: number }) {
       );
     case 3:
       return (
-        <Blocks
-          caption={en ? "From MVP to production" : "Del MVP a producción"}
-          layers={en ? ["Data", "Logic", "API", "Product"] : ["Datos", "Lógica", "API", "Producto"]}
+        <ProductBuild
+          caption={en ? "Your product, built and shipped" : "Tu producto, construido y en marcha"}
+          live={en ? "Live" : "En vivo"}
+          cta={en ? "Get started" : "Empezar"}
         />
       );
     case 4:
