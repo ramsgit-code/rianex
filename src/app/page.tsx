@@ -1,4 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
+import { Results } from "@/components/sections/Results";
+import { Capabilities } from "@/components/sections/Capabilities";
 import { Process } from "@/components/sections/Process";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Marquee } from "@/components/Marquee";
@@ -59,6 +61,8 @@ export default async function Home() {
       <JsonLd data={businessJsonLd} />
       <JsonLd data={websiteJsonLd} />
       <Hero />
+      <Results />
+      <Capabilities />
       <Marquee />
       <Testimonials items={testimonials} />
       {/* pasos: ocultos en móvil (home light), visibles en escritorio */}

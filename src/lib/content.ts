@@ -54,6 +54,46 @@ export const content = {
       { value: "100%", label: "del embudo medido: conversión, citas y ventas" },
     ],
 
+    results: {
+      tag: "Resultados",
+      title: "Qué conseguimos con IA",
+      subtitle:
+        "Números reales de los sistemas que montamos para nuestros clientes.",
+    },
+
+    capabilities: {
+      tag: "Servicios",
+      title: "Qué hacemos con IA",
+      subtitle: "Sistemas de IA de punta a punta: del primer lead al producto.",
+      chatLabel: "El agente, en acción",
+      items: [
+        {
+          title: "Automatización de procesos con IA",
+          desc: "Eliminamos tareas repetitivas: tu operativa funciona sola.",
+        },
+        {
+          title: "Embudos de venta",
+          desc: "De la captación al cierre, cualificando en automático.",
+        },
+        {
+          title: "Go-to-Market Engineering",
+          desc: "Sistemas para lanzar y escalar tu venta con método.",
+        },
+        {
+          title: "Founding Engineering",
+          desc: "Del prototipo al producto en producción, MVPs incluidos.",
+        },
+        {
+          title: "Integraciones con tu CRM",
+          desc: "Conectamos tu CRM, ERP y MES por API y MCP.",
+        },
+        {
+          title: "Agentes de IA a medida",
+          desc: "Asistentes que trabajan por ti, 24/7.",
+        },
+      ],
+    },
+
     cases: {
       tag: "Resultados",
       title: "Casos reales, sin maquetas.",
@@ -436,6 +476,45 @@ export const content = {
       { value: "24/7", label: "automated capture and follow-up" },
       { value: "100%", label: "of the funnel measured: conversion, bookings, sales" },
     ],
+
+    results: {
+      tag: "Results",
+      title: "What we achieve with AI",
+      subtitle: "Real numbers from the systems we build for our clients.",
+    },
+
+    capabilities: {
+      tag: "Services",
+      title: "What we do with AI",
+      subtitle: "End-to-end AI systems: from the first lead to the product.",
+      chatLabel: "The agent, in action",
+      items: [
+        {
+          title: "AI process automation",
+          desc: "We remove repetitive work: your operation runs itself.",
+        },
+        {
+          title: "Sales funnels",
+          desc: "From capture to close, qualifying on autopilot.",
+        },
+        {
+          title: "Go-to-Market Engineering",
+          desc: "Systems to launch and scale your sales with method.",
+        },
+        {
+          title: "Founding Engineering",
+          desc: "From prototype to production-ready product, MVPs included.",
+        },
+        {
+          title: "Integrations with your CRM",
+          desc: "We connect your CRM, ERP and MES via API and MCP.",
+        },
+        {
+          title: "Custom AI agents",
+          desc: "Assistants that work for you, 24/7.",
+        },
+      ],
+    },
 
     cases: {
       tag: "Results",

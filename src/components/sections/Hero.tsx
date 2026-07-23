@@ -3,21 +3,11 @@
 import { useRef } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Bot,
-  LayoutGrid,
-  Workflow,
-  FileText,
-  ListChecks,
-  Magnet,
-  CalendarCheck,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { LOGOS } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { Typewriter } from "@/components/Typewriter";
-import { AgentChat } from "@/components/sections/AgentChat";
 
 const Hero3D = dynamic(
   () => import("@/components/Hero3D").then((m) => m.Hero3D),
@@ -41,16 +31,6 @@ const clientLogos: {
     href: "https://www.tribecamedia.com",
     label: "Tribeca Media",
   },
-];
-
-const offeringIcons = [
-  Workflow,
-  Magnet,
-  LayoutGrid,
-  Bot,
-  ListChecks,
-  CalendarCheck,
-  FileText,
 ];
 
 export function Hero() {
@@ -172,56 +152,6 @@ export function Hero() {
             </div>
           </Reveal>
         </div>
-
-        {/* métricas — franja única compacta, sin tarjetas */}
-        <Reveal delay={0.2}>
-          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/[0.08] pt-7 sm:mt-12 sm:grid-cols-4 sm:gap-y-8 sm:divide-x sm:divide-white/[0.08] sm:pt-8">
-            {c.metrics.map((s) => (
-              <div key={s.label} className="sm:px-6 sm:first:pl-0 sm:last:pr-0">
-                <p className="font-display text-2xl font-semibold tracking-tight text-accent sm:text-3xl">
-                  {s.value}
-                </p>
-                <p className="mt-1 text-sm leading-snug text-foreground-muted">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* qué hago con IA — lista de servicios + agente IA dinámico */}
-        <Reveal delay={0.24}>
-          <div id="que-hago" className="mt-20 scroll-mt-28 sm:mt-24">
-            <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-              {h.offeringTitle}
-            </h2>
-            <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
-              <ul className="grid grid-cols-1 gap-x-12">
-                {h.offering.map((o, i) => {
-                  const Icon = offeringIcons[i % offeringIcons.length];
-                  return (
-                    <li
-                      key={o}
-                      className="flex items-center gap-3.5 border-b border-white/[0.06] py-3.5"
-                    >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent/[0.08] text-accent">
-                        <Icon size={18} />
-                      </span>
-                      <span className="text-[15px] font-medium text-foreground">
-                        {o}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
-
-              {/* agente IA dinámico (cicla conversaciones: agenda / cualifica / propuesta) */}
-              <div className="flex justify-center lg:justify-end">
-                <AgentChat />
-              </div>
-            </div>
-          </div>
-        </Reveal>
       </div>
     </section>
   );
