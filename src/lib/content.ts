@@ -84,7 +84,7 @@ export const content = {
           desc: "Del prototipo al producto en producción, MVPs incluidos.",
         },
         {
-          title: "Integraciones con tu CRM",
+          title: "Integraciones",
           desc: "Conectamos tu CRM, ERP y MES por API y MCP.",
         },
         {
@@ -506,7 +506,7 @@ export const content = {
           desc: "From prototype to production-ready product, MVPs included.",
         },
         {
-          title: "Integrations with your CRM",
+          title: "Integrations",
           desc: "We connect your CRM, ERP and MES via API and MCP.",
         },
         {

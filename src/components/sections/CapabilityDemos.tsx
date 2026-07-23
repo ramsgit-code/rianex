@@ -337,7 +337,7 @@ function Integrations({ caption, hub }: { caption: string; hub: string }) {
         </svg>
 
         <motion.div
-          className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/50 bg-accent/[0.1] text-xs font-bold text-accent"
+          className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/50 bg-accent/[0.1] font-display text-sm font-extrabold tracking-tight text-accent"
           style={{ left: cx - 32, top: cy - 32 }}
           animate={{ boxShadow: ["0 0 0 rgba(232,255,0,0)", "0 0 28px rgba(232,255,0,0.45)", "0 0 0 rgba(232,255,0,0)"] }}
           transition={{ duration: 2, repeat: Infinity }}
