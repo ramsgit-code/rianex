@@ -80,38 +80,27 @@ export function Capabilities() {
                         </p>
                       </div>
                     </TiltCard>
-
-                    {/* ejemplo inline en móvil/tablet, bajo la tarjeta activa */}
-                    <div className="lg:hidden">
-                      <AnimatePresence initial={false}>
-                        {isActive && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: "auto" }}
-                            exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="overflow-hidden"
-                          >
-                            <div className="relative z-10 mx-auto flex max-w-[300px] origin-top scale-[0.92] justify-center pt-3">
-                              <CapabilityDemo index={i} />
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
                   </div>
                 </Reveal>
               );
             })}
           </div>
 
-          {/* panel del ejemplo 3D — escritorio (sticky) */}
+          {/* panel del ejemplo 3D — escritorio (sticky a la derecha) */}
           <div className="hidden lg:sticky lg:top-28 lg:block">
             <p className="mb-4 text-xs uppercase tracking-wider text-muted">
               {cap.chatLabel}
             </p>
             {demo}
           </div>
+        </div>
+
+        {/* panel del ejemplo 3D — móvil/tablet (bajo la rejilla, centrado) */}
+        <div className="mt-8 lg:hidden">
+          <p className="mb-4 text-center text-xs uppercase tracking-wider text-muted">
+            {cap.chatLabel}
+          </p>
+          {demo}
         </div>
       </div>
     </section>
