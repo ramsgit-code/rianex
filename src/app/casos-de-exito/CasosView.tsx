@@ -15,6 +15,7 @@ export function CasosView() {
     solucion: en ? "Solution" : "Solución",
     resultado: en ? "Result" : "Resultado",
   };
+  const stackLabel = cs.stackLabel;
 
   return (
     <PageShell tag={cs.tag} title={cs.title} description={cs.description} wide>
@@ -72,6 +73,24 @@ export function CasosView() {
                     {item.solution}
                   </p>
                 </div>
+
+                {item.stack.length > 0 && (
+                  <div className="mt-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+                      {stackLabel}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {item.stack.map((tool) => (
+                        <span
+                          key={tool}
+                          className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-foreground-muted"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* resultado destacado */}

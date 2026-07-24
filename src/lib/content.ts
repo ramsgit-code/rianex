@@ -16,7 +16,7 @@ export const content = {
   es: {
     nav: {
       links: [
-        { href: "/casos-de-exito", label: "Casos" },
+        { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "Nosotros" },
       ],
@@ -125,9 +125,10 @@ export const content = {
           sector: "Salud · Madrid",
           tag: "Cualificación de leads + Booking SDR",
           challenge:
-            "Captaban muchos leads pero sin filtro previo ni métricas del embudo: no sabían qué contactos valían la pena ni en qué punto se perdían las oportunidades.",
+            "Captaban muchos leads pero sin ningún filtro previo ni visibilidad del embudo: no sabían qué contactos merecía la pena trabajar ni en qué paso se perdían las oportunidades.",
           solution:
-            "Montamos un sistema en Go High Level que capta y cualifica los leads con un quiz de scoring, automatiza el seguimiento por WhatsApp y, con un Booking SDR, agenda las citas directamente en Koibox. Todo el embudo queda medido: conversión, abandono, citas y ventas.",
+            "Montamos un sistema en Go High Level que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y, con un Booking SDR, agenda la cita directamente en Koibox. Todo el embudo queda medido de punta a punta: conversión, abandono, citas y ventas.",
+          stack: ["Go High Level", "WhatsApp", "Koibox"],
           metric: "−32%",
           metricLabel: "coste por paciente (CPP)",
         },
@@ -137,9 +138,10 @@ export const content = {
           sector: "Eventos · Barcelona",
           tag: "Automatización de propuestas",
           challenge:
-            "Cada propuesta tardaba entre 1 y 3 días en salir, y para entonces el cliente ya se había enfriado o había pedido presupuesto a la competencia.",
+            "Cada propuesta tardaba entre 1 y 3 días en salir. Para cuando llegaba, el cliente ya se había enfriado o había pedido presupuesto a la competencia.",
           solution:
-            "Creamos un formulario de intake tras la llamada que genera la propuesta automáticamente en Go High Level, lista para revisar y enviar en minutos, con recordatorios de seguimiento.",
+            "Creamos un formulario de intake que se rellena justo después de la llamada y genera la propuesta automáticamente en Go High Level, lista para revisar y enviar en minutos, con recordatorios de seguimiento programados.",
+          stack: ["Go High Level"],
           metric: "−85%",
           metricLabel: "tiempo de respuesta al cliente",
         },
@@ -149,9 +151,10 @@ export const content = {
           sector: "Marketing · Captación",
           tag: "Automatización de CRM",
           challenge:
-            "La captación era 100% manual, sin cualificación ni seguimiento sistemático: los leads se enfriaban en hojas de cálculo y se perdía trazabilidad.",
+            "La captación era 100% manual y sin cualificación ni seguimiento sistemático: los leads se enfriaban en hojas de cálculo y se perdía la trazabilidad de cada oportunidad.",
           solution:
-            "Implementamos un funnel de captación con scoring automático y seguimiento en Go High Level, con todo el proceso comercial medido de punta a punta.",
+            "Implementamos un funnel de captación con scoring automático y seguimiento en Go High Level, dejando todo el proceso comercial medido de punta a punta, desde el primer contacto hasta el cierre.",
+          stack: ["Go High Level"],
           metric: "100%",
           metricLabel: "del proceso comercial automatizado",
         },
@@ -211,7 +214,7 @@ export const content = {
       cta: "Diagnóstico gratuito",
       links: [
         { href: "/servicios", label: "Servicios" },
-        { href: "/casos-de-exito", label: "Casos" },
+        { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
         { href: "/sobre-mi", label: "Nosotros" },
         { href: "/blog", label: "Blog" },
@@ -374,10 +377,11 @@ export const content = {
     },
 
     casos: {
-      tag: "Casos reales",
+      tag: "Casos de éxito",
       title: "Sistemas que funcionan hoy",
       description:
-        "Negocios reales con Go High Level como base de cada implementación.",
+        "Tres negocios reales, tres problemas comerciales distintos y un mismo enfoque: diagnosticar el cuello de botella, montar el sistema en Go High Level y medir el resultado desde el primer día.",
+      stackLabel: "Stack implementado",
     },
 
     sobreMi: {
@@ -457,7 +461,7 @@ export const content = {
   en: {
     nav: {
       links: [
-        { href: "/casos-de-exito", label: "Cases" },
+        { href: "/casos-de-exito", label: "Case studies" },
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "About" },
       ],
@@ -565,9 +569,10 @@ export const content = {
           sector: "Healthcare · Madrid",
           tag: "Lead qualification + Booking SDR",
           challenge:
-            "They captured plenty of leads but with no upfront filtering or funnel metrics: they didn't know which contacts were worth it or where opportunities were lost.",
+            "They captured plenty of leads but with no upfront filtering or visibility into the funnel: they didn't know which contacts were worth working or where opportunities were being lost.",
           solution:
-            "We built a Go High Level system that captures and qualifies leads with a scoring quiz, automates WhatsApp follow-up and, with a Booking SDR, books appointments straight into Koibox. The whole funnel is measured: conversion, drop-off, appointments and sales.",
+            "We built a Go High Level system that qualifies every lead with a scoring quiz, runs automated WhatsApp follow-up and, with a Booking SDR, books the appointment straight into Koibox. The whole funnel is measured end to end: conversion, drop-off, appointments and sales.",
+          stack: ["Go High Level", "WhatsApp", "Koibox"],
           metric: "−32%",
           metricLabel: "cost per patient (CPP)",
         },
@@ -577,9 +582,10 @@ export const content = {
           sector: "Events · Barcelona",
           tag: "Proposal automation",
           challenge:
-            "Each proposal took 1 to 3 days to go out, and by then the client had cooled off or already asked a competitor for a quote.",
+            "Each proposal took 1 to 3 days to go out. By the time it landed, the client had cooled off or already asked a competitor for a quote.",
           solution:
-            "We created a post-call intake form that generates the proposal automatically on Go High Level, ready to review and send in minutes, with follow-up reminders.",
+            "We created an intake form filled right after the call, which generates the proposal automatically in Go High Level, ready to review and send in minutes, with follow-up reminders scheduled in.",
+          stack: ["Go High Level"],
           metric: "−85%",
           metricLabel: "client response time",
         },
@@ -589,9 +595,10 @@ export const content = {
           sector: "Marketing · Lead gen",
           tag: "CRM automation",
           challenge:
-            "Capture was 100% manual, with no qualification or systematic follow-up: leads went cold in spreadsheets and traceability was lost.",
+            "Capture was 100% manual, with no qualification or systematic follow-up: leads went cold in spreadsheets and traceability was lost on every opportunity.",
           solution:
-            "We implemented a capture funnel with automatic scoring and follow-up on Go High Level, with the entire sales process measured end to end.",
+            "We implemented a capture funnel with automatic scoring and follow-up in Go High Level, leaving the entire sales process measured end to end, from first contact to close.",
+          stack: ["Go High Level"],
           metric: "100%",
           metricLabel: "of the sales process automated",
         },
@@ -651,7 +658,7 @@ export const content = {
       cta: "Free diagnosis",
       links: [
         { href: "/servicios", label: "Services" },
-        { href: "/casos-de-exito", label: "Cases" },
+        { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
         { href: "/sobre-mi", label: "About" },
         { href: "/blog", label: "Blog" },
@@ -814,9 +821,11 @@ export const content = {
     },
 
     casos: {
-      tag: "Real cases",
+      tag: "Case studies",
       title: "Systems that work today",
-      description: "Real businesses, with Go High Level behind every build.",
+      description:
+        "Three real businesses, three different commercial bottlenecks, one same approach: diagnose the bottleneck, build the system in Go High Level, and measure the result from day one.",
+      stackLabel: "Stack we built",
     },
 
     sobreMi: {

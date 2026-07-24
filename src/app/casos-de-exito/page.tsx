@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { CasosView } from "./CasosView";
 
 export const metadata: Metadata = {
-  title: "Casos reales",
+  title: "Casos de éxito",
   description:
-    "Casos reales de sistemas de IA implementados en negocios, sobre Go High Level: reto, solución y resultado.",
+    "Casos de éxito de sistemas de IA implementados en negocios, sobre Go High Level: reto, solución y resultado.",
 };
 
 export default function CasosPage() {

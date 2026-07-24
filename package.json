@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "blog": "tsx scripts/blog-agent.ts",
+    "blog:import": "tsx scripts/import-blog-posts.ts",
     "prospect": "tsx scripts/prospecting-agent.ts",
     "postinstall": "prisma generate",
     "db:migrate": "prisma migrate deploy",

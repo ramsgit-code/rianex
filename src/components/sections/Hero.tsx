@@ -91,7 +91,7 @@ export function Hero() {
                     {h.ctaPrimary}
                     <ArrowRight size={16} />
                   </Link>
-                  <Link href="/casos-de-exito" className="btn-secondary">
+                  <Link href="#servicios" className="btn-secondary">
                     {h.ctaSecondary}
                   </Link>
                 </div>

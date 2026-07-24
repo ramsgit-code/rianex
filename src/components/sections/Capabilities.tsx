@@ -49,7 +49,7 @@ export function Capabilities() {
   );
 
   return (
-    <section className="relative">
+    <section id="servicios" className="relative scroll-mt-24">
       <div className="section-wide">
         <Reveal>
           <p className="tag">{cap.tag}</p>
