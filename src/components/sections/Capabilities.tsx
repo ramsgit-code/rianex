@@ -50,19 +50,20 @@ export function Capabilities() {
 
   return (
     <section className="relative">
-      <div className="section-wide">
+      {/* en escritorio la seccion ocupa el ancho de la pantalla; en movil se queda con el margen normal */}
+      <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20 md:py-24 lg:relative lg:left-1/2 lg:w-screen lg:max-w-none lg:-translate-x-1/2 lg:px-10 xl:px-16 2xl:px-24">
         <Reveal>
           <p className="tag">{cap.tag}</p>
           <h2 className="section-title max-w-2xl">{cap.title}</h2>
           <p className="mt-3 max-w-xl text-foreground-muted">{cap.subtitle}</p>
         </Reveal>
 
-        {/* fila horizontal (6 columnas) con scroll; icono a la derecha indica que hay mas */}
+        {/* fila horizontal: en movil/tablet, carril con scroll; en escritorio, las 6 en una sola fila sin scroll */}
         <Reveal delay={0.05}>
           <div className="relative mt-10">
             <div
               ref={scrollerRef}
-              className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
+              className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 lg:grid lg:grid-cols-6 lg:gap-5 lg:overflow-visible lg:pb-0"
             >
               {cap.items.map((item, i) => {
                 const Icon = icons[i % icons.length];
@@ -72,7 +73,7 @@ export function Capabilities() {
                     key={item.title}
                     onMouseEnter={() => setActive(i)}
                     onClick={() => setActive(i)}
-                    className="w-[200px] shrink-0 snap-start cursor-pointer sm:w-[220px]"
+                    className="w-[200px] shrink-0 snap-start cursor-pointer sm:w-[220px] lg:w-auto"
                   >
                     <TiltCard className="h-full">
                       <div
@@ -104,14 +105,14 @@ export function Capabilities() {
               })}
             </div>
 
-            {/* fundido + icono animado: indica que se puede desplazar a la derecha */}
+            {/* fundido + icono animado: solo en movil/tablet, indica que se puede desplazar */}
             <AnimatePresence>
               {canScrollRight && (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-background via-background/85 to-transparent pb-2 pr-0.5 sm:w-20"
+                  className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-background via-background/85 to-transparent pb-2 pr-0.5 sm:w-20 lg:hidden"
                 >
                   <motion.button
                     type="button"
@@ -131,8 +132,8 @@ export function Capabilities() {
           </div>
         </Reveal>
 
-        {/* panel: ejemplo 3D + kpis del servicio activo */}
-        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:gap-10">
+        {/* panel: ejemplo 3D + kpis del servicio activo, siempre visible entero debajo */}
+        <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-14 xl:grid-cols-[1fr_1.1fr]">
           <div>
             <p className="mb-4 text-center text-xs uppercase tracking-wider text-muted lg:text-left">
               {cap.chatLabel}
@@ -151,7 +152,7 @@ export function Capabilities() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.28 }}
-                className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1"
+                className="grid grid-cols-1 gap-3 sm:grid-cols-3"
               >
                 {activeItem.kpis.map((k) => (
                   <div key={k.label} className="card !p-5">

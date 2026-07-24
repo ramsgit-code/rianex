@@ -10,6 +10,7 @@ export function Process() {
     <section className="relative">
       <div className="section-wide">
         <Reveal>
+          <p className="tag">{c.process.tag}</p>
           <h2 className="section-title mb-10 max-w-2xl">{c.process.title}</h2>
         </Reveal>
         <ol className="grid grid-cols-1 divide-y divide-white/[0.06] sm:grid-cols-2 sm:gap-y-8 sm:divide-y-0 lg:grid-cols-4 lg:gap-y-0">
