@@ -50,8 +50,7 @@ export function Capabilities() {
 
   return (
     <section className="relative">
-      {/* en escritorio la seccion ocupa el ancho de la pantalla; en movil se queda con el margen normal */}
-      <div className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20 md:py-24 lg:relative lg:left-1/2 lg:w-screen lg:max-w-none lg:-translate-x-1/2 lg:px-10 xl:px-16 2xl:px-24">
+      <div className="section-wide">
         <Reveal>
           <p className="tag">{cap.tag}</p>
           <h2 className="section-title max-w-2xl">{cap.title}</h2>

@@ -88,12 +88,15 @@ body {
   }
 
   /* ---------- Layout ---------- */
+  /* texto largo (legal, articulo de blog): centrado y mas estrecho para que se lea bien */
   .section {
-    @apply mx-auto max-w-3xl px-5 py-16 sm:px-6 sm:py-20 md:py-24;
+    @apply mx-auto max-w-4xl px-5 py-12 sm:px-6 sm:py-20 md:py-24;
   }
 
+  /* secciones normales: en escritorio ocupan el ancho de la pantalla (full-bleed) */
   .section-wide {
-    @apply mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20 md:py-24;
+    @apply relative mx-auto max-w-5xl px-5 py-12 sm:px-6 sm:py-20 md:py-24
+           lg:left-1/2 lg:w-screen lg:max-w-none lg:-translate-x-1/2 lg:px-10 xl:px-16 2xl:px-24;
   }
 
   /* ---------- Eyebrow / tag como pill ---------- */

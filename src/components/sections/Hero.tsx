@@ -50,7 +50,7 @@ export function Hero() {
   return (
     <section
       onMouseMove={onMove}
-      className="relative overflow-hidden pt-28 pb-16 sm:pt-36 md:pt-44 md:pb-20"
+      className="relative overflow-hidden pt-20 pb-10 sm:pt-36 md:pt-44 md:pb-20"
     >
       {/* spotlight que sigue el cursor */}
       <div
