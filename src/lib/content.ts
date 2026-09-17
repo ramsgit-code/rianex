@@ -26,15 +26,15 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "IA para negocios",
-      titlePre: "Automatiza tu negocio y ",
-      titleHighlight: "vende más con IA.",
+      eyebrow: "IA para agencias de marketing",
+      titlePre: "Automatiza los procesos de tu agencia y ",
+      titleHighlight: "recupera 10 horas/semana.",
       titlePost: "",
       subtitle:
-        "Diseñamos y montamos sistemas de IA para tu negocio: automatización de procesos, embudos de venta, integraciones con tu CRM/ERP/MES y creamos agentes a medida. Del go-to-market al producto.",
-      ctaPrimary: "Solicitar diagnóstico gratuito",
+        "Montamos sistemas de IA que eliminan el trabajo repetitivo de tu agencia: reportes automáticos, onboarding de clientes, propuestas con IA y cualificación de leads. Tu equipo se enfoca en estrategia, no en tareas.",
+      ctaPrimary: "Solicita un audit de 20 minutos",
       ctaSecondary: "Ver los sistemas",
-      note: "30 min · Sin compromiso · Respuesta en 24 h",
+      note: "20 min · Sin compromiso · Respuesta en 24 h",
       offeringTitle: "Qué hacemos con IA",
       offering: [
         "Automatización de procesos con IA",
@@ -471,15 +471,15 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "AI for business",
-      titlePre: "Automate your business and ",
-      titleHighlight: "sell more with AI.",
+      eyebrow: "AI for marketing agencies",
+      titlePre: "Automate your agency's workflows and ",
+      titleHighlight: "get 10 hours/week back.",
       titlePost: "",
       subtitle:
-        "We design and build AI systems for your business: process automation, sales funnels, CRM/ERP/MES integrations and custom agents. From go-to-market to product.",
-      ctaPrimary: "Request a free diagnosis",
+        "We build AI systems that eliminate repetitive work for marketing agencies: automated reports, client onboarding, AI-powered proposals and lead qualification. Your team focuses on strategy, not tasks.",
+      ctaPrimary: "Book a 20-minute audit",
       ctaSecondary: "See the systems",
-      note: "30 min · No commitment · Reply within 24 h",
+      note: "20 min · No commitment · Reply within 24 h",
       offeringTitle: "What we do with AI",
       offering: [
         "AI process automation",
