@@ -9,6 +9,7 @@ import { useLang } from "@/components/LanguageProvider";
 import { LOGOS } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { Typewriter } from "@/components/Typewriter";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 const Hero3D = dynamic(
   () => import("@/components/Hero3D").then((m) => m.Hero3D),
@@ -139,7 +140,11 @@ export function Hero() {
             {/* objeto 3D interactivo (solo escritorio, para mantener el móvil ligero) */}
             <Reveal delay={0.12} className="hidden md:flex md:justify-center">
               <div className="relative h-[380px] w-[380px] lg:h-[460px] lg:w-[460px]">
-                {isDesktop && <Hero3D />}
+                {isDesktop && (
+                  <ErrorBoundary>
+                    <Hero3D />
+                  </ErrorBoundary>
+                )}
               </div>
             </Reveal>
           </div>
