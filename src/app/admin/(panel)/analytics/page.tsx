@@ -4,9 +4,10 @@ import { AnalyticsCharts } from "@/components/admin/AnalyticsCharts";
 export default async function AdminAnalyticsPage({
   searchParams,
 }: {
-  searchParams: { days?: string };
+  searchParams: Promise<{ days?: string }>;
 }) {
-  const days = Number(searchParams.days ?? 30);
+  const { days: daysParam } = await searchParams;
+  const days = Number(daysParam ?? 30);
   const period = ([7, 30, 90] as const).includes(days as 7 | 30 | 90) ? (days as 7 | 30 | 90) : 30;
 
   let data: Awaited<ReturnType<typeof getAnalyticsSummary>> = {

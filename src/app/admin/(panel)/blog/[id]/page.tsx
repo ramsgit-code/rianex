@@ -2,10 +2,11 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { BlogEditor } from "@/components/admin/BlogEditor";
 
-export default async function EditBlogPostPage({ params }: { params: { id: string } }) {
+export default async function EditBlogPostPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   let post;
   try {
-    post = await prisma.blogPost.findUnique({ where: { id: params.id } });
+    post = await prisma.blogPost.findUnique({ where: { id } });
   } catch {
     notFound();
   }

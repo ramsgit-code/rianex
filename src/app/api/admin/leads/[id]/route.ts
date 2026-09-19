@@ -4,11 +4,12 @@ import { prisma } from "@/lib/prisma";
 
 export async function DELETE(
   _req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   if (!(await requireAdminSession())) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  await prisma.leadSubmission.delete({ where: { id: params.id } });
+  const { id } = await params;
+  await prisma.leadSubmission.delete({ where: { id } });
   return NextResponse.json({ ok: true });
 }
