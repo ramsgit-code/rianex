@@ -91,7 +91,7 @@ export function Capabilities() {
                         >
                           <Icon size={18} />
                         </span>
-                        <h3 className="mt-3.5 font-display text-sm font-semibold leading-snug text-foreground">
+                        <h3 className="mt-3.5 min-h-[2.5rem] font-display text-sm font-semibold leading-snug text-foreground">
                           {item.title}
                         </h3>
                         <p className="mt-1.5 text-xs leading-relaxed text-foreground-muted">
@@ -111,7 +111,7 @@ export function Capabilities() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-background via-background/85 to-transparent pb-2 pr-0.5 sm:w-20 lg:hidden"
+                  className="pointer-events-none absolute bottom-0 right-0 top-auto flex h-16 w-16 items-end justify-end bg-gradient-to-l from-background via-background/85 to-transparent pb-2 pr-0.5 sm:w-20 lg:hidden"
                 >
                   <motion.button
                     type="button"

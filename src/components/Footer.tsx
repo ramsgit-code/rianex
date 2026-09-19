@@ -17,7 +17,7 @@ export function Footer() {
 
   return (
     <footer className="relative mt-16 border-t border-white/[0.08]">
-      <div className="mx-auto max-w-5xl px-6 py-14">
+      <div className="mx-auto max-w-5xl px-6 pb-28 pt-14 sm:pb-14">
         <div className="glass relative overflow-hidden rounded-3xl px-6 py-10 text-center md:px-10 md:py-14">
           <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-accent/12 blur-[100px]" />
           <div className="relative">

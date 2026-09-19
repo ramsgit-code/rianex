@@ -30,7 +30,7 @@ export function Navbar() {
       <div
         className={`mx-auto flex max-w-5xl items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-300 md:px-5 ${
           scrolled
-            ? "border border-white/10 bg-background/70 shadow-glass backdrop-blur-xl"
+            ? "border border-white/10 bg-background/95 shadow-glass backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         }`}
       >
