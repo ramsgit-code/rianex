@@ -3,8 +3,11 @@ import { calculateScore, getTier } from "@/lib/lead-scoring";
 import { upsertContact, removeContactTags, createOpportunity, buildCustomFields } from "@/lib/ghl";
 import { leadFormSchema } from "@/lib/lead-schema";
 import { prisma } from "@/lib/prisma";
+import { rateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  const limited = rateLimit(req, 5);
+  if (limited) return limited;
   let body: unknown;
   try {
     body = await req.json();

@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { upsertContact } from "@/lib/ghl";
+import { rateLimit } from "@/lib/rate-limit";
 
-// Captura parcial de contacto (paso 1 del formulario) para arrancar el
-// nurturing en GHL aunque el lead no termine el diagnóstico.
 const partialSchema = z.object({
   nombre: z.string().optional(),
   email: z.string().email().transform((v) => v.trim().toLowerCase()),
@@ -11,6 +10,9 @@ const partialSchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  const limited = rateLimit(req, 10);
+  if (limited) return limited;
+
   let body: unknown;
   try {
     body = await req.json();
