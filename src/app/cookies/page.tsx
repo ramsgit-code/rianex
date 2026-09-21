@@ -68,7 +68,7 @@ export default function CookiesPage() {
         <P>
           Podemos actualizar esta política de cookies. Publicaremos siempre la versión
           vigente en esta página. Para cualquier duda, escríbenos a{" "}
-          <a href={`mailto:${EMAIL}`} className="text-accent underline underline-offset-2">
+          <a href={`mailto:${EMAIL}`} className="text-accent-text underline underline-offset-2">
             {EMAIL}
           </a>
           .

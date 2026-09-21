@@ -52,12 +52,12 @@ export function TestimoniosView({ items }: { items: TestimonialItem[] }) {
           {items.map((item, i) => (
             <Reveal as="li" key={item.id} delay={i * 0.05}>
               <figure className="card flex h-full flex-col">
-                <Quote size={20} className="text-accent/70" />
+                <Quote size={20} className="text-accent-text/70" />
                 <blockquote className="mt-3 flex-1 text-[15px] leading-relaxed text-foreground">
                   “{lang === "en" ? item.quoteEn ?? item.quote : item.quote}”
                 </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-white/[0.08] pt-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] text-sm font-semibold text-accent">
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-ink/[0.08] pt-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/[0.08] bg-ink/[0.03] text-sm font-semibold text-accent-text">
                     {item.imageUrl ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img
@@ -100,7 +100,7 @@ export function TestimoniosView({ items }: { items: TestimonialItem[] }) {
 
           {state === "ok" ? (
             <div className="py-8 text-center">
-              <CheckCircle size={40} className="mx-auto mb-4 text-accent" />
+              <CheckCircle size={40} className="mx-auto mb-4 text-accent-text" />
               <p className="text-foreground-muted">{t.success}</p>
             </div>
           ) : (

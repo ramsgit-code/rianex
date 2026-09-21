@@ -33,7 +33,7 @@ export function BlogView({ posts }: { posts: Post[] }) {
                     href={`/blog/${post.slug}`}
                     className="card group flex h-full flex-col"
                   >
-                    <h2 className="font-display text-lg font-semibold text-foreground transition-colors group-hover:text-accent">
+                    <h2 className="font-display text-lg font-semibold text-foreground transition-colors group-hover:text-accent-text">
                       {lang === "en" ? post.titleEn ?? post.title : post.title}
                     </h2>
                     <p className="mb-4 mt-2 flex-1 text-sm leading-relaxed text-foreground-muted">

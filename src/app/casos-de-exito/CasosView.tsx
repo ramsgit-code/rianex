@@ -29,7 +29,7 @@ export function CasosView() {
     <PageShell tag={cs.tag} title={cs.title} description={cs.description} wide>
       {/* construido sobre Go High Level */}
       <Reveal>
-        <div className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 backdrop-blur-md">
+        <div className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-ink/[0.08] bg-ink/[0.03] px-4 py-2 backdrop-blur-md">
           <Image
             src="/logos/gohighlevel-icon.png"
             alt="Go High Level"
@@ -63,7 +63,7 @@ export function CasosView() {
                   <span className="text-xs text-muted">{item.sector}</span>
                 </div>
 
-                <span className="mt-4 inline-flex max-w-full items-center rounded-full border border-accent/20 bg-accent/[0.06] px-2.5 py-1 text-[11px] font-medium leading-tight text-accent">
+                <span className="mt-4 inline-flex max-w-full items-center rounded-full border border-accent/20 bg-accent/[0.06] px-2.5 py-1 text-[11px] font-medium leading-tight text-accent-text">
                   {item.tag}
                 </span>
 
@@ -77,7 +77,7 @@ export function CasosView() {
                 </div>
 
                 <div className="mt-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-accent/80">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-accent-text/80">
                     {L.solucion}
                   </p>
                   <p className="mt-1.5 text-[15px] leading-relaxed text-foreground">
@@ -94,7 +94,7 @@ export function CasosView() {
                       {item.stack.map((tool) => (
                         <span
                           key={tool}
-                          className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[11px] text-foreground-muted"
+                          className="rounded-full border border-ink/[0.08] bg-ink/[0.03] px-2.5 py-1 text-[11px] text-foreground-muted"
                         >
                           {tool}
                         </span>
@@ -109,7 +109,7 @@ export function CasosView() {
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                   {L.resultado}
                 </p>
-                <p className="mt-2 font-display text-6xl font-semibold tracking-tight text-accent">
+                <p className="mt-2 font-display text-6xl font-semibold tracking-tight text-accent-text">
                   {item.metric}
                 </p>
                 <p className="mt-2 text-sm leading-snug text-foreground-muted">

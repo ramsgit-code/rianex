@@ -93,10 +93,10 @@ body {
     @apply mx-auto max-w-4xl px-5 py-12 sm:px-6 sm:py-20 md:py-24;
   }
 
-  /* secciones normales: en escritorio ocupan el ancho de la pantalla (full-bleed) */
+  /* secciones normales: ancho generoso pero contenido, no full-bleed (antes ocupaba
+     toda la pantalla en monitores grandes, que es justo lo que la hacia sentir "ancha") */
   .section-wide {
-    @apply relative mx-auto max-w-5xl px-5 py-12 sm:px-6 sm:py-20 md:py-24
-           lg:left-1/2 lg:w-screen lg:max-w-none lg:-translate-x-1/2 lg:px-10 xl:px-16 2xl:px-24;
+    @apply relative mx-auto max-w-6xl px-5 py-12 sm:px-6 sm:py-20 md:py-24 lg:px-10;
   }
 
   /* ---------- Eyebrow / tag como pill ---------- */

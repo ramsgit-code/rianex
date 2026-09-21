@@ -18,7 +18,7 @@ export function DiagnosticoView() {
               key={item}
               className="flex items-start gap-3 text-sm text-foreground-muted"
             >
-              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent-text">
                 <Check size={12} />
               </span>
               {item}

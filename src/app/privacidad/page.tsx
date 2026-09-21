@@ -34,7 +34,7 @@ export default function PrivacidadPage() {
           El responsable del tratamiento de tus datos es Ramiro Pérez (en adelante,
           &laquo;Rianex&raquo;), con NIF 70818243R y domicilio en Paseo Estación 14,
           Ávila, España. Puedes contactar en cualquier momento en{" "}
-          <a href={`mailto:${EMAIL}`} className="text-accent underline underline-offset-2">
+          <a href={`mailto:${EMAIL}`} className="text-accent-text underline underline-offset-2">
             {EMAIL}
           </a>
           .
@@ -47,7 +47,7 @@ export default function PrivacidadPage() {
           teléfono, empresa, sitio web, país y la información sobre tu negocio y
           objetivos que decidas compartir. También podemos tratar datos técnicos de
           navegación (ver la{" "}
-          <a href="/cookies" className="text-accent underline underline-offset-2">
+          <a href="/cookies" className="text-accent-text underline underline-offset-2">
             política de cookies
           </a>
           ).
@@ -93,7 +93,7 @@ export default function PrivacidadPage() {
         <P>
           Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición,
           limitación del tratamiento y portabilidad escribiendo a{" "}
-          <a href={`mailto:${EMAIL}`} className="text-accent underline underline-offset-2">
+          <a href={`mailto:${EMAIL}`} className="text-accent-text underline underline-offset-2">
             {EMAIL}
           </a>
           . Si consideras que el tratamiento no se ajusta a la normativa, puedes
@@ -102,7 +102,7 @@ export default function PrivacidadPage() {
             href="https://www.aepd.es"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-accent underline underline-offset-2"
+            className="text-accent-text underline underline-offset-2"
           >
             www.aepd.es
           </a>
