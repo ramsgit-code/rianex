@@ -32,9 +32,9 @@ export const content = {
       titlePost: "",
       subtitle:
         "Montamos sistemas de IA que eliminan el trabajo repetitivo de tu agencia: reportes automáticos, onboarding de clientes, propuestas con IA y cualificación de leads. Tu equipo se enfoca en estrategia, no en tareas.",
-      ctaPrimary: "Solicita un audit de 20 minutos",
+      ctaPrimary: "Solicita un audit de 30 minutos",
       ctaSecondary: "Ver los sistemas",
-      note: "20 min · Sin compromiso · Respuesta en 24 h",
+      note: "30 min · Sin compromiso · Respuesta en 24 h",
       offeringTitle: "Qué hacemos con IA",
       offering: [
         "Automatización de procesos con IA",
@@ -480,9 +480,9 @@ export const content = {
       titlePost: "",
       subtitle:
         "We build AI systems that eliminate repetitive work for marketing agencies: automated reports, client onboarding, AI-powered proposals and lead qualification. Your team focuses on strategy, not tasks.",
-      ctaPrimary: "Book a 20-minute audit",
+      ctaPrimary: "Book a 30-minute audit",
       ctaSecondary: "See the systems",
-      note: "20 min · No commitment · Reply within 24 h",
+      note: "30 min · No commitment · Reply within 24 h",
       offeringTitle: "What we do with AI",
       offering: [
         "AI process automation",

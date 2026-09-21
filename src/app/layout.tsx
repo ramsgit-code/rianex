@@ -35,12 +35,14 @@ const SITE_URL = "https://rianex.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rianex — IA para negocios",
+    default: "Rianex — IA para agencias de marketing",
     template: "%s | Rianex",
   },
   description:
-    "IA para negocios: automatización de procesos, embudos de venta, integraciones con tu CRM y agentes de IA a medida. Del go-to-market al producto.",
+    "IA para agencias de marketing: automatiza reportes, onboarding de clientes, propuestas y cualificación de leads. Recupera 10 horas a la semana.",
   keywords: [
+    "IA para agencias de marketing",
+    "automatización para agencias",
     "IA para negocios",
     "automatización con IA",
     "agentes de IA",
@@ -56,16 +58,16 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: SITE_URL,
     siteName: "Rianex",
-    title: "Rianex — IA para negocios",
+    title: "Rianex — IA para agencias de marketing",
     description:
-      "Automatización de procesos, embudos de venta, integraciones CRM y agentes de IA a medida.",
+      "Automatiza los procesos de tu agencia y recupera 10 horas/semana: reportes, onboarding, propuestas y cualificación de leads con IA.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Rianex" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rianex — IA para negocios",
+    title: "Rianex — IA para agencias de marketing",
     description:
-      "Automatización de procesos, embudos de venta, integraciones CRM y agentes de IA a medida.",
+      "Automatiza los procesos de tu agencia y recupera 10 horas/semana: reportes, onboarding, propuestas y cualificación de leads con IA.",
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },
