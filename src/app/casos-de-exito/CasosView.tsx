@@ -6,10 +6,10 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
 
 const LOGO_DIMENSIONS: Record<string, { width: number; height: number }> = {
-  "/logos/hospital-capilar.png": { width: 396, height: 117 },
-  "/logos/eventos-barcelona.png": { width: 435, height: 117 },
-  "/logos/growth4u.png": { width: 339, height: 64 },
-  "/logos/tribeca.png": { width: 800, height: 800 },
+  "/logos/hospital-capilar-dark.png": { width: 396, height: 117 },
+  "/logos/eventos-barcelona-dark.png": { width: 435, height: 117 },
+  "/logos/growth4u-dark.png": { width: 339, height: 64 },
+  "/logos/tribeca-dark.png": { width: 800, height: 800 },
 };
 
 export function CasosView() {

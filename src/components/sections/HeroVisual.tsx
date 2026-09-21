@@ -16,10 +16,10 @@ function Chip({
 }) {
   return (
     <div
-      className={`absolute ${className} flex animate-float items-center gap-1.5 whitespace-nowrap rounded-full border border-white/10 bg-background/70 px-2.5 py-1.5 text-xs font-medium text-foreground shadow-glass backdrop-blur-md`}
+      className={`absolute ${className} flex animate-float items-center gap-1.5 whitespace-nowrap rounded-full border border-ink/[0.08] bg-background/70 px-2.5 py-1.5 text-xs font-medium text-foreground shadow-glass backdrop-blur-md`}
       style={{ animationDelay: delay }}
     >
-      <Icon size={13} className="text-accent" />
+      <Icon size={13} className="text-accent-text" />
       {label}
     </div>
   );
@@ -32,15 +32,15 @@ export function HeroVisual() {
       <div className="absolute inset-[10%] animate-glow-pulse rounded-full bg-accent/10 blur-[60px]" />
 
       {/* anillo exterior giratorio (lento) */}
-      <div className="absolute inset-[4%] animate-spin rounded-full border border-dashed border-white/10 [animation-duration:30s]" />
+      <div className="absolute inset-[4%] animate-spin rounded-full border border-dashed border-ink/[0.08] [animation-duration:30s]" />
       {/* anillos concéntricos */}
-      <div className="absolute inset-[22%] rounded-full border border-white/[0.07]" />
-      <div className="absolute inset-[38%] rounded-full border border-white/[0.05]" />
+      <div className="absolute inset-[22%] rounded-full border border-ink/[0.07]" />
+      <div className="absolute inset-[38%] rounded-full border border-ink/[0.05]" />
       {/* señal que emana del núcleo (AI ambient) */}
       <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 animate-ping-slow rounded-full border border-accent/25" />
 
       {/* núcleo IA */}
-      <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 animate-glow-pulse items-center justify-center rounded-2xl border border-accent/30 bg-accent/[0.1] text-accent shadow-glow backdrop-blur-md">
+      <div className="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 animate-glow-pulse items-center justify-center rounded-2xl border border-accent/30 bg-accent/[0.1] text-accent-text shadow-glow backdrop-blur-md">
         <Sparkles size={30} />
       </div>
 

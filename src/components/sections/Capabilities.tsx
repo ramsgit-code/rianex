@@ -78,12 +78,12 @@ export function Capabilities() {
                       <div
                         className={`card relative h-full overflow-hidden !p-5 transition-shadow ${
                           isActive
-                            ? "shadow-[0_0_0_1px_rgba(232,255,0,0.45),0_0_30px_-8px_rgba(232,255,0,0.4)]"
+                            ? "shadow-[0_0_0_1px_rgba(199,212,0,0.45),0_0_30px_-8px_rgba(199,212,0,0.4)]"
                             : ""
                         }`}
                       >
                         <span
-                          className={`flex h-10 w-10 items-center justify-center rounded-xl border text-accent transition-colors ${
+                          className={`flex h-10 w-10 items-center justify-center rounded-xl border text-accent-text transition-colors ${
                             isActive
                               ? "border-accent/50 bg-accent/[0.15]"
                               : "border-accent/25 bg-accent/[0.08]"
@@ -119,7 +119,7 @@ export function Capabilities() {
                     onClick={() =>
                       scrollerRef.current?.scrollBy({ left: 260, behavior: "smooth" })
                     }
-                    className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full border border-accent/40 bg-background text-accent shadow-[0_0_16px_-6px_rgba(232,255,0,0.6)]"
+                    className="pointer-events-auto flex h-9 w-9 items-center justify-center rounded-full border border-accent/40 bg-background text-accent-text shadow-[0_0_16px_-6px_rgba(199,212,0,0.6)]"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.3, repeat: Infinity, ease: "easeInOut" }}
                   >
@@ -155,7 +155,7 @@ export function Capabilities() {
               >
                 {activeItem.kpis.map((k) => (
                   <div key={k.label} className="card !p-5">
-                    <p className="font-display text-2xl font-semibold tracking-tight text-accent sm:text-3xl">
+                    <p className="font-display text-2xl font-semibold tracking-tight text-accent-text sm:text-3xl">
                       {k.value}
                     </p>
                     <p className="mt-1.5 text-sm leading-snug text-foreground-muted">

@@ -17,7 +17,7 @@ import {
 import { AgentChat } from "@/components/sections/AgentChat";
 import { useLang } from "@/components/LanguageProvider";
 
-const ACCENT = "#e8ff00";
+const ACCENT = "#c7d400";
 
 // Contador que sube de 0 a `to` con easing (sin dependencias).
 function Counter({ to, duration = 1400 }: { to: number; duration?: number }) {
@@ -40,18 +40,18 @@ function Counter({ to, duration = 1400 }: { to: number; duration?: number }) {
 function Frame({ children, caption }: { children: React.ReactNode; caption?: string }) {
   return (
     <div className="card relative flex h-[280px] w-full max-w-sm flex-col items-center justify-center overflow-hidden sm:h-[360px]">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(232,255,0,0.08),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(199,212,0,0.10),transparent_55%)]" />
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="pointer-events-none absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage:
-            "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+            "linear-gradient(#12130f 1px, transparent 1px), linear-gradient(90deg, #12130f 1px, transparent 1px)",
           backgroundSize: "26px 26px",
         }}
       />
       <div className="relative flex flex-1 items-center justify-center px-4 sm:px-6">{children}</div>
       {caption && (
-        <p className="relative w-full border-t border-white/[0.06] px-5 py-3 text-center text-xs text-muted">
+        <p className="relative w-full border-t border-ink/[0.06] px-5 py-3 text-center text-xs text-muted">
           {caption}
         </p>
       )}
@@ -62,7 +62,7 @@ function Frame({ children, caption }: { children: React.ReactNode; caption?: str
 function FlowPath({ d, delay = 0 }: { d: string; delay?: number }) {
   return (
     <>
-      <path d={d} fill="none" stroke="rgba(255,255,255,0.10)" strokeWidth={2} />
+      <path d={d} fill="none" stroke="rgba(18,19,15,0.12)" strokeWidth={2} />
       <motion.path
         d={d}
         fill="none"
@@ -83,9 +83,9 @@ function Automation({ caption, labels }: { caption: string; labels: string[] }) 
     <Frame caption={caption}>
       <div className="relative w-[256px] lg:[transform:perspective(900px)_rotateX(10deg)]">
         {/* línea de flujo + pulso viajando */}
-        <div className="absolute left-9 right-9 top-[26px] h-[2px] bg-white/10" />
+        <div className="absolute left-9 right-9 top-[26px] h-[2px] bg-ink/[0.10]" />
         <motion.div
-          className="absolute top-[26px] z-20 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_#e8ff00]"
+          className="absolute top-[26px] z-20 h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_12px_#c7d400]"
           animate={{ left: [26, 224] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -93,7 +93,7 @@ function Automation({ caption, labels }: { caption: string; labels: string[] }) 
         <div className="relative flex items-start justify-between">
           {/* 1 · correo entra */}
           <div className="flex w-16 flex-col items-center gap-1.5">
-            <span className="flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent shadow-[0_0_16px_-6px_#e8ff00]">
+            <span className="flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent-text shadow-[0_0_16px_-6px_#c7d400]">
               <Mail size={20} />
             </span>
             <span className="text-center text-[10px] leading-tight text-foreground-muted">
@@ -104,10 +104,10 @@ function Automation({ caption, labels }: { caption: string; labels: string[] }) 
           {/* 2 · IA redacta la propuesta */}
           <div className="flex flex-col items-center gap-1.5">
             <div className="relative w-[54px] rounded-lg border border-accent/40 bg-background p-2">
-              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-accent/40 bg-background text-accent">
+              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full border border-accent/40 bg-background text-accent-text">
                 <Sparkles size={11} />
               </span>
-              <span className="mb-1.5 block h-1.5 w-7 rounded bg-white/25" />
+              <span className="mb-1.5 block h-1.5 w-7 rounded bg-ink/20" />
               {[0, 1, 2].map((i) => (
                 <motion.span
                   key={i}
@@ -125,10 +125,10 @@ function Automation({ caption, labels }: { caption: string; labels: string[] }) 
 
           {/* 3 · correo envía la propuesta */}
           <div className="flex w-16 flex-col items-center gap-1.5">
-            <span className="relative flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent shadow-[0_0_16px_-6px_#e8ff00]">
+            <span className="relative flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent-text shadow-[0_0_16px_-6px_#c7d400]">
               <Send size={19} />
               <motion.span
-                className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-background"
+                className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-ink"
                 animate={{ scale: [0, 0, 1, 1, 0], opacity: [0, 0, 1, 1, 0] }}
                 transition={{ duration: 2.4, repeat: Infinity, times: [0, 0.75, 0.85, 0.96, 1] }}
               >
@@ -165,7 +165,7 @@ function Funnel({
             className={`${s.w} flex items-center justify-between rounded-lg border border-accent/25 bg-gradient-to-r from-accent/[0.04] to-accent/[0.12] px-3 py-2`}
           >
             <span className="text-[11px] font-medium text-foreground">{s.label}</span>
-            <span className="font-display text-sm font-bold text-accent">
+            <span className="font-display text-sm font-bold text-accent-text">
               <Counter to={s.n} duration={1200 + i * 250} />
             </span>
           </motion.div>
@@ -214,7 +214,7 @@ function Growth({ caption, kpi }: { caption: string; kpi: string }) {
           />
         </svg>
         <motion.div
-          className="absolute -right-2 -top-3 flex items-center gap-1 rounded-full border border-accent/40 bg-background px-2.5 py-1 text-xs font-bold text-accent"
+          className="absolute -right-2 -top-3 flex items-center gap-1 rounded-full border border-accent/40 bg-background px-2.5 py-1 text-xs font-bold text-accent-text"
           initial={{ opacity: 0, scale: 0.6 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.7 }}
@@ -264,7 +264,7 @@ function ProductBuild({
                   animate={{ opacity: [1, 0.3, 1] }}
                   transition={{ duration: 1.4, repeat: Infinity }}
                 />
-                <span className="text-[8px] font-semibold uppercase tracking-wide text-accent">
+                <span className="text-[8px] font-semibold uppercase tracking-wide text-accent-text">
                   {live}
                 </span>
               </span>
@@ -288,7 +288,7 @@ function ProductBuild({
 
             <motion.button
               {...build(3)}
-              className="mt-0.5 rounded-lg bg-accent py-1.5 text-center text-[11px] font-semibold text-background"
+              className="mt-0.5 rounded-lg bg-accent py-1.5 text-center text-[11px] font-semibold text-ink"
             >
               {cta}
             </motion.button>
@@ -321,7 +321,7 @@ function Integrations({ caption, hub }: { caption: string; hub: string }) {
             cy={cy}
             r={R}
             fill="none"
-            stroke="rgba(255,255,255,0.06)"
+            stroke="rgba(18,19,15,0.10)"
             strokeWidth={1}
             strokeDasharray="3 6"
             animate={{ rotate: 360 }}
@@ -337,9 +337,9 @@ function Integrations({ caption, hub }: { caption: string; hub: string }) {
         </svg>
 
         <motion.div
-          className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/50 bg-accent/[0.1] font-display text-sm font-extrabold tracking-tight text-accent"
+          className="absolute flex h-16 w-16 items-center justify-center rounded-2xl border border-accent/50 bg-accent/[0.1] font-display text-sm font-extrabold tracking-tight text-accent-text"
           style={{ left: cx - 32, top: cy - 32 }}
-          animate={{ boxShadow: ["0 0 0 rgba(232,255,0,0)", "0 0 28px rgba(232,255,0,0.45)", "0 0 0 rgba(232,255,0,0)"] }}
+          animate={{ boxShadow: ["0 0 0 rgba(199,212,0,0)", "0 0 28px rgba(199,212,0,0.45)", "0 0 0 rgba(199,212,0,0)"] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           {hub}
@@ -352,12 +352,12 @@ function Integrations({ caption, hub }: { caption: string; hub: string }) {
           return (
             <motion.div
               key={s.label}
-              className="absolute flex items-center gap-1 rounded-lg border border-white/10 bg-background/90 px-2 py-1 text-[10px] text-foreground-muted"
+              className="absolute flex items-center gap-1 rounded-lg border border-ink/[0.08] bg-background/90 px-2 py-1 text-[10px] text-foreground-muted"
               style={{ left: x - 24, top: y - 12 }}
               animate={{ opacity: [0.45, 1, 0.45], scale: [1, 1.06, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: i * 0.25 }}
             >
-              <s.Icon size={12} className="text-accent" />
+              <s.Icon size={12} className="text-accent-text" />
               {s.label}
             </motion.div>
           );

@@ -46,7 +46,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
                 type="button"
                 onClick={() => scroll(-1)}
                 aria-label="Anterior"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent-text"
               >
                 <ArrowLeft size={18} />
               </button>
@@ -54,7 +54,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
                 type="button"
                 onClick={() => scroll(1)}
                 aria-label="Siguiente"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-accent/10 text-accent transition-colors hover:bg-accent hover:text-background"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-accent/10 text-accent-text transition-colors hover:bg-accent hover:text-ink"
               >
                 <ArrowRight size={18} />
               </button>
@@ -73,12 +73,12 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
                 key={item.id}
                 className="card flex w-[82%] shrink-0 snap-start flex-col sm:w-[calc(50%-0.5rem)]"
               >
-                <Quote size={20} className="text-accent/70" />
+                <Quote size={20} className="text-accent-text/70" />
                 <blockquote className="mt-4 text-sm leading-relaxed text-foreground sm:text-[15px]">
                   “{lang === "en" ? item.quoteEn ?? item.quote : item.quote}”
                 </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-white/[0.08] pt-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/[0.04] text-xs font-semibold text-accent">
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-ink/[0.08] pt-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/[0.08] bg-ink/[0.04] text-xs font-semibold text-accent-text">
                     {item.imageUrl ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img
@@ -116,7 +116,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
               type="button"
               onClick={() => scroll(-1)}
               aria-label="Anterior"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent-text"
             >
               <ArrowLeft size={18} />
             </button>
@@ -124,7 +124,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
               type="button"
               onClick={() => scroll(1)}
               aria-label="Siguiente"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-accent/10 text-accent transition-colors hover:bg-accent hover:text-background"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-accent/10 text-accent-text transition-colors hover:bg-accent hover:text-ink"
             >
               <ArrowRight size={18} />
             </button>
@@ -135,7 +135,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
           <div className="mt-8 text-center">
             <Link
               href="/testimonios"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:text-accent-hover"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
             >
               {t.addCta}
               <ArrowRight size={15} />

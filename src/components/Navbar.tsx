@@ -30,13 +30,13 @@ export function Navbar() {
       <div
         className={`mx-auto flex max-w-5xl items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-300 md:px-5 ${
           scrolled
-            ? "border border-white/10 bg-background/95 shadow-glass backdrop-blur-xl"
+            ? "border border-ink/[0.06] bg-background/90 shadow-glass backdrop-blur-xl"
             : "border border-transparent bg-transparent"
         }`}
       >
         <Link href="/" className="flex items-center" aria-label="Rianex">
           <Image
-            src="/logos/rianex-mark.png"
+            src="/logos/rianex-mark-dark.png"
             alt="Rianex"
             width={1145}
             height={253}
@@ -54,7 +54,7 @@ export function Navbar() {
               className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
                 pathname === l.href
                   ? "text-foreground"
-                  : "text-foreground-muted hover:bg-white/5 hover:text-foreground"
+                  : "text-foreground-muted hover:bg-ink/[0.04] hover:text-foreground"
               }`}
             >
               {l.label}
@@ -63,7 +63,7 @@ export function Navbar() {
           <button
             onClick={toggle}
             aria-label={c.nav.switchLabel}
-            className="ml-1 inline-flex items-center gap-1.5 rounded-lg border border-white/10 px-2.5 py-1.5 text-xs font-medium text-foreground-muted transition-colors hover:border-white/20 hover:text-foreground"
+            className="ml-1 inline-flex items-center gap-1.5 rounded-lg border border-ink/[0.08] px-2.5 py-1.5 text-xs font-medium text-foreground-muted transition-colors hover:border-ink/20 hover:text-foreground"
           >
             <Languages size={14} />
             {c.nav.switchTo}
@@ -78,7 +78,7 @@ export function Navbar() {
           <button
             onClick={toggle}
             aria-label={c.nav.switchLabel}
-            className="inline-flex items-center gap-1 rounded-lg border border-white/10 px-2 py-1 text-xs font-medium text-foreground-muted"
+            className="inline-flex items-center gap-1 rounded-lg border border-ink/[0.08] px-2 py-1 text-xs font-medium text-foreground-muted"
           >
             <Languages size={13} />
             {c.nav.switchTo}
@@ -95,12 +95,12 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="mx-auto mt-2 flex max-w-5xl flex-col gap-1 rounded-2xl border border-white/10 bg-background/90 p-3 shadow-glass backdrop-blur-xl md:hidden">
+        <div className="mx-auto mt-2 flex max-w-5xl flex-col gap-1 rounded-2xl border border-ink/[0.08] bg-background/90 p-3 shadow-glass backdrop-blur-xl md:hidden">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
-              className="rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-white/5 hover:text-foreground"
+              className="rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-ink/[0.04] hover:text-foreground"
               onClick={() => setOpen(false)}
             >
               {l.label}

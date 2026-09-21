@@ -214,7 +214,7 @@ export function DiagnosticForm() {
         animate={{ opacity: 1, scale: 1 }}
         className="py-12 text-center"
       >
-        <CheckCircle size={48} className="mx-auto mb-6 text-accent" />
+        <CheckCircle size={48} className="mx-auto mb-6 text-accent-text" />
         <h2 className="mb-3 text-2xl font-bold text-foreground">{f.success.title}</h2>
         <p className="mx-auto mb-8 max-w-md text-foreground-muted">{f.success.body}</p>
         <a
@@ -291,7 +291,7 @@ export function DiagnosticForm() {
                     />
                     <span>
                       {f.consentPre}
-                      <Link href="/privacidad" target="_blank" className="text-accent underline underline-offset-2">
+                      <Link href="/privacidad" target="_blank" className="text-accent-text underline underline-offset-2">
                         {f.consentLink}
                       </Link>
                       {f.consentPost}

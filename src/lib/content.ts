@@ -6,10 +6,10 @@
 export type Lang = "es" | "en";
 
 export const LOGOS = {
-  hospitalCapilar: "/logos/hospital-capilar.png",
-  eventosBarcelona: "/logos/eventos-barcelona.png",
-  growth4u: "/logos/growth4u.png",
-  tribeca: "/logos/tribeca.png",
+  hospitalCapilar: "/logos/hospital-capilar-dark.png",
+  eventosBarcelona: "/logos/eventos-barcelona-dark.png",
+  growth4u: "/logos/growth4u-dark.png",
+  tribeca: "/logos/tribeca-dark.png",
 };
 
 export const content = {

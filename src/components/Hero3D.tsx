@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import type { Group, Points } from "three";
 
-const ACCENT = "#e8ff00";
+const ACCENT = "#12130f";
 
 // Nube de partículas en cáscara esférica (nodos flotantes).
 function Particles({ count = 240 }: { count?: number }) {

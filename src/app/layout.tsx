@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { PublicLayout } from "@/components/PublicLayout";
 
 export const viewport: Viewport = {
-  themeColor: "#070708",
-  colorScheme: "dark",
+  themeColor: "#FBFBF8",
+  colorScheme: "light",
   width: "device-width",
   initialScale: 1,
 };
@@ -20,6 +20,13 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -74,7 +81,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html
+      lang="es"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
       <body>
         <PublicLayout>{children}</PublicLayout>
       </body>

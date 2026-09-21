@@ -57,10 +57,10 @@ export function CookieConsent() {
           transition={{ type: "spring", stiffness: 200, damping: 26 }}
           className="fixed bottom-3 left-3 right-20 z-[70] sm:right-auto sm:left-4 sm:bottom-4 sm:max-w-md"
         >
-          <div className="glass flex flex-col gap-3 rounded-2xl border border-white/[0.08] px-5 py-4 shadow-2xl sm:flex-row sm:items-center sm:gap-4">
+          <div className="glass flex flex-col gap-3 rounded-2xl border border-ink/[0.08] px-5 py-4 shadow-2xl sm:flex-row sm:items-center sm:gap-4">
             <p className="text-sm leading-snug text-foreground-muted">
               {t.text}{" "}
-              <Link href="/cookies" className="text-accent underline underline-offset-2">
+              <Link href="/cookies" className="text-accent-text underline underline-offset-2">
                 {t.link}
               </Link>
             </p>

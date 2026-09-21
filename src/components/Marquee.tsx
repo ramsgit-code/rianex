@@ -21,7 +21,7 @@ export function Marquee() {
     lang === "en" ? "Integrated with" : "Se integra con";
 
   return (
-    <section className="relative border-y border-white/[0.06] py-8">
+    <section className="relative border-y border-ink/[0.06] py-8">
       <p className="mb-5 text-center text-xs uppercase tracking-[0.2em] text-muted">
         {label}
       </p>

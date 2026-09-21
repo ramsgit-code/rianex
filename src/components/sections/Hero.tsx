@@ -81,7 +81,7 @@ export function Hero() {
     const x = e.clientX - r.left;
     const y = e.clientY - r.top;
     if (spotRef.current) {
-      spotRef.current.style.background = `radial-gradient(520px circle at ${x}px ${y}px, rgba(232,255,0,0.07), transparent 45%)`;
+      spotRef.current.style.background = `radial-gradient(520px circle at ${x}px ${y}px, rgba(199,212,0,0.10), transparent 45%)`;
     }
   };
 
@@ -109,7 +109,7 @@ export function Hero() {
               <Reveal delay={0.05}>
                 <h1
                   aria-label={`${h.titlePre}${h.titleHighlight}${h.titlePost}`}
-                  className="max-w-2xl text-balance font-display text-4xl font-semibold leading-[1.08] tracking-tight text-foreground sm:text-5xl sm:leading-[1.05] lg:text-6xl"
+                  className="max-w-2xl text-balance font-display text-5xl font-semibold leading-[1.03] tracking-tight text-foreground sm:text-6xl sm:leading-[1.0] lg:text-7xl"
                 >
                   {h.titlePre}
                   <Typewriter text={h.titleHighlight} className="gradient-text" />
@@ -151,7 +151,7 @@ export function Hero() {
 
           {/* clientes — anclados al fondo de la primera pantalla */}
           <Reveal delay={0.16}>
-            <div className="mt-10 border-t border-white/[0.08] pt-7 sm:mt-14 sm:pt-8">
+            <div className="mt-10 border-t border-ink/[0.08] pt-7 sm:mt-14 sm:pt-8">
               <p className="mb-5 text-xs uppercase tracking-wider text-muted">
                 {h.logosLabel}
               </p>

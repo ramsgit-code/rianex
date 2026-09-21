@@ -16,14 +16,14 @@ export function Footer() {
   const showCta = pathname !== "/diagnostico";
 
   return (
-    <footer className="relative mt-16 border-t border-white/[0.08]">
+    <footer className="relative mt-16 border-t border-ink/[0.08]">
       <div className="mx-auto max-w-5xl px-6 pb-28 pt-14 sm:pb-14">
         <div className="glass relative overflow-hidden rounded-3xl px-6 py-10 text-center md:px-10 md:py-14">
           <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-accent/12 blur-[100px]" />
           <div className="relative">
             <div className="flex justify-center">
               <Image
-                src="/logos/rianex-mark.png"
+                src="/logos/rianex-mark-dark.png"
                 alt="Rianex"
                 width={1145}
                 height={253}
@@ -42,9 +42,9 @@ export function Footer() {
             <div className="mt-6">
               <a
                 href={`mailto:${EMAIL}`}
-                className="inline-flex items-center gap-2 text-sm text-foreground-muted transition-colors hover:text-accent"
+                className="inline-flex items-center gap-2 text-sm text-foreground-muted transition-colors hover:text-accent-text"
               >
-                <Mail size={15} className="text-accent" />
+                <Mail size={15} className="text-accent-text" />
                 {EMAIL}
               </a>
             </div>
@@ -53,11 +53,11 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col items-center gap-2 text-center text-xs text-muted">
           <div className="flex items-center gap-4">
-            <Link href="/privacidad" className="transition-colors hover:text-accent">
+            <Link href="/privacidad" className="transition-colors hover:text-accent-text">
               {lang === "en" ? "Privacy policy" : "Política de privacidad"}
             </Link>
             <span aria-hidden>·</span>
-            <Link href="/cookies" className="transition-colors hover:text-accent">
+            <Link href="/cookies" className="transition-colors hover:text-accent-text">
               {lang === "en" ? "Cookie policy" : "Política de cookies"}
             </Link>
           </div>

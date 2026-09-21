@@ -124,8 +124,8 @@ export function AgentChat() {
 
       <div className="glass overflow-hidden rounded-3xl shadow-glass">
         {/* header (fijo) */}
-        <div className="flex items-center gap-3 border-b border-white/[0.08] px-5 py-4">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-accent/30 bg-accent/[0.1] text-accent">
+        <div className="flex items-center gap-3 border-b border-ink/[0.08] px-5 py-4">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-accent/30 bg-accent/[0.1] text-accent-text">
             <Sparkles size={16} />
           </span>
           <div className="flex-1">
@@ -168,7 +168,7 @@ export function AgentChat() {
                     transition={{ ...spring, delay: 0.4 + i * 0.55 }}
                     className={
                       m.side === "in"
-                        ? "max-w-[80%] self-start rounded-2xl rounded-bl-md border border-white/[0.08] bg-white/[0.04] px-3.5 py-2 text-sm text-foreground"
+                        ? "max-w-[80%] self-start rounded-2xl rounded-bl-md border border-ink/[0.08] bg-ink/[0.03] px-3.5 py-2 text-sm text-foreground"
                         : "max-w-[80%] self-end rounded-2xl rounded-br-md bg-accent px-3.5 py-2 text-sm font-medium text-black"
                     }
                   >
@@ -184,7 +184,7 @@ export function AgentChat() {
                 transition={{ ...spring, delay: 0.4 + convo.msgs.length * 0.55 + 0.4 }}
                 className="mt-1 flex items-center gap-3 rounded-2xl border border-accent/25 bg-accent/[0.06] px-4 py-3"
               >
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-accent">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent/15 text-accent-text">
                   <Icon size={18} />
                 </span>
                 <div className="flex-1">
@@ -206,7 +206,7 @@ export function AgentChat() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8, transition: { duration: 0.2 } }}
             transition={{ ...spring, delay: 0.3 }}
-            className="flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-background/80 px-3 py-1.5 text-xs font-medium text-foreground shadow-glass backdrop-blur-md"
+            className="flex items-center gap-2 whitespace-nowrap rounded-full border border-ink/[0.08] bg-background/80 px-3 py-1.5 text-xs font-medium text-foreground shadow-glass backdrop-blur-md"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             {convo.badge}
