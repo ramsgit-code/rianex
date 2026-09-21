@@ -147,7 +147,7 @@ export function BlogEditor({ initial }: { initial?: BlogPostInput }) {
           type="button"
           onClick={autoTranslate}
           disabled={translating}
-          className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs text-foreground-muted hover:border-accent hover:text-accent"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border px-3 py-1.5 text-xs text-foreground-muted hover:border-accent hover:text-accent-text"
         >
           {translating ? <Loader2 size={13} className="animate-spin" /> : <Languages size={13} />}
           Traducir del español

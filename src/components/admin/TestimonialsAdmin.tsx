@@ -190,8 +190,8 @@ export function TestimonialsAdmin() {
                   <span
                     className={`rounded-full px-2 py-0.5 text-[11px] ${
                       t.approved
-                        ? "bg-accent/15 text-accent"
-                        : "bg-yellow-500/15 text-yellow-500"
+                        ? "bg-accent/15 text-accent-text"
+                        : "bg-yellow-500/15 text-yellow-800"
                     }`}
                   >
                     {t.approved ? "Publicado" : "Pendiente"}
@@ -204,7 +204,7 @@ export function TestimonialsAdmin() {
                 <button
                   onClick={() => toggle(t.id, t.approved)}
                   title={t.approved ? "Despublicar" : "Aprobar"}
-                  className="rounded-md border border-border p-2 text-foreground-muted hover:text-accent"
+                  className="rounded-md border border-border p-2 text-foreground-muted hover:text-accent-text"
                 >
                   <Check size={15} />
                 </button>

@@ -436,6 +436,9 @@ export const content = {
         "VPS / Docker",
         "WhatsApp / Telegram",
       ],
+      ctaTitle: "¿Hablamos de tu proceso?",
+      ctaSubtitle: "30 minutos para ver si tiene sentido trabajar juntos.",
+      ctaButton: "Solicitar diagnóstico",
     },
 
     diagnostico: {
@@ -880,6 +883,9 @@ export const content = {
         "VPS / Docker",
         "WhatsApp / Telegram",
       ],
+      ctaTitle: "Want to talk about your process?",
+      ctaSubtitle: "30 minutes to see if it's worth working together.",
+      ctaButton: "Request a diagnostic",
     },
 
     diagnostico: {

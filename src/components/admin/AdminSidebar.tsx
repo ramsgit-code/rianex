@@ -27,7 +27,7 @@ export function AdminSidebar() {
   return (
     <aside className="w-56 shrink-0 border-r border-border min-h-screen p-4 flex flex-col">
       <Link href="/admin" className="font-semibold text-sm text-foreground mb-8 block">
-        Admin<span className="text-accent">.</span>
+        Admin<span className="text-accent-text">.</span>
       </Link>
 
       <nav className="flex flex-col gap-1 flex-1">

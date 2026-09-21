@@ -127,10 +127,10 @@ export function LeadsTable({
                     <td className="px-4 py-3 text-foreground-muted" onClick={() => setSelected(lead)}>
                       {p.empresa ?? "—"}
                     </td>
-                    <td className="px-4 py-3 text-accent" onClick={() => setSelected(lead)}>{lead.tier}</td>
+                    <td className="px-4 py-3 text-accent-text" onClick={() => setSelected(lead)}>{lead.tier}</td>
                     <td className="px-4 py-3" onClick={() => setSelected(lead)}>{lead.score}</td>
                     <td className="px-4 py-3" onClick={() => setSelected(lead)}>
-                      <span className={lead.ghlSynced ? "text-accent" : "text-muted"}>
+                      <span className={lead.ghlSynced ? "text-accent-text" : "text-muted"}>
                         {lead.ghlSynced ? "Sí" : "No"}
                       </span>
                     </td>

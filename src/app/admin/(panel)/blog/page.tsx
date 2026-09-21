@@ -38,7 +38,7 @@ export default async function AdminBlogPage() {
                   <td className="px-4 py-3 text-foreground">{post.title}</td>
                   <td className="px-4 py-3">
                     <span
-                      className={`text-xs ${post.published ? "text-accent" : "text-muted"}`}
+                      className={`text-xs ${post.published ? "text-accent-text" : "text-muted"}`}
                     >
                       {post.published ? "Publicado" : "Borrador"}
                     </span>
@@ -47,7 +47,7 @@ export default async function AdminBlogPage() {
                     {new Date(post.updatedAt).toLocaleDateString("es-ES")}
                   </td>
                   <td className="px-4 py-3 flex gap-3 justify-end">
-                    <Link href={`/admin/blog/${post.id}`} className="text-accent hover:underline">
+                    <Link href={`/admin/blog/${post.id}`} className="text-accent-text hover:underline">
                       Editar
                     </Link>
                     <DeletePostButton id={post.id} />
