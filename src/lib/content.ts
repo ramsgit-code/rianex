@@ -422,13 +422,6 @@ export const content = {
           solution: "Captación y nurturing automático en Go High Level.",
           reference: "Growth4U",
         },
-        {
-          sector: "Consultoría",
-          title: "Servicios Profesionales",
-          pain: "Cierre lento e inconsistente con los referidos.",
-          solution: "Diagnóstico, propuesta y seguimiento automatizado.",
-          reference: "Hermetic",
-        },
       ],
     },
 
@@ -924,13 +917,6 @@ export const content = {
           pain: "Lots of interest, few enrolments and no follow-up.",
           solution: "Automated capture and nurturing on Go High Level.",
           reference: "Growth4U",
-        },
-        {
-          sector: "Consulting",
-          title: "Professional Services",
-          pain: "Slow, inconsistent closing on referrals.",
-          solution: "Diagnosis, proposal and automated follow-up.",
-          reference: "Hermetic",
         },
       ],
     },
