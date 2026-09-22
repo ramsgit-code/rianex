@@ -16,25 +16,29 @@ export const content = {
   es: {
     nav: {
       links: [
+        { href: "/servicios", label: "Servicios" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "Nosotros" },
       ],
-      cta: "Diagnóstico",
+      cta: "Auditoría gratis",
       switchTo: "EN",
       switchLabel: "Ver en inglés",
     },
 
     hero: {
       eyebrow: "IA para agencias de marketing",
-      titlePre: "Automatiza los procesos de tu agencia y ",
+      titlePre: "Automatiza la captación de leads de tu agencia y ",
       titleHighlight: "recupera 10 horas/semana.",
       titlePost: "",
       subtitle:
         "Montamos sistemas de IA que eliminan el trabajo repetitivo de tu agencia: reportes automáticos, onboarding de clientes, propuestas con IA y cualificación de leads. Tu equipo se enfoca en estrategia, no en tareas.",
-      ctaPrimary: "Solicita un audit de 30 minutos",
+      ctaPrimary: "Obtén mi Auditoría Gratuita",
       ctaSecondary: "Ver los sistemas",
-      note: "30 min · Sin compromiso · Respuesta en 24 h",
+      note: "Primeros resultados en 4 semanas · Sin compromiso",
+      proofMetric: "−32%",
+      proofLabel: "coste por paciente (CPP) en 6 semanas",
+      proofClient: "Hospital Capilar",
       offeringTitle: "Qué hacemos con IA",
       offering: [
         "Automatización de procesos con IA",
@@ -195,30 +199,82 @@ export const content = {
       ],
     },
 
+    pricing: {
+      tag: "Inversión",
+      title: "Cuánto cuesta automatizar tu negocio",
+      subtitle:
+        "Rangos de referencia del sector. El alcance exacto —y el precio— se confirma en la auditoría gratuita, no antes.",
+      tiers: [
+        {
+          name: "Discovery",
+          range: "1.500 € – 15.000 €",
+          desc: "Diagnóstico, arquitectura y diseño del sistema antes de construir nada.",
+        },
+        {
+          name: "Implementación",
+          range: "5.000 € – 25.000 €",
+          desc: "Construcción y despliegue del sistema completo en producción.",
+        },
+        {
+          name: "Retainer mensual",
+          range: "1.000 € – 5.000 €/mes",
+          desc: "Mantenimiento, monitorización y mejoras continuas del sistema.",
+        },
+      ],
+      note: "Para proyectos de mayor escala también trabajamos con pricing por valor: un % del ahorro o la venta adicional que genera el sistema.",
+    },
+
+    faq: {
+      tag: "Preguntas frecuentes",
+      title: "Antes de que preguntes",
+      items: [
+        {
+          q: "¿Cómo funciona vuestra IA exactamente?",
+          a: "No es una caja negra: usamos agentes de IA (LLMs) sobre tu propio CRM en Go High Level, con reglas de scoring y flujos que diseñamos contigo en la auditoría. Ves exactamente qué automatiza cada paso, y el código y la infraestructura son tuyos.",
+        },
+        {
+          q: "¿Es un sistema a medida o una plantilla?",
+          a: "A medida. Cada automatización se diseña sobre tu proceso comercial real — no hay dos implementaciones iguales, aunque el stack (Go High Level, n8n, agentes de IA) sea el mismo.",
+        },
+        {
+          q: "¿Cuánto tarda en estar en producción?",
+          a: "Entre 4 y 8 semanas desde el diagnóstico, según el alcance. El primer sistema suele estar activo en la semana 4.",
+        },
+        {
+          q: "¿Qué pasa si no encaja con mi negocio?",
+          a: "Te lo decimos en la auditoría gratuita de 30 minutos, sin coste ni compromiso. Si no tiene sentido trabajar juntos, te lo decimos directamente.",
+        },
+        {
+          q: "¿Cuánto cuesta?",
+          a: "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 €, y hay un retainer mensual opcional para mantenimiento. El precio exacto se confirma tras la auditoría.",
+        },
+      ],
+    },
+
     finalCta: {
       titlePre: "¿Quieres saber qué ",
       titleHighlight: "sistema necesitas?",
       subtitle:
-        "Diagnóstico gratuito de 30 minutos. Te decimos si tiene sentido trabajar juntos, sin compromiso.",
-      button: "Solicitar diagnóstico",
+        "Auditoría de automatización gratuita de 30 minutos. Te decimos si tiene sentido trabajar juntos, sin compromiso.",
+      button: "Obtén mi Auditoría Gratuita",
     },
 
     pageCta: {
       title: "¿Quieres saber qué sistema necesitas?",
-      subtitle: "Diagnóstico gratuito de 30 minutos en Go High Level.",
-      button: "Solicitar diagnóstico",
+      subtitle: "Auditoría de automatización gratuita de 30 minutos en Go High Level.",
+      button: "Obtén mi Auditoría Gratuita",
     },
 
     footer: {
       tagline: "Sistemas de IA para negocios: automatización, embudos de venta e integraciones.",
-      cta: "Diagnóstico gratuito",
+      cta: "Obtén mi Auditoría Gratuita",
       links: [
         { href: "/servicios", label: "Servicios" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
         { href: "/sobre-mi", label: "Nosotros" },
         { href: "/blog", label: "Blog" },
-        { href: "/diagnostico", label: "Diagnóstico" },
+        { href: "/diagnostico", label: "Auditoría gratuita" },
       ],
       rights: "IA para negocios",
     },
@@ -230,7 +286,7 @@ export const content = {
         "Servicios que cubren todo el proceso comercial. Se implementan juntos o por separado.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
-      cta: "Solicitar diagnóstico",
+      cta: "Obtén mi Auditoría Gratuita",
       builtOn: "Construido sobre",
       items: [
         {
@@ -438,11 +494,11 @@ export const content = {
       ],
       ctaTitle: "¿Hablamos de tu proceso?",
       ctaSubtitle: "30 minutos para ver si tiene sentido trabajar juntos.",
-      ctaButton: "Solicitar diagnóstico",
+      ctaButton: "Obtén mi Auditoría Gratuita",
     },
 
     diagnostico: {
-      tag: "Diagnóstico gratuito",
+      tag: "Auditoría de Automatización Gratuita",
       title: "30 minutos para saber qué necesitas",
       description: "Rellena el formulario. Lo revisamos antes de la llamada.",
       bullets: [
@@ -464,25 +520,29 @@ export const content = {
   en: {
     nav: {
       links: [
+        { href: "/servicios", label: "Services" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "About" },
       ],
-      cta: "Diagnosis",
+      cta: "Get my free audit",
       switchTo: "ES",
       switchLabel: "View in Spanish",
     },
 
     hero: {
       eyebrow: "AI for marketing agencies",
-      titlePre: "Automate your agency's workflows and ",
+      titlePre: "Automate your agency's lead capture and ",
       titleHighlight: "get 10 hours/week back.",
       titlePost: "",
       subtitle:
         "We build AI systems that eliminate repetitive work for marketing agencies: automated reports, client onboarding, AI-powered proposals and lead qualification. Your team focuses on strategy, not tasks.",
-      ctaPrimary: "Book a 30-minute audit",
+      ctaPrimary: "Get my Free Automation Audit",
       ctaSecondary: "See the systems",
-      note: "30 min · No commitment · Reply within 24 h",
+      note: "First results in 4 weeks · No commitment",
+      proofMetric: "−32%",
+      proofLabel: "cost per patient (CPP) in 6 weeks",
+      proofClient: "Hospital Capilar",
       offeringTitle: "What we do with AI",
       offering: [
         "AI process automation",
@@ -642,30 +702,82 @@ export const content = {
       ],
     },
 
+    pricing: {
+      tag: "Investment",
+      title: "What automating your business costs",
+      subtitle:
+        "Industry reference ranges. The exact scope — and price — gets confirmed on the free audit call, not before.",
+      tiers: [
+        {
+          name: "Discovery",
+          range: "€1,500 – €15,000",
+          desc: "Diagnosis, architecture and system design before we build anything.",
+        },
+        {
+          name: "Implementation",
+          range: "€5,000 – €25,000",
+          desc: "Building and deploying the full system in production.",
+        },
+        {
+          name: "Monthly retainer",
+          range: "€1,000 – €5,000/mo",
+          desc: "Ongoing maintenance, monitoring and improvements.",
+        },
+      ],
+      note: "For larger-scale projects we also work on value-based pricing: a % of the savings or extra revenue the system generates.",
+    },
+
+    faq: {
+      tag: "FAQ",
+      title: "Before you ask",
+      items: [
+        {
+          q: "How does your AI actually work?",
+          a: "It's not a black box: we use AI agents (LLMs) on top of your own Go High Level CRM, with scoring rules and flows we design with you during the audit. You see exactly what each step automates, and the code and infrastructure are yours.",
+        },
+        {
+          q: "Is it custom-built or a template?",
+          a: "Custom-built. Every automation is designed around your real sales process — no two implementations are the same, even though the stack (Go High Level, n8n, AI agents) is.",
+        },
+        {
+          q: "How long until it's live?",
+          a: "4 to 8 weeks from the diagnosis, depending on scope. The first full system is usually live by week 4.",
+        },
+        {
+          q: "What if it's not a fit for my business?",
+          a: "We tell you on the free 30-minute audit, no cost or commitment. If it doesn't make sense to work together, we say so directly.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "It depends on scope: discovery starts at €1,500, full implementation runs €5,000–€25,000, and there's an optional monthly retainer for maintenance. Exact price is confirmed after the audit.",
+        },
+      ],
+    },
+
     finalCta: {
       titlePre: "Want to know which ",
       titleHighlight: "system you need?",
       subtitle:
-        "A free 30-minute diagnosis. I tell you whether it makes sense to work together — no commitment.",
-      button: "Request a diagnosis",
+        "A free 30-minute automation audit. I tell you whether it makes sense to work together — no commitment.",
+      button: "Get my Free Audit",
     },
 
     pageCta: {
       title: "Want to know which system you need?",
-      subtitle: "A free 30-minute diagnosis on Go High Level.",
-      button: "Request a diagnosis",
+      subtitle: "A free 30-minute automation audit on Go High Level.",
+      button: "Get my Free Audit",
     },
 
     footer: {
       tagline: "AI systems for business: automation, sales funnels and integrations.",
-      cta: "Free diagnosis",
+      cta: "Get my Free Audit",
       links: [
         { href: "/servicios", label: "Services" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
         { href: "/sobre-mi", label: "About" },
         { href: "/blog", label: "Blog" },
-        { href: "/diagnostico", label: "Diagnosis" },
+        { href: "/diagnostico", label: "Free audit" },
       ],
       rights: "AI for business",
     },
@@ -677,7 +789,7 @@ export const content = {
         "Services covering the whole sales process. Built together or separately.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
-      cta: "Request a diagnosis",
+      cta: "Get my Free Audit",
       builtOn: "Built on",
       items: [
         {
@@ -885,11 +997,11 @@ export const content = {
       ],
       ctaTitle: "Want to talk about your process?",
       ctaSubtitle: "30 minutes to see if it's worth working together.",
-      ctaButton: "Request a diagnostic",
+      ctaButton: "Get my Free Audit",
     },
 
     diagnostico: {
-      tag: "Free diagnosis",
+      tag: "Free Automation Audit",
       title: "30 minutes to know what you need",
       description: "Fill in the form. We review it before the call.",
       bullets: [

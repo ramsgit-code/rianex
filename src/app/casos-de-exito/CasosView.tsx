@@ -67,6 +67,12 @@ export function CasosView() {
                   {item.tag}
                 </span>
 
+                {/* resumen "respuesta primero": una frase con sector, proceso y resultado, citable tal cual por buscadores de IA */}
+                <p className="mt-4 text-base font-medium leading-snug text-foreground">
+                  {item.client} ({item.sector}): {item.tag} →{" "}
+                  <span className="text-accent-text">{item.metric}</span> {item.metricLabel}.
+                </p>
+
                 <div className="mt-6">
                   <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                     {L.reto}

@@ -1,10 +1,13 @@
 import { Hero } from "@/components/sections/Hero";
 import { Capabilities } from "@/components/sections/Capabilities";
 import { Process } from "@/components/sections/Process";
+import { Pricing } from "@/components/sections/Pricing";
+import { Faq } from "@/components/sections/Faq";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { JsonLd } from "@/components/JsonLd";
 import { prisma } from "@/lib/prisma";
+import { content } from "@/lib/content";
 
 export const revalidate = 60;
 
@@ -39,6 +42,16 @@ const websiteJsonLd = {
   inLanguage: "es-ES",
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: content.es.faq.items.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 async function getTestimonials() {
   try {
     return await prisma.testimonial.findMany({
@@ -59,14 +72,17 @@ export default async function Home() {
     <>
       <JsonLd data={businessJsonLd} />
       <JsonLd data={websiteJsonLd} />
+      <JsonLd data={faqJsonLd} />
       <Hero />
       <Capabilities />
       <Marquee />
       <Testimonials items={testimonials} />
+      <Pricing />
       {/* pasos: ocultos en móvil (home light), visibles en escritorio */}
       <div className="hidden sm:block">
         <Process />
       </div>
+      <Faq />
     </>
   );
 }

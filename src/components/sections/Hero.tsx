@@ -134,6 +134,19 @@ export function Hero() {
                   </Link>
                 </div>
                 <p className="mt-4 text-sm text-muted">{h.note}</p>
+
+                {/* prueba junto al cta: resultado real, no generico */}
+                <div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-ink/[0.08] bg-ink/[0.02] py-2.5 pl-3 pr-4">
+                  <span className="font-display text-lg font-bold text-accent-text">
+                    {h.proofMetric}
+                  </span>
+                  <span className="h-6 w-px bg-ink/10" />
+                  <span className="text-xs leading-tight text-foreground-muted">
+                    {h.proofLabel}
+                    <br />
+                    <span className="font-medium text-foreground">{h.proofClient}</span>
+                  </span>
+                </div>
               </Reveal>
             </div>
 
