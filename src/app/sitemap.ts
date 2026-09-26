@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
 
-const BASE_URL = "https://rianex.vercel.app";
+const BASE_URL = "https://www.rianex.es";
 
 async function getBlogSlugs(): Promise<{ slug: string; date: Date }[]> {
   try {

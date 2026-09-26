@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { ArrowUpRight, Mail } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 
-const EMAIL = "ramiroperez12@hotmail.com";
+const EMAIL = "hola@rianex.es";
 
 export function Footer() {
   const { c, lang } = useLang();

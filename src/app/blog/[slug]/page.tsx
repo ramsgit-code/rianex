@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { JsonLd } from "@/components/JsonLd";
 import { BlogPostContent } from "./BlogPostContent";
 
-const SITE_URL = "https://rianex.vercel.app";
+const SITE_URL = "https://www.rianex.es";
 
 export const revalidate = 60;
 

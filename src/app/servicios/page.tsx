@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/servicios" },
 };
 
-const SITE_URL = "https://rianex.vercel.app";
+const SITE_URL = "https://www.rianex.es";
 
 export default function ServiciosPage() {
   const items = content.es.servicios.items;

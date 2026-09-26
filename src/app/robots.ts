@@ -34,7 +34,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/"],
       })),
     ],
-    sitemap: "https://rianex.vercel.app/sitemap.xml",
-    host: "https://rianex.vercel.app",
+    sitemap: "https://www.rianex.es/sitemap.xml",
+    host: "https://www.rianex.es",
   };
 }

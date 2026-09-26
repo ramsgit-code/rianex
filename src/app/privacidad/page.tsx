@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacidad" },
 };
 
-const EMAIL = "ramiroperez12@hotmail.com";
+const EMAIL = "hola@rianex.es";
 
 function H({ children }: { children: React.ReactNode }) {
   return (

@@ -11,7 +11,7 @@ import { content } from "@/lib/content";
 
 export const revalidate = 60;
 
-const SITE_URL = "https://rianex.vercel.app";
+const SITE_URL = "https://www.rianex.es";
 
 const businessJsonLd = {
   "@context": "https://schema.org",
@@ -21,7 +21,7 @@ const businessJsonLd = {
   image: `${SITE_URL}/og.png`,
   description:
     "Automatización comercial con IA: captación, cualificación y cierre de clientes en Go High Level (WhatsApp, Telegram, correo y CRM).",
-  email: "ramiroperez12@hotmail.com",
+  email: "hola@rianex.es",
   areaServed: "ES",
   knowsAbout: [
     "Automatización comercial",
