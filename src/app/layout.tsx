@@ -35,7 +35,7 @@ const SITE_URL = "https://www.rianex.es";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rianex — Automatización con IA, GoHighLevel y HubSpot",
+    default: "Rianex — Automatización y desarrollo con IA",
     template: "%s | Rianex",
   },
   description:
@@ -58,14 +58,14 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: SITE_URL,
     siteName: "Rianex",
-    title: "Rianex — Automatización con IA, GoHighLevel y HubSpot",
+    title: "Rianex — Automatización y desarrollo con IA",
     description:
       "Automatización y desarrollo con IA, integraciones de GoHighLevel y HubSpot, y migraciones a GoHighLevel.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Rianex" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rianex — Automatización con IA, GoHighLevel y HubSpot",
+    title: "Rianex — Automatización y desarrollo con IA",
     description:
       "Automatización y desarrollo con IA, integraciones de GoHighLevel y HubSpot, y migraciones a GoHighLevel.",
     images: ["/og.png"],

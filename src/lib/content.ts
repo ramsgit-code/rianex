@@ -28,8 +28,8 @@ export const content = {
 
     hero: {
       eyebrow: "Automatización y desarrollo con IA",
-      titlePre: "Automatización con IA sobre ",
-      titleHighlight: "GoHighLevel y HubSpot.",
+      titlePre: "Automatiza la captación de leads de tu negocio y ",
+      titleHighlight: "recupera 10 horas/semana.",
       titlePost: "",
       subtitle:
         "Automatizamos procesos, desarrollamos agentes y herramientas con IA, conectamos tu CRM con el resto de tu stack y te migramos a GoHighLevel con todo tu histórico.",
@@ -549,8 +549,8 @@ export const content = {
 
     hero: {
       eyebrow: "AI automation and development",
-      titlePre: "AI automation on ",
-      titleHighlight: "GoHighLevel and HubSpot.",
+      titlePre: "Automate your lead capture and ",
+      titleHighlight: "get 10 hours/week back.",
       titlePost: "",
       subtitle:
         "We automate processes, build AI agents and tools, connect your CRM to the rest of your stack, and move you to GoHighLevel with your full history.",
