@@ -2,13 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronRight, Workflow, Filter, Rocket, Boxes, Network, Bot } from "lucide-react";
+import { ChevronRight, Workflow, Filter, ArrowLeftRight, Code, Network, Bot } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { Reveal } from "@/components/Reveal";
 import { TiltCard } from "@/components/TiltCard";
 import { CapabilityDemo } from "@/components/sections/CapabilityDemos";
 
-const icons = [Workflow, Filter, Rocket, Boxes, Network, Bot];
+const icons = [Workflow, Network, ArrowLeftRight, Code, Filter, Bot];
 
 export function Capabilities() {
   const { c } = useLang();

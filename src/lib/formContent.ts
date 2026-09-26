@@ -94,7 +94,7 @@ export const formContent = {
       ],
       crmActual: [
         ["ninguno", "Ninguno"],
-        ["gohighlevel", "Go High Level"],
+        ["gohighlevel", "GoHighLevel"],
         ["hubspot", "HubSpot"],
         ["salesforce", "Salesforce"],
         ["pipedrive", "Pipedrive"],
@@ -112,6 +112,10 @@ export const formContent = {
         ["+3d", "Más de 3 días"],
       ],
       objetivo: [
+        "Automatizar procesos con IA",
+        "Integrar GoHighLevel o HubSpot con otras herramientas",
+        "Migrar mi CRM a GoHighLevel",
+        "Desarrollar una herramienta o agente a medida",
         "Cualificar mejor mis leads",
         "Automatizar el seguimiento",
         "Reducir tiempo en propuestas",
@@ -238,7 +242,7 @@ export const formContent = {
       ],
       crmActual: [
         ["ninguno", "None"],
-        ["gohighlevel", "Go High Level"],
+        ["gohighlevel", "GoHighLevel"],
         ["hubspot", "HubSpot"],
         ["salesforce", "Salesforce"],
         ["pipedrive", "Pipedrive"],
@@ -256,6 +260,10 @@ export const formContent = {
         ["+3d", "More than 3 days"],
       ],
       objetivo: [
+        "Automate processes with AI",
+        "Integrate GoHighLevel or HubSpot with other tools",
+        "Migrate my CRM to GoHighLevel",
+        "Build a custom tool or agent",
         "Qualify my leads better",
         "Automate follow-up",
         "Cut time spent on proposals",

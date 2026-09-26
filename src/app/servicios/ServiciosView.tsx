@@ -4,9 +4,10 @@ import Link from "next/link";
 import {
   Filter,
   Workflow,
-  CalendarCheck,
+  Network,
+  ArrowLeftRight,
+  Code,
   FileText,
-  Repeat,
   Database,
   Bot,
   Check,
@@ -16,7 +17,7 @@ import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
 
-const icons = [Filter, Workflow, CalendarCheck, FileText, Repeat, Database, Bot];
+const icons = [Workflow, Network, ArrowLeftRight, Code, Bot, Database, Filter, FileText];
 
 export function ServiciosView() {
   const { c } = useLang();

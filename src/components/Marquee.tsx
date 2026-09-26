@@ -3,7 +3,8 @@
 import { useLang } from "@/components/LanguageProvider";
 
 const ITEMS = [
-  "Go High Level",
+  "GoHighLevel",
+  "HubSpot",
   "WhatsApp",
   "Telegram",
   "OpenAI",

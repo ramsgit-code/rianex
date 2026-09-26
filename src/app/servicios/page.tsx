@@ -6,7 +6,7 @@ import { content } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Servicios",
   description:
-    "Sistemas de automatización comercial en Go High Level: cualificación de leads, embudos de captación, booking SDR, propuestas automáticas, CRM y agentes de IA a medida.",
+    "Automatización de procesos con IA, integración de GoHighLevel y HubSpot, migraciones a GoHighLevel, desarrollo a medida y agentes de IA.",
   alternates: { canonical: "/servicios" },
 };
 

@@ -4,7 +4,7 @@ import { BlogView } from "./BlogView";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Guías sobre automatización comercial y Go High Level.",
+  description: "Guías sobre automatización con IA, GoHighLevel y HubSpot.",
   alternates: { canonical: "/blog" },
 };
 

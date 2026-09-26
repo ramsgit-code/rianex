@@ -20,13 +20,15 @@ const businessJsonLd = {
   url: SITE_URL,
   image: `${SITE_URL}/og.png`,
   description:
-    "Automatización comercial con IA: captación, cualificación y cierre de clientes en Go High Level (WhatsApp, Telegram, correo y CRM).",
+    "Automatización y desarrollo con IA, integración de GoHighLevel y HubSpot, y migraciones de CRM a GoHighLevel.",
   email: "hola@rianex.es",
   areaServed: "ES",
   knowsAbout: [
     "Automatización comercial",
     "Inteligencia artificial",
-    "Go High Level",
+    "GoHighLevel",
+    "HubSpot",
+    "Migración de CRM",
     "CRM",
     "Lead qualification",
     "Agentes de IA",

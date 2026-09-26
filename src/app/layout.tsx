@@ -35,22 +35,22 @@ const SITE_URL = "https://www.rianex.es";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Rianex — IA para agencias de marketing",
+    default: "Rianex — Automatización con IA, GoHighLevel y HubSpot",
     template: "%s | Rianex",
   },
   description:
-    "IA para agencias de marketing: automatiza reportes, onboarding de clientes, propuestas y cualificación de leads. Recupera 10 horas a la semana.",
+    "Automatización y desarrollo con IA. Integramos GoHighLevel y HubSpot con tus herramientas y migramos tu CRM a GoHighLevel con todo tu histórico.",
   keywords: [
-    "IA para agencias de marketing",
-    "automatización para agencias",
-    "IA para negocios",
     "automatización con IA",
+    "desarrollo con IA",
+    "integración gohighlevel",
+    "integración hubspot",
+    "migración a gohighlevel",
+    "migrar de hubspot a gohighlevel",
+    "consultor gohighlevel",
     "agentes de IA",
-    "embudos de venta",
-    "go-to-market engineering",
-    "founding engineering",
-    "integraciones crm",
     "crm gohighlevel",
+    "automatización hubspot",
   ],
   openGraph: {
     type: "website",
@@ -58,16 +58,16 @@ export const metadata: Metadata = {
     alternateLocale: "en_US",
     url: SITE_URL,
     siteName: "Rianex",
-    title: "Rianex — IA para agencias de marketing",
+    title: "Rianex — Automatización con IA, GoHighLevel y HubSpot",
     description:
-      "Automatiza los procesos de tu agencia y recupera 10 horas/semana: reportes, onboarding, propuestas y cualificación de leads con IA.",
+      "Automatización y desarrollo con IA, integraciones de GoHighLevel y HubSpot, y migraciones a GoHighLevel.",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Rianex" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rianex — IA para agencias de marketing",
+    title: "Rianex — Automatización con IA, GoHighLevel y HubSpot",
     description:
-      "Automatiza los procesos de tu agencia y recupera 10 horas/semana: reportes, onboarding, propuestas y cualificación de leads con IA.",
+      "Automatización y desarrollo con IA, integraciones de GoHighLevel y HubSpot, y migraciones a GoHighLevel.",
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },

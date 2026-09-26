@@ -10,9 +10,7 @@ import {
   MessageCircle,
   Database,
   Server,
-  Cpu,
   Plug,
-  TrendingUp,
 } from "lucide-react";
 import { AgentChat } from "@/components/sections/AgentChat";
 import { useLang } from "@/components/LanguageProvider";
@@ -78,7 +76,17 @@ function FlowPath({ d, delay = 0 }: { d: string; delay?: number }) {
 }
 
 // 1 · Automatización — correo entra → IA redacta propuesta → correo la envía
-function Automation({ caption, labels }: { caption: string; labels: string[] }) {
+function Automation({
+  caption,
+  labels,
+  StartIcon = Mail,
+  EndIcon = Send,
+}: {
+  caption: string;
+  labels: string[];
+  StartIcon?: typeof Mail;
+  EndIcon?: typeof Mail;
+}) {
   return (
     <Frame caption={caption}>
       <div className="relative w-[256px] lg:[transform:perspective(900px)_rotateX(10deg)]">
@@ -94,7 +102,7 @@ function Automation({ caption, labels }: { caption: string; labels: string[] }) 
           {/* 1 · correo entra */}
           <div className="flex w-16 flex-col items-center gap-1.5">
             <span className="flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent-text shadow-[0_0_16px_-6px_#c7d400]">
-              <Mail size={20} />
+              <StartIcon size={20} />
             </span>
             <span className="text-center text-[10px] leading-tight text-foreground-muted">
               {labels[0]}
@@ -126,7 +134,7 @@ function Automation({ caption, labels }: { caption: string; labels: string[] }) 
           {/* 3 · correo envía la propuesta */}
           <div className="flex w-16 flex-col items-center gap-1.5">
             <span className="relative flex h-[52px] w-[52px] items-center justify-center rounded-xl border border-accent/30 bg-background text-accent-text shadow-[0_0_16px_-6px_#c7d400]">
-              <Send size={19} />
+              <EndIcon size={19} />
               <motion.span
                 className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-accent text-ink"
                 animate={{ scale: [0, 0, 1, 1, 0], opacity: [0, 0, 1, 1, 0] }}
@@ -170,57 +178,6 @@ function Funnel({
             </span>
           </motion.div>
         ))}
-      </div>
-    </Frame>
-  );
-}
-
-// 3 · Go-to-Market — barras + línea de crecimiento SVG + KPI
-function Growth({ caption, kpi }: { caption: string; kpi: string }) {
-  const bars = [30, 42, 38, 58, 74, 92];
-  return (
-    <Frame caption={caption}>
-      <div className="relative lg:[transform:perspective(900px)_rotateX(10deg)]">
-        <div className="flex h-32 items-end gap-2">
-          {bars.map((h, i) => (
-            <motion.div
-              key={i}
-              className="w-6 rounded-t-md bg-gradient-to-t from-accent/20 to-accent/70"
-              initial={{ height: 6 }}
-              animate={{ height: (h / 100) * 128 }}
-              transition={{ duration: 1, delay: i * 0.12, ease: "easeOut" }}
-            />
-          ))}
-        </div>
-        <svg viewBox="0 0 200 128" className="absolute inset-0 h-32 w-full overflow-visible">
-          <motion.path
-            d="M6 112 L40 96 L74 100 L108 74 L142 60 L184 20"
-            fill="none"
-            stroke={ACCENT}
-            strokeWidth={2.5}
-            strokeLinecap="round"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1.6, ease: "easeInOut" }}
-          />
-          <motion.circle
-            cx={184}
-            cy={20}
-            r={4}
-            fill={ACCENT}
-            initial={{ scale: 0 }}
-            animate={{ scale: [0, 1.4, 1] }}
-            transition={{ delay: 1.6, duration: 0.5 }}
-          />
-        </svg>
-        <motion.div
-          className="absolute -right-2 -top-3 flex items-center gap-1 rounded-full border border-accent/40 bg-background px-2.5 py-1 text-xs font-bold text-accent-text"
-          initial={{ opacity: 0, scale: 0.6 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.7 }}
-        >
-          <TrendingUp size={13} /> {kpi}
-        </motion.div>
       </div>
     </Frame>
   );
@@ -300,15 +257,15 @@ function ProductBuild({
 }
 
 // 5 · Integraciones — hub central con 6 sistemas y datos fluyendo
-function Integrations({ caption, hub }: { caption: string; hub: string }) {
-  const sats = [
-    { label: "CRM", Icon: Database },
-    { label: "ERP", Icon: Server },
-    { label: "MES", Icon: Cpu },
-    { label: "API", Icon: Plug },
-    { label: "Email", Icon: Mail },
-    { label: "Chat", Icon: MessageCircle },
-  ];
+function Integrations({
+  caption,
+  hub,
+  sats,
+}: {
+  caption: string;
+  hub: string;
+  sats: { label: string; Icon: typeof Mail }[];
+}) {
   const R = 92;
   const cx = 140;
   const cy = 84;
@@ -385,6 +342,42 @@ export function CapabilityDemo({ index }: { index: number }) {
       );
     case 1:
       return (
+        <Integrations
+          caption={en ? "Your CRM, connected to everything" : "Tu CRM, conectado con todo"}
+          hub="Rianex"
+          sats={[
+            { label: "GoHighLevel", Icon: Database },
+            { label: "HubSpot", Icon: Database },
+            { label: "ERP", Icon: Server },
+            { label: "API", Icon: Plug },
+            { label: "Email", Icon: Mail },
+            { label: "WhatsApp", Icon: MessageCircle },
+          ]}
+        />
+      );
+    case 2:
+      return (
+        <Automation
+          caption={en ? "From your current CRM to GoHighLevel" : "De tu CRM actual a GoHighLevel"}
+          labels={
+            en
+              ? ["Your CRM", "Map & validate", "GoHighLevel"]
+              : ["Tu CRM", "Mapeo y validación", "GoHighLevel"]
+          }
+          StartIcon={Database}
+          EndIcon={Check}
+        />
+      );
+    case 3:
+      return (
+        <ProductBuild
+          caption={en ? "Your product, built and shipped" : "Tu producto, construido y en marcha"}
+          live={en ? "Live" : "En vivo"}
+          cta={en ? "Get started" : "Empezar"}
+        />
+      );
+    case 4:
+      return (
         <Funnel
           caption={en ? "From lead to client" : "Del lead al cliente"}
           stages={
@@ -404,31 +397,9 @@ export function CapabilityDemo({ index }: { index: number }) {
           }
         />
       );
-    case 2:
-      return (
-        <Growth
-          caption={en ? "Launch and scale your sales" : "Lanza y escala tu venta"}
-          kpi={en ? "+320% sales" : "+320% ventas"}
-        />
-      );
-    case 3:
-      return (
-        <ProductBuild
-          caption={en ? "Your product, built and shipped" : "Tu producto, construido y en marcha"}
-          live={en ? "Live" : "En vivo"}
-          cta={en ? "Get started" : "Empezar"}
-        />
-      );
-    case 4:
-      return (
-        <Integrations
-          caption={en ? "Your systems, connected" : "Tus sistemas, conectados"}
-          hub="Rianex"
-        />
-      );
     case 5:
       return <AgentChat />;
     default:
-      return <Automation caption="" labels={["Lead", "IA", "Chat", "CRM"]} />;
+      return <Automation caption="" labels={["Lead", "IA", "CRM"]} />;
   }
 }

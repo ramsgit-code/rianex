@@ -109,7 +109,7 @@ export function Hero() {
               <Reveal delay={0.05}>
                 <h1
                   aria-label={`${h.titlePre}${h.titleHighlight}${h.titlePost}`}
-                  className="max-w-2xl text-balance font-display text-5xl font-semibold leading-[1.03] tracking-tight text-foreground sm:text-6xl sm:leading-[1.0] lg:text-7xl"
+                  className="max-w-2xl text-balance font-display text-[clamp(2.25rem,11vw,3rem)] font-semibold leading-[1.03] tracking-tight text-foreground sm:text-6xl sm:leading-[1.0] lg:text-7xl"
                 >
                   {h.titlePre}
                   <Typewriter text={h.titleHighlight} className="gradient-text" />

@@ -4,7 +4,7 @@ import { SolucionesView } from "./SolucionesView";
 export const metadata: Metadata = {
   title: "Soluciones",
   description:
-    "El mismo sistema de automatización comercial en Go High Level, ajustado al ciclo de venta de clínicas, empresas de eventos, academias y servicios profesionales.",
+    "El mismo enfoque de automatización con IA, ajustado al ciclo de venta de clínicas, empresas de eventos, academias y servicios profesionales.",
   alternates: { canonical: "/soluciones" },
 };
 

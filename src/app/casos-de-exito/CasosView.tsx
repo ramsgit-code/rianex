@@ -32,14 +32,14 @@ export function CasosView() {
         <div className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-ink/[0.08] bg-ink/[0.03] px-4 py-2 backdrop-blur-md">
           <Image
             src="/logos/gohighlevel-icon.png"
-            alt="Go High Level"
+            alt="GoHighLevel"
             width={32}
             height={32}
             className="h-5 w-5 rounded"
           />
           <span className="text-sm text-foreground-muted">
             {s.builtOn}{" "}
-            <span className="font-medium text-foreground">Go High Level</span>
+            <span className="font-medium text-foreground">GoHighLevel</span>
           </span>
         </div>
       </Reveal>
