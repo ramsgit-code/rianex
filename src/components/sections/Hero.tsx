@@ -107,13 +107,25 @@ export function Hero() {
               </Reveal>
 
               <Reveal delay={0.05}>
+                {/* titular rotativo: una copia invisible de cada frase en la misma celda reserva
+                    el alto de la más larga, para que la página no salte al cambiar de frase */}
                 <h1
-                  aria-label={`${h.titlePre}${h.titleHighlight}${h.titlePost}`}
-                  className="max-w-2xl text-balance font-display text-[clamp(2.25rem,11vw,3rem)] font-semibold leading-[1.03] tracking-tight text-foreground sm:text-6xl sm:leading-[1.0] lg:text-7xl"
+                  aria-label={`${h.titlePre}${h.titleRotating[0]}${h.titlePost}`}
+                  className="grid max-w-2xl text-balance font-display text-[clamp(2.25rem,11vw,3rem)] font-semibold leading-[1.03] tracking-tight text-foreground sm:text-6xl sm:leading-[1.0] lg:text-7xl"
                 >
-                  {h.titlePre}
-                  <Typewriter text={h.titleHighlight} className="gradient-text" />
-                  {h.titlePost}
+                  {h.titleRotating.map((t) => (
+                    <span key={t} aria-hidden className="invisible col-start-1 row-start-1">
+                      {h.titlePre}
+                      <span className="gradient-text">{t}</span>
+                      <span className="ml-0.5 inline-block w-[3px]" />
+                      {h.titlePost}
+                    </span>
+                  ))}
+                  <span aria-hidden className="col-start-1 row-start-1">
+                    {h.titlePre}
+                    <Typewriter key={h.titleRotating[0]} texts={h.titleRotating} className="gradient-text" />
+                    {h.titlePost}
+                  </span>
                 </h1>
               </Reveal>
 

@@ -28,9 +28,14 @@ export const content = {
 
     hero: {
       eyebrow: "Automatización y desarrollo con IA",
-      titlePre: "Automatiza la captación de leads de tu negocio y ",
-      titleHighlight: "recupera 10 horas/semana.",
-      titlePost: "",
+      titlePre: "Automatiza ",
+      titleRotating: [
+        "la captación de leads",
+        "el seguimiento de clientes",
+        "tus propuestas comerciales",
+        "tus procesos con IA",
+      ],
+      titlePost: " y recupera 10 horas/semana.",
       subtitle:
         "Automatizamos procesos, desarrollamos agentes y herramientas con IA, conectamos tu CRM con el resto de tu stack y te migramos a GoHighLevel con todo tu histórico.",
       ctaPrimary: "Obtén mi Auditoría Gratuita",
@@ -549,9 +554,14 @@ export const content = {
 
     hero: {
       eyebrow: "AI automation and development",
-      titlePre: "Automate your lead capture and ",
-      titleHighlight: "get 10 hours/week back.",
-      titlePost: "",
+      titlePre: "Automate ",
+      titleRotating: [
+        "your lead capture",
+        "your client follow-up",
+        "your sales proposals",
+        "your processes with AI",
+      ],
+      titlePost: " and get 10 hours/week back.",
       subtitle:
         "We automate processes, build AI agents and tools, connect your CRM to the rest of your stack, and move you to GoHighLevel with your full history.",
       ctaPrimary: "Get my Free Automation Audit",
