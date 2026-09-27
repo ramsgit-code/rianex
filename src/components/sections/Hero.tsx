@@ -64,6 +64,8 @@ export function Hero() {
   const { c } = useLang();
   const h = c.hero;
   const spotRef = useRef<HTMLDivElement>(null);
+  // frase del titular que se está escribiendo: la figura 3D forma su icono
+  const [phrase, setPhrase] = useState(0);
 
   // el objeto 3D solo se ve en escritorio (ver clase "hidden md:flex" abajo);
   // con este check evitamos que móvil descargue three.js para nada.
@@ -123,7 +125,12 @@ export function Hero() {
                   ))}
                   <span aria-hidden className="col-start-1 row-start-1">
                     {h.titlePre}
-                    <Typewriter key={h.titleRotating[0]} texts={h.titleRotating} className="gradient-text" />
+                    <Typewriter
+                      key={h.titleRotating[0]}
+                      texts={h.titleRotating}
+                      className="gradient-text"
+                      onIndexChange={setPhrase}
+                    />
                     {h.titlePost}
                   </span>
                 </h1>
@@ -167,7 +174,7 @@ export function Hero() {
               <div className="relative h-[380px] w-[380px] lg:h-[460px] lg:w-[460px]">
                 {isDesktop && (
                   <ErrorBoundary>
-                    <Hero3D />
+                    <Hero3D shape={phrase} />
                   </ErrorBoundary>
                 )}
               </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
 // Escribe el texto carácter a carácter con un caret parpadeante.
@@ -13,6 +13,7 @@ export function Typewriter({
   deleteSpeed = 22,
   hold = 2200,
   startDelay = 400,
+  onIndexChange,
 }: {
   text?: string;
   texts?: readonly string[];
@@ -21,6 +22,8 @@ export function Typewriter({
   deleteSpeed?: number;
   hold?: number;
   startDelay?: number;
+  /** avisa de qué frase se está escribiendo (para sincronizar otros elementos) */
+  onIndexChange?: (idx: number) => void;
 }) {
   const list = texts ?? (text ? [text] : []);
   const reduceMotion = useReducedMotion();
@@ -32,6 +35,12 @@ export function Typewriter({
   const [deleting, setDeleting] = useState(false);
 
   const current = list[idx] ?? "";
+
+  const onIndexChangeRef = useRef(onIndexChange);
+  onIndexChangeRef.current = onIndexChange;
+  useEffect(() => {
+    onIndexChangeRef.current?.(idx);
+  }, [idx]);
 
   useEffect(() => {
     const t = setTimeout(() => setStarted(true), startDelay);
