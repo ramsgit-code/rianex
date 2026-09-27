@@ -13,6 +13,9 @@ const ITEMS = [
   "Make",
   "Email",
   "Instagram",
+  "Vercel",
+  "Cloudflare",
+  "Linear",
   "API · MCP",
 ];
 

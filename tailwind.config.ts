@@ -68,7 +68,7 @@ const config: Config = {
         shimmer: "shimmer 2.5s linear infinite",
         "glow-pulse": "glowPulse 4s ease-in-out infinite",
         "ping-slow": "pingSlow 3.2s cubic-bezier(0, 0, 0.2, 1) infinite",
-        marquee: "marquee 28s linear infinite",
+        marquee: "marquee 36s linear infinite",
       },
       keyframes: {
         pingSlow: {
