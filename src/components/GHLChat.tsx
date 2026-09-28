@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { COOKIE_CONSENT_EVENT, COOKIE_CONSENT_KEY } from "@/components/CookieConsent";
+import { COOKIE_CONSENT_EVENT, getConsent } from "@/lib/consent";
 
 // Embed del chat widget de Go High Level.
 // Es un servicio de terceros (LeadConnector): solo se inyecta si el visitante
@@ -35,7 +35,7 @@ export function GHLChat() {
     if (!WIDGET_ID || blockedRoute) return;
 
     try {
-      if (localStorage.getItem(COOKIE_CONSENT_KEY) === "accepted") loadWidget();
+      if (getConsent() === "accepted") loadWidget();
     } catch {
       /* almacenamiento no disponible */
     }

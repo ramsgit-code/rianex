@@ -1,9 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { rateLimit } from "@/lib/rate-limit";
 
 const BOT_PATTERN = /bot|crawl|spider|slurp|facebookexternalhit/i;
 
 export async function POST(req: NextRequest) {
+  // Endpoint publico que escribe en la base: sin limite cualquiera puede
+  // inflar PageView y falsear las analiticas del panel. 60/min deja margen de
+  // sobra a una navegacion humana, que dispara una peticion por cambio de ruta.
+  const limited = await rateLimit(req, 60, "track");
+  if (limited) return limited;
+
   try {
     const ua = req.headers.get("user-agent") ?? "";
     if (BOT_PATTERN.test(ua)) {

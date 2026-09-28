@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/components/LanguageProvider";
+import { setConsent, getConsent } from "@/lib/consent";
 
-export const COOKIE_CONSENT_KEY = "rianex-cookie-consent";
-export const COOKIE_CONSENT_EVENT = "rianex:cookie-consent";
-const STORAGE_KEY = COOKIE_CONSENT_KEY;
+// Se reexportan porque los importaba media web antes de que el estado del
+// aviso viviera en @/lib/consent.
+export { COOKIE_CONSENT_KEY, COOKIE_CONSENT_EVENT } from "@/lib/consent";
 
 const copy = {
   es: {
@@ -30,25 +31,22 @@ export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    try {
-      if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
-    } catch {
-      /* almacenamiento no disponible */
-    }
+    if (!getConsent()) setVisible(true);
   }, []);
 
+  // El aviso es fixed, asi que sin reservarle sitio se come lo que tenga
+  // debajo: en 1280x720 tapaba el final del titular y en movil el boton
+  // principal del hero. Con esta marca en <html>, globals.css le anade al
+  // final de la pagina el hueco que ocupa.
+  useEffect(() => {
+    const root = document.documentElement;
+    if (visible) root.setAttribute("data-cookie-banner", "visible");
+    else root.removeAttribute("data-cookie-banner");
+    return () => root.removeAttribute("data-cookie-banner");
+  }, [visible]);
+
   const decide = (value: "accepted" | "rejected") => {
-    try {
-      localStorage.setItem(STORAGE_KEY, value);
-    } catch {
-      /* noop */
-    }
-    // la etiqueta de Google (layout.tsx) arranca denegada; aquí se actualiza
-    const w = window as typeof window & { gtag?: (...args: unknown[]) => void };
-    w.gtag?.("consent", "update", {
-      analytics_storage: value === "accepted" ? "granted" : "denied",
-    });
-    window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_EVENT, { detail: value }));
+    setConsent(value);
     setVisible(false);
   };
 
@@ -62,8 +60,8 @@ export function CookieConsent() {
           transition={{ type: "spring", stiffness: 200, damping: 26 }}
           className="fixed bottom-3 left-3 right-20 z-[70] sm:right-auto sm:left-4 sm:bottom-4 sm:max-w-md"
         >
-          <div className="glass flex flex-col gap-3 rounded-2xl border border-ink/[0.08] px-5 py-4 shadow-2xl sm:flex-row sm:items-center sm:gap-4">
-            <p className="text-sm leading-snug text-foreground-muted">
+          <div className="glass flex flex-col gap-2.5 rounded-2xl border border-ink/[0.08] px-4 py-3 shadow-2xl sm:flex-row sm:items-center sm:gap-4 sm:px-5 sm:py-4">
+            <p className="text-xs leading-snug text-foreground-muted sm:text-sm">
               {t.text}{" "}
               <Link href="/cookies" className="text-accent-text underline underline-offset-2">
                 {t.link}

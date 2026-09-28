@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { PublicLayout } from "@/components/PublicLayout";
+import { alternates } from "@/lib/i18n";
 
 export const viewport: Viewport = {
   themeColor: "#FBFBF8",
@@ -92,7 +93,7 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
+  alternates: alternates("/", "es"),
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,

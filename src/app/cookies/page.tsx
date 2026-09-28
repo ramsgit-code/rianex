@@ -46,21 +46,29 @@ export default function CookiesPage() {
         </P>
         <P>
           <strong className="text-foreground">Analíticas propias.</strong> Registramos
-          de forma anónima el uso de las páginas para mejorar el sitio. No compartimos
-          esta información con terceros con fines publicitarios.
+          las páginas visitadas y un identificador aleatorio de sesión, que se borra al
+          cerrar la pestaña, para saber qué contenidos funcionan. No se cruzan con tus
+          datos de contacto ni se comparten con terceros con fines publicitarios. Solo
+          se activan si las aceptas.
         </P>
         <P>
           <strong className="text-foreground">Analíticas de terceros.</strong> Si
           aceptas, usamos Google Analytics (Google Ireland Ltd.) para saber cuántas
           personas visitan el sitio y qué páginas consultan. Instala las cookies
-          _ga y _ga_&lt;ID&gt;, que duran hasta 2 años. Si las rechazas, Google
-          Analytics no instala ninguna cookie en tu navegador.
+          _ga y _ga_&lt;ID&gt;, que duran hasta 2 años. Funciona en modo
+          consentimiento (Consent Mode v2): hasta que aceptas no almacena ningún
+          identificador en tu dispositivo, y las señales publicitarias quedan
+          desactivadas siempre. Si lo rechazas, no instala ninguna cookie.
         </P>
         <P>
-          <strong className="text-foreground">De terceros.</strong> Si activamos el chat
-          de atención (Go High Level), este servicio puede instalar cookies propias para
-          gestionar la conversación. Consulta la política de dicho proveedor para más
-          detalle.
+          <strong className="text-foreground">Chat de atención.</strong> Si aceptas, se
+          carga el chat de Go High Level, que instala sus propias cookies de terceros
+          para gestionar la conversación. Consulta la política de dicho proveedor para
+          más detalle.
+        </P>
+        <P>
+          Si rechazas, no se activa ninguna de las tres: la web sigue funcionando solo
+          con las cookies técnicas.
         </P>
 
         <H>3. Cómo gestionar las cookies</H>

@@ -1,19 +1,27 @@
-# Panel Admin — Configuracion
+# Panel Admin y despliegue — Configuracion
 
 ## 1. Supabase (PostgreSQL)
 
+Hacen falta **dos** cadenas de conexion, no una:
+
 1. Crea un proyecto en [supabase.com](https://supabase.com).
 2. Ve a **Project Settings → Database**.
-3. Copia la **Connection string** del **Connection pooler** (modo Transaction, puerto 6543).
-4. Añade `?pgbouncer=true` al final si no viene.
-5. Pégala en `DATABASE_URL` en `.env.local` y en Vercel.
+3. `DATABASE_URL` — **Connection pooler**, modo Transaction, puerto **6543**.
+   Anade `?pgbouncer=true` si no viene. Es la que usa la web: aguanta las
+   conexiones cortas de las funciones serverless de Vercel.
+4. `DIRECT_URL` — conexion **directa**, puerto **5432**. Solo la usa Prisma CLI
+   para migrar.
+
+> Por que dos: PgBouncer en modo transaction no soporta los advisory locks que
+> usa `prisma migrate deploy`. Contra el pooler las migraciones fallan. Con
+> `directUrl` en el schema, Prisma usa la directa para migrar y la del pooler
+> en tiempo de ejecucion.
 
 ## 2. Migraciones
 
 ```bash
-cd captacion-web
 cp .env.example .env.local
-# Edita DATABASE_URL
+# Rellena DATABASE_URL y DIRECT_URL
 
 npx prisma migrate deploy
 # o en desarrollo:
@@ -21,8 +29,6 @@ npx prisma db push
 ```
 
 ## 3. Admin login
-
-Genera el hash de la contraseña:
 
 ```bash
 npm run admin:hash -- tu-password-segura
@@ -37,37 +43,96 @@ NEXTAUTH_SECRET=...   # openssl rand -base64 32
 NEXTAUTH_URL=http://localhost:3000
 ```
 
-En produccion (Vercel), `NEXTAUTH_URL` debe ser `https://tudominio.com`.
+En produccion, `NEXTAUTH_URL` tiene que ser `https://www.rianex.es`.
 
-## 4. Arrancar
+No existe ninguna variable `ADMIN_PASSWORD` en claro: la unica que se lee es el
+hash.
 
-```bash
-npm run dev
-```
+## 4. Limite de peticiones
 
-- Web: http://localhost:3000
-- Admin: http://localhost:3000/admin/login
+Sin `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN`, el limitador cae a un
+contador **en memoria del proceso**, que en Vercel no limita nada: cada
+instancia serverless tiene el suyo y basta con que la funcion escale para
+saltarselo. En local da igual; en produccion hay que configurarlo.
 
-## 5. Vercel
+La forma corta: en el proyecto de Vercel, **Storage → Upstash (Redis)**. La
+integracion inyecta las dos variables sola. Sirve cualquier Redis de Upstash.
 
-Variables de entorno obligatorias:
+Protege `/api/leads`, `/api/leads/partial`, `/api/testimonials`, `/api/track` y
+el login del admin.
+
+## 5. Analitica y Search Console
+
+La etiqueta de GA4 (`G-TN15MVTWRB`) esta fija en `src/app/layout.tsx`. No va por
+variable de entorno a proposito: el ID no es secreto, viaja en el HTML de todas
+formas, y asi no se puede desplegar sin medicion por haber olvidado una variable.
+
+| Variable | Donde se saca |
+|---|---|
+| `GOOGLE_SITE_VERIFICATION` | Search Console → Etiqueta HTML → **solo el valor de `content`** |
+
+Es opcional: la propiedad actual esta verificada por fichero (ver abajo).
+
+### Verificacion de Search Console
+
+La propiedad actual esta verificada por el metodo de **fichero HTML**, no por
+etiqueta: `public/googlef56cb0ea7569c8d9.html` se sirve en la raiz del sitio y
+Google lo comprueba ahi. **No se borra** aunque la propiedad ya aparezca
+verificada: si desaparece, Google revoca la verificacion en la siguiente
+comprobacion.
+
+Los dos metodos pueden convivir. `GOOGLE_SITE_VERIFICATION` sigue soportada por
+si algun dia se anade otra propiedad o se prefiere la etiqueta.
+
+> El fichero verifica solo el **prefijo de URL** (`https://www.rianex.es/`), no
+> el dominio entero. Para una propiedad de **dominio** (que cubre `www`,
+> `no-www` y cualquier subdominio a la vez) hace falta un registro TXT en el
+> DNS, que en este caso se anade en IONOS. Es la opcion recomendable a medio
+> plazo.
+
+GA4 va en **Consent Mode v2**: arranca con todo denegado y solo mide si el
+visitante acepta el aviso de cookies. Las senales publicitarias quedan
+denegadas siempre. Para comprobarlo, mira la peticion a
+`google-analytics.com/g/collect`: debe llevar `gcs=G101` y `npa=1`, y no debe
+existir antes de aceptar.
+
+En Search Console conviene dar de alta la propiedad como **dominio**
+(`rianex.es`, verificada por DNS) para que cubra `www` y `no-www` a la vez, y
+enviar `https://www.rianex.es/sitemap.xml`. El sitemap ya declara las dos
+versiones de idioma.
+
+## 6. Vercel
+
+Variables obligatorias:
 
 - `DATABASE_URL`
+- `DIRECT_URL`
 - `NEXTAUTH_SECRET`
 - `NEXTAUTH_URL`
 - `ADMIN_EMAIL`
 - `ADMIN_PASSWORD_HASH`
-- Variables `GHL_*` si quieres sincronizar con Go High Level
 
-En **Build Command**, puedes usar:
+Recomendadas: `UPSTASH_REDIS_REST_*` y las `GHL_*` para sincronizar con Go High
+Level.
 
-```bash
-prisma generate && prisma migrate deploy && next build
-```
+El **Build Command** se deja en el de por defecto (`npm run build`, que ya hace
+`prisma generate && next build`).
 
-(o ejecutar `migrate deploy` manualmente la primera vez).
+> No metas `prisma migrate deploy` en el Build Command: migraria la base de
+> produccion en cada build, incluidos los de preview de cada rama. Las
+> migraciones se lanzan a mano o desde un paso aparte del despliegue.
 
-## 6. Uso del admin
+## 7. Idiomas
+
+El castellano vive en la raiz (`/servicios`) y el ingles bajo `/en`
+(`/en/servicios`), con hreflang reciproco. Al anadir una pagina nueva hay que
+crear tambien su version en `src/app/en/`, que reexporta la misma pagina y solo
+cambia el metadata. Ver `src/lib/i18n.ts`.
+
+Las paginas legales (`/privacidad`, `/cookies`) estan solo en castellano a
+proposito.
+
+## 8. Uso del admin
 
 | Seccion | Funcion |
 |---------|---------|
@@ -76,9 +141,6 @@ prisma generate && prisma migrate deploy && next build
 | Leads | Ver envios del formulario de diagnostico |
 | Analytics | Visitas, top paginas, conversion diagnostico |
 
-Los articulos publicados aparecen en `/blog`.
-
-## 7. Analytics
-
-El tracker registra cada cambio de pagina (excepto `/admin` y `/api`).
-La conversion se calcula como: `envios formulario / visitas a /diagnostico` en el periodo seleccionado.
+La analitica propia solo registra visitas de quien ha aceptado el aviso de
+cookies, asi que las cifras del panel son mas bajas que el trafico real. GA4,
+en las mismas condiciones, tampoco cuenta a quien rechaza.

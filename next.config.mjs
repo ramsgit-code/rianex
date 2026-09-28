@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion"],
+    // "framer-motion" ya no es dependencia del proyecto: el paquete es "motion".
+    optimizePackageImports: ["lucide-react", "motion"],
   },
   async headers() {
     return [

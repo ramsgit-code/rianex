@@ -81,8 +81,9 @@ export default function PrivacidadPage() {
         <H>6. Destinatarios</H>
         <P>
           Para prestar el servicio utilizamos proveedores tecnológicos que actúan como
-          encargados del tratamiento: Go High Level (CRM), Vercel (alojamiento web),
-          Supabase (base de datos) y Google (traducción y verificación). Estos
+          encargados del tratamiento: Go High Level (CRM y chat), Vercel (alojamiento
+          web), Supabase (base de datos) y Google (Analytics, traducción automática de
+          contenidos y verificación del sitio en Search Console). Estos
           proveedores pueden estar ubicados fuera del Espacio Económico Europeo, en cuyo
           caso las transferencias se amparan en las garantías previstas por el RGPD
           (cláusulas contractuales tipo). No cedemos tus datos a terceros con fines

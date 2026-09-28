@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { alternates } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import { TestimoniosView } from "./TestimoniosView";
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   title: "Testimonios",
   description:
     "Opiniones reales de clientes con sistemas de automatización comercial en Go High Level.",
-  alternates: { canonical: "/testimonios" },
+  alternates: alternates("/testimonios", "es"),
 };
 
 export const revalidate = 60;

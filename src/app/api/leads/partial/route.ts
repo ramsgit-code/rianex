@@ -10,7 +10,7 @@ const partialSchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
-  const limited = rateLimit(req, 10);
+  const limited = await rateLimit(req, 10, "leads-partial");
   if (limited) return limited;
 
   let body: unknown;

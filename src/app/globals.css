@@ -71,6 +71,19 @@ body {
   }
 }
 
+/* El aviso de cookies es fixed y tapaba el titular en escritorio y el boton
+   principal en movil. Mientras esta en pantalla le reservamos su altura al
+   final de la pagina para que no se superponga a nada. */
+:root[data-cookie-banner="visible"] body {
+  padding-bottom: 8.5rem;
+}
+
+@media (min-width: 640px) {
+  :root[data-cookie-banner="visible"] body {
+    padding-bottom: 6.5rem;
+  }
+}
+
 @layer components {
   /* ---------- Botones ---------- */
   .btn-primary {

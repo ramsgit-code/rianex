@@ -104,11 +104,11 @@ export function Hero() {
         <div className="flex min-h-[calc(100svh-7rem)] flex-col sm:min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-10rem)]">
           <div className="flex flex-1 flex-col justify-center gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
             <div>
-              <Reveal>
+              <Reveal priority>
                 <span className="tag uppercase tracking-wider">{h.eyebrow}</span>
               </Reveal>
 
-              <Reveal delay={0.05}>
+              <Reveal priority delay={0.05}>
                 {/* titular rotativo: una copia invisible de cada frase en la misma celda reserva
                     el alto de la más larga, para que la página no salte al cambiar de frase */}
                 <h1
@@ -136,13 +136,13 @@ export function Hero() {
                 </h1>
               </Reveal>
 
-              <Reveal delay={0.1}>
+              <Reveal priority delay={0.1}>
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground-muted">
                   {h.subtitle}
                 </p>
               </Reveal>
 
-              <Reveal delay={0.1}>
+              <Reveal priority delay={0.1}>
                 <div className="mt-9 flex flex-wrap items-center gap-3">
                   <Link href="/diagnostico" className="btn-primary">
                     {h.ctaPrimary}
@@ -170,7 +170,7 @@ export function Hero() {
             </div>
 
             {/* objeto 3D interactivo (solo escritorio, para mantener el móvil ligero) */}
-            <Reveal delay={0.12} className="hidden md:flex md:justify-center">
+            <Reveal priority delay={0.12} className="hidden md:flex md:justify-center">
               <div className="relative h-[380px] w-[380px] lg:h-[460px] lg:w-[460px]">
                 {isDesktop && (
                   <ErrorBoundary>

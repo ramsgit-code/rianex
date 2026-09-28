@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { useConsent } from "@/lib/consent";
 
 function getSessionId() {
   const key = "rp_session";
@@ -15,11 +16,17 @@ function getSessionId() {
 
 export function AnalyticsTracker() {
   const pathname = usePathname();
+  const consent = useConsent();
 
   useEffect(() => {
     if (pathname.startsWith("/admin")) return;
 
-    const track = () => {
+    // La analitica escribe un identificador de sesion en el terminal del
+    // visitante, asi que entra en el art. 22.2 LSSI: no es estrictamente
+    // necesaria para servir la web y necesita permiso antes de disparar.
+    if (consent !== "accepted") return;
+
+    try {
       fetch("/api/track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -30,10 +37,10 @@ export function AnalyticsTracker() {
         }),
         keepalive: true,
       }).catch(() => {});
-    };
-
-    track();
-  }, [pathname]);
+    } catch {
+      /* sessionStorage no disponible */
+    }
+  }, [pathname, consent]);
 
   return null;
 }

@@ -1,18 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import { calculateScore, getTier } from "@/lib/lead-scoring";
 import { upsertContact, removeContactTags, createOpportunity, buildCustomFields } from "@/lib/ghl";
-import { leadFormSchema } from "@/lib/lead-schema";
+import { leadFormSchema, HONEYPOT_FIELD } from "@/lib/lead-schema";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
+import { PRIVACY_POLICY_VERSION } from "@/lib/legal";
 
 export async function POST(req: NextRequest) {
-  const limited = rateLimit(req, 5);
+  const limited = await rateLimit(req, 5, "leads");
   if (limited) return limited;
   let body: unknown;
   try {
     body = await req.json();
   } catch {
     return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 });
+  }
+
+  // Campo trampa relleno: es un bot. Respondemos 200 como si hubiera ido bien
+  // para no darle pistas, pero no guardamos nada ni tocamos el CRM.
+  if (typeof body === "object" && body !== null) {
+    const trap = (body as Record<string, unknown>)[HONEYPOT_FIELD];
+    if (typeof trap === "string" && trap.trim() !== "") {
+      return NextResponse.json({ ok: true });
+    }
   }
 
   const parsed = leadFormSchema.safeParse(body);
@@ -35,7 +45,17 @@ export async function POST(req: NextRequest) {
   });
 
   const tier = getTier(score);
-  const enriched = { ...data, lead_score: score, lead_tier: tier };
+
+  // El art. 7.1 RGPD exige poder acreditar el consentimiento, no solo pedirlo:
+  // guardamos cuando se dio y contra que version de la politica, que es lo que
+  // permite reconstruirlo despues sin anadir ningun dato personal nuevo.
+  const enriched = {
+    ...data,
+    lead_score: score,
+    lead_tier: tier,
+    consent_at: new Date().toISOString(),
+    consent_version: PRIVACY_POLICY_VERSION,
+  };
 
   let submissionId: string | null = null;
 

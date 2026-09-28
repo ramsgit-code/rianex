@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, ArrowLeft, CheckCircle, Loader2 } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { getForm } from "@/lib/formContent";
+import { HONEYPOT_FIELD } from "@/lib/lead-schema";
 
 const TOTAL_STEPS = 5;
 
@@ -77,6 +78,7 @@ export function DiagnosticForm() {
         }),
         como_conociste: z.string().min(1, f.errors.required),
         notas: z.string().optional(),
+        [HONEYPOT_FIELD]: z.string().optional(),
       }),
     [f]
   );
@@ -251,6 +253,23 @@ export function DiagnosticForm() {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        {/*
+          Campo trampa contra bots. Va fuera de la pantalla en lugar de con
+          display:none porque muchos bots ignoran los campos ocultos, y con
+          aria-hidden y tabIndex -1 no existe para lectores de pantalla ni para
+          quien navega con el teclado.
+        */}
+        <div aria-hidden="true" className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden">
+          <label htmlFor={HONEYPOT_FIELD}>No rellenar</label>
+          <input
+            id={HONEYPOT_FIELD}
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            {...register(HONEYPOT_FIELD)}
+          />
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={step}

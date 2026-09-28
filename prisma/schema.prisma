@@ -4,7 +4,13 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  // Runtime: el pooler de Supabase (PgBouncer, puerto 6543). Aguanta las
+  // conexiones cortas de las funciones serverless de Vercel.
   url      = env("DATABASE_URL")
+  // Migraciones: conexion directa (puerto 5432). PgBouncer en modo transaction
+  // no soporta los advisory locks que usa `prisma migrate deploy`, asi que
+  // contra el pooler las migraciones fallan.
+  directUrl = env("DIRECT_URL")
 }
 
 model BlogPost {
