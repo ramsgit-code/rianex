@@ -18,8 +18,10 @@ npm run dev
 |---|---|
 | `npm run dev` / `build` / `start` | Ciclo normal de Next.js |
 | `npm run lint` | ESLint (`next/core-web-vitals`) |
-| `npm run blog` | Agente que redacta posts nuevos (`scripts/blog-agent.ts`) |
-| `npm run blog:import` | Publica los `.mdx` de `src/content/blog/` |
+| `npm run blog` | Agente que redacta posts nuevos, como borrador (`scripts/blog-agent.ts`) |
+| `npm run blog:check` | Valida los `.mdx` contra el contrato, sin escribir |
+| `npm run blog:import` | Valida y publica los `.mdx` de `src/content/blog/` |
+| `npm run indexnow` | Avisa a IndexNow de las URLs publicadas (tras desplegar) |
 | `npm run admin:hash` | Genera `ADMIN_PASSWORD_HASH` para `.env` |
 | `npm run db:push` / `db:migrate` | Prisma contra Supabase Postgres (necesita `DIRECT_URL`) |
 
@@ -37,6 +39,7 @@ docs/                notas internas: setup de admin, GHL, generacion de videos c
 
 ## Documentación
 
+- [`docs/BLOG.md`](docs/BLOG.md) — contrato del contenido, clusters, RSS, llms.txt e IndexNow.
 - [`docs/ADMIN-SETUP.md`](docs/ADMIN-SETUP.md) — panel de administración.
 - [`docs/GHL-SETUP.md`](docs/GHL-SETUP.md) — integración con Go High Level.
 - [`docs/VIDEOS-IA.txt`](docs/VIDEOS-IA.txt) / [`docs/KLING-PROMPTS.md`](docs/KLING-PROMPTS.md) — generación de los vídeos antes/después con IA.
