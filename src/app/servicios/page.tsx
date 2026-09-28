@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { alternates } from "@/lib/i18n";
 import { ServiciosView } from "./ServiciosView";
 import { JsonLd } from "@/components/JsonLd";
 import { content } from "@/lib/content";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "Servicios",
   description:
     "Automatización de procesos con IA, integración de GoHighLevel y HubSpot, migraciones a GoHighLevel, desarrollo a medida y agentes de IA.",
-  alternates: { canonical: "/servicios" },
+  alternates: alternates("/servicios", "es"),
 };
 
 const SITE_URL = "https://www.rianex.es";

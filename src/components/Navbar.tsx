@@ -11,7 +11,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { c, toggle } = useLang();
+  const { c, toggle, localize } = useLang();
   const links = c.nav.links;
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export function Navbar() {
             : "border border-transparent bg-transparent"
         }`}
       >
-        <Link href="/" className="flex items-center" aria-label="Rianex">
+        <Link href={localize("/")} className="flex items-center" aria-label="Rianex">
           <Image
             src="/logos/rianex-mark-dark.png"
             alt="Rianex"
@@ -50,7 +50,7 @@ export function Navbar() {
           {links.map((l) => (
             <Link
               key={l.href}
-              href={l.href}
+              href={localize(l.href)}
               className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
                 pathname === l.href
                   ? "text-foreground"
@@ -68,7 +68,7 @@ export function Navbar() {
             <Languages size={14} />
             {c.nav.switchTo}
           </button>
-          <Link href="/diagnostico" className="btn-primary ml-2 px-4 py-2">
+          <Link href={localize("/diagnostico")} className="btn-primary ml-2 px-4 py-2">
             {c.nav.cta}
             <ArrowRight size={15} />
           </Link>
@@ -99,7 +99,7 @@ export function Navbar() {
           {links.map((l) => (
             <Link
               key={l.href}
-              href={l.href}
+              href={localize(l.href)}
               className="rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-ink/[0.04] hover:text-foreground"
               onClick={() => setOpen(false)}
             >
@@ -107,7 +107,7 @@ export function Navbar() {
             </Link>
           ))}
           <Link
-            href="/diagnostico"
+            href={localize("/diagnostico")}
             className="btn-primary mt-1 w-full"
             onClick={() => setOpen(false)}
           >

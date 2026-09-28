@@ -9,7 +9,7 @@ import { useLang } from "@/components/LanguageProvider";
 const EMAIL = "hola@rianex.es";
 
 export function Footer() {
-  const { c, lang } = useLang();
+  const { c, lang, localize } = useLang();
   const pathname = usePathname();
   const year = new Date().getFullYear();
   // en /diagnostico no repetimos el CTA de diagnóstico
@@ -34,7 +34,7 @@ export function Footer() {
               {c.footer.tagline}
             </p>
             {showCta && (
-              <Link href="/diagnostico" className="btn-primary mt-6">
+              <Link href={localize("/diagnostico")} className="btn-primary mt-6">
                 {c.footer.cta}
                 <ArrowUpRight size={16} />
               </Link>

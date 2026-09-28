@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { alternates } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import { BlogView } from "./BlogView";
 
 export const metadata: Metadata = {
   title: "Blog",
   description: "Guías sobre automatización con IA, GoHighLevel y HubSpot.",
-  alternates: { canonical: "/blog" },
+  alternates: alternates("/blog", "es"),
 };
 
 export const revalidate = 60;
