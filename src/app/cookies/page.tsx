@@ -27,7 +27,7 @@ export default function CookiesPage() {
   return (
     <PageShell tag="Legal" title="Política de cookies">
       <div className="max-w-2xl">
-        <p className="mb-6 text-sm text-muted">Última actualización: julio de 2026</p>
+        <p className="mb-6 text-sm text-muted">Última actualización: septiembre de 2026</p>
 
         <H>1. Qué son las cookies</H>
         <P>
@@ -48,6 +48,13 @@ export default function CookiesPage() {
           <strong className="text-foreground">Analíticas propias.</strong> Registramos
           de forma anónima el uso de las páginas para mejorar el sitio. No compartimos
           esta información con terceros con fines publicitarios.
+        </P>
+        <P>
+          <strong className="text-foreground">Analíticas de terceros.</strong> Si
+          aceptas, usamos Google Analytics (Google Ireland Ltd.) para saber cuántas
+          personas visitan el sitio y qué páginas consultan. Instala las cookies
+          _ga y _ga_&lt;ID&gt;, que duran hasta 2 años. Si las rechazas, Google
+          Analytics no instala ninguna cookie en tu navegador.
         </P>
         <P>
           <strong className="text-foreground">De terceros.</strong> Si activamos el chat

@@ -32,6 +32,27 @@ const jetbrainsMono = JetBrains_Mono({
 
 const SITE_URL = "https://www.rianex.es";
 
+// Etiqueta de Google (GA4). Arranca con el consentimiento denegado (Consent Mode
+// v2): no deja cookies hasta que el visitante acepta en el aviso de cookies.
+// Si ya aceptó en una visita anterior, se concede antes del primer 'config'.
+const GA_ID = "G-TN15MVTWRB";
+const GA_INIT = `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+var rianexConsent = null;
+try { rianexConsent = localStorage.getItem("rianex-cookie-consent"); } catch (e) {}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: rianexConsent === 'accepted' ? 'granted' : 'denied',
+  wait_for_update: 500
+});
+gtag('js', new Date());
+
+gtag('config', '${GA_ID}');
+`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -87,6 +108,11 @@ export default function RootLayout({
       lang="es"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script dangerouslySetInnerHTML={{ __html: GA_INIT }} />
+      </head>
       <body>
         <PublicLayout>{children}</PublicLayout>
       </body>

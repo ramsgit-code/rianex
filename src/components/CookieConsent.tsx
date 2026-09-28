@@ -11,13 +11,13 @@ const STORAGE_KEY = COOKIE_CONSENT_KEY;
 
 const copy = {
   es: {
-    text: "Usamos cookies técnicas propias. Si aceptas, también activamos el chat de atención (GoHighLevel), que instala sus propias cookies de terceros.",
+    text: "Usamos cookies técnicas propias. Si aceptas, también activamos Google Analytics para medir las visitas y el chat de atención (GoHighLevel), que instalan sus propias cookies de terceros.",
     link: "Más info",
     accept: "Aceptar",
     reject: "Rechazar",
   },
   en: {
-    text: "We use first-party technical cookies. If you accept, we also enable our support chat (GoHighLevel), which sets its own third-party cookies.",
+    text: "We use first-party technical cookies. If you accept, we also enable Google Analytics to measure visits and our support chat (GoHighLevel), which set their own third-party cookies.",
     link: "Learn more",
     accept: "Accept",
     reject: "Reject",
@@ -43,6 +43,11 @@ export function CookieConsent() {
     } catch {
       /* noop */
     }
+    // la etiqueta de Google (layout.tsx) arranca denegada; aquí se actualiza
+    const w = window as typeof window & { gtag?: (...args: unknown[]) => void };
+    w.gtag?.("consent", "update", {
+      analytics_storage: value === "accepted" ? "granted" : "denied",
+    });
     window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_EVENT, { detail: value }));
     setVisible(false);
   };
