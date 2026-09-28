@@ -71,6 +71,7 @@ async function main() {
       tags: frontmatter.tags,
       cluster: frontmatter.cluster,
       author: frontmatter.author,
+      linkPolicy: frontmatter.linkPolicy,
       published: !frontmatter.draft,
       publishedAt: frontmatter.draft ? null : new Date(frontmatter.date),
     };

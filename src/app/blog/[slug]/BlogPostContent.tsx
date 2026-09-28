@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang } from "@/components/LanguageProvider";
 import { renderMarkdown } from "@/lib/markdown";
+import type { LinkPolicy } from "@/lib/blog-schema";
 
 type Post = {
   title: string;
@@ -10,6 +11,8 @@ type Post = {
   content: string;
   contentEn: string | null;
   publishedAt: string | null;
+  /** Politica de los enlaces externos que no traen marca propia. */
+  linkPolicy?: LinkPolicy;
 };
 
 export function BlogPostContent({ post }: { post: Post }) {
@@ -36,7 +39,7 @@ export function BlogPostContent({ post }: { post: Post }) {
           </p>
           <h1 className="section-title">{title}</h1>
         </div>
-        <div>{renderMarkdown(content)}</div>
+        <div>{renderMarkdown(content, post.linkPolicy ?? "nofollow")}</div>
       </div>
     </div>
   );

@@ -21,6 +21,20 @@ export type Cluster = keyof typeof CLUSTERS;
 
 export const AUTHORS = ["Ramiro Pérez"] as const;
 
+/**
+ * Politica de los enlaces externos de un articulo.
+ *
+ *   follow     lo citamos porque lo vale
+ *   nofollow   no respondemos de ese destino (defecto)
+ *   sponsored  hay dinero, intercambio o contraprestacion de por medio
+ *   ugc        lo escribio un tercero
+ *
+ * Un articulo recibido de un colaborador se marca entero, en vez de ir enlace
+ * por enlace y arriesgarse a olvidar uno.
+ */
+export const LINK_POLICIES = ["follow", "nofollow", "sponsored", "ugc"] as const;
+export type LinkPolicy = (typeof LINK_POLICIES)[number];
+
 export const blogFrontmatterSchema = z.object({
   // Google corta el title en la SERP pasados ~70 caracteres.
   title: z.string().min(10).max(70, "El title debe caber en la SERP: 70 caracteres"),
@@ -33,6 +47,9 @@ export const blogFrontmatterSchema = z.object({
   tags: z.array(z.string()).min(1, "Al menos una etiqueta"),
   cluster: z.enum(Object.keys(CLUSTERS) as [Cluster, ...Cluster[]]),
   author: z.enum(AUTHORS).default("Ramiro Pérez"),
+  // Se aplica a los enlaces externos que no traigan marca propia. El defecto
+  // es nofollow a proposito: si se olvida marcar, no se regala autoridad.
+  linkPolicy: z.enum(LINK_POLICIES).default("nofollow"),
   draft: z.boolean().default(false),
 });
 
