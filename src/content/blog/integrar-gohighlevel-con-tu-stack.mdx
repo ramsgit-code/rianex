@@ -1,0 +1,69 @@
+---
+title: "Integrar GoHighLevel con tu stack: qué se puede y qué no"
+description: "Webhooks, API y las conexiones que de verdad aguantan en producción. Qué integrar primero y qué errores rompen la sincronización a los tres meses."
+date: "2026-09-24"
+tags: ["gohighlevel", "integraciones", "api", "webhooks"]
+cluster: "crm"
+author: "Ramiro Pérez"
+draft: false
+---
+
+Un CRM aislado es una agenda cara. El valor aparece cuando deja de ser un sitio donde alguien apunta cosas y pasa a ser el sitio donde el resto de herramientas dejan lo que saben.
+
+La pregunta práctica no es si GoHighLevel se integra con lo que ya usas. Casi siempre se puede. La pregunta es qué integraciones aguantan en producción sin romperse cada dos semanas, y esa lista es más corta.
+
+## Las tres formas de conectar, y cuándo usar cada una
+
+**Integración nativa.** La que viene hecha. Se activa y funciona. Es la primera opción siempre que exista, porque el mantenimiento no es tuyo. La limitación es que hace lo que hace, y si necesitas un campo que no contempla, no hay vuelta.
+
+**Webhooks.** GoHighLevel avisa a otro sistema cuando pasa algo: entra un contacto, cambia una etapa, se agenda una cita. Es la forma más robusta de conectar cosas en tiempo real, porque no hay que preguntar constantemente si ha cambiado algo. Si tu integración puede ser un webhook, que lo sea.
+
+**API.** Cuando necesitas leer o escribir bajo demanda, o hacer algo que el webhook no cubre. Es la opción con más control y la que más trabajo de mantenimiento genera, porque los cambios de versión del proveedor son tuyos de resolver.
+
+**Conectores intermedios** tipo Make o Zapier. Rápidos de montar y caros de operar cuando el volumen sube, porque se paga por ejecución. Están bien para validar una idea y salen mal como infraestructura permanente de algo que ocurre mil veces al día.
+
+## Qué integrar primero
+
+El orden importa, porque cada integración añade una cosa más que puede fallar.
+
+**Primero, la entrada de contactos.** Web, formularios y landing pages. Es lo que decide si el CRM tiene datos o no. Sin esto, todo lo demás da igual.
+
+**Segundo, el canal de conversación.** WhatsApp, correo, teléfono. Que el histórico de lo hablado viva junto a la ficha del contacto, y no en el móvil de un comercial. Lo desarrollamos en [WhatsApp para ventas](/blog/whatsapp-automatizacion-ventas).
+
+**Tercero, la agenda.** Que reservar signifique bloquear hueco de verdad en el calendario que mira la gente, y que una cancelación libere el hueco sin que nadie lo toque.
+
+**Cuarto, facturación.** Que una oportunidad ganada genere lo que tenga que generar sin recaptura manual de datos.
+
+Casi nadie necesita más que esto los primeros meses. Las integraciones exóticas pueden esperar a que las cuatro anteriores estén estables.
+
+## Los cuatro errores que rompen integraciones a los tres meses
+
+Estos los hemos visto suficientes veces como para nombrarlos.
+
+**No definir cuál es la fuente de la verdad.** Si el teléfono de un contacto se puede editar en el CRM y en la herramienta de facturación, y las dos se sincronizan, tarde o temprano se pisan. Para cada dato hay que decidir qué sistema manda. El resto lee y no escribe.
+
+**Sincronizar en los dos sentidos porque sí.** La sincronización bidireccional multiplica los modos de fallo y casi nunca hace falta. En la mayoría de casos, un sentido basta y es infinitamente más fácil de depurar.
+
+**No gestionar los fallos.** Un webhook que no llega, una API que devuelve error, un límite de peticiones alcanzado. Si el fallo es silencioso, descubrirás el problema semanas después, cuando alguien note que faltan contactos. Toda integración necesita reintento y aviso cuando algo no entra.
+
+**Deduplicar tarde o no deduplicar.** El mismo cliente entra por el formulario, escribe por WhatsApp y llama. Si no hay una regla clara de qué convierte dos registros en uno, en seis meses tienes la base llena de duplicados y ninguna automatización se fía de ella. La regla habitual es correo o teléfono normalizado, y hay que aplicarla desde el primer día, no cuando ya hay desorden.
+
+## Los límites que conviene conocer
+
+Por realismo, tres cosas que suelen sorprender.
+
+Hay **límites de peticiones** en la API. Para el uso normal no molestan, pero una importación masiva o una sincronización que consulta demasiado los alcanza. Se resuelve espaciando y agrupando, pero hay que contar con ello en el diseño.
+
+Los **campos personalizados se identifican por un id**, no por su nombre. Si alguien borra un campo y lo vuelve a crear con el mismo nombre, las integraciones que lo usaban dejan de encontrarlo. Es una fuente clásica de fallos silenciosos.
+
+Las **automatizaciones pueden entrar en bucle**. Un workflow que actualiza un contacto puede disparar otro workflow que lo actualice de vuelta. Conviene revisar las condiciones de entrada de cada uno antes de encadenarlos.
+
+## Cuándo integrar y cuándo migrar
+
+Si ya tienes un CRM que funciona y solo te falta mensajería y embudos, integrar sale mejor que mudarse: mantienes lo que funciona y añades lo que falta.
+
+Si pagas por varias herramientas que hacen cosas parecidas y ninguna se habla con las otras, integrar es poner tuberías entre cosas que no deberían estar separadas. Ahí la mudanza sale más barata a medio plazo, y lo contamos en [migrar de HubSpot a GoHighLevel](/blog/migrar-de-hubspot-a-gohighlevel-sin-perder-historico).
+
+La pregunta que lo resuelve es simple: ¿cuántas de tus herramientas seguirían existiendo si el CRM hiciera bien su trabajo? Si la respuesta es casi todas, integra. Si es la mitad, plantéate mudarte.
+
+En el [diagnóstico](/diagnostico) revisamos qué tienes conectado hoy y sale un mapa de qué integrar primero y qué sobra.

@@ -1,0 +1,90 @@
+---
+title: "RGPD y automatización con IA: qué puedes automatizar"
+description: "Consentimiento, decisiones automatizadas y datos que salen de la UE. Lo que la ley permite, lo que exige probar y los fallos más comunes en España."
+date: "2026-09-26"
+tags: ["rgpd", "ia", "automatización", "legal"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez"
+draft: false
+---
+
+Este artículo no es asesoramiento legal. Es lo que hemos aprendido montando sistemas automatizados que tratan datos de clientes en España, y los fallos que vemos repetirse. Para lo importante, habla con alguien especializado.
+
+Dicho eso, la mayor parte de los problemas que nos encontramos no son sutilezas jurídicas. Son cuatro cosas básicas que se hacen mal por desconocimiento y que se arreglan sin coste si se piensan antes de construir.
+
+## Uno: el consentimiento hay que poder probarlo, no solo pedirlo
+
+Casi todas las webs tienen una casilla de aceptación en el formulario. Muchas menos guardan la prueba de que se marcó.
+
+El artículo 7.1 del RGPD dice que el responsable tiene que **poder demostrar** que la persona consintió. Una casilla marcada en un navegador que ya se cerró no demuestra nada si el sistema no lo registró.
+
+Lo que hay que guardar junto a cada contacto es cuándo dio el consentimiento y a qué texto concreto. Si la política de privacidad cambia en marzo, tienes que poder distinguir a quien aceptó la versión de enero de quien aceptó la de abril.
+
+Esto es un campo más en la base de datos y cinco minutos de trabajo si se hace al principio. Si se hace después, hay que decidir qué haces con todos los contactos anteriores, que es una conversación mucho peor.
+
+**El fallo relacionado:** validar la casilla solo en el navegador. Si el servidor acepta el envío sin comprobarla, el formulario es decorativo. Cualquiera que mande el dato directamente se la salta, y tu base acaba con registros sin base jurídica.
+
+## Dos: la analítica no es "estrictamente necesaria"
+
+Aquí es donde falla la mayoría de webs españolas, y es fácil de comprobar.
+
+El artículo 22.2 de la LSSI exige consentimiento previo para almacenar información en el dispositivo del usuario, salvo que sea imprescindible para prestar el servicio. Y ojo, porque no habla solo de cookies: el almacenamiento local y el de sesión cuentan igual.
+
+La analítica no es imprescindible para que la web funcione. Por tanto, necesita permiso antes de guardar nada, incluido un identificador de sesión propio.
+
+La prueba es sencilla: abre tu web en una ventana nueva, no toques el aviso de cookies y mira la pestaña de red del navegador. Si ves peticiones a tu propio endpoint de analítica o a Google antes de aceptar, tienes el problema.
+
+La forma correcta con Google Analytics es el modo consentimiento: la etiqueta arranca con todo denegado y solo pasa a medir de verdad cuando la persona acepta. Mientras tanto manda señales sin identificadores, que es lo que permite seguir teniendo datos agregados sin incumplir.
+
+**El matiz que se pasa por alto:** el orden de carga. La declaración de consentimiento denegado tiene que ejecutarse antes de que cargue el script de medición. Si llega después, la cookie ya se escribió y da igual lo que digas luego.
+
+## Tres: cuidado con las decisiones totalmente automatizadas
+
+El artículo 22 del RGPD da derecho a no ser objeto de una decisión basada únicamente en tratamiento automatizado que produzca efectos jurídicos o afecte significativamente a la persona.
+
+En la práctica, para un sistema comercial esto casi nunca aplica: puntuar contactos para decidir a quién llama antes tu equipo no es una decisión con efectos jurídicos. Sigue habiendo una persona que decide.
+
+Donde sí aplica es cuando el sistema **rechaza** automáticamente, sin intervención humana y con consecuencia real para quien lo pide: denegar una financiación, descartar una candidatura, excluir de un servicio.
+
+La regla práctica que usamos: si el sistema puede decir que no a alguien y ese no le cierra una puerta, tiene que haber una persona que pueda revisarlo, y la persona tiene que saber que ese es su trabajo. Un humano que aprueba todo lo que le llega sin mirarlo no cuenta como intervención humana.
+
+## Cuatro: saber por dónde salen los datos
+
+Cada herramienta que toca datos de tus clientes es un encargado del tratamiento, y tiene que estar nombrada en tu política de privacidad.
+
+Eso incluye lo evidente, como el CRM y el alojamiento, y lo que se olvida siempre: el proveedor del modelo de IA, el servicio de traducción, el widget de chat, la herramienta de correo.
+
+Dos preguntas por cada uno:
+
+**Dónde se procesan.** Si es fuera del Espacio Económico Europeo, la transferencia necesita amparo. Hoy eso suele ser cláusulas contractuales tipo, y para Estados Unidos también el marco de adecuación, que conviene comprobar que el proveedor concreto tiene.
+
+**Qué hacen con lo que pasa por ahí.** En los proveedores de IA esto importa especialmente: hay que comprobar si usan lo que les mandas para entrenar y si existe una opción de uso empresarial que lo excluya. Normalmente la hay, y normalmente no viene activada por defecto.
+
+**El fallo más común:** usar un endpoint no oficial de algún servicio gratuito porque va bien y no pide clave. Sin contrato no hay encargo del tratamiento, y además puede dejar de funcionar cualquier día sin aviso.
+
+## Lo que sí puedes automatizar sin dolores de cabeza
+
+Para que no parezca que todo es problema. Con el consentimiento bien recogido y los encargados declarados, se puede automatizar sin sobresaltos:
+
+- Crear y actualizar registros en el CRM.
+- Puntuar y priorizar contactos para el equipo comercial.
+- Responder, agendar y hacer seguimiento por cualquier canal.
+- Generar propuestas y documentos.
+- Clasificar y resumir conversaciones.
+- Avisar internamente de lo que requiere atención.
+
+Que es, en la práctica, todo lo que mueve el negocio.
+
+## Una lista para revisar lo que ya tienes
+
+Cinco comprobaciones que puedes hacer hoy:
+
+- Abre tu web sin aceptar cookies y mira si algo se dispara antes de tu permiso.
+- Manda tu formulario sin marcar la casilla de consentimiento y comprueba si el servidor lo acepta igual.
+- Mira si guardas la fecha del consentimiento junto a cada contacto.
+- Lista todas las herramientas que tocan datos de clientes y compáralas con tu política de privacidad.
+- Comprueba si tu proveedor de IA está configurado para no usar tus datos en entrenamiento.
+
+Si alguna falla, se arregla. Y sale mucho más barato arreglarlo ahora que cuando alguien pregunte.
+
+Para el resto del proceso, está [por dónde empezar a automatizar](/blog/automatizar-procesos-con-ia-por-donde-empezar). Si manejas datos sensibles, la decisión de dónde alojar tus agentes también cuenta: lo vemos en [servidor propio o nube](/blog/agentes-de-ia-vps-propio-o-nube).

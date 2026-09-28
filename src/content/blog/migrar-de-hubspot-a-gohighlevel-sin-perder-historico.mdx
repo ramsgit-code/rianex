@@ -1,0 +1,89 @@
+---
+title: "Migrar de HubSpot a GoHighLevel sin perder el histórico"
+description: "Qué se puede llevar, qué no se lleva nunca y en qué orden hacerlo para no quedarte sin CRM a mitad de la mudanza. Checklist de una migración real."
+date: "2026-09-22"
+tags: ["gohighlevel", "hubspot", "migración", "crm"]
+cluster: "crm"
+author: "Ramiro Pérez"
+draft: false
+---
+
+Cambiar de CRM da miedo por un motivo razonable: todo el historial comercial de la empresa está ahí dentro. Las conversaciones, las notas, quién dijo qué en qué llamada, por qué se perdió aquella operación.
+
+El miedo no es infundado, pero el riesgo real no está donde la gente cree. Casi nadie pierde los contactos. Lo que se pierde, cuando se pierde, es el contexto: las notas sueltas, los correos asociados y las automatizaciones que nadie documentó.
+
+Esto es lo que se lleva, lo que no y en qué orden conviene hacerlo.
+
+## Qué se lleva sin problema
+
+**Contactos y empresas.** Con todos sus campos, incluidos los personalizados. Es exportación e importación, y es la parte que sale bien casi siempre.
+
+**Oportunidades con su etapa y su importe.** Se llevan, aunque hay que mapear las etapas del pipeline viejo a las del nuevo, y ese mapeo es una decisión de negocio que conviene no delegar en quien hace la migración técnica.
+
+**Notas y actividades.** Se llevan si se exportan bien. El detalle está en que muchas veces se exportan sin la referencia al contacto, y entonces llegan como un montón de texto sin dueño. Hay que comprobar que cada nota mantiene su vínculo.
+
+**Listas y segmentaciones.** No se migran como tales, pero se reconstruyen a partir de los campos. Si la segmentación se basa en propiedades que sí viajan, se rehace sin perder nada.
+
+## Qué no se lleva
+
+Conviene saberlo antes y no a mitad.
+
+**Los hilos de correo completos.** Lo que se sincronizó desde la bandeja de entrada suele quedarse. Se puede exportar el registro de que hubo correo, pero el hilo entero rara vez viaja íntegro.
+
+**Las automatizaciones.** Los workflows no se migran: se rehacen. Y esto, que parece malo, suele ser la mejor parte de la mudanza. Casi todas las cuentas con años de uso tienen automatizaciones que nadie recuerda haber creado y que siguen ejecutándose. Rehacerlas obliga a decidir cuáles siguen teniendo sentido.
+
+**Los informes y paneles.** Se reconstruyen. También conviene: la mitad de los informes que existen en un CRM viejo no los mira nadie.
+
+**Las grabaciones de llamadas.** Dependen del proveedor de telefonía, no del CRM. Si están alojadas en el CRM antiguo, hay que descargarlas antes de cerrar la cuenta o desaparecen con ella.
+
+## El orden que evita quedarse sin CRM
+
+El error más caro es apagar lo viejo antes de que lo nuevo funcione. Este orden lo evita.
+
+**Uno: inventario.** Antes de exportar nada, listar qué hay. Cuántos contactos, qué campos personalizados, qué automatizaciones están activas de verdad, qué integraciones dependen del CRM actual. Esta fase es aburrida y es la que decide si la migración sale bien.
+
+**Dos: reconstruir la estructura en destino.** Crear los campos personalizados, el pipeline con sus etapas y las etiquetas antes de meter un solo contacto. Importar datos sobre una estructura que no existe genera campos sueltos que luego hay que limpiar a mano.
+
+**Tres: migración de prueba con una muestra.** Cien contactos, no todos. Comprobar que llegan los campos, que las notas mantienen su dueño, que las oportunidades caen en la etapa correcta. Aquí es donde aparecen los problemas, y aparecen barato.
+
+**Cuatro: rehacer las automatizaciones críticas.** Solo las que de verdad hacen falta. Y probarlas con casos reales antes de que dependa de ellas una venta.
+
+**Cinco: migración completa y periodo en paralelo.** Los dos sistemas funcionando a la vez unas semanas. Es incómodo y es la única forma de descubrir lo que se olvidó sin que cueste dinero.
+
+**Seis: apagar el viejo.** Después de exportar una copia completa y guardarla fuera, no dentro de ninguno de los dos sistemas.
+
+## El periodo en paralelo es innegociable
+
+Es la parte que todo el mundo quiere saltarse por prisa y la que evita los desastres.
+
+Durante esas semanas, el equipo trabaja en el nuevo y el viejo se queda como consulta. Cada vez que alguien dice "esto en el otro sistema lo hacía así", se apunta y se resuelve. Al cabo de dos o tres semanas esas preguntas se acaban, y ahí está claro que se puede apagar.
+
+Si se apaga el día uno, esas preguntas aparecen igual, pero sin sitio donde mirar la respuesta.
+
+## Lo que hay que exportar aunque no lo migres
+
+Antes de cerrar la cuenta antigua, guarda fuera:
+
+- Exportación completa de contactos, empresas y oportunidades, en CSV.
+- Exportación de notas y actividades.
+- Captura o documentación de cada automatización activa, aunque no la vayas a rehacer.
+- Las grabaciones de llamadas, si están alojadas ahí.
+- La lista de integraciones conectadas, para saber qué hay que reconectar.
+
+Guárdalo en un sitio que no dependa de ninguno de los dos CRM. Suena obvio y se olvida.
+
+## Cuánto tarda
+
+Una migración de una cuenta pequeña, con pocos miles de contactos y un puñado de automatizaciones, se hace en dos o tres semanas contando el paralelo.
+
+Una cuenta grande, con integraciones a facturación, web y telefonía, se va a seis u ocho. La diferencia casi nunca está en el volumen de datos, sino en el número de sistemas conectados que hay que reconectar y volver a probar.
+
+## Lo que ganas y lo que pierdes
+
+Por honestidad: HubSpot hace cosas que GoHighLevel no hace, sobre todo en informes avanzados y en el ecosistema de integraciones nativas. Y GoHighLevel hace cosas que en HubSpot cuestan un módulo adicional, sobre todo mensajería, embudos y automatización sin límite de contactos.
+
+La migración compensa cuando pagas por funcionalidades que no usas, cuando el coste crece con cada contacto que añades, o cuando necesitas WhatsApp y SMS integrados en el mismo sitio que el pipeline.
+
+No compensa si tu equipo depende de informes complejos o de integraciones nativas que solo existen allí. En ese caso, integrar los dos sale mejor que mudarse, y lo contamos en [integrar GoHighLevel con tu stack](/blog/integrar-gohighlevel-con-tu-stack).
+
+Si tienes dudas sobre cuál es tu caso, en el [diagnóstico](/diagnostico) lo miramos con tu cuenta delante y sale una recomendación con motivos, no un presupuesto.
