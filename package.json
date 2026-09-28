@@ -15,7 +15,9 @@
     "db:push": "prisma db push",
     "admin:hash": "tsx scripts/admin-hash.ts",
     "supabase:setup": "tsx scripts/setup-supabase.ts",
-    "supabase:connect": "tsx scripts/connect-supabase.ts"
+    "supabase:connect": "tsx scripts/connect-supabase.ts",
+    "blog:check": "tsx scripts/import-blog-posts.ts --check",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

@@ -23,6 +23,10 @@ model BlogPost {
   descriptionEn String?
   contentEn     String?   @db.Text
   tags          String[]
+  // Agrupacion tematica. Ordena el enlazado interno y es lo que agrupa el
+  // indice de llms.txt: un listado plano de titulos no transmite estructura.
+  cluster       String?
+  author        String    @default("Ramiro Pérez")
   published     Boolean   @default(false)
   publishedAt   DateTime?
   createdAt     DateTime  @default(now())

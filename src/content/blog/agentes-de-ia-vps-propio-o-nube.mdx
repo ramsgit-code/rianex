@@ -1,0 +1,73 @@
+---
+title: "Agentes de IA: servidor propio o servicio en la nube"
+description: "Coste, control de datos y dependencia del proveedor. Cuándo sale a cuenta un VPS propio para tus agentes y cuándo es complicarse sin motivo."
+date: "2026-09-20"
+tags: ["agentes de ia", "vps", "infraestructura", "rgpd"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez"
+draft: false
+---
+
+Cuando un agente de IA deja de ser un experimento y empieza a atender clientes de verdad, aparece una decisión que casi nadie toma a tiempo: dónde vive.
+
+La respuesta por defecto es un servicio cerrado, porque se monta en una tarde. Es una buena respuesta para empezar y una mala respuesta para quedarse, según el caso. Merece la pena entender por qué antes de que el cambio salga caro.
+
+## Las dos opciones
+
+**Servicio gestionado.** Contratas una plataforma que aloja el agente, gestiona el modelo y te cobra por conversación, por mensaje o por asiento. Tú configuras y ellos se ocupan del resto.
+
+**Servidor propio.** Un VPS donde corre tu agente, con las integraciones y la lógica escritas para tu caso. Pagas el servidor y las llamadas al modelo por separado.
+
+No es una decisión ideológica. Es aritmética y control.
+
+## Lo que cambia en el coste
+
+La diferencia importante no es el precio, es la forma del precio.
+
+Un servicio gestionado tiene **coste variable**: crece con el uso. Es estupendo cuando el uso es pequeño, porque empiezas pagando casi nada. Y es incómodo cuando el negocio funciona, porque el éxito encarece la factura justo cuando más conversaciones tienes.
+
+Un servidor propio tiene **coste fijo** más las llamadas al modelo. Un VPS que aguante un agente de atención con holgura cuesta lo que cuesta al mes, atienda cien conversaciones o tres mil. Las llamadas al modelo sí escalan, pero son la parte barata.
+
+El punto de cruce depende del volumen y de las tarifas de cada proveedor, así que no doy una cifra que en seis meses sería mentira. La forma de calcularlo sí es estable: coge tu volumen mensual real, mira lo que te costaría en el servicio gestionado y compáralo con el servidor más el consumo estimado del modelo. Si el negocio va a crecer, haz la cuenta también con el volumen del año que viene, porque migrar después cuesta más que empezar bien.
+
+## Lo que cambia en el control de datos
+
+Aquí es donde la decisión deja de ser económica.
+
+Si tu agente maneja datos de salud, datos financieros o cualquier categoría sensible, el sitio donde se procesan importa legalmente, no solo técnicamente. Con un servicio cerrado necesitas su contrato de encargo del tratamiento, saber dónde están sus servidores y qué hacen con lo que pasa por ellos. Con un servidor propio en la Unión Europea, controlas dónde se guarda cada cosa y cuánto tiempo.
+
+Esto no convierte al servidor propio en la opción legal y al gestionado en la ilegal. Hay servicios gestionados perfectamente correctos con sus garantías en orden. Lo que sí hace es cambiar quién responde de qué, y eso conviene saberlo antes y no durante una auditoría.
+
+Lo tratamos con más detalle en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
+
+## Lo que cambia en la dependencia
+
+Un agente montado sobre una plataforma cerrada vive dentro de esa plataforma. Si suben precios, si cierran, si cambian la API o si deciden que tu caso de uso ya no encaja en sus condiciones, el trabajo hecho no se lleva a otro sitio sin rehacerlo.
+
+Con infraestructura propia, el agente es código tuyo. Cambiar de modelo es cambiar una configuración. Cambiar de proveedor de servidor es mover un contenedor.
+
+Esto importa poco el primer mes y bastante el tercer año.
+
+## Cuándo elegir cada uno
+
+**Servicio gestionado** si estás validando si el agente sirve, el volumen es bajo, no manejas datos sensibles y no tienes a nadie que pueda ocuparse de un servidor. Es la opción correcta para empezar y no hay ninguna vergüenza en quedarse ahí si las cuentas salen.
+
+**Servidor propio** si el volumen ya es alto y la factura variable duele, si manejas datos sensibles, si necesitas integraciones que la plataforma no ofrece, o si el agente es parte del producto y no puedes permitirte que dependa de las decisiones de otro.
+
+## Lo que hay que asumir con un servidor propio
+
+Por honestidad, porque esto se cuenta poco.
+
+Un servidor es una cosa que hay que mantener. Actualizaciones de seguridad, copias de seguridad, certificados, vigilancia de que sigue en pie. Si nadie se ocupa de eso, el ahorro se convierte en una caída de tres días cuando menos conviene.
+
+La forma sensata de resolverlo es dejar la vigilancia montada desde el principio: un aviso automático cuando el servidor deja de dar señales de vida, copias automáticas y un plan de qué hacer si se cae. No es complicado, pero hay que hacerlo, y hay que decidir quién lo hace.
+
+Si no hay nadie que vaya a ocuparse, el servicio gestionado sale más barato aunque la hoja de cálculo diga lo contrario.
+
+## El camino que solemos recomendar
+
+Empezar en gestionado para validar que el agente resuelve algo real. Medir volumen y coste durante dos o tres meses. Y con esos datos decidir, en vez de decidirlo antes de saber nada.
+
+Lo único que conviene hacer desde el minuto uno es no atarse: mantener la lógica del agente y sus integraciones separadas de la plataforma concreta, para que mudarse sea un trabajo de días y no de meses.
+
+Si quieres que miremos tus números, el [diagnóstico](/diagnostico) son 30 minutos y sale la cuenta hecha para tu caso.

@@ -23,16 +23,16 @@ const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
 // ─── Cola de temas planificados ───────────────────────────────────────────────
 const TOPIC_QUEUE = [
-  "como automatizar el seguimiento de leads sin perder tiempo",
-  "que es go high level y para que sirve en ventas",
-  "lead scoring automatico: como filtrar leads buenos de malos",
-  "crm para freelances y agencias: que usar y como configurarlo",
-  "funnel de captacion b2b: estructura que convierte",
-  "como reducir el tiempo de respuesta a leads sin contratar a nadie",
-  "automatizacion de email marketing para b2b: lo que funciona",
-  "integraciones api en ventas: cuando merece la pena y cuando no",
-  "como medir la conversion de tu proceso comercial",
-  "pipeline de ventas: como estructurarlo para que se gestione solo",
+  "como elegir que proceso automatizar primero en una empresa",
+  "errores comunes al automatizar procesos con ia",
+  "agentes de ia para atencion al cliente: que resuelven y que no",
+  "automatizar la generacion de informes internos con ia",
+  "cuando una automatizacion necesita intervencion humana",
+  "integrar un crm con facturacion sin duplicar datos",
+  "automatizacion para empresas de eventos: del intake a la propuesta",
+  "automatizacion para academias: matriculas y seguimiento de alumnos",
+  "medir el retorno de una automatizacion: que numeros mirar",
+  "de la hoja de calculo al sistema: cuando dar el salto",
 ];
 
 // ─── Fuentes RSS del sector ───────────────────────────────────────────────────
@@ -54,6 +54,7 @@ interface BlogPost {
   description: string;
   date: string;
   tags: string[];
+  cluster: string;
   content: string;
 }
 
@@ -114,7 +115,7 @@ async function generateBlogPost(topic: string, newsContext: string = ""): Promis
 CONTEXTO DE MARCA:
 - Servicios: Lead Qualification Systems, Proposal Automation, WhatsApp + CRM Automation, webs profesionales, integraciones IA
 - Stack principal: Go High Level, WhatsApp Business API, integraciones API a medida
-- Clientes reales: Hospital Capilar (clinica, Madrid), Eventos Barcelona (eventos), Hermetic/Lederle (industrial)
+- Clientes reales: Hospital Capilar (clinica, Madrid), Eventos Barcelona (eventos)
 - Tono: profesional, directo, sin humo — como habla alguien que ha implementado sistemas reales
 - Publico: directores comerciales, gerentes de pymes, freelances con proceso comercial estructurado`,
     messages: [
@@ -126,8 +127,9 @@ FORMATO DE RESPUESTA — JSON estricto, sin texto adicional fuera del JSON:
 {
   "slug": "url-kebab-case-max-60-chars",
   "title": "Titulo directo max 65 caracteres",
-  "description": "Meta description SEO max 155 caracteres con keyword principal",
+  "description": "Meta description SEO de 70 a 160 caracteres con keyword principal",
   "tags": ["tag1", "tag2", "tag3"],
+  "cluster": "uno de: automatizacion-ia | agentes-ia | desarrollo-ia | crm | captacion",
   "content": "Contenido completo en Markdown..."
 }
 
@@ -144,7 +146,8 @@ REGLAS:
 - Menciona Go High Level, WhatsApp Business o herramientas especificas cuando sea relevante
 - Sin listas de 10 puntos genericas. Maximo 4-5 puntos por lista, con detalle en cada uno
 - Usa **negrita** para conceptos clave, no para decorar
-- Los ejemplos de Hospital Capilar, Eventos Barcelona o Hermetic solo si encajan naturalmente`,
+- Los ejemplos de Hospital Capilar o Eventos Barcelona solo si encajan naturalmente
+- No inventes clientes, cifras ni casos: si no tienes el dato, no lo des`,
       },
     ],
   });
@@ -154,8 +157,19 @@ REGLAS:
   if (!jsonMatch) throw new Error("Claude no devolvio JSON valido");
 
   const parsed = JSON.parse(jsonMatch[0]);
+  const CLUSTERS_VALIDOS = [
+    "automatizacion-ia",
+    "agentes-ia",
+    "desarrollo-ia",
+    "crm",
+    "captacion",
+  ];
+
   return {
     ...parsed,
+    cluster: CLUSTERS_VALIDOS.includes(parsed.cluster)
+      ? parsed.cluster
+      : "automatizacion-ia",
     date: new Date().toISOString().split("T")[0],
   };
 }
@@ -184,6 +198,9 @@ title: "${post.title.replace(/"/g, '\\"')}"
 description: "${post.description.replace(/"/g, '\\"')}"
 date: "${post.date}"
 tags: [${post.tags.map((t) => `"${t}"`).join(", ")}]
+cluster: "${post.cluster}"
+author: "Ramiro Pérez"
+draft: true
 ---
 
 ${post.content}

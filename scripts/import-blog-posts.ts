@@ -1,81 +1,95 @@
 /**
- * Importa los articulos .mdx de src/content/blog/ a la tabla BlogPost
- * y los publica (published: true). Los que ya existen (mismo slug) se actualizan.
+ * Importa los articulos .mdx de src/content/blog/ a la tabla BlogPost.
+ *
+ * Valida cada fichero contra el contrato de src/lib/blog-schema.ts ANTES de
+ * tocar la base: si alguno no cumple, no se importa ninguno. Es preferible
+ * quedarse sin publicar a publicar la mitad del lote y dejar la otra mitad en
+ * un estado que nadie recuerda.
  *
  * Uso:
- *   npx tsx scripts/import-blog-posts.ts
+ *   npx tsx scripts/import-blog-posts.ts            # importa y publica
+ *   npx tsx scripts/import-blog-posts.ts --check    # solo valida, no escribe
  */
 
 import * as fs from "fs";
 import * as path from "path";
 import { PrismaClient } from "@prisma/client";
+import { parseBlogFile } from "../src/lib/blog-schema";
 
 const prisma = new PrismaClient();
 const BLOG_DIR = path.join(process.cwd(), "src/content/blog");
-
-function parseFrontmatter(raw: string) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) throw new Error("Frontmatter no encontrado");
-  const [, fm, content] = match;
-
-  const get = (key: string) => {
-    const m = fm.match(new RegExp(`^${key}:\\s*"(.*)"\\s*$`, "m"));
-    return m ? m[1] : "";
-  };
-  const tagsMatch = fm.match(/^tags:\s*(\[.*\])\s*$/m);
-  const tags: string[] = tagsMatch ? JSON.parse(tagsMatch[1].replace(/'/g, '"')) : [];
-
-  return {
-    title: get("title"),
-    description: get("description"),
-    date: get("date"),
-    tags,
-    content: content.trim(),
-  };
-}
+const soloValidar = process.argv.includes("--check");
 
 async function main() {
   const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".mdx"));
   if (files.length === 0) {
-    console.log("No hay archivos .mdx en src/content/blog/");
+    console.log("No hay articulos en src/content/blog/");
     return;
   }
 
+  // ─── Fase 1: validar todo el lote ──────────────────────────────────────────
+  const articulos: {
+    slug: string;
+    frontmatter: ReturnType<typeof parseBlogFile>["frontmatter"];
+    content: string;
+  }[] = [];
+  const errores: string[] = [];
+
   for (const file of files) {
-    const slug = file.replace(/\.mdx$/, "");
-    const raw = fs.readFileSync(path.join(BLOG_DIR, file), "utf-8");
-    const { title, description, date, tags, content } = parseFrontmatter(raw);
+    try {
+      const raw = fs.readFileSync(path.join(BLOG_DIR, file), "utf-8");
+      const { frontmatter, content } = parseBlogFile(raw, file);
+      articulos.push({ slug: file.replace(/\.mdx$/, ""), frontmatter, content });
+    } catch (err) {
+      errores.push(err instanceof Error ? err.message : String(err));
+    }
+  }
+
+  if (errores.length) {
+    console.error(`\n${errores.length} articulo(s) no pasan el contrato:\n`);
+    errores.forEach((e) => console.error(e + "\n"));
+    process.exit(1);
+  }
+
+  const publicables = articulos.filter((a) => !a.frontmatter.draft);
+  console.log(
+    `${articulos.length} articulo(s) validados. ` +
+      `${publicables.length} publicables, ${articulos.length - publicables.length} en borrador.`
+  );
+
+  if (soloValidar) {
+    console.log("Modo --check: no se ha escrito nada.");
+    return;
+  }
+
+  // ─── Fase 2: escribir ──────────────────────────────────────────────────────
+  for (const { slug, frontmatter, content } of articulos) {
+    const datos = {
+      title: frontmatter.title,
+      description: frontmatter.description,
+      content,
+      tags: frontmatter.tags,
+      cluster: frontmatter.cluster,
+      author: frontmatter.author,
+      published: !frontmatter.draft,
+      publishedAt: frontmatter.draft ? null : new Date(frontmatter.date),
+    };
 
     await prisma.blogPost.upsert({
       where: { slug },
-      update: {
-        title,
-        description,
-        content,
-        tags,
-        published: true,
-        publishedAt: new Date(date),
-      },
-      create: {
-        slug,
-        title,
-        description,
-        content,
-        tags,
-        published: true,
-        publishedAt: new Date(date),
-      },
+      update: datos,
+      create: { slug, ...datos },
     });
 
-    console.log(`✅ ${slug} — "${title}"`);
+    console.log(`  ${frontmatter.draft ? "borrador" : "publicado"}  ${slug}`);
   }
 
-  console.log(`\n${files.length} articulo(s) publicado(s).`);
+  console.log(`\nListo: ${articulos.length} articulo(s) sincronizados.`);
 }
 
 main()
   .catch((err) => {
-    console.error("❌", err);
+    console.error("Error:", err instanceof Error ? err.message : err);
     process.exit(1);
   })
   .finally(() => prisma.$disconnect());

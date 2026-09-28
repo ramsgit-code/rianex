@@ -1,0 +1,75 @@
+---
+title: "Desarrollo a medida con IA: cuándo construir y cuándo no"
+description: "Construir sale caro y a veces es lo único que resuelve el problema. Cómo decidirlo sin romanticismo y qué hay que asumir si eliges construir."
+date: "2026-09-27"
+tags: ["desarrollo", "ia", "software a medida", "decisiones"]
+cluster: "desarrollo-ia"
+author: "Ramiro Pérez"
+draft: false
+---
+
+Construir software propio es la decisión más cara que puede tomar una empresa pequeña, y a veces es la correcta. El problema es que casi nunca se toma con criterio: se toma por frustración con una herramienta o por entusiasmo con una idea.
+
+Con IA de por medio la tentación es mayor, porque construir parece más barato que hace tres años. Algunas partes sí lo son. Otras cuestan exactamente lo mismo que siempre, y son las que deciden si el proyecto sobrevive.
+
+## Lo que ha cambiado y lo que no
+
+**Ha cambiado** el coste de escribir código. Lo que antes eran semanas de trabajo ahora son días. Eso es real y cambia las cuentas.
+
+**No ha cambiado** casi nada de lo demás: decidir qué hay que construir, integrarlo con lo que ya existe, probarlo con datos reales, desplegarlo, mantenerlo cuando cambian las dependencias, y arreglarlo cuando falla un martes por la tarde.
+
+En un proyecto real, escribir código es una fracción del esfuerzo total. Abaratar esa fracción a la mitad no abarata el proyecto a la mitad. Quien te diga lo contrario no ha mantenido nada durante dos años.
+
+## La pregunta que resuelve la decisión
+
+No es "¿se puede construir?". Casi todo se puede. La pregunta es: **¿esto que necesito es lo que me diferencia de mi competencia?**
+
+Si la respuesta es sí, construir tiene sentido, porque nadie va a hacer una herramienta a medida para tu ventaja concreta.
+
+Si la respuesta es no, comprar casi siempre gana. Una facturación, un CRM o un gestor de proyectos hechos son mejores que lo que vas a construir, porque llevan años de casos límite resueltos por gente que solo hace eso.
+
+El error caro es construir cosas genéricas porque la herramienta existente tenía un detalle molesto. Ese detalle molesto cuesta mucho menos que mantener tu propia versión durante tres años.
+
+## Cuándo construir sí compensa
+
+Cuatro situaciones donde lo hemos visto salir bien.
+
+**Cuando el proceso es tu ventaja.** Si haces algo de una manera que nadie más hace y esa manera es por lo que te eligen, meterlo en una herramienta genérica te obliga a trabajar como los demás.
+
+**Cuando ninguna herramienta cubre el hueco.** No que ninguna lo haga perfecto: que ninguna lo haga. Suele pasar en sectores con reglas propias o en flujos que cruzan varios mundos que ningún proveedor ha juntado.
+
+**Cuando el coste por usuario ya duele.** Las herramientas por asiento o por contacto escalan en tu contra. Llegado cierto tamaño, el desarrollo propio se amortiza en un par de años.
+
+**Cuando necesitas dar acceso a terceros.** Un portal para que tus clientes consulten su información, o para que tus proveedores suban la suya. Esto casi nunca encaja en una herramienta interna.
+
+## Cuándo no construir
+
+**Si es para ahorrarte una suscripción barata.** El desarrollo propio nunca es más barato que algo que cuesta unas decenas al mes.
+
+**Si nadie va a poder mantenerlo.** Un sistema propio necesita quien lo entienda. Si lo construye alguien externo y nadie dentro puede tocarlo, has cambiado la dependencia de un proveedor por la dependencia de una persona, y esa es peor.
+
+**Si el proceso aún no está claro.** Construir congela decisiones en código. Si el proceso va a cambiar tres veces en seis meses, primero estabilízalo con herramientas genéricas y automatizaciones, que es lo que contamos en [por dónde empezar a automatizar](/blog/automatizar-procesos-con-ia-por-donde-empezar).
+
+**Si la urgencia es alta.** Construir tarda. Si el problema hay que resolverlo este mes, la respuesta es comprar o automatizar, aunque la solución sea imperfecta.
+
+## Lo que hay que asumir si construyes
+
+Por honestidad, porque estas cuatro cosas se descubren tarde.
+
+**El mantenimiento no es opcional.** Las dependencias se actualizan, los proveedores cambian sus API, aparecen fallos de seguridad. Un sistema sin mantenimiento no se queda igual: empeora.
+
+**Necesita quien lo entienda.** Documentación, código legible y alguien que pueda ponerse. Si esto depende de una sola persona, tienes un riesgo de negocio, no un activo.
+
+**Los datos hay que poder sacarlos.** Construye desde el principio la forma de exportar todo. El día que quieras cambiar de enfoque, o que el proyecto se aparque, los datos tienen que poder salir.
+
+**La primera versión se queda corta.** Siempre. Lo sensato es construir lo mínimo que resuelve el caso principal, ponerlo a funcionar con gente real y ampliar con lo que pidan, en vez de intentar preverlo todo.
+
+## Un camino intermedio que funciona
+
+En la mayoría de casos que llegan como "necesito una herramienta a medida", lo que hace falta de verdad es más pequeño.
+
+La combinación que suele resolverlo: una herramienta estándar como base de datos y de proceso, automatizaciones que conectan lo que hay, y una pieza a medida solo para lo que de verdad es tuyo. Un panel, un generador, un portal.
+
+Eso reduce lo que hay que construir a una fracción, y lo que se construye es justo lo que te diferencia. El resto lo mantiene otro.
+
+Si no tienes claro de qué lado cae tu caso, en el [diagnóstico](/diagnostico) lo miramos y sale una recomendación con motivos. A veces es no construyas nada, y también es una respuesta útil.
