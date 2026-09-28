@@ -28,6 +28,7 @@ date: "AAAA-MM-DD"
 tags: ["al", "menos", "uno"]
 cluster: "automatizacion-ia"
 author: "Ramiro Pérez"
+linkPolicy: "nofollow"
 draft: false
 ---
 ```
@@ -64,6 +65,57 @@ subconjunto a propósito:
 
 No hay tablas, listas numeradas ni bloques de código. Lo que no esté en esa
 lista se renderiza como texto plano.
+
+## Enlaces salientes y colaboraciones
+
+Todo enlace externo salía dofollow hasta ahora, porque el `rel` era solo
+`noopener noreferrer`. En un blog propio da igual. Publicando artículos de
+colaboradores significa repartir autoridad sin haberlo decidido.
+
+**El defecto es `nofollow`**, a propósito: si a alguien se le olvida marcar un
+enlace, el fallo cae del lado que no regala nada. Enlazar en dofollow pasa a ser
+un acto deliberado, que es lo que debería ser.
+
+### Por artículo
+
+`linkPolicy` en el frontmatter se aplica a todos los enlaces externos que no
+traigan marca propia:
+
+| Valor | Cuándo |
+|---|---|
+| `nofollow` | Defecto. No respondemos de ese destino |
+| `follow` | Artículo propio donde citamos fuentes porque lo valen |
+| `sponsored` | Hay dinero, intercambio o contraprestación de por medio |
+| `ugc` | Lo escribió un tercero (colaborador invitado) |
+
+Un artículo recibido de un colaborador se marca **entero** aquí, en vez de ir
+enlace por enlace y arriesgarse a olvidar uno.
+
+### Por enlace
+
+El tercer parámetro del enlace (el atributo `title` estándar de Markdown) fija
+la política de ese enlace concreto y gana sobre la del artículo:
+
+```markdown
+[una fuente](https://ejemplo.com "follow")
+[el patrocinador](https://ejemplo.com "sponsored")
+```
+
+Esto permite que dentro de un artículo marcado `sponsored` se pueda citar una
+fuente legítima en dofollow, que es lo razonable.
+
+Los enlaces internos (los que empiezan por `/`) no llevan `rel` y no les afecta
+nada de esto.
+
+### Sobre intercambios de enlaces
+
+`sponsored` y `ugc` llevan también `nofollow`, porque los atributos de Google
+son pistas y sin `nofollow` otros buscadores siguen el enlace igual.
+
+Conviene saber que el intercambio recíproco sistemático ("enlázame y te
+enlazo") es el ejemplo que Google pone de esquema de enlaces. Lo habitual no es
+una penalización: es que esos enlaces no cuenten. Marcarlos bien no es una
+formalidad, es lo que separa una colaboración de un esquema.
 
 ## Descubrimiento
 

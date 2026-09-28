@@ -31,9 +31,11 @@ let lastSweep = Date.now();
 function sweepMemory(now: number) {
   if (now - lastSweep < WINDOW_SECONDS * 1000) return;
   lastSweep = now;
-  for (const [key, hits] of memory) {
-    if (hits.every((t) => now - t >= WINDOW_SECONDS * 1000)) memory.delete(key);
-  }
+  Array.from(memory.entries()).forEach(([key, hits]) => {
+    if (hits.every((t: number) => now - t >= WINDOW_SECONDS * 1000)) {
+      memory.delete(key);
+    }
+  });
 }
 
 function hitMemory(key: string, max: number): boolean {

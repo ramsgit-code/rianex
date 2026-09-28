@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { JsonLd } from "@/components/JsonLd";
 import { BlogPostContent } from "./BlogPostContent";
+import type { LinkPolicy } from "@/lib/blog-schema";
 import { alternates } from "@/lib/i18n";
 
 const SITE_URL = "https://www.rianex.es";
@@ -90,6 +91,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           content: post.content,
           contentEn: post.contentEn,
           publishedAt: post.publishedAt ? post.publishedAt.toISOString() : null,
+          linkPolicy: post.linkPolicy as LinkPolicy,
         }}
       />
     </>
