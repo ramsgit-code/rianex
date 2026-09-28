@@ -63,13 +63,15 @@ el login del admin.
 
 ## 5. Analitica y Search Console
 
+La etiqueta de GA4 (`G-TN15MVTWRB`) esta fija en `src/app/layout.tsx`. No va por
+variable de entorno a proposito: el ID no es secreto, viaja en el HTML de todas
+formas, y asi no se puede desplegar sin medicion por haber olvidado una variable.
+
 | Variable | Donde se saca |
 |---|---|
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 → Administrar → Flujos de datos → `G-XXXXXXXXXX` |
 | `GOOGLE_SITE_VERIFICATION` | Search Console → Etiqueta HTML → **solo el valor de `content`** |
 
-Las dos son opcionales: si faltan, GA4 no se carga y no se emite la etiqueta de
-verificacion.
+Es opcional: la propiedad actual esta verificada por fichero (ver abajo).
 
 ### Verificacion de Search Console
 
@@ -110,8 +112,8 @@ Variables obligatorias:
 - `ADMIN_EMAIL`
 - `ADMIN_PASSWORD_HASH`
 
-Recomendadas: `UPSTASH_REDIS_REST_*`, `NEXT_PUBLIC_GA_MEASUREMENT_ID`,
-`GOOGLE_SITE_VERIFICATION`, y las `GHL_*` para sincronizar con Go High Level.
+Recomendadas: `UPSTASH_REDIS_REST_*` y las `GHL_*` para sincronizar con Go High
+Level.
 
 El **Build Command** se deja en el de por defecto (`npm run build`, que ya hace
 `prisma generate && next build`).
