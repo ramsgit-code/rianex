@@ -23,11 +23,13 @@ export async function generateStaticParams() {
 }
 
 async function getPost(slug: string) {
-  try {
-    return await prisma.blogPost.findFirst({ where: { slug, published: true } });
-  } catch {
-    return null;
-  }
+  // Ojo con el try/catch aqui: si se traga un fallo de base y devuelve null, la
+  // pagina responde 404, que le dice a Google que el articulo no existe y puede
+  // acabar desindexandolo. Un fallo de infraestructura tiene que salir como
+  // error (500) para que el rastreador reintente en vez de darlo por muerto.
+  return prisma.blogPost.findFirst({
+    where: { slug, published: true },
+  });
 }
 
 export async function generateMetadata({
