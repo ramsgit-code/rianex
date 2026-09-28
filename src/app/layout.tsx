@@ -93,7 +93,11 @@ export const metadata: Metadata = {
     images: ["/og.png"],
   },
   robots: { index: true, follow: true },
-  alternates: alternates("/", "es"),
+  alternates: {
+    ...alternates("/", "es"),
+    // Para que lectores de feeds y agregadores descubran el RSS solos.
+    types: { "application/rss+xml": `${SITE_URL}/rss.xml` },
+  },
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
     : undefined,
