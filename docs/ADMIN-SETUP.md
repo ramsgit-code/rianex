@@ -66,10 +66,27 @@ el login del admin.
 | Variable | Donde se saca |
 |---|---|
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | GA4 → Administrar → Flujos de datos → `G-XXXXXXXXXX` |
-| `GOOGLE_SITE_VERIFICATION` | Search Console → Propiedad de prefijo de URL → Etiqueta HTML → **solo el valor de `content`** |
+| `GOOGLE_SITE_VERIFICATION` | Search Console → Etiqueta HTML → **solo el valor de `content`** |
 
 Las dos son opcionales: si faltan, GA4 no se carga y no se emite la etiqueta de
 verificacion.
+
+### Verificacion de Search Console
+
+La propiedad actual esta verificada por el metodo de **fichero HTML**, no por
+etiqueta: `public/googlef56cb0ea7569c8d9.html` se sirve en la raiz del sitio y
+Google lo comprueba ahi. **No se borra** aunque la propiedad ya aparezca
+verificada: si desaparece, Google revoca la verificacion en la siguiente
+comprobacion.
+
+Los dos metodos pueden convivir. `GOOGLE_SITE_VERIFICATION` sigue soportada por
+si algun dia se anade otra propiedad o se prefiere la etiqueta.
+
+> El fichero verifica solo el **prefijo de URL** (`https://www.rianex.es/`), no
+> el dominio entero. Para una propiedad de **dominio** (que cubre `www`,
+> `no-www` y cualquier subdominio a la vez) hace falta un registro TXT en el
+> DNS, que en este caso se anade en IONOS. Es la opcion recomendable a medio
+> plazo.
 
 GA4 va en **Consent Mode v2**: arranca con todo denegado y solo mide si el
 visitante acepta el aviso de cookies. Las senales publicitarias quedan
