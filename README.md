@@ -1,7 +1,8 @@
 # captacion-web
 
-Sitio de Rianex (Next.js 14 / App Router): web pública, formulario de
-diagnóstico, blog y panel de administración, con Go High Level como CRM.
+Sitio de Rianex (Next.js 15 / App Router): web pública en castellano e inglés,
+formulario de diagnóstico, blog y panel de administración, con Go High Level
+como CRM.
 
 ## Desarrollo
 
@@ -20,14 +21,14 @@ npm run dev
 | `npm run blog` | Agente que redacta posts nuevos (`scripts/blog-agent.ts`) |
 | `npm run blog:import` | Publica los `.mdx` de `src/content/blog/` |
 | `npm run admin:hash` | Genera `ADMIN_PASSWORD_HASH` para `.env` |
-| `npm run db:push` / `db:migrate` | Prisma contra Supabase Postgres |
+| `npm run db:push` / `db:migrate` | Prisma contra Supabase Postgres (necesita `DIRECT_URL`) |
 
 ## Estructura
 
 ```
-src/app/            rutas (App Router): publicas, /admin, /api
+src/app/            rutas (App Router): publicas, /en (ingles), /admin, /api
 src/components/      componentes de UI, admin/ y sections/ aparte
-src/lib/             integraciones (GHL, Prisma, auth, scoring de leads...)
+src/lib/             integraciones (GHL, Prisma, auth, scoring, i18n, consentimiento...)
 src/content/blog/    posts en .mdx
 prisma/              schema + migraciones
 scripts/             agentes y utilidades de mantenimiento (tsx)
