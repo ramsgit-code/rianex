@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { translate } from "@/lib/translate";
+import { rateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
+  // Formulario publico que guarda texto y una foto en la base: sin limite es
+  // un vector gratuito para llenar Postgres.
+  const limited = await rateLimit(req, 3, "testimonials");
+  if (limited) return limited;
+
   try {
     const { name, company, role, quote, imageUrl } = await req.json();
 
