@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { SERVICIO_SLUGS } from "@/lib/servicios";
 import { ES_ONLY_ROUTES } from "@/lib/i18n";
 
 const BASE_URL = "https://www.rianex.es";
@@ -50,6 +51,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages = Object.keys(PRIORITY).map((path) => bilingual(path, now));
 
+  const servicePages = SERVICIO_SLUGS.map((slug) => ({
+    ...bilingual(`/servicios/${slug}`, now),
+    priority: 0.8,
+  }));
+
   // Los articulos solo existen en castellano, asi que van sin hreflang.
   const blogPages = getAllPosts().map((p) => ({
     url: `${BASE_URL}/blog/${p.slug}`,
@@ -66,5 +72,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
-  return [...staticPages, ...blogPages, ...legalPages];
+  return [...staticPages, ...servicePages, ...blogPages, ...legalPages];
 }

@@ -110,7 +110,7 @@ async function generateBlogPost(topic: string, newsContext: string = ""): Promis
   const response = await client.messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 4000,
-    system: `Eres el ghostwriter de Ramiro Perez, especialista en automatizacion comercial, CRM e integraciones de IA.
+    system: `Eres el ghostwriter de Ramiro Pérez Rodero, especialista en automatizacion comercial, CRM e integraciones de IA.
 
 CONTEXTO DE MARCA:
 - Servicios: Lead Qualification Systems, Proposal Automation, WhatsApp + CRM Automation, webs profesionales, integraciones IA
@@ -199,7 +199,7 @@ description: "${post.description.replace(/"/g, '\\"')}"
 date: "${post.date}"
 tags: [${post.tags.map((t) => `"${t}"`).join(", ")}]
 cluster: "${post.cluster}"
-author: "Ramiro Pérez"
+author: "Ramiro Pérez Rodero"
 draft: true
 ---
 

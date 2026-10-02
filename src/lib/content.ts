@@ -19,7 +19,7 @@ export const content = {
         { href: "/servicios", label: "Servicios" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/blog", label: "Blog" },
-        { href: "/sobre-mi", label: "Nosotros" },
+        { href: "/sobre-mi", label: "Sobre mí" },
       ],
       cta: "Auditoría gratis",
       switchTo: "EN",
@@ -286,7 +286,7 @@ export const content = {
         { href: "/servicios", label: "Servicios" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
-        { href: "/sobre-mi", label: "Nosotros" },
+        { href: "/sobre-mi", label: "Sobre mí" },
         { href: "/blog", label: "Blog" },
         { href: "/diagnostico", label: "Auditoría gratuita" },
       ],
@@ -301,6 +301,7 @@ export const content = {
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Obtén mi Auditoría Gratuita",
+      more: "Ver el servicio en detalle",
       builtOn: "Construido sobre",
       items: [
         {
@@ -461,13 +462,13 @@ export const content = {
     },
 
     sobreMi: {
-      tag: "Nosotros",
-      title: "Ingenieros industriales que automatizan tu negocio con IA",
+      tag: "Sobre mí",
+      title: "Ramiro Pérez Rodero, ingeniero industrial que automatiza negocios con IA",
       intro: [
-        "Somos un grupo de ingenieros industriales con experiencia en plantas industriales y en automatización con IA.",
-        "Diseñamos y montamos sistemas de IA de extremo a extremo —del diagnóstico al despliegue en producción— con el rigor de la ingeniería aplicado a tu negocio.",
+        "Soy Ramiro Pérez Rodero, ingeniero industrial. Vengo de trabajar en plantas industriales y hoy aplico ese rigor de procesos a la automatización con IA de negocios.",
+        "Rianex es mi estudio, con base en Ávila: diseño y monto sistemas de IA de extremo a extremo —del diagnóstico al despliegue en producción— sobre GoHighLevel y HubSpot, para empresas de España y Latinoamérica.",
       ],
-      pillarsLabel: "Nuestro terreno",
+      pillarsLabel: "Mi terreno",
       pillars: [
         {
           title: "Ingeniería industrial",
@@ -492,7 +493,7 @@ export const content = {
         "Orquestación con n8n, Make, GoHighLevel y HubSpot",
         "Datos, scoring y métricas de todo el embudo",
       ],
-      principlesLabel: "Cómo trabajamos",
+      principlesLabel: "Cómo trabajo",
       principles: [
         "Diagnóstico y arquitectura antes de construir",
         "Entregables claros y medibles",
@@ -826,6 +827,7 @@ export const content = {
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Get my Free Audit",
+      more: "See the service in detail",
       builtOn: "Built on",
       items: [
         {
@@ -986,13 +988,13 @@ export const content = {
     },
 
     sobreMi: {
-      tag: "About",
-      title: "Industrial engineers who automate your business with AI",
+      tag: "About me",
+      title: "Ramiro Pérez Rodero, an industrial engineer who automates businesses with AI",
       intro: [
-        "We're a team of industrial engineers with experience in industrial plants and AI automation.",
-        "We design and build end-to-end AI systems —from diagnosis to production— bringing engineering rigor to your business.",
+        "I'm Ramiro Pérez Rodero, an industrial engineer. I come from working in industrial plants and now bring that process rigour to AI automation for businesses.",
+        "Rianex is my studio, based in Ávila, Spain: I design and build end-to-end AI systems —from diagnosis to production— on GoHighLevel and HubSpot, for companies in Spain and Latin America.",
       ],
-      pillarsLabel: "Our ground",
+      pillarsLabel: "My ground",
       pillars: [
         {
           title: "Industrial engineering",
@@ -1017,7 +1019,7 @@ export const content = {
         "Orchestration with n8n, Make, GoHighLevel and HubSpot",
         "Data, scoring and full-funnel metrics",
       ],
-      principlesLabel: "How we work",
+      principlesLabel: "How I work",
       principles: [
         "Diagnosis and architecture before building",
         "Clear, measurable deliverables",

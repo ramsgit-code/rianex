@@ -26,7 +26,13 @@ const businessJsonLd = {
   description:
     "Automatización y desarrollo con IA, integración de GoHighLevel y HubSpot, y migraciones de CRM a GoHighLevel.",
   email: "hola@rianex.es",
-  areaServed: "ES",
+  areaServed: ["ES", "Latinoamérica"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Ávila",
+    addressCountry: "ES",
+  },
+  logo: `${SITE_URL}/logos/rianex-mark.png`,
   knowsAbout: [
     "Automatización comercial",
     "Inteligencia artificial",
@@ -37,7 +43,12 @@ const businessJsonLd = {
     "Lead qualification",
     "Agentes de IA",
   ],
-  founder: { "@type": "Person", name: "Ramiro Pérez" },
+  founder: {
+    "@type": "Person",
+    name: "Ramiro Pérez Rodero",
+    jobTitle: "Ingeniero industrial",
+    url: `${SITE_URL}/sobre-mi`,
+  },
 };
 
 const websiteJsonLd = {

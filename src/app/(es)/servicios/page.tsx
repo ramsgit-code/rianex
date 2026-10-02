@@ -21,7 +21,7 @@ export default function ServiciosPage() {
         name: item.title,
         description: item.problem,
         provider: { "@type": "ProfessionalService", name: "Rianex" },
-        url: `${SITE_URL}/servicios#${item.slug}`,
+        url: `${SITE_URL}/servicios/${item.slug}`,
       },
     })),
   };
