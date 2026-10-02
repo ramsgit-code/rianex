@@ -15,12 +15,10 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
       GoHighLevel, cuánto cuesta automatizar con IA).
 - [ ] **Bing Webmaster Tools**: alta con "Importar desde Google Search
       Console". ChatGPT busca sobre el índice de Bing.
-- [ ] **Repos privados**: buscando "Rianex" salen 3 repos de GitHub y sus PRs,
-      y la web no aparece. Son `ramsgit-code/rianex` y dos forks públicos:
-      `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex`. Pasar a privado
-      el original no oculta los forks: hay que borrar o hacer privado el de
-      `ramirogrowth4u` y pedírselo a Philippe con el suyo. GitHub → Settings →
-      Danger Zone.
+- [ ] **Forks públicos**: el original ya es privado, pero
+      `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex` siguen públicos y
+      salen buscando "Rianex". Borrar el tuyo (Settings → Danger Zone → Delete)
+      y pedirle a Philippe que borre el suyo.
 - [ ] **Decidir la entidad**: ¿la web habla de "Ramiro Pérez" (persona) o de
       "un grupo de ingenieros" (equipo)? Hoy llms.txt y el schema dicen lo
       primero y `/sobre-mi` lo segundo. Bloquea el schema `Person` y
@@ -69,6 +67,8 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-02 · `ramsgit-code/rianex` pasado a privado.
+- 2026-10-02 · IndexNow tras el despliegue del PR #10 (22 URLs).
 - 2026-10-02 · PR #10 · `lang="en"` en el HTML de las páginas inglesas;
   title con palabras clave y tarjeta social propia en cada página y en su
   idioma; H1 fijo en la home; "GoHighLevel" bien escrito en toda la web.
