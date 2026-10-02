@@ -12,6 +12,14 @@ import { alternates, localizePath, type Lang } from "@/lib/i18n";
 // SERP (unos 60 caracteres contando el " | Rianex" que añade el layout).
 
 export const SITE_URL = "https://www.rianex.es";
+
+/** La persona detras de Rianex: una sola fuente para el schema y la web. */
+export const RAMIRO = {
+  name: "Ramiro Pérez Rodero",
+  linkedin: "https://www.linkedin.com/in/ramiro-perez-rodero-48148115b/",
+  // Foto del perfil de LinkedIn (200x200, la mayor que da el perfil publico).
+  photo: "/ramiro-perez-rodero.jpg",
+};
 const BRAND = "Rianex";
 const OG_IMAGE = { url: "/og.png", width: 1200, height: 630, alt: BRAND };
 

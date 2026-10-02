@@ -18,9 +18,8 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
       `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex` siguen públicos y
       salen buscando "Rianex". Borrar el tuyo (Settings → Danger Zone → Delete)
       y pedirle a Philippe que borre el suyo.
-- [ ] **Perfil de LinkedIn y foto**: pásame la URL de tu LinkedIn y una
-      foto. Van en el schema `Person` (`sameAs`, `image`) y en `/sobre-mi`, y
-      son lo que une la web con tu perfil para Google y los asistentes de IA.
+- [ ] **Foto en alta**: la de LinkedIn solo se puede bajar a 200×200. Si
+      quieres una más grande en `/sobre-mi`, pásame el original.
 - [ ] **Site Scan de Bing**: pasar el informe cuando termine.
 - [ ] **Testimonios**: en el panel, corregir "Go High Level" → "GoHighLevel"
       en el de Xavi (viene de la base, no del código), y si se puede, nombre
@@ -41,8 +40,7 @@ Por orden de impacto:
 - [ ] **Una página por caso de éxito**, con fecha, contexto, metodología,
       cifras antes y después, y schema `Article`.
 - [ ] **Schema**: `BreadcrumbList` en las páginas que aún no lo llevan (ya
-      está en las de servicio); `sameAs` e `image` en `Person` cuando llegue
-      el LinkedIn.
+      está en las de servicio).
 - [ ] **JSON-LD en las páginas que no tienen**: casos de éxito, soluciones,
       listado del blog.
 - [ ] **`/en` sirve el JSON-LD de la home en castellano** (FAQ incluida):
@@ -60,6 +58,8 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-02 · PR #12 · Foto y enlace a LinkedIn en `/sobre-mi`; `sameAs`
+  (LinkedIn) e `image` en el schema `Person` de `/sobre-mi` y de la home.
 - 2026-10-02 · PR #11 · Una página por servicio (`/servicios/<slug>`, 8 en
   castellano y 8 en inglés) con respuesta directa, cuándo encaja y cuándo no,
   método, plazo, inversión, caso real, FAQ, guías relacionadas y schema

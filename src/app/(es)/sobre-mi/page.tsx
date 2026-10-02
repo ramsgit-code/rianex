@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata, SITE_URL } from "@/lib/seo";
+import { pageMetadata, RAMIRO, SITE_URL } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { SobreMiView } from "./SobreMiView";
 
@@ -7,14 +7,16 @@ export const metadata: Metadata = pageMetadata("/sobre-mi", "es");
 
 // La persona detras de Rianex, como entidad: es lo que permite a buscadores y
 // asistentes de IA unir la web, los articulos (que firma) y los perfiles
-// externos en una sola ficha. Los perfiles van en sameAs cuando existan.
+// externos en una sola ficha.
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   url: `${SITE_URL}/sobre-mi`,
   mainEntity: {
     "@type": "Person",
-    name: "Ramiro Pérez Rodero",
+    name: RAMIRO.name,
+    image: `${SITE_URL}${RAMIRO.photo}`,
+    sameAs: [RAMIRO.linkedin],
     jobTitle: "Ingeniero industrial",
     description:
       "Ingeniero industrial con experiencia en plantas industriales. Automatización y desarrollo con IA sobre GoHighLevel y HubSpot.",
