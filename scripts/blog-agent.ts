@@ -114,7 +114,7 @@ async function generateBlogPost(topic: string, newsContext: string = ""): Promis
 
 CONTEXTO DE MARCA:
 - Servicios: Lead Qualification Systems, Proposal Automation, WhatsApp + CRM Automation, webs profesionales, integraciones IA
-- Stack principal: Go High Level, WhatsApp Business API, integraciones API a medida
+- Stack principal: GoHighLevel, WhatsApp Business API, integraciones API a medida
 - Clientes reales: Hospital Capilar (clinica, Madrid), Eventos Barcelona (eventos)
 - Tono: profesional, directo, sin humo — como habla alguien que ha implementado sistemas reales
 - Publico: directores comerciales, gerentes de pymes, freelances con proceso comercial estructurado`,
@@ -143,7 +143,7 @@ ESTRUCTURA DEL ARTICULO (800-1200 palabras):
 
 REGLAS:
 - Si hay noticias de contexto, referencialas de forma natural sin citarlas literalmente
-- Menciona Go High Level, WhatsApp Business o herramientas especificas cuando sea relevante
+- Menciona GoHighLevel, WhatsApp Business o herramientas especificas cuando sea relevante
 - Sin listas de 10 puntos genericas. Maximo 4-5 puntos por lista, con detalle en cada uno
 - Usa **negrita** para conceptos clave, no para decorar
 - Los ejemplos de Hospital Capilar o Eventos Barcelona solo si encajan naturalmente
@@ -215,7 +215,7 @@ async function selectTopicFromNews(headlines: string): Promise<string> {
     messages: [
       {
         role: "user",
-        content: `Dado el contexto del negocio de Ramiro Perez (automatizacion comercial, CRM, Go High Level, WhatsApp Business, IA para ventas) y estas noticias recientes:
+        content: `Dado el contexto del negocio de Ramiro Perez (automatizacion comercial, CRM, GoHighLevel, WhatsApp Business, IA para ventas) y estas noticias recientes:
 
 ${headlines}
 
