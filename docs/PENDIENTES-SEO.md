@@ -10,11 +10,12 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Search Console**: volver a enviar `https://www.rianex.es/sitemap.xml` y
-      pedir indexación de 2 o 3 artículos clave (migrar de HubSpot a
-      GoHighLevel, cuánto cuesta automatizar con IA).
-- [ ] **Bing Webmaster Tools**: alta con "Importar desde Google Search
-      Console". ChatGPT busca sobre el índice de Bing.
+- [ ] **Bing**: enviar en URL Submission la home, servicios, casos y 3
+      artículos; lanzar Site Scan y pasar el resultado para arreglarlo.
+- [ ] **Hacia el 16 de octubre**: revisar en Search Console el informe
+      Páginas (qué se indexó y qué no) y en Bing el informe AI Performance
+      (Citation Share: cuánto nos citan Copilot y las respuestas con IA). Es
+      la medida de GEO.
 - [ ] **Forks públicos**: el original ya es privado, pero
       `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex` siguen públicos y
       salen buscando "Rianex". Borrar el tuyo (Settings → Danger Zone → Delete)
@@ -67,6 +68,9 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-02 · Alta en Google Search Console (propiedad de dominio, sitemap
+  enviado) y en Bing Webmaster Tools. IndexNow ya estaba activo con la clave
+  `2e18428a…` publicada en la raíz; no hace falta la que sugiere Bing.
 - 2026-10-02 · `ramsgit-code/rianex` pasado a privado.
 - 2026-10-02 · IndexNow tras el despliegue del PR #10 (22 URLs).
 - 2026-10-02 · PR #10 · `lang="en"` en el HTML de las páginas inglesas;
