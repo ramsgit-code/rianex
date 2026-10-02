@@ -1,8 +1,8 @@
-import { prisma } from "@/lib/prisma";
+import { getAllPosts } from "@/lib/blog";
 
 const BASE_URL = "https://www.rianex.es";
 
-export const revalidate = 3600;
+export const dynamic = "force-static";
 
 function escapar(texto: string) {
   return texto
@@ -13,36 +13,11 @@ function escapar(texto: string) {
 }
 
 export async function GET() {
-  let posts: {
-    slug: string;
-    title: string;
-    description: string;
-    author: string;
-    publishedAt: Date | null;
-    updatedAt: Date;
-  }[] = [];
-
-  try {
-    posts = await prisma.blogPost.findMany({
-      where: { published: true },
-      orderBy: { publishedAt: "desc" },
-      select: {
-        slug: true,
-        title: true,
-        description: true,
-        author: true,
-        publishedAt: true,
-        updatedAt: true,
-      },
-    });
-  } catch {
-    // Sin base de datos se sirve un feed vacio pero valido, que es mejor que
-    // devolver un 500 a un lector de feeds: los agresivos castigan el error.
-  }
+  const posts = getAllPosts();
 
   const items = posts
     .map((p) => {
-      const fecha = (p.publishedAt ?? p.updatedAt).toUTCString();
+      const fecha = p.publishedAt.toUTCString();
       return `    <item>
       <title>${escapar(p.title)}</title>
       <link>${BASE_URL}/blog/${p.slug}</link>
@@ -61,7 +36,7 @@ export async function GET() {
     <link>${BASE_URL}/blog</link>
     <description>Automatización de procesos con IA, agentes a medida, integraciones de CRM y desarrollo con IA para negocios.</description>
     <language>es-ES</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <lastBuildDate>${(posts[0]?.publishedAt ?? new Date()).toUTCString()}</lastBuildDate>
     <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml" />
 ${items}
   </channel>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { alternates } from "@/lib/i18n";
-import { prisma } from "@/lib/prisma";
+import { getAllPosts } from "@/lib/blog";
 import { BlogView } from "./BlogView";
 
 export const metadata: Metadata = {
@@ -9,41 +9,18 @@ export const metadata: Metadata = {
   alternates: alternates("/blog", "es"),
 };
 
-export const revalidate = 60;
-
-export default async function BlogPage() {
-  let posts: {
-    slug: string;
-    title: string;
-    description: string;
-    titleEn: string | null;
-    descriptionEn: string | null;
-    publishedAt: Date | null;
-    tags: string[];
-  }[] = [];
-
-  try {
-    posts = await prisma.blogPost.findMany({
-      where: { published: true },
-      orderBy: { publishedAt: "desc" },
-      select: {
-        slug: true,
-        title: true,
-        description: true,
-        titleEn: true,
-        descriptionEn: true,
-        publishedAt: true,
-        tags: true,
-      },
-    });
-  } catch {
-    // DB not configured
-  }
-
-  const serialized = posts.map((p) => ({
-    ...p,
-    publishedAt: p.publishedAt ? p.publishedAt.toISOString() : null,
+export default function BlogPage() {
+  // Los articulos solo existen en castellano: el listado en ingles enlaza a
+  // la version castellana de cada uno.
+  const posts = getAllPosts().map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    description: p.description,
+    titleEn: null,
+    descriptionEn: null,
+    publishedAt: p.publishedAt.toISOString(),
+    tags: p.tags,
   }));
 
-  return <BlogView posts={serialized} />;
+  return <BlogView posts={posts} />;
 }

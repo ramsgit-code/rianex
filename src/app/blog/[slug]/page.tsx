@@ -1,35 +1,17 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { prisma } from "@/lib/prisma";
 import { JsonLd } from "@/components/JsonLd";
 import { BlogPostContent } from "./BlogPostContent";
-import type { LinkPolicy } from "@/lib/blog-schema";
-import { alternates } from "@/lib/i18n";
+import { getAllPosts, getPost } from "@/lib/blog";
 
 const SITE_URL = "https://www.rianex.es";
 
-export const revalidate = 60;
+// Solo existen los articulos del build: cualquier otro slug es un 404 servido
+// sin tocar nada en tiempo de ejecucion.
+export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  try {
-    const posts = await prisma.blogPost.findMany({
-      where: { published: true },
-      select: { slug: true },
-    });
-    return posts.map((p) => ({ slug: p.slug }));
-  } catch {
-    return [];
-  }
-}
-
-async function getPost(slug: string) {
-  try {
-    return await prisma.blogPost.findFirst({
-      where: { slug, published: true },
-    });
-  } catch {
-    return null;
-  }
+export function generateStaticParams() {
+  return getAllPosts().map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -38,33 +20,35 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const post = getPost(slug);
   if (!post) return { title: "Artículo no encontrado" };
-  const ogImg = "/og.png";
+  const url = `/blog/${post.slug}`;
   return {
     title: post.title,
     description: post.description,
-    alternates: alternates(`/blog/${post.slug}`, "es"),
+    // Sin hreflang: los articulos no tienen version en ingles, y declarar una
+    // que no existe es peor que no declarar nada.
+    alternates: { canonical: url },
     openGraph: {
       type: "article",
       title: post.title,
       description: post.description,
-      url: `${SITE_URL}/blog/${post.slug}`,
-      images: [{ url: ogImg, width: 1200, height: 630 }],
-      publishedTime: post.publishedAt?.toISOString(),
+      url: `${SITE_URL}${url}`,
+      publishedTime: post.publishedAt.toISOString(),
+      authors: [post.author],
+      tags: post.tags,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: [ogImg],
     },
   };
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = await getPost(slug);
+  const post = getPost(slug);
   if (!post) notFound();
 
   const articleJsonLd = {
@@ -72,12 +56,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: `${SITE_URL}/og.png`,
-    datePublished: post.publishedAt?.toISOString(),
-    dateModified: post.updatedAt.toISOString(),
-    author: { "@type": "Person", name: "Ramiro Pérez" },
-    publisher: { "@type": "Organization", name: "Rianex" },
+    image: `${SITE_URL}/blog/${post.slug}/opengraph-image`,
+    datePublished: post.publishedAt.toISOString(),
+    dateModified: post.publishedAt.toISOString(),
+    author: { "@type": "Person", name: post.author },
+    publisher: { "@type": "Organization", name: "Rianex", url: SITE_URL },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+    keywords: post.tags.join(", "),
     inLanguage: "es-ES",
   };
 
@@ -87,11 +72,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <BlogPostContent
         post={{
           title: post.title,
-          titleEn: post.titleEn,
+          titleEn: null,
           content: post.content,
-          contentEn: post.contentEn,
-          publishedAt: post.publishedAt ? post.publishedAt.toISOString() : null,
-          linkPolicy: post.linkPolicy as LinkPolicy,
+          contentEn: null,
+          publishedAt: post.publishedAt.toISOString(),
+          linkPolicy: post.linkPolicy,
         }}
       />
     </>

@@ -1,14 +1,14 @@
 import { ImageResponse } from "next/og";
-import { prisma } from "@/lib/prisma";
-import { CLUSTERS, type Cluster } from "@/lib/blog-schema";
+import { CLUSTERS } from "@/lib/blog-schema";
+import { getPost } from "@/lib/blog";
 
-// Imagen social por articulo, generada en el borde.
+// Imagen social por articulo, generada en el build con los mismos slugs que
+// la pagina.
 //
 // Antes todos los articulos compartian el mismo /og.png: al compartir dos
 // enlaces distintos en LinkedIn o WhatsApp se veian identicos, que es tanto
 // como no tener imagen. Esta lleva el titular real de cada uno.
 
-export const runtime = "edge";
 export const alt = "Artículo del blog de Rianex";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -25,21 +25,9 @@ export default async function Image({
 }) {
   const { slug } = await params;
 
-  let post: { title: string; cluster: string | null } | null = null;
-  try {
-    post = await prisma.blogPost.findFirst({
-      where: { slug, published: true },
-      select: { title: true, cluster: true },
-    });
-  } catch {
-    // sin base de datos se cae a la tarjeta generica de abajo
-  }
-
+  const post = getPost(slug);
   const titulo = post?.title ?? "Blog";
-  const etiqueta =
-    post?.cluster && post.cluster in CLUSTERS
-      ? CLUSTERS[post.cluster as Cluster]
-      : "Automatización con IA";
+  const etiqueta = post ? CLUSTERS[post.cluster] : "Automatización con IA";
 
   // Los titulares largos necesitan bajar de cuerpo o se salen del lienzo.
   const tamano = titulo.length > 78 ? 52 : titulo.length > 52 ? 62 : 72;

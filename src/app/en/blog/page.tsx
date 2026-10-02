@@ -11,5 +11,3 @@ export const metadata: Metadata = {
     "Guides on AI automation, GoHighLevel and HubSpot.",
   alternates: alternates("/blog", "en"),
 };
-
-export const revalidate = 60;
