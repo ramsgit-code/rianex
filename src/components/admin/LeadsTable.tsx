@@ -212,7 +212,7 @@ export function LeadsTable({
               Guardar lead
             </button>
             <p className="mt-3 text-xs text-muted">
-              Se guarda en la tabla con su score/tier. No se envía a Go High Level.
+              Se guarda en la tabla con su score/tier. No se envía a GoHighLevel.
             </p>
           </form>
         </div>

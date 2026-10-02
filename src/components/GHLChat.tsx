@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { COOKIE_CONSENT_EVENT, getConsent } from "@/lib/consent";
 
-// Embed del chat widget de Go High Level.
+// Embed del chat widget de GoHighLevel.
 // Es un servicio de terceros (LeadConnector): solo se inyecta si el visitante
 // aceptó cookies, y no en /diagnostico para no competir con el formulario.
 const WIDGET_ID =

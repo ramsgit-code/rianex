@@ -26,6 +26,8 @@ const nextConfig = {
     ];
   },
   experimental: {
+    // 404 propio con dos layouts raiz: ver src/app/global-not-found.tsx.
+    globalNotFound: true,
     // "framer-motion" ya no es dependencia del proyecto: el paquete es "motion".
     optimizePackageImports: ["lucide-react", "motion"],
   },

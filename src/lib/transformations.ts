@@ -89,7 +89,7 @@ export const transformations: Transformation[] = [
       video: "",
       poster: "",
       label: "Despues",
-      caption: "Agente + nurturing + todo registrado en Go High Level.",
+      caption: "Agente + nurturing + todo registrado en GoHighLevel.",
     },
   },
 ];

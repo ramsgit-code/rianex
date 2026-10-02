@@ -105,14 +105,16 @@ export function Hero() {
           <div className="flex flex-1 flex-col justify-center gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
             <div>
               <Reveal priority>
-                <span className="tag uppercase tracking-wider">{h.eyebrow}</span>
+                {/* El H1 es la frase fija que dice qué hacemos. El titular grande rota y
+                    lleva copias invisibles para reservar alto: como H1 le daba a Google
+                    cuatro frases pegadas en vez de un titular. */}
+                <h1 className="tag uppercase tracking-wider">{h.eyebrow}</h1>
               </Reveal>
 
               <Reveal priority delay={0.05}>
                 {/* titular rotativo: una copia invisible de cada frase en la misma celda reserva
                     el alto de la más larga, para que la página no salte al cambiar de frase */}
-                <h1
-                  aria-label={`${h.titlePre}${h.titleRotating[0]}${h.titlePost}`}
+                <p
                   className="grid max-w-2xl text-balance font-display text-[clamp(2.25rem,11vw,3rem)] font-semibold leading-[1.03] tracking-tight text-foreground sm:text-6xl sm:leading-[1.0] lg:text-7xl"
                 >
                   {h.titleRotating.map((t) => (
@@ -133,7 +135,10 @@ export function Hero() {
                     />
                     {h.titlePost}
                   </span>
-                </h1>
+                  <span className="sr-only">
+                    {`${h.titlePre}${h.titleRotating[0]}${h.titlePost}`}
+                  </span>
+                </p>
               </Reveal>
 
               <Reveal priority delay={0.1}>

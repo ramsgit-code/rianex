@@ -1,4 +1,4 @@
-// Go High Level API v2
+// GoHighLevel API v2
 // https://highlevel.stoplight.io/docs/integrations
 
 const GHL_API_KEY = process.env.GHL_API_KEY!;

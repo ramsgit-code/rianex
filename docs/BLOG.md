@@ -137,7 +137,7 @@ formalidad, es lo que separa una colaboración de un esquema.
 | `/sitemap.xml` | Todas las páginas, con hreflang de las dos versiones de idioma |
 | `/rss.xml` | Feed del blog. Declarado en el `<head>` para que los lectores lo encuentren |
 | `/llms.txt` | Índice del sitio para modelos de lenguaje, agrupado por cluster |
-| `/blog/<slug>/opengraph-image` | Imagen social generada por artículo, con su titular |
+| `/og/blog/<slug>` | Imagen social generada por artículo, con su titular |
 
 `llms.txt` se **genera** en cada build desde los `.mdx` del blog y desde el
 contenido de los servicios. No se escribe a mano: un índice estático se queda
