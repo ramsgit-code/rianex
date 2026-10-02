@@ -5,7 +5,8 @@ asistentes de IA (ChatGPT, Perplexity, Claude, AI Overviews). Se actualiza
 cada vez que se cierra o aparece algo: lo terminado baja a **Hecho** con la
 fecha y el PR.
 
-Origen: auditoría del 2 de octubre de 2026.
+Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
+(ninguna página de rianex.es indexada aún en la búsqueda de marca).
 
 ## Para Ramiro (requieren login o una decisión)
 
@@ -14,8 +15,12 @@ Origen: auditoría del 2 de octubre de 2026.
       GoHighLevel, cuánto cuesta automatizar con IA).
 - [ ] **Bing Webmaster Tools**: alta con "Importar desde Google Search
       Console". ChatGPT busca sobre el índice de Bing.
-- [ ] **Repo privado**: `ramsgit-code/rianex` es público y sale en Google
-      buscando "Rianex". GitHub → Settings → Danger Zone → Change visibility.
+- [ ] **Repos privados**: buscando "Rianex" salen 3 repos de GitHub y sus PRs,
+      y la web no aparece. Son `ramsgit-code/rianex` y dos forks públicos:
+      `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex`. Pasar a privado
+      el original no oculta los forks: hay que borrar o hacer privado el de
+      `ramirogrowth4u` y pedírselo a Philippe con el suyo. GitHub → Settings →
+      Danger Zone.
 - [ ] **Decidir la entidad**: ¿la web habla de "Ramiro Pérez" (persona) o de
       "un grupo de ingenieros" (equipo)? Hoy llms.txt y el schema dicen lo
       primero y `/sobre-mi` lo segundo. Bloquea el schema `Person` y
