@@ -618,7 +618,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     en: {
       seoTitle: "Lead capture and qualification funnels",
       metaDescription:
-        "Landing page, pre-qualification quiz, automatic scoring and a Booking SDR that books into your calendar, with email and WhatsApp follow-up. The whole funnel measured.",
+        "Landing page, pre-qualification quiz, automatic scoring and a Booking SDR that books into your calendar, with email and WhatsApp follow-up. Fully measured.",
       answer:
         "A lead capture and qualification funnel filters out who is not worth your time on its own. The lead comes in through a landing page or a quiz, gets a score —cold, warm, hot or premium— and the good ones book into your calendar through a Booking SDR, while the rest go into email and WhatsApp follow-up. Your team only talks to people with real intent.",
       fit: [

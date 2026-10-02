@@ -7,7 +7,7 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
 
 export function SolucionesView() {
-  const { c } = useLang();
+  const { c, localize } = useLang();
   const s = c.soluciones;
 
   return (
@@ -18,7 +18,9 @@ export function SolucionesView() {
             <article className="card flex h-full flex-col">
               <span className="tag w-fit">{item.sector}</span>
               <h2 className="font-display text-lg font-semibold text-foreground">
-                {item.title}
+                <Link href={localize(`/soluciones/${item.slug}`)} className="hover:text-accent-text">
+                  {item.title}
+                </Link>
               </h2>
 
               <div className="mt-4">
@@ -39,6 +41,14 @@ export function SolucionesView() {
                 </p>
               </div>
 
+              <Link
+                href={localize(`/soluciones/${item.slug}`)}
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
+              >
+                {s.more}
+                <ArrowRight size={15} />
+              </Link>
+
               <div className="mt-5 border-t border-ink/[0.08] pt-4">
                 <span className="text-xs text-muted">
                   {s.caseLabel} <span className="font-medium text-foreground-muted">{item.reference}</span>
@@ -52,7 +62,7 @@ export function SolucionesView() {
       <Reveal delay={0.1}>
         <div className="mt-10 text-center">
           <Link
-            href="/casos-de-exito"
+            href={localize("/casos-de-exito")}
             className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
           >
             {s.link}

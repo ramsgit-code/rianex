@@ -51,7 +51,46 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col items-center gap-2 text-center text-xs text-muted">
+        {/* Mapa de la web en el pie: cada servicio a un clic desde cualquier
+            pagina, para la gente y para los rastreadores. */}
+        <nav className="mt-10 grid grid-cols-1 gap-8 text-sm sm:grid-cols-[2fr_1fr]">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+              {c.footer.servicesLabel}
+            </p>
+            <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {c.servicios.items.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={localize(`/servicios/${s.slug}`)}
+                    className="text-foreground-muted transition-colors hover:text-accent-text"
+                  >
+                    {s.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+              {c.footer.pagesLabel}
+            </p>
+            <ul className="mt-3 flex flex-col gap-2">
+              {c.footer.links.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={localize(l.href)}
+                    className="text-foreground-muted transition-colors hover:text-accent-text"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </nav>
+
+        <div className="mt-10 flex flex-col items-center gap-2 text-center text-xs text-muted">
           <div className="flex items-center gap-4">
             <Link href="/privacidad" className="transition-colors hover:text-accent-text">
               {lang === "en" ? "Privacy policy" : "Política de privacidad"}

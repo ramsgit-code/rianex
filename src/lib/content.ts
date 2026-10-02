@@ -64,9 +64,11 @@ export const content = {
       chatLabel: "Ejemplo en vivo",
       kpiLabel: "Resultados",
       scrollHint: "Ver más servicios",
+      more: "Ver el servicio en detalle",
       items: [
         {
           title: "Automatización de procesos con IA",
+          slug: "automatizacion-procesos-ia",
           desc: "Eliminamos tareas repetitivas: tu operativa funciona sola.",
           kpis: [
             { value: "-70%", label: "tiempo en tareas manuales" },
@@ -76,6 +78,7 @@ export const content = {
         },
         {
           title: "Integración de GoHighLevel y HubSpot",
+          slug: "integracion-gohighlevel-hubspot",
           desc: "Tu CRM conectado con ERP, facturación, agenda y WhatsApp, por API y webhooks.",
           kpis: [
             { value: "6+", label: "sistemas conectados por cliente" },
@@ -85,6 +88,7 @@ export const content = {
         },
         {
           title: "Migraciones a GoHighLevel",
+          slug: "migracion-a-gohighlevel",
           desc: "Te pasamos de HubSpot u otro CRM a GoHighLevel sin perder tu histórico.",
           kpis: [
             { value: "100%", label: "de contactos, oportunidades y notas, verificado registro a registro" },
@@ -94,6 +98,7 @@ export const content = {
         },
         {
           title: "Desarrollo a medida con IA",
+          slug: "desarrollo-ia-a-medida",
           desc: "Herramientas internas, apps y MVPs, de la idea a producción.",
           kpis: [
             { value: "4-8 sem", label: "de la idea al producto en producción" },
@@ -103,6 +108,7 @@ export const content = {
         },
         {
           title: "Embudos y CRM en GoHighLevel",
+          slug: "embudo-de-captacion",
           desc: "De la captación al cierre, cualificando en automático.",
           kpis: [
             { value: "+64%", label: "leads cualificados antes de hablar con ventas" },
@@ -112,6 +118,7 @@ export const content = {
         },
         {
           title: "Agentes de IA a medida",
+          slug: "agentes-ia-vps",
           desc: "Asistentes en WhatsApp y web que atienden, cualifican y agendan 24/7.",
           kpis: [
             { value: "24/7", label: "disponibilidad sin turnos ni festivos" },
@@ -291,6 +298,8 @@ export const content = {
         { href: "/diagnostico", label: "Auditoría gratuita" },
       ],
       rights: "Automatización y desarrollo con IA",
+      servicesLabel: "Servicios",
+      pagesLabel: "Rianex",
     },
 
     servicios: {
@@ -428,9 +437,11 @@ export const content = {
       solutionLabel: "Solución:",
       caseLabel: "Caso:",
       link: "Ver los tres sistemas",
+      more: "Ver la solución para el sector",
       items: [
         {
           sector: "Salud",
+          slug: "clinicas",
           title: "Clínicas y Hospitales",
           pain: "Llamadas sin conversión por falta de filtro previo.",
           solution: "Precualificación por tratamiento, urgencia y presupuesto en GoHighLevel.",
@@ -438,6 +449,7 @@ export const content = {
         },
         {
           sector: "Eventos",
+          slug: "eventos",
           title: "Empresas de Eventos",
           pain: "Presupuestos que tardan días; el cliente ya eligió a otro.",
           solution: "Propuesta automática tras el formulario de intake.",
@@ -445,6 +457,7 @@ export const content = {
         },
         {
           sector: "Formación",
+          slug: "academias",
           title: "Academias y Formación",
           pain: "Muchos interesados, pocos matriculados y sin seguimiento.",
           solution: "Captación y nurturing automático en GoHighLevel.",
@@ -592,9 +605,11 @@ export const content = {
       chatLabel: "Live example",
       kpiLabel: "Results",
       scrollHint: "See more services",
+      more: "See the service in detail",
       items: [
         {
           title: "AI process automation",
+          slug: "automatizacion-procesos-ia",
           desc: "We remove repetitive work: your operation runs itself.",
           kpis: [
             { value: "-70%", label: "time spent on manual tasks" },
@@ -604,6 +619,7 @@ export const content = {
         },
         {
           title: "GoHighLevel and HubSpot integration",
+          slug: "integracion-gohighlevel-hubspot",
           desc: "Your CRM connected to ERP, invoicing, calendar and WhatsApp, via API and webhooks.",
           kpis: [
             { value: "6+", label: "systems connected per client" },
@@ -613,6 +629,7 @@ export const content = {
         },
         {
           title: "Migrations to GoHighLevel",
+          slug: "migracion-a-gohighlevel",
           desc: "We move you from HubSpot or another CRM to GoHighLevel without losing your history.",
           kpis: [
             { value: "100%", label: "of contacts, deals and notes, checked record by record" },
@@ -622,6 +639,7 @@ export const content = {
         },
         {
           title: "Custom AI development",
+          slug: "desarrollo-ia-a-medida",
           desc: "Internal tools, apps and MVPs, from idea to production.",
           kpis: [
             { value: "4-8 wks", label: "from idea to product in production" },
@@ -631,6 +649,7 @@ export const content = {
         },
         {
           title: "Funnels and CRM on GoHighLevel",
+          slug: "embudo-de-captacion",
           desc: "From capture to close, qualifying on autopilot.",
           kpis: [
             { value: "+64%", label: "leads qualified before sales talks to them" },
@@ -640,6 +659,7 @@ export const content = {
         },
         {
           title: "Custom AI agents",
+          slug: "agentes-ia-vps",
           desc: "Assistants on WhatsApp and web that answer, qualify and book 24/7.",
           kpis: [
             { value: "24/7", label: "availability, no shifts or holidays" },
@@ -818,6 +838,8 @@ export const content = {
         { href: "/diagnostico", label: "Free audit" },
       ],
       rights: "AI automation and development",
+      servicesLabel: "Services",
+      pagesLabel: "Rianex",
     },
 
     servicios: {
@@ -955,9 +977,11 @@ export const content = {
       solutionLabel: "Solution:",
       caseLabel: "Case:",
       link: "See the three systems",
+      more: "See the solution for this sector",
       items: [
         {
           sector: "Healthcare",
+          slug: "clinicas",
           title: "Clinics & Hospitals",
           pain: "Calls with no conversion due to a lack of upfront filtering.",
           solution: "Pre-qualification by treatment, urgency and budget on GoHighLevel.",
@@ -965,6 +989,7 @@ export const content = {
         },
         {
           sector: "Events",
+          slug: "eventos",
           title: "Event Companies",
           pain: "Quotes that take days; the client already picked someone else.",
           solution: "Automated proposal after the intake form.",
@@ -972,6 +997,7 @@ export const content = {
         },
         {
           sector: "Education",
+          slug: "academias",
           title: "Academies & Training",
           pain: "Lots of interest, few enrolments and no follow-up.",
           solution: "Automated capture and nurturing on GoHighLevel.",

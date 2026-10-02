@@ -1,6 +1,7 @@
 import { content } from "@/lib/content";
 import { CLUSTERS, type Cluster } from "@/lib/blog-schema";
 import { getAllPosts } from "@/lib/blog";
+import { SECTORES } from "@/lib/sectores";
 
 // llms.txt generado en cada build, no escrito a mano.
 //
@@ -64,13 +65,20 @@ export async function GET() {
     );
   }
 
+  secciones.push(
+    "## Soluciones por sector\n" +
+      Object.entries(SECTORES)
+        .map(([slug, sector]) => `- [${sector.es.h1}](${BASE_URL}/soluciones/${slug}): ${sector.es.metaDescription}`)
+        .join("\n")
+  );
+
   secciones.push(`## Páginas principales
 - [Inicio](${BASE_URL}/): qué automatizamos y cómo
 - [Servicios](${BASE_URL}/servicios): los ocho servicios en detalle
 - [Soluciones por sector](${BASE_URL}/soluciones): clínicas, eventos y formación
 - [Casos de éxito](${BASE_URL}/casos-de-exito): implantaciones reales con su resultado
 - [Testimonios](${BASE_URL}/testimonios): opiniones de clientes
-- [Sobre nosotros](${BASE_URL}/sobre-mi): quién está detrás
+- [Sobre mí](${BASE_URL}/sobre-mi): Ramiro Pérez Rodero, quién está detrás
 - [Diagnóstico gratuito](${BASE_URL}/diagnostico): formulario de 30 minutos
 - [Blog](${BASE_URL}/blog): ${posts.length} artículos sobre automatización con IA
 
