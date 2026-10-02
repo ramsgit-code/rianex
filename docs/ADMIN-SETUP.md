@@ -63,7 +63,7 @@ el login del admin.
 
 ## 5. Analitica y Search Console
 
-La etiqueta de GA4 (`G-TN15MVTWRB`) esta fija en `src/app/layout.tsx`. No va por
+La etiqueta de GA4 (`G-TN15MVTWRB`) esta fija en `src/components/RootDocument.tsx`. No va por
 variable de entorno a proposito: el ID no es secreto, viaja en el HTML de todas
 formas, y asi no se puede desplegar sin medicion por haber olvidado una variable.
 
