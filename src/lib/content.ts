@@ -468,6 +468,7 @@ export const content = {
         "Soy Ramiro Pérez Rodero, ingeniero industrial. Vengo de trabajar en plantas industriales y hoy aplico ese rigor de procesos a la automatización con IA de negocios.",
         "Rianex es mi estudio, con base en Ávila: diseño y monto sistemas de IA de extremo a extremo —del diagnóstico al despliegue en producción— sobre GoHighLevel y HubSpot, para empresas de España y Latinoamérica.",
       ],
+      linkedin: "Ver mi perfil en LinkedIn",
       pillarsLabel: "Mi terreno",
       pillars: [
         {
@@ -994,6 +995,7 @@ export const content = {
         "I'm Ramiro Pérez Rodero, an industrial engineer. I come from working in industrial plants and now bring that process rigour to AI automation for businesses.",
         "Rianex is my studio, based in Ávila, Spain: I design and build end-to-end AI systems —from diagnosis to production— on GoHighLevel and HubSpot, for companies in Spain and Latin America.",
       ],
+      linkedin: "See my LinkedIn profile",
       pillarsLabel: "My ground",
       pillars: [
         {

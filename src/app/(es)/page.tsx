@@ -9,7 +9,7 @@ import { Marquee } from "@/components/Marquee";
 import { JsonLd } from "@/components/JsonLd";
 import { prisma } from "@/lib/prisma";
 import { content } from "@/lib/content";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, RAMIRO } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata("/", "es");
 
@@ -45,8 +45,9 @@ const businessJsonLd = {
   ],
   founder: {
     "@type": "Person",
-    name: "Ramiro Pérez Rodero",
+    name: RAMIRO.name,
     jobTitle: "Ingeniero industrial",
+    sameAs: [RAMIRO.linkedin],
     url: `${SITE_URL}/sobre-mi`,
   },
 };

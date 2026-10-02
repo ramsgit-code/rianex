@@ -2,6 +2,8 @@
 
 import { Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+import { RAMIRO } from "@/lib/seo";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -27,12 +29,31 @@ export function SobreMiView() {
 
   return (
     <PageShell tag={a.tag} title={a.title} wide>
-      <Reveal className="flex max-w-2xl flex-col gap-5">
-        {a.intro.map((p) => (
-          <p key={p} className="text-lg leading-relaxed text-foreground-muted">
-            {p}
-          </p>
-        ))}
+      <Reveal className="flex max-w-2xl flex-col gap-6 sm:flex-row sm:items-start">
+        <Image
+          src={RAMIRO.photo}
+          alt={RAMIRO.name}
+          width={200}
+          height={200}
+          className="h-24 w-24 shrink-0 rounded-full border border-ink/[0.08] object-cover sm:h-28 sm:w-28"
+          priority
+        />
+        <div className="flex flex-col gap-5">
+          {a.intro.map((p) => (
+            <p key={p} className="text-lg leading-relaxed text-foreground-muted">
+              {p}
+            </p>
+          ))}
+          <a
+            href={RAMIRO.linkedin}
+            target="_blank"
+            rel="me noopener noreferrer"
+            className="inline-flex items-center gap-1.5 self-start text-sm font-medium text-accent-text hover:text-ink"
+          >
+            {a.linkedin}
+            <ArrowRight size={15} />
+          </a>
+        </div>
       </Reveal>
 
       {/* pilares: ingeniería industrial / plantas / IA */}
