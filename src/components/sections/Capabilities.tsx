@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronRight, Workflow, Filter, ArrowLeftRight, Code, Network, Bot } from "lucide-react";
+import { ArrowRight, ChevronRight, Workflow, Filter, ArrowLeftRight, Code, Network, Bot } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { Reveal } from "@/components/Reveal";
 import { TiltCard } from "@/components/TiltCard";
@@ -11,7 +12,7 @@ import { CapabilityDemo } from "@/components/sections/CapabilityDemos";
 const icons = [Workflow, Network, ArrowLeftRight, Code, Filter, Bot];
 
 export function Capabilities() {
-  const { c } = useLang();
+  const { c, localize } = useLang();
   const cap = c.capabilities;
   const [active, setActive] = useState(5); // por defecto: el bot
   const activeItem = cap.items[active];
@@ -165,6 +166,14 @@ export function Capabilities() {
                 ))}
               </motion.div>
             </AnimatePresence>
+            {/* cada pestaña lleva a la pagina propia del servicio */}
+            <Link
+              href={localize(`/servicios/${activeItem.slug}`)}
+              className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
+            >
+              {cap.more}: {activeItem.title}
+              <ArrowRight size={15} />
+            </Link>
           </div>
         </div>
       </div>

@@ -35,8 +35,16 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
 
 Por orden de impacto:
 
-- [ ] **Una página por sector** (`/soluciones/clinicas`, `/eventos`,
-      `/academias`): `/soluciones` tiene 141 palabras para tres sectores.
+- [ ] **Cifras de la home sin fuente**: los resultados de "Qué hacemos"
+      (−70% de tiempo manual, +64% de leads cualificados, 3.2x citas, −80%
+      de carga, "1 min, antes 4 días"...) no salen de ningún caso publicado, y
+      alguno choca con los casos (Eventos Barcelona: de 1-3 días a 8 minutos).
+      Para Google y las IA, una cifra que no cuadra resta confianza. Decidir
+      cuáles se pueden respaldar y quitar o cambiar el resto.
+- [ ] **Caso para academias**: `/soluciones/academias` no tiene caso ni
+      artículo propio. El listado cita a Growth4U como caso de formación, pero
+      Growth4U es una agencia de marketing; confirmar si es correcto o buscar
+      un caso real.
 - [ ] **Una página por caso de éxito**, con fecha, contexto, metodología,
       cifras antes y después, y schema `Article`.
 - [ ] **Schema**: `BreadcrumbList` en las páginas que aún no lo llevan (ya
@@ -58,6 +66,11 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-02 · PR #13 · Una página por sector (`/soluciones/clinicas`,
+  `/eventos`, `/academias`, en castellano e inglés) con respuesta directa,
+  dónde se pierde el dinero, qué automatizar, qué medir, caso, FAQ y schema.
+  Enlaces a las páginas de servicio desde cada pestaña de "Qué hacemos" en la
+  home y en el pie de todas las páginas. Sitemap y llms.txt al día.
 - 2026-10-02 · PR #12 · Foto y enlace a LinkedIn en `/sobre-mi`; `sameAs`
   (LinkedIn) e `image` en el schema `Person` de `/sobre-mi` y de la home.
 - 2026-10-02 · PR #11 · Una página por servicio (`/servicios/<slug>`, 8 en
