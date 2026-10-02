@@ -43,7 +43,7 @@ implementación completa va de 5.000 € a 25.000 €, y hay un retainer mensual
 opcional de mantenimiento.
 
 ## Quién está detrás
-Ramiro Pérez, ingeniero industrial con experiencia en plantas industriales
+Ramiro Pérez Rodero, ingeniero industrial con experiencia en plantas industriales
 aplicada a la automatización de procesos de negocio.`;
 
 export async function GET() {
@@ -58,7 +58,7 @@ export async function GET() {
         servicios
           .map(
             (s: { title: string; slug: string; problem: string }) =>
-              `- [${s.title}](${BASE_URL}/servicios#${s.slug}): ${s.problem}`
+              `- [${s.title}](${BASE_URL}/servicios/${s.slug}): ${s.problem}`
           )
           .join("\n")
     );

@@ -31,7 +31,7 @@ export default function PrivacidadPage() {
 
         <H>1. Responsable del tratamiento</H>
         <P>
-          El responsable del tratamiento de tus datos es Ramiro Pérez (en adelante,
+          El responsable del tratamiento de tus datos es Ramiro Pérez Rodero (en adelante,
           &laquo;Rianex&raquo;), con NIF 70818243R y domicilio en Paseo Estación 14,
           Ávila, España. Puedes contactar en cualquier momento en{" "}
           <a href={`mailto:${EMAIL}`} className="text-accent-text underline underline-offset-2">

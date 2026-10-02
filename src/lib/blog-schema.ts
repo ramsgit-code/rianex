@@ -19,7 +19,7 @@ export const CLUSTERS = {
 
 export type Cluster = keyof typeof CLUSTERS;
 
-export const AUTHORS = ["Ramiro Pérez"] as const;
+export const AUTHORS = ["Ramiro Pérez Rodero"] as const;
 
 /**
  * Politica de los enlaces externos de un articulo.
@@ -46,7 +46,7 @@ export const blogFrontmatterSchema = z.object({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "La fecha debe ser AAAA-MM-DD"),
   tags: z.array(z.string()).min(1, "Al menos una etiqueta"),
   cluster: z.enum(Object.keys(CLUSTERS) as [Cluster, ...Cluster[]]),
-  author: z.enum(AUTHORS).default("Ramiro Pérez"),
+  author: z.enum(AUTHORS).default("Ramiro Pérez Rodero"),
   // Se aplica a los enlaces externos que no traigan marca propia. El defecto
   // es nofollow a proposito: si se olvida marcar, no se regala autoridad.
   linkPolicy: z.enum(LINK_POLICIES).default("nofollow"),

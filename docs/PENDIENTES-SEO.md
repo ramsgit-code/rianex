@@ -10,8 +10,6 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Bing**: enviar en URL Submission la home, servicios, casos y 3
-      artículos; lanzar Site Scan y pasar el resultado para arreglarlo.
 - [ ] **Hacia el 16 de octubre**: revisar en Search Console el informe
       Páginas (qué se indexó y qué no) y en Bing el informe AI Performance
       (Citation Share: cuánto nos citan Copilot y las respuestas con IA). Es
@@ -20,10 +18,10 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
       `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex` siguen públicos y
       salen buscando "Rianex". Borrar el tuyo (Settings → Danger Zone → Delete)
       y pedirle a Philippe que borre el suyo.
-- [ ] **Decidir la entidad**: ¿la web habla de "Ramiro Pérez" (persona) o de
-      "un grupo de ingenieros" (equipo)? Hoy llms.txt y el schema dicen lo
-      primero y `/sobre-mi` lo segundo. Bloquea el schema `Person` y
-      `Organization` y la página `/sobre-mi`.
+- [ ] **Perfil de LinkedIn y foto**: pásame la URL de tu LinkedIn y una
+      foto. Van en el schema `Person` (`sameAs`, `image`) y en `/sobre-mi`, y
+      son lo que une la web con tu perfil para Google y los asistentes de IA.
+- [ ] **Site Scan de Bing**: pasar el informe cuando termine.
 - [ ] **Testimonios**: en el panel, corregir "Go High Level" → "GoHighLevel"
       en el de Xavi (viene de la base, no del código), y si se puede, nombre
       completo y foto en los tres.
@@ -38,21 +36,15 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
 
 Por orden de impacto:
 
-- [ ] **Una página por servicio** (`/servicios/<slug>`): hoy los 8 servicios
-      son anclas de una sola página, y un ancla no posiciona. Cada una con
-      respuesta directa al principio, precio y plazos, FAQ propia y un caso.
-      Empezar por migración HubSpot → GoHighLevel y agentes de IA en servidor
-      propio, que en español no tienen competencia seria.
 - [ ] **Una página por sector** (`/soluciones/clinicas`, `/eventos`,
       `/academias`): `/soluciones` tiene 141 palabras para tres sectores.
 - [ ] **Una página por caso de éxito**, con fecha, contexto, metodología,
       cifras antes y después, y schema `Article`.
-- [ ] **Schema**: `BreadcrumbList` en todas las páginas; `Organization` con
-      `address`, `logo` y `sameAs`; `Person` completo (`jobTitle`, `sameAs`,
-      foto), cuando esté decidida la entidad; `areaServed` España y
-      Latinoamérica.
+- [ ] **Schema**: `BreadcrumbList` en las páginas que aún no lo llevan (ya
+      está en las de servicio); `sameAs` e `image` en `Person` cuando llegue
+      el LinkedIn.
 - [ ] **JSON-LD en las páginas que no tienen**: casos de éxito, soluciones,
-      sobre-mi, listado del blog.
+      listado del blog.
 - [ ] **`/en` sirve el JSON-LD de la home en castellano** (FAQ incluida):
       traducirlo.
 - [ ] **Imagen social por página**: las páginas que no son del blog comparten
@@ -68,6 +60,15 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-02 · PR #11 · Una página por servicio (`/servicios/<slug>`, 8 en
+  castellano y 8 en inglés) con respuesta directa, cuándo encaja y cuándo no,
+  método, plazo, inversión, caso real, FAQ, guías relacionadas y schema
+  `Service`, `FAQPage` y `BreadcrumbList`. La web se presenta como Ramiro
+  Pérez Rodero: `/sobre-mi` en primera persona, schema `ProfilePage` y
+  `Person`, autor de los artículos y `founder` con el nombre completo.
+  `Organization` con dirección (Ávila), logo y `areaServed` España y
+  Latinoamérica.
+- 2026-10-02 · URL Submission en Bing (home, servicios, casos y 3 artículos).
 - 2026-10-02 · Alta en Google Search Console (propiedad de dominio, sitemap
   enviado) y en Bing Webmaster Tools. IndexNow ya estaba activo con la clave
   `2e18428a…` publicada en la raíz; no hace falta la que sugiere Bing.

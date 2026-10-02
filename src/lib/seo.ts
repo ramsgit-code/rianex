@@ -92,14 +92,14 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
   },
   "/sobre-mi": {
     es: {
-      title: "Sobre Rianex: ingeniería y automatización con IA",
+      title: "Sobre Ramiro Pérez Rodero, ingeniero industrial",
       description:
-        "Ingenieros industriales con experiencia en plantas industriales y automatización con IA. Automatización y desarrollo con IA sobre GoHighLevel y HubSpot.",
+        "Ramiro Pérez Rodero, ingeniero industrial con experiencia en plantas industriales. Automatización y desarrollo con IA sobre GoHighLevel y HubSpot desde Ávila.",
     },
     en: {
-      title: "About Rianex: engineering and AI automation",
+      title: "About Ramiro Pérez Rodero, industrial engineer",
       description:
-        "Industrial engineers with plant-floor experience and AI automation. Automation and AI development on GoHighLevel and HubSpot.",
+        "Ramiro Pérez Rodero, an industrial engineer with plant-floor experience. AI automation and development on GoHighLevel and HubSpot, based in Ávila, Spain.",
     },
   },
   "/diagnostico": {
@@ -119,6 +119,16 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
 /** Metadata completo de una pagina traducida: title, canonical, hreflang y tarjeta social. */
 export function pageMetadata(path: keyof typeof PAGES, lang: Lang): Metadata {
   const { title, description } = PAGES[path][lang];
+  return translatedMetadata(path, lang, title, description);
+}
+
+/** Lo mismo para paginas con title propio, como las de cada servicio. */
+export function translatedMetadata(
+  path: string,
+  lang: Lang,
+  title: string,
+  description: string
+): Metadata {
   const localized = localizePath(path, lang);
   const url = `${SITE_URL}${localized === "/" ? "" : localized}`;
   const fullTitle = `${title} | ${BRAND}`;

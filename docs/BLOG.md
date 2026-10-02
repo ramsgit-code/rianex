@@ -40,7 +40,7 @@ description: "Entre 70 y 165 caracteres"
 date: "AAAA-MM-DD"
 tags: ["al", "menos", "uno"]
 cluster: "automatizacion-ia"
-author: "Ramiro Pérez"
+author: "Ramiro Pérez Rodero"
 linkPolicy: "nofollow"
 draft: false
 ---

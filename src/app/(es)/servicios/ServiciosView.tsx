@@ -20,7 +20,7 @@ import { Reveal } from "@/components/Reveal";
 const icons = [Workflow, Network, ArrowLeftRight, Code, Bot, Database, Filter, FileText];
 
 export function ServiciosView() {
-  const { c } = useLang();
+  const { c, localize } = useLang();
   const s = c.servicios;
 
   return (
@@ -36,16 +36,18 @@ export function ServiciosView() {
                     <Icon size={20} />
                   </span>
                   <h2 className="mt-4 font-display text-xl font-semibold text-foreground">
-                    {item.title}
+                    <Link href={localize(`/servicios/${item.slug}`)} className="hover:text-accent-text">
+                      {item.title}
+                    </Link>
                   </h2>
                   <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
                     {item.tagline}
                   </p>
                   <Link
-                    href="/diagnostico"
+                    href={localize(`/servicios/${item.slug}`)}
                     className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
                   >
-                    {s.cta}
+                    {s.more}
                     <ArrowRight size={15} />
                   </Link>
                 </div>
