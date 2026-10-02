@@ -1,12 +1,12 @@
-import { prisma } from "@/lib/prisma";
 import { content } from "@/lib/content";
 import { CLUSTERS, type Cluster } from "@/lib/blog-schema";
+import { getAllPosts } from "@/lib/blog";
 
-// llms.txt generado en cada revalidacion, no escrito a mano.
+// llms.txt generado en cada build, no escrito a mano.
 //
 // Un indice estatico se queda viejo con el siguiente articulo y acaba
 // describiendo un sitio que ya no existe. Esto se reconstruye desde las mismas
-// fuentes que generan la web (la tabla de articulos y el contenido de los
+// fuentes que generan la web (los .mdx del blog y el contenido de los
 // servicios), asi que no puede divergir de lo que hay publicado.
 //
 // Expectativas realistas: Anthropic y Perplexity han confirmado que lo respetan
@@ -17,7 +17,7 @@ import { CLUSTERS, type Cluster } from "@/lib/blog-schema";
 
 const BASE_URL = "https://www.rianex.es";
 
-export const revalidate = 3600;
+export const dynamic = "force-static";
 
 const CABECERA = `# Rianex
 
@@ -47,22 +47,7 @@ Ramiro Pérez, ingeniero industrial con experiencia en plantas industriales
 aplicada a la automatización de procesos de negocio.`;
 
 export async function GET() {
-  let posts: {
-    slug: string;
-    title: string;
-    description: string;
-    cluster: string | null;
-  }[] = [];
-
-  try {
-    posts = await prisma.blogPost.findMany({
-      where: { published: true },
-      orderBy: { publishedAt: "desc" },
-      select: { slug: true, title: true, description: true, cluster: true },
-    });
-  } catch {
-    // sin base de datos se sirve la parte estatica, que ya es util
-  }
+  const posts = getAllPosts();
 
   const secciones: string[] = [CABECERA];
 

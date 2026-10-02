@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { prisma } from "@/lib/prisma";
+import { getAllPosts } from "@/lib/blog";
 import { ES_ONLY_ROUTES } from "@/lib/i18n";
 
 const BASE_URL = "https://www.rianex.es";
@@ -27,19 +27,6 @@ const CHANGE_FREQ: Record<string, "yearly" | "monthly" | "weekly"> = {
   "/sobre-mi": "yearly",
 };
 
-async function getBlogSlugs(): Promise<{ slug: string; date: Date }[]> {
-  try {
-    const posts = await prisma.blogPost.findMany({
-      where: { published: true },
-      select: { slug: true, publishedAt: true, updatedAt: true },
-      orderBy: { publishedAt: "desc" },
-    });
-    return posts.map((p) => ({ slug: p.slug, date: p.publishedAt ?? p.updatedAt }));
-  } catch {
-    return [];
-  }
-}
-
 /**
  * Entrada bilingue: la URL castellana como principal y el hreflang apuntando a
  * las dos. Google exige que la referencia sea reciproca, y declararla tambien
@@ -58,13 +45,18 @@ function bilingual(path: string, lastModified: Date): MetadataRoute.Sitemap[numb
   };
 }
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const posts = await getBlogSlugs();
 
   const staticPages = Object.keys(PRIORITY).map((path) => bilingual(path, now));
 
-  const blogPages = posts.map((p) => bilingual(`/blog/${p.slug}`, new Date(p.date)));
+  // Los articulos solo existen en castellano, asi que van sin hreflang.
+  const blogPages = getAllPosts().map((p) => ({
+    url: `${BASE_URL}/blog/${p.slug}`,
+    lastModified: p.publishedAt,
+    changeFrequency: "yearly" as const,
+    priority: 0.6,
+  }));
 
   // Los textos legales solo existen en castellano, asi que van sin hreflang.
   const legalPages = ES_ONLY_ROUTES.map((path) => ({

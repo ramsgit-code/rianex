@@ -3,17 +3,30 @@
 ## Cómo se publica un artículo
 
 Los artículos viven en `src/content/blog/*.mdx` y el nombre del fichero es el
-slug de la URL. La web los lee de la base de datos, así que hay un paso de
-importación.
+slug de la URL. **La web los lee directamente de ahí en el build**
+([`src/lib/blog.ts`](../src/lib/blog.ts)): listado, artículo, imagen social,
+sitemap, RSS y `llms.txt` salen del mismo lote. Publicar es hacer commit del
+`.mdx` con `draft: false` y desplegar.
 
 ```bash
-npm run blog:check    # valida sin escribir nada
-npm run blog:import   # valida y sincroniza con la base
+npm run blog:check    # valida el lote sin desplegar
 ```
 
-La importación **valida todo el lote antes de escribir**. Si un artículo no
-cumple el contrato, no se importa ninguno: es preferible quedarse sin publicar
-a publicar media tanda y dejar la otra mitad en un estado que nadie recuerda.
+Si un artículo no cumple el contrato, **falla el build** y no se despliega
+nada: es preferible quedarse sin publicar a publicar media tanda.
+
+Antes el blog público se leía de la base de datos y cada ruta se tragaba el
+error de la consulta por su cuenta. Eso acabó con un listado que enlazaba a
+artículos en 404, un sitemap mandando a Google a esos 404 y un `llms.txt` que
+decía que el blog estaba vacío. La tabla `BlogPost` y el editor del panel
+siguen existiendo, pero **ya no alimentan la web pública**; `npm run
+blog:import` solo sincroniza la tabla.
+
+Los artículos solo existen en castellano: `/en/blog/<slug>` redirige al
+original y no se declara hreflang en ellos. Los slugs de la versión anterior
+del blog redirigen con 301 al artículo actual del mismo tema
+(`SLUGS_ANTIGUOS` en `next.config.mjs`). Si se renombra un `.mdx`, el slug
+viejo se añade ahí.
 
 ## El contrato
 
@@ -126,7 +139,7 @@ formalidad, es lo que separa una colaboración de un esquema.
 | `/llms.txt` | Índice del sitio para modelos de lenguaje, agrupado por cluster |
 | `/blog/<slug>/opengraph-image` | Imagen social generada por artículo, con su titular |
 
-`llms.txt` se **genera** en cada revalidación desde la base de datos y desde el
+`llms.txt` se **genera** en cada build desde los `.mdx` del blog y desde el
 contenido de los servicios. No se escribe a mano: un índice estático se queda
 viejo con el siguiente artículo y acaba describiendo un sitio que ya no existe.
 
