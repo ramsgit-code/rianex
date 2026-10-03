@@ -49,11 +49,13 @@ export function SolucionesView() {
                 <ArrowRight size={15} />
               </Link>
 
-              <div className="mt-5 border-t border-ink/[0.08] pt-4">
-                <span className="text-xs text-muted">
-                  {s.caseLabel} <span className="font-medium text-foreground-muted">{item.reference}</span>
-                </span>
-              </div>
+              {"reference" in item && item.reference && (
+                <div className="mt-5 border-t border-ink/[0.08] pt-4">
+                  <span className="text-xs text-muted">
+                    {s.caseLabel} <span className="font-medium text-foreground-muted">{item.reference}</span>
+                  </span>
+                </div>
+              )}
             </article>
           </Reveal>
         ))}
