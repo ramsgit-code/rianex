@@ -62,7 +62,7 @@ export const content = {
       subtitle:
         "Automatización y desarrollo con IA sobre el CRM que ya usas, o sobre el que te conviene usar.",
       chatLabel: "Ejemplo en vivo",
-      kpiLabel: "Resultados",
+      kpiLabel: "En cifras",
       scrollHint: "Ver más servicios",
       more: "Ver el servicio en detalle",
       items: [
@@ -71,9 +71,9 @@ export const content = {
           slug: "automatizacion-procesos-ia",
           desc: "Eliminamos tareas repetitivas: tu operativa funciona sola.",
           kpis: [
-            { value: "-70%", label: "tiempo en tareas manuales" },
-            { value: "1 min", label: "en enviar una propuesta (antes, 4 días)" },
-            { value: "24/7", label: "operativa funcionando sin intervención" },
+            { value: "8 min", label: "de la llamada a la propuesta enviada, antes 1-3 días (Eventos Barcelona)" },
+            { value: "−85%", label: "tiempo de respuesta al cliente (Eventos Barcelona)" },
+            { value: "4-6 sem", label: "para tener el primer proceso en producción" },
           ],
         },
         {
@@ -81,9 +81,9 @@ export const content = {
           slug: "integracion-gohighlevel-hubspot",
           desc: "Tu CRM conectado con ERP, facturación, agenda y WhatsApp, por API y webhooks.",
           kpis: [
-            { value: "6+", label: "sistemas conectados por cliente" },
-            { value: "-90%", label: "trabajo manual entre herramientas" },
-            { value: "100%", label: "datos sincronizados en tiempo real" },
+            { value: "4", label: "integraciones base: entrada de contactos, conversación, agenda y facturación" },
+            { value: "1", label: "sistema manda en cada dato; el resto lee, así nada se pisa" },
+            { value: "0", label: "fallos silenciosos: cada integración reintenta y avisa si algo no entra" },
           ],
         },
         {
@@ -91,9 +91,9 @@ export const content = {
           slug: "migracion-a-gohighlevel",
           desc: "Te pasamos de HubSpot u otro CRM a GoHighLevel sin perder tu histórico.",
           kpis: [
-            { value: "100%", label: "de contactos, oportunidades y notas, verificado registro a registro" },
             { value: "0", label: "días sin CRM: los dos conviven hasta el cambio" },
-            { value: "1", label: "stack en lugar de CRM + email + funnels + agenda por separado" },
+            { value: "100", label: "contactos en una migración de prueba antes de mover el resto" },
+            { value: "2-3 sem", label: "en una cuenta pequeña, contando el periodo en paralelo" },
           ],
         },
         {
@@ -102,8 +102,8 @@ export const content = {
           desc: "Herramientas internas, apps y MVPs, de la idea a producción.",
           kpis: [
             { value: "4-8 sem", label: "de la idea al producto en producción" },
-            { value: "1", label: "MVP listo para los primeros usuarios" },
             { value: "100%", label: "del código y la infraestructura, tuyos" },
+            { value: "30 días", label: "de soporte incluidos tras la entrega" },
           ],
         },
         {
@@ -111,9 +111,9 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "De la captación al cierre, cualificando en automático.",
           kpis: [
-            { value: "+64%", label: "leads cualificados antes de hablar con ventas" },
-            { value: "< 5 min", label: "en responder a cada lead nuevo" },
-            { value: "3.2x", label: "más citas agendadas por lead" },
+            { value: "−32%", label: "coste por paciente (Hospital Capilar)" },
+            { value: "< 1 min", label: "en dar la primera respuesta a cada lead nuevo" },
+            { value: "4", label: "niveles de scoring: frío, templado, caliente y premium" },
           ],
         },
         {
@@ -121,9 +121,9 @@ export const content = {
           slug: "agentes-ia-vps",
           desc: "Asistentes en WhatsApp y web que atienden, cualifican y agendan 24/7.",
           kpis: [
-            { value: "24/7", label: "disponibilidad sin turnos ni festivos" },
-            { value: "< 10 s", label: "en responder a cualquier lead" },
-            { value: "-80%", label: "carga en el equipo comercial" },
+            { value: "24/7", label: "atención y agenda, también de noche y en fin de semana" },
+            { value: "Sem. 4", label: "primer agente atendiendo en producción" },
+            { value: "UE", label: "servidor propio en Europa si manejas datos sensibles" },
           ],
         },
       ],
@@ -461,7 +461,6 @@ export const content = {
           title: "Academias y Formación",
           pain: "Muchos interesados, pocos matriculados y sin seguimiento.",
           solution: "Captación y nurturing automático en GoHighLevel.",
-          reference: "Growth4U",
         },
       ],
     },
@@ -603,7 +602,7 @@ export const content = {
       subtitle:
         "AI automation and development on the CRM you already use, or on the one that suits you better.",
       chatLabel: "Live example",
-      kpiLabel: "Results",
+      kpiLabel: "By the numbers",
       scrollHint: "See more services",
       more: "See the service in detail",
       items: [
@@ -612,9 +611,9 @@ export const content = {
           slug: "automatizacion-procesos-ia",
           desc: "We remove repetitive work: your operation runs itself.",
           kpis: [
-            { value: "-70%", label: "time spent on manual tasks" },
-            { value: "1 min", label: "to send a proposal (was 4 days)" },
-            { value: "24/7", label: "operation running with no intervention" },
+            { value: "8 min", label: "from the call to the proposal sent, previously 1-3 days (Eventos Barcelona)" },
+            { value: "−85%", label: "client response time (Eventos Barcelona)" },
+            { value: "4-6 wks", label: "to get the first process into production" },
           ],
         },
         {
@@ -622,9 +621,9 @@ export const content = {
           slug: "integracion-gohighlevel-hubspot",
           desc: "Your CRM connected to ERP, invoicing, calendar and WhatsApp, via API and webhooks.",
           kpis: [
-            { value: "6+", label: "systems connected per client" },
-            { value: "-90%", label: "manual work between tools" },
-            { value: "100%", label: "data synced in real time" },
+            { value: "4", label: "core integrations: contact intake, conversation, calendar and invoicing" },
+            { value: "1", label: "system owns each field; the rest read, so nothing gets overwritten" },
+            { value: "0", label: "silent failures: every integration retries and alerts if something fails" },
           ],
         },
         {
@@ -632,9 +631,9 @@ export const content = {
           slug: "migracion-a-gohighlevel",
           desc: "We move you from HubSpot or another CRM to GoHighLevel without losing your history.",
           kpis: [
-            { value: "100%", label: "of contacts, deals and notes, checked record by record" },
-            { value: "0", label: "days without a CRM: both run until the switch" },
-            { value: "1", label: "stack instead of separate CRM + email + funnels + calendar" },
+            { value: "0", label: "days without a CRM: both run side by side until the switch" },
+            { value: "100", label: "contacts in a test migration before moving the rest" },
+            { value: "2-3 wks", label: "for a small account, including the parallel period" },
           ],
         },
         {
@@ -643,8 +642,8 @@ export const content = {
           desc: "Internal tools, apps and MVPs, from idea to production.",
           kpis: [
             { value: "4-8 wks", label: "from idea to product in production" },
-            { value: "1", label: "MVP ready for first users" },
             { value: "100%", label: "of the code and infrastructure, yours" },
+            { value: "30 days", label: "of support included after delivery" },
           ],
         },
         {
@@ -652,9 +651,9 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "From capture to close, qualifying on autopilot.",
           kpis: [
-            { value: "+64%", label: "leads qualified before sales talks to them" },
-            { value: "< 5 min", label: "to respond to every new lead" },
-            { value: "3.2x", label: "more meetings booked per lead" },
+            { value: "−32%", label: "cost per patient (Hospital Capilar)" },
+            { value: "< 1 min", label: "to give every new lead a first reply" },
+            { value: "4", label: "scoring levels: cold, warm, hot and premium" },
           ],
         },
         {
@@ -662,9 +661,9 @@ export const content = {
           slug: "agentes-ia-vps",
           desc: "Assistants on WhatsApp and web that answer, qualify and book 24/7.",
           kpis: [
-            { value: "24/7", label: "availability, no shifts or holidays" },
-            { value: "< 10 s", label: "to respond to any lead" },
-            { value: "-80%", label: "load on the sales team" },
+            { value: "24/7", label: "answering and booking, nights and weekends too" },
+            { value: "Wk 4", label: "first agent live in production" },
+            { value: "EU", label: "your own server in Europe if you handle sensitive data" },
           ],
         },
       ],
@@ -1001,7 +1000,6 @@ export const content = {
           title: "Academies & Training",
           pain: "Lots of interest, few enrolments and no follow-up.",
           solution: "Automated capture and nurturing on GoHighLevel.",
-          reference: "Growth4U",
         },
       ],
     },
