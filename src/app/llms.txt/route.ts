@@ -2,6 +2,7 @@ import { content } from "@/lib/content";
 import { CLUSTERS, type Cluster } from "@/lib/blog-schema";
 import { getAllPosts } from "@/lib/blog";
 import { SECTORES } from "@/lib/sectores";
+import { CASOS } from "@/lib/casos";
 
 // llms.txt generado en cada build, no escrito a mano.
 //
@@ -64,6 +65,13 @@ export async function GET() {
           .join("\n")
     );
   }
+
+  secciones.push(
+    "## Casos de éxito\n" +
+      Object.entries(CASOS)
+        .map(([slug, caso]) => `- [${caso.es.h1}](${BASE_URL}/casos-de-exito/${slug}): ${caso.es.answer}`)
+        .join("\n")
+  );
 
   secciones.push(
     "## Soluciones por sector\n" +

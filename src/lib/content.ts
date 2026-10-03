@@ -42,7 +42,7 @@ export const content = {
       ctaSecondary: "Ver los servicios",
       note: "Primeros resultados en 4 semanas · Sin compromiso",
       proofMetric: "−32%",
-      proofLabel: "coste por paciente (CPP) en 6 semanas",
+      proofLabel: "coste por paciente (CPP) en 8 semanas",
       proofClient: "Hospital Capilar",
       offeringTitle: "Qué hacemos",
       offering: [
@@ -111,7 +111,7 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "De la captación al cierre, cualificando en automático.",
           kpis: [
-            { value: "−32%", label: "coste por paciente (Hospital Capilar)" },
+            { value: "−32%", label: "coste por paciente en 8 semanas (Hospital Capilar)" },
             { value: "< 1 min", label: "en dar la primera respuesta a cada lead nuevo" },
             { value: "4", label: "niveles de scoring: frío, templado, caliente y premium" },
           ],
@@ -138,6 +138,7 @@ export const content = {
       items: [
         {
           client: "Hospital Capilar",
+          slug: "hospital-capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Salud · Madrid",
           tag: "Cualificación de leads + Booking SDR",
@@ -147,10 +148,11 @@ export const content = {
             "Montamos un sistema en GoHighLevel que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y, con un Booking SDR, agenda la cita directamente en Koibox. Todo el embudo queda medido de punta a punta: conversión, abandono, citas y ventas.",
           stack: ["GoHighLevel", "WhatsApp", "Koibox"],
           metric: "−32%",
-          metricLabel: "coste por paciente (CPP)",
+          metricLabel: "coste por paciente (CPP) en 8 semanas",
         },
         {
           client: "Eventos Barcelona",
+          slug: "eventos-barcelona",
           logo: LOGOS.eventosBarcelona,
           sector: "Eventos · Barcelona",
           tag: "Automatización de propuestas",
@@ -164,6 +166,7 @@ export const content = {
         },
         {
           client: "Growth4U",
+          slug: "growth4u",
           logo: LOGOS.growth4u,
           sector: "Marketing · Captación",
           tag: "Automatización de CRM",
@@ -582,7 +585,7 @@ export const content = {
       ctaSecondary: "See the services",
       note: "First results in 4 weeks · No commitment",
       proofMetric: "−32%",
-      proofLabel: "cost per patient (CPP) in 6 weeks",
+      proofLabel: "cost per patient (CPP) in 8 weeks",
       proofClient: "Hospital Capilar",
       offeringTitle: "What we do",
       offering: [
@@ -651,7 +654,7 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "From capture to close, qualifying on autopilot.",
           kpis: [
-            { value: "−32%", label: "cost per patient (Hospital Capilar)" },
+            { value: "−32%", label: "cost per patient in 8 weeks (Hospital Capilar)" },
             { value: "< 1 min", label: "to give every new lead a first reply" },
             { value: "4", label: "scoring levels: cold, warm, hot and premium" },
           ],
@@ -677,6 +680,7 @@ export const content = {
       items: [
         {
           client: "Hospital Capilar",
+          slug: "hospital-capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Healthcare · Madrid",
           tag: "Lead qualification + Booking SDR",
@@ -686,10 +690,11 @@ export const content = {
             "We built a GoHighLevel system that qualifies every lead with a scoring quiz, runs automated WhatsApp follow-up and, with a Booking SDR, books the appointment straight into Koibox. The whole funnel is measured end to end: conversion, drop-off, appointments and sales.",
           stack: ["GoHighLevel", "WhatsApp", "Koibox"],
           metric: "−32%",
-          metricLabel: "cost per patient (CPP)",
+          metricLabel: "cost per patient (CPP) in 8 weeks",
         },
         {
           client: "Eventos Barcelona",
+          slug: "eventos-barcelona",
           logo: LOGOS.eventosBarcelona,
           sector: "Events · Barcelona",
           tag: "Proposal automation",
@@ -703,6 +708,7 @@ export const content = {
         },
         {
           client: "Growth4U",
+          slug: "growth4u",
           logo: LOGOS.growth4u,
           sector: "Marketing · Lead gen",
           tag: "CRM automation",
