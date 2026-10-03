@@ -20,7 +20,6 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
       y pedirle a Philippe que borre el suyo.
 - [ ] **Foto en alta**: la de LinkedIn solo se puede bajar a 200×200. Si
       quieres una más grande en `/sobre-mi`, pásame el original.
-- [ ] **Site Scan de Bing**: pasar el informe cuando termine.
 - [ ] **Testimonios**: en el panel, corregir "Go High Level" → "GoHighLevel"
       en el de Xavi (viene de la base, no del código), y si se puede, nombre
       completo y foto en los tres.
@@ -60,6 +59,7 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-03 · Site Scan de Bing: 0 errores, 0 avisos, 0 notas.
 - 2026-10-03 · PR #14 · Cifras de "Qué hacemos" en la home sustituidas
   por datos con respaldo: resultados de los casos publicados (Eventos
   Barcelona, Hospital Capilar) y plazos y método reales. La etiqueta pasa de
