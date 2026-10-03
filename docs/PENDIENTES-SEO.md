@@ -20,9 +20,6 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
       y pedirle a Philippe que borre el suyo.
 - [ ] **Foto en alta**: la de LinkedIn solo se puede bajar a 200×200. Si
       quieres una más grande en `/sobre-mi`, pásame el original.
-- [ ] **Testimonios**: en el panel, corregir "Go High Level" → "GoHighLevel"
-      en el de Xavi (viene de la base, no del código), y si se puede, nombre
-      completo y foto en los tres.
 - [ ] **Perfiles fuera de la web**: página de empresa en LinkedIn, Google
       Business Profile (Ávila), directorio de partners de HighLevel, Clutch o
       Sortlist. Mismo nombre, descripción y URL en todos.
@@ -34,12 +31,12 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
 
 Por orden de impacto:
 
-- [ ] **Confirmar dos cifras del hero de la home**: "recupera 10
-      horas/semana" y "−32% de coste por paciente en 6 semanas". El −32% está
-      en el caso de Hospital Capilar, pero "en 6 semanas" y las 10 horas no
-      aparecen en ningún sitio más. Si son reales, se quedan; si no, se cambian.
-- [ ] **Una página por caso de éxito**, con fecha, contexto, metodología,
-      cifras antes y después, y schema `Article`.
+- [ ] **Cifras sin fuente en artículos antiguos**: la descripción de "Cómo
+      cualificar leads automáticamente" dice "El 80% de los leads que recibes
+      no van a comprar", y el de propuestas dice "en 8 minutos: cómo lo hago"
+      con ese tono de primera persona de antes. Revisar los tres artículos de
+      abril (cualificar leads, propuestas, WhatsApp) con el mismo criterio que
+      la home.
 - [ ] **Schema**: `BreadcrumbList` en las páginas que aún no lo llevan (ya
       está en las de servicio).
 - [ ] **JSON-LD en las páginas que no tienen**: casos de éxito, soluciones,
@@ -59,6 +56,13 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-03 · PR #16 · Una página por caso de éxito
+  (`/casos-de-exito/hospital-capilar`, `/eventos-barcelona`, `/growth4u`, en
+  castellano e inglés) con contexto, qué se montó, resultado, cita del
+  cliente, servicios y schema `Article`; enlazadas desde el listado y desde
+  las páginas de servicio y sector. Hero: "−32% en 8 semanas" (confirmado).
+  Testimonios en la base: "GoHighLevel" en el de Xavi, Philippe como Growth
+  Manager de Growth4U y traducciones al inglés corregidas.
 - 2026-10-03 · Site Scan de Bing: 0 errores, 0 avisos, 0 notas.
 - 2026-10-03 · PR #14 · Cifras de "Qué hacemos" en la home sustituidas
   por datos con respaldo: resultados de los casos publicados (Eventos

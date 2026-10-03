@@ -30,6 +30,7 @@ const LABELS = {
     caseLabel: "Caso real",
     challenge: "Reto",
     solution: "Solución",
+    readCase: "Leer el caso completo",
     faq: "Preguntas frecuentes",
     guides: "Guías relacionadas",
     others: "Otros servicios",
@@ -50,6 +51,7 @@ const LABELS = {
     caseLabel: "Real case",
     challenge: "Challenge",
     solution: "Solution",
+    readCase: "Read the full case study",
     faq: "Frequently asked questions",
     guides: "Related guides (in Spanish)",
     others: "Other services",
@@ -259,6 +261,13 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
                     <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{caso.solution}</p>
                   </div>
                 </div>
+                <Link
+                  href={href(`/casos-de-exito/${caso.slug}`)}
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
+                >
+                  {t.readCase}
+                  <ArrowRight size={15} />
+                </Link>
               </section>
             </Reveal>
           )}

@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
@@ -13,7 +15,7 @@ const LOGO_DIMENSIONS: Record<string, { width: number; height: number }> = {
 };
 
 export function CasosView() {
-  const { c, lang } = useLang();
+  const { c, lang, localize } = useLang();
   const cs = c.casos;
   const s = c.servicios;
   const en = lang === "en";
@@ -22,6 +24,7 @@ export function CasosView() {
     reto: en ? "Challenge" : "Reto",
     solucion: en ? "Solution" : "Solución",
     resultado: en ? "Result" : "Resultado",
+    leer: en ? "Read the full case study" : "Leer el caso completo",
   };
   const stackLabel = cs.stackLabel;
 
@@ -90,6 +93,14 @@ export function CasosView() {
                     {item.solution}
                   </p>
                 </div>
+
+                <Link
+                  href={localize(`/casos-de-exito/${item.slug}`)}
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
+                >
+                  {L.leer}
+                  <ArrowRight size={15} />
+                </Link>
 
                 {item.stack.length > 0 && (
                   <div className="mt-5">
