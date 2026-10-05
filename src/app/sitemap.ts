@@ -68,6 +68,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const toolPages = [
+    { ...bilingual("/herramientas/calculadora-fuga-de-leads", now), priority: 0.8 },
+  ];
+
   // Los articulos solo existen en castellano, asi que van sin hreflang.
   const blogPages = getAllPosts().map((p) => ({
     url: `${BASE_URL}/blog/${p.slug}`,
@@ -84,5 +88,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.3,
   }));
 
-  return [...staticPages, ...servicePages, ...sectorPages, ...casePages, ...blogPages, ...legalPages];
+  return [...staticPages, ...servicePages, ...sectorPages, ...casePages, ...toolPages, ...blogPages, ...legalPages];
 }

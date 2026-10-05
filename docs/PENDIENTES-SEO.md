@@ -23,6 +23,9 @@ Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
 - [ ] **Perfiles fuera de la web**: página de empresa en LinkedIn, Google
       Business Profile (Ávila), directorio de partners de HighLevel, Clutch o
       Sortlist. Mismo nombre, descripción y URL en todos.
+- [ ] **Página de empresa de Rianex en LinkedIn**: crearla (pasos en la
+      conversación del 5 de octubre) y pasarme la URL para meterla en el
+      `sameAs` de `Organization`.
 - [ ] **Enlaces de clientes**: pedir a Hospital Capilar, EB y Growth4U un
       enlace "sistema implementado por Rianex" a la web.
 - [ ] **Después de cada despliegue con URLs nuevas**: `npm run indexnow`.
@@ -56,6 +59,12 @@ Por orden de impacto:
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
   social por artículo, 301 de los slugs antiguos. IndexNow enviado (22 URLs).
+- 2026-10-05 · PR #17 · Calculadora de fuga de leads
+  (`/herramientas/calculadora-fuga-de-leads`, castellano e inglés): cálculo
+  en el navegador, fórmula y supuestos a la vista, FAQ y schema
+  `WebApplication`. Eventos de GA4 `calculadora_fuga_uso` y
+  `calculadora_fuga_resultado`. Enlazada desde el pie, el artículo de
+  "cuánto cuesta automatizar", el sitemap y llms.txt.
 - 2026-10-03 · PR #16 · Una página por caso de éxito
   (`/casos-de-exito/hospital-capilar`, `/eventos-barcelona`, `/growth4u`, en
   castellano e inglés) con contexto, qué se montó, resultado, cita del
