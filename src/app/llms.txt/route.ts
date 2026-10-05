@@ -66,6 +66,9 @@ export async function GET() {
     );
   }
 
+  secciones.push(`## Herramientas
+- [Calculadora de fuga de leads](${BASE_URL}/herramientas/calculadora-fuga-de-leads): calcula cuánto dinero se pierde al año por los leads que no llegan a una conversación y por el trabajo comercial manual. Gratis, sin registro.`);
+
   secciones.push(
     "## Casos de éxito\n" +
       Object.entries(CASOS)
