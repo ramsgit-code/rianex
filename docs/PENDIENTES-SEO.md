@@ -12,6 +12,14 @@ impresiones y 1 clic en tres meses; posición media 70,8, casi todo por
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Vincular GA4 con Search Console**: Analytics → Administrar →
+      Vinculaciones con Search Console → Vincular → `sc-domain:rianex.es` →
+      flujo web `rianex.es`. Cuenta `ramiace2@gmail.com`.
+- [ ] **Marcar `generate_lead` como evento clave en GA4**: en cuanto llegue
+      el primer diagnóstico, Administrar → Eventos → Eventos recientes →
+      estrella en `generate_lead` (y en `diagnostico_agendar` si quieres
+      medir también las reservas). GA4 no deja marcarlo antes de recibirlo.
+
 - [ ] **Hacia el 16 de octubre**: revisar en Bing el informe AI Performance
       (Citation Share: cuánto nos citan Copilot y las respuestas con IA). Es
       la medida de GEO. El informe Páginas de Search Console ya se revisó el
@@ -62,10 +70,10 @@ Por orden de impacto:
   ejemplos para una pyme" (`/blog/ejemplos-automatizacion-procesos-con-ia`),
   la intención vecina del de "por dónde empezar" (92 impresiones), enlazados
   entre sí y desde `/servicios/automatizacion-procesos-ia`. GA4: el
-  formulario de diagnóstico manda `generate_lead` (marcado como evento
-  clave) y el botón del calendario `diagnostico_agendar`. GA4 vinculado con
-  Search Console. Indexación pedida en Search Console para las 3 páginas
-  descubiertas sin indexar y para el artículo nuevo.
+  formulario de diagnóstico manda `generate_lead` y el botón del calendario
+  `diagnostico_agendar`. Indexación pedida en Search Console para las 3
+  páginas descubiertas sin indexar y para el artículo nuevo. IndexNow
+  enviado (3 URLs).
 
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
