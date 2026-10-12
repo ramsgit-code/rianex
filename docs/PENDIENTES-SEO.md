@@ -5,15 +5,17 @@ asistentes de IA (ChatGPT, Perplexity, Claude, AI Overviews). Se actualiza
 cada vez que se cierra o aparece algo: lo terminado baja a **Hecho** con la
 fecha y el PR.
 
-Origen: auditoría del 2 de octubre de 2026. Último repaso: 2 de octubre
-(ninguna página de rianex.es indexada aún en la búsqueda de marca).
+Origen: auditoría del 2 de octubre de 2026. Último repaso: 12 de octubre
+(Search Console: 54 páginas indexadas, 3 descubiertas sin indexar, 206
+impresiones y 1 clic en tres meses; posición media 70,8, casi todo por
+"automatización de procesos con IA").
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Hacia el 16 de octubre**: revisar en Search Console el informe
-      Páginas (qué se indexó y qué no) y en Bing el informe AI Performance
+- [ ] **Hacia el 16 de octubre**: revisar en Bing el informe AI Performance
       (Citation Share: cuánto nos citan Copilot y las respuestas con IA). Es
-      la medida de GEO.
+      la medida de GEO. El informe Páginas de Search Console ya se revisó el
+      12 de octubre.
 - [ ] **Forks públicos**: el original ya es privado, pero
       `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex` siguen públicos y
       salen buscando "Rianex". Borrar el tuyo (Settings → Danger Zone → Delete)
@@ -55,6 +57,15 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-12 · PR #18 · Artículo "Automatización de procesos con IA: 12
+  ejemplos para una pyme" (`/blog/ejemplos-automatizacion-procesos-con-ia`),
+  la intención vecina del de "por dónde empezar" (92 impresiones), enlazados
+  entre sí y desde `/servicios/automatizacion-procesos-ia`. GA4: el
+  formulario de diagnóstico manda `generate_lead` (marcado como evento
+  clave) y el botón del calendario `diagnostico_agendar`. GA4 vinculado con
+  Search Console. Indexación pedida en Search Console para las 3 páginas
+  descubiertas sin indexar y para el artículo nuevo.
 
 - 2026-10-02 · PR #9 · El blog se sirve desde los `.mdx`: 12 artículos
   publicados (antes 4 en 404), sitemap, RSS y llms.txt correctos, imagen
