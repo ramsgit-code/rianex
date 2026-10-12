@@ -12,9 +12,6 @@ impresiones y 1 clic en tres meses; posición media 70,8, casi todo por
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Vincular GA4 con Search Console**: Analytics → Administrar →
-      Vinculaciones con Search Console → Vincular → `sc-domain:rianex.es` →
-      flujo web `rianex.es`. Cuenta `ramiace2@gmail.com`.
 - [ ] **Marcar `generate_lead` como evento clave en GA4**: en cuanto llegue
       el primer diagnóstico, Administrar → Eventos → Eventos recientes →
       estrella en `generate_lead` (y en `diagnostico_agendar` si quieres
@@ -65,6 +62,9 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-12 · GA4 vinculado con Search Console (lo hizo Ramiro). Los
+  informes de búsqueda orgánica de GA4 tardan uno o dos días en llenarse.
 
 - 2026-10-12 · PR #18 · Artículo "Automatización de procesos con IA: 12
   ejemplos para una pyme" (`/blog/ejemplos-automatizacion-procesos-con-ia`),
