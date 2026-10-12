@@ -170,6 +170,10 @@ export function DiagnosticForm() {
         email: data.email,
         phone: data.telefono,
       });
+      // Conversion principal de la web (evento recomendado de GA4, marcado
+      // como evento clave). Sin datos personales: solo sector e idioma. Si el
+      // visitante no acepto cookies, Consent Mode lo manda sin identificador.
+      window.gtag?.("event", "generate_lead", { sector: data.sector, idioma: lang });
       setSubmitted(true);
     } catch {
       setSubmitError(f.errors.connFail);
@@ -223,6 +227,7 @@ export function DiagnosticForm() {
           href={buildCalendarUrl()}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => window.gtag?.("event", "diagnostico_agendar", { idioma: lang })}
           className="btn-primary px-8 py-3 text-base"
         >
           {f.success.button} <ArrowRight size={16} />

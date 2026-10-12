@@ -48,6 +48,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     caseClient: "Eventos Barcelona",
     posts: [
       "automatizar-procesos-con-ia-por-donde-empezar",
+      "ejemplos-automatizacion-procesos-con-ia",
       "cuanto-cuesta-automatizar-un-proceso-con-ia",
       "rgpd-y-automatizacion-con-ia",
     ],
