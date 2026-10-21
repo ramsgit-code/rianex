@@ -104,7 +104,7 @@ Por orden de impacto:
   Testimonios en la base: "GoHighLevel" en el de Xavi, Philippe como Growth
   Manager de Growth4U y traducciones al inglés corregidas.
 - 2026-10-03 · Site Scan de Bing: 0 errores, 0 avisos, 0 notas.
-- 2026-10-21 · PR #PRNUM · Botón "Sigue a Rianex en LinkedIn" en el pie de
+- 2026-10-21 · PR #22 · Botón "Sigue a Rianex en LinkedIn" en el pie de
   todas las páginas (castellano e inglés), enlazado a
   linkedin.com/company/rianex, y la página en el `sameAs` del schema
   `ProfessionalService` de la home.
