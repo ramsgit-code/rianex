@@ -9,7 +9,7 @@ import { Marquee } from "@/components/Marquee";
 import { JsonLd } from "@/components/JsonLd";
 import { prisma } from "@/lib/prisma";
 import { content } from "@/lib/content";
-import { pageMetadata, RAMIRO } from "@/lib/seo";
+import { pageMetadata, RAMIRO, RIANEX_LINKEDIN } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata("/", "es");
 
@@ -26,6 +26,7 @@ const businessJsonLd = {
   description:
     "Automatización y desarrollo con IA, integración de GoHighLevel y HubSpot, y migraciones de CRM a GoHighLevel.",
   email: "hola@rianex.es",
+  sameAs: [RIANEX_LINKEDIN],
   areaServed: ["ES", "Latinoamérica"],
   address: {
     "@type": "PostalAddress",

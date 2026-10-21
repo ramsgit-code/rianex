@@ -20,6 +20,8 @@ export const RAMIRO = {
   // Foto del perfil de LinkedIn (200x200, la mayor que da el perfil publico).
   photo: "/ramiro-perez-rodero.jpg",
 };
+/** Pagina de empresa de Rianex en LinkedIn (pie de la web y schema). */
+export const RIANEX_LINKEDIN = "https://www.linkedin.com/company/rianex/";
 const BRAND = "Rianex";
 const OG_IMAGE = { url: "/og.png", width: 1200, height: 630, alt: BRAND };
 
