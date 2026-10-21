@@ -1,0 +1,101 @@
+---
+title: "IA para automatizar procesos: qué herramientas usar en una pyme"
+description: "Las cinco familias de herramientas para automatizar procesos con IA, qué resuelve cada una, cuánto se puede hacer sin programar y cuándo hace falta algo a medida."
+date: "2026-10-21"
+tags: ["automatización", "ia", "herramientas", "pyme", "no-code"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Quien busca "IA para automatizar procesos" suele encontrarse con dos tipos de respuesta: listas de cincuenta herramientas con su logo, o artículos que hablan de transformación digital sin nombrar ninguna. Ninguna de las dos ayuda a decidir qué usar el lunes.
+
+La realidad es más sencilla. Las herramientas se agrupan en cinco familias, cada una resuelve un tipo de problema y casi todos los proyectos combinan dos o tres. Saber qué hace cada familia evita el error más caro: comprar una herramienta y buscarle después un proceso.
+
+## La respuesta corta
+
+Para automatizar procesos con IA en una pyme se combinan normalmente un sitio donde vive la información (un CRM como GoHighLevel o HubSpot), un conector que mueve datos entre herramientas (Zapier, Make o n8n) y un modelo de lenguaje (de OpenAI, Anthropic o Google) que se llama solo en los pasos que necesitan leer o redactar texto. Con eso se resuelve la mayoría de procesos sin programar. El desarrollo a medida entra cuando el proceso es propio, el volumen es alto o los errores salen caros.
+
+Si aún no sabes qué proceso automatizar, empieza por [por dónde empezar a automatizar procesos con IA](/blog/automatizar-procesos-con-ia-por-donde-empezar) o por los [doce ejemplos para una pyme](/blog/ejemplos-automatizacion-procesos-con-ia). La herramienta se elige después.
+
+## Las cinco familias de herramientas
+
+### 1. Asistentes de IA para el puesto de trabajo
+
+ChatGPT, Claude, Gemini o Copilot usados directamente por cada persona: redactar un correo, resumir un documento, preparar una tabla. Son útiles y baratos, y conviene que el equipo los use.
+
+Pero no automatizan procesos. Ayudan a una persona a hacer más rápido su parte, y el proceso sigue dependiendo de que esa persona se acuerde, abra la herramienta y copie el resultado en otro sitio. Si el objetivo es que algo pase solo cada vez que llega un formulario o una factura, esta familia no basta.
+
+Lo que sí hacen bien es servir de laboratorio: probar a mano qué instrucciones dan buen resultado antes de meterlas en un proceso automático.
+
+### 2. CRM y plataformas con automatización incluida
+
+GoHighLevel, HubSpot y similares. Guardan contactos, conversaciones y oportunidades, y traen motores de automatización propios: cuando entra un contacto, crear la ficha, asignarla, enviar el mensaje, programar el recordatorio. Varios incluyen ya funciones de IA para redactar respuestas o atender conversaciones.
+
+Para procesos comerciales y de atención, suele ser la pieza central. La razón es práctica: si los contactos no están en un único sitio, ninguna automatización va a ser fiable. Lo contamos en [integrar GoHighLevel con tu stack](/blog/integrar-gohighlevel-con-tu-stack) y en [migrar de HubSpot a GoHighLevel](/blog/migrar-de-hubspot-a-gohighlevel-sin-perder-historico).
+
+### 3. Conectores entre herramientas
+
+Zapier, Make y n8n. Sirven para que herramientas que no se hablan intercambien datos: cuando llega un correo con factura, leerla, crear el registro en el programa de contabilidad y avisar en el canal del equipo. Todos tienen pasos que llaman a modelos de IA para clasificar, extraer o redactar.
+
+Las diferencias que importan en una pyme:
+
+- **Zapier** es el más fácil de empezar y el que más integraciones tiene. Cobra por cada tarea ejecutada, así que con volumen alto se encarece.
+- **Make** permite flujos más complejos con ramas y bucles a menor coste por operación, a cambio de una curva de aprendizaje algo mayor.
+- **n8n** se puede alojar en un servidor propio, lo que da control sobre los datos y coste fijo, pero alguien tiene que mantener ese servidor.
+
+Para un proceso que cruza tres o cuatro herramientas y se ejecuta unas decenas de veces al día, cualquiera de los tres sirve. La elección la marcan el volumen, quién lo va a mantener y dónde deben estar los datos.
+
+### 4. Modelos de IA por API
+
+Los mismos modelos de OpenAI, Anthropic o Google, pero llamados desde otro sistema en lugar de desde el chat. Es la pieza que lee el correo y decide qué pide, extrae los campos de un PDF o redacta la respuesta a medida. Se paga por uso, y en los volúmenes de una pyme el coste suele ser pequeño al lado del resto.
+
+Casi nunca se usan solos: van dentro de un flujo del conector, del CRM o de un desarrollo propio. Lo importante al elegir no es tanto qué modelo es mejor en abstracto, sino que el proveedor ofrezca condiciones de tratamiento de datos que encajen con el RGPD y que el flujo esté preparado para cuando el modelo se equivoque. Lo explicamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
+
+### 5. Agentes y desarrollo a medida
+
+Sistemas que no siguen un flujo fijo, sino que reciben un objetivo, consultan varias fuentes y deciden qué paso dar, normalmente con una persona aprobando lo importante. Y, más en general, software propio para procesos que ninguna herramienta estándar resuelve.
+
+Es la familia más potente y la más cara de construir y mantener. Tiene sentido cuando el proceso es lo que te diferencia, cuando el volumen hace que las herramientas por uso salgan más caras que construir, o cuando los errores tienen consecuencias que exigen validaciones propias. Cuándo compensa lo contamos en [agentes de IA para empresas](/blog/agentes-de-ia-para-empresas-cuando-compensan), en [desarrollo a medida con IA](/blog/desarrollo-a-medida-con-ia-cuando-construir) y, con ejemplos y precios, en [proyectos de IA a medida](/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio).
+
+## Qué combinación encaja en cada caso
+
+Tres situaciones que se repiten y la combinación que mejor les suele ir:
+
+**Captación y seguimiento comercial.** CRM con automatización incluida como pieza central, IA dentro del propio CRM o por API para cualificar y responder mensajes en texto libre. Un conector solo si hay que traer datos de herramientas que el CRM no integra.
+
+**Tareas administrativas entre herramientas.** Facturas, pedidos, altas de clientes que hay que pasar de un sistema a otro. Un conector con un paso de IA para leer los documentos y una revisión humana de lo que no cuadra.
+
+**Un proceso propio con mucho volumen.** Desarrollo a medida, con la IA por API y el CRM como fuente de datos. Empieza por un piloto con el conector para validar la lógica antes de construir.
+
+## Los cuatro errores al elegir herramienta
+
+**Elegir la herramienta antes que el proceso.** Es el más común. Se contrata una plataforma porque alguien la vio en una demo y después se busca qué automatizar con ella.
+
+**Meter IA donde basta una regla.** Si la decisión se puede escribir como "si pasa esto, haz aquello", una regla es más barata, más rápida y más predecible que un modelo.
+
+**Construir sobre datos dispersos.** Un conector que lee de cuatro hojas de cálculo distintas se rompe cada vez que alguien cambia una columna. Primero se centraliza, después se automatiza.
+
+**Olvidar quién lo mantiene.** Toda automatización necesita a alguien que reciba un aviso cuando falla y sepa arreglarla. Si esa persona no existe, el flujo funcionará hasta el primer cambio en una de las herramientas y después nadie sabrá por qué dejó de hacerlo.
+
+## Preguntas frecuentes
+
+### ¿Qué herramienta de IA es mejor para automatizar procesos?
+
+No hay una sola. La mayoría de procesos combinan un CRM donde vive la información, un conector como Zapier, Make o n8n que mueve los datos y un modelo de lenguaje que se usa solo donde hay que leer o redactar texto. La combinación depende del proceso, el volumen y quién lo va a mantener.
+
+### ¿Se pueden automatizar procesos con IA sin programar?
+
+Sí, en buena parte. Los CRM con automatización incluida y los conectores permiten montar flujos con pasos de IA sin escribir código. Hace falta programar cuando el proceso tiene muchas excepciones, el volumen es alto o se necesitan validaciones propias.
+
+### ¿Zapier, Make o n8n?
+
+Zapier es el más fácil y el que más integraciones tiene, pero cobra por tarea. Make permite flujos más complejos con menor coste por operación. n8n se puede alojar en un servidor propio, con más control sobre los datos y coste fijo, a cambio de mantenerlo.
+
+### ¿Usar ChatGPT en la empresa ya es automatizar?
+
+No. Los asistentes ayudan a cada persona a hacer más rápido su parte, pero el proceso sigue dependiendo de que alguien abra la herramienta y copie el resultado. Automatizar es que el proceso se ejecute solo cada vez que ocurre el disparador.
+
+### ¿Por dónde empiezo?
+
+Por el proceso, no por la herramienta. Si quieres que lo miremos juntos, el [diagnóstico](/diagnostico) son 30 minutos y sale de ahí qué automatizar primero y con qué piezas, con o sin nosotros.

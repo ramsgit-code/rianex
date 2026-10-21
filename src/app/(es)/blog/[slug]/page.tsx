@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { BlogPostContent } from "./BlogPostContent";
-import { getAllPosts, getPost } from "@/lib/blog";
+import { getAllPosts, getPost, getPostFaqs } from "@/lib/blog";
 
 const SITE_URL = "https://www.rianex.es";
 
@@ -36,6 +36,7 @@ export async function generateMetadata({
       description: post.description,
       url: `${SITE_URL}${url}`,
       publishedTime: post.publishedAt.toISOString(),
+      modifiedTime: post.updatedAt.toISOString(),
       authors: [post.author],
       tags: post.tags,
       images: [image],
@@ -61,7 +62,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     description: post.description,
     image: `${SITE_URL}/og/blog/${post.slug}`,
     datePublished: post.publishedAt.toISOString(),
-    dateModified: post.publishedAt.toISOString(),
+    dateModified: post.updatedAt.toISOString(),
     author: { "@type": "Person", name: post.author },
     publisher: { "@type": "Organization", name: "Rianex", url: SITE_URL },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
@@ -69,9 +70,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     inLanguage: "es-ES",
   };
 
+  const faqs = getPostFaqs(post);
+  const faqJsonLd = faqs.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      }
+    : null;
+
   return (
     <>
       <JsonLd data={articleJsonLd} />
+      {faqJsonLd && <JsonLd data={faqJsonLd} />}
       <BlogPostContent
         post={{
           title: post.title,

@@ -75,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Los articulos solo existen en castellano, asi que van sin hreflang.
   const blogPages = getAllPosts().map((p) => ({
     url: `${BASE_URL}/blog/${p.slug}`,
-    lastModified: p.publishedAt,
+    lastModified: p.updatedAt,
     changeFrequency: "yearly" as const,
     priority: 0.6,
   }));

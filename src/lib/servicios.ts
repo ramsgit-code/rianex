@@ -49,6 +49,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     posts: [
       "automatizar-procesos-con-ia-por-donde-empezar",
       "ejemplos-automatizacion-procesos-con-ia",
+      "herramientas-ia-para-automatizar-procesos",
       "cuanto-cuesta-automatizar-un-proceso-con-ia",
       "rgpd-y-automatizacion-con-ia",
     ],
@@ -313,7 +314,10 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "desarrollo-ia-a-medida": {
-    posts: ["desarrollo-a-medida-con-ia-cuando-construir"],
+    posts: [
+      "desarrollo-a-medida-con-ia-cuando-construir",
+      "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
+    ],
     es: {
       seoTitle: "Desarrollo de software a medida con IA",
       metaDescription:
@@ -576,6 +580,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     posts: [
       "como-cualificar-leads-automaticamente",
       "whatsapp-automatizacion-ventas",
+      "cross-selling-por-whatsapp",
       "automatizacion-para-clinicas-captacion-y-agenda",
     ],
     es: {
