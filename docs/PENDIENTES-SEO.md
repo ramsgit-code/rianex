@@ -28,12 +28,9 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       y pedirle a Philippe que borre el suyo.
 - [ ] **Foto en alta**: la de LinkedIn solo se puede bajar a 200×200. Si
       quieres una más grande en `/sobre-mi`, pásame el original.
-- [ ] **Perfiles fuera de la web**: página de empresa en LinkedIn, Google
+- [ ] **Perfiles fuera de la web**: Google
       Business Profile (Ávila), directorio de partners de HighLevel, Clutch o
       Sortlist. Mismo nombre, descripción y URL en todos.
-- [ ] **Página de empresa de Rianex en LinkedIn**: crearla (pasos en la
-      conversación del 5 de octubre) y pasarme la URL para meterla en el
-      `sameAs` de `Organization`.
 - [ ] **Enlaces de clientes**: pedir a Hospital Capilar, EB y Growth4U un
       enlace "sistema implementado por Rianex" a la web.
 - [ ] **Después de cada despliegue con URLs nuevas**: `npm run indexnow`.
@@ -107,6 +104,10 @@ Por orden de impacto:
   Testimonios en la base: "GoHighLevel" en el de Xavi, Philippe como Growth
   Manager de Growth4U y traducciones al inglés corregidas.
 - 2026-10-03 · Site Scan de Bing: 0 errores, 0 avisos, 0 notas.
+- 2026-10-21 · PR #PRNUM · Botón "Sigue a Rianex en LinkedIn" en el pie de
+  todas las páginas (castellano e inglés), enlazado a
+  linkedin.com/company/rianex, y la página en el `sameAs` del schema
+  `ProfessionalService` de la home.
 - 2026-10-03 · PR #14 · Cifras de "Qué hacemos" en la home sustituidas
   por datos con respaldo: resultados de los casos publicados (Eventos
   Barcelona, Hospital Capilar) y plazos y método reales. La etiqueta pasa de

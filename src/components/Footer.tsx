@@ -3,8 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Linkedin, Mail } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
+import { RIANEX_LINKEDIN } from "@/lib/seo";
 
 const EMAIL = "hola@rianex.es";
 
@@ -39,13 +40,22 @@ export function Footer() {
                 <ArrowUpRight size={16} />
               </Link>
             )}
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
               <a
                 href={`mailto:${EMAIL}`}
                 className="inline-flex items-center gap-2 text-sm text-foreground-muted transition-colors hover:text-accent-text"
               >
                 <Mail size={15} className="text-accent-text" />
                 {EMAIL}
+              </a>
+              <a
+                href={RIANEX_LINKEDIN}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-foreground-muted transition-colors hover:text-accent-text"
+              >
+                <Linkedin size={15} className="text-accent-text" />
+                {lang === "en" ? "Follow Rianex on LinkedIn" : "Sigue a Rianex en LinkedIn"}
               </a>
             </div>
           </div>
