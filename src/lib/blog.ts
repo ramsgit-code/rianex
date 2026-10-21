@@ -23,6 +23,8 @@ export type BlogPost = {
   author: string;
   linkPolicy: LinkPolicy;
   publishedAt: Date;
+  /** Igual a publishedAt si el articulo no se ha revisado. */
+  updatedAt: Date;
 };
 
 let cache: BlogPost[] | null = null;
@@ -50,6 +52,7 @@ export function getAllPosts(): BlogPost[] {
       author: frontmatter.author,
       linkPolicy: frontmatter.linkPolicy,
       publishedAt: new Date(`${frontmatter.date}T00:00:00Z`),
+      updatedAt: new Date(`${frontmatter.updated ?? frontmatter.date}T00:00:00Z`),
     }))
     .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 
@@ -59,4 +62,29 @@ export function getAllPosts(): BlogPost[] {
 
 export function getPost(slug: string): BlogPost | null {
   return getAllPosts().find((p) => p.slug === slug) ?? null;
+}
+
+/**
+ * Preguntas de la seccion "## Preguntas frecuentes" (cada una un "###"), para
+ * el FAQPage del articulo. Los enlaces se quedan en texto: el schema no los
+ * necesita y Google muestra la respuesta sin formato.
+ */
+export function getPostFaqs(post: BlogPost): { q: string; a: string }[] {
+  const section = post.content.split(/^## Preguntas frecuentes\s*$/m)[1];
+  if (!section) return [];
+  const body = section.split(/^## /m)[0];
+  return body
+    .split(/^### /m)
+    .slice(1)
+    .map((block) => {
+      const [q, ...rest] = block.split("\n");
+      const a = rest
+        .join(" ")
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+        .replace(/\*\*/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+      return { q: q.trim(), a };
+    })
+    .filter((f) => f.q && f.a);
 }

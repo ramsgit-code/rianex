@@ -44,6 +44,12 @@ export const blogFrontmatterSchema = z.object({
     .min(70, "La meta description se queda corta: minimo 70 caracteres")
     .max(165, "La meta description se corta pasados 165 caracteres"),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "La fecha debe ser AAAA-MM-DD"),
+  // Ultima revision de fondo. Va a dateModified y al lastmod del sitemap; un
+  // retoque de erratas no cuenta como actualizacion.
+  updated: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, "La fecha de actualizacion debe ser AAAA-MM-DD")
+    .optional(),
   tags: z.array(z.string()).min(1, "Al menos una etiqueta"),
   cluster: z.enum(Object.keys(CLUSTERS) as [Cluster, ...Cluster[]]),
   author: z.enum(AUTHORS).default("Ramiro Pérez Rodero"),

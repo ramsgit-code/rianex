@@ -5,10 +5,11 @@ asistentes de IA (ChatGPT, Perplexity, Claude, AI Overviews). Se actualiza
 cada vez que se cierra o aparece algo: lo terminado baja a **Hecho** con la
 fecha y el PR.
 
-Origen: auditoría del 2 de octubre de 2026. Último repaso: 12 de octubre
-(Search Console: 54 páginas indexadas, 3 descubiertas sin indexar, 206
-impresiones y 1 clic en tres meses; posición media 70,8, casi todo por
-"automatización de procesos con IA").
+Origen: auditoría del 2 de octubre de 2026. Último repaso: 21 de octubre
+(Search Console, 28 días: 58 páginas indexadas, solo 2 sin indexar y son
+redirecciones; 488 impresiones, 2 clics, posición media 71,4. El 54% de las
+impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
+`generate_lead` todavía, un `form_start`).
 
 ## Para Ramiro (requieren login o una decisión)
 
@@ -47,6 +48,8 @@ Por orden de impacto:
       con ese tono de primera persona de antes. Revisar los tres artículos de
       abril (cualificar leads, propuestas, WhatsApp) con el mismo criterio que
       la home.
+- [ ] **Revisar en noviembre** si el title nuevo de "por dónde empezar"
+      mejora el CTR (264 impresiones y 0 clics a 21 de octubre).
 - [ ] **Schema**: `BreadcrumbList` en las páginas que aún no lo llevan (ya
       está en las de servicio).
 - [ ] **JSON-LD en las páginas que no tienen**: casos de éxito, soluciones,
@@ -62,6 +65,18 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-21 · PR #21 · Tres artículos nuevos para consultas que ya
+  asomaban en Search Console: "Proyectos de IA a medida: ejemplos, plazos y
+  precio" (`desarrollo software ia a medida`, `proyectos de ia a medida`),
+  "Cross-selling por WhatsApp" (`cross selling whatsapp`) e "IA para
+  automatizar procesos: qué herramientas usar" (`ia para automatizar
+  procesos`). "Por dónde empezar" reforzado para "automatización de procesos
+  con IA": title con la consulta, respuesta corta, FAQ y enlaces a los
+  nuevos. Código: campo `updated` en el frontmatter (va a `dateModified` y
+  al lastmod del sitemap) y `FAQPage` automático desde la sección
+  "Preguntas frecuentes" de cada artículo. Enlazados desde las páginas de
+  servicio y desde los artículos vecinos.
 
 - 2026-10-12 · GA4 vinculado con Search Console (lo hizo Ramiro). Los
   informes de búsqueda orgánica de GA4 tardan uno o dos días en llenarse.
