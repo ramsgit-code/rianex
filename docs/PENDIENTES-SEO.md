@@ -104,7 +104,7 @@ Por orden de impacto:
   Testimonios en la base: "GoHighLevel" en el de Xavi, Philippe como Growth
   Manager de Growth4U y traducciones al inglés corregidas.
 - 2026-10-03 · Site Scan de Bing: 0 errores, 0 avisos, 0 notas.
-- 2026-10-23 · PR #PRNUM · Cuatro artículos nuevos enlazados entre sí y con
+- 2026-10-23 · PR #23 · Cuatro artículos nuevos enlazados entre sí y con
   el pilar "por dónde empezar": medir un proceso antes de automatizarlo,
   propuestas para licitaciones con IA, automatizar la recepción de una
   clínica y qué es GoHighLevel (elegidos por consultas reales de GSC sin
