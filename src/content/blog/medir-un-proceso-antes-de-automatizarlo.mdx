@@ -1,0 +1,164 @@
+---
+title: "Medir un proceso antes de automatizarlo y saber si ha funcionado"
+description: "Cómo sacar volumen, tiempo y fuga de un proceso en una semana sin herramientas, pasarlo a dinero y comparar a 30, 60 y 90 días si la automatización ha funcionado."
+date: "2026-10-23"
+tags: ["automatización", "procesos", "roi", "medición", "ia"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+En una planta nadie toca una línea sin haberla medido antes. Se cronometra, se cuentan las piezas buenas y las malas, se cambia algo y se vuelve a medir. Si no, no hay forma de saber si el cambio ha servido.
+
+En la oficina de una pyme pasa lo contrario. Se automatiza un proceso, alguien dice que "ahora va mejor" y tres meses después nadie sabe si es verdad.
+
+Este artículo desarrolla el paso que en la guía de [por dónde empezar a automatizar procesos con IA](/blog/automatizar-procesos-con-ia-por-donde-empezar) resumimos en una línea: medir volumen, tiempo y fuga antes de tocar nada.
+
+## La respuesta corta
+
+Para medir un proceso antes de automatizarlo bastan tres números: volumen (cuántas veces ocurre), tiempo (cuánto cuesta cada una) y fuga (cuántas se pierden y dónde). Se sacan en una semana sin herramientas: contando en el CRM, la bandeja o WhatsApp, y cronometrando diez casos reales. Con ellos calculas cuánto vale el proceso en horas y en dinero. Después repites la medición a 30, 60 y 90 días con las mismas reglas, y vigilas dos indicadores adelantados: tiempo de primera respuesta y porcentaje de contactos con seguimiento.
+
+## Por qué medir antes y no después
+
+Medir después sin línea base no sirve. Puedes saber que hoy contestas en dos horas, pero si no sabes cuánto tardabas antes, no puedes decir que has mejorado.
+
+Además, medir obliga a definir el proceso: para contar cuántas consultas se pierden tienes que decidir qué cuenta como "perdida".
+
+No hace falta precisión de laboratorio. Hace falta que el número de antes y el de después se saquen igual.
+
+## Cómo sacar cada número en una semana
+
+Basta una hoja de cálculo y un cronómetro.
+
+### Volumen: contar lo que ya está registrado
+
+El volumen casi siempre está escrito en algún sitio, aunque repartido:
+
+- **CRM**: filtra los contactos creados en las últimas cuatro semanas.
+- **Bandeja de correo**: busca por el asunto del formulario web o por la dirección de contacto.
+- **WhatsApp**: cuenta conversaciones nuevas por día.
+- **Teléfono**: el registro de llamadas recibidas del móvil o la centralita.
+
+Suma los canales. Suele entrar más de lo que se creía, porque cada persona solo ve el suyo.
+
+### Tiempo: cronometrar diez casos
+
+No preguntes cuánto se tarda: cronométralo. La estimación de quien hace la tarea suele quedarse corta porque no cuenta interrupciones ni búsquedas.
+
+Elige diez casos normales, ni los más fáciles ni los más raros. Mide desde que llega el contacto hasta que queda contestado, agendado o enviado, y apunta aparte el tiempo de espera. Una propuesta puede llevar cuarenta minutos de trabajo y tardar dos días en salir.
+
+Diez casos bastan para tener un orden de magnitud. Si salen muy dispersos, mide diez más.
+
+### Fuga: muestrear y seguir el rastro
+
+Para la fuga no hace falta revisar todo. Coge una muestra: los últimos 30 o 50 contactos que entraron hace al menos tres semanas, para darles tiempo a avanzar. De cada uno, apunta en qué punto está hoy.
+
+## Dónde se esconde la fuga
+
+La fuga casi nunca es un contacto rechazado. Es un contacto olvidado. Al revisar la muestra, cada uno cae en una de estas tres categorías:
+
+**Sin respuesta.** Nadie le contestó. Mensajes fuera de horario, en un canal que nadie mira o en la bandeja de alguien de vacaciones.
+
+**Respuesta tarde.** Le contestaron, pero cuando ya había resuelto con otro. Para saberlo, compara la hora de entrada con la de la primera respuesta.
+
+**Sin seguimiento.** Le contestaron a tiempo, dijo "lo miro y te digo" y nadie volvió a escribirle. Es la fuga más grande y la más invisible, porque en el registro aparece como atendido.
+
+Cada una se arregla con algo distinto. La primera, centralizando canales. La segunda, con una respuesta automática que acuse recibo y cualifique, como contamos en [cómo cualificar leads automáticamente](/blog/como-cualificar-leads-automaticamente). La tercera, con recordatorios y secuencias de seguimiento.
+
+## Un ejemplo con números redondos
+
+Esto es un ejemplo hipotético para ilustrar el cálculo, no un caso real.
+
+Pongamos una clínica que recibe 120 consultas al mes entre web, WhatsApp y teléfono. Cronometrando diez casos, cada consulta lleva unos 6 minutos de trabajo entre contestar, resolver dudas y agendar. Al revisar una muestra, el 30% de las consultas se pierde: unas sin respuesta, otras contestadas al día siguiente, otras sin seguimiento después del primer mensaje. Eso son 36 consultas al mes.
+
+De las consultas que sí se atienden bien, pongamos que el 40% acaba en cita, y que cada cita vale de media 150 euros.
+
+Las cuentas:
+
+- **Tiempo**: 120 × 6 minutos = 12 horas al mes. A un coste real de 25 euros la hora, 300 euros al mes.
+- **Fuga**: 36 consultas perdidas × 40% × 150 euros = 2.160 euros al mes que no entran.
+
+El tiempo es lo que la clínica nota. La fuga es lo que le cuesta. Si quieres ver cómo se aplica esto a una recepción concreta, lo desarrollamos en [automatizar la recepción de una clínica](/blog/automatizar-recepcion-clinica).
+
+## La fórmula para pasarlo a dinero
+
+Valor mensual del proceso = (horas ahorradas × coste real por hora) + (contactos recuperados × tasa de conversión × ticket medio).
+
+Dos advertencias:
+
+- **Coste real por hora** es lo que esa persona le cuesta a la empresa, no su sueldo bruto dividido entre horas.
+- **Contactos recuperados** no son todos los que se fugaban. Sé conservador: asume que recuperas la mitad y comprueba después.
+
+Con ese número ya puedes compararlo con lo que costaría automatizar. El desglose del coste lo tienes en [cuánto cuesta automatizar un proceso con IA](/blog/cuanto-cuesta-automatizar-un-proceso-con-ia), y si prefieres hacer la cuenta de la fuga sin hoja de cálculo, está la [calculadora de fuga de leads](/herramientas/calculadora-fuga-de-leads).
+
+## Antes y después: 30, 60 y 90 días
+
+Una vez implantado, repite la medición con las mismas reglas: mismos canales, misma definición de "perdido", mismo tamaño de muestra.
+
+**A 30 días** mira si el sistema funciona: si los contactos entran donde deben y las respuestas salen. El negocio todavía es ruido.
+
+**A 60 días** los indicadores adelantados ya deberían haberse movido con claridad.
+
+**A 90 días** compara volumen, tiempo y fuga con la línea base. Es el primer momento en que tiene sentido hablar de retorno.
+
+Si en esos meses cambia algo grande, como una campaña o una temporada alta, apúntalo para no atribuírselo a la automatización.
+
+## Los indicadores que se mueven primero
+
+La facturación tarda en reflejar una mejora. Hay dos números que se mueven en días y que anticipan el resto:
+
+- **Tiempo de primera respuesta**: desde que entra el contacto hasta que recibe una respuesta útil, no un acuse automático vacío.
+- **Porcentaje de contactos con seguimiento**: cuántos de los que no cerraron en el primer contacto recibieron al menos un segundo mensaje.
+
+En [Eventos Barcelona](/casos-de-exito/eventos-barcelona) el número que había que mover era el tiempo de respuesta. Antes, cada propuesta tardaba entre uno y tres días en salir después de la llamada con el cliente. Con el sistema, sale en unos ocho minutos, y el tiempo de respuesta al cliente bajó un 85%. Se pudo afirmar porque el tiempo de antes estaba medido. Lo contamos con más detalle en [propuestas y licitaciones con IA](/blog/propuestas-licitaciones-con-ia).
+
+## Plantilla para medir tu proceso
+
+Cópiala en una hoja de cálculo y rellena la columna de línea base esta semana.
+
+| Indicador | Cómo se obtiene | Línea base | 30 días | 60 días | 90 días |
+| --- | --- | --- | --- | --- | --- |
+| Volumen mensual | Contar entradas en CRM, bandeja, WhatsApp y teléfono | | | | |
+| Tiempo de trabajo por caso | Cronometrar 10 casos normales | | | | |
+| Tiempo de primera respuesta | Hora de entrada frente a hora de primera respuesta útil, en la muestra | | | | |
+| % sin respuesta | Muestra de 30 a 50 contactos con tres semanas de antigüedad | | | | |
+| % con seguimiento | Misma muestra: cuántos recibieron un segundo mensaje | | | | |
+| Fuga total | Sin respuesta + respuesta tarde + sin seguimiento | | | | |
+| Conversión | Contactos que acaban en venta o cita | | | | |
+| Valor mensual estimado | Fórmula de arriba | | | | |
+
+## Errores habituales al medir
+
+**Estimar en vez de contar.** "Nos entran unas cincuenta a la semana" casi nunca coincide con lo que dice el registro.
+
+**Cambiar la definición entre medidas.** Si antes "perdido" era no contestar en una semana y después es no contestar en 24 horas, la comparación no vale.
+
+**Medir solo el tiempo ahorrado.** Es lo fácil de contar y lo que menos pesa en un proceso comercial.
+
+**Elegir los casos fáciles para cronometrar.** Salen tiempos bonitos que no se parecen al día a día.
+
+**Medir una sola vez después.** Un mes bueno no demuestra nada. Tres puntos seguidos sí.
+
+## Preguntas frecuentes
+
+### ¿Cómo se mide un proceso de una empresa?
+
+Con tres números: cuántas veces ocurre, cuánto tiempo lleva cada vez y cuántas veces se pierde por el camino. Se cuentan en los registros que ya existen (CRM, correo, WhatsApp), se cronometran diez casos reales y se revisa una muestra de 30 a 50 casos para ver dónde se quedan.
+
+### ¿Cómo se calcula el ROI de una automatización?
+
+Suma las horas ahorradas por su coste real y los contactos recuperados por tu tasa de conversión y tu ticket medio. Ese valor mensual, comparado con lo que cuesta implantar y mantener la automatización, te da el retorno. En procesos comerciales, la parte de la fuga suele pesar mucho más que la del tiempo.
+
+### ¿Cuánto tiempo hay que esperar para saber si una automatización funciona?
+
+Los indicadores adelantados, como el tiempo de primera respuesta, se mueven en días. Para hablar de resultado de negocio conviene esperar a los 90 días y comparar con la línea base medida igual que antes.
+
+### ¿De verdad funciona la mejora de procesos con IA en una pyme?
+
+Funciona cuando se aplica a un proceso que ocurre a menudo, tiene reglas claras y se ha medido antes. Sin medición previa, ni a favor ni en contra se puede afirmar nada. Tienes casos concretos en [ejemplos de automatización de procesos con IA](/blog/ejemplos-automatizacion-procesos-con-ia).
+
+### ¿Necesito una herramienta para medir antes de automatizar?
+
+No. Con una hoja de cálculo, el historial que ya tienes y una semana de atención basta.
+
+Si quieres que te ayudemos a sacar la línea base de tu proceso y a decidir qué automatizar, mira cómo trabajamos en [automatización de procesos con IA](/servicios/automatizacion-procesos-ia) o reserva el [diagnóstico](/diagnostico): 30 minutos y sales con los números y una lista concreta.

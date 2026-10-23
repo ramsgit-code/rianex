@@ -4,6 +4,7 @@ import { Capabilities } from "@/components/sections/Capabilities";
 import { Process } from "@/components/sections/Process";
 import { Pricing } from "@/components/sections/Pricing";
 import { Faq } from "@/components/sections/Faq";
+import { Guias } from "@/components/sections/Guias";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { JsonLd } from "@/components/JsonLd";
@@ -101,6 +102,7 @@ export default async function Home() {
       <div className="hidden sm:block">
         <Process />
       </div>
+      <Guias />
       <Faq />
     </>
   );

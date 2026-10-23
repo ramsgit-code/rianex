@@ -1,0 +1,113 @@
+---
+title: "Propuestas para licitaciones con IA: qué automatizar y qué no"
+description: "Qué partes de una licitación puede preparar la IA (requisitos, checklist, memoria técnica, plazos) y cuáles deben quedarse en manos de una persona."
+date: "2026-10-23"
+tags: ["licitaciones", "propuestas", "ia", "sector público"]
+cluster: "desarrollo-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Preparar una licitación pública tiene poco de escribir y mucho de leer. Un pliego de cuarenta páginas, un anexo técnico de otras sesenta, un modelo de oferta, una lista de documentos que hay que presentar en un orden y un formato concretos. Y todo con una fecha límite que no se mueve.
+
+El cuello de botella no es redactar, es no saltarse nada.
+
+Por eso la pregunta útil no es si la IA puede escribir una propuesta para una licitación. Puede. La pregunta es qué partes conviene dejarle y cuáles no debería tocar nunca.
+
+## La respuesta corta
+
+La IA sirve para preparar licitaciones en las partes que consisten en leer y ordenar: extraer del pliego los requisitos de solvencia, los criterios de valoración y los plazos, montar una checklist de cumplimiento, buscar en proyectos anteriores las fichas y respuestas reutilizables y redactar un primer borrador de la memoria técnica. Lo que no debe decidir es la oferta económica, los compromisos que asume la empresa ni la firma. Un generador de propuestas para licitaciones acelera el trabajo y reduce olvidos, pero siempre termina en revisión humana.
+
+## Qué implica responder a una licitación
+
+Para ver dónde encaja la IA, primero hay que separar el trabajo en partes. Una respuesta a un concurso público suele incluir cinco bloques:
+
+- **Lectura de los pliegos.** El de cláusulas administrativas y el de prescripciones técnicas.
+- **Requisitos de solvencia.** Económica y técnica. Facturación mínima, experiencia acreditada, certificados, equipo.
+- **Memoria técnica.** El documento donde se explica cómo se va a ejecutar el contrato. Suele ser la parte que se valora con juicio de valor.
+- **Oferta económica.** El precio y, a veces, mejoras cuantificables que puntúan por fórmula.
+- **Documentación administrativa.** Declaraciones responsables, poderes, certificados de estar al corriente y el resto de papeles que exige cada procedimiento.
+
+Cada bloque tiene un riesgo distinto. Un error en la memoria resta puntos. Un error en la documentación administrativa puede dejarte fuera antes de que nadie lea la memoria. Un error en la oferta económica puede hacerte ganar un contrato que pierde dinero.
+
+## Dónde ayuda la IA de verdad
+
+**Extraer requisitos y criterios del pliego.** Es la tarea donde más tiempo se ahorra. Un modelo puede leer los pliegos y devolver una lista estructurada: qué solvencia se pide, qué criterios puntúan y cuánto pesa cada uno, qué documentos hay que aportar, en qué sobre va cada cosa y qué fechas hay. Es texto desestructurado convertido en datos, que es justo donde la IA aporta y una regla no llega.
+
+**Montar la checklist de cumplimiento.** Con esa lista, el sistema genera una checklist por licitación: cada requisito, quién se encarga, si está cubierto y con qué documento. En lo que vemos, la mayoría de exclusiones no vienen de una memoria floja sino de un papel que faltaba o estaba caducado.
+
+**Reutilizar una biblioteca de respuestas.** Las empresas que licitan a menudo responden muchas veces a lo mismo: descripción de la metodología, plan de calidad, medios humanos, proyectos similares. Si esas respuestas y las fichas de proyectos anteriores están ordenadas, la IA puede proponer cuáles encajan con cada criterio del pliego nuevo.
+
+**Redactar el borrador de la memoria técnica.** Con los criterios de valoración, la biblioteca y unas notas del equipo técnico, un modelo puede escribir un primer borrador estructurado según lo que el pliego pide, en el orden en que lo pide. No es la versión final. Es el punto de partida.
+
+**Controlar plazos.** Fecha de presentación, plazo de consultas, subsanaciones, aperturas. Esto no necesita IA: necesita automatización clásica que avise a tiempo. Pero se alimenta de las fechas que la IA ha extraído del pliego.
+
+## Dónde la IA no debe decidir
+
+**La oferta económica.** El precio depende de costes reales, margen, riesgo y estrategia comercial. Un modelo no conoce nada de eso con la fiabilidad necesaria. Puede calcular la puntuación que obtendría cada precio según la fórmula del pliego, que es una ayuda útil, pero la cifra la decide una persona.
+
+**Los compromisos.** Plazos de ejecución, mejoras ofertadas, medios adscritos al contrato. Todo lo que se escribe en una oferta obliga a la empresa si gana. Un borrador generado puede prometer algo que nadie ha validado, y eso se paga durante toda la vida del contrato.
+
+**La firma y la presentación.** La responsabilidad de lo que se presenta es de la empresa y de quien firma. La revisión humana no es un paso opcional del proceso: es el proceso.
+
+**La confidencialidad.** Los pliegos son públicos, pero tu documentación no: cuentas, datos del equipo, CV, precios de proveedores, información de clientes en las fichas de proyecto. Hay que saber dónde se procesa todo eso, qué proveedor de IA lo ve y con qué condiciones. Lo explicamos con más detalle en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
+
+| Tarea | Quién la hace | Por qué |
+| --- | --- | --- |
+| Extraer requisitos, criterios y fechas del pliego | IA, con revisión | Lectura de texto largo y desestructurado |
+| Checklist de cumplimiento | Automatización | Reglas fijas una vez extraídos los requisitos |
+| Proponer respuestas y fichas reutilizables | IA | Búsqueda por significado en la biblioteca |
+| Borrador de memoria técnica | IA, con revisión | Redacción a partir de material propio |
+| Avisos de plazos | Automatización | No necesita criterio |
+| Oferta económica | Persona | Depende de costes, margen y estrategia |
+| Compromisos, mejoras y firma | Persona | Obligan a la empresa si gana |
+
+## Licitaciones y propuestas comerciales: el mismo sistema
+
+Una licitación y una propuesta comercial parecen mundos distintos. Una tiene pliegos, plataforma pública y procedimiento reglado. La otra, un cliente que pide presupuesto después de una llamada.
+
+Por debajo, el sistema es el mismo:
+
+1. **Intake estructurado.** Recoger la información de entrada en campos, no en notas sueltas.
+2. **Plantilla.** Una estructura fija que refleja lo que el destinatario espera ver.
+3. **Generación.** Rellenar la plantilla con datos y texto redactado a partir de material propio.
+4. **Revisión.** Una persona valida antes de enviar.
+5. **Seguimiento.** Estados, avisos y recordatorios hasta que hay respuesta.
+
+En propuestas comerciales lo implantamos en [Eventos Barcelona](/casos-de-exito/eventos-barcelona). Antes, cada propuesta tardaba entre uno y tres días. Ahora el comercial rellena un formulario en GoHighLevel en tres a cinco minutos después de la llamada, y el sistema genera una propuesta web con su marca y un PDF, que sale en unos sesenta segundos. En total, unos ocho minutos desde que cuelga. Después, el seguimiento es automático: recordatorio si no la han abierto en 48 horas y aviso al comercial si la han abierto y no hay respuesta en 72. El tiempo de respuesta al cliente bajó un 85%. El proceso completo está en [cómo hacemos propuestas comerciales en 8 minutos](/blog/propuestas-comerciales-automaticas).
+
+En una licitación cambian las piezas. El intake no es un formulario tras una llamada, es el propio pliego, y la IA hace la extracción. La plantilla la marca el órgano de contratación. La revisión pesa mucho más, porque hay más en juego y menos margen para corregir. Pero la lógica es la misma, y por eso tiene sentido construirlo como un único [generador de propuestas](/servicios/generador-de-propuestas) que cubra ambos casos.
+
+## Por dónde empezar
+
+Si tu empresa se presenta a concursos con frecuencia, el primer paso no es la IA. Es ordenar la biblioteca: respuestas que ya funcionaron, fichas de proyectos con datos verificados, certificados con su fecha de caducidad. Sin eso, la IA no tiene de dónde sacar nada fiable y tenderá a rellenar con texto genérico.
+
+El segundo paso es medir cuánto tarda hoy una licitación de principio a fin y dónde se va el tiempo. Lo explicamos en [cómo medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo). Si no sabes si estás en el momento de automatizar, la guía de [por dónde empezar a automatizar procesos con IA](/blog/automatizar-procesos-con-ia-por-donde-empezar) te ayuda a decidirlo.
+
+Después viene la extracción de requisitos y la checklist, que son lo que más rinde con menos riesgo. La memoria técnica asistida va al final, cuando la biblioteca ya está madura.
+
+Las herramientas genéricas de chat sirven para probar, pero un sistema así suele acabar siendo un desarrollo propio conectado a tus documentos y a tu CRM. Cuándo compensa construirlo lo contamos en [desarrollo a medida con IA](/blog/desarrollo-a-medida-con-ia-cuando-construir), y plazos y precios orientativos en [proyectos de IA a medida](/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio).
+
+## Preguntas frecuentes
+
+### ¿Puede la IA hacer una licitación entera?
+
+No conviene. Puede leer los pliegos, extraer requisitos, preparar la checklist y redactar un borrador de la memoria técnica. La oferta económica, los compromisos y la firma tienen que decidirlos personas, y todo lo generado necesita revisión antes de presentarse.
+
+### ¿Qué es un generador de propuestas para licitaciones?
+
+Es un sistema que convierte los pliegos y el material propio de la empresa en una propuesta estructurada. Extrae requisitos y criterios de valoración, propone respuestas de una biblioteca de proyectos anteriores, genera borradores y controla los plazos. La decisión final sigue siendo humana.
+
+### ¿Es seguro subir los pliegos y mi documentación a una IA?
+
+Los pliegos son públicos, pero tu documentación incluye datos económicos, personales y de clientes. Hay que usar proveedores con condiciones que no entrenen con tus datos, saber dónde se procesan y cumplir el RGPD con lo que contenga datos personales.
+
+### ¿Sirve el mismo sistema para propuestas comerciales y para licitaciones?
+
+Sí, la base es la misma: intake estructurado, plantilla, generación, revisión y seguimiento. Cambian la fuente de entrada, que en una licitación es el pliego, y el peso de la revisión, que es mayor.
+
+### ¿Por dónde empiezo a usar IA en licitaciones?
+
+Por ordenar la biblioteca de respuestas y fichas de proyecto, y después por la extracción de requisitos y la checklist de cumplimiento. Son las partes con más ahorro y menos riesgo.
+
+Si quieres ver qué partes de tus licitaciones o propuestas se pueden automatizar, el [diagnóstico](/diagnostico) son 30 minutos y sale de ahí una lista concreta de por dónde empezar, con o sin nosotros.
