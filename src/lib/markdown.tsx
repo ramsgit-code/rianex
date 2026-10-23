@@ -110,6 +110,8 @@ export function renderMarkdown(
   const lines = body.split("\n");
   const out: ReactNode[] = [];
   let list: ReactNode[] = [];
+  let ordered: ReactNode[] = [];
+  let table: string[][] = [];
   let key = 0;
 
   const flush = () => {
@@ -120,6 +122,48 @@ export function renderMarkdown(
         </ul>
       );
       list = [];
+    }
+    if (ordered.length) {
+      out.push(
+        <ol
+          key={`ol-${key++}`}
+          className="my-3 flex list-decimal flex-col gap-2 pl-5 text-sm leading-relaxed text-foreground-muted marker:font-semibold marker:text-accent"
+        >
+          {ordered}
+        </ol>
+      );
+      ordered = [];
+    }
+    if (table.length) {
+      // Tabla GFM: primera fila cabecera, segunda el separador |---|.
+      const [head, , ...rows] = table;
+      out.push(
+        <div key={`tb-${key++}`} className="my-5 overflow-x-auto rounded-xl border border-ink/[0.08]">
+          <table className="w-full min-w-[32rem] border-collapse text-left text-sm">
+            <thead className="bg-ink/[0.03]">
+              <tr>
+                {head.map((cell, i) => (
+                  <th key={i} className="px-3 py-2 font-semibold text-foreground">
+                    {renderInline(cell, porDefecto)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, r) => (
+                <tr key={r} className="border-t border-ink/[0.08]">
+                  {row.map((cell, i) => (
+                    <td key={i} className="px-3 py-2 align-top leading-relaxed text-foreground-muted">
+                      {renderInline(cell, porDefecto)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+      table = [];
     }
   };
 
@@ -138,7 +182,21 @@ export function renderMarkdown(
           {renderInline(line.slice(4), porDefecto)}
         </h3>
       );
+    } else if (line.startsWith("|")) {
+      if (!table.length) flush();
+      table.push(
+        line
+          .trim()
+          .replace(/^\|/, "")
+          .replace(/\|$/, "")
+          .split("|")
+          .map((c) => c.trim())
+      );
+    } else if (/^\d+\. /.test(line)) {
+      if (!ordered.length) flush();
+      ordered.push(<li key={key++}>{renderInline(line.replace(/^\d+\. /, ""), porDefecto)}</li>);
     } else if (line.startsWith("- ")) {
+      if (!list.length) flush();
       list.push(
         <li
           key={key++}

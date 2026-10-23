@@ -31,7 +31,7 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 - [ ] **Perfiles fuera de la web**: Google
       Business Profile (Ávila), directorio de partners de HighLevel, Clutch o
       Sortlist. Mismo nombre, descripción y URL en todos.
-- [ ] **Enlaces de clientes**: pedir a Hospital Capilar, EB y Growth4U un
+- [ ] **Enlaces de clientes**: pedir a Eventos Barcelona y Tribeca Media un
       enlace "sistema implementado por Rianex" a la web.
 - [ ] **Después de cada despliegue con URLs nuevas**: `npm run indexnow`.
 
@@ -104,6 +104,15 @@ Por orden de impacto:
   Testimonios en la base: "GoHighLevel" en el de Xavi, Philippe como Growth
   Manager de Growth4U y traducciones al inglés corregidas.
 - 2026-10-03 · Site Scan de Bing: 0 errores, 0 avisos, 0 notas.
+- 2026-10-23 · PR #23 · Cuatro artículos nuevos enlazados entre sí y con
+  el pilar "por dónde empezar": medir un proceso antes de automatizarlo,
+  propuestas para licitaciones con IA, automatizar la recepción de una
+  clínica y qué es GoHighLevel (elegidos por consultas reales de GSC sin
+  página propia). El pilar suma una tabla para puntuar procesos y el caso
+  real de Eventos Barcelona, y se enlaza desde una sección "Guías" nueva en
+  la home. El renderizador del blog ahora pinta tablas y listas numeradas
+  (antes salían como texto). Enlaces desde los artículos que no enlazaban a
+  nada (cualificar leads, propuestas comerciales) y desde el de clínicas.
 - 2026-10-21 · PR #22 · Botón "Sigue a Rianex en LinkedIn" en el pie de
   todas las páginas (castellano e inglés), enlazado a
   linkedin.com/company/rianex, y la página en el `sameAs` del schema

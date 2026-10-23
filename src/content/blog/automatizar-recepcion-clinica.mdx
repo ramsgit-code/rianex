@@ -1,0 +1,144 @@
+---
+title: "Automatizar la recepción de una clínica: WhatsApp, llamadas y citas"
+description: "Qué tareas de recepción de una clínica se resuelven con reglas, cuáles con IA y cuáles debe llevar una persona, incluidas las consultas fuera de horario."
+date: "2026-10-23"
+tags: ["clínicas", "recepción", "whatsapp", "agenda", "ia"]
+cluster: "captacion"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+La recepción de una clínica hace tres trabajos a la vez: atiende al paciente que tiene delante, coge el teléfono y contesta WhatsApp. Cuando los tres coinciden, uno se queda sin hacer. Casi siempre es el WhatsApp, y casi siempre es el de alguien que todavía no es paciente.
+
+No es un problema de actitud. Hay más mensajes que manos, y muchos preguntan exactamente lo mismo. Este artículo va solo del mostrador: qué parte puede hacer un sistema y qué parte no debería tocar nunca.
+
+## La respuesta corta
+
+Automatizar la recepción de una clínica consiste en que los mensajes, las llamadas perdidas y la gestión de citas tengan respuesta aunque nadie esté libre. Las reglas cubren lo mecánico: acuse inmediato, llamada perdida convertida en WhatsApp, recordatorios, confirmación y lista de espera. La IA entra para entender mensajes escritos a mano, responder dudas con la información de la clínica y saber qué tratamiento interesa. Diagnóstico, consejo clínico, quejas y urgencias siguen siendo de una persona.
+
+## Qué hace recepción durante el día
+
+Si se apuntara cada tarea durante una semana, la lista se parecería a esta:
+
+- Contestar WhatsApp: precios, horarios, dónde aparcar, si atendéis a niños.
+- Coger llamadas y devolver las perdidas.
+- Dar cita mientras el paciente espera al teléfono.
+- Confirmar, reprogramar y avisar a la lista de espera.
+
+Casi todas se repiten decenas de veces a la semana y siguen un criterio que se explica en cinco minutos. Cumplen las cuatro condiciones de [por dónde empezar a automatizar procesos con IA](/blog/automatizar-procesos-con-ia-por-donde-empezar): frecuencia, reglas estables, tiempo medible y consecuencias cuando fallan.
+
+Antes de cambiar nada, cuenta cuántos mensajes y llamadas entran, cuánto se tarda en contestar y cuántos se quedan sin respuesta. Cómo, en [medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## Quién hace cada tarea
+
+Cada tarea se reparte entre tres responsables: una regla fija, un modelo de IA o una persona.
+
+| Tarea de recepción | Regla | IA | Persona |
+| --- | --- | --- | --- |
+| Acuse de recibo de un mensaje | Sí, al instante | No hace falta | No |
+| Llamada perdida | WhatsApp automático al número | No hace falta | Devuelve la llamada si el paciente lo pide |
+| Dudas de precio, horario o ubicación | Menú de opciones, si basta | Entiende la pregunta escrita a mano y responde con la información de la clínica | Si la duda no está en esa información |
+| Saber qué tratamiento interesa | Formulario con opciones | Lo deduce de un mensaje libre y hace la pregunta que falta | Revisa los casos dudosos |
+| Dar cita | Enlace a los huecos disponibles | Propone huecos dentro de la conversación | Casos con condiciones especiales |
+| Confirmar y recordar | Sí, con respuesta que actualiza la agenda | No hace falta | No |
+| Reprogramar y lista de espera | Sí, avisando al siguiente de la lista | No hace falta | Si hay conflicto |
+| Consejo clínico, quejas, urgencias | Solo para derivar | Solo para detectar y derivar | Siempre |
+
+La columna de reglas es la más larga. Es lo normal: casi todo el trabajo de recepción no necesita IA.
+
+## Lo que resuelven las reglas
+
+**Acuse inmediato.** Todo mensaje recibe respuesta en segundos: que se ha recibido, cuándo se contestará y un enlace para pedir cita. El paciente deja de escribir a la siguiente clínica de la lista.
+
+**Llamada perdida a WhatsApp.** Cuando nadie coge el teléfono, el sistema manda un WhatsApp a ese número: "Te hemos visto llamar y no hemos podido atenderte. ¿Te escribimos por aquí o prefieres que te llamemos?". Cómo se monta un canal así está en [automatización de WhatsApp para ventas](/blog/whatsapp-automatizacion-ventas).
+
+**Recordatorios y confirmación.** Un mensaje antes de la cita con respuesta de un toque. Confirmar marca la agenda; cancelar libera el hueco sin que nadie lo teclee.
+
+**Lista de espera.** El hueco liberado se ofrece automáticamente a quien estaba esperando. Varias llamadas de recepción pasan a ser un mensaje.
+
+## Dónde ayuda la IA
+
+Las reglas funcionan cuando el paciente pulsa botones. El problema es que los pacientes escriben como hablan: "hola buenas, quería saber cuánto vale lo de la limpieza y si tenéis algo el jueves por la tarde que salgo tarde de trabajar".
+
+Ahí un menú no llega y un modelo de lenguaje sí. La IA aporta en cuatro cosas:
+
+- **Entender mensajes libres.** Saber que ese mensaje pregunta un precio y una disponibilidad, aunque no use ninguna palabra clave.
+- **Responder dudas con la información de la clínica.** Precios orientativos, horarios, ubicación. Solo con lo que la clínica le ha dado.
+- **Cualificar el tratamiento de interés.** Hacer la pregunta que falta para saber qué busca el paciente y si encaja con lo que ofrecéis. Lo desarrollamos en [cómo cualificar leads automáticamente](/blog/como-cualificar-leads-automaticamente).
+- **Pasar a una persona.** Detectar cuándo la conversación se sale de lo previsto y entregarla a recepción con el resumen hecho.
+
+Eso es lo que suele llamarse "recepcionista virtual": un agente que responde y agenda dentro de límites claros. Cuándo compensa, lo contamos en [agentes de IA para empresas](/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+## Lo que tiene que seguir siendo humano
+
+Hay una línea que no depende de lo buena que sea la tecnología.
+
+**Diagnóstico y consejo clínico.** El sistema no interpreta síntomas ni recomienda tratamientos: deriva a un profesional.
+
+**Quejas.** Una respuesta automática a un paciente molesto lo molesta más. La queja pasa a una persona, con prioridad.
+
+**Urgencias.** Si el mensaje describe algo urgente, el sistema no intenta gestionarlo: indica a quién llamar y avisa al equipo.
+
+No es una limitación técnica. Es dónde está la responsabilidad.
+
+## El problema de fuera de horario
+
+La pregunta que mejor resume todo esto es sencilla: ¿qué pasa hoy con las consultas que llegan fuera de horario?
+
+En muchas clínicas la respuesta honesta es "nada hasta el día siguiente". El mensaje del domingo por la noche se contesta el lunes a media mañana, y para entonces quien escribió ya ha pedido cita en otra parte.
+
+Fuera de horario es donde la automatización se nota más: no sustituye a nadie, cubre un silencio. Con acuse inmediato, respuesta a las dudas habituales y enlace para reservar, una consulta del domingo puede llegar al lunes convertida en cita. Y lo que no se resuelve solo llega a recepción ordenado y con contexto.
+
+## La conexión con tu software de agenda
+
+La automatización tiene que leer los huecos libres y escribir las citas en tu software de agenda, no en una agenda paralela.
+
+Muchos programas habituales en clínicas, como Koibox, Doctoralia o Clinic Cloud, suelen ofrecer API o algún tipo de integración, pero lo que permite cada uno varía según el programa y el plan contratado. Es lo primero que hay que comprobar. Si no hay forma de leer y escribir la agenda, el diseño cambia: se ofrece hueco y una persona lo confirma.
+
+En nuestros montajes, la conversación y el seguimiento suelen vivir en GoHighLevel y la agenda clínica sigue siendo la de la clínica. Si no lo conoces, aquí explicamos [qué es GoHighLevel](/blog/que-es-gohighlevel).
+
+## Datos de salud: cuidado con WhatsApp
+
+Los datos de salud son categoría especial en el RGPD, y pedir cita para un tratamiento ya dice algo sobre la salud de alguien. Tres reglas prácticas:
+
+- **No pedir información clínica por WhatsApp.** El sistema pregunta qué servicio interesa y cuándo puede venir. Síntomas, historial o pruebas se tratan en consulta o en el software clínico.
+- **Mensajes discretos.** Un recordatorio dice "tienes cita mañana a las 10", no el nombre del tratamiento.
+- **Consentimiento y registro.** Saber qué ha aceptado cada paciente y poder demostrarlo.
+
+Lo desarrollamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
+
+## Qué medir
+
+Tres números, antes y después:
+
+- **Tiempo de primera respuesta**, separando horario de apertura y fuera de horario.
+- **Porcentaje de citas confirmadas** antes del día de la cita.
+- **Ausencias**: citas a las que el paciente no vino sin avisar.
+
+Si no mejoran, hay que mirar dónde se atasca, no añadir más automatizaciones encima.
+
+El cuadro completo de la clínica, más allá del mostrador, está en [automatización para clínicas: captación, agenda y ausencias](/blog/automatizacion-para-clinicas-captacion-y-agenda) y en nuestra página de [soluciones para clínicas](/soluciones/clinicas).
+
+## Preguntas frecuentes
+
+### ¿Se puede automatizar la recepción de una clínica sin perder el trato personal?
+
+Sí, si se automatiza lo repetitivo y no la relación. Acuses, recordatorios y dudas de horario no aportan trato personal; quitarlos deja a recepción más tiempo para quien está delante.
+
+### ¿Qué es una recepcionista virtual para clínicas?
+
+Un agente que contesta WhatsApp o el chat de la web, responde dudas con la información de la clínica y propone cita, dentro de unos límites. No diagnostica ni aconseja sobre tratamientos, y pasa la conversación a una persona cuando hace falta.
+
+### ¿Cómo se responde a los pacientes que escriben fuera de horario?
+
+Con acuse inmediato, respuestas a las dudas habituales y un enlace para reservar. Lo que no se resuelve queda ordenado para recepción al abrir.
+
+### ¿Se puede conectar WhatsApp con el software de agenda de la clínica?
+
+Depende del software. Muchos ofrecen API o integración, y entonces el sistema puede leer huecos y escribir citas. Si no la tienen, se propone hueco y una persona lo confirma en la agenda.
+
+### ¿Es legal usar WhatsApp automatizado en una clínica?
+
+Sí, con cuidado. Los datos de salud son categoría especial: no conviene pedir información clínica por WhatsApp, los mensajes no deben nombrar el tratamiento y hace falta consentimiento registrado.
+
+Si quieres saber qué pasa hoy con los mensajes y las llamadas que entran en tu clínica, el [diagnóstico](/diagnostico) son 30 minutos y sale una lista concreta de qué automatizar en recepción y en qué orden.

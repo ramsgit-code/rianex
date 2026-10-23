@@ -2,7 +2,7 @@
 title: "Automatización de procesos con IA: por dónde empezar en una pyme"
 description: "Cómo elegir el primer proceso que automatizar con IA en una pyme: las cuatro condiciones, qué medir antes, dónde aporta la IA, el orden que funciona y cuánto tarda."
 date: "2026-09-16"
-updated: "2026-10-21"
+updated: "2026-10-23"
 tags: ["automatización", "ia", "procesos", "pyme"]
 cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
@@ -39,6 +39,16 @@ Un proceso merece automatizarse cuando cumple cuatro condiciones a la vez: ocurr
 
 **Su fallo tiene consecuencias.** Un lead que no recibe respuesta se pierde. Una factura que no se emite se cobra tarde. Una cita que no se confirma se convierte en un hueco vacío en la agenda. Cuando el fallo cuesta dinero, la automatización se paga sola.
 
+Para comparar candidatos, ayuda ponerlos en una tabla y contestar sí o no a cada condición. El que tenga cuatro síes va primero; con tres, se puede plantear si la que falla se arregla antes; con dos o menos, todavía no.
+
+| Proceso candidato | ¿Ocurre muchas veces? | ¿Reglas estables? | ¿Tiempo medible? | ¿Su fallo cuesta dinero? |
+|---|---|---|---|---|
+| Responder y hacer seguimiento a los contactos que llegan | Sí, a diario | Sí, si se definen | Sí | Sí: cada fallo es una venta perdida |
+| Preparar propuestas o presupuestos | Sí, cada semana | Casi siempre | Sí | Sí: llegar tarde es perder la venta |
+| Confirmar y recordar citas | Sí, a diario | Sí | Sí | Sí: cada ausencia es un hueco pagado |
+| Informe mensual para dirección | No, una vez al mes | Sí | Poco | Rara vez |
+| Gestionar quejas complejas | Depende | No, cada caso es distinto | Difícil | Sí, pero pide criterio humano |
+
 ## El sitio donde casi siempre está el primer proyecto
 
 En la mayoría de negocios pequeños y medianos, el proceso que cumple las cuatro condiciones está en el mismo sitio: entre que llega un contacto y que alguien hace algo con él.
@@ -47,7 +57,24 @@ Ahí se concentra casi todo. Llegan formularios, mensajes de WhatsApp, llamadas 
 
 Por eso el primer proyecto que proponemos casi siempre es ese, y no el más llamativo. No porque sea el más interesante técnicamente, sino porque es donde el retorno es más rápido y más fácil de demostrar.
 
-Si quieres ver cómo se concreta, lo desarrollamos en [cómo cualificar leads automáticamente](/blog/como-cualificar-leads-automaticamente). Y si quieres ver más candidatos, tienes [doce ejemplos de procesos que una pyme puede automatizar con IA](/blog/ejemplos-automatizacion-procesos-con-ia), ordenados por departamento.
+Si quieres ver cómo se concreta, lo desarrollamos en [cómo cualificar leads automáticamente](/blog/como-cualificar-leads-automaticamente), y para el caso de las clínicas, en [cómo automatizar la recepción de una clínica](/blog/automatizar-recepcion-clinica). Y si quieres ver más candidatos, tienes [doce ejemplos de procesos que una pyme puede automatizar con IA](/blog/ejemplos-automatizacion-procesos-con-ia), ordenados por departamento.
+
+## Un caso real: las propuestas de Eventos Barcelona
+
+Eventos Barcelona organiza eventos para empresas. Su cuello de botella estaba justo en ese tramo entre el contacto y la acción: después de cada llamada con un cliente, la propuesta tardaba entre uno y tres días en salir. Para entonces, el cliente ya había pedido presupuesto a otros proveedores.
+
+El proceso cumplía las cuatro condiciones:
+
+- **Ocurría muchas veces**: cada llamada comercial terminaba en una propuesta.
+- **Seguía reglas estables**: tipo de servicio, fechas, aforo, ciudad y margen. Lo que cambiaba eran los datos, no el criterio.
+- **Costaba tiempo medible**: días de calendario y horas de maquetación por propuesta.
+- **Su fallo tenía consecuencias**: en eventos, quien responde primero tiene ventaja real, y llegar tarde era perder el evento.
+
+Lo montamos en el orden de este artículo. Primero, todo en un sitio: un pipeline de propuestas en GoHighLevel con su estado (enviada, abierta, en negociación, aceptada o rechazada). Después, lo obvio: al terminar la llamada, el comercial rellena un formulario de tres a cinco minutos y el sistema genera la propuesta en web y en PDF con la marca de la empresa, la envía en un minuto y la registra en el CRM. Por último, el seguimiento: si el cliente no la abre en 48 horas, recordatorio; si la abre y no contesta en 72, aviso al comercial.
+
+El resultado: la propuesta sale unos 8 minutos después de colgar, en lugar de uno a tres días, y el tiempo de respuesta al cliente bajó un 85%. Lo importante no es el número, sino que se pudo medir porque se sabía cuánto se tardaba antes.
+
+Lo contamos entero en el [caso de Eventos Barcelona](/casos-de-exito/eventos-barcelona), y el sistema por dentro, en [propuestas comerciales en 8 minutos](/blog/propuestas-comerciales-automaticas). Si tu negocio trabaja con concursos públicos, el mismo enfoque aplica, con matices, a las [propuestas para licitaciones](/blog/propuestas-licitaciones-con-ia).
 
 ## Qué medir antes de tocar nada
 
@@ -62,6 +89,8 @@ Antes de automatizar, hay que tener tres números del proceso actual:
 Con esos tres números, el retorno se calcula solo. Sin ellos, cualquier mejora será una sensación, y las sensaciones no sobreviven al primer mes malo.
 
 El tercero es el más incómodo de mirar y el más valioso. En un proceso comercial sin sistema, la fuga habitual está entre el 30% y el 60% de los contactos que entran. No porque nadie quiera perderlos, sino porque nadie tiene una lista de quién queda pendiente.
+
+Cómo sacar cada número en una semana, sin herramientas y con un ejemplo hecho, lo explicamos en [cómo medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
 
 ## Qué papel juega la IA de verdad
 
@@ -81,7 +110,7 @@ Qué herramientas cubren cada parte (CRM, conectores como Zapier, Make o n8n, y 
 
 Después de bastantes implantaciones, el orden que menos problemas da es este:
 
-**Primero, centralizar.** Antes de automatizar nada, todo tiene que llegar a un sitio. Si los contactos viven en cuatro bandejas distintas, ninguna automatización va a poder con ello. Esta fase parece poco vistosa y es la que más cambia las cosas.
+**Primero, centralizar.** Antes de automatizar nada, todo tiene que llegar a un sitio. Si los contactos viven en cuatro bandejas distintas, ninguna automatización va a poder con ello. Esta fase parece poco vistosa y es la que más cambia las cosas. Ese sitio suele ser un CRM; si estás valorando uno, tienes [qué es GoHighLevel y cuándo compensa](/blog/que-es-gohighlevel).
 
 **Segundo, automatizar lo obvio.** Las acciones que nadie discute: crear el registro, acusar recibo, asignar, recordar. Sin criterio, sin IA, sin sofisticación. Esto ya elimina la mayor parte de la fuga.
 
