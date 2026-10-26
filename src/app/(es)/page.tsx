@@ -25,7 +25,7 @@ const businessJsonLd = {
   url: SITE_URL,
   image: `${SITE_URL}/og.png`,
   description:
-    "Automatización y desarrollo con IA, integración de GoHighLevel y HubSpot, y migraciones de CRM a GoHighLevel.",
+    "Automatización con IA, software a medida y go-to-market: sistemas que captan, cualifican y cierran ventas sobre GoHighLevel, HubSpot o el CRM que ya usa la empresa.",
   email: "hola@rianex.es",
   sameAs: [RIANEX_LINKEDIN],
   areaServed: ["ES", "Latinoamérica"],
@@ -37,6 +37,8 @@ const businessJsonLd = {
   logo: `${SITE_URL}/logos/rianex-mark.png`,
   knowsAbout: [
     "Automatización comercial",
+    "Go-to-market",
+    "Desarrollo de software a medida",
     "Inteligencia artificial",
     "GoHighLevel",
     "HubSpot",

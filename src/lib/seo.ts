@@ -30,14 +30,14 @@ type PageCopy = { title: string; description: string };
 const PAGES: Record<string, Record<Lang, PageCopy>> = {
   "/": {
     es: {
-      title: "Automatización con IA, GoHighLevel y HubSpot",
+      title: "Automatización con IA y software a medida para vender más",
       description:
-        "Automatización y desarrollo con IA para empresas. Integramos GoHighLevel y HubSpot con tus herramientas y migramos tu CRM a GoHighLevel con todo tu histórico.",
+        "Automatización con IA, agentes y software a medida para captar, cualificar y cerrar ventas. Sobre GoHighLevel, HubSpot o el CRM que ya usas, con el código y la infraestructura a tu nombre.",
     },
     en: {
-      title: "AI automation, GoHighLevel and HubSpot",
+      title: "AI automation and custom software to sell more",
       description:
-        "AI automation and development for businesses. We integrate GoHighLevel and HubSpot with your tools and migrate your CRM to GoHighLevel with its full history.",
+        "AI automation, agents and custom software to capture, qualify and close sales. On GoHighLevel, HubSpot or the CRM you already use, with the code and infrastructure in your name.",
     },
   },
   "/servicios": {

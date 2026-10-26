@@ -27,23 +27,23 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "Automatización y desarrollo con IA",
+      eyebrow: "Automatización con IA y software a medida para vender más",
       titlePre: "Automatiza ",
       titleRotating: [
         "la captación de leads",
-        "el seguimiento de clientes",
+        "el seguimiento a cada cliente",
         "tus propuestas comerciales",
-        "tus procesos con IA",
+        "tu proceso comercial con IA",
       ],
-      titlePost: " y recupera 10 horas/semana.",
+      titlePost: " y vende más con el mismo equipo.",
       subtitle:
-        "Automatizamos procesos, desarrollamos agentes y herramientas con IA, conectamos tu CRM con el resto de tu stack y te migramos a GoHighLevel con todo tu histórico.",
+        "Montamos el sistema que capta, cualifica y cierra: automatizaciones y agentes de IA sobre tu CRM, y software a medida cuando ninguna herramienta encaja. Con método de ingeniero industrial: primero medimos el proceso, después lo automatizamos.",
       ctaPrimary: "Obtén mi Auditoría Gratuita",
       ctaSecondary: "Ver los servicios",
       note: "Primeros resultados en 4 semanas · Sin compromiso",
-      proofMetric: "−32%",
-      proofLabel: "coste por paciente (CPP) en 8 semanas",
-      proofClient: "Hospital Capilar",
+      proofMetric: "8 min",
+      proofLabel: "de la llamada a la propuesta, antes 1-3 días",
+      proofClient: "Eventos Barcelona",
       offeringTitle: "Qué hacemos",
       offering: [
         "Automatización de procesos con IA",
@@ -60,7 +60,7 @@ export const content = {
       tag: "Servicios",
       title: "Qué hacemos",
       subtitle:
-        "Automatización y desarrollo con IA sobre el CRM que ya usas, o sobre el que te conviene usar.",
+        "Captar y vender, automatizar la operativa con IA y desarrollar lo que todavía no existe, sobre el CRM que ya usas o el que te conviene.",
       chatLabel: "Ejemplo en vivo",
       kpiLabel: "En cifras",
       scrollHint: "Ver más servicios",
@@ -111,7 +111,7 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "De la captación al cierre, cualificando en automático.",
           kpis: [
-            { value: "−32%", label: "coste por paciente en 8 semanas (Hospital Capilar)" },
+            { value: "−32%", label: "coste por paciente en 8 semanas (Hospital Capilar, con Growth4U)" },
             { value: "< 1 min", label: "en dar la primera respuesta a cada lead nuevo" },
             { value: "4", label: "niveles de scoring: frío, templado, caliente y premium" },
           ],
@@ -141,7 +141,7 @@ export const content = {
           slug: "hospital-capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Salud · Madrid",
-          tag: "Cualificación de leads + Booking SDR",
+          tag: "Con Growth4U · Cualificación de leads + Booking SDR",
           challenge:
             "Captaban muchos leads pero sin ningún filtro previo ni visibilidad del embudo: no sabían qué contactos merecía la pena trabajar ni en qué paso se perdían las oportunidades.",
           solution:
@@ -571,23 +571,23 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "AI automation and development",
+      eyebrow: "AI automation and custom software to sell more",
       titlePre: "Automate ",
       titleRotating: [
         "your lead capture",
         "your client follow-up",
         "your sales proposals",
-        "your processes with AI",
+        "your sales process with AI",
       ],
-      titlePost: " and get 10 hours/week back.",
+      titlePost: " and sell more with the same team.",
       subtitle:
-        "We automate processes, build AI agents and tools, connect your CRM to the rest of your stack, and move you to GoHighLevel with your full history.",
+        "We build the system that captures, qualifies and closes: AI automations and agents on your CRM, and custom software when no tool fits. With an industrial engineer's method: we measure the process first, then automate it.",
       ctaPrimary: "Get my Free Automation Audit",
       ctaSecondary: "See the services",
       note: "First results in 4 weeks · No commitment",
-      proofMetric: "−32%",
-      proofLabel: "cost per patient (CPP) in 8 weeks",
-      proofClient: "Hospital Capilar",
+      proofMetric: "8 min",
+      proofLabel: "from call to proposal, previously 1-3 days",
+      proofClient: "Eventos Barcelona",
       offeringTitle: "What we do",
       offering: [
         "AI process automation",
@@ -604,7 +604,7 @@ export const content = {
       tag: "Services",
       title: "What we do",
       subtitle:
-        "AI automation and development on the CRM you already use, or on the one that suits you better.",
+        "Capture and sell, automate operations with AI and build what doesn't exist yet, on the CRM you already use or the one that suits you better.",
       chatLabel: "Live example",
       kpiLabel: "By the numbers",
       scrollHint: "See more services",
@@ -655,7 +655,7 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "From capture to close, qualifying on autopilot.",
           kpis: [
-            { value: "−32%", label: "cost per patient in 8 weeks (Hospital Capilar)" },
+            { value: "−32%", label: "cost per patient in 8 weeks (Hospital Capilar, with Growth4U)" },
             { value: "< 1 min", label: "to give every new lead a first reply" },
             { value: "4", label: "scoring levels: cold, warm, hot and premium" },
           ],
@@ -684,7 +684,7 @@ export const content = {
           slug: "hospital-capilar",
           logo: LOGOS.hospitalCapilar,
           sector: "Healthcare · Madrid",
-          tag: "Lead qualification + Booking SDR",
+          tag: "With Growth4U · Lead qualification + Booking SDR",
           challenge:
             "They captured plenty of leads but with no upfront filtering or visibility into the funnel: they didn't know which contacts were worth working or where opportunities were being lost.",
           solution:
