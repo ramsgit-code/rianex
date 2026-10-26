@@ -18,10 +18,14 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       estrella en `generate_lead` (y en `diagnostico_agendar` si quieres
       medir también las reservas). GA4 no deja marcarlo antes de recibirlo.
 
-- [ ] **Hacia el 16 de octubre**: revisar en Bing el informe AI Performance
-      (Citation Share: cuánto nos citan Copilot y las respuestas con IA). Es
-      la medida de GEO. El informe Páginas de Search Console ya se revisó el
-      12 de octubre.
+- [ ] **Bing, revisar hacia el 9 de noviembre**: a 26 de octubre Bing solo
+      tenía 4 URLs indexadas de las 47 que conoce por el sitemap, 0
+      impresiones y 0 citas en AI Performance (Copilot) en 30 días, y 0
+      backlinks. No hay bloqueo técnico (robots, `noindex` y respuesta a
+      Bingbot correctos). Ese día se enviaron las 49 URLs del sitemap por URL
+      Submission (cupo de 100 al día). Mirar en Site Explorer cuántas ha
+      indexado y, si siguen sin entrar, volver a enviarlas. Bing pesa mucho
+      los enlaces externos: ver la tarea de enlaces.
 - [ ] **Forks públicos**: el original ya es privado, pero
       `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex` siguen públicos y
       salen buscando "Rianex". Borrar el tuyo (Settings → Danger Zone → Delete)
@@ -83,6 +87,10 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-26 · Meta description de la home recortada a 140 caracteres (la
+  del PR #24 tenía 188 y Bing la marcaba como error "Meta Description too
+  long"); la inglesa a 130.
 
 - 2026-10-26 · Dos artículos nuevos: "n8n 3.0: qué se rompe y cómo
   prepararte" (`/blog/n8n-3-que-se-rompe-y-como-prepararte`, checklist con

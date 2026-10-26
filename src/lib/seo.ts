@@ -32,12 +32,12 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     es: {
       title: "Automatización con IA y software a medida para vender más",
       description:
-        "Automatización con IA, agentes y software a medida para captar, cualificar y cerrar ventas. Sobre GoHighLevel, HubSpot o el CRM que ya usas, con el código y la infraestructura a tu nombre.",
+        "Automatización con IA, agentes y software a medida para captar, cualificar y cerrar ventas, sobre GoHighLevel, HubSpot o el CRM que ya usas.",
     },
     en: {
       title: "AI automation and custom software to sell more",
       description:
-        "AI automation, agents and custom software to capture, qualify and close sales. On GoHighLevel, HubSpot or the CRM you already use, with the code and infrastructure in your name.",
+        "AI automation, agents and custom software to capture, qualify and close sales, on GoHighLevel, HubSpot or the CRM you already use.",
     },
   },
   "/servicios": {
