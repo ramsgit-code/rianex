@@ -19,6 +19,7 @@ const LOGO_DIMENSIONS: Record<string, { width: number; height: number }> = {
   "/logos/hospital-capilar-dark.png": { width: 396, height: 117 },
   "/logos/eventos-barcelona-dark.png": { width: 435, height: 117 },
   "/logos/growth4u-dark.png": { width: 339, height: 64 },
+  "/logos/tribeca-dark.png": { width: 800, height: 800 },
 };
 
 const LABELS = {
@@ -33,6 +34,8 @@ const LABELS = {
     services: "Servicios de este caso",
     sector: "La solución para el sector",
     guides: "Guías relacionadas",
+    video: "El caso en vídeo",
+    videoNote: "",
   },
   en: {
     home: "Home",
@@ -45,6 +48,8 @@ const LABELS = {
     services: "Services in this case",
     sector: "The solution for this sector",
     guides: "Related guides (in Spanish)",
+    video: "The case on video",
+    videoNote: "Narrated in Spanish.",
   },
 } as const;
 
@@ -71,7 +76,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
   const sector = d.sector ? getSector(d.sector, lang) : null;
   const posts = d.posts.map((s) => getPost(s)).filter((p) => p !== null);
 
-  const jsonLd = [
+  const jsonLd: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -97,6 +102,19 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
       ],
     },
   ];
+  if (d.video) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: d.h1,
+      description: d.answer,
+      thumbnailUrl: `${SITE_URL}${d.video.poster}`,
+      contentUrl: `${SITE_URL}${d.video.src}`,
+      uploadDate: d.video.uploadDate,
+      duration: d.video.duration,
+      inLanguage: "es-ES",
+    });
+  }
 
   return (
     <>
@@ -130,6 +148,24 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
               <p className="mt-3 text-lg leading-relaxed text-foreground">{d.answer}</p>
             </section>
           </Reveal>
+
+          {d.video && (
+            <Reveal>
+              <section>
+                <SectionTitle>{t.video}</SectionTitle>
+                <video
+                  controls
+                  playsInline
+                  preload="none"
+                  poster={d.video.poster}
+                  className="mt-5 aspect-video w-full rounded-2xl border border-ink/[0.08] bg-ink/[0.03]"
+                >
+                  <source src={d.video.src} type="video/mp4" />
+                </video>
+                {t.videoNote && <p className="mt-2 text-xs text-muted">{t.videoNote}</p>}
+              </section>
+            </Reveal>
+          )}
 
           <Reveal>
             <section className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
@@ -193,17 +229,19 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
             </section>
           </Reveal>
 
-          <Reveal>
-            <figure className="card">
-              <Quote size={22} className="text-accent-text" />
-              <blockquote className="mt-3 text-lg leading-relaxed text-foreground">
-                {d.quote.text}
-              </blockquote>
-              <figcaption className="mt-4 text-sm text-foreground-muted">
-                <span className="font-medium text-foreground">{d.quote.author}</span> · {d.quote.role}
-              </figcaption>
-            </figure>
-          </Reveal>
+          {d.quote && (
+            <Reveal>
+              <figure className="card">
+                <Quote size={22} className="text-accent-text" />
+                <blockquote className="mt-3 text-lg leading-relaxed text-foreground">
+                  {d.quote.text}
+                </blockquote>
+                <figcaption className="mt-4 text-sm text-foreground-muted">
+                  <span className="font-medium text-foreground">{d.quote.author}</span> · {d.quote.role}
+                </figcaption>
+              </figure>
+            </Reveal>
+          )}
 
           <Reveal>
             <section>

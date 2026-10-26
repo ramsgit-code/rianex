@@ -21,7 +21,7 @@ export const content = {
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "Sobre mí" },
       ],
-      cta: "Auditoría gratis",
+      cta: "Diagnóstico gratis",
       switchTo: "EN",
       switchLabel: "Ver en inglés",
     },
@@ -38,7 +38,7 @@ export const content = {
       titlePost: " y vende más con el mismo equipo.",
       subtitle:
         "Montamos el sistema que capta, cualifica y cierra: automatizaciones y agentes de IA sobre tu CRM, y software a medida cuando ninguna herramienta encaja. Con método de ingeniero industrial: primero medimos el proceso, después lo automatizamos.",
-      ctaPrimary: "Obtén mi Auditoría Gratuita",
+      ctaPrimary: "Pide tu diagnóstico gratuito",
       ctaSecondary: "Ver los servicios",
       note: "Primeros resultados en 4 semanas · Sin compromiso",
       proofMetric: "8 min",
@@ -117,9 +117,9 @@ export const content = {
           ],
         },
         {
-          title: "Agentes de IA a medida",
-          slug: "agentes-ia-vps",
-          desc: "Asistentes en WhatsApp y web que atienden, cualifican y agendan 24/7.",
+          title: "Agente de IA para WhatsApp",
+          slug: "agente-ia-whatsapp",
+          desc: "Atiende, cualifica y agenda citas 24/7 en WhatsApp y web.",
           kpis: [
             { value: "24/7", label: "atención y agenda, también de noche y en fin de semana" },
             { value: "Sem. 4", label: "primer agente atendiendo en producción" },
@@ -133,23 +133,9 @@ export const content = {
       tag: "Resultados",
       title: "Casos reales, sin maquetas.",
       subtitle:
-        "Negocios reales con GoHighLevel como base de cada implementación.",
+        "Negocios reales: sistemas comerciales, agentes de IA y software a medida en producción.",
       cta: "Leer casos completos",
       items: [
-        {
-          client: "Hospital Capilar",
-          slug: "hospital-capilar",
-          logo: LOGOS.hospitalCapilar,
-          sector: "Salud · Madrid",
-          tag: "Con Growth4U · Cualificación de leads + Booking SDR",
-          challenge:
-            "Captaban muchos leads pero sin ningún filtro previo ni visibilidad del embudo: no sabían qué contactos merecía la pena trabajar ni en qué paso se perdían las oportunidades.",
-          solution:
-            "Montamos un sistema en GoHighLevel que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y, con un Booking SDR, agenda la cita directamente en Koibox. Todo el embudo queda medido de punta a punta: conversión, abandono, citas y ventas.",
-          stack: ["GoHighLevel", "WhatsApp", "Koibox"],
-          metric: "−32%",
-          metricLabel: "coste por paciente (CPP) en 8 semanas",
-        },
         {
           client: "Eventos Barcelona",
           slug: "eventos-barcelona",
@@ -165,6 +151,20 @@ export const content = {
           metricLabel: "tiempo de respuesta al cliente",
         },
         {
+          client: "Tribeca Media",
+          slug: "tribeca-media",
+          logo: LOGOS.tribeca,
+          sector: "Marketing · Agentes de IA",
+          tag: "Agentes de IA de performance y contenido",
+          challenge:
+            "Su plataforma KEYWORKERS tenía un agente que leía las campañas de Meta Ads pero no actuaba sobre ellas: sin Google Ads, sin creatividades y sin saber cuánto gastaba en IA ni cuándo fallaba.",
+          solution:
+            "Construimos el Performance Agent, que revisa Meta y Google Ads, propone pausar, bajar presupuesto o crear campañas y lo ejecuta solo con aprobación humana, y genera creatividades nuevas cuando un anuncio se fatiga. Ahora construimos el Content Agent.",
+          stack: ["Python", "FastAPI", "PostgreSQL", "Claude", "Meta Ads", "Google Ads API", "GPT Image 2"],
+          metric: "0",
+          metricLabel: "acciones sobre campañas sin aprobación humana",
+        },
+        {
           client: "Growth4U",
           slug: "growth4u",
           logo: LOGOS.growth4u,
@@ -177,6 +177,20 @@ export const content = {
           stack: ["GoHighLevel"],
           metric: "100%",
           metricLabel: "del proceso comercial automatizado",
+        },
+        {
+          client: "Hospital Capilar",
+          slug: "hospital-capilar",
+          logo: LOGOS.hospitalCapilar,
+          sector: "Salud · Madrid",
+          tag: "Con Growth4U · Cualificación de leads + Booking SDR",
+          challenge:
+            "Captaban muchos leads pero sin ningún filtro previo ni visibilidad del embudo: no sabían qué contactos merecía la pena trabajar ni en qué paso se perdían las oportunidades.",
+          solution:
+            "Montamos un sistema en GoHighLevel que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y, con un Booking SDR, agenda la cita directamente en Koibox. Todo el embudo queda medido de punta a punta: conversión, abandono, citas y ventas.",
+          stack: ["GoHighLevel", "WhatsApp", "Koibox"],
+          metric: "−32%",
+          metricLabel: "coste por paciente (CPP) en 8 semanas",
         },
       ],
     },
@@ -219,7 +233,7 @@ export const content = {
       tag: "Inversión",
       title: "Cuánto cuesta automatizar tu negocio",
       subtitle:
-        "Rangos de referencia del sector. El alcance exacto —y el precio— se confirma en la auditoría gratuita, no antes.",
+        "Rangos de referencia del sector. El alcance exacto —y el precio— se confirma en el diagnóstico gratuito, no antes.",
       tiers: [
         {
           name: "Discovery",
@@ -246,7 +260,7 @@ export const content = {
       items: [
         {
           q: "¿Cómo funciona vuestra IA exactamente?",
-          a: "No es una caja negra: usamos agentes de IA (LLMs) conectados a tu propio CRM, sea GoHighLevel o HubSpot, con reglas y flujos que diseñamos contigo en la auditoría. Ves exactamente qué automatiza cada paso, y el código y la infraestructura son tuyos.",
+          a: "No es una caja negra: usamos agentes de IA (LLMs) conectados a tu propio CRM, sea GoHighLevel o HubSpot, con reglas y flujos que diseñamos contigo en el diagnóstico. Ves exactamente qué automatiza cada paso, y el código y la infraestructura son tuyos.",
         },
         {
           q: "¿Trabajáis con HubSpot o solo con GoHighLevel?",
@@ -266,11 +280,11 @@ export const content = {
         },
         {
           q: "¿Qué pasa si no encaja con mi negocio?",
-          a: "Te lo decimos en la auditoría gratuita de 30 minutos, sin coste ni compromiso. Si no tiene sentido trabajar juntos, te lo decimos directamente.",
+          a: "Te lo decimos en el diagnóstico gratuito de 30 minutos, sin coste ni compromiso. Si no tiene sentido trabajar juntos, te lo decimos directamente.",
         },
         {
           q: "¿Cuánto cuesta?",
-          a: "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 €, y hay un retainer mensual opcional para mantenimiento. El precio exacto se confirma tras la auditoría.",
+          a: "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 €, y hay un retainer mensual opcional para mantenimiento. El precio exacto se confirma tras el diagnóstico.",
         },
       ],
     },
@@ -279,26 +293,26 @@ export const content = {
       titlePre: "¿Quieres saber qué ",
       titleHighlight: "sistema necesitas?",
       subtitle:
-        "Auditoría de automatización gratuita de 30 minutos. Te decimos si tiene sentido trabajar juntos, sin compromiso.",
-      button: "Obtén mi Auditoría Gratuita",
+        "Diagnóstico gratuito de 30 minutos. Te decimos si tiene sentido trabajar juntos, sin compromiso.",
+      button: "Pide tu diagnóstico gratuito",
     },
 
     pageCta: {
       title: "¿Quieres saber qué sistema necesitas?",
-      subtitle: "Auditoría de automatización gratuita de 30 minutos, sobre GoHighLevel o HubSpot.",
-      button: "Obtén mi Auditoría Gratuita",
+      subtitle: "Diagnóstico gratuito de 30 minutos, sobre GoHighLevel o HubSpot.",
+      button: "Pide tu diagnóstico gratuito",
     },
 
     footer: {
-      tagline: "Automatización y desarrollo con IA. Integraciones de GoHighLevel y HubSpot, y migraciones a GoHighLevel.",
-      cta: "Obtén mi Auditoría Gratuita",
+      tagline: "Automatización con IA y software a medida para vender más: sistemas que captan, cualifican y cierran, sobre GoHighLevel, HubSpot o tu CRM.",
+      cta: "Pide tu diagnóstico gratuito",
       links: [
         { href: "/servicios", label: "Servicios" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
         { href: "/sobre-mi", label: "Sobre mí" },
         { href: "/blog", label: "Blog" },
-        { href: "/diagnostico", label: "Auditoría gratuita" },
+        { href: "/diagnostico", label: "Diagnóstico gratuito" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Calculadora de fuga de leads" },
       ],
       rights: "Automatización y desarrollo con IA",
@@ -308,14 +322,31 @@ export const content = {
 
     servicios: {
       tag: "Servicios",
-      title: "Automatización, desarrollo con IA, integraciones y migraciones",
+      title: "Captar y vender, automatizar con IA y construir a medida",
       description:
-        "Trabajamos sobre GoHighLevel y HubSpot. Cada servicio se contrata por separado o como parte de un mismo proyecto.",
+        "Tres frentes de un mismo sistema comercial, sobre GoHighLevel, HubSpot o el CRM que ya usas. Cada servicio se contrata por separado o como parte de un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
-      cta: "Obtén mi Auditoría Gratuita",
+      cta: "Pide tu diagnóstico gratuito",
       more: "Ver el servicio en detalle",
       builtOn: "Construido sobre",
+      groups: [
+        {
+          title: "Captar y vender",
+          desc: "Que ningún contacto se quede sin respuesta y que la venta avance sola: captación, cualificación, citas y propuestas.",
+          slugs: ["embudo-de-captacion", "agente-ia-whatsapp", "generador-de-propuestas"],
+        },
+        {
+          title: "Automatizar con IA y conectar tu CRM",
+          desc: "Quitar el trabajo manual que se repite cada semana y que el CRM hable con el resto de tus herramientas.",
+          slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot", "implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Software a medida",
+          desc: "Cuando ninguna herramienta estándar encaja: herramientas internas, agentes y MVPs, de la idea a producción.",
+          slugs: ["desarrollo-ia-a-medida"],
+        },
+      ],
       items: [
         {
           slug: "automatizacion-procesos-ia",
@@ -374,17 +405,17 @@ export const content = {
           ],
         },
         {
-          slug: "agentes-ia-vps",
-          title: "Agentes de IA a medida",
-          tagline: "Asistentes que atienden, cualifican y agendan 24/7.",
+          slug: "agente-ia-whatsapp",
+          title: "Agente de IA para WhatsApp",
+          tagline: "Atiende, cualifica y agenda citas 24/7.",
           problem:
-            "Los leads escriben a cualquier hora y nadie contesta a tiempo, o tu equipo responde cien veces lo mismo.",
-          forWho: "Negocios que quieren agentes de IA propios, conectados a su CRM y bajo su control.",
+            "Los clientes escriben por WhatsApp a cualquier hora y nadie contesta a tiempo, o tu equipo responde cien veces lo mismo.",
+          forWho: "Clínicas, academias y negocios de servicios que reciben consultas por WhatsApp y venden con cita.",
           deliverables: [
-            "Agentes de IA para WhatsApp, chat web y correo",
-            "Conectados a GoHighLevel o HubSpot",
-            "Despliegue en tu propio servidor (VPS) si lo necesitas",
-            "Mantenimiento y monitorización",
+            "Agente en la API oficial de WhatsApp Business, también en chat web y correo",
+            "Conectado a tu agenda y a GoHighLevel o HubSpot",
+            "Salida a una persona en los casos raros",
+            "Servidor propio en la UE si lo necesitas, con mantenimiento",
           ],
         },
         {
@@ -473,7 +504,7 @@ export const content = {
       tag: "Casos de éxito",
       title: "Sistemas que funcionan hoy",
       description:
-        "Tres negocios reales, tres problemas comerciales distintos y un mismo enfoque: diagnosticar el cuello de botella, montar el sistema en GoHighLevel y medir el resultado desde el primer día.",
+        "Negocios reales con problemas distintos y un mismo enfoque: diagnosticar el cuello de botella, montar el sistema, sobre GoHighLevel o a medida, y medir el resultado desde el primer día.",
       stackLabel: "Stack implementado",
     },
 
@@ -534,11 +565,11 @@ export const content = {
       ],
       ctaTitle: "¿Hablamos de tu proceso?",
       ctaSubtitle: "30 minutos para ver si tiene sentido trabajar juntos.",
-      ctaButton: "Obtén mi Auditoría Gratuita",
+      ctaButton: "Pide tu diagnóstico gratuito",
     },
 
     diagnostico: {
-      tag: "Auditoría de Automatización Gratuita",
+      tag: "Diagnóstico gratuito",
       title: "30 minutos para saber qué necesitas",
       description: "Rellena el formulario. Lo revisamos antes de la llamada.",
       bullets: [
@@ -565,7 +596,7 @@ export const content = {
         { href: "/blog", label: "Blog" },
         { href: "/sobre-mi", label: "About" },
       ],
-      cta: "Get my free audit",
+      cta: "Free diagnosis",
       switchTo: "ES",
       switchLabel: "View in Spanish",
     },
@@ -582,7 +613,7 @@ export const content = {
       titlePost: " and sell more with the same team.",
       subtitle:
         "We build the system that captures, qualifies and closes: AI automations and agents on your CRM, and custom software when no tool fits. With an industrial engineer's method: we measure the process first, then automate it.",
-      ctaPrimary: "Get my Free Automation Audit",
+      ctaPrimary: "Book my free diagnosis",
       ctaSecondary: "See the services",
       note: "First results in 4 weeks · No commitment",
       proofMetric: "8 min",
@@ -661,9 +692,9 @@ export const content = {
           ],
         },
         {
-          title: "Custom AI agents",
-          slug: "agentes-ia-vps",
-          desc: "Assistants on WhatsApp and web that answer, qualify and book 24/7.",
+          title: "AI agent for WhatsApp",
+          slug: "agente-ia-whatsapp",
+          desc: "Answers, qualifies and books appointments 24/7 on WhatsApp and web.",
           kpis: [
             { value: "24/7", label: "answering and booking, nights and weekends too" },
             { value: "Wk 4", label: "first agent live in production" },
@@ -676,23 +707,9 @@ export const content = {
     cases: {
       tag: "Results",
       title: "Real cases, no mockups.",
-      subtitle: "Real businesses, with GoHighLevel behind every build.",
+      subtitle: "Real businesses: sales systems, AI agents and custom software in production.",
       cta: "Read the full cases",
       items: [
-        {
-          client: "Hospital Capilar",
-          slug: "hospital-capilar",
-          logo: LOGOS.hospitalCapilar,
-          sector: "Healthcare · Madrid",
-          tag: "With Growth4U · Lead qualification + Booking SDR",
-          challenge:
-            "They captured plenty of leads but with no upfront filtering or visibility into the funnel: they didn't know which contacts were worth working or where opportunities were being lost.",
-          solution:
-            "We built a GoHighLevel system that qualifies every lead with a scoring quiz, runs automated WhatsApp follow-up and, with a Booking SDR, books the appointment straight into Koibox. The whole funnel is measured end to end: conversion, drop-off, appointments and sales.",
-          stack: ["GoHighLevel", "WhatsApp", "Koibox"],
-          metric: "−32%",
-          metricLabel: "cost per patient (CPP) in 8 weeks",
-        },
         {
           client: "Eventos Barcelona",
           slug: "eventos-barcelona",
@@ -708,6 +725,20 @@ export const content = {
           metricLabel: "client response time",
         },
         {
+          client: "Tribeca Media",
+          slug: "tribeca-media",
+          logo: LOGOS.tribeca,
+          sector: "Marketing · AI agents",
+          tag: "Performance and content AI agents",
+          challenge:
+            "Their KEYWORKERS platform had an agent that read Meta Ads campaigns but did not act on them: no Google Ads, no creatives and no way to know how much it spent on AI or when it failed.",
+          solution:
+            "We built the Performance Agent, which reviews Meta and Google Ads, proposes pausing, cutting budget or creating campaigns, executes only with human approval, and generates new creatives when an ad fatigues. We are now building the Content Agent.",
+          stack: ["Python", "FastAPI", "PostgreSQL", "Claude", "Meta Ads", "Google Ads API", "GPT Image 2"],
+          metric: "0",
+          metricLabel: "campaign actions without human approval",
+        },
+        {
           client: "Growth4U",
           slug: "growth4u",
           logo: LOGOS.growth4u,
@@ -720,6 +751,20 @@ export const content = {
           stack: ["GoHighLevel"],
           metric: "100%",
           metricLabel: "of the sales process automated",
+        },
+        {
+          client: "Hospital Capilar",
+          slug: "hospital-capilar",
+          logo: LOGOS.hospitalCapilar,
+          sector: "Healthcare · Madrid",
+          tag: "With Growth4U · Lead qualification + Booking SDR",
+          challenge:
+            "They captured plenty of leads but with no upfront filtering or visibility into the funnel: they didn't know which contacts were worth working or where opportunities were being lost.",
+          solution:
+            "We built a GoHighLevel system that qualifies every lead with a scoring quiz, runs automated WhatsApp follow-up and, with a Booking SDR, books the appointment straight into Koibox. The whole funnel is measured end to end: conversion, drop-off, appointments and sales.",
+          stack: ["GoHighLevel", "WhatsApp", "Koibox"],
+          metric: "−32%",
+          metricLabel: "cost per patient (CPP) in 8 weeks",
         },
       ],
     },
@@ -762,7 +807,7 @@ export const content = {
       tag: "Investment",
       title: "What automating your business costs",
       subtitle:
-        "Industry reference ranges. The exact scope — and price — gets confirmed on the free audit call, not before.",
+        "Industry reference ranges. The exact scope — and price — gets confirmed on the free diagnosis call, not before.",
       tiers: [
         {
           name: "Discovery",
@@ -789,7 +834,7 @@ export const content = {
       items: [
         {
           q: "How does your AI actually work?",
-          a: "It's not a black box: we use AI agents (LLMs) connected to your own CRM, whether that's GoHighLevel or HubSpot, with rules and flows we design with you during the audit. You see exactly what each step automates, and the code and infrastructure are yours.",
+          a: "It's not a black box: we use AI agents (LLMs) connected to your own CRM, whether that's GoHighLevel or HubSpot, with rules and flows we design with you during the diagnosis. You see exactly what each step automates, and the code and infrastructure are yours.",
         },
         {
           q: "Do you work with HubSpot or only GoHighLevel?",
@@ -809,11 +854,11 @@ export const content = {
         },
         {
           q: "What if it's not a fit for my business?",
-          a: "We tell you on the free 30-minute audit, no cost or commitment. If it doesn't make sense to work together, we say so directly.",
+          a: "We tell you on the free 30-minute diagnosis, no cost or commitment. If it doesn't make sense to work together, we say so directly.",
         },
         {
           q: "How much does it cost?",
-          a: "It depends on scope: discovery starts at €1,500, full implementation runs €5,000–€25,000, and there's an optional monthly retainer for maintenance. Exact price is confirmed after the audit.",
+          a: "It depends on scope: discovery starts at €1,500, full implementation runs €5,000–€25,000, and there's an optional monthly retainer for maintenance. Exact price is confirmed after the diagnosis.",
         },
       ],
     },
@@ -822,26 +867,26 @@ export const content = {
       titlePre: "Want to know which ",
       titleHighlight: "system you need?",
       subtitle:
-        "A free 30-minute automation audit. I tell you whether it makes sense to work together — no commitment.",
-      button: "Get my Free Audit",
+        "A free 30-minute diagnosis. I tell you whether it makes sense to work together — no commitment.",
+      button: "Book my free diagnosis",
     },
 
     pageCta: {
       title: "Want to know which system you need?",
-      subtitle: "A free 30-minute automation audit, on GoHighLevel or HubSpot.",
-      button: "Get my Free Audit",
+      subtitle: "A free 30-minute diagnosis, on GoHighLevel or HubSpot.",
+      button: "Book my free diagnosis",
     },
 
     footer: {
-      tagline: "AI automation and development. GoHighLevel and HubSpot integrations, and migrations to GoHighLevel.",
-      cta: "Get my Free Audit",
+      tagline: "AI automation and custom software to sell more: systems that capture, qualify and close, on GoHighLevel, HubSpot or your CRM.",
+      cta: "Book my free diagnosis",
       links: [
         { href: "/servicios", label: "Services" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
         { href: "/sobre-mi", label: "About" },
         { href: "/blog", label: "Blog" },
-        { href: "/diagnostico", label: "Free audit" },
+        { href: "/diagnostico", label: "Free diagnosis" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Lead leakage calculator" },
       ],
       rights: "AI automation and development",
@@ -851,14 +896,31 @@ export const content = {
 
     servicios: {
       tag: "Services",
-      title: "Automation, AI development, integrations and migrations",
+      title: "Capture and sell, automate with AI and build custom",
       description:
-        "We work on GoHighLevel and HubSpot. Each service can be hired on its own or as part of one project.",
+        "Three fronts of one sales system, on GoHighLevel, HubSpot or the CRM you already use. Each service can be hired on its own or as part of one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
-      cta: "Get my Free Audit",
+      cta: "Book my free diagnosis",
       more: "See the service in detail",
       builtOn: "Built on",
+      groups: [
+        {
+          title: "Capture and sell",
+          desc: "No contact left unanswered and the sale moving on its own: capture, qualification, appointments and proposals.",
+          slugs: ["embudo-de-captacion", "agente-ia-whatsapp", "generador-de-propuestas"],
+        },
+        {
+          title: "Automate with AI and connect your CRM",
+          desc: "Remove the manual work that repeats every week and get your CRM talking to the rest of your tools.",
+          slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot", "implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Custom software",
+          desc: "When no standard tool fits: internal tools, agents and MVPs, from idea to production.",
+          slugs: ["desarrollo-ia-a-medida"],
+        },
+      ],
       items: [
         {
           slug: "automatizacion-procesos-ia",
@@ -917,17 +979,17 @@ export const content = {
           ],
         },
         {
-          slug: "agentes-ia-vps",
-          title: "Custom AI agents",
-          tagline: "Assistants that answer, qualify and book 24/7.",
+          slug: "agente-ia-whatsapp",
+          title: "AI agent for WhatsApp",
+          tagline: "Answers, qualifies and books appointments 24/7.",
           problem:
-            "Leads write at any hour and nobody replies in time, or your team answers the same thing a hundred times.",
-          forWho: "Businesses wanting their own AI agents, connected to their CRM and under their control.",
+            "Customers write on WhatsApp at any hour and nobody replies in time, or your team answers the same thing a hundred times.",
+          forWho: "Clinics, academies and service businesses that get enquiries on WhatsApp and sell by appointment.",
           deliverables: [
-            "AI agents for WhatsApp, web chat and email",
-            "Connected to GoHighLevel or HubSpot",
-            "Deployed on your own server (VPS) if needed",
-            "Maintenance and monitoring",
+            "Agent on the official WhatsApp Business API, also on web chat and email",
+            "Connected to your calendar and to GoHighLevel or HubSpot",
+            "Hand-off to a person for edge cases",
+            "Your own server in the EU if needed, with maintenance",
           ],
         },
         {
@@ -1016,7 +1078,7 @@ export const content = {
       tag: "Case studies",
       title: "Systems that work today",
       description:
-        "Three real businesses, three different commercial bottlenecks, one same approach: diagnose the bottleneck, build the system in GoHighLevel, and measure the result from day one.",
+        "Real businesses with different bottlenecks and one same approach: diagnose the bottleneck, build the system, on GoHighLevel or custom, and measure the result from day one.",
       stackLabel: "Stack we built",
     },
 
@@ -1077,11 +1139,11 @@ export const content = {
       ],
       ctaTitle: "Want to talk about your process?",
       ctaSubtitle: "30 minutes to see if it's worth working together.",
-      ctaButton: "Get my Free Audit",
+      ctaButton: "Book my free diagnosis",
     },
 
     diagnostico: {
-      tag: "Free Automation Audit",
+      tag: "Free diagnosis",
       title: "30 minutes to know what you need",
       description: "Fill in the form. We review it before the call.",
       bullets: [

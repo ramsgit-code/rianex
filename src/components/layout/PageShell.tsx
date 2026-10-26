@@ -39,7 +39,7 @@ export function PageShell({
           )}
           {showCta && (
             <Link href="/diagnostico" className="btn-primary mt-8">
-              Obtén mi Auditoría Gratuita
+              Pide tu diagnóstico gratuito
               <ArrowRight size={16} />
             </Link>
           )}

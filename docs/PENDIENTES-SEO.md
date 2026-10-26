@@ -38,10 +38,12 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       artículo desde tu LinkedIn (post o sección Destacados).
 - [ ] **Después de cada despliegue con URLs nuevas**: `npm run indexnow`.
 
-- [ ] **Testimonio de María Silva (Hospital Capilar)**: es el primero de la
-      home y Hospital Capilar es cliente de Growth4U. Está en la base de datos:
-      quitarle la aprobación en el panel (/admin) o pedirme que lo haga. La
-      página /casos-de-exito/hospital-capilar ya dice que fue con Growth4U.
+- [ ] **Precio del agente de WhatsApp**: la FAQ de
+      /servicios/agente-ia-whatsapp usa el rango general de implementación
+      (5.000-25.000 €) y explica los costes de uso de Meta y del modelo. Si
+      tienes un precio de partida propio para este servicio, pásamelo.
+- [ ] **Testimonio de Tribeca**: la página del caso no lleva cita. Si Antonio
+      da una frase, se añade en `src/lib/casos.ts`.
 - [ ] **Página de LinkedIn de Rianex**: pegar el eslogan y la descripción
       nuevos (en `linkedin/textos-linkedin-es.md` de tu carpeta local).
 
@@ -76,6 +78,17 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-26 · Caso Tribeca Media (/casos-de-exito/tribeca-media): agentes
+  de performance y contenido de KEYWORKERS, con vídeo y `VideoObject`.
+  Vídeo también en el caso de Eventos Barcelona. Casos ordenados con los
+  propios primero. Servicio de agentes reconvertido en "Agente de IA para
+  WhatsApp" (`/servicios/agente-ia-whatsapp`, 308 desde `agentes-ia-vps`)
+  con FAQ de precio, API oficial y agenda. Artículo nuevo "Cómo implementar
+  IA en tu empresa" (`implementar ia en mi empresa`). /servicios agrupado en
+  tres frentes. "Auditoría" pasa a "diagnóstico" en toda la web. El
+  testimonio de Hospital Capilar deja de publicarse (filtro en
+  `src/lib/testimonios.ts`; sigue aprobado en la base de datos).
 
 - 2026-10-26 · Pilar "por dónde empezar" ampliado para la intención de
   "automatización de procesos con ia" (441 impresiones en 28 días, 0

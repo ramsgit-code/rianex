@@ -17,7 +17,6 @@ const LOGO_DIMENSIONS: Record<string, { width: number; height: number }> = {
 export function CasosView() {
   const { c, lang, localize } = useLang();
   const cs = c.casos;
-  const s = c.servicios;
   const en = lang === "en";
 
   const L = {
@@ -30,23 +29,6 @@ export function CasosView() {
 
   return (
     <PageShell tag={cs.tag} title={cs.title} description={cs.description} wide>
-      {/* construido sobre GoHighLevel */}
-      <Reveal>
-        <div className="mb-10 inline-flex items-center gap-2.5 rounded-full border border-ink/[0.08] bg-ink/[0.03] px-4 py-2 backdrop-blur-md">
-          <Image
-            src="/logos/gohighlevel-icon.png"
-            alt="GoHighLevel"
-            width={32}
-            height={32}
-            className="h-5 w-5 rounded"
-          />
-          <span className="text-sm text-foreground-muted">
-            {s.builtOn}{" "}
-            <span className="font-medium text-foreground">GoHighLevel</span>
-          </span>
-        </div>
-      </Reveal>
-
       <div className="flex flex-col gap-6">
         {c.cases.items.map((item, i) => {
           const dim = LOGO_DIMENSIONS[item.logo] ?? { width: 300, height: 90 };
