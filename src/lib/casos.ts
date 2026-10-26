@@ -182,7 +182,7 @@ export const CASOS: Record<string, Caso> = {
   "tribeca-media": {
     client: "Tribeca Media",
     services: ["agente-ia-whatsapp", "desarrollo-ia-a-medida", "automatizacion-procesos-ia"],
-    posts: ["proyectos-de-ia-a-medida-ejemplos-plazos-precio", "agentes-de-ia-para-empresas-cuando-compensan"],
+    posts: ["que-es-gtm-engineering", "proyectos-de-ia-a-medida-ejemplos-plazos-precio", "agentes-de-ia-para-empresas-cuando-compensan"],
     video: {
       src: "/videos/caso-tribeca-media.mp4",
       poster: "/videos/caso-tribeca-media.jpg",

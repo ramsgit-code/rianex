@@ -1,0 +1,130 @@
+---
+title: "n8n 3.0: qué se rompe y cómo prepararte antes de diciembre"
+description: "Qué cambia en n8n 3.0, qué flujos dejan de funcionar y un checklist para revisar tu instancia antes de actualizar: nodos retirados, Docker, Slack y tiempos."
+date: "2026-10-26"
+tags: ["n8n", "automatización", "migración", "self-hosted", "checklist"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+---
+
+n8n anunció el 23 de octubre su versión 3.0. La beta sale el 27 de octubre y la versión estable está prevista para principios de diciembre. Es una actualización mayor de las de verdad: retira nodos que siguen dentro de muchos flujos en producción, cambia valores por defecto y no tiene vuelta atrás.
+
+Si tu empresa tiene flujos de n8n que mueven contactos, facturas o avisos, esto es lo que conviene revisar antes de pulsar "actualizar".
+
+## La respuesta corta
+
+n8n 3.0 rompe los flujos que usan nodos antiguos (Function, Cron, Interval, Item Lists, el OpenAI antiguo y los agentes de IA de la versión 1, entre otros), deja de admitir instalaciones con npm o npx (solo Docker), exige un signing secret en las credenciales de Slack y baja de 5 minutos a 1 el tiempo máximo de un nodo Code. La actualización no se puede deshacer: haz copia de seguridad, abre el **Migration Report** de tu instancia y prueba en una copia antes de tocar producción.
+
+## Las fechas
+
+| Qué | Cuándo |
+|---|---|
+| Beta de n8n 3.0 | 27 de octubre de 2026 (en la nube, eligiendo "3.0.0 Beta") |
+| Versión estable 3.x | Principios de diciembre de 2026 |
+| Fin del soporte de n8n 1.x | 31 de diciembre de 2026 |
+| Soporte de n8n 2.x | Parches de seguridad y errores críticos durante 12 meses desde la estable de la 3 |
+
+Las fechas salen del [anuncio oficial en el foro de n8n](https://community.n8n.io/t/announcing-n8n-version-3-0-coming-soon/324016). Si sigues en la 1.x, tienes que pasar primero a la 2 y después a la 3, y la 1 se queda sin soporte a final de año.
+
+No hay prisa por estrenar la 3.0 el primer día. Sí la hay por saber qué se te va a romper, porque la 2.x dejará de recibir funciones nuevas y antes o después tendrás que dar el salto.
+
+## Qué se rompe
+
+Todo lo que sigue sale de la [lista oficial de cambios de la 3.0](https://docs.n8n.io/changelog/v30-breaking-changes). Lo ordeno por lo que más vemos en flujos de pymes.
+
+### Nodos retirados: el flujo falla al ejecutarse
+
+Un flujo que use cualquiera de estos nodos dejará de funcionar. La mayoría tienen un sustituto directo:
+
+| Nodo que desaparece | Qué usar en su lugar |
+|---|---|
+| Function y Function Item | Code (modo "All Items" o "Each Item") |
+| Cron e Interval | Schedule Trigger |
+| Item Lists | Split Out, Aggregate, Sort, Limit, Remove Duplicates o Summarize |
+| HTML Extract | HTML, operación Extract HTML Content |
+| Read Binary File(s) y Write Binary File | Read/Write Files from Disk |
+| Read PDF | Extract from File, Extract From PDF |
+| Workflow Trigger | n8n Trigger |
+| OpenAI (antiguo) y OpenAI Assistant | El nodo OpenAI actual, de la sección de IA |
+| OpenAI Model | OpenAI Chat Model |
+| HTTP Request Tool (antiguo) | Nodo HTTP Request conectado a la entrada Tool del AI Agent |
+| AI Agent versión 1 (SQL, Conversational, ReAct, Plan and Execute, OpenAI Functions) | AI Agent actual (Tools Agent); para SQL, una herramienta de Postgres o MySQL |
+| Vector stores antiguos (In Memory, Pinecone, Supabase, Zep) | Simple, Pinecone o Supabase Vector Store |
+| Memoria Motorhead y Zep | Otro nodo de memoria compatible |
+| SerpApi | HTTP Request llamando a SerpApi |
+
+Ojo con dos casos sin sustituto: **LangChain Code** y **Orbit** desaparecen sin reemplazo. Si un flujo depende de ellos, hay que rehacer esa parte.
+
+Las versiones recientes de la 2.x ya no dejan añadir estos nodos a un flujo nuevo, pero los flujos antiguos que los usan siguen funcionando hasta que actualizas. Por eso pasan desapercibidos: llevan dos años en marcha y nadie los ha vuelto a abrir.
+
+### Solo Docker para instalaciones propias
+
+n8n 3.0 ya no se instala con npm ni con npx, y deja de publicar un paquete ejecutable en npm. Si montaste n8n en un servidor con un "npm install -g n8n" y un gestor de procesos, tienes que pasar a Docker antes de actualizar. Kubernetes y Helm no se ven afectados.
+
+Para producción, n8n recomienda Docker Compose con **Postgres** en lugar de la base de datos SQLite que viene por defecto. Si vas a migrar de todas formas, es buen momento para hacer los dos cambios a la vez.
+
+### Cambios que no avisan
+
+Estos no dan error al actualizar. Cambian el comportamiento y lo descubres cuando algo deja de llegar:
+
+- **El nodo Code corta a los 60 segundos.** El tiempo máximo por defecto baja de 300 a 60. Un Code que procesa un lote grande o espera a una API lenta empezará a fallar. Se puede volver al valor anterior con la variable **N8N_RUNNERS_TASK_TIMEOUT**.
+- **Slack exige un signing secret.** Sin él, los flujos con Slack Trigger no se pueden publicar y el disparador responde con un 401. Si avisas de leads o de errores por Slack, revísalo.
+- **El Gmail Trigger antiguo pasa a comportarse como la versión 1.4:** como mucho 10 correos por consulta por defecto (máximo 50), ignora los borradores y no salta con los correos enviados. Un flujo que leía facturas de la bandeja puede quedarse corto en un día con mucho volumen.
+- **Los nodos de comunidad no verificados dejan de cargarse.** El valor por defecto de **N8N_UNVERIFIED_PACKAGES_ENABLED** pasa a "false". Si instalaste un nodo de comunidad que no está verificado, el flujo que lo use falla.
+- **If, Switch y otros nodos con varias salidas** con "Always Output Data" solo añaden un elemento vacío cuando todas las salidas están vacías. Si algún flujo contaba con ese elemento vacío para seguir, cambia el camino que toma.
+- **La carpeta de ficheros cambia de nombre**, de binaryData a storage. n8n no arranca si existen las dos.
+- **La rotación de claves de cifrado se activa por defecto.** Los datos existentes se siguen leyendo; no requiere acción, pero conviene saber que está ahí si algo de credenciales se comporta raro.
+
+### Otras retiradas
+
+- La función **$getPairedItem** desaparece de las expresiones. Se sustituye por $('nodo').item, itemMatching() o pairedItem().
+- **Chat Hub** viene desactivado (se puede reactivar en la 3.x y desaparece en la 4.0).
+- Desaparece **Import from URL** del editor, la pestaña **Ask AI** del nodo Code y las fuentes Local File y URL del nodo Execute Sub-workflow en sus versiones antiguas.
+
+## Checklist antes de actualizar
+
+En este orden:
+
+1. **Copia de seguridad completa.** Base de datos, la carpeta de datos de n8n y la clave de cifrado. La 3.0 no se puede devolver a la 2.x: si algo sale mal, la copia es tu única vuelta atrás.
+2. **Abre el Migration Report.** En Settings → Migration Report (solo lo ve un administrador global) n8n lista los flujos y ajustes de tu instancia que van a fallar. Es el punto de partida; no lo sustituye mirar cada flujo crítico.
+3. **Haz inventario de lo que mueve dinero.** Antes de arreglar nada, apunta qué flujos tocan contactos, ventas, facturas o avisos a clientes. Esos se prueban primero y se vigilan después.
+4. **Sustituye los nodos retirados en la 2.x.** Cambia Function por Code, Cron por Schedule Trigger y el resto de la tabla, y comprueba que el flujo da el mismo resultado con datos reales. Hacerlo antes de actualizar te permite probar con calma y con la red de la versión que ya funciona.
+5. **Revisa los nodos Code que tardan.** Mira en el historial de ejecuciones cuáles pasan del minuto. O los partes, o fijas N8N_RUNNERS_TASK_TIMEOUT.
+6. **Añade el signing secret a Slack** y revisa los nodos de comunidad que tengas instalados.
+7. **Si instalaste con npm, pasa a Docker** (y, si puedes, a Postgres) mientras sigues en la 2.x.
+8. **Prueba la 3.0 en una copia**, no en producción. Restaura la copia de seguridad en otra instancia, actualiza esa y ejecuta los flujos críticos de punta a punta.
+9. **Actualiza en un momento tranquilo** y con alguien mirando las ejecuciones las primeras 48 horas. Los fallos de esta actualización son silenciosos: un aviso que no llega, un lead que no entra en el CRM.
+
+## Qué hacemos nosotros
+
+Si tus flujos de n8n los montó alguien que ya no está, o nadie sabe exactamente qué hace cada uno, la actualización es la excusa para saberlo. En el [diagnóstico](/diagnostico) revisamos tu instancia: qué flujos se rompen con la 3.0, cuáles mueven dinero y en qué orden conviene arreglarlos. Son 30 minutos y sales con la lista.
+
+Si estás decidiendo si seguir con n8n o pasarte a otra herramienta, lo comparamos con Zapier y Make en [IA para automatizar procesos: qué herramientas usar](/blog/herramientas-ia-para-automatizar-procesos). Y si tus flujos tratan datos personales, la migración a Docker en un servidor propio es buen momento para repasar [qué exige el RGPD](/blog/rgpd-y-automatizacion-con-ia).
+
+## Preguntas frecuentes
+
+### ¿Cuándo sale n8n 3.0?
+
+La beta sale el 27 de octubre de 2026 y la versión estable está prevista para principios de diciembre de 2026. n8n no ha dado un día exacto para la estable.
+
+### ¿Tengo que actualizar a n8n 3.0 ya?
+
+No. La 2.x sigue recibiendo parches de seguridad y de errores críticos durante 12 meses desde que salga la 3 estable, pero ya no recibirá funciones nuevas. Lo urgente es saber qué se te rompe y empezar a sustituir los nodos retirados mientras sigues en la 2. Si estás en la 1.x, sí corre prisa: su soporte termina el 31 de diciembre de 2026.
+
+### ¿Puedo volver a la 2.x si algo falla?
+
+No. La actualización a la 3.x es de un solo sentido. La única vuelta atrás es restaurar una copia de seguridad hecha antes de actualizar, por eso conviene probar primero en una copia de la instancia.
+
+### ¿Me afecta si uso n8n Cloud?
+
+Sí en los nodos retirados y en los cambios de comportamiento: un flujo con Function o Cron falla igual en la nube. No te afecta el paso a Docker ni la carpeta de ficheros, que son de instalaciones propias. En la nube puedes probar la beta eligiendo "3.0.0 Beta (early access)" al cambiar de versión.
+
+### ¿Cómo sé qué flujos se van a romper?
+
+Abre Settings → Migration Report en tu instancia: lista los flujos y ajustes afectados. Después revisa a mano los flujos que mueven dinero, porque los cambios de comportamiento (el límite del nodo Code, el Gmail Trigger, los nodos con varias salidas) no siempre dan error.
+
+### ¿Cuánto cuesta migrar los flujos?
+
+Depende de cuántos flujos tengas y de cuántos usen nodos retirados. Sustituir un Cron por un Schedule Trigger es cuestión de minutos; rehacer un agente de IA de la versión 1 o un flujo con LangChain Code lleva más. Si quieres saberlo para tu caso, en el [diagnóstico](/diagnostico) lo revisamos con tu instancia delante.

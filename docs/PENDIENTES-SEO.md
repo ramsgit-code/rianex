@@ -51,6 +51,11 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 Por orden de impacto:
 
+- [ ] **Actualizar el artículo de n8n 3.0 cuando salga la estable**
+      (principios de diciembre): fecha exacta, cambios de última hora en
+      la lista oficial y campo `updated`. Es contenido con fecha: si se
+      queda viejo, pierde la consulta.
+
 - [ ] **Cifras sin fuente en artículos antiguos**: la descripción de "Cómo
       cualificar leads automáticamente" dice "El 80% de los leads que recibes
       no van a comprar", y el de propuestas dice "en 8 minutos: cómo lo hago"
@@ -78,6 +83,15 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-26 · Dos artículos nuevos: "n8n 3.0: qué se rompe y cómo
+  prepararte" (`/blog/n8n-3-que-se-rompe-y-como-prepararte`, checklist con
+  los cambios oficiales y CTA al diagnóstico de la instancia) y la página
+  pilar "Qué es GTM Engineering" (`/blog/que-es-gtm-engineering`, con el
+  caso Tribeca Media y Eventos Barcelona). n8n enlazado desde
+  /servicios/automatizacion-procesos-ia y desde "qué herramientas usar";
+  GTM desde /servicios/embudo-de-captacion, el caso Tribeca y la sección
+  "Guías" de la home (ahora 2×2).
 
 - 2026-10-26 · Caso Tribeca Media (/casos-de-exito/tribeca-media): agentes
   de performance y contenido de KEYWORKERS, con vídeo y `VideoObject`.
