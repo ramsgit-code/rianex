@@ -42,7 +42,7 @@ export const SECTORES: Record<string, Sector> = {
   clinicas: {
     index: 0,
     caseClient: "Hospital Capilar",
-    services: ["embudo-de-captacion", "agentes-ia-vps", "integracion-gohighlevel-hubspot"],
+    services: ["embudo-de-captacion", "agente-ia-whatsapp", "integracion-gohighlevel-hubspot"],
     posts: [
       "automatizacion-para-clinicas-captacion-y-agenda",
       "como-cualificar-leads-automaticamente",
@@ -281,7 +281,7 @@ export const SECTORES: Record<string, Sector> = {
 
   academias: {
     index: 2,
-    services: ["embudo-de-captacion", "agentes-ia-vps", "implementacion-crm-gohighlevel"],
+    services: ["embudo-de-captacion", "agente-ia-whatsapp", "implementacion-crm-gohighlevel"],
     posts: [
       "como-cualificar-leads-automaticamente",
       "whatsapp-automatizacion-ventas",

@@ -7,6 +7,8 @@ import type { CaseClient } from "@/lib/servicios";
 // automaticas (que describe el sistema de Eventos Barcelona), los testimonios
 // aprobados en la base de datos (copiados tal cual) y las cifras confirmadas
 // por Ramiro (Hospital Capilar: -32% de coste por paciente en 8 semanas).
+// Tribeca Media sale del estado de KEYWORKERS (~/Documents/tribeca): sin
+// precios, sin los clientes de Tribeca y sin detalles de seguridad.
 // Nada mas: si un dato no esta publicado, no aparece.
 
 type Item = { title: string; desc: string };
@@ -19,8 +21,11 @@ export type CasoDetalle = {
   context: string[];
   built: Item[];
   results: string[];
-  quote: { text: string; author: string; role: string };
+  /** Solo si el cliente ha dado un testimonio. */
+  quote?: { text: string; author: string; role: string };
 };
+
+type Video = { src: string; poster: string; /** ISO 8601 */ duration: string; uploadDate: string };
 
 type Caso = {
   client: CaseClient;
@@ -28,6 +33,8 @@ type Caso = {
   sector?: string;
   services: string[];
   posts: string[];
+  /** Video del caso (narrado en castellano). */
+  video?: Video;
   es: CasoDetalle;
   en: CasoDetalle;
 };
@@ -104,6 +111,12 @@ export const CASOS: Record<string, Caso> = {
     sector: "eventos",
     services: ["generador-de-propuestas", "implementacion-crm-gohighlevel", "automatizacion-procesos-ia"],
     posts: ["propuestas-comerciales-automaticas"],
+    video: {
+      src: "/videos/caso-eventos-barcelona.mp4",
+      poster: "/videos/caso-eventos-barcelona.jpg",
+      duration: "PT1M13S",
+      uploadDate: "2026-10-08",
+    },
     es: {
       seoTitle: "Caso Eventos Barcelona: propuestas en 8 minutos",
       metaDescription:
@@ -163,6 +176,72 @@ export const CASOS: Record<string, Caso> = {
         author: "Xavi",
         role: "Director · EB Eventos Barcelona",
       },
+    },
+  },
+
+  "tribeca-media": {
+    client: "Tribeca Media",
+    services: ["agente-ia-whatsapp", "desarrollo-ia-a-medida", "automatizacion-procesos-ia"],
+    posts: ["proyectos-de-ia-a-medida-ejemplos-plazos-precio", "agentes-de-ia-para-empresas-cuando-compensan"],
+    video: {
+      src: "/videos/caso-tribeca-media.mp4",
+      poster: "/videos/caso-tribeca-media.jpg",
+      duration: "PT1M23S",
+      uploadDate: "2026-10-08",
+    },
+    es: {
+      seoTitle: "Caso Tribeca Media: agentes de IA de performance y contenido",
+      metaDescription:
+        "Cómo construimos para KEYWORKERS, la plataforma de Tribeca Media, un agente de IA que gestiona campañas de Meta y Google Ads con aprobación humana, y el agente de contenido.",
+      h1: "Tribeca Media: agentes de IA de performance y contenido para KEYWORKERS",
+      answer:
+        "Tribeca Media construye KEYWORKERS, una plataforma de agentes de IA para marketing. Su agente leía las campañas de Meta Ads pero no actuaba sobre ellas. Construimos el Performance Agent: revisa Meta y Google Ads, propone pausar, bajar presupuesto o crear campañas, lo ejecuta solo cuando una persona lo aprueba y genera creatividades nuevas cuando un anuncio se fatiga. Ahora construimos el Content Agent.",
+      context: [
+        "KEYWORKERS da a cada cliente un equipo de agentes de IA para marketing que trabajan sobre sus cuentas reales de publicidad y redes.",
+        "El sistema en producción leía Meta Ads, pero no tocaba las campañas, no tenía Google Ads ni generaba creatividades, y no había forma de saber cuánto gastaba en IA ni cuándo fallaba. Para dar servicio a muchos más clientes, los agentes tenían que poder actuar, y hacerlo con control.",
+      ],
+      built: [
+        { title: "Diagnóstico y plan por fases", desc: "Revisión técnica del código y del sistema en vivo, y un plan de corrección por bloques, priorizado por riesgo." },
+        { title: "Observabilidad y coste de IA", desc: "Chequeos de salud con avisos, el coste de cada llamada e imagen registrado, tope de gasto por cliente y auditorías de campañas por lotes a mitad de precio." },
+        { title: "Performance Agent en Meta y Google Ads", desc: "Lee las campañas, detecta lo que deja de funcionar y propone pausar, bajar presupuesto o crear campañas nuevas, que nacen en pausa. Subir presupuesto nunca es automático." },
+        { title: "Aprobación humana", desc: "Ninguna acción se ejecuta sin el visto bueno de una persona con permiso. Las aprobaciones caducan a las 24 horas, cada acción queda registrada y una bajada de presupuesto se puede deshacer." },
+        { title: "Creatividades con IA", desc: "Cuando un anuncio de Meta se fatiga, genera una imagen nueva con GPT Image 2 y la deja lista para revisar. Solo sube a Meta lo que se aprueba." },
+        { title: "Content Agent (en construcción)", desc: "Prepara piezas de contenido con texto e imagen, carruseles y vídeos cortos, en vista previa y pendientes de aprobación. Propone; no publica por su cuenta." },
+      ],
+      results: [
+        "Un agente que actúa sobre campañas reales de Meta y Google Ads, no solo las lee.",
+        "Ninguna acción sobre una campaña sin el visto bueno de una persona.",
+        "El coste de IA medido por cliente y con tope diario.",
+        "Casi 1.000 tests automáticos sobre el sistema.",
+        "Performance, con el código cerrado y en validación con un cliente piloto. Content, en construcción.",
+      ],
+    },
+    en: {
+      seoTitle: "Tribeca Media case: performance and content AI agents",
+      metaDescription:
+        "How we built for KEYWORKERS, Tribeca Media's platform, an AI agent that manages Meta and Google Ads campaigns with human approval, and the content agent.",
+      h1: "Tribeca Media: performance and content AI agents for KEYWORKERS",
+      answer:
+        "Tribeca Media is building KEYWORKERS, a platform of AI agents for marketing. Its agent read Meta Ads campaigns but did not act on them. We built the Performance Agent: it reviews Meta and Google Ads, proposes pausing, cutting budget or creating campaigns, executes only when a person approves, and generates new creatives when an ad fatigues. We are now building the Content Agent.",
+      context: [
+        "KEYWORKERS gives each client a team of AI marketing agents that work on their real ad and social accounts.",
+        "The production system read Meta Ads, but it did not touch campaigns, had no Google Ads and generated no creatives, and there was no way to know how much it spent on AI or when it failed. To serve many more clients, the agents had to be able to act, and do it under control.",
+      ],
+      built: [
+        { title: "Diagnosis and phased plan", desc: "Technical review of the code and the live system, and a fix plan in blocks, prioritised by risk." },
+        { title: "Observability and AI cost", desc: "Health checks with alerts, the cost of every call and image recorded, a spending cap per client and campaign audits in batches at half price." },
+        { title: "Performance Agent on Meta and Google Ads", desc: "Reads campaigns, spots what stops working and proposes pausing, cutting budget or creating new campaigns, which start paused. Raising budget is never automatic." },
+        { title: "Human approval", desc: "No action runs without sign-off from an authorised person. Approvals expire after 24 hours, every action is logged and a budget cut can be undone." },
+        { title: "AI creatives", desc: "When a Meta ad fatigues, it generates a new image with GPT Image 2 and leaves it ready for review. Only approved images go to Meta." },
+        { title: "Content Agent (in progress)", desc: "Prepares content pieces with copy and image, carousels and short videos, as previews pending approval. It proposes; it does not publish on its own." },
+      ],
+      results: [
+        "An agent that acts on real Meta and Google Ads campaigns, not one that only reads them.",
+        "No action on a campaign without a person's sign-off.",
+        "AI cost measured per client, with a daily cap.",
+        "Almost 1,000 automated tests on the system.",
+        "Performance: code complete and being validated with a pilot client. Content: in progress.",
+      ],
     },
   },
 
@@ -234,7 +313,7 @@ export const CASO_SLUGS = Object.keys(CASOS);
 export function getCaso(slug: string, lang: Lang) {
   const c = CASOS[slug];
   if (!c) return null;
-  return { ...c[lang], client: c.client, sector: c.sector, services: c.services, posts: c.posts };
+  return { ...c[lang], client: c.client, sector: c.sector, services: c.services, posts: c.posts, video: c.video };
 }
 
 /** Slug de la pagina de un cliente, para enlazar desde otras paginas. */

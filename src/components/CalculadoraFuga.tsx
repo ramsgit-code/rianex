@@ -36,8 +36,8 @@ const T = {
     perYear: "al año",
     ratio: "La fuga pesa {x} veces más que las horas: es donde está el dinero.",
     ctaTitle: "¿Lo calculamos con tus datos reales?",
-    ctaText: "En la auditoría gratuita de 30 minutos miramos estos números sobre tu proceso y sale qué automatizar primero.",
-    cta: "Obtén mi Auditoría Gratuita",
+    ctaText: "En el diagnóstico gratuito de 30 minutos miramos estos números sobre tu proceso y sale qué automatizar primero.",
+    cta: "Pide tu diagnóstico gratuito",
     locale: "es-ES",
   },
   en: {
@@ -63,8 +63,8 @@ const T = {
     perYear: "per year",
     ratio: "Leakage weighs {x} times more than the hours: that is where the money is.",
     ctaTitle: "Shall we run it with your real numbers?",
-    ctaText: "In the free 30-minute audit we look at these numbers on your process and you get what to automate first.",
-    cta: "Get my Free Audit",
+    ctaText: "In the free 30-minute diagnosis we look at these numbers on your process and you get what to automate first.",
+    cta: "Book my free diagnosis",
     locale: "en-GB",
   },
 } as const;

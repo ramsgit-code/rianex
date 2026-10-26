@@ -12,7 +12,7 @@ import type { Lang } from "@/lib/i18n";
 // el blog. Precios y plazos salen de pricing y faq de content.ts; los criterios,
 // de los articulos enlazados.
 
-export type CaseClient = "Hospital Capilar" | "Eventos Barcelona" | "Growth4U";
+export type CaseClient = "Hospital Capilar" | "Eventos Barcelona" | "Growth4U" | "Tribeca Media";
 
 type Step = { title: string; desc: string };
 type Faq = { q: string; a: string };
@@ -39,15 +39,16 @@ type Servicio = {
 };
 
 const PRECIO_ES =
-  "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 € y hay un retainer mensual opcional de mantenimiento. El precio exacto se confirma tras la auditoría gratuita, no antes.";
+  "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 € y hay un retainer mensual opcional de mantenimiento. El precio exacto se confirma tras el diagnóstico gratuito, no antes.";
 const PRECIO_EN =
-  "It depends on scope: discovery starts at €1,500, a full build runs from €5,000 to €25,000, and there is an optional monthly maintenance retainer. The exact price is confirmed after the free audit, not before.";
+  "It depends on scope: discovery starts at €1,500, a full build runs from €5,000 to €25,000, and there is an optional monthly maintenance retainer. The exact price is confirmed after the free diagnosis, not before.";
 
 export const SERVICIOS: Record<string, Servicio> = {
   "automatizacion-procesos-ia": {
     caseClient: "Eventos Barcelona",
     posts: [
       "automatizar-procesos-con-ia-por-donde-empezar",
+      "como-implementar-ia-en-tu-empresa",
       "ejemplos-automatizacion-procesos-con-ia",
       "herramientas-ia-para-automatizar-procesos",
       "cuanto-cuesta-automatizar-un-proceso-con-ia",
@@ -398,31 +399,31 @@ export const SERVICIOS: Record<string, Servicio> = {
     },
   },
 
-  "agentes-ia-vps": {
-    caseClient: "Hospital Capilar",
+  "agente-ia-whatsapp": {
     posts: [
+      "whatsapp-automatizacion-ventas",
+      "automatizar-recepcion-clinica",
       "agentes-de-ia-para-empresas-cuando-compensan",
       "agentes-de-ia-vps-propio-o-nube",
-      "whatsapp-automatizacion-ventas",
     ],
     es: {
-      seoTitle: "Agentes de IA a medida para WhatsApp y web",
+      seoTitle: "Agente de IA para WhatsApp: atiende y agenda citas 24/7",
       metaDescription:
-        "Agentes de IA que atienden, cualifican y agendan 24/7 en WhatsApp, chat web y correo, conectados a GoHighLevel o HubSpot y en tu propio servidor si hace falta.",
+        "Agente de IA para WhatsApp Business que contesta en segundos, cualifica y agenda citas en tu calendario 24/7, conectado a tu CRM. Cómo funciona, plazo y precio.",
       answer:
-        "Un agente de IA a medida atiende por WhatsApp, chat web o correo, consulta tu CRM y tu agenda, cualifica al contacto y reserva la cita, también fuera de horario. A diferencia de un chatbot, actúa en tus sistemas. Lo conectamos a GoHighLevel o HubSpot y, si manejas datos sensibles o mucho volumen, lo desplegamos en tu propio servidor.",
+        "Un agente de IA para WhatsApp contesta a cada cliente en segundos y a cualquier hora, consulta tu agenda y tu CRM, cualifica al contacto y reserva la cita sin que nadie del equipo toque el móvil. Va sobre la API oficial de WhatsApp Business, conectado a GoHighLevel, HubSpot o tu software de citas, y pasa la conversación a una persona cuando hace falta.",
       fit: [
-        "Muchos contactos llegan por la tarde, de noche o en fin de semana, y nadie contesta a tiempo.",
-        "Tu equipo responde cien veces lo mismo, pero la respuesta exige mirar algo: una agenda, un pedido, unas sesiones pendientes.",
-        "El proceso empieza con gente contando su problema con sus palabras, en texto libre.",
+        "Muchas consultas llegan por WhatsApp por la tarde, de noche o en fin de semana, y nadie contesta a tiempo.",
+        "Tu equipo responde cien veces lo mismo, pero la respuesta exige mirar algo: la agenda, un precio, unas sesiones pendientes.",
+        "Vendes con cita previa: clínicas, academias, centros de estética o cualquier negocio de servicios.",
       ],
       notFit: [
         "Recibes veinte consultas al mes: contesta una persona.",
-        "Cada caso depende de matices que solo conoce alguien con años de oficio, o no hay sistemas a los que conectar el agente.",
+        "Cada caso depende de matices que solo conoce alguien con años de oficio, o no hay agenda ni CRM a los que conectar el agente.",
       ],
       steps: [
         { title: "Límites", desc: "Qué decide el agente solo y qué pasa siempre por una persona: cancelar una cita, aplicar un descuento, prometer un plazo." },
-        { title: "Conexiones", desc: "CRM, agenda y canales. Aquí está la mayor parte del trabajo, y es lo que convierte un chatbot en un agente." },
+        { title: "WhatsApp y conexiones", desc: "Alta en la API oficial de WhatsApp Business, y conexión con tu agenda y tu CRM. Aquí está la mayor parte del trabajo, y es lo que convierte un chatbot en un agente." },
         { title: "Casos raros", desc: "Salida a persona cuando un sistema no responde, cuando alguien escribe algo sin sentido o pide algo no previsto." },
         { title: "Despliegue y mantenimiento", desc: "Servicio gestionado o servidor propio en la UE, con vigilancia, copias de seguridad y la información siempre al día." },
       ],
@@ -430,12 +431,20 @@ export const SERVICIOS: Record<string, Servicio> = {
         "Entre 4 y 8 semanas desde el diagnóstico. El primer agente suele estar atendiendo en la semana 4.",
       faqs: [
         {
-          q: "¿Qué diferencia hay entre un agente de IA y un chatbot?",
-          a: "Un chatbot responde con texto. Un agente decide qué hay que hacer y lo hace en tus sistemas: consulta la agenda y reserva, cualifica al contacto y lo mete en el pipeline, avisa a la persona que corresponde. El chatbot descarga a quien escribe; el agente, a quien trabaja.",
+          q: "¿Cuánto cuesta un agente de IA para WhatsApp?",
+          a: "La construcción entra en el rango de implementación, de 5.000 € a 25.000 €. Lo que más mueve el precio es cuántos sistemas tiene que consultar el agente y cuántas excepciones tiene tu proceso. Aparte están los costes de uso, que pagas directamente: Meta cobra por los mensajes de plantilla que inicia tu empresa (contestar a quien te escribe dentro de las 24 horas no tiene coste de Meta) y el modelo de IA cobra por uso, o tiene coste fijo si va en servidor propio.",
         },
         {
-          q: "¿Servidor propio o servicio en la nube?",
-          a: "Un servicio gestionado cobra por uso y es bueno para validar. Un servidor propio tiene coste fijo, te da control sobre dónde se procesan los datos y permite cambiar de modelo sin rehacer nada. Lo habitual es empezar en gestionado, medir dos o tres meses y decidir con datos, sin atar la lógica del agente a la plataforma.",
+          q: "¿Sirve la app de WhatsApp Business del móvil?",
+          a: "No. El agente necesita la API oficial de WhatsApp Business, que se da de alta con Meta directamente o a través de una plataforma como GoHighLevel. Puedes mantener tu número actual: se migra a la API. Lo que no se puede es seguir usándolo a la vez en la app del móvil.",
+        },
+        {
+          q: "¿Puede agendar citas en mi calendario?",
+          a: "Sí. Consulta los huecos libres y reserva directamente en tu agenda: el calendario de GoHighLevel o HubSpot, Google Calendar o tu software de citas si tiene API. Después envía la confirmación y los recordatorios.",
+        },
+        {
+          q: "¿Qué diferencia hay entre un agente de IA y un chatbot?",
+          a: "Un chatbot responde con texto. Un agente decide qué hay que hacer y lo hace en tus sistemas: consulta la agenda y reserva, cualifica al contacto y lo mete en el pipeline, avisa a la persona que corresponde. El chatbot descarga a quien escribe; el agente, a quien trabaja.",
         },
         {
           q: "¿Qué pasa si el agente no sabe responder?",
@@ -448,36 +457,44 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
     },
     en: {
-      seoTitle: "Custom AI agents for WhatsApp and web",
+      seoTitle: "AI agent for WhatsApp: answers and books appointments 24/7",
       metaDescription:
-        "AI agents that answer, qualify and book 24/7 on WhatsApp, web chat and email, connected to GoHighLevel or HubSpot and on your own server when needed.",
+        "An AI agent for WhatsApp Business that replies in seconds, qualifies and books appointments into your calendar 24/7, connected to your CRM. How it works, timeline and price.",
       answer:
-        "A custom AI agent answers on WhatsApp, web chat or email, checks your CRM and calendar, qualifies the contact and books the appointment, outside business hours too. Unlike a chatbot, it acts in your systems. We connect it to GoHighLevel or HubSpot and, if you handle sensitive data or high volume, deploy it on your own server.",
+        "An AI agent for WhatsApp replies to every customer within seconds, at any hour, checks your calendar and CRM, qualifies the contact and books the appointment without anyone on the team touching a phone. It runs on the official WhatsApp Business API, connected to GoHighLevel, HubSpot or your booking software, and hands the conversation to a person when needed.",
       fit: [
-        "Many contacts arrive in the evening, at night or at weekends, and nobody answers in time.",
-        "Your team answers the same thing a hundred times, but the answer requires checking something: a calendar, an order, remaining sessions.",
-        "The process starts with people describing their problem in their own words, as free text.",
+        "Many enquiries arrive on WhatsApp in the evening, at night or at weekends, and nobody answers in time.",
+        "Your team answers the same thing a hundred times, but the answer requires checking something: the calendar, a price, remaining sessions.",
+        "You sell by appointment: clinics, academies, beauty centres or any service business.",
       ],
       notFit: [
         "You get twenty enquiries a month: a person answers.",
-        "Every case depends on nuances only someone with years of experience knows, or there are no systems to connect the agent to.",
+        "Every case depends on nuances only someone with years of experience knows, or there is no calendar or CRM to connect the agent to.",
       ],
       steps: [
         { title: "Limits", desc: "What the agent decides on its own and what always goes to a person: cancelling an appointment, applying a discount, promising a deadline." },
-        { title: "Connections", desc: "CRM, calendar and channels. Most of the work is here, and it is what turns a chatbot into an agent." },
+        { title: "WhatsApp and connections", desc: "Setup on the official WhatsApp Business API, and connection to your calendar and CRM. Most of the work is here, and it is what turns a chatbot into an agent." },
         { title: "Edge cases", desc: "Hand-off to a person when a system does not respond, when someone writes nonsense or asks for something unplanned." },
         { title: "Deployment and maintenance", desc: "Managed service or your own server in the EU, with monitoring, backups and information always up to date." },
       ],
       timeline:
-        "Between 4 and 8 weeks from the assessment. The first agent is usually answering by week 4.",
+        "Between 4 and 8 weeks from the diagnosis. The first agent is usually answering by week 4.",
       faqs: [
+        {
+          q: "How much does an AI agent for WhatsApp cost?",
+          a: "The build falls within the implementation range, €5,000 to €25,000. What moves the price most is how many systems the agent has to check and how many exceptions your process has. Usage costs are separate and you pay them directly: Meta charges for template messages your business initiates (replying to someone who writes to you within 24 hours has no Meta fee), and the AI model charges per use, or has a fixed cost on your own server.",
+        },
+        {
+          q: "Does the WhatsApp Business phone app work?",
+          a: "No. The agent needs the official WhatsApp Business API, set up with Meta directly or through a platform such as GoHighLevel. You can keep your current number: it is migrated to the API. What you cannot do is keep using it in the phone app at the same time.",
+        },
+        {
+          q: "Can it book appointments in my calendar?",
+          a: "Yes. It checks free slots and books straight into your calendar: GoHighLevel or HubSpot calendars, Google Calendar or your booking software if it has an API. Then it sends the confirmation and reminders.",
+        },
         {
           q: "What is the difference between an AI agent and a chatbot?",
           a: "A chatbot replies with text. An agent decides what needs doing and does it in your systems: checks the calendar and books, qualifies the contact and adds it to the pipeline, alerts the right person. The chatbot relieves whoever writes; the agent relieves whoever works.",
-        },
-        {
-          q: "Own server or cloud service?",
-          a: "A managed service charges per use and is good for validating. Your own server has a fixed cost, gives you control over where data is processed and lets you switch models without rebuilding. The usual path is to start managed, measure for two or three months and decide with data, without tying the agent's logic to the platform.",
         },
         {
           q: "What if the agent cannot answer?",

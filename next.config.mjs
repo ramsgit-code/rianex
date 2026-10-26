@@ -21,6 +21,9 @@ const nextConfig = {
         { source: `/blog/${antiguo}`, destination: `/blog/${actual}`, permanent: true },
         { source: `/en/blog/${antiguo}`, destination: `/blog/${actual}`, permanent: true },
       ]),
+      // El servicio de agentes paso a centrarse en WhatsApp (octubre de 2026).
+      { source: "/servicios/agentes-ia-vps", destination: "/servicios/agente-ia-whatsapp", permanent: true },
+      { source: "/en/servicios/agentes-ia-vps", destination: "/en/servicios/agente-ia-whatsapp", permanent: true },
       // Los articulos no tienen version en ingles: el original es el castellano.
       { source: "/en/blog/:slug", destination: "/blog/:slug", permanent: true },
     ];

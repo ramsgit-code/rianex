@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { JsonLd } from "@/components/JsonLd";
 import { prisma } from "@/lib/prisma";
+import { testimoniosPublicos } from "@/lib/testimonios";
 import { content } from "@/lib/content";
 import { pageMetadata, RAMIRO, RIANEX_LINKEDIN } from "@/lib/seo";
 
@@ -77,7 +78,7 @@ const faqJsonLd = {
 async function getTestimonials() {
   try {
     return await prisma.testimonial.findMany({
-      where: { approved: true },
+      where: testimoniosPublicos,
       orderBy: { createdAt: "desc" },
       take: 6,
       select: { id: true, name: true, company: true, role: true, quote: true, roleEn: true, quoteEn: true, imageUrl: true },
