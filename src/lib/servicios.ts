@@ -53,6 +53,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       "herramientas-ia-para-automatizar-procesos",
       "cuanto-cuesta-automatizar-un-proceso-con-ia",
       "rgpd-y-automatizacion-con-ia",
+      "n8n-3-que-se-rompe-y-como-prepararte",
     ],
     es: {
       seoTitle: "Automatización de procesos con IA para empresas",
@@ -595,6 +596,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   "embudo-de-captacion": {
     caseClient: "Hospital Capilar",
     posts: [
+      "que-es-gtm-engineering",
       "como-cualificar-leads-automaticamente",
       "whatsapp-automatizacion-ventas",
       "cross-selling-por-whatsapp",

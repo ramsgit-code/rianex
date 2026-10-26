@@ -32,6 +32,11 @@ const GUIAS = [
     en: "How to measure a process before automating it",
   },
   {
+    href: "/blog/que-es-gtm-engineering",
+    es: "Qué es GTM Engineering para una pyme",
+    en: "What GTM Engineering means for an SME",
+  },
+  {
     href: "/blog/que-es-gohighlevel",
     es: "Qué es GoHighLevel y cuándo compensa",
     en: "What GoHighLevel is and when it pays off",
@@ -69,7 +74,7 @@ export function Guias() {
           </Link>
         </Reveal>
 
-        <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
+        <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {GUIAS.map((g, i) => (
             <li key={g.href} className="h-full">
               <Reveal delay={0.08 + i * 0.04} className="h-full">
