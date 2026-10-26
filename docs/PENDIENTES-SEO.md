@@ -35,6 +35,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       enlace "sistema implementado por Rianex" a la web.
 - [ ] **Después de cada despliegue con URLs nuevas**: `npm run indexnow`.
 
+- [ ] **Testimonio de María Silva (Hospital Capilar)**: es el primero de la
+      home y Hospital Capilar es cliente de Growth4U. Está en la base de datos:
+      quitarle la aprobación en el panel (/admin) o pedirme que lo haga. La
+      página /casos-de-exito/hospital-capilar ya dice que fue con Growth4U.
+- [ ] **Página de LinkedIn de Rianex**: pegar el eslogan y la descripción
+      nuevos (en `linkedin/textos-linkedin-es.md` de tu carpeta local).
+
 ## Código
 
 Por orden de impacto:
@@ -62,6 +69,15 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-26 · Posicionamiento: la home deja de vender "ahorra 10 horas" y
+  GoHighLevel como mensaje principal y pasa a "automatización con IA y
+  software a medida para vender más" (mismo eje que el LinkedIn: AI
+  automation + software + go-to-market). Title y description de la home,
+  JSON-LD y llms.txt alineados. La prueba junto al CTA es ahora Eventos
+  Barcelona (8 min) y el logo de Hospital Capilar sale de "Clientes con
+  sistema activo"; donde se cita, va como "con Growth4U". Revisar en
+  noviembre el CTR de la home en Search Console con el title nuevo.
 
 - 2026-10-21 · PR #21 · Tres artículos nuevos para consultas que ya
   asomaban en Search Console: "Proyectos de IA a medida: ejemplos, plazos y

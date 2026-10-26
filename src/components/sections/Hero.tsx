@@ -26,14 +26,6 @@ const clientLogos: {
   label?: string;
 }[] = [
   {
-    src: LOGOS.hospitalCapilar,
-    alt: "Hospital Capilar",
-    h: "h-6 sm:h-9",
-    w: 396,
-    height: 117,
-    href: "https://hospitalcapilar.com",
-  },
-  {
     src: LOGOS.eventosBarcelona,
     alt: "EB Eventos Barcelona",
     h: "h-6 sm:h-9",

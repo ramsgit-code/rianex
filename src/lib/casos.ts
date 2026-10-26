@@ -47,7 +47,7 @@ export const CASOS: Record<string, Caso> = {
         "Cómo Hospital Capilar bajó un 32% su coste por paciente en 8 semanas con un quiz de cualificación, seguimiento por WhatsApp y un Booking SDR que agenda en Koibox.",
       h1: "Hospital Capilar: −32% de coste por paciente en 8 semanas",
       answer:
-        "Hospital Capilar, una clínica de Madrid, captaba muchos leads sin ningún filtro ni visibilidad del embudo. Montamos en GoHighLevel un sistema que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y agenda la cita directamente en Koibox con un Booking SDR. En 8 semanas, el coste por paciente bajó un 32%.",
+        "Hospital Capilar, una clínica de Madrid, captaba muchos leads sin ningún filtro ni visibilidad del embudo. En un proyecto con Growth4U, montamos en GoHighLevel un sistema que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y agenda la cita directamente en Koibox con un Booking SDR. En 8 semanas, el coste por paciente bajó un 32%.",
       context: [
         "Captaban muchos leads, pero sin ningún filtro previo ni visibilidad del embudo.",
         "No sabían qué contactos merecía la pena trabajar ni en qué paso se perdían las oportunidades, así que el equipo dedicaba el mismo tiempo a un lead bueno que a uno que nunca iba a ser paciente.",
@@ -75,7 +75,7 @@ export const CASOS: Record<string, Caso> = {
         "How Hospital Capilar cut its cost per patient by 32% in 8 weeks with a qualification quiz, WhatsApp follow-up and a Booking SDR that books into Koibox.",
       h1: "Hospital Capilar: −32% cost per patient in 8 weeks",
       answer:
-        "Hospital Capilar, a clinic in Madrid, was getting plenty of leads with no filter and no visibility of the funnel. We built a GoHighLevel system that qualifies every lead with a scoring quiz, follows up automatically on WhatsApp and books the appointment straight into Koibox with a Booking SDR. In 8 weeks, cost per patient fell by 32%.",
+        "Hospital Capilar, a clinic in Madrid, was getting plenty of leads with no filter and no visibility of the funnel. In a project with Growth4U, we built a GoHighLevel system that qualifies every lead with a scoring quiz, follows up automatically on WhatsApp and books the appointment straight into Koibox with a Booking SDR. In 8 weeks, cost per patient fell by 32%.",
       context: [
         "They were getting plenty of leads, but with no prior filter and no visibility of the funnel.",
         "They did not know which contacts were worth working or at which step opportunities were lost, so the team spent as much time on a good lead as on one that would never become a patient.",

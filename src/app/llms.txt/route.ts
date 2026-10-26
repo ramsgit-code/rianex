@@ -23,9 +23,11 @@ export const dynamic = "force-static";
 
 const CABECERA = `# Rianex
 
-> Automatización y desarrollo con IA para negocios. Integramos GoHighLevel y
-> HubSpot con el resto de tus herramientas, migramos CRMs con su histórico
-> completo y construimos agentes de IA a medida sobre servidor propio.
+> Automatización con IA, software a medida y go-to-market para empresas:
+> montamos el sistema que capta, cualifica y cierra ventas. Agentes de IA y
+> automatizaciones sobre GoHighLevel o HubSpot, integraciones con el resto de
+> herramientas, migraciones de CRM con su histórico y desarrollo a medida
+> cuando no hay herramienta estándar que sirva.
 
 Estudio de ingeniería con base en Ávila, España. Trabaja en español para el
 mercado español y latinoamericano, y en inglés cuando el proyecto lo pide.
