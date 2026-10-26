@@ -5,7 +5,7 @@ asistentes de IA (ChatGPT, Perplexity, Claude, AI Overviews). Se actualiza
 cada vez que se cierra o aparece algo: lo terminado baja a **Hecho** con la
 fecha y el PR.
 
-Origen: auditoría del 2 de octubre de 2026. Último repaso: 21 de octubre
+Origen: auditoría del 2 de octubre de 2026. Último repaso: 26 de octubre (799 impresiones, 3 clics, posición 70,3; GA4 35 sesiones y `generate_lead` ya disponible para marcar). Repaso anterior: 21 de octubre
 (Search Console, 28 días: 58 páginas indexadas, solo 2 sin indexar y son
 redirecciones; 488 impresiones, 2 clics, posición media 71,4. El 54% de las
 impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
@@ -31,8 +31,11 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 - [ ] **Perfiles fuera de la web**: Google
       Business Profile (Ávila), directorio de partners de HighLevel, Clutch o
       Sortlist. Mismo nombre, descripción y URL en todos.
-- [ ] **Enlaces de clientes**: pedir a Eventos Barcelona y Tribeca Media un
-      enlace "sistema implementado por Rianex" a la web.
+- [ ] **Enlaces externos (lo que más movería el pilar)**: GSC no ve
+      ninguno. Pedir a Eventos Barcelona y Tribeca Media un enlace "sistema
+      implementado por Rianex", idealmente uno de ellos al artículo
+      `/blog/automatizar-procesos-con-ia-por-donde-empezar`, y enlazar ese
+      artículo desde tu LinkedIn (post o sección Destacados).
 - [ ] **Después de cada despliegue con URLs nuevas**: `npm run indexnow`.
 
 - [ ] **Testimonio de María Silva (Hospital Capilar)**: es el primero de la
@@ -52,8 +55,12 @@ Por orden de impacto:
       con ese tono de primera persona de antes. Revisar los tres artículos de
       abril (cualificar leads, propuestas, WhatsApp) con el mismo criterio que
       la home.
-- [ ] **Revisar en noviembre** si el title nuevo de "por dónde empezar"
-      mejora el CTR (264 impresiones y 0 clics a 21 de octubre).
+- [ ] **Revisar a mediados de noviembre** el pilar "por dónde empezar"
+      (title "qué es y por dónde empezar" desde el 26 de octubre): posición
+      para "automatización de procesos con ia" (78 a 26 de octubre) y
+      "automatizar procesos con ia" (66), y si aparecen clics. El techo lo
+      pone la autoridad del dominio: el top 10 es Microsoft, Oracle, AWS,
+      IBM e Informatica, y rianex.es tiene 0 enlaces externos.
 - [ ] **Schema**: `BreadcrumbList` en las páginas que aún no lo llevan (ya
       está en las de servicio).
 - [ ] **JSON-LD en las páginas que no tienen**: casos de éxito, soluciones,
@@ -69,6 +76,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-26 · Pilar "por dónde empezar" ampliado para la intención de
+  "automatización de procesos con ia" (441 impresiones en 28 días, 0
+  clics, posición 70-78): title "qué es y por dónde empezar", sección
+  "Qué procesos se pueden automatizar con IA" y precio junto a los plazos.
+  FAQ con las cuatro preguntas que Google muestra en "Más preguntas"
+  (qué procesos, cómo, cuál es la mejor IA, cuánto cuesta). Indexación
+  pedida en GSC.
 
 - 2026-10-26 · Posicionamiento: la home deja de vender "ahorra 10 horas" y
   GoHighLevel como mensaje principal y pasa a "automatización con IA y
