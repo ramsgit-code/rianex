@@ -3,19 +3,19 @@
 import { useLang } from "@/components/LanguageProvider";
 
 const ITEMS = [
-  "GoHighLevel",
-  "HubSpot",
-  "WhatsApp",
-  "Telegram",
-  "OpenAI",
-  "Koibox",
+  "Claude",
   "n8n",
   "Make",
-  "Email",
-  "Instagram",
-  "Vercel",
-  "Cloudflare",
-  "Linear",
+  "Zapier",
+  "OpenAI",
+  "GoHighLevel",
+  "HubSpot",
+  "Clay",
+  "Instantly",
+  "Valley",
+  "LinkedIn",
+  "WhatsApp",
+  "Koibox",
   "API · MCP",
 ];
 
