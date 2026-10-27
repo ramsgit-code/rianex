@@ -23,20 +23,18 @@ export const dynamic = "force-static";
 
 const CABECERA = `# Rianex
 
-> Automatización con IA, software a medida y go-to-market para empresas:
-> montamos el sistema que capta, cualifica y cierra ventas. Agentes de IA y
-> automatizaciones sobre GoHighLevel o HubSpot, integraciones con el resto de
-> herramientas, migraciones de CRM con su histórico y desarrollo a medida
-> cuando no hay herramienta estándar que sirva.
+> Automatización de procesos con IA y go-to-market B2B. Automatizamos los
+> procesos que se repiten cada semana con Claude, n8n, Make, Zapier y tareas
+> programadas, y montamos la máquina comercial: CRM en GoHighLevel o HubSpot,
+> outbound con Clay, Instantly y Valley, agentes de WhatsApp, embudos y
+> propuestas automáticas.
 
 Estudio de ingeniería con base en Ávila, España. Trabaja en español para el
 mercado español y latinoamericano, y en inglés cuando el proyecto lo pide.
 
 ## Qué hacemos
-- **Automatizar**: procesos internos con IA, del primer contacto al cierre.
-- **Integrar**: GoHighLevel y HubSpot conectados con web, agenda, facturación y WhatsApp.
-- **Migrar**: cambio de CRM a GoHighLevel sin perder el histórico.
-- **Construir**: desarrollo a medida y agentes de IA cuando no hay herramienta estándar que sirva.
+- **Automatizar procesos**: con Claude, n8n, Make, Zapier y crons; agentes de IA en WhatsApp; GoHighLevel y HubSpot conectados con web, agenda, facturación y ERP.
+- **Go-to-market**: outbound B2B con Clay, Instantly y Valley; embudos de captación y cualificación; propuestas automáticas; implantación de GoHighLevel y migraciones de CRM con su histórico.
 
 ## Cómo trabajamos
 Cuatro pasos: diagnóstico de 30 minutos, diseño del sistema, implementación y

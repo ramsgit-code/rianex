@@ -60,7 +60,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       metaDescription:
         "Automatizamos con IA y reglas los procesos que se repiten cada semana, del primer contacto al cierre. Qué automatizar primero, en qué orden, plazo y precio.",
       answer:
-        "Automatizar procesos con IA es conseguir que las tareas repetitivas —copiar datos, contestar lo mismo, perseguir pendientes— se hagan solas sobre tu CRM. Empezamos por el proceso que más dinero pierde, casi siempre el que va del primer contacto a la venta, y usamos IA solo donde hace falta criterio. El resto son reglas, más baratas y predecibles.",
+        "Automatizar procesos con IA es conseguir que las tareas repetitivas —copiar datos, contestar lo mismo, perseguir pendientes— se hagan solas. Lo montamos con n8n, Make o Zapier, tareas programadas (crons) y Claude u OpenAI donde hace falta criterio, conectado a tu CRM y tus herramientas. Empezamos por el proceso que más dinero pierde; el resto son reglas, más baratas y predecibles.",
       fit: [
         "La tarea ocurre muchas veces a la semana y sigue reglas que sabrías explicar a alguien nuevo en cinco minutos.",
         "Consume horas que se pueden contar y su fallo cuesta dinero: un lead sin respuesta, una factura sin emitir, una cita sin confirmar.",
@@ -99,7 +99,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       metaDescription:
         "We automate the processes that repeat every week with AI and rules, from first contact to close. What to automate first, in what order, timeline and price.",
       answer:
-        "AI process automation means the repetitive work —copying data, answering the same questions, chasing follow-ups— runs on its own on top of your CRM. We start with the process that loses the most money, almost always the one between first contact and the sale, and use AI only where judgement is needed. The rest is rules, which are cheaper and predictable.",
+        "AI process automation means the repetitive work —copying data, answering the same questions, chasing follow-ups— runs on its own. We build it with n8n, Make or Zapier, scheduled jobs (cron) and Claude or OpenAI where judgement is needed, connected to your CRM and tools. We start with the process that loses the most money; the rest is rules, cheaper and more predictable.",
       fit: [
         "The task happens many times a week and follows rules you could explain to a new hire in five minutes.",
         "It eats hours you can count and its failure costs money: an unanswered lead, an unsent invoice, an unconfirmed appointment.",
@@ -315,87 +315,98 @@ export const SERVICIOS: Record<string, Servicio> = {
     },
   },
 
-  "desarrollo-ia-a-medida": {
-    posts: [
-      "desarrollo-a-medida-con-ia-cuando-construir",
-      "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
-    ],
+  "outbound-b2b": {
+    posts: ["como-cualificar-leads-automaticamente", "integrar-gohighlevel-con-tu-stack"],
     es: {
-      seoTitle: "Desarrollo de software a medida con IA",
+      seoTitle: "Outbound B2B con IA: Clay, Instantly y LinkedIn",
       metaDescription:
-        "Portales, generadores, paneles internos y MVPs construidos con IA y conectados a tu CRM. Cuándo compensa construir, qué hay que asumir y el código es tuyo.",
+        "Montamos tu outbound B2B: listas con Clay, email en frío con Instantly, LinkedIn con Valley y cada respuesta en GoHighLevel o HubSpot. Cómo, plazo y precio.",
       answer:
-        "Desarrollo a medida con IA es construir la pieza que ninguna herramienta estándar hace —un portal para clientes, un generador, un panel interno o un producto nuevo— y conectarla a tu CRM y a tus datos. Solo lo recomendamos cuando esa pieza te diferencia de tu competencia: lo genérico se compra. El código y la infraestructura son tuyos.",
+        "Montar outbound B2B es construir la máquina que encuentra a tu cliente ideal, le escribe por email y LinkedIn con un mensaje sobre su caso y mete cada respuesta en tu CRM. Usamos Clay para las listas y el enriquecimiento, Instantly para el email en frío, Valley para LinkedIn y GoHighLevel o HubSpot para el seguimiento, con dominios aparte para no quemar el tuyo.",
       fit: [
-        "El proceso es tu ventaja y meterlo en una herramienta genérica te obliga a trabajar como los demás.",
-        "Ninguna herramienta cubre el hueco. No que lo haga imperfecto: que no lo haga.",
-        "Necesitas dar acceso a clientes o proveedores con un portal propio.",
-        "El coste por usuario o por contacto de tus herramientas ya duele.",
+        "Vendes B2B y tu cliente ideal se puede describir: sector, tamaño de empresa y cargo.",
+        "Dependes de referidos o del inbound y quieres un canal de reuniones que puedas encender y apagar.",
+        "Ya haces outbound a mano y no escala, o tus correos acaban en spam.",
       ],
       notFit: [
-        "Es para ahorrarte una suscripción de unas decenas de euros al mes.",
-        "El proceso aún no está claro o hay que resolverlo este mes: primero se estabiliza con herramientas estándar y automatizaciones.",
+        "Vendes a particulares: el outbound en frío es para B2B.",
+        "Todavía no sabes a quién vendes ni qué problema le resuelves: primero eso, después las secuencias.",
       ],
       steps: [
-        { title: "Diseño funcional", desc: "Qué tiene que hacer, para quién, y cuál es lo mínimo que resuelve el caso principal." },
-        { title: "Arquitectura", desc: "Una herramienta estándar como base y una pieza a medida solo para lo que de verdad es tuyo. Construir menos es construir mejor." },
-        { title: "Desarrollo y conexión", desc: "La aplicación con IA integrada, conectada a tu CRM y con la forma de exportar todos los datos desde el primer día." },
-        { title: "Despliegue", desc: "En producción, documentado y con el código en tu repositorio. Después se amplía con lo que pidan los usuarios reales." },
+        { title: "Cliente ideal y oferta", desc: "A quién escribimos, qué señal nos dice que es buen momento y qué le ofrecemos. Sin esto, ninguna herramienta funciona." },
+        { title: "Infraestructura", desc: "Dominios y buzones aparte, autenticados y calentados, para que tu dominio principal no se juegue la reputación." },
+        { title: "Listas y mensajes", desc: "Listas enriquecidas y verificadas con Clay, y mensajes por segmento que hablan del caso de cada cuenta, no plantillas genéricas." },
+        { title: "Secuencias y respuestas", desc: "Email con Instantly y LinkedIn con Valley, coordinados. Cada respuesta se clasifica y entra en tu CRM, y las interesadas acaban en reunión." },
       ],
-      timeline: "Entre 4 y 8 semanas para una primera versión en producción, según el alcance.",
+      timeline:
+        "El calentamiento de los buzones marca el ritmo: dura de dos a tres semanas, y mientras tanto se preparan las listas y los mensajes. Las primeras campañas suelen salir hacia la semana 4.",
       faqs: [
         {
-          q: "¿Con IA no sale mucho más barato?",
-          a: "Escribir código sí es más barato que hace tres años. Decidir qué construir, integrarlo con lo que ya existe, probarlo con datos reales, desplegarlo y mantenerlo cuesta casi lo mismo que siempre, y es la mayor parte del proyecto.",
+          q: "¿Cuánto cuesta montar outbound B2B?",
+          a: PRECIO_ES + " Aparte están las herramientas (Clay, Instantly, Valley y los dominios), que contratas a tu nombre y pagas directamente.",
         },
         {
-          q: "¿De quién es el código?",
-          a: "Tuyo: código e infraestructura propios, sin dependencias. Se entrega documentado y con la forma de exportar todos los datos, para que el día que quieras cambiar de enfoque puedas hacerlo.",
+          q: "¿Voy a quemar mi dominio?",
+          a: "No, si se hace bien. El outbound sale de dominios y buzones aparte, autenticados y calentados antes de enviar, con volúmenes por buzón que no levantan sospechas. Tu dominio principal sigue intacto.",
         },
         {
-          q: "¿Qué pasa después de la entrega?",
-          a: "Incluye 30 días de soporte. Después hay un retainer mensual opcional de mantenimiento, porque un sistema sin mantenimiento no se queda igual: las dependencias y las API de los proveedores cambian y empeora.",
+          q: "¿Email o LinkedIn?",
+          a: "Los dos, coordinados. Hay cargos que leen el correo y otros que solo contestan en LinkedIn. Una secuencia que combina los dos canales llega a más gente sin insistir más en ninguno.",
         },
-        { q: "¿Cuánto cuesta?", a: PRECIO_ES },
+        {
+          q: "¿Es legal el email en frío en España?",
+          a: "La LSSI limita las comunicaciones comerciales por email no solicitadas y el RGPD exige una base legal para tratar datos de contacto. Por eso trabajamos con mensajes uno a uno a cargos profesionales, con baja sencilla, y combinamos el email con LinkedIn. Si tu sector es sensible, conviene revisarlo con tu asesor legal antes de lanzar.",
+        },
+        {
+          q: "¿Qué pasa con las respuestas?",
+          a: "Se clasifican solas (interesado, no ahora, no es la persona, baja) y entran en tu CRM, en GoHighLevel o HubSpot, con el historial de la conversación. Las interesadas reciben enlace para reservar reunión.",
+        },
       ],
     },
     en: {
-      seoTitle: "Custom software development with AI",
+      seoTitle: "B2B outbound with AI: Clay, Instantly and LinkedIn",
       metaDescription:
-        "Portals, generators, internal dashboards and MVPs built with AI and connected to your CRM. When building pays off, what to accept, and the code is yours.",
+        "We build your B2B outbound: lists with Clay, cold email with Instantly, LinkedIn with Valley and every reply in GoHighLevel or HubSpot. How, timeline and price.",
       answer:
-        "Custom AI development means building the piece no off-the-shelf tool does —a client portal, a generator, an internal dashboard or a new product— and connecting it to your CRM and data. We only recommend it when that piece sets you apart from your competitors: generic things are bought. The code and the infrastructure are yours.",
+        "Building B2B outbound means building the engine that finds your ideal customer, writes to them by email and LinkedIn about their case and puts every reply into your CRM. We use Clay for lists and enrichment, Instantly for cold email, Valley for LinkedIn and GoHighLevel or HubSpot for follow-up, with separate domains so yours never gets burned.",
       fit: [
-        "The process is your edge and forcing it into a generic tool makes you work like everyone else.",
-        "No tool covers the gap. Not that it does it imperfectly: that it does not do it.",
-        "You need to give clients or suppliers access through your own portal.",
-        "Per-user or per-contact pricing of your tools already hurts.",
+        "You sell B2B and your ideal customer can be described: industry, company size and role.",
+        "You depend on referrals or inbound and want a meetings channel you can switch on and off.",
+        "You already do outbound by hand and it does not scale, or your emails land in spam.",
       ],
       notFit: [
-        "It is to save a subscription that costs a few dozen euros a month.",
-        "The process is not clear yet or must be solved this month: stabilise it first with standard tools and automations.",
+        "You sell to consumers: cold outbound is for B2B.",
+        "You do not yet know who you sell to or what problem you solve: that first, sequences later.",
       ],
       steps: [
-        { title: "Functional design", desc: "What it must do, for whom, and the minimum that solves the main case." },
-        { title: "Architecture", desc: "A standard tool as the base and a custom piece only for what is truly yours. Building less is building better." },
-        { title: "Build and connect", desc: "The application with AI built in, connected to your CRM and with a way to export all data from day one." },
-        { title: "Deployment", desc: "In production, documented and with the code in your repository. Then it grows with what real users ask for." },
+        { title: "Ideal customer and offer", desc: "Who we write to, which signal says it is a good moment and what we offer. Without this, no tool works." },
+        { title: "Infrastructure", desc: "Separate domains and inboxes, authenticated and warmed up, so your main domain never risks its reputation." },
+        { title: "Lists and messaging", desc: "Lists enriched and verified with Clay, and messaging per segment that talks about each account's case, not generic templates." },
+        { title: "Sequences and replies", desc: "Email with Instantly and LinkedIn with Valley, coordinated. Every reply is classified and goes into your CRM, and interested ones end in a meeting." },
       ],
-      timeline: "Between 4 and 8 weeks for a first version in production, depending on scope.",
+      timeline:
+        "Inbox warm-up sets the pace: it takes two to three weeks, and lists and messaging are prepared meanwhile. The first campaigns usually go out around week 4.",
       faqs: [
         {
-          q: "Isn't it much cheaper with AI?",
-          a: "Writing code is cheaper than three years ago. Deciding what to build, integrating it, testing it with real data, deploying and maintaining it costs about the same as ever, and that is most of the project.",
+          q: "How much does setting up B2B outbound cost?",
+          a: PRECIO_EN + " Tools (Clay, Instantly, Valley and the domains) are separate: you subscribe in your name and pay them directly.",
         },
         {
-          q: "Who owns the code?",
-          a: "You do: your own code and infrastructure, no lock-in. It is delivered documented and with a way to export all the data, so you can change course whenever you want.",
+          q: "Will I burn my domain?",
+          a: "Not if it is done right. Outbound goes out from separate domains and inboxes, authenticated and warmed up before sending, with per-inbox volumes that raise no flags. Your main domain stays untouched.",
         },
         {
-          q: "What happens after delivery?",
-          a: "30 days of support are included. After that there is an optional monthly maintenance retainer, because an unmaintained system does not stay the same: dependencies and provider APIs change and it degrades.",
+          q: "Email or LinkedIn?",
+          a: "Both, coordinated. Some roles read email and others only reply on LinkedIn. A sequence combining both channels reaches more people without pushing harder on either.",
         },
-        { q: "How much does it cost?", a: PRECIO_EN },
+        {
+          q: "Is cold email legal in Spain?",
+          a: "Spain's LSSI restricts unsolicited commercial email and the GDPR requires a legal basis to process contact data. That is why we work with one-to-one messages to professional roles, with an easy opt-out, and combine email with LinkedIn. If your sector is sensitive, check it with your legal adviser before launching.",
+        },
+        {
+          q: "What happens to replies?",
+          a: "They are classified automatically (interested, not now, wrong person, unsubscribe) and go into your CRM, GoHighLevel or HubSpot, with the conversation history. Interested ones get a link to book a meeting.",
+        },
       ],
     },
   },

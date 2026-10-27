@@ -30,26 +30,26 @@ type PageCopy = { title: string; description: string };
 const PAGES: Record<string, Record<Lang, PageCopy>> = {
   "/": {
     es: {
-      title: "Automatización con IA y software a medida para vender más",
+      title: "Automatización de procesos con IA y go-to-market B2B",
       description:
-        "Automatización con IA, agentes y software a medida para captar, cualificar y cerrar ventas, sobre GoHighLevel, HubSpot o el CRM que ya usas.",
+        "Automatizamos procesos con Claude, n8n, Make y Zapier, y montamos tu go-to-market: GoHighLevel o HubSpot, outbound con Clay e Instantly y seguimiento automático.",
     },
     en: {
-      title: "AI automation and custom software to sell more",
+      title: "AI process automation and B2B go-to-market",
       description:
-        "AI automation, agents and custom software to capture, qualify and close sales, on GoHighLevel, HubSpot or the CRM you already use.",
+        "We automate processes with Claude, n8n, Make and Zapier, and build your go-to-market: GoHighLevel or HubSpot, outbound with Clay and Instantly, and automatic follow-up.",
     },
   },
   "/servicios": {
     es: {
-      title: "Servicios de automatización con IA y GoHighLevel",
+      title: "Servicios de automatización con IA y go-to-market",
       description:
-        "Automatización de procesos con IA, integración de GoHighLevel y HubSpot, migraciones a GoHighLevel, desarrollo a medida y agentes de IA.",
+        "Automatización de procesos con IA, agente de WhatsApp, integración de GoHighLevel y HubSpot, outbound B2B con Clay e Instantly, embudos, propuestas y migraciones.",
     },
     en: {
-      title: "AI automation and GoHighLevel services",
+      title: "AI automation and go-to-market services",
       description:
-        "AI process automation, GoHighLevel and HubSpot integrations, migrations to GoHighLevel, custom development and AI agents.",
+        "AI process automation, a WhatsApp agent, GoHighLevel and HubSpot integrations, B2B outbound with Clay and Instantly, funnels, proposals and migrations.",
     },
   },
   "/casos-de-exito": {
@@ -104,12 +104,12 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     es: {
       title: "Sobre Ramiro Pérez Rodero, ingeniero industrial",
       description:
-        "Ramiro Pérez Rodero, ingeniero industrial con experiencia en plantas industriales. Automatización y desarrollo con IA sobre GoHighLevel y HubSpot desde Ávila.",
+        "Ramiro Pérez Rodero, ingeniero industrial con experiencia en plantas industriales. Automatización de procesos con IA y go-to-market B2B desde Ávila.",
     },
     en: {
       title: "About Ramiro Pérez Rodero, industrial engineer",
       description:
-        "Ramiro Pérez Rodero, an industrial engineer with plant-floor experience. AI automation and development on GoHighLevel and HubSpot, based in Ávila, Spain.",
+        "Ramiro Pérez Rodero, an industrial engineer with plant-floor experience. AI process automation and B2B go-to-market, based in Ávila, Spain.",
     },
   },
   "/diagnostico": {

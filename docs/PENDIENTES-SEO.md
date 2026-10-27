@@ -55,6 +55,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 Por orden de impacto:
 
+- [ ] **Artículos de desarrollo a medida** ("Proyectos de IA a medida" y
+      "Cuándo compensa el desarrollo a medida con IA"): siguen publicados
+      porque traen impresiones, pero ya no hay servicio detrás. Decidir en
+      noviembre si se reorientan a automatización o se redirigen.
+- [ ] **Artículos de go-to-market**: el blog no tiene ninguno de outbound
+      (Clay, Instantly, email en frío, dominios y calentamiento). Es el hueco
+      de contenido del frente nuevo.
 - [ ] **Actualizar el artículo de n8n 3.0 cuando salga la estable**
       (principios de diciembre): fecha exacta, cambios de última hora en
       la lista oficial y campo `updated`. Es contenido con fecha: si se
@@ -87,6 +94,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-27 · Enfoque en dos frentes: automatización de procesos (Claude,
+  n8n, Make, Zapier, crons) y go-to-market (GoHighLevel, HubSpot, Clay,
+  Instantly, Valley). Fuera el servicio de desarrollo a medida (308 de
+  `/servicios/desarrollo-ia-a-medida` a automatización) y servicio nuevo
+  `/servicios/outbound-b2b`. Home, /servicios, títulos, JSON-LD, llms.txt,
+  sobre mí, FAQ de herramientas y carrusel de integraciones alineados. Los
+  artículos de desarrollo a medida del blog siguen publicados (ver Código).
 
 - 2026-10-26 · Meta description de la home recortada a 140 caracteres (la
   del PR #24 tenía 188 y Bing la marcaba como error "Meta Description too
