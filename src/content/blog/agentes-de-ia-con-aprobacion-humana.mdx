@@ -1,0 +1,138 @@
+---
+title: "Agentes de IA con aprobación humana: cómo diseñarla bien"
+description: "Qué debe aprobar una persona cuando un agente de IA toca dinero o clientes: quién aprueba, cuándo caduca y qué no se automatiza nunca. Con un caso real."
+date: "2026-10-28"
+tags: ["agentes de ia", "aprobación humana", "human in the loop", "meta ads", "google ads"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+"Que lo apruebe una persona" es la frase que tranquiliza a todo el mundo cuando se habla de dejar a un agente de IA tocar campañas, presupuestos o mensajes a clientes. Se dice en una línea y se construye en varias semanas, porque una aprobación mal diseñada da la sensación de control sin darlo.
+
+Este artículo recoge cómo la diseñamos en un agente que gestiona campañas reales de Meta Ads y Google Ads, y qué decisiones conviene tomar antes de escribir código.
+
+## La respuesta corta
+
+Un agente de IA con aprobación humana (lo que en inglés se llama human in the loop) propone acciones y solo las ejecuta cuando una persona con permiso las aprueba. Para que funcione hacen falta seis cosas: separar al que propone del que ejecuta, decidir quién puede aprobar y comprobarlo en el servidor, hacer que las aprobaciones caduquen, volver a leer el estado real antes de ejecutar, dejar fuera del agente las acciones que nunca deben ser automáticas y registrar todo lo que pasa. Las cifras límite van en el código, no en las instrucciones del modelo.
+
+## Por qué "pedir permiso" no basta
+
+La versión ingenua es un botón de "Aprobar" debajo de cada propuesta del agente. Funciona en una demo y falla en producción por cuatro motivos:
+
+- **Las propuestas envejecen.** El agente propone pausar un anuncio el lunes por la mañana. Nadie lo mira hasta el jueves. Para entonces el anuncio puede haberse recuperado, o la campaña ya no existe. Aprobar el jueves algo pensado con datos del lunes es aprobar a ciegas.
+- **No todo el que ve puede decidir.** En cualquier empresa hay quien debe ver lo que hace el agente pero no mover dinero. Si el botón aparece para todos, la regla depende de la buena voluntad.
+- **El mundo cambia entre la aprobación y la ejecución.** Alguien sube el presupuesto a mano en Meta cinco minutos después de que se aprobara bajarlo. Si el agente ejecuta con la cifra que tenía apuntada, deshace un cambio humano sin que nadie lo vea.
+- **Demasiadas aprobaciones se aprueban sin leer.** Si cada acción pide dos firmas, en dos semanas la gente firma por inercia. El control real baja aunque en el papel suba.
+
+## Las seis decisiones de diseño
+
+### 1. El agente propone; otro proceso ejecuta
+
+El agente no tiene en la mano el botón de ejecutar. Escribe una propuesta con su razonamiento y la deja pendiente. La pantalla donde se aprueba solo cambia el estado a "aprobada". Un proceso aparte, que corre cada pocos minutos, recoge lo aprobado y lo ejecuta contra Meta o Google Ads.
+
+Separarlo tiene dos ventajas. Si la ejecución falla (la API de Meta devuelve un error, se ha caducado un permiso), la propuesta queda marcada con el error y se puede reintentar con un botón, sin volver a pedirle nada al modelo. Y el modelo nunca tiene un camino directo para gastar dinero: aunque se equivoque o alguien lo engañe con un texto raro, lo único que puede hacer es proponer.
+
+### 2. Quién aprueba, comprobado en el servidor
+
+Hay que escribir los papeles antes de construir. En el caso que contamos abajo quedaron así:
+
+| Papel | Ver | Proponer | Aprobar y activar | Cambiar ajustes |
+|---|---|---|---|---|
+| Propietario | Sí | Sí | Sí | Sí |
+| Administrador | Sí | Sí | Sí | Sí |
+| Miembro | Sí | Sí | No | No |
+
+Lo importante es dónde se comprueba. Esconder el botón en la pantalla no basta: si alguien llama a la API directamente, el servidor tiene que contestar que no. En nuestro caso, un miembro que intenta aprobar recibe un error de permiso aunque llegue a la petición por otro camino.
+
+### 3. Las aprobaciones caducan
+
+Una propuesta pendiente caduca a las 24 horas. Si nadie la aprueba en ese plazo, pasa a "caducada" y no se ejecuta nunca. El silencio no es un sí.
+
+La caducidad se aplica en tres sitios, porque con uno solo siempre queda un hueco:
+
+1. Una pasada periódica marca como caducado todo lo pendiente fuera de plazo.
+2. El proceso que ejecuta se niega a ejecutar una aprobación fuera de plazo, por si la pasada no ha corrido.
+3. La pantalla de aprobación rechaza aprobar algo caducado, aunque el usuario la tuviera abierta desde ayer.
+
+### 4. Volver a leer antes de tocar
+
+Antes de ejecutar, el agente vuelve a leer en la plataforma el dato real. Si va a bajar el presupuesto de una campaña, lee el presupuesto que tiene ahora en Meta, comprueba que la cuenta es la que debe ser y guarda el valor anterior. Con ese valor guardado, la bajada se puede deshacer.
+
+Es el mismo principio que usa cualquier sistema que mueve dinero: no fiarse de la foto que se hizo al proponer.
+
+### 5. Lo que nunca es automático
+
+Hay acciones que el agente puede sugerir pero que no puede ejecutar, ni con aprobación:
+
+- **Subir presupuesto.** El agente puede decir que una campaña merece más dinero. La decisión y el cambio los hace una persona en la plataforma.
+- **Activar una campaña nueva sin más.** Las campañas que crea el agente nacen en pausa. Activarlas pide una confirmación extra a quien aprueba.
+- **Gastar fuera de lo permitido.** Solo puede trabajar sobre cuentas de una lista blanca, en euros y con un tope de gasto diario por cliente.
+
+Y una regla menos obvia: **las cifras límite no van en el prompt.** El modelo no sabe cuál es el tope de gasto ni cuánto puede bajar un presupuesto. Esos números viven en el código que ejecuta, que no se deja convencer. Si el límite estuviera escrito en las instrucciones del modelo, bastaría con que el modelo se equivocara, o con que alguien colara un texto en un anuncio o un comentario, para saltárselo.
+
+### 6. Doble firma solo donde importa
+
+Activar una campaña es lo único que admite un segundo visto bueno de otra persona. Y es opcional: es un interruptor por cliente, apagado por defecto, que enciende el administrador si su empresa lo necesita. El resto de acciones lleva una sola aprobación.
+
+La razón es la del principio: si todo pide dos firmas, ninguna se lee.
+
+## El detalle que nadie mira: qué hora es
+
+Un tope diario, una caducidad de 24 horas y una tarea programada "a las nueve" dependen de algo que parece trivial: en qué zona horaria está el sistema.
+
+En el proyecto que contamos abajo, parte del código contaba los días con la hora de México, donde estaba la operación al principio, mientras que los clientes estaban en España. La auditoría de las nueve de la mañana salía en realidad a las cinco de la tarde, y el "día" del tope de creatividades empezaba a las siete u ocho de la mañana en España. Lo pasamos todo a una sola zona, la de España, con el cambio de hora incluido. Es un arreglo de una tarde, pero si no se mira, los topes no protegen el día que crees.
+
+## De la aprobación a la autonomía
+
+La aprobación humana no tiene por qué ser para siempre. El camino que proponemos tiene tres fases:
+
+1. **Modo sombra.** El agente propone todo y no ejecuta nada sin aprobación. Sirve para medir cuántas propuestas acierta.
+2. **Autonomía con topes.** Cuando el historial lo justifica, el propietario (y solo él) permite que ciertas acciones se ejecuten solas, con un tope por acción: por ejemplo, tres pausas al día como máximo o bajadas de presupuesto de hasta un 30 %. Lo que pase del tope vuelve a pedir aprobación.
+3. **Revisión continua.** Cada acción autónoma queda registrada igual que las aprobadas, y la autonomía se puede apagar en un clic.
+
+Lo que no recomendamos es saltarse la primera fase. Sin semanas de propuestas revisadas no hay forma de saber si el agente merece la confianza.
+
+## Un caso real: Tribeca Media
+
+[Tribeca Media](/casos-de-exito/tribeca-media) construye KEYWORKERS, una plataforma que da a cada cliente un equipo de agentes de IA para marketing. Construimos su Performance Agent, que [gestiona campañas de Meta Ads y Google Ads](/blog/agente-ia-meta-ads-google-ads): las lee, detecta lo que deja de funcionar y propone pausar, bajar presupuesto o crear campañas nuevas.
+
+Todo lo de arriba sale de ese proyecto: el ejecutor separado con botón de reintentar, los papeles comprobados en el servidor, la caducidad aplicada en tres sitios, la relectura del presupuesto real con el valor anterior guardado, las campañas que nacen en pausa, el segundo visto bueno opcional y el paso de todo a hora de España. El código está cerrado, con casi 1.000 tests automáticos, y en validación con un cliente piloto, en modo sombra.
+
+## Lista para tu agente
+
+Antes de construir un agente que toque dinero o clientes, escribe en un documento:
+
+1. Qué acciones puede proponer y cuáles puede ejecutar con aprobación.
+2. Qué acciones no ejecuta nunca.
+3. Quién aprueba cada una, y cómo lo comprueba el servidor.
+4. Cuánto dura una propuesta antes de caducar.
+5. Qué dato vuelve a leer antes de ejecutar y cómo se deshace cada acción.
+6. Dónde quedan registradas las propuestas, las aprobaciones y lo ejecutado.
+7. En qué zona horaria cuentan los días los topes y las tareas programadas.
+
+Si alguna respuesta es "ya lo veremos", el agente no está listo para trabajar sobre cuentas reales. Para saber si un agente compensa en tu caso, empieza por [cuándo compensan los agentes de IA](/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+## Preguntas frecuentes
+
+### ¿Qué es human in the loop en un agente de IA?
+
+Es el diseño en el que una persona revisa y aprueba las acciones del agente antes de que se ejecuten. El agente analiza y propone; la persona decide. Se usa sobre todo cuando la acción mueve dinero, habla con un cliente o es difícil de deshacer.
+
+### ¿La aprobación humana no quita todo el ahorro del agente?
+
+No, porque el trabajo caro es el análisis, no el clic. El agente revisa todas las campañas dos veces al día, detecta el problema, prepara la acción y explica por qué. La persona tarda segundos en aprobar algo que le habría costado una hora encontrar.
+
+### ¿Por qué tienen que caducar las aprobaciones?
+
+Porque una propuesta se hace con los datos de un momento. Pasado un día, esos datos pueden haber cambiado y aprobarla sería decidir sobre una foto vieja. Si caduca, el agente volverá a proponerla si sigue teniendo sentido, con datos nuevos.
+
+### ¿Puede un agente aprobar lo que propone otro agente?
+
+Un segundo modelo puede revisar una propuesta y señalar errores, y es buena práctica que sea de otro proveedor para que no comparta los mismos fallos. Pero lo que toca dinero o a un cliente lo debe aprobar una persona, al menos hasta que haya un historial que justifique dar autonomía con topes.
+
+### ¿Cuándo se puede quitar la aprobación humana?
+
+Cuando el agente lleva semanas en modo sombra, sus propuestas se han revisado y el porcentaje de aciertos es alto. Entonces se da autonomía por acción y con topes, nunca de golpe, y la decide el responsable del negocio, no el equipo técnico.
+
+Si quieres poner un agente a trabajar sobre tus campañas o tus clientes y no tienes claro dónde poner los límites, en el [diagnóstico](/diagnostico) lo miramos sobre tu proceso real.

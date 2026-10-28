@@ -1,0 +1,107 @@
+---
+title: "Agente de IA para Meta Ads y Google Ads: qué puede hacer"
+description: "Qué puede hacer hoy un agente de IA con tus campañas de Meta Ads y Google Ads: leer, pausar, bajar presupuesto, crear anuncios y creatividades, y qué no debe hacer."
+date: "2026-10-28"
+tags: ["agentes de ia", "meta ads", "google ads", "publicidad", "creatividades con ia"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Casi todo lo que se vende como "IA para tus anuncios" es un informe: un resumen de las campañas de la semana, escrito por un modelo en vez de por una persona. Es útil, pero no cambia nada. La campaña que gasta sin convertir sigue gastando hasta que alguien entra en el administrador de anuncios y la para.
+
+Un agente de IA para Meta Ads y Google Ads es otra cosa: lee las campañas, decide qué hay que hacer y lo hace, con permiso. Este artículo explica qué puede hacer hoy uno bien construido, qué no debería hacer y cuándo compensa, a partir del que construimos para una plataforma de agentes de marketing.
+
+## La respuesta corta
+
+Un agente de IA para Meta Ads y Google Ads revisa las campañas varias veces al día, detecta las que gastan sin resultados o los anuncios que se han fatigado y propone acciones concretas: pausar, bajar presupuesto, crear una campaña nueva o generar una creatividad nueva. Las ejecuta en la plataforma solo cuando una persona con permiso las aprueba. No sube presupuestos por su cuenta, las campañas que crea nacen en pausa y el coste de la IA queda medido por cliente. Compensa cuando hay varias cuentas o mucho gasto que vigilar; con una campaña pequeña, no.
+
+## Qué lee
+
+Lo primero es que el agente vea lo mismo que vería un gestor de campañas, y de forma ordenada:
+
+- **Estructura y rendimiento** de campañas, conjuntos de anuncios y anuncios: gasto, impresiones, clics, conversiones, coste por resultado y frecuencia.
+- **Histórico**, para comparar. En Google Ads, por ejemplo, los últimos 90 días. Sin histórico, el agente no distingue un mal día de una tendencia.
+- **Fotos periódicas** de cada cuenta guardadas en la base de datos. Así se puede ver qué sabía el agente cuando propuso algo, y comparar después.
+
+Con eso hace una auditoría programada, dos veces al día en nuestro caso, y busca patrones concretos: campañas que gastan sin conversiones, costes por resultado que se disparan frente a su media, anuncios con frecuencia alta y rendimiento en caída, que es la señal de fatiga.
+
+## Qué puede hacer
+
+| Acción | ¿La ejecuta? | Cómo |
+|---|---|---|
+| Pausar una campaña o un anuncio | Sí, con aprobación | En Meta y en Google Ads |
+| Bajar el presupuesto | Sí, con aprobación | Relee el presupuesto real y guarda el anterior para deshacerlo |
+| Crear una campaña nueva | Sí, con aprobación | Campaña, conjunto y anuncio nacen en pausa |
+| Generar una creatividad nueva | Sí, con aprobación | Solo sube a Meta la imagen aprobada |
+| Subir el presupuesto | No | Lo propone; lo decide y lo cambia una persona |
+| Activar sin confirmar | No | Activar pide una confirmación extra |
+
+Cada fila de la tabla es una decisión de negocio tomada antes de escribir código. Lo explicamos con detalle en [cómo diseñar la aprobación humana de un agente](/blog/agentes-de-ia-con-aprobacion-humana).
+
+## Creatividades cuando un anuncio se fatiga
+
+En Meta, un anuncio que se enseña muchas veces a las mismas personas pierde fuerza: sube la frecuencia, baja el porcentaje de clics y sube el coste. La solución es cambiar la creatividad, y ahí es donde un agente aporta más que un informe.
+
+Cuando detecta fatiga, el agente genera una imagen nueva con un modelo de imagen (en nuestro caso, GPT Image 2) a partir del anuncio original y la deja junto a la propuesta, lista para revisar. Tres reglas lo hacen seguro:
+
+- **Tope diario de imágenes por cliente**, con reserva previa: antes de generar, el agente reserva su hueco en el tope. Si se ha llegado al límite, no genera.
+- **Las imágenes no son públicas** hasta que se aprueban. Se guardan en privado, sin una dirección que cualquiera pueda abrir.
+- **Solo sube a la biblioteca de Meta lo que se aprueba.** Lo descartado no sale del sistema.
+
+El coste, medido en producción, es de unos 4 céntimos por imagen en calidad media. Al lado del gasto de una campaña es despreciable, pero se registra igual, imagen a imagen, como cuenta el artículo sobre [el coste de un agente de IA en producción](/blog/coste-agente-de-ia-en-produccion).
+
+## Cómo se conecta a las cuentas
+
+**Meta** se conecta por OAuth: el administrador del Business Manager del cliente da permiso desde una pantalla, sin pasar contraseñas. Cada cliente tiene su conexión, y el agente solo puede trabajar sobre las cuentas publicitarias de una lista blanca, en euros y con un tope de gasto diario por cliente para lo que crea.
+
+**Google Ads** tiene dos caminos. El rápido es trabajar desde la cuenta de administrador (MCC) de la agencia, que ya tiene acceso a las cuentas de sus clientes. El correcto a medio plazo es que cada cliente conecte su cuenta con su propio permiso, lo que exige que Google verifique la aplicación. Esa verificación lleva su tiempo y conviene pedirla al principio del proyecto, no al final.
+
+Un detalle práctico: para probar el agente hace falta una cuenta de prueba que se parezca a una real, con campañas y grupos de anuncios. Una cuenta vacía, o en otra moneda, no sirve para validar nada.
+
+## Qué modelo usa
+
+No hace falta el modelo más caro para cada revisión. El agente usa un modelo pequeño y barato para la auditoría de rutina y pasa a uno más potente solo cuando hay una anomalía grave pendiente. Las auditorías programadas, que no son urgentes, se envían por lotes, que cuesta la mitad. Conviene que la elección del modelo viva en la configuración y no repartida por el código, para cambiarlo cuando salga uno mejor o más barato.
+
+## Qué no debería hacer
+
+- **Subir presupuestos solo.** Es la acción con más riesgo y menos urgencia. Si una campaña va bien, puede esperar a que una persona lo vea.
+- **Hacer de informe semanal.** En el proyecto que contamos se decidió que el agente solo gestiona campañas y que el informe lo hace el equipo de analítica. Mezclar las dos cosas complica el agente y difumina quién responde de cada número.
+- **Tocar cuentas que no le corresponden.** La lista blanca de cuentas y la moneda permitida son la última barrera si algo falla en la configuración.
+- **Decidir sin dejar rastro.** Cada propuesta guarda los datos que la motivaron, quién la aprobó y qué se ejecutó.
+
+## Un caso real: Tribeca Media
+
+[Tribeca Media](/casos-de-exito/tribeca-media) construye KEYWORKERS, una plataforma que da a cada cliente un equipo de agentes de IA para marketing. Su agente de performance leía las campañas de Meta Ads, pero no actuaba sobre ellas, no tenía Google Ads ni generaba creatividades.
+
+Construimos el Performance Agent con todo lo de este artículo: lectura de Meta y Google Ads, pausas reales en las dos plataformas, bajada de presupuesto reversible, creación de campañas de Meta de punta a punta en pausa, creatividades con GPT Image 2 cuando un anuncio se fatiga, coste registrado por llamada y por imagen, y aprobación humana para todo. Tiene el código cerrado, casi 1.000 tests automáticos y está en validación con un cliente piloto. El siguiente es el Content Agent, que prepara piezas de contenido en vista previa y pendientes de aprobación.
+
+## Cuándo compensa
+
+Compensa cuando hay mucho que vigilar: una agencia con varias cuentas de clientes, o una empresa con gasto relevante repartido en muchas campañas. Ahí el agente revisa todo dos veces al día sin cansarse y la persona solo decide.
+
+No compensa con una o dos campañas pequeñas: las herramientas automáticas de Meta y Google, y una revisión semanal, bastan. Tampoco si no hay conversiones bien medidas, porque el agente decidirá sobre datos falsos. Primero se arregla la medición. Lo explicamos en [cuándo compensan los agentes de IA](/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+## Preguntas frecuentes
+
+### ¿Puede la IA gestionar mis campañas de Meta Ads sola?
+
+Puede revisarlas, detectar problemas y ejecutar pausas, bajadas de presupuesto y anuncios nuevos. Lo recomendable es que lo haga con aprobación humana al principio y que gane autonomía por acciones concretas y con topes cuando haya demostrado que acierta.
+
+### ¿En qué se diferencia de Advantage+ o de las campañas Performance Max?
+
+Advantage+ y Performance Max optimizan dentro de una campaña con los criterios de Meta y de Google. Un agente propio trabaja por encima: compara campañas y plataformas, aplica las reglas de tu negocio, como los topes de gasto o qué no se toca nunca, y te explica cada decisión antes de tomarla.
+
+### ¿Cuánto cuesta en IA mantener un agente de campañas?
+
+Poco, si se diseña bien: modelo pequeño para la rutina, lotes para lo programado y unos céntimos por cada creatividad generada. Lo caro es construirlo y mantener las conexiones con las plataformas, que cambian a menudo.
+
+### ¿Hace falta dar al agente la contraseña de la cuenta?
+
+No. Meta y Google Ads se conectan con OAuth: el administrador de la cuenta da permiso desde su pantalla y lo puede retirar cuando quiera. Pasar contraseñas, por WhatsApp o por correo, es justo lo que hay que evitar.
+
+### ¿Sirve para Google Ads igual que para Meta?
+
+Para leer y pausar, sí. Las creatividades con IA tienen más sentido en Meta, donde la fatiga del anuncio es el problema más frecuente. En Google Ads, conviene empezar por la lectura y las pausas y pedir pronto la verificación de la aplicación.
+
+Si gestionas varias cuentas de publicidad y quieres saber si un agente te ahorraría horas o dinero, en el [diagnóstico](/diagnostico) lo miramos con tus cuentas reales.

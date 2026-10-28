@@ -66,6 +66,12 @@ Por orden de impacto:
       "Cuándo compensa el desarrollo a medida con IA"): siguen publicados
       porque traen impresiones, pero ya no hay servicio detrás. Decidir en
       noviembre si se reorientan a automatización o se redirigen.
+- [ ] **Serie de agentes (Tribeca), siguientes artículos**: qué revisar
+      en un sistema de agentes antes de escalarlo (a partir del diagnóstico,
+      sin detalles de seguridad ni nada que deje mal al cliente); el agente
+      de contenido cuando Content tenga algo construido; y traspasos entre
+      agentes cuando el runner los tenga. Revisar antes el estado en
+      `~/Documents/tribeca/KEYWORKERS_Estado_Agentes_*.md`.
 - [ ] **Artículos de go-to-market**: el blog no tiene ninguno de outbound
       (Clay, Instantly, email en frío, dominios y calentamiento). Es el hueco
       de contenido del frente nuevo.
@@ -101,6 +107,16 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-28 · Serie de agentes con el caso Tribeca, tres artículos del
+  clúster `agentes-ia`: "Agentes de IA con aprobación humana"
+  (`/blog/agentes-de-ia-con-aprobacion-humana`), "Agente de IA para Meta
+  Ads y Google Ads" (`/blog/agente-ia-meta-ads-google-ads`) y "Coste de un
+  agente de IA en producción" (`/blog/coste-agente-de-ia-en-produccion`).
+  Enlazados entre sí, desde "cuándo compensan los agentes", desde la
+  sección Tribeca de "Qué es GTM Engineering" y como guías del caso Tribeca
+  (`src/lib/casos.ts`). Sin precios, clientes de Tribeca ni detalles de
+  seguridad.
 
 - 2026-10-28 · Artículo "Proyectos de IA a medida" reforzado: era la
   consulta más cerca de la primera página ("proyectos de ia a medida",
