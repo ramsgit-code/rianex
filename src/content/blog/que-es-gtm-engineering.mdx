@@ -72,9 +72,9 @@ El punto de partida: su agente leía las campañas de Meta Ads pero no actuaba s
 Lo que construimos sigue el orden de arriba:
 
 1. **Diagnóstico y plan por fases**, revisando el código y el sistema en vivo, priorizado por riesgo.
-2. **Observabilidad y coste de IA**: chequeos de salud con avisos, el coste de cada llamada registrado y un tope de gasto por cliente. Antes de dejar que un agente toque dinero, hay que poder ver qué hace y cuánto cuesta.
-3. **El Performance Agent en Meta y Google Ads**: lee las campañas, detecta lo que deja de funcionar y propone pausar, bajar presupuesto o crear campañas nuevas, que nacen en pausa. Subir presupuesto nunca es automático.
-4. **Aprobación humana**: ninguna acción se ejecuta sin el visto bueno de una persona con permiso. Las aprobaciones caducan a las 24 horas, cada acción queda registrada y una bajada de presupuesto se puede deshacer.
+2. **Observabilidad y coste de IA**: chequeos de salud con avisos, el coste de cada llamada registrado y un tope de gasto por cliente. Antes de dejar que un agente toque dinero, hay que poder ver qué hace y cuánto cuesta. Detalle en [el coste de un agente de IA en producción](/blog/coste-agente-de-ia-en-produccion).
+3. **El Performance Agent en Meta y Google Ads**: lee las campañas, detecta lo que deja de funcionar y propone pausar, bajar presupuesto o crear campañas nuevas, que nacen en pausa. Subir presupuesto nunca es automático. Detalle en [qué puede hacer un agente de IA en Meta Ads y Google Ads](/blog/agente-ia-meta-ads-google-ads).
+4. **Aprobación humana**: ninguna acción se ejecuta sin el visto bueno de una persona con permiso. Las aprobaciones caducan a las 24 horas, cada acción queda registrada y una bajada de presupuesto se puede deshacer. Cómo se diseña, en [agentes de IA con aprobación humana](/blog/agentes-de-ia-con-aprobacion-humana).
 5. **Creatividades con IA**: cuando un anuncio de Meta se fatiga, genera una imagen nueva y la deja lista para revisar. Solo sube a Meta lo que se aprueba.
 
 El Performance Agent tiene el código cerrado y está en validación con un cliente piloto, sobre casi 1.000 tests automáticos. Ahora construimos el Content Agent, que prepara piezas de contenido en vista previa y pendientes de aprobación.
