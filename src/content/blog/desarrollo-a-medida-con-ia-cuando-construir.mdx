@@ -1,20 +1,23 @@
 ---
-title: "Desarrollo a medida con IA: cuándo construir y cuándo no"
-description: "Construir sale caro y a veces es lo único que resuelve el problema. Cómo decidirlo sin romanticismo y qué hay que asumir si eliges construir."
+title: "Desarrollo a medida con IA o automatización: cuándo construir"
+description: "Con Lovable cualquiera hace una app en una tarde, pero construir sigue saliendo caro. Cuándo compensa desarrollar a medida y cuándo basta con automatizar."
 date: "2026-09-27"
-tags: ["desarrollo", "ia", "software a medida", "decisiones"]
-cluster: "desarrollo-ia"
+updated: "2026-10-28"
+tags: ["desarrollo a medida", "automatización", "lovable", "ia", "decisiones"]
+cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
 draft: false
 ---
 
 Construir software propio es la decisión más cara que puede tomar una empresa pequeña, y a veces es la correcta. El problema es que casi nunca se toma con criterio: se toma por frustración con una herramienta o por entusiasmo con una idea.
 
-Con IA de por medio la tentación es mayor, porque construir parece más barato que hace tres años. Algunas partes sí lo son. Otras cuestan exactamente lo mismo que siempre, y son las que deciden si el proyecto sobrevive.
+Con IA de por medio la tentación es mayor. Con Lovable, Bolt o Claude Code, una persona sin equipo técnico tiene una aplicación funcionando en una tarde, y eso hace pensar que construir ya es barato. Escribir la primera versión sí lo es. Lo demás cuesta exactamente lo mismo que siempre, y es lo que decide si el proyecto sobrevive.
+
+Nuestra conclusión, después de ver muchos casos: casi nunca hace falta construir. Hace falta automatizar lo que ya tienes.
 
 ## Lo que ha cambiado y lo que no
 
-**Ha cambiado** el coste de escribir código. Lo que antes eran semanas de trabajo ahora son días. Eso es real y cambia las cuentas.
+**Ha cambiado** el coste de escribir código. Lo que antes eran semanas de trabajo ahora son días, y una primera versión visual sale en horas. Eso es real y cambia las cuentas.
 
 **No ha cambiado** casi nada de lo demás: decidir qué hay que construir, integrarlo con lo que ya existe, probarlo con datos reales, desplegarlo, mantenerlo cuando cambian las dependencias, y arreglarlo cuando falla un martes por la tarde.
 
@@ -64,14 +67,22 @@ Por honestidad, porque estas cuatro cosas se descubren tarde.
 
 **La primera versión se queda corta.** Siempre. Lo sensato es construir lo mínimo que resuelve el caso principal, ponerlo a funcionar con gente real y ampliar con lo que pidan, en vez de intentar preverlo todo.
 
-## Un camino intermedio que funciona
+## Lo que casi siempre hace falta: automatizar, no construir
 
-En la mayoría de casos que llegan como "necesito una herramienta a medida", lo que hace falta de verdad es más pequeño.
+En la mayoría de casos que llegan como "necesito una herramienta a medida", el problema no es que falte una aplicación. Es que la información no fluye entre las herramientas que ya hay, y que alguien hace a mano lo que debería hacerse solo.
 
-La combinación que suele resolverlo: una herramienta estándar como base de datos y de proceso, automatizaciones que conectan lo que hay, y una pieza a medida solo para lo que de verdad es tuyo. Un panel, un generador, un portal.
+La combinación que suele resolverlo:
 
-Eso reduce lo que hay que construir a una fracción, y lo que se construye es justo lo que te diferencia. El resto lo mantiene otro.
+- **Una herramienta estándar como base**: un CRM como GoHighLevel o HubSpot, la facturación y la agenda que ya usas.
+- **Automatizaciones que conectan lo que hay**: n8n, Make o Zapier, y tareas programadas para lo que tiene que pasar cada día o cada hora.
+- **IA solo donde hace falta criterio**: un modelo como Claude para leer correos, clasificar solicitudes o redactar propuestas.
 
-Si ya has decidido construir, en [proyectos de IA a medida](/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio) tienes ejemplos, plazos por fase y lo que mueve el precio.
+Eso resuelve la mayoría de los casos sin escribir una aplicación, y lo que se monta lo mantiene otro. Lo contamos en [automatización de procesos con IA: por dónde empezar](/blog/automatizar-procesos-con-ia-por-donde-empezar), y tienes ejemplos, plazos y precio en [proyectos de IA a medida](/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio).
+
+## Y si de verdad necesitas una aplicación
+
+Hay casos en los que sí: un portal para que tus clientes consulten su información, un configurador que es tu ventaja comercial. Para esos, hoy lo razonable es hacer una primera versión con Lovable o una herramienta parecida para validar la idea con usuarios reales, y llevarla a producción con un estudio de desarrollo cuando esté claro que funciona.
+
+En Rianex no desarrollamos aplicaciones: automatizamos procesos y montamos el go-to-market. Lo que sí hacemos es conectar esa aplicación con el resto de tus herramientas cuando esté lista.
 
 Si no tienes claro de qué lado cae tu caso, en el [diagnóstico](/diagnostico) lo miramos y sale una recomendación con motivos. A veces es no construyas nada, y también es una respuesta útil.

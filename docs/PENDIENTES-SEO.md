@@ -55,26 +55,23 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 - [ ] **Canibalización en "a medida"**: "desarrollo-a-medida-con-ia-cuando-construir"
       sale para "proyectos de ia a medida" y "desarrollo software ia a medida"
-      (posición ~64) y habla de construir software, que ya no se vende.
-      Revisar a mediados de noviembre: si "proyectos de IA a medida" entra en
-      primera página y el otro sigue sin tráfico, reenfocarlo o redirigirlo
-      con un 301 al de proyectos.
+      (posición ~64). Desde el 28 de octubre ya defiende automatizar antes que
+      construir y dice que Rianex no hace apps. Revisar a mediados de
+      noviembre: si "proyectos de IA a medida" entra en primera página y el
+      otro sigue sin tráfico, redirigirlo con un 301 al de proyectos.
 
 Por orden de impacto:
 
-- [ ] **Artículos de desarrollo a medida** ("Proyectos de IA a medida" y
-      "Cuándo compensa el desarrollo a medida con IA"): siguen publicados
-      porque traen impresiones, pero ya no hay servicio detrás. Decidir en
-      noviembre si se reorientan a automatización o se redirigen.
+- [ ] **Más go-to-market**: faltan artículos de infraestructura de email
+      (dominios, calentamiento, SPF/DKIM/DMARC con Instantly) y de LinkedIn
+      con Valley. Treg es muy nuevo: revisar en enero si sus datos del
+      artículo de enriquecimiento siguen vigentes.
 - [ ] **Serie de agentes (Tribeca), siguientes artículos**: qué revisar
       en un sistema de agentes antes de escalarlo (a partir del diagnóstico,
       sin detalles de seguridad ni nada que deje mal al cliente); el agente
       de contenido cuando Content tenga algo construido; y traspasos entre
       agentes cuando el runner los tenga. Revisar antes el estado en
       `~/Documents/tribeca/KEYWORKERS_Estado_Agentes_*.md`.
-- [ ] **Artículos de go-to-market**: el blog no tiene ninguno de outbound
-      (Clay, Instantly, email en frío, dominios y calentamiento). Es el hueco
-      de contenido del frente nuevo.
 - [ ] **Actualizar el artículo de n8n 3.0 cuando salga la estable**
       (principios de diciembre): fecha exacta, cambios de última hora en
       la lista oficial y campo `updated`. Es contenido con fecha: si se
@@ -107,6 +104,17 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-28 · Blog de go-to-market: "Prospección B2B con IA: cómo montar
+  outbound en España" (`prospección b2b outbound`, `prospección b2b con ia`)
+  y "Clay, Treg o ColdIQ: cómo enriquecer datos para prospección B2B"
+  (`clay.com qué es`, `clay pricing`). Cluster nuevo "Go-to-market y
+  outbound B2B" con GTM Engineering; fuera el cluster de desarrollo a
+  medida. "Desarrollo a medida con IA o automatización" reorientado (misma
+  URL): automatizar antes que construir, Lovable para validar una app y
+  Rianex no hace apps. En "Proyectos de IA a medida" (reforzado en el #30)
+  se añaden Lovable, los enlaces de outbound y la FAQ "¿Hacéis aplicaciones
+  a medida?". Enlazados desde /servicios/outbound-b2b y GTM Engineering.
 
 - 2026-10-28 · Serie de agentes con el caso Tribeca, tres artículos del
   clúster `agentes-ia`: "Agentes de IA con aprobación humana"

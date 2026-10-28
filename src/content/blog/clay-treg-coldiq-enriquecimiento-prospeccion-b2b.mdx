@@ -1,0 +1,125 @@
+---
+title: "Clay, Treg o ColdIQ: cómo enriquecer datos para prospección B2B"
+description: "Qué es el enriquecimiento de datos para outbound, qué es Clay y cuánto cuesta, qué aporta Treg con agentes de IA y cuándo compensa una agencia como ColdIQ."
+date: "2026-10-28"
+tags: ["clay", "treg", "coldiq", "enriquecimiento de datos", "prospección b2b", "outbound"]
+cluster: "outbound"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Cualquier outbound B2B depende de una lista: a qué empresas escribir, a qué persona dentro de cada una, con qué email y con qué motivo para escribir ahora. Construir esa lista es lo que se llama **enriquecimiento de datos**, y es donde más ha cambiado la prospección en los dos últimos años.
+
+Hoy hay tres formas de hacerlo, y elegir mal sale caro en dinero o en tiempo. Este artículo explica cada una con sus números, y cuándo encaja cada cual en una empresa española.
+
+## La respuesta corta
+
+Enriquecer datos es completar una lista de empresas con lo que falta para escribirles bien: la persona que decide, su email verificado, el tamaño de la empresa, si está contratando o ha levantado dinero. Se puede hacer de tres formas. **Clay** es una plataforma de tablas que llama a muchos proveedores de datos en cascada; es el estándar del sector y cobra por créditos. **Treg** es una pasarela que deja a un agente de IA, como Claude Code, llamar directamente a esos mismos proveedores pagando solo por llamada. **ColdIQ** es una agencia que monta y opera todo el sistema por ti, con Clay en el centro. Para una pyme española que empieza, lo sensato suele ser montar el proceso con una herramienta y tenerlo a su nombre, no externalizarlo entero.
+
+## Qué es enriquecer datos, en concreto
+
+Una lista de outbound se construye por capas, y cada capa cuesta dinero:
+
+1. **Empresas**: las que encajan con tu cliente ideal por sector, tamaño y país.
+2. **Personas**: dentro de cada empresa, quien tiene el cargo que decide.
+3. **Contacto**: el email profesional de cada persona y, a veces, su teléfono.
+4. **Verificación**: comprobar que ese email existe y acepta correo. Que una base de datos tenga una dirección no quiere decir que funcione.
+5. **Señales**: lo que indica que es buen momento (ofertas de empleo abiertas, una ronda de financiación, un cambio de director comercial) y lo que sirve para personalizar el mensaje.
+
+Ningún proveedor de datos lo tiene todo, y cada uno acierta más en unos mercados que en otros. Por eso las herramientas modernas hacen **cascadas** (en inglés, *waterfall*): si el primer proveedor no encuentra el email, se lo preguntan al segundo, y así sucesivamente.
+
+## Clay: la plataforma estándar
+
+[Clay](https://www.clay.com) es una hoja de cálculo con superpoderes: cada columna puede llamar a un proveedor de datos, a un modelo de IA o a otra herramienta, y cada fila se va completando sola. Es lo que popularizó el término GTM engineer, del que hablamos en [qué es GTM Engineering](/blog/que-es-gtm-engineering).
+
+**Lo bueno:**
+
+- Más de cien proveedores de datos detrás de una sola interfaz, con cascadas ya montadas.
+- Visual: se puede revisar fila a fila qué ha encontrado cada proveedor.
+- Conecta con casi todo: CRM, herramientas de envío, LinkedIn.
+
+**Lo que hay que saber:**
+
+- **Precio.** Según su página en octubre de 2026, el plan gratuito incluye 100 créditos de datos y 500 acciones al mes, con tablas de hasta 200 filas. Los de pago empiezan en torno a 185 $ al mes (algo menos con pago anual). Su FAQ dice que un enriquecimiento que no devuelve nada no consume créditos. Conviene revisar la página antes de presupuestar, porque los planes han cambiado varias veces este año.
+- **Curva de aprendizaje.** Montar una tabla bien hecha, con filtros antes de pagar y cascadas en el orden correcto, lleva tiempo. Una tabla mal hecha gasta créditos enriqueciendo filas que luego se descartan.
+- **Es en inglés y piensa en Estados Unidos.** Los proveedores de datos aciertan menos con empresas pequeñas españolas que con empresas de software americanas. Conviene probar con unas decenas de filas propias antes de lanzar una lista grande.
+
+## Treg: el agente de IA llama a los proveedores
+
+[Treg](https://treg.to) es mucho más reciente y parte de otra idea: si un agente de IA como Claude Code puede razonar sobre una lista, ¿por qué no dejarle llamar directamente a los proveedores de datos, sin plataforma intermedia?
+
+Funciona como una pasarela: con una sola clave, el agente accede a un catálogo de proveedores (búsqueda de empresas y personas, emails, verificación, noticias, contrataciones) y paga cada llamada a precio del proveedor. Según sus propias páginas, no añade margen, las búsquedas que no encuentran nada no se cobran en los proveedores que lo informan y puedes usar tus propias claves de proveedor sin coste extra.
+
+**Lo bueno:**
+
+- **Coste por resultado muy bajo.** En sus pruebas publicadas, un email encontrado cuesta unos dos céntimos de dólar, y una lista de 50 empresas salió por unos pocos dólares en total.
+- **Encaja con quien ya trabaja con agentes.** Le describes la tarea a Claude Code ("50 clínicas de Madrid con gerente y email verificado") y el agente encadena búsqueda, enriquecimiento y verificación.
+- **Sin suscripción mensual.** Pagas lo que usas.
+
+**Lo que hay que saber:**
+
+- **Es muy nuevo.** Casi toda la información disponible es del propio Treg o de gente que lo promociona. Sus cifras son suyas, de pruebas en mercados concretos, y ellos mismos avisan de que no son un benchmark.
+- **No hace cascadas solo.** Eliges tú el proveedor (o se lo dices al agente); si falla, no prueba el siguiente automáticamente.
+- **No envía ni gestiona respuestas.** Es la capa de datos. El envío, LinkedIn y el CRM van aparte.
+- **Protección de datos.** No hemos encontrado información pública clara sobre retención de datos y RGPD. Con datos de personas en Europa, es lo primero que hay que preguntar.
+- **Necesita a alguien que sepa dirigir al agente.** Revisar qué ha hecho, fijar un tope de gasto y comprobar los resultados sigue siendo trabajo de una persona.
+
+## ColdIQ: la agencia que lo hace por ti
+
+[ColdIQ](https://coldiq.com) no es una herramienta, sino una agencia de outbound B2B fundada en 2023 que se presenta como agencia de GTM Engineering y trabaja con Clay como pieza central (figura como partner en su directorio de expertos). Monta el sistema completo: cliente ideal, listas, enriquecimiento, secuencias por email y LinkedIn y, en algunos casos, anuncios en LinkedIn. También vende formación para equipos que quieren hacerlo por su cuenta.
+
+**Cuándo encaja una agencia así:**
+
+- Vendes software B2B, sobre todo a mercados anglosajones, y quieres volumen rápido.
+- Tienes presupuesto para un servicio mensual y no quieres montar nada dentro.
+
+**Lo que hay que valorar:**
+
+- **El sistema queda en su casa.** Si dejas de pagar, ¿qué te llevas? Las listas, las tablas de Clay, los dominios y los aprendizajes deberían quedar a tu nombre. Pregúntalo antes de firmar.
+- **Coste.** Las agencias de este tipo cobran cuotas mensuales que, para una pyme española, suelen ser altas en relación con el volumen de reuniones que necesita.
+- **Mercado.** Su experiencia está sobre todo en empresas de software y en mercados internacionales; los resultados publicados son suyos y no verificados de forma independiente.
+
+## Cómo elegir
+
+| Si… | Lo que suele encajar |
+|---|---|
+| Empiezas, y quieres ver si el outbound funciona en tu mercado | Clay en plan gratuito o Treg con una lista pequeña, y medir |
+| Tienes un proceso estable y volumen todas las semanas | Clay, con las tablas a tu nombre |
+| Ya trabajas con Claude Code u otros agentes y quieres el coste mínimo | Treg, con tope de gasto y revisión humana |
+| No quieres montar nada dentro y vendes a mercados anglosajones | Una agencia como ColdIQ |
+
+En los proyectos que montamos en Rianex combinamos según el caso: Clay para listas que se repiten cada semana, llamadas directas a proveedores desde un agente cuando la lista es puntual, y en todos los casos **verificación separada del email antes de enviar**. Todo queda a nombre del cliente: las cuentas, las tablas y los dominios.
+
+## Cinco reglas que valen para las tres
+
+1. **Filtra antes de pagar.** Descarta con los datos gratis (sector, tamaño, país) y enriquece solo lo que queda.
+2. **Prueba con tus propias filas.** Cada proveedor acierta distinto según el mercado. Diez o veinte filas propias dicen más que cualquier comparativa.
+3. **Verifica cada email.** Rebotes altos dañan la reputación de los buzones de envío, y eso afecta a toda la campaña.
+4. **Guarda de dónde sale cada dato.** Por calidad y por el RGPD: si alguien pregunta de dónde sacaste su email, tienes que poder responder.
+5. **Pon un tope de gasto.** Sobre todo con agentes: que pare y pregunte antes de superar una cifra.
+
+## Preguntas frecuentes
+
+### ¿Qué es Clay y para qué sirve?
+
+Clay es una plataforma que permite construir listas de prospección enriquecidas: parte de empresas o personas y, columna a columna, añade emails, cargos, tamaño de empresa o señales, llamando a más de cien proveedores de datos y a modelos de IA. Se usa sobre todo para outbound B2B.
+
+### ¿Cuánto cuesta Clay?
+
+En octubre de 2026 tiene un plan gratuito con 100 créditos de datos al mes y planes de pago desde unos 185 $ al mes. El coste real depende de cuántas filas enriqueces y con cuántos proveedores, así que conviene probar en el plan gratuito con una lista pequeña.
+
+### ¿Qué es Treg?
+
+Una pasarela que permite a un agente de IA, como Claude Code, llamar directamente a proveedores de datos de empresas y personas con una sola clave, pagando por llamada. Es una alternativa a Clay para quien trabaja con agentes; es muy reciente y conviene probarla con listas pequeñas.
+
+### ¿ColdIQ es una herramienta?
+
+No. Es una agencia de outbound B2B que monta y opera el sistema para sus clientes, con Clay como herramienta principal. También ofrece formación.
+
+### ¿Es legal enriquecer datos de contactos en España?
+
+El RGPD permite tratar datos profesionales con una base legal adecuada, pero exige saber de dónde sale cada dato, informar a las personas y borrar a quien lo pida; la LSSI, además, limita el email comercial no solicitado. Lo contamos en [prospección B2B con IA](/blog/prospeccion-b2b-outbound-con-ia). No es asesoramiento legal.
+
+### ¿Lo podéis montar vosotros?
+
+Sí. El enriquecimiento es una de las piezas de nuestro servicio de [outbound B2B](/servicios/outbound-b2b), junto con la infraestructura de envío, las secuencias y la gestión de respuestas. Si quieres verlo sobre tu caso, el [diagnóstico](/diagnostico) son 30 minutos.

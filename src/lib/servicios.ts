@@ -317,7 +317,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "outbound-b2b": {
-    posts: ["como-cualificar-leads-automaticamente", "integrar-gohighlevel-con-tu-stack"],
+    posts: ["prospeccion-b2b-outbound-con-ia", "clay-treg-coldiq-enriquecimiento-prospeccion-b2b", "que-es-gtm-engineering"],
     es: {
       seoTitle: "Outbound B2B con IA: Clay, Instantly y LinkedIn",
       metaDescription:
