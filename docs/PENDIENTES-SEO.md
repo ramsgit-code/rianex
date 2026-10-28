@@ -55,13 +55,12 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 Por orden de impacto:
 
-- [ ] **Artículos de desarrollo a medida** ("Proyectos de IA a medida" y
-      "Cuándo compensa el desarrollo a medida con IA"): siguen publicados
-      porque traen impresiones, pero ya no hay servicio detrás. Decidir en
-      noviembre si se reorientan a automatización o se redirigen.
-- [ ] **Artículos de go-to-market**: el blog no tiene ninguno de outbound
-      (Clay, Instantly, email en frío, dominios y calentamiento). Es el hueco
-      de contenido del frente nuevo.
+- [ ] **Revisar en diciembre** las impresiones de "proyectos de IA a medida"
+      tras reorientarlo a automatización (title igual, descripción nueva).
+- [ ] **Más go-to-market**: faltan artículos de infraestructura de email
+      (dominios, calentamiento, SPF/DKIM/DMARC con Instantly) y de LinkedIn
+      con Valley. Treg es muy nuevo: revisar en enero si sus datos del
+      artículo de enriquecimiento siguen vigentes.
 - [ ] **Actualizar el artículo de n8n 3.0 cuando salga la estable**
       (principios de diciembre): fecha exacta, cambios de última hora en
       la lista oficial y campo `updated`. Es contenido con fecha: si se
@@ -94,6 +93,15 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-28 · Blog de go-to-market: "Prospección B2B con IA: cómo montar
+  outbound en España" (`prospección b2b outbound`, `prospección b2b con ia`)
+  y "Clay, Treg o ColdIQ: cómo enriquecer datos para prospección B2B"
+  (`clay.com qué es`, `clay pricing`). Cluster nuevo "Go-to-market y
+  outbound B2B" con GTM Engineering; fuera el cluster de desarrollo a
+  medida. Los dos artículos de desarrollo reorientados a automatización
+  (mismas URLs): Rianex no hace apps y lo dice. Enlazados desde
+  /servicios/outbound-b2b y desde GTM Engineering.
 
 - 2026-10-27 · Enfoque en dos frentes: automatización de procesos (Claude,
   n8n, Make, Zapier, crons) y go-to-market (GoHighLevel, HubSpot, Clay,

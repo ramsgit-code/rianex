@@ -12,9 +12,9 @@ import { z } from "zod";
 export const CLUSTERS = {
   "automatizacion-ia": "Automatización de procesos con IA",
   "agentes-ia": "Agentes de IA",
-  "desarrollo-ia": "Desarrollo a medida con IA",
   crm: "CRM, integraciones y migraciones",
   captacion: "Captación y cualificación",
+  outbound: "Go-to-market y outbound B2B",
 } as const;
 
 export type Cluster = keyof typeof CLUSTERS;

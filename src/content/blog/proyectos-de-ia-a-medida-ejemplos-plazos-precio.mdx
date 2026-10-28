@@ -1,9 +1,10 @@
 ---
 title: "Proyectos de IA a medida: ejemplos, plazos y precio en España"
-description: "Qué es de verdad un proyecto de IA a medida para una pyme, cinco ejemplos reales, cuánto tarda cada fase, qué mueve el precio y cómo saber si el tuyo lo necesita."
+description: "Qué es de verdad un proyecto de IA a medida en una pyme (casi siempre una automatización, no una app), cinco ejemplos, plazos por fase y qué mueve el precio."
 date: "2026-10-21"
-tags: ["desarrollo", "ia", "software a medida", "precio", "ejemplos"]
-cluster: "desarrollo-ia"
+updated: "2026-10-28"
+tags: ["ia", "proyectos de ia", "automatización", "precio", "ejemplos"]
+cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
 draft: false
 ---
@@ -14,15 +15,17 @@ La intuición suele ser correcta. Lo que falta es convertirla en un proyecto con
 
 ## La respuesta corta
 
-Un proyecto de IA a medida es un sistema construido para un proceso concreto de tu empresa, conectado a tus herramientas y a tus datos, en el que un modelo de lenguaje hace la parte que requiere criterio: leer, clasificar, redactar o decidir. No es entrenar un modelo propio; casi nunca hace falta. En una pyme española, un primer proyecto bien acotado tarda de cuatro a ocho semanas y en Rianex la implementación va de 5.000 € a 25.000 €, según cuántos sistemas toque y cuántas excepciones tenga el proceso.
+Un proyecto de IA a medida es un sistema construido para un proceso concreto de tu empresa, conectado a tus herramientas y a tus datos, en el que un modelo de lenguaje hace la parte que requiere criterio: leer, clasificar, redactar o decidir. No es entrenar un modelo propio, y casi nunca es construir una aplicación nueva: en la mayoría de pymes es una automatización con n8n, Make o Zapier y un modelo como Claude, conectada a las herramientas que ya usas. En una pyme española, un primer proyecto bien acotado tarda de cuatro a ocho semanas y en Rianex la implementación va de 5.000 € a 25.000 €, según cuántos sistemas toque y cuántas excepciones tenga el proceso.
 
-Si todavía no tienes claro si construir o comprar, empieza por [cuándo compensa el desarrollo a medida con IA](/blog/desarrollo-a-medida-con-ia-cuando-construir). Este artículo da por hecho que ya has decidido construir algo y quieres saber qué esperar.
+Si todavía dudas entre construir una herramienta propia o automatizar lo que ya tienes, empieza por [desarrollo a medida o automatización](/blog/desarrollo-a-medida-con-ia-cuando-construir). Este artículo da por hecho que ya has decidido hacer algo con IA y quieres saber qué esperar.
 
 ## Qué no es un proyecto de IA a medida
 
-Conviene despejar tres malentendidos antes de hablar de ejemplos, porque cada uno multiplica el presupuesto sin necesidad.
+Conviene despejar cuatro malentendidos antes de hablar de ejemplos, porque cada uno multiplica el presupuesto sin necesidad.
 
 **No es entrenar tu propio modelo.** Los modelos de OpenAI, Anthropic o Google ya leen, resumen y redactan mejor de lo que un modelo entrenado desde cero por una pyme podría hacerlo nunca. Lo que se construye a medida es todo lo que los rodea: de dónde sacan la información, qué reglas tienen que cumplir, a qué sistema escriben y quién revisa lo que hacen.
+
+**No es construir una aplicación.** Hoy cualquiera tiene una app funcionando en una tarde con herramientas como Lovable o Claude Code. Eso no resuelve el problema de casi ninguna pyme, que no es la falta de pantallas, sino que la información no fluye entre las herramientas que ya tiene y que hay trabajo repetitivo que nadie debería hacer a mano.
 
 **No es un chatbot en la web.** Un chatbot es una de las formas posibles, y rara vez la más rentable. La mayoría de proyectos que funcionan no tienen interfaz de chat: trabajan en segundo plano dentro del CRM, la bandeja de entrada o el ERP.
 
@@ -46,9 +49,9 @@ Cada formulario, mensaje de WhatsApp o correo que llega se lee, se clasifica por
 
 Facturas, pedidos, albaranes, contratos o partes de trabajo que llegan en PDF o en foto y alguien teclea a mano en otro sistema. El modelo extrae los campos, el sistema los valida contra reglas (que el CIF exista, que el importe cuadre con el pedido) y solo pasa a revisión humana lo que no encaja. Es un proyecto agradecido porque el ahorro de tiempo se mide desde el primer día.
 
-### 4. Panel interno o portal a medida
+### 4. Prospección y enriquecimiento B2B
 
-Una herramienta propia para que el equipo o los clientes hagan algo que ningún software estándar resuelve bien: un configurador de presupuestos, un portal de seguimiento de pedidos, un panel que cruza datos de tres herramientas que no se hablan. Aquí la IA es a veces protagonista y a veces una pieza menor; lo que justifica el proyecto es que el proceso es propio.
+Un sistema que construye cada semana la lista de empresas a las que escribir: busca las que encajan con tu cliente ideal, encuentra a la persona que decide, verifica su email, detecta señales de buen momento (contrataciones, aperturas, cambios de dirección) y prepara la primera línea de cada mensaje para que una persona la revise. Se monta con Clay o con un agente de IA que llama directamente a los proveedores de datos, y alimenta las secuencias de email y LinkedIn. Lo contamos en [prospección B2B con IA](/blog/prospeccion-b2b-outbound-con-ia) y comparamos las herramientas en [Clay, Treg o ColdIQ](/blog/clay-treg-coldiq-enriquecimiento-prospeccion-b2b).
 
 ### 5. Agente que actúa con aprobación
 
@@ -56,11 +59,11 @@ Un sistema que vigila algo de forma continua y propone acciones: pausar un anunc
 
 ## Las fases y cuánto dura cada una
 
-Un proyecto a medida bien llevado pasa por cuatro fases. La que más se subestima es la primera.
+Un proyecto de IA bien llevado pasa por cuatro fases. La que más se subestima es la primera.
 
 **Discovery: de una a dos semanas.** Se mapea el proceso tal y como es hoy, no como dice el manual. Se miden volumen, tiempo y fuga, se decide qué entra en el alcance y qué no, y se sale con un documento que cualquiera del equipo podría leer y entender. En Rianex esta fase arranca en 1.500 € y se puede contratar sola.
 
-**Construcción: de dos a cuatro semanas.** Integraciones, lógica, la parte de IA y las pantallas que hagan falta. La IA ha abaratado mucho esta fase: lo que antes eran semanas de programación ahora son días.
+**Construcción: de dos a cuatro semanas.** Integraciones, flujos en n8n, Make o Zapier, tareas programadas y la parte de IA. Las herramientas actuales han abaratado mucho esta fase: lo que antes eran semanas de programación ahora son días.
 
 **Pruebas con datos reales: una o dos semanas.** El sistema trabaja en paralelo con el proceso manual y se comparan los resultados. Aquí aparecen los casos raros que nadie mencionó en el discovery, y siempre aparecen.
 
@@ -93,7 +96,7 @@ Da igual con quién lo hagas. Antes de aceptar un presupuesto de IA a medida, co
 
 Tres preguntas lo resuelven en la mayoría de casos:
 
-1. **¿Existe una herramienta que ya lo haga y que podrías configurar?** Si la respuesta es sí y el proceso no es lo que te diferencia, configúrala. Es más barato y lo mantiene otro.
+1. **¿Existe una herramienta que ya lo haga y que podrías configurar?** Si la respuesta es sí, configúrala y automatiza alrededor. Es más barato y lo mantiene otro.
 2. **¿El proceso se repite lo bastante como para pagar la construcción?** Algo que pasa dos veces al mes no la paga casi nunca.
 3. **¿Necesita leer o redactar texto libre?** Si todas las decisiones se pueden escribir como reglas, lo que necesitas es una automatización, no un proyecto de IA.
 
@@ -112,6 +115,10 @@ Un primer proceso bien acotado tarda entre cuatro y ocho semanas: una o dos de d
 ### ¿Hace falta entrenar un modelo propio?
 
 Casi nunca. Los modelos comerciales de OpenAI, Anthropic o Google ya resuelven la lectura, la clasificación y la redacción. Lo que se construye a medida son las integraciones, las reglas, las validaciones y la revisión humana alrededor del modelo.
+
+### ¿Hacéis aplicaciones a medida?
+
+No. En Rianex automatizamos procesos y montamos el go-to-market: conectamos tus herramientas, metemos IA donde hace falta criterio y dejamos el sistema funcionando. Si lo que necesitas de verdad es una aplicación nueva, hoy Lovable o un estudio de desarrollo te la dan antes y más barata; nosotros podemos conectarla después con el resto.
 
 ### ¿El código del proyecto es mío?
 
