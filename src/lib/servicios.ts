@@ -51,6 +51,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       "como-implementar-ia-en-tu-empresa",
       "ejemplos-automatizacion-procesos-con-ia",
       "herramientas-ia-para-automatizar-procesos",
+      "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
       "cuanto-cuesta-automatizar-un-proceso-con-ia",
       "rgpd-y-automatizacion-con-ia",
       "n8n-3-que-se-rompe-y-como-prepararte",
@@ -417,6 +418,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       "automatizar-recepcion-clinica",
       "agentes-de-ia-para-empresas-cuando-compensan",
       "agentes-de-ia-vps-propio-o-nube",
+      "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
     ],
     es: {
       seoTitle: "Agente de IA para WhatsApp: atiende y agenda citas 24/7",

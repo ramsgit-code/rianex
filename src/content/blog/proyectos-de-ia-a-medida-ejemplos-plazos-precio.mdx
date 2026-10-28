@@ -1,8 +1,9 @@
 ---
-title: "Proyectos de IA a medida: ejemplos, plazos y precio en España"
-description: "Qué es de verdad un proyecto de IA a medida para una pyme, cinco ejemplos reales, cuánto tarda cada fase, qué mueve el precio y cómo saber si el tuyo lo necesita."
+title: "Proyectos de IA a medida para empresas: ejemplos, precio y plazos"
+description: "Qué es un proyecto de IA a medida, cinco ejemplos reales en empresas españolas, cuánto cuesta y tarda cada fase y cómo evitar que se quede en un piloto."
 date: "2026-10-21"
-tags: ["desarrollo", "ia", "software a medida", "precio", "ejemplos"]
+updated: "2026-10-28"
+tags: ["ia", "proyectos de ia", "a medida", "precio", "ejemplos", "agentes"]
 cluster: "desarrollo-ia"
 author: "Ramiro Pérez Rodero"
 draft: false
@@ -10,112 +11,163 @@ draft: false
 
 "Queremos hacer algo con IA a medida" es una de las frases que más oímos en la primera llamada. Casi nunca viene con un problema detrás. Viene con una intuición: que la competencia ya lo está haciendo, que las herramientas genéricas se quedan cortas, que tiene que haber una forma mejor de hacer lo que hoy se hace a mano.
 
-La intuición suele ser correcta. Lo que falta es convertirla en un proyecto con alcance, plazo y precio. Eso es lo que intenta este artículo.
+La intuición suele ser correcta. Lo que falta es convertirla en un proyecto con alcance, plazo y precio, y diseñarlo para que llegue a producción en lugar de quedarse en una demo. De eso va este artículo.
 
 ## La respuesta corta
 
-Un proyecto de IA a medida es un sistema construido para un proceso concreto de tu empresa, conectado a tus herramientas y a tus datos, en el que un modelo de lenguaje hace la parte que requiere criterio: leer, clasificar, redactar o decidir. No es entrenar un modelo propio; casi nunca hace falta. En una pyme española, un primer proyecto bien acotado tarda de cuatro a ocho semanas y en Rianex la implementación va de 5.000 € a 25.000 €, según cuántos sistemas toque y cuántas excepciones tenga el proceso.
+Un proyecto de IA a medida es un sistema construido para un proceso concreto de tu empresa, conectado a tus herramientas y a tus datos, en el que un modelo de lenguaje hace solo la parte que requiere criterio: leer, clasificar, redactar o proponer una decisión. El resto del proceso son reglas fijas. No es entrenar un modelo propio ni desarrollar una aplicación desde cero.
 
-Si todavía no tienes claro si construir o comprar, empieza por [cuándo compensa el desarrollo a medida con IA](/blog/desarrollo-a-medida-con-ia-cuando-construir). Este artículo da por hecho que ya has decidido construir algo y quieres saber qué esperar.
+En una empresa española, un primer proyecto bien acotado tarda **de cuatro a ocho semanas**. En Rianex el discovery arranca en **1.500 €** y la implementación va de **5.000 € a 25.000 €**, según cuántos sistemas toque y cuántas excepciones tenga el proceso. Aparte van las licencias de las herramientas y el consumo del modelo de IA, que dependen del volumen.
 
-## Qué no es un proyecto de IA a medida
+## Qué es un proyecto de IA a medida, y qué no
 
-Conviene despejar tres malentendidos antes de hablar de ejemplos, porque cada uno multiplica el presupuesto sin necesidad.
+Conviene despejar cuatro malentendidos antes de hablar de ejemplos, porque cada uno multiplica el presupuesto sin necesidad.
 
-**No es entrenar tu propio modelo.** Los modelos de OpenAI, Anthropic o Google ya leen, resumen y redactan mejor de lo que un modelo entrenado desde cero por una pyme podría hacerlo nunca. Lo que se construye a medida es todo lo que los rodea: de dónde sacan la información, qué reglas tienen que cumplir, a qué sistema escriben y quién revisa lo que hacen.
+**No es entrenar tu propio modelo.** Los modelos de OpenAI, Anthropic o Google ya leen, resumen y redactan mejor de lo que un modelo entrenado desde cero por una empresa mediana podría hacerlo nunca. Lo que se construye a medida es todo lo que los rodea: de dónde sacan la información, qué reglas tienen que cumplir, en qué sistema escriben y quién revisa lo que hacen.
 
-**No es un chatbot en la web.** Un chatbot es una de las formas posibles, y rara vez la más rentable. La mayoría de proyectos que funcionan no tienen interfaz de chat: trabajan en segundo plano dentro del CRM, la bandeja de entrada o el ERP.
+**No es desarrollar una aplicación.** La mayoría de proyectos que funcionan no tienen pantallas nuevas. Trabajan dentro de lo que el equipo ya usa: el CRM, la bandeja de entrada, WhatsApp, la hoja de pedidos. Lo que se construye son flujos, integraciones y agentes, normalmente sobre herramientas como n8n, Make o la API del modelo.
+
+**No es un chatbot en la web.** Un chatbot es una de las formas posibles, y rara vez la más rentable. Donde más retorno hay es en procesos que nadie ve desde fuera: lo que pasa entre que entra un contacto y alguien le responde, o entre que llega un documento y alguien lo teclea en otro sistema.
 
 **No es sustituir a nadie.** Los proyectos que mejor salen quitan a una persona la parte repetitiva de su trabajo y le dejan la que exige juicio. Los que intentan eliminar el criterio humano de un proceso que lo necesita acaban con alguien revisando a mano todo lo que hace la máquina.
 
+## ¿A medida, configurado o de catálogo?
+
+Antes de encargar un proyecto a medida conviene descartar las dos opciones más baratas. Esta tabla resume cuándo encaja cada una:
+
+| Opción | Qué es | Cuándo encaja | Cuándo se queda corta |
+|---|---|---|---|
+| **Herramienta de catálogo** | Un software que ya trae la función con IA (el asistente del CRM, un lector de facturas, un chatbot de WhatsApp) | El proceso es estándar y la herramienta cubre casi todo lo que necesitas | Tu proceso tiene pasos propios o tiene que hablar con sistemas que la herramienta no integra |
+| **Automatización configurada** | Reglas en el CRM o en un conector como Make, Zapier o n8n, con algún paso de IA | El proceso cruza dos o tres herramientas y sus decisiones caben en reglas | Hay mucho texto libre que interpretar, muchas excepciones o errores caros |
+| **Proyecto de IA a medida** | Un sistema diseñado para tu proceso, con IA en los puntos de decisión, validaciones y revisión humana | El proceso es frecuente, toca varios sistemas, necesita criterio y su fallo cuesta dinero | El volumen es bajo o el proceso aún no está definido |
+
+Si una herramienta de catálogo cubre lo que necesitas y el proceso no es lo que te diferencia, cómprala: es más barata y la mantiene otro. Qué familias de herramientas hay y qué resuelve cada una lo contamos en [IA para automatizar procesos: qué herramientas usar](/blog/herramientas-ia-para-automatizar-procesos).
+
 ## Cinco ejemplos de proyectos de IA a medida
 
-Estos son los tipos de proyecto que más aparecen en empresas de servicios. Los dos primeros son los más frecuentes y los de retorno más rápido.
+Estos son los tipos de proyecto que más aparecen en empresas de servicios. Dos de ellos son casos nuestros en producción.
 
-### 1. Generador de propuestas comerciales
+### 1. Del correo a la propuesta, sin tocarlo a mano
 
-El comercial rellena un formulario corto al colgar la llamada y el sistema genera la propuesta con la marca de la empresa, en web y en PDF, la envía y programa el seguimiento. La IA redacta las partes que cambian de un cliente a otro a partir de lo que se habló; los precios y las condiciones salen de reglas, no del modelo.
+Es el caso de [Eventos Barcelona](/casos-de-exito/eventos-barcelona). Cada propuesta tardaba entre uno y tres días en salir, y para entonces el cliente ya había pedido presupuesto a otros. Ahora el sistema lee cada correo que entra, decide si es de un cliente, un artista o un proveedor, abre o actualiza la oportunidad en el CRM y, tras la llamada, genera la propuesta con la marca de la empresa en web y PDF, la envía y programa el seguimiento.
 
-Es el caso de [Eventos Barcelona](/casos-de-exito/eventos-barcelona): cada propuesta tardaba entre uno y tres días y ahora sale en unos ocho minutos tras la llamada. Lo contamos con detalle en [propuestas comerciales automáticas](/blog/propuestas-comerciales-automaticas).
+La propuesta sale en unos **ocho minutos** después de la llamada y el tiempo de respuesta al cliente bajó un **85 %**. La IA redacta las partes que cambian de un cliente a otro; los precios y las condiciones salen de reglas, no del modelo. Lo contamos con detalle en [propuestas comerciales automáticas](/blog/propuestas-comerciales-automaticas).
 
-### 2. Cualificación y respuesta a contactos entrantes
+### 2. Agente que responde y cualifica por WhatsApp
 
-Cada formulario, mensaje de WhatsApp o correo que llega se lee, se clasifica por tipo de necesidad y encaje, se registra en el CRM y recibe una respuesta con el siguiente paso. La IA entra porque los mensajes vienen en texto libre: "hola, quería info para lo de mi madre" no encaja en ninguna casilla de un formulario. Lo desarrollamos en [cómo cualificar leads automáticamente](/blog/como-cualificar-leads-automaticamente).
+Cada mensaje que llega por WhatsApp, formulario o correo se lee, se clasifica por necesidad y encaje, se registra en el CRM y recibe una respuesta con el siguiente paso: una pregunta, un enlace para reservar o el aviso de que le llamará una persona. La IA entra porque los mensajes vienen en texto libre: "hola, quería info para lo de mi madre" no encaja en ninguna casilla. El agente pasa la conversación a una persona en cuanto hay intención de compra o algo se sale del guion. Lo desarrollamos en [cómo cualificar leads automáticamente](/blog/como-cualificar-leads-automaticamente) y en el servicio de [agente de IA para WhatsApp](/servicios/agente-ia-whatsapp).
 
 ### 3. Lectura de documentos
 
 Facturas, pedidos, albaranes, contratos o partes de trabajo que llegan en PDF o en foto y alguien teclea a mano en otro sistema. El modelo extrae los campos, el sistema los valida contra reglas (que el CIF exista, que el importe cuadre con el pedido) y solo pasa a revisión humana lo que no encaja. Es un proyecto agradecido porque el ahorro de tiempo se mide desde el primer día.
 
-### 4. Panel interno o portal a medida
+### 4. Prospección y outbound con IA
 
-Una herramienta propia para que el equipo o los clientes hagan algo que ningún software estándar resuelve bien: un configurador de presupuestos, un portal de seguimiento de pedidos, un panel que cruza datos de tres herramientas que no se hablan. Aquí la IA es a veces protagonista y a veces una pieza menor; lo que justifica el proyecto es que el proceso es propio.
+Construir la lista de empresas que encajan, enriquecer cada contacto con datos públicos (tamaño, tecnología que usa, contrataciones recientes) y redactar un primer mensaje que hable de su situación y no de tu producto. Herramientas como Clay, Instantly o Valley hacen cada pieza por separado; el proyecto a medida es el sistema que las une con tu CRM, decide a quién escribir y cuándo, y devuelve las respuestas al equipo comercial con contexto. Lo explicamos en [qué es GTM Engineering](/blog/que-es-gtm-engineering) y en el servicio de [outbound B2B](/servicios/outbound-b2b).
 
-### 5. Agente que actúa con aprobación
+### 5. Agente que actúa con aprobación humana
 
-Un sistema que vigila algo de forma continua y propone acciones: pausar un anuncio que ha dejado de rendir, reasignar un caso que lleva días sin respuesta, avisar de un cliente que muestra señales de baja. La regla de oro es que el agente propone y una persona aprueba, al menos hasta que el historial demuestre que acierta. Cuándo compensa y cuándo no lo explicamos en [agentes de IA para empresas](/blog/agentes-de-ia-para-empresas-cuando-compensan).
+Un sistema que vigila algo de forma continua y propone acciones. En [Tribeca Media](/casos-de-exito/tribeca-media) construimos el Performance Agent de su plataforma KEYWORKERS: revisa las campañas de Meta y Google Ads, propone pausar anuncios, bajar presupuesto o crear campañas nuevas, y genera una creatividad nueva cuando un anuncio de Meta se fatiga. Ninguna acción se ejecuta sin el visto bueno de una persona, las aprobaciones caducan a las 24 horas, subir presupuesto nunca es automático y el coste de IA de cada cliente tiene un tope diario.
+
+Esa es la regla de oro de cualquier agente: propone y una persona aprueba, al menos hasta que el historial demuestre que acierta. Cuándo compensa y cuándo no lo explicamos en [agentes de IA para empresas](/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+## Por qué tantos proyectos de IA se quedan en piloto
+
+Que una demo funcione no significa que el sistema aguante el lunes por la mañana con datos reales. Casi todos los proyectos que no llegan a producción tropiezan en las mismas cuatro piedras:
+
+**Se le da a la IA todo el flujo.** Cuantos más pasos encadena un agente por su cuenta, más se equivoca, y los errores se acumulan sin que nadie lo vea. En Eventos Barcelona, de los ocho pasos que van del correo al seguimiento de la propuesta, la IA decide solo dos: qué tipo de remitente es y si habla de un proyecto nuevo o de uno abierto. Limpiar el correo, buscar el contacto, abrir la oportunidad, generar la propuesta, enviarla y recordarla son reglas. Cuando la IA se equivoca, el error es pequeño y se ve.
+
+**No hay números de partida.** Si nadie midió cuántos casos entraban, cuánto se tardaba y cuántos se perdían, no hay forma de demostrar que el proyecto funciona, y al primer mes malo se cancela. Cómo medirlo en una semana lo contamos en [medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
+
+**No hay salida manual.** Todo sistema necesita una vía para que una persona intervenga cuando algo se sale de lo previsto. Sin ella, el primer caso raro rompe la confianza del equipo y a las tres semanas todos han vuelto a hacerlo a mano.
+
+**Nadie vigila el coste ni los fallos.** Un sistema en producción necesita avisos cuando algo falla y un registro de cuánto gasta en IA. En Tribeca, antes de que el agente pudiera actuar, construimos chequeos de salud, el coste de cada llamada registrado y un tope de gasto por cliente.
 
 ## Las fases y cuánto dura cada una
 
 Un proyecto a medida bien llevado pasa por cuatro fases. La que más se subestima es la primera.
 
-**Discovery: de una a dos semanas.** Se mapea el proceso tal y como es hoy, no como dice el manual. Se miden volumen, tiempo y fuga, se decide qué entra en el alcance y qué no, y se sale con un documento que cualquiera del equipo podría leer y entender. En Rianex esta fase arranca en 1.500 € y se puede contratar sola.
+| Fase | Duración | Qué sale de ella |
+|---|---|---|
+| **Discovery** | 1 a 2 semanas | El proceso mapeado tal y como es hoy, sus números de partida (volumen, tiempo y fuga) y el alcance cerrado por escrito |
+| **Construcción** | 2 a 4 semanas | Integraciones, reglas, la parte de IA, validaciones y avisos |
+| **Pruebas con datos reales** | 1 a 2 semanas | El sistema trabaja en paralelo con el proceso manual y se comparan resultados; aparecen los casos raros |
+| **Puesta en marcha y ajuste** | 2 a 4 semanas | El equipo lo usa de verdad, se ajustan instrucciones y umbrales y se mide contra los números de partida |
 
-**Construcción: de dos a cuatro semanas.** Integraciones, lógica, la parte de IA y las pantallas que hagan falta. La IA ha abaratado mucho esta fase: lo que antes eran semanas de programación ahora son días.
+En total, entre cuatro y ocho semanas hasta que el primer proceso funciona solo. Si alguien promete dos, está contando la construcción y dejando fuera todo lo demás. Un primer resultado visible suele llegar antes, al final de la construcción, pero no conviene confundirlo con un sistema terminado.
 
-**Pruebas con datos reales: una o dos semanas.** El sistema trabaja en paralelo con el proceso manual y se comparan los resultados. Aquí aparecen los casos raros que nadie mencionó en el discovery, y siempre aparecen.
+## Cuánto cuesta un proyecto de IA a medida en España
 
-**Puesta en marcha y ajuste: dos a cuatro semanas.** El equipo lo usa de verdad, se ajustan las instrucciones del modelo y los umbrales, y se mide contra los números del principio.
+El coste de un proyecto de IA a medida tiene cinco partes. Las dos primeras se pagan una vez; las otras tres, mientras el sistema funcione.
 
-En total, entre cuatro y ocho semanas hasta que el primer proceso funciona solo. Si alguien promete dos, está contando la construcción y dejando fuera todo lo demás.
+| Concepto | En Rianex | Cuándo se paga |
+|---|---|---|
+| **Discovery** | Desde 1.500 €, y se puede contratar sola | Una vez, al principio |
+| **Implementación** | De 5.000 € a 25.000 € | Una vez, normalmente por fases |
+| **Licencias de herramientas** | Las del CRM, el conector o el alojamiento, a tu nombre | Cada mes, según el plan de cada herramienta |
+| **Consumo del modelo de IA** | Se paga por uso al proveedor del modelo | Cada mes, según el volumen |
+| **Mantenimiento** | Retainer mensual opcional | Cada mes, si lo contratas |
 
-## Qué mueve el precio
+Dentro de la horquilla de implementación, el proyecto cae más arriba o más abajo según su tamaño:
 
-El precio de un proyecto de IA a medida depende mucho menos de la IA de lo que parece. Lo que lo mueve es esto:
+- **Parte baja: un proceso acotado dentro de un sistema.** Cualificar contactos que entran por la web y meterlos en el pipeline con su puntuación. Una herramienta, reglas claras, pocas excepciones.
+- **Parte media: un proceso que cruza varios sistemas.** Del correo a la propuesta enviada, pasando por agenda y CRM. El precio lo marca cuántas integraciones hay.
+- **Parte alta: un sistema con agentes que actúan.** Varias integraciones, IA que propone acciones sobre sistemas reales, aprobación humana, registro de cada acción y control de coste.
 
-- **Número de sistemas que hay que conectar.** Cada integración con un CRM, un ERP, una agenda o una API de terceros suma trabajo de construcción y, sobre todo, de mantenimiento.
-- **Excepciones del proceso.** Un proceso con tres caminos posibles cuesta una fracción de uno con treinta. Muchas veces la mitad del trabajo de discovery es reducir excepciones antes de programarlas.
-- **Cuánto puede equivocarse.** Si un error es una molestia, basta con revisar una muestra. Si un error es un cliente perdido o una factura mal emitida, hay que construir validaciones y revisión humana en el flujo.
-- **Calidad de los datos de partida.** Si la información vive en hojas de cálculo con columnas que cada uno rellena a su manera, hay que limpiarla y centralizarla antes. Es trabajo previo, no opcional.
+Lo que mueve el precio dentro de cada tramo es casi siempre lo mismo: **cuántos sistemas hay que conectar**, **cuántas excepciones tiene el proceso**, **cuánto cuesta que se equivoque** (si un error es una factura mal emitida, hacen falta validaciones y revisión humana) y **en qué estado están los datos** (si viven en hojas de cálculo que cada uno rellena a su manera, hay que limpiarlas antes).
 
-Lo que cuesta menos de lo que la gente imagina es el uso del modelo de IA en sí. En los volúmenes de una pyme, la factura mensual de la API suele ser una cifra pequeña al lado del coste de construir y mantener el sistema. Tenemos el desglose completo en [cuánto cuesta automatizar un proceso con IA](/blog/cuanto-cuesta-automatizar-un-proceso-con-ia).
+Lo que suele costar menos de lo que la gente imagina es el uso del modelo de IA en sí. En los volúmenes de una empresa mediana, la factura de la API es una cifra pequeña al lado de construir y mantener el sistema, siempre que la IA se use solo donde hace falta. El desglose completo está en [cuánto cuesta automatizar un proceso con IA](/blog/cuanto-cuesta-automatizar-un-proceso-con-ia).
 
 ## Lo que hay que pedir antes de firmar
 
 Da igual con quién lo hagas. Antes de aceptar un presupuesto de IA a medida, comprueba que el proveedor te da por escrito:
 
 - **El proceso que se va a automatizar, con sus números de partida.** Si no hay números de antes, no habrá forma de saber si funcionó.
-- **De quién es el código y dónde se aloja.** Lo razonable es que el código sea tuyo y que puedas cambiar de proveedor sin empezar de cero.
-- **Qué pasa cuando el modelo se equivoca.** Debe haber una salida manual y alguien que se entere.
+- **Qué decide la IA y qué es regla.** Si la respuesta es "la IA lo hace todo", el sistema será difícil de depurar y caro de mantener.
+- **De quién es lo construido y dónde vive.** Lo razonable es que los flujos, el código y las cuentas de las herramientas estén a tu nombre, para que puedas cambiar de proveedor sin empezar de cero.
+- **Qué pasa cuando el modelo se equivoca.** Debe haber una salida manual, avisos y alguien que se entere.
 - **Qué incluye el mantenimiento.** Los modelos cambian de versión, las APIs de terceros cambian sus condiciones y los procesos evolucionan. Un sistema sin mantenimiento empieza a degradarse en meses.
 - **Cómo se tratan los datos personales.** Qué datos salen hacia el proveedor del modelo, con qué contrato y en qué región. Lo repasamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
 
-## Cómo saber si tu caso necesita un proyecto a medida
+## Cómo saber si tu empresa necesita un proyecto a medida
 
 Tres preguntas lo resuelven en la mayoría de casos:
 
-1. **¿Existe una herramienta que ya lo haga y que podrías configurar?** Si la respuesta es sí y el proceso no es lo que te diferencia, configúrala. Es más barato y lo mantiene otro.
+1. **¿Existe una herramienta que ya lo haga y que podrías configurar?** Si la respuesta es sí y el proceso no es lo que te diferencia, configúrala.
 2. **¿El proceso se repite lo bastante como para pagar la construcción?** Algo que pasa dos veces al mes no la paga casi nunca.
-3. **¿Necesita leer o redactar texto libre?** Si todas las decisiones se pueden escribir como reglas, lo que necesitas es una automatización, no un proyecto de IA.
+3. **¿Necesita leer, clasificar o redactar texto libre?** Si todas las decisiones se pueden escribir como reglas, lo que necesitas es una automatización, no un proyecto de IA.
 
-Si respondes no, sí y sí, probablemente tengas un buen candidato.
+Si respondes no, sí y sí, probablemente tengas un buen candidato. Si quieres el plan completo, desde elegir el proceso hasta que el equipo lo use, está en [cómo implementar IA en tu empresa](/blog/como-implementar-ia-en-tu-empresa).
 
 ## Preguntas frecuentes
 
+### ¿Qué es un proyecto de IA a medida?
+
+Es un sistema construido para un proceso concreto de una empresa, conectado a sus herramientas y datos, en el que un modelo de lenguaje hace la parte que necesita criterio (leer, clasificar, redactar o proponer una decisión) y el resto son reglas fijas. No consiste en entrenar un modelo propio ni en desarrollar una aplicación desde cero.
+
 ### ¿Cuánto cuesta un proyecto de IA a medida en España?
 
-Depende del alcance. En Rianex el discovery arranca en 1.500 € y la implementación completa va de 5.000 € a 25.000 €, con un mantenimiento mensual opcional. El precio exacto se confirma después de mirar el proceso, porque lo que lo mueve son las integraciones y las excepciones, no la IA.
+En Rianex el discovery arranca en 1.500 € y la implementación va de 5.000 € a 25.000 €, con un mantenimiento mensual opcional. Aparte van las licencias de las herramientas y el consumo del modelo de IA, que dependen del volumen. El precio exacto se confirma después de mirar el proceso, porque lo mueven las integraciones y las excepciones, no la IA.
 
-### ¿Cuánto se tarda en tener un proyecto de IA a medida funcionando?
+### ¿Cuánto se tarda en tener un proyecto de IA funcionando?
 
 Un primer proceso bien acotado tarda entre cuatro y ocho semanas: una o dos de discovery, de dos a cuatro de construcción y el resto en pruebas con datos reales y ajuste con el equipo.
+
+### ¿Qué diferencia hay entre un proyecto de IA a medida y una herramienta con IA?
+
+Una herramienta con IA resuelve un problema estándar igual para todos sus clientes. Un proyecto a medida se diseña para tu proceso: conecta tus sistemas, aplica tus reglas y pone la IA solo en los puntos donde tu proceso necesita criterio. Si una herramienta cubre lo que necesitas, suele ser la opción más barata.
 
 ### ¿Hace falta entrenar un modelo propio?
 
 Casi nunca. Los modelos comerciales de OpenAI, Anthropic o Google ya resuelven la lectura, la clasificación y la redacción. Lo que se construye a medida son las integraciones, las reglas, las validaciones y la revisión humana alrededor del modelo.
 
-### ¿El código del proyecto es mío?
+### ¿Por qué fallan tantos proyectos de IA en las empresas?
 
-Debería serlo. Pide que el contrato lo diga y que el sistema se aloje en una cuenta a tu nombre, para que puedas cambiar de proveedor sin perder lo construido. En Rianex el código es del cliente.
+Sobre todo por cuatro motivos: se deja a la IA todo el flujo en lugar de solo las decisiones que necesitan criterio, no hay números de partida para demostrar el resultado, no hay salida manual cuando algo se tuerce y nadie vigila los fallos ni el coste una vez en producción.
+
+### ¿Se puede pagar por fases?
+
+Sí, y es lo recomendable. El discovery se puede contratar solo y la implementación se divide en fases, para que cada una se justifique con lo que ahorra la anterior.
 
 ### ¿Por dónde empiezo?
 
