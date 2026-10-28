@@ -53,6 +53,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Canibalización en "a medida"**: "desarrollo-a-medida-con-ia-cuando-construir"
+      sale para "proyectos de ia a medida" y "desarrollo software ia a medida"
+      (posición ~64) y habla de construir software, que ya no se vende.
+      Revisar a mediados de noviembre: si "proyectos de IA a medida" entra en
+      primera página y el otro sigue sin tráfico, reenfocarlo o redirigirlo
+      con un 301 al de proyectos.
+
 Por orden de impacto:
 
 - [ ] **Artículos de desarrollo a medida** ("Proyectos de IA a medida" y
@@ -94,6 +101,18 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-28 · Artículo "Proyectos de IA a medida" reforzado: era la
+  consulta más cerca de la primera página ("proyectos de ia a medida",
+  posición 10,8 en 28 días; 33 impresiones entre todas las páginas). Title
+  con "para empresas", tabla de catálogo/configurado/a medida, tabla de
+  fases, tabla de costes (puntuales y recurrentes), sección de por qué los
+  proyectos se quedan en piloto (consulta "proyectos de ia en produccion"),
+  casos reales de Eventos Barcelona y Tribeca, 8 preguntas frecuentes y
+  `updated`. Fuera el ejemplo de "panel o portal a medida" (desarrollo de
+  software, fuera del posicionamiento desde el PR #29); en su lugar,
+  prospección y outbound con IA. Enlazado desde los servicios de
+  automatización y de agente de WhatsApp.
 
 - 2026-10-27 · Enfoque en dos frentes: automatización de procesos (Claude,
   n8n, Make, Zapier, crons) y go-to-market (GoHighLevel, HubSpot, Clay,
