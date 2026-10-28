@@ -66,9 +66,7 @@ Por orden de impacto:
       (dominios, calentamiento, SPF/DKIM/DMARC con Instantly) y de LinkedIn
       con Valley. Treg es muy nuevo: revisar en enero si sus datos del
       artículo de enriquecimiento siguen vigentes.
-- [ ] **Serie de agentes (Tribeca), siguientes artículos**: qué revisar
-      en un sistema de agentes antes de escalarlo (a partir del diagnóstico,
-      sin detalles de seguridad ni nada que deje mal al cliente); el agente
+- [ ] **Serie de agentes (Tribeca), siguientes artículos**: el agente
       de contenido cuando Content tenga algo construido; y traspasos entre
       agentes cuando el runner los tenga. Revisar antes el estado en
       `~/Documents/tribeca/KEYWORKERS_Estado_Agentes_*.md`.
@@ -104,6 +102,13 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-28 · Cuarto artículo de la serie de agentes: "Qué revisar en un
+  sistema de agentes de IA antes de escalarlo"
+  (`/blog/revisar-sistema-de-agentes-ia-antes-de-escalar`), a partir del
+  diagnóstico de Tribeca y de los bloques de observabilidad (S3) y escalado
+  (S4), sin detalles de seguridad. Enlazado desde los otros tres de la
+  serie y como guía del caso Tribeca.
 
 - 2026-10-28 · Blog de go-to-market: "Prospección B2B con IA: cómo montar
   outbound en España" (`prospección b2b outbound`, `prospección b2b con ia`)
