@@ -53,14 +53,25 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Canibalización en "a medida"**: "desarrollo-a-medida-con-ia-cuando-construir"
+      sale para "proyectos de ia a medida" y "desarrollo software ia a medida"
+      (posición ~64). Desde el 28 de octubre ya defiende automatizar antes que
+      construir y dice que Rianex no hace apps. Revisar a mediados de
+      noviembre: si "proyectos de IA a medida" entra en primera página y el
+      otro sigue sin tráfico, redirigirlo con un 301 al de proyectos.
+
 Por orden de impacto:
 
-- [ ] **Revisar en diciembre** las impresiones de "proyectos de IA a medida"
-      tras reorientarlo a automatización (title igual, descripción nueva).
 - [ ] **Más go-to-market**: faltan artículos de infraestructura de email
       (dominios, calentamiento, SPF/DKIM/DMARC con Instantly) y de LinkedIn
       con Valley. Treg es muy nuevo: revisar en enero si sus datos del
       artículo de enriquecimiento siguen vigentes.
+- [ ] **Serie de agentes (Tribeca), siguientes artículos**: qué revisar
+      en un sistema de agentes antes de escalarlo (a partir del diagnóstico,
+      sin detalles de seguridad ni nada que deje mal al cliente); el agente
+      de contenido cuando Content tenga algo construido; y traspasos entre
+      agentes cuando el runner los tenga. Revisar antes el estado en
+      `~/Documents/tribeca/KEYWORKERS_Estado_Agentes_*.md`.
 - [ ] **Actualizar el artículo de n8n 3.0 cuando salga la estable**
       (principios de diciembre): fecha exacta, cambios de última hora en
       la lista oficial y campo `updated`. Es contenido con fecha: si se
@@ -99,9 +110,33 @@ Por orden de impacto:
   y "Clay, Treg o ColdIQ: cómo enriquecer datos para prospección B2B"
   (`clay.com qué es`, `clay pricing`). Cluster nuevo "Go-to-market y
   outbound B2B" con GTM Engineering; fuera el cluster de desarrollo a
-  medida. Los dos artículos de desarrollo reorientados a automatización
-  (mismas URLs): Rianex no hace apps y lo dice. Enlazados desde
-  /servicios/outbound-b2b y desde GTM Engineering.
+  medida. "Desarrollo a medida con IA o automatización" reorientado (misma
+  URL): automatizar antes que construir, Lovable para validar una app y
+  Rianex no hace apps. En "Proyectos de IA a medida" (reforzado en el #30)
+  se añaden Lovable, los enlaces de outbound y la FAQ "¿Hacéis aplicaciones
+  a medida?". Enlazados desde /servicios/outbound-b2b y GTM Engineering.
+
+- 2026-10-28 · Serie de agentes con el caso Tribeca, tres artículos del
+  clúster `agentes-ia`: "Agentes de IA con aprobación humana"
+  (`/blog/agentes-de-ia-con-aprobacion-humana`), "Agente de IA para Meta
+  Ads y Google Ads" (`/blog/agente-ia-meta-ads-google-ads`) y "Coste de un
+  agente de IA en producción" (`/blog/coste-agente-de-ia-en-produccion`).
+  Enlazados entre sí, desde "cuándo compensan los agentes", desde la
+  sección Tribeca de "Qué es GTM Engineering" y como guías del caso Tribeca
+  (`src/lib/casos.ts`). Sin precios, clientes de Tribeca ni detalles de
+  seguridad.
+
+- 2026-10-28 · Artículo "Proyectos de IA a medida" reforzado: era la
+  consulta más cerca de la primera página ("proyectos de ia a medida",
+  posición 10,8 en 28 días; 33 impresiones entre todas las páginas). Title
+  con "para empresas", tabla de catálogo/configurado/a medida, tabla de
+  fases, tabla de costes (puntuales y recurrentes), sección de por qué los
+  proyectos se quedan en piloto (consulta "proyectos de ia en produccion"),
+  casos reales de Eventos Barcelona y Tribeca, 8 preguntas frecuentes y
+  `updated`. Fuera el ejemplo de "panel o portal a medida" (desarrollo de
+  software, fuera del posicionamiento desde el PR #29); en su lugar,
+  prospección y outbound con IA. Enlazado desde los servicios de
+  automatización y de agente de WhatsApp.
 
 - 2026-10-27 · Enfoque en dos frentes: automatización de procesos (Claude,
   n8n, Make, Zapier, crons) y go-to-market (GoHighLevel, HubSpot, Clay,

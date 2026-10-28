@@ -1,0 +1,121 @@
+---
+title: "Coste de un agente de IA en producción: cómo medirlo y limitarlo"
+description: "Cómo saber cuánto gasta un agente de IA y ponerle tope: registrar cada llamada, elegir el modelo por tarea, procesar por lotes y cortar antes de gastar."
+date: "2026-10-28"
+tags: ["agentes de ia", "coste de la ia", "observabilidad", "llm"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+La pregunta "¿cuánto nos cuesta la IA?" tiene una respuesta fácil cuando hay un agente de prueba: lo que diga la factura del proveedor a fin de mes. Deja de tenerla cuando hay varios agentes, varios clientes y tareas programadas que corren solas de madrugada. La factura dice cuánto, pero no quién, ni en qué, ni si está bien.
+
+Cuando empezamos a trabajar en la plataforma de agentes de Tribeca Media, ese era uno de los puntos de partida: no había forma de saber cuánto gastaba cada agente en IA ni cuándo fallaba. Antes de dejar que un agente toque el dinero de un cliente, hay que poder ver qué hace y cuánto cuesta. Esto es lo que montamos y lo que recomendamos para cualquier agente en producción.
+
+## La respuesta corta
+
+Para controlar el coste de un agente de IA hacen falta cinco piezas: registrar cada llamada al modelo con su cliente, su agente, su modelo, sus tokens y su coste; elegir el modelo según la tarea, con uno pequeño por defecto; mandar por lotes lo que no es urgente; poner topes por cliente que corten antes de gastar, no después; y avisos de salud para enterarse cuando un agente falla o se queda en bucle. Con eso, el coste deja de ser una sorpresa a fin de mes y pasa a ser un número que se mira cada semana.
+
+## De dónde sale el gasto
+
+El modelo cobra por tokens: lo que se le manda y lo que contesta. Pero en un agente el gasto no viene solo de "las preguntas":
+
+- **El contexto.** Cada llamada lleva las instrucciones del agente, los datos del cliente y a veces el historial. Si nadie lo vigila, crece con cada versión.
+- **Las tareas programadas.** Una auditoría que corre dos veces al día sobre cien clientes son seis mil llamadas al mes, aunque nadie esté mirando.
+- **Los reintentos.** Si una API externa falla y el agente reintenta mandando todo otra vez al modelo, se paga varias veces la misma tarea.
+- **Las imágenes y otros modelos.** Generar creatividades, transcribir audio o leer documentos tiene su propio precio, que no sale en el contador de tokens.
+- **Los bucles.** Un agente que se llama a sí mismo o a otro sin condición de parada es la forma más rápida de quemar presupuesto.
+
+## 1. Registrar cada llamada
+
+La pieza básica es una tabla en la que cada llamada al modelo deja una fila con:
+
+- el cliente y, si aplica, la organización y el proyecto;
+- el agente y la tarea que la originó;
+- el modelo usado;
+- los tokens de entrada y de salida;
+- el coste calculado en el momento.
+
+Las imágenes y cualquier otro servicio de IA que se pague entran en la misma tabla, con su coste real. En nuestro caso, medido en producción, cada imagen generada en calidad media sale por unos 4 céntimos.
+
+Con esa tabla, las preguntas que antes no tenían respuesta se contestan con una consulta: cuánto gasta cada cliente al día, qué agente es el más caro, qué tarea se ha disparado esta semana. Y sirve también para repercutir el coste o fijar precios por cliente con datos, no a ojo.
+
+## 2. Elegir el modelo según la tarea
+
+La diferencia de precio entre un modelo pequeño y uno grande es de varias veces por token. Usar el grande para todo es el error de coste más habitual.
+
+La regla que aplicamos: modelo pequeño por defecto y modelo grande solo cuando la tarea lo justifica. En el agente de campañas, la revisión de rutina va con el pequeño y solo cuando hay una anomalía grave pendiente se pasa al grande para analizarla.
+
+Dos condiciones para que funcione:
+
+- **Que la decisión esté en un solo sitio.** Si cada agente elige su modelo con su propia lógica, nadie sabe cuál se usa ni por qué. Mejor una configuración central que cualquier agente consulte.
+- **Que no esté escrita en el código.** El nombre del modelo debe salir de la configuración, para cambiarlo sin tocar código cuando salga uno mejor o más barato.
+
+## 3. Lotes y caché para lo que no corre prisa
+
+Los proveedores de modelos ofrecen procesar peticiones por lotes a cambio de no contestar al momento, con un descuento del 50 %. Las tareas programadas que nadie espera en tiempo real, como una auditoría de campañas a las nueve de la mañana, son el caso perfecto. En la plataforma de Tribeca las auditorías de campañas se procesan así, a mitad de precio.
+
+La otra palanca es la caché de prompt: la parte fija de las instrucciones, que se repite en cada llamada, se cobra mucho más barata cuando el proveedor la tiene guardada. Ordenar el prompt para que lo fijo vaya delante y lo variable detrás es un cambio pequeño con efecto en cada llamada.
+
+## 4. Topes que cortan antes de gastar
+
+Medir no basta: hay que poder parar. Los topes que recomendamos:
+
+| Tope | Qué protege | Cómo se aplica |
+|---|---|---|
+| Gasto diario por cliente | Que un cliente se coma el presupuesto de todos | Se comprueba antes de cada llamada |
+| Gasto diario global | Un fallo que afecte a todos a la vez | Corta todos los agentes al llegar al límite |
+| Unidades por cliente y día | Imágenes, publicaciones o acciones concretas | Reserva previa: primero se reserva el hueco, luego se genera |
+| Reintentos por tarea | Bucles y errores en cadena | Un número fijo y después aviso a una persona |
+
+Tres detalles que evitan sustos:
+
+- **Cortar antes, no después.** El tope se comprueba antes de llamar al modelo. Un tope que se mira al final del día solo sirve para saber cuánto te pasaste.
+- **Una sola fórmula.** Si hay dos maneras de calcular el límite en dos partes del código, tarde o temprano dan resultados distintos y nadie sabe cuál manda.
+- **Un solo reloj.** "Diario" significa algo distinto si una parte del sistema cuenta los días en hora de España y otra en otra zona. Lo contamos en [el artículo sobre la aprobación humana](/blog/agentes-de-ia-con-aprobacion-humana).
+
+## 5. Salud y avisos
+
+El gasto más difícil de ver es el del agente que falla en silencio. No gasta de más: gasta para nada, o deja de hacer su trabajo sin que nadie se entere.
+
+Por eso el control de coste va junto con la observabilidad:
+
+- **Chequeos de salud** de cada servicio y cada tarea programada, con aviso a una persona si algo lleva caído más de un tiempo razonable.
+- **Duración de cada pasada.** Si la auditoría que tardaba diez minutos empieza a tardar una hora, algo ha cambiado.
+- **Registros con el cliente y la tarea** en cada línea, para poder seguir qué pasó con un cliente concreto sin leer todo.
+
+## Qué mirar cada semana
+
+| Métrica | Señal de alarma |
+|---|---|
+| Coste por cliente y día | Un cliente que sube sin que haya cambiado su volumen |
+| Coste por tarea | Una tarea cuyo coste medio crece semana a semana (contexto que engorda) |
+| Porcentaje de llamadas al modelo grande | Sube sin que haya más anomalías |
+| Reintentos y errores | Más de lo habitual: suele ser una API externa que ha cambiado |
+| Topes alcanzados | Un cliente que llega al tope cada día necesita revisar su configuración o su precio |
+
+## Un caso real: Tribeca Media
+
+En [Tribeca Media](/casos-de-exito/tribeca-media), la plataforma KEYWORKERS da a cada cliente un equipo de agentes de IA para marketing. Antes de construir el agente de campañas hicimos un diagnóstico del sistema y un bloque de observabilidad y coste: chequeos de salud con avisos, el coste de cada llamada y de cada imagen registrado, tope de gasto por cliente y auditorías por lotes a mitad de precio.
+
+Con eso montado, el [agente de Meta Ads y Google Ads](/blog/agente-ia-meta-ads-google-ads) pudo empezar a actuar sobre campañas reales sabiendo en todo momento cuánto cuesta cada cliente y con la seguridad de que un fallo no se convierte en una factura.
+
+## Preguntas frecuentes
+
+### ¿Cuánto cuesta al mes un agente de IA en producción?
+
+Depende de cuántas llamadas haga, qué modelo use y cuánto contexto mande en cada una. En la mayoría de agentes bien diseñados el gasto en modelo es la parte pequeña del coste total; lo caro es construirlo y mantener las integraciones. La única forma de saberlo con precisión es registrar cada llamada desde el primer día.
+
+### ¿Qué es la observabilidad de un agente de IA?
+
+Es poder ver desde fuera qué hace el agente: qué llamadas hace, cuánto tarda, cuánto cuesta, cuándo falla y qué decidió con qué datos. Sin observabilidad, un agente es una caja negra que solo se revisa cuando algo sale mal.
+
+### ¿Conviene usar un modelo local para ahorrar?
+
+Para tareas sencillas y repetitivas, como extraer datos de un texto o clasificar, un modelo local puede ahorrar mucho. Para decisiones que tocan dinero o clientes, la diferencia de calidad suele pesar más que el ahorro. Lo comparamos en [agentes en servidor propio o en la nube](/blog/agentes-de-ia-vps-propio-o-nube).
+
+### ¿Qué pasa cuando un cliente llega al tope de gasto?
+
+El agente deja de llamar al modelo para ese cliente hasta el día siguiente y avisa. Las tareas pendientes no se pierden: se quedan sin hacer y se ven como tales. Es preferible a seguir gastando sin control.
+
+Si ya tienes agentes en marcha y no sabes cuánto cuestan ni cuándo fallan, en el [diagnóstico](/diagnostico) revisamos tu sistema y salimos con un plan de medición y topes.
