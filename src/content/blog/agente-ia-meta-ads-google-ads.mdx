@@ -72,7 +72,7 @@ No hace falta el modelo más caro para cada revisión. El agente usa un modelo p
 
 ## Un caso real: Tribeca Media
 
-[Tribeca Media](/casos-de-exito/tribeca-media) construye KEYWORKERS, una plataforma que da a cada cliente un equipo de agentes de IA para marketing. Su agente de performance leía las campañas de Meta Ads, pero no actuaba sobre ellas, no tenía Google Ads ni generaba creatividades.
+[Tribeca Media](/casos-de-exito/tribeca-media) construye KEYWORKERS, una plataforma que da a cada cliente un equipo de agentes de IA para marketing. Su agente de performance leía las campañas de Meta Ads, pero no actuaba sobre ellas, no tenía Google Ads ni generaba creatividades. Antes de ampliarlo hicimos un [diagnóstico del sistema entero](/blog/revisar-sistema-de-agentes-ia-antes-de-escalar).
 
 Construimos el Performance Agent con todo lo de este artículo: lectura de Meta y Google Ads, pausas reales en las dos plataformas, bajada de presupuesto reversible, creación de campañas de Meta de punta a punta en pausa, creatividades con GPT Image 2 cuando un anuncio se fatiga, coste registrado por llamada y por imagen, y aprobación humana para todo. Tiene el código cerrado, casi 1.000 tests automáticos y está en validación con un cliente piloto. El siguiente es el Content Agent, que prepara piezas de contenido en vista previa y pendientes de aprobación.
 

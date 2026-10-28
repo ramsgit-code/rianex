@@ -1,0 +1,126 @@
+---
+title: "Qué revisar en un sistema de agentes de IA antes de escalarlo"
+description: "Diagnóstico técnico de un sistema de agentes de IA: los nueve puntos que conviene revisar antes de pasar de pocos clientes a muchos, y cómo priorizar lo que salga."
+date: "2026-10-28"
+tags: ["agentes de ia", "diagnóstico técnico", "auditoría", "escalado", "observabilidad"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Un sistema de agentes de IA suele crecer deprisa. Primero funciona un agente, luego se añade un segundo, después un portal para que los clientes vean lo que hacen, y en pocos meses hay varios servicios hablando con la misma base de datos. Con cinco clientes todo va bien. Con cincuenta, lo que era un detalle se convierte en el problema.
+
+Por eso, antes de escalar, conviene parar y mirar el sistema entero con calma. Este artículo cuenta qué revisamos en un diagnóstico técnico de un sistema de agentes, qué suele aparecer y cómo se ordena lo que sale, a partir del que hicimos para la plataforma de agentes de Tribeca Media.
+
+## La respuesta corta
+
+Antes de escalar un sistema de agentes de IA hay que revisar nueve cosas: si lo que dice la documentación existe de verdad, qué pasa si cae la máquina donde corre, si los clientes se procesan en fila, si la base de datos se puede reconstruir desde el repositorio, si los datos de cada cliente están aislados, si los registros permiten seguir lo que pasó, si los tests cubren lo que tiene riesgo, si el coste de IA se mide en un solo sitio y si hay lógica duplicada. La revisión se hace en dos capas, leyendo el código y comprobando el sistema en vivo, porque no siempre coinciden. Lo que sale se ordena por riesgo y se corrige por bloques cerrados.
+
+## Dos capas: el código y el sistema en vivo
+
+Un diagnóstico que solo lee el código se equivoca, y uno que solo mira el sistema en marcha no explica por qué pasa lo que pasa. Hacen falta las dos:
+
+- **Leer el código**, todos los repositorios, no solo el del agente principal: qué hace cada servicio, cómo se hablan entre sí, qué está probado y qué no.
+- **Verificar en vivo**, con acceso de lectura a la máquina de producción: qué procesos corren de verdad, qué tablas tiene la base de datos, qué configuración se está usando, qué dicen los registros.
+
+Las dos capas se corrigen entre sí. En el diagnóstico de Tribeca, la verificación en vivo cambió a mejor dos conclusiones de la lectura del código: el control de gasto, que en el código parecía roto por un desajuste, funcionaba gracias a un valor por defecto de la base de datos; y la supervisión de procesos y las copias de seguridad sí existían, aunque configuradas en la máquina y no en el repositorio. Un informe hecho solo con el código habría alarmado sin motivo.
+
+## Los nueve puntos a revisar
+
+### 1. Lo planeado frente a lo construido
+
+Los sistemas que crecen rápido acumulan planes: un orquestador central que iba a coordinarlo todo, un servicio de memoria compartida, repositorios creados para piezas que se iban a separar. Parte de eso nunca se construye, y la documentación sigue describiéndolo como si existiera.
+
+Hay que hacer un mapa honesto de qué existe hoy. Y a veces la mejor recomendación no es construir lo que falta, sino dar por buena la arquitectura que funciona: si un programador de tareas, una base de datos compartida y avisos por mensajería sostienen el producto, se documenta así y se deja el orquestador para cuando haga falta de verdad.
+
+### 2. Qué pasa si cae la máquina
+
+Muchos sistemas de agentes empiezan en un único servidor que lo concentra todo: base de datos, servicios web, tareas programadas y bots. Es razonable al principio, pero hay que saber qué pasa si esa máquina se apaga, y tener tres cosas:
+
+- copias de seguridad automáticas y **guardadas fuera de esa máquina**;
+- una restauración probada al menos una vez (una copia que nunca se ha restaurado es una esperanza, no una copia);
+- un plan escrito de qué hacer si la máquina se pierde del todo.
+
+### 3. Clientes en fila
+
+Una tarea programada que recorre los clientes uno detrás de otro funciona con pocos. Con muchos, un cliente cuya API va lenta o que ha llegado a su límite de peticiones retrasa a todos los que vienen detrás. Hay que comprobar si las llamadas a Meta, Google o el CRM de cada cliente se hacen en paralelo y si las esperas entre reintentos bloquean al resto.
+
+### 4. Reconstruir el sistema desde el repositorio
+
+La pregunta es simple: si mañana hubiera que montar el sistema en otra máquina, ¿se podría hacer solo con lo que hay en el repositorio? Suele fallar en dos sitios:
+
+- **La base de datos**: tablas que se crearon a mano y no están en ninguna migración, o migraciones con dos convenciones distintas y sin herramienta que lleve la cuenta.
+- **La configuración de los servicios**: cómo arranca cada proceso, con qué variables y quién lo reinicia si se cae, guardado solo en la máquina.
+
+### 5. Aislamiento entre clientes
+
+En una plataforma con varios clientes, cada consulta tiene que filtrar por cliente. Si ese filtro depende de que cada programador se acuerde de escribirlo en cada consulta, tarde o temprano alguien se lo olvida. Hay que revisar las rutas que devuelven datos y valorar que el aislamiento lo garantice la base de datos (con seguridad a nivel de fila, por ejemplo) y no solo la disciplina del código.
+
+### 6. Registros que se puedan seguir
+
+Cuando algo sale mal con un cliente concreto, hay que poder reconstruir qué pasó. Eso exige registros con el origen real de cada línea, el cliente y la ejecución a la que pertenece, rotación para que no llenen un disco y la garantía de que ningún token o contraseña se escribe en ellos. Y para las decisiones del agente, un registro de auditoría que se escriba de verdad, con el estado anterior y el nuevo, pase por donde pase la aprobación.
+
+### 7. Tests donde está el riesgo
+
+Es habitual encontrar tests bien escritos en un rincón del sistema (el primer agente) y ninguno en el resto, justo donde está el riesgo: el portal que ven los clientes, el control de gasto, las rutas que separan a un cliente de otro. Hay que mirar qué cubren los tests, si corren solos antes de cada despliegue y si se prueba contra una base de datos real, aunque sea una copia desechable, y no solo con datos simulados.
+
+### 8. Una sola cuenta del coste
+
+El coste de IA tiende a fragmentarse: cada agente registra su gasto a su manera, hay dos fórmulas de límite que nunca se pusieron de acuerdo, el precio de un modelo está escrito en el código y se ha quedado viejo, y algún agente ni siquiera cuenta para el tope global. Hay que llevarlo a una sola contabilidad con los precios en un único sitio. El detalle está en [el coste de un agente de IA en producción](/blog/coste-agente-de-ia-en-produccion).
+
+### 9. Lógica duplicada
+
+Cuando varios servicios crecen en paralelo, la misma cosa acaba implementada dos veces: la conexión a la base de datos, el cliente del modelo, la escritura de una aprobación. A menudo una de las dos versiones ya no se usa, pero sigue ahí, y quien edite una no se acordará de la otra. Hay que localizarlas y dejar una sola, en una librería compartida.
+
+## Un diagnóstico también dice lo que está bien
+
+No todo lo que sale es un problema, y conviene decirlo, porque lo que funciona marca el camino. En el caso de Tribeca, el agente de campañas ya elegía un modelo pequeño para la rutina y uno grande solo para las anomalías graves, una buena idea que había que extender al resto de agentes. Y el portal nuevo seguía una organización clara que valía como patrón para el resto del sistema.
+
+## Cómo priorizar lo que sale
+
+Un diagnóstico serio devuelve muchos puntos. Para que sirva, cada uno lleva su estado, su riesgo, el arreglo rápido, la alternativa mejor si se invierte más y una estimación de horas. Después se ordenan así:
+
+| Prioridad | Qué entra | Ejemplos |
+|---|---|---|
+| Inmediata | Lo que puede perder datos o mezclar clientes | Copias fuera de la máquina, aislamiento entre clientes, base de datos reproducible |
+| Antes de crecer | Lo que se rompe al pasar de pocos clientes a muchos | Clientes en paralelo, una sola cuenta del coste, registros con cliente y ejecución |
+| Cuando se pueda | Lo que encarece mantener el sistema | Lógica duplicada, monolitos sin dividir, documentación desfasada |
+
+Con esa lista se arma un plan por bloques. Cada bloque tiene un alcance cerrado, se verifica antes de darlo por terminado y no empieza el siguiente hasta cerrar el anterior. Así el cliente decide bloque a bloque y nunca paga por un plan entero que puede cambiar a mitad.
+
+## Un caso real: Tribeca Media
+
+[Tribeca Media](/casos-de-exito/tribeca-media) construye KEYWORKERS, una plataforma que da a cada cliente un equipo de agentes de IA para marketing. Antes de ampliar sus agentes, hicimos el diagnóstico en las dos capas: todos los repositorios del sistema y la máquina de producción en vivo. Salió un plan de corrección por bloques, priorizado por riesgo.
+
+El propio equipo de Tribeca ejecutó los primeros bloques por su cuenta, con el diagnóstico como guía. Es la mejor señal de que un diagnóstico sirve: que se pueda corregir sin quien lo escribió.
+
+Nosotros nos encargamos de dos bloques:
+
+- **Observabilidad y coste.** Un solo bot de avisos por canal, un chequeo de salud que comprueba la base de datos, las copias y los servicios y avisa solo cuando algo cambia, registros con rotación y sin datos sensibles, precios de los modelos en un único sitio, auditorías de campañas por lotes a mitad de precio con tope diario por cliente y global, y la configuración de los servicios guardada en el repositorio. Se cerró con 135 tests automáticos en verde y cada cambio de base de datos probado contra una copia real de Postgres.
+- **Escalado.** Los clientes se procesan en paralelo, de modo que uno lento ya no retrasa a los demás, las copias de seguridad tienen una réplica fuera de la máquina principal y hay un procedimiento escrito para restaurarlas.
+
+Con eso cerrado construimos el [agente de Meta Ads y Google Ads](/blog/agente-ia-meta-ads-google-ads), con [aprobación humana](/blog/agentes-de-ia-con-aprobacion-humana) para todo y casi 1.000 tests automáticos.
+
+## Preguntas frecuentes
+
+### ¿Qué es un diagnóstico técnico de un sistema de agentes de IA?
+
+Es una revisión del código y del sistema en producción para saber qué está construido, qué falla, qué riesgo tiene cada cosa y en qué orden conviene arreglarla. También se le llama auditoría técnica. El resultado es un informe con un plan de corrección priorizado y estimado, no una lista de opiniones.
+
+### ¿Cuándo conviene hacerlo?
+
+Antes de pasar de unos pocos clientes a muchos, antes de dar autonomía a los agentes para que actúen sin aprobación, antes de añadir agentes nuevos sobre una base que nadie ha revisado y cuando cambia el equipo que mantiene el sistema.
+
+### ¿Hace falta acceso a producción?
+
+Para la segunda capa, sí, con acceso de solo lectura y acordado con el equipo. Sin mirar el sistema en vivo, el diagnóstico se basa en suposiciones sobre qué se está ejecutando, y lo que hay en el repositorio no siempre coincide con lo que corre.
+
+### ¿Quién hace las correcciones después?
+
+Puede hacerlas el equipo del cliente, si el informe es lo bastante concreto, o quien hizo el diagnóstico. En Tribeca pasaron las dos cosas: los primeros bloques los corrigió su equipo y los de observabilidad, coste y escalado los hicimos nosotros.
+
+### ¿Cuánto tarda?
+
+Para un sistema de varios servicios, unos días de trabajo entre las dos capas. Tarda más si la documentación no coincide con el código, porque hay que reconstruir qué hace cada pieza antes de juzgarla.
+
+Si tienes agentes en marcha y vas a crecer, en el [diagnóstico](/diagnostico) revisamos tu sistema y sales con un plan por bloques, ordenado por riesgo. Para saber antes si un agente compensa en tu caso, mira [cuándo compensan los agentes de IA](/blog/agentes-de-ia-para-empresas-cuando-compensan).
