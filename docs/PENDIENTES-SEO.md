@@ -53,6 +53,15 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Revisar las fichas de servicio reenfocadas hacia el 26 de noviembre**:
+      el 29 de octubre cambiaron title y meta de /servicios/outbound-b2b
+      (ahora prospección autónoma y Go to Market), agente-ia-whatsapp (suma
+      Telegram y voz con Vapi), embudo-de-captacion (leads de Meta Ads en
+      GoHighLevel), implementacion-crm-gohighlevel (GoHighLevel o HubSpot) y
+      generador-de-propuestas (aplicación en Vercel). En Search Console,
+      comparar impresiones y posición con las cuatro semanas anteriores. Si
+      "outbound b2b" pierde mucho, valorar un artículo propio para esa consulta.
+
 - [ ] **Revisar el title nuevo de la home hacia el 15 de noviembre**: desde el
       29 de octubre es "Automatiza los procesos de tu empresa con IA". En
       Search Console, comparar impresiones y posición de la home con las dos
@@ -109,6 +118,13 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-10-29 · Servicios reenfocados a petición de Ramiro, en español e inglés:
+  "Outbound B2B" pasa a ser prospección autónoma en la nube y Go to Market
+  (SABI, Clay, Databricks, Instantly o Lemlist, Valley, HubSpot), sin cambiar
+  la URL; agentes para WhatsApp, Telegram y voz con Vapi; captación de leads de
+  Meta Ads en GoHighLevel; implantación de CRM en GoHighLevel o HubSpot;
+  propuestas en una aplicación en Vercel con su pipeline. Actualizados la lista
+  "Qué hacemos" de la portada, llms.txt, knowsAbout y el stack de /sobre-mi.
 - 2026-10-29 · Fuera el párrafo bajo el titular de la portada ("Para empresas
   que quieren automatizar con IA…") en español e inglés, a petición de Ramiro.
   La meta description no cambia.
