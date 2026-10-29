@@ -134,12 +134,6 @@ export function Hero() {
               </Reveal>
 
               <Reveal priority delay={0.1}>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground-muted">
-                  {h.subtitle}
-                </p>
-              </Reveal>
-
-              <Reveal priority delay={0.1}>
                 <div className="mt-9 flex flex-wrap items-center gap-3">
                   <Link href="/diagnostico" className="btn-primary">
                     {h.ctaPrimary}

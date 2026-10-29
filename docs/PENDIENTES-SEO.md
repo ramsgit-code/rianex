@@ -109,6 +109,9 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-10-29 · Fuera el párrafo bajo el titular de la portada ("Para empresas
+  que quieren automatizar con IA…") en español e inglés, a petición de Ramiro.
+  La meta description no cambia.
 - 2026-10-29 · Scoring del diagnóstico alineado con el cliente ideal: el
   sector ya no puntúa, el volumen de leads baja de 20 a 10 puntos y entra el
   objetivo (15 puntos si quiere automatizar procesos, integrar herramientas,
