@@ -39,8 +39,8 @@ a clientes. El sector importa menos que el proceso: si es frecuente, sigue
 reglas y su fallo cuesta dinero, se puede automatizar.
 
 ## Qué hacemos
-- **Operativa y agentes de IA**: automatización con Claude, n8n, Make, Zapier y crons; agentes de IA en WhatsApp y web; GoHighLevel y HubSpot conectados con web, agenda, facturación y ERP.
-- **Proceso comercial automatizado**: outbound B2B con Clay, Instantly y Valley; embudos de captación y cualificación; propuestas automáticas; implantación de GoHighLevel y migraciones de CRM con su histórico.
+- **Operativa y agentes de IA**: automatización con Claude, n8n, Make, Zapier y crons; agentes de IA que atienden y agendan citas por WhatsApp, Telegram y teléfono (voz con Vapi) para peluquerías, clínicas, fisioterapeutas o gestorías; GoHighLevel y HubSpot conectados con web, agenda, facturación y ERP.
+- **Proceso comercial automatizado**: prospección B2B autónoma en la nube y go-to-market (scoring con SABI, Clay y Databricks; email con Instantly o Lemlist; LinkedIn con Valley; todo en HubSpot o GoHighLevel); captación y cualificación de leads de Meta Ads en GoHighLevel; propuestas automáticas en una aplicación en Vercel con su pipeline en el CRM; implantación de CRM y migración de HubSpot a GoHighLevel con su histórico.
 
 ## Cómo trabajamos
 Cuatro pasos: diagnóstico de 30 minutos, diseño del sistema, implementación y

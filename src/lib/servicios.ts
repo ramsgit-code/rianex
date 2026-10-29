@@ -319,32 +319,37 @@ export const SERVICIOS: Record<string, Servicio> = {
   "outbound-b2b": {
     posts: ["prospeccion-b2b-outbound-con-ia", "clay-treg-coldiq-enriquecimiento-prospeccion-b2b", "que-es-gtm-engineering"],
     es: {
-      seoTitle: "Outbound B2B con IA: Clay, Instantly y LinkedIn",
+      seoTitle: "Prospección B2B automatizada y Go to Market con IA",
       metaDescription:
-        "Montamos tu outbound B2B: listas con Clay, email en frío con Instantly, LinkedIn con Valley y cada respuesta en GoHighLevel o HubSpot. Cómo, plazo y precio.",
+        "Un sistema en la nube, en tus cuentas, que busca empresas, las puntúa, les escribe por email y LinkedIn y hace el seguimiento solo, con todo en tu CRM.",
       answer:
-        "Montar outbound B2B es construir la máquina que encuentra a tu cliente ideal, le escribe por email y LinkedIn con un mensaje sobre su caso y mete cada respuesta en tu CRM. Usamos Clay para las listas y el enriquecimiento, Instantly para el email en frío, Valley para LinkedIn y GoHighLevel o HubSpot para el seguimiento, con dominios aparte para no quemar el tuyo.",
+        "Un sistema de prospección autónomo busca las empresas que encajan con tu cliente ideal, las puntúa, les escribe y hace el seguimiento sin que nadie lo empuje cada día. Lo montamos en la nube y en tus propias cuentas: SABI y Clay para encontrar y enriquecer empresas, Databricks para el scoring, Instantly o Lemlist para el email, Valley para LinkedIn y HubSpot o GoHighLevel como CRM, con dominios aparte para no quemar el tuyo.",
       fit: [
-        "Vendes B2B y tu cliente ideal se puede describir: sector, tamaño de empresa y cargo.",
-        "Dependes de referidos o del inbound y quieres un canal de reuniones que puedas encender y apagar.",
-        "Ya haces outbound a mano y no escala, o tus correos acaban en spam.",
+        "Vendes B2B y tu cliente ideal se puede describir: sector, tamaño, facturación y cargo.",
+        "Dependes de referidos o del inbound y quieres un sistema que genere reuniones sin que nadie tenga que empujarlo cada día.",
+        "Vas a sacar un producto al mercado y necesitas saber a qué empresas vendérselo primero.",
+        "Ya prospectas a mano y no escala, o tus correos acaban en spam.",
       ],
       notFit: [
         "Vendes a particulares: el outbound en frío es para B2B.",
         "Todavía no sabes a quién vendes ni qué problema le resuelves: primero eso, después las secuencias.",
       ],
       steps: [
-        { title: "Cliente ideal y oferta", desc: "A quién escribimos, qué señal nos dice que es buen momento y qué le ofrecemos. Sin esto, ninguna herramienta funciona." },
-        { title: "Infraestructura", desc: "Dominios y buzones aparte, autenticados y calentados, para que tu dominio principal no se juegue la reputación." },
-        { title: "Listas y mensajes", desc: "Listas enriquecidas y verificadas con Clay, y mensajes por segmento que hablan del caso de cada cuenta, no plantillas genéricas." },
-        { title: "Secuencias y respuestas", desc: "Email con Instantly y LinkedIn con Valley, coordinados. Cada respuesta se clasifica y entra en tu CRM, y las interesadas acaban en reunión." },
+        { title: "Cliente ideal y scoring", desc: "A quién escribimos, qué señal dice que es buen momento y qué le ofrecemos. Con los estados financieros de SABI y las señales de Clay, cada empresa recibe una puntuación; con volumen, el scoring corre en Databricks." },
+        { title: "Infraestructura en la nube", desc: "Todo se monta en tus cuentas: dominios y buzones aparte, autenticados y calentados, y los procesos corriendo en la nube, no en el ordenador de nadie." },
+        { title: "Mensajes y secuencias", desc: "Email con Instantly o Lemlist y LinkedIn con Valley, coordinados, con mensajes por segmento que hablan del caso de cada cuenta y seguimientos programados hasta que la persona responde." },
+        { title: "CRM y aprendizaje", desc: "Cada respuesta se clasifica y entra en HubSpot o GoHighLevel con su historial, y las interesadas acaban en reunión. Lo que termina en reunión o en venta vuelve al scoring para afinar a quién se escribe después." },
       ],
       timeline:
         "El calentamiento de los buzones marca el ritmo: dura de dos a tres semanas, y mientras tanto se preparan las listas y los mensajes. Las primeras campañas suelen salir hacia la semana 4.",
       faqs: [
         {
-          q: "¿Cuánto cuesta montar outbound B2B?",
-          a: PRECIO_ES + " Aparte están las herramientas (Clay, Instantly, Valley y los dominios), que contratas a tu nombre y pagas directamente.",
+          q: "¿Cuánto cuesta montar un sistema de prospección autónomo?",
+          a: PRECIO_ES + " Aparte están las herramientas (Clay, Instantly o Lemlist, Valley, SABI y los dominios), que contratas a tu nombre y pagas directamente.",
+        },
+        {
+          q: "¿El sistema es mío?",
+          a: "Sí. Se monta en tus cuentas: tu CRM, tus herramientas de envío y tu nube, todo a tu nombre. Si un día dejamos de trabajar juntos, el sistema sigue funcionando y los datos siguen siendo tuyos.",
         },
         {
           q: "¿Voy a quemar mi dominio?",
@@ -360,37 +365,42 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "¿Qué pasa con las respuestas?",
-          a: "Se clasifican solas (interesado, no ahora, no es la persona, baja) y entran en tu CRM, en GoHighLevel o HubSpot, con el historial de la conversación. Las interesadas reciben enlace para reservar reunión.",
+          a: "Se clasifican solas (interesado, no ahora, no es la persona, baja) y entran en tu CRM, en HubSpot o GoHighLevel, con el historial de la conversación. Las interesadas reciben enlace para reservar reunión, y quien dice «no ahora» vuelve a la secuencia más adelante.",
         },
       ],
     },
     en: {
-      seoTitle: "B2B outbound with AI: Clay, Instantly and LinkedIn",
+      seoTitle: "Automated B2B prospecting and go-to-market with AI",
       metaDescription:
-        "We build your B2B outbound: lists with Clay, cold email with Instantly, LinkedIn with Valley and every reply in GoHighLevel or HubSpot. How, timeline and price.",
+        "A cloud system, in your own accounts, that finds companies, scores them, writes to them by email and LinkedIn and follows up on its own, all in your CRM.",
       answer:
-        "Building B2B outbound means building the engine that finds your ideal customer, writes to them by email and LinkedIn about their case and puts every reply into your CRM. We use Clay for lists and enrichment, Instantly for cold email, Valley for LinkedIn and GoHighLevel or HubSpot for follow-up, with separate domains so yours never gets burned.",
+        "An autonomous prospecting system finds the companies that match your ideal customer, scores them, writes to them and follows up without anyone pushing it every day. We build it in the cloud and in your own accounts: SABI and Clay to find and enrich companies, Databricks for scoring, Instantly or Lemlist for email, Valley for LinkedIn and HubSpot or GoHighLevel as the CRM, with separate domains so yours never gets burned.",
       fit: [
-        "You sell B2B and your ideal customer can be described: industry, company size and role.",
-        "You depend on referrals or inbound and want a meetings channel you can switch on and off.",
-        "You already do outbound by hand and it does not scale, or your emails land in spam.",
+        "You sell B2B and your ideal customer can be described: industry, size, revenue and role.",
+        "You depend on referrals or inbound and want a system that books meetings without anyone pushing it every day.",
+        "You are taking a product to market and need to know which companies to sell it to first.",
+        "You already prospect by hand and it does not scale, or your emails land in spam.",
       ],
       notFit: [
         "You sell to consumers: cold outbound is for B2B.",
         "You do not yet know who you sell to or what problem you solve: that first, sequences later.",
       ],
       steps: [
-        { title: "Ideal customer and offer", desc: "Who we write to, which signal says it is a good moment and what we offer. Without this, no tool works." },
-        { title: "Infrastructure", desc: "Separate domains and inboxes, authenticated and warmed up, so your main domain never risks its reputation." },
-        { title: "Lists and messaging", desc: "Lists enriched and verified with Clay, and messaging per segment that talks about each account's case, not generic templates." },
-        { title: "Sequences and replies", desc: "Email with Instantly and LinkedIn with Valley, coordinated. Every reply is classified and goes into your CRM, and interested ones end in a meeting." },
+        { title: "Ideal customer and scoring", desc: "Who we write to, which signal says it is a good moment and what we offer. With financial statements from SABI and signals from Clay, every company gets a score; at volume, scoring runs on Databricks." },
+        { title: "Cloud infrastructure", desc: "Everything is built in your accounts: separate domains and inboxes, authenticated and warmed up, and the processes running in the cloud, not on anyone's laptop." },
+        { title: "Messaging and sequences", desc: "Email with Instantly or Lemlist and LinkedIn with Valley, coordinated, with messaging per segment about each account's case and follow-ups scheduled until the person replies." },
+        { title: "CRM and learning", desc: "Every reply is classified and goes into HubSpot or GoHighLevel with its history, and interested ones end in a meeting. What ends in a meeting or a sale feeds back into scoring to sharpen who gets written to next." },
       ],
       timeline:
         "Inbox warm-up sets the pace: it takes two to three weeks, and lists and messaging are prepared meanwhile. The first campaigns usually go out around week 4.",
       faqs: [
         {
-          q: "How much does setting up B2B outbound cost?",
-          a: PRECIO_EN + " Tools (Clay, Instantly, Valley and the domains) are separate: you subscribe in your name and pay them directly.",
+          q: "How much does an autonomous prospecting system cost?",
+          a: PRECIO_EN + " Tools (Clay, Instantly or Lemlist, Valley, SABI and the domains) are separate: you subscribe in your name and pay them directly.",
+        },
+        {
+          q: "Is the system mine?",
+          a: "Yes. It is built in your accounts: your CRM, your sending tools and your cloud, all in your name. If we stop working together one day, the system keeps running and the data stays yours.",
         },
         {
           q: "Will I burn my domain?",
@@ -406,7 +416,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "What happens to replies?",
-          a: "They are classified automatically (interested, not now, wrong person, unsubscribe) and go into your CRM, GoHighLevel or HubSpot, with the conversation history. Interested ones get a link to book a meeting.",
+          a: "They are classified automatically (interested, not now, wrong person, unsubscribe) and go into your CRM, HubSpot or GoHighLevel, with the conversation history. Interested ones get a link to book a meeting, and \"not now\" replies go back into the sequence later on.",
         },
       ],
     },
@@ -421,15 +431,16 @@ export const SERVICIOS: Record<string, Servicio> = {
       "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
     ],
     es: {
-      seoTitle: "Agente de IA para WhatsApp: atiende y agenda citas 24/7",
+      seoTitle: "Agente de IA para WhatsApp, Telegram y voz: citas 24/7",
       metaDescription:
-        "Agente de IA para WhatsApp Business que contesta en segundos, cualifica y agenda citas en tu calendario 24/7, conectado a tu CRM. Cómo funciona, plazo y precio.",
+        "Agente de IA que contesta por WhatsApp, Telegram o teléfono, cualifica y agenda citas 24/7 en tu calendario. Para peluquerías, clínicas, fisios y gestorías.",
       answer:
-        "Un agente de IA para WhatsApp contesta a cada cliente en segundos y a cualquier hora, consulta tu agenda y tu CRM, cualifica al contacto y reserva la cita sin que nadie del equipo toque el móvil. Va sobre la API oficial de WhatsApp Business, conectado a GoHighLevel, HubSpot o tu software de citas, y pasa la conversación a una persona cuando hace falta.",
+        "Un agente de IA para WhatsApp contesta a cada cliente en segundos y a cualquier hora, consulta tu agenda y tu CRM, cualifica al contacto y reserva la cita sin que nadie del equipo toque el móvil. Va sobre la API oficial de WhatsApp Business, también en Telegram, y por teléfono con un agente de voz creado en Vapi. Se conecta a GoHighLevel, HubSpot o tu software de citas y pasa la conversación a una persona cuando hace falta.",
       fit: [
         "Muchas consultas llegan por WhatsApp por la tarde, de noche o en fin de semana, y nadie contesta a tiempo.",
         "Tu equipo responde cien veces lo mismo, pero la respuesta exige mirar algo: la agenda, un precio, unas sesiones pendientes.",
-        "Vendes con cita previa: clínicas, academias, centros de estética o cualquier negocio de servicios.",
+        "Vendes con cita previa: peluquerías, clínicas, fisioterapeutas, gestorías, centros de estética o cualquier negocio de servicios.",
+        "Se te escapan llamadas porque estás atendiendo a un cliente y nadie coge el teléfono.",
       ],
       notFit: [
         "Recibes veinte consultas al mes: contesta una persona.",
@@ -437,7 +448,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       steps: [
         { title: "Límites", desc: "Qué decide el agente solo y qué pasa siempre por una persona: cancelar una cita, aplicar un descuento, prometer un plazo." },
-        { title: "WhatsApp y conexiones", desc: "Alta en la API oficial de WhatsApp Business, y conexión con tu agenda y tu CRM. Aquí está la mayor parte del trabajo, y es lo que convierte un chatbot en un agente." },
+        { title: "Canales y conexiones", desc: "Alta en la API oficial de WhatsApp Business, bot de Telegram o número de teléfono con el agente de voz en Vapi, y conexión con tu agenda y tu CRM. Aquí está la mayor parte del trabajo, y es lo que convierte un chatbot en un agente." },
         { title: "Casos raros", desc: "Salida a persona cuando un sistema no responde, cuando alguien escribe algo sin sentido o pide algo no previsto." },
         { title: "Despliegue y mantenimiento", desc: "Servicio gestionado o servidor propio en la UE, con vigilancia, copias de seguridad y la información siempre al día." },
       ],
@@ -446,7 +457,15 @@ export const SERVICIOS: Record<string, Servicio> = {
       faqs: [
         {
           q: "¿Cuánto cuesta un agente de IA para WhatsApp?",
-          a: "La construcción entra en el rango de implementación, de 5.000 € a 25.000 €. Lo que más mueve el precio es cuántos sistemas tiene que consultar el agente y cuántas excepciones tiene tu proceso. Aparte están los costes de uso, que pagas directamente: Meta cobra por los mensajes de plantilla que inicia tu empresa (contestar a quien te escribe dentro de las 24 horas no tiene coste de Meta) y el modelo de IA cobra por uso, o tiene coste fijo si va en servidor propio.",
+          a: "La construcción entra en el rango de implementación, de 5.000 € a 25.000 €. Lo que más mueve el precio es cuántos sistemas tiene que consultar el agente y cuántas excepciones tiene tu proceso. Aparte están los costes de uso, que pagas directamente: Meta cobra por los mensajes de plantilla que inicia tu empresa (contestar a quien te escribe dentro de las 24 horas no tiene coste de Meta), Vapi cobra por minuto de llamada si hay agente de voz y el modelo de IA cobra por uso, o tiene coste fijo si va en servidor propio.",
+        },
+        {
+          q: "¿Puede atender llamadas de teléfono?",
+          a: "Sí, con un agente de voz creado en Vapi. Contesta en tu número o en uno nuevo al que desvías las llamadas, entiende lo que pide la persona, consulta la agenda y reserva la cita igual que por WhatsApp. Si la llamada se complica, la pasa a una persona.",
+        },
+        {
+          q: "¿Funciona también en Telegram?",
+          a: "Sí. El mismo agente puede atender en WhatsApp, Telegram y chat web, con la misma agenda y el mismo CRM detrás. Telegram no cobra por mensaje.",
         },
         {
           q: "¿Sirve la app de WhatsApp Business del móvil?",
@@ -471,15 +490,16 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
     },
     en: {
-      seoTitle: "AI agent for WhatsApp: answers and books appointments 24/7",
+      seoTitle: "AI agent for WhatsApp, Telegram and voice: 24/7 bookings",
       metaDescription:
-        "An AI agent for WhatsApp Business that replies in seconds, qualifies and books appointments into your calendar 24/7, connected to your CRM. How it works, timeline and price.",
+        "An AI agent that answers on WhatsApp, Telegram or the phone, qualifies and books appointments 24/7 into your calendar. For salons, clinics, physios and accountants.",
       answer:
-        "An AI agent for WhatsApp replies to every customer within seconds, at any hour, checks your calendar and CRM, qualifies the contact and books the appointment without anyone on the team touching a phone. It runs on the official WhatsApp Business API, connected to GoHighLevel, HubSpot or your booking software, and hands the conversation to a person when needed.",
+        "An AI agent for WhatsApp replies to every customer within seconds, at any hour, checks your calendar and CRM, qualifies the contact and books the appointment without anyone on the team touching a phone. It runs on the official WhatsApp Business API, on Telegram too, and on the phone with a voice agent built on Vapi. It connects to GoHighLevel, HubSpot or your booking software and hands the conversation to a person when needed.",
       fit: [
         "Many enquiries arrive on WhatsApp in the evening, at night or at weekends, and nobody answers in time.",
         "Your team answers the same thing a hundred times, but the answer requires checking something: the calendar, a price, remaining sessions.",
-        "You sell by appointment: clinics, academies, beauty centres or any service business.",
+        "You sell by appointment: hair salons, clinics, physiotherapists, accounting firms, beauty centres or any service business.",
+        "You miss calls because you are with a client and nobody picks up the phone.",
       ],
       notFit: [
         "You get twenty enquiries a month: a person answers.",
@@ -487,7 +507,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       steps: [
         { title: "Limits", desc: "What the agent decides on its own and what always goes to a person: cancelling an appointment, applying a discount, promising a deadline." },
-        { title: "WhatsApp and connections", desc: "Setup on the official WhatsApp Business API, and connection to your calendar and CRM. Most of the work is here, and it is what turns a chatbot into an agent." },
+        { title: "Channels and connections", desc: "Setup on the official WhatsApp Business API, a Telegram bot or a phone number with the voice agent on Vapi, and connection to your calendar and CRM. Most of the work is here, and it is what turns a chatbot into an agent." },
         { title: "Edge cases", desc: "Hand-off to a person when a system does not respond, when someone writes nonsense or asks for something unplanned." },
         { title: "Deployment and maintenance", desc: "Managed service or your own server in the EU, with monitoring, backups and information always up to date." },
       ],
@@ -496,7 +516,15 @@ export const SERVICIOS: Record<string, Servicio> = {
       faqs: [
         {
           q: "How much does an AI agent for WhatsApp cost?",
-          a: "The build falls within the implementation range, €5,000 to €25,000. What moves the price most is how many systems the agent has to check and how many exceptions your process has. Usage costs are separate and you pay them directly: Meta charges for template messages your business initiates (replying to someone who writes to you within 24 hours has no Meta fee), and the AI model charges per use, or has a fixed cost on your own server.",
+          a: "The build falls within the implementation range, €5,000 to €25,000. What moves the price most is how many systems the agent has to check and how many exceptions your process has. Usage costs are separate and you pay them directly: Meta charges for template messages your business initiates (replying to someone who writes to you within 24 hours has no Meta fee), Vapi charges per call minute if there is a voice agent, and the AI model charges per use, or has a fixed cost on your own server.",
+        },
+        {
+          q: "Can it answer phone calls?",
+          a: "Yes, with a voice agent built on Vapi. It answers on your number or on a new one you forward calls to, understands what the person wants, checks the calendar and books the appointment just like on WhatsApp. If the call gets complicated, it hands it to a person.",
+        },
+        {
+          q: "Does it work on Telegram too?",
+          a: "Yes. The same agent can answer on WhatsApp, Telegram and web chat, with the same calendar and CRM behind it. Telegram does not charge per message.",
         },
         {
           q: "Does the WhatsApp Business phone app work?",
@@ -529,19 +557,18 @@ export const SERVICIOS: Record<string, Servicio> = {
       "automatizacion-para-clinicas-captacion-y-agenda",
     ],
     es: {
-      seoTitle: "Implementación de GoHighLevel para empresas",
+      seoTitle: "Implantación de CRM: GoHighLevel y HubSpot",
       metaDescription:
-        "Configuramos GoHighLevel a tu proceso comercial: pipelines, etapas, automatizaciones, WhatsApp, correo y redes en un solo CRM, con formación para tu equipo.",
+        "Configuramos GoHighLevel o HubSpot a tu proceso comercial: pipelines, etapas, automatizaciones, WhatsApp, correo y redes en un solo CRM, con formación incluida.",
       answer:
-        "Implementar GoHighLevel es dejar el CRM configurado a tu proceso real: pipelines y etapas, automatizaciones, formularios y los canales —WhatsApp, correo y redes— entrando en el mismo sitio. Partimos de cómo vendes hoy, no de una plantilla, y lo entregamos con formación para tu equipo y 30 días de soporte.",
+        "Implantar un CRM, GoHighLevel o HubSpot, es dejarlo configurado a tu proceso real: pipelines y etapas, automatizaciones, formularios y los canales —WhatsApp, correo y redes— entrando en el mismo sitio, con el pipeline a la vista para ver cómo evoluciona cada oportunidad. Partimos de cómo vendes hoy, no de una plantilla, y lo entregamos con formación y 30 días de soporte.",
       fit: [
         "No tienes CRM y todo vive en la cabeza de alguien, en hojas de cálculo y en WhatsApp.",
-        "Tienes GoHighLevel contratado pero a medio configurar y el equipo no lo usa.",
+        "Tienes GoHighLevel o HubSpot contratado pero a medio configurar y el equipo no lo usa.",
         "Quieres mensajería, embudos y pipeline en una sola herramienta.",
       ],
       notFit: [
         "Ya tienes un CRM que funciona y solo le faltan piezas: conviene integrar, no cambiar.",
-        "Tu equipo depende de informes muy avanzados, que es donde GoHighLevel se queda más corto.",
       ],
       steps: [
         { title: "Proceso", desc: "Cada paso desde el primer contacto hasta la venta, quién hace qué y qué se repite cada día." },
@@ -551,6 +578,10 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline: "Entre 4 y 8 semanas según cuántos canales e integraciones haya que montar.",
       faqs: [
+        {
+          q: "¿GoHighLevel o HubSpot?",
+          a: "Depende de cómo vendes. GoHighLevel junta CRM, WhatsApp, embudos y agenda en una sola herramienta y encaja en negocios de servicios y con cita previa. HubSpot encaja mejor en venta B2B con ciclos largos, varios comerciales e informes avanzados. Lo decidimos en el diagnóstico.",
+        },
         {
           q: "¿Es una plantilla o se configura para mi negocio?",
           a: "A medida. Cada automatización se diseña sobre tu proceso real: no hay dos implementaciones iguales, aunque la herramienta sea la misma.",
@@ -567,19 +598,18 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
     },
     en: {
-      seoTitle: "GoHighLevel implementation for businesses",
+      seoTitle: "CRM implementation: GoHighLevel and HubSpot",
       metaDescription:
-        "We set up GoHighLevel around your sales process: pipelines, stages, automations, WhatsApp, email and social in a single CRM, with training for your team.",
+        "We set up GoHighLevel or HubSpot around your sales process: pipelines, stages, automations, WhatsApp, email and social in a single CRM, with training included.",
       answer:
-        "Implementing GoHighLevel means leaving the CRM configured around your real process: pipelines and stages, automations, forms and the channels —WhatsApp, email and social— all landing in one place. We start from how you sell today, not from a template, and hand it over with team training and 30 days of support.",
+        "Implementing a CRM, GoHighLevel or HubSpot, means leaving it configured around your real process: pipelines and stages, automations, forms and the channels —WhatsApp, email and social— all landing in one place, with the pipeline in view to see how every deal progresses. We start from how you sell today, not from a template, and hand it over with training and 30 days of support.",
       fit: [
         "You have no CRM and everything lives in someone's head, in spreadsheets and in WhatsApp.",
-        "You pay for GoHighLevel but it is half set up and your team does not use it.",
+        "You pay for GoHighLevel or HubSpot but it is half set up and your team does not use it.",
         "You want messaging, funnels and pipeline in a single tool.",
       ],
       notFit: [
         "You already have a CRM that works and only lacks pieces: integrate, do not switch.",
-        "Your team relies on very advanced reporting, which is where GoHighLevel falls shortest.",
       ],
       steps: [
         { title: "Process", desc: "Every step from first contact to sale, who does what and what repeats every day." },
@@ -589,6 +619,10 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline: "Between 4 and 8 weeks depending on how many channels and integrations are needed.",
       faqs: [
+        {
+          q: "GoHighLevel or HubSpot?",
+          a: "It depends on how you sell. GoHighLevel brings CRM, WhatsApp, funnels and calendar together in one tool and suits service and appointment-based businesses. HubSpot suits B2B sales with long cycles, several salespeople and advanced reporting. We decide it in the diagnosis.",
+        },
         {
           q: "Is it a template or set up for my business?",
           a: "Custom. Every automation is designed around your real process: no two implementations are the same, even if the tool is.",
@@ -616,13 +650,13 @@ export const SERVICIOS: Record<string, Servicio> = {
       "automatizacion-para-clinicas-captacion-y-agenda",
     ],
     es: {
-      seoTitle: "Embudos de captación y cualificación de leads",
+      seoTitle: "Cualificación de leads de Meta Ads en GoHighLevel",
       metaDescription:
-        "Landing, quiz de precualificación, scoring automático y Booking SDR que agenda en tu calendario, con seguimiento por correo y WhatsApp. Todo el embudo medido.",
+        "Los leads de tus campañas de Meta entran en GoHighLevel, se puntúan solos, los buenos agendan en tu calendario y el resto recibe seguimiento por WhatsApp y correo.",
       answer:
-        "Un embudo de captación y cualificación filtra solo quién vale tu tiempo. El lead entra por una landing o un quiz, recibe una puntuación —frío, templado, caliente o premium— y los buenos agendan en tu calendario con un Booking SDR, mientras el resto entra en seguimiento por correo y WhatsApp. Tu equipo habla solo con quien tiene intención real.",
+        "Un sistema de captación en GoHighLevel filtra solo quién vale tu tiempo entre los leads de tus campañas de Meta. El lead entra desde un formulario de Meta Lead Ads, una landing o un quiz, recibe una puntuación —frío, templado, caliente o premium— y los buenos agendan en tu calendario con un Booking SDR, mientras el resto entra en seguimiento por WhatsApp y correo. Tu equipo habla solo con quien tiene intención real.",
       fit: [
-        "Recibes más de 10 leads al mes e inviertes en anuncios o contenido.",
+        "Inviertes en campañas de Meta (Facebook e Instagram) y recibes más de 10 leads al mes.",
         "No sabes qué leads son buenos hasta haber perdido tiempo hablando con ellos.",
         "Los contactos se enfrían porque nadie les responde a tiempo, y no sabes en qué paso se pierden.",
       ],
@@ -631,13 +665,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       steps: [
         { title: "Criterios", desc: "Qué hace bueno a un lead en tu negocio: el servicio que busca, la urgencia, el presupuesto." },
-        { title: "Captación", desc: "Landing, formulario o quiz con lógica condicional que pregunta solo lo que importa." },
+        { title: "Captación", desc: "Formulario de Meta Lead Ads, landing o quiz con lógica condicional que pregunta solo lo que importa, conectados a GoHighLevel para que cada lead entre al momento." },
         { title: "Scoring y agenda", desc: "Puntuación automática y Booking SDR que cita a los leads buenos directamente en tu calendario o tu software de citas." },
         { title: "Seguimiento y medida", desc: "Nurturing por correo y WhatsApp para el resto, y el embudo medido de punta a punta: conversión, abandono, citas y ventas." },
       ],
       timeline:
         "Entre 4 y 8 semanas según el alcance. Desde que el embudo está activo, la medición empieza el primer día.",
       faqs: [
+        {
+          q: "¿Funciona con los formularios nativos de Meta?",
+          a: "Sí. Los leads de Meta Lead Ads entran en GoHighLevel por su integración con Facebook en cuanto alguien envía el formulario, sin exportar hojas de cálculo. Si prefieres llevar el tráfico a una landing o a un quiz propio, también.",
+        },
         {
           q: "¿Cómo se puntúa un lead?",
           a: "Con sus respuestas al formulario o al quiz. Cada respuesta suma según lo que importa en tu negocio, como el servicio que busca, la urgencia o el presupuesto. El total lo clasifica en frío, templado, caliente o premium, y cada tramo recibe un trato distinto.",
@@ -654,13 +692,13 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
     },
     en: {
-      seoTitle: "Lead capture and qualification funnels",
+      seoTitle: "Qualifying Meta Ads leads on GoHighLevel",
       metaDescription:
-        "Landing page, pre-qualification quiz, automatic scoring and a Booking SDR that books into your calendar, with email and WhatsApp follow-up. Fully measured.",
+        "Leads from your Meta campaigns land in GoHighLevel, get scored on their own, the good ones book into your calendar and the rest get WhatsApp and email follow-up.",
       answer:
-        "A lead capture and qualification funnel filters out who is not worth your time on its own. The lead comes in through a landing page or a quiz, gets a score —cold, warm, hot or premium— and the good ones book into your calendar through a Booking SDR, while the rest go into email and WhatsApp follow-up. Your team only talks to people with real intent.",
+        "A lead capture system on GoHighLevel filters out, on its own, the leads from your Meta campaigns that are not worth your time. The lead comes in through a Meta Lead Ads form, a landing page or a quiz, gets a score —cold, warm, hot or premium— and the good ones book into your calendar through a Booking SDR, while the rest go into WhatsApp and email follow-up. Your team only talks to people with real intent.",
       fit: [
-        "You get more than 10 leads a month and invest in ads or content.",
+        "You run Meta campaigns (Facebook and Instagram) and get more than 10 leads a month.",
         "You do not know which leads are good until you have wasted time talking to them.",
         "Contacts go cold because nobody answers in time, and you do not know at which step they drop.",
       ],
@@ -669,13 +707,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       steps: [
         { title: "Criteria", desc: "What makes a good lead in your business: the service they want, urgency, budget." },
-        { title: "Capture", desc: "Landing page, form or quiz with conditional logic that only asks what matters." },
+        { title: "Capture", desc: "Meta Lead Ads form, landing page or quiz with conditional logic that only asks what matters, connected to GoHighLevel so every lead lands instantly." },
         { title: "Scoring and booking", desc: "Automatic scoring and a Booking SDR that books good leads straight into your calendar or booking software." },
         { title: "Follow-up and measurement", desc: "Email and WhatsApp nurturing for the rest, and the funnel measured end to end: conversion, drop-off, appointments and sales." },
       ],
       timeline:
         "Between 4 and 8 weeks depending on scope. Once the funnel is live, measurement starts on day one.",
       faqs: [
+        {
+          q: "Does it work with Meta's native forms?",
+          a: "Yes. Meta Lead Ads leads land in GoHighLevel through its Facebook integration as soon as someone submits the form, with no spreadsheet exports. If you prefer to send traffic to your own landing page or quiz, that works too.",
+        },
         {
           q: "How is a lead scored?",
           a: "From their answers to the form or quiz. Each answer adds points based on what matters in your business, such as the service they want, urgency or budget. The total classifies them as cold, warm, hot or premium, and each band is treated differently.",
@@ -699,9 +741,9 @@ export const SERVICIOS: Record<string, Servicio> = {
     es: {
       seoTitle: "Generador automático de propuestas comerciales",
       metaDescription:
-        "Un formulario al colgar la llamada y la propuesta en web y PDF generada al momento en tu CRM, con recordatorios de seguimiento. Propuestas en minutos, no en días.",
+        "Un formulario al colgar la llamada, la propuesta en web y PDF al momento en una aplicación en Vercel y su seguimiento en el pipeline de tu CRM. En minutos, no días.",
       answer:
-        "Un generador de propuestas convierte lo que hablas en la llamada en una propuesta lista para revisar y enviar en minutos. Rellenas un formulario de intake al colgar, el sistema genera la propuesta en web y PDF dentro de tu CRM y programa los recordatorios de seguimiento. La propuesta llega mientras el cliente todavía está interesado.",
+        "Un generador de propuestas convierte lo que hablas en la llamada en una propuesta lista para revisar y enviar en minutos. Rellenas un formulario de intake al colgar, una aplicación en Vercel genera la propuesta en web y PDF, la vincula a la oportunidad en tu CRM y programa los recordatorios de seguimiento. En el pipeline ves cómo evoluciona cada propuesta, y llega mientras el cliente todavía está interesado.",
       fit: [
         "Haces varias propuestas al mes y cada una tarda días en salir.",
         "Pierdes clientes que, cuando llega tu propuesta, ya han pedido presupuesto a otro.",
@@ -713,8 +755,8 @@ export const SERVICIOS: Record<string, Servicio> = {
       steps: [
         { title: "Plantilla", desc: "La estructura de tus propuestas: secciones, precios, condiciones y tu marca." },
         { title: "Intake", desc: "El formulario que se rellena justo al colgar, con lo que cambia en cada cliente." },
-        { title: "Generación", desc: "Propuesta en web y en PDF creadas en el CRM, listas para revisar y enviar." },
-        { title: "Seguimiento", desc: "Pipeline de propuestas y recordatorios programados para que ninguna se quede sin respuesta." },
+        { title: "Generación", desc: "Propuesta en web y en PDF creadas en una aplicación en Vercel vinculada a tu CRM, listas para revisar y enviar." },
+        { title: "Seguimiento", desc: "Cada propuesta es una oportunidad en el pipeline del CRM, con su etapa y recordatorios programados para que ninguna se quede sin respuesta." },
       ],
       timeline: "Entre 4 y 8 semanas según cuántas variantes de propuesta tengas.",
       faqs: [
@@ -724,7 +766,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "¿En qué formato le llega al cliente?",
-          a: "En web y en PDF, las dos generadas desde el mismo formulario de intake.",
+          a: "En web, publicada en tu propia aplicación en Vercel, y en PDF, las dos generadas desde el mismo formulario de intake.",
         },
         {
           q: "¿Cuánto tiempo ahorra?",
@@ -736,9 +778,9 @@ export const SERVICIOS: Record<string, Servicio> = {
     en: {
       seoTitle: "Automated sales proposal generator",
       metaDescription:
-        "A form when you hang up and the proposal in web and PDF generated instantly in your CRM, with follow-up reminders. Proposals in minutes, not days.",
+        "A form when you hang up, the proposal as web and PDF instantly in an app on Vercel, and its follow-up in your CRM pipeline. Proposals in minutes, not days.",
       answer:
-        "A proposal generator turns what you discuss on the call into a proposal ready to review and send in minutes. You fill in an intake form when you hang up, the system generates the proposal as a web page and PDF inside your CRM and schedules the follow-up reminders. The proposal arrives while the client is still interested.",
+        "A proposal generator turns what you discuss on the call into a proposal ready to review and send in minutes. You fill in an intake form when you hang up, an app on Vercel generates the proposal as a web page and PDF, links it to the deal in your CRM and schedules the follow-up reminders. The pipeline shows how every proposal progresses, and it arrives while the client is still interested.",
       fit: [
         "You send several proposals a month and each one takes days to go out.",
         "You lose clients who, by the time your proposal arrives, have already asked someone else for a quote.",
@@ -750,8 +792,8 @@ export const SERVICIOS: Record<string, Servicio> = {
       steps: [
         { title: "Template", desc: "The structure of your proposals: sections, prices, terms and your branding." },
         { title: "Intake", desc: "The form filled in right after the call, with what changes for each client." },
-        { title: "Generation", desc: "Proposal as a web page and PDF created in the CRM, ready to review and send." },
-        { title: "Follow-up", desc: "A proposal pipeline and scheduled reminders so none goes unanswered." },
+        { title: "Generation", desc: "Proposal as a web page and PDF created in an app on Vercel linked to your CRM, ready to review and send." },
+        { title: "Follow-up", desc: "Every proposal is a deal in the CRM pipeline, with its stage and scheduled reminders so none goes unanswered." },
       ],
       timeline: "Between 4 and 8 weeks depending on how many proposal variants you have.",
       faqs: [
@@ -761,7 +803,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "In what format does the client receive it?",
-          a: "As a web page and a PDF, both generated from the same intake form.",
+          a: "As a web page, published on your own app on Vercel, and a PDF, both generated from the same intake form.",
         },
         {
           q: "How much time does it save?",
