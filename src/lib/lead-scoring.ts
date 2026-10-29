@@ -1,4 +1,14 @@
+import { formContent } from "@/lib/formContent";
+
 export type LeadTier = "cold" | "warm" | "hot" | "premium";
+
+// Objetivos del formulario que piden automatizar un proceso: es el cliente
+// ideal de la web (empresas que quieren automatizar procesos con IA). Llegan
+// como el texto de la opcion en el idioma del formulario, asi que se comparan
+// por posicion en las dos listas.
+const OBJETIVOS_AUTOMATIZACION = new Set<string>(
+  [0, 1, 5, 6].flatMap((i) => [formContent.es.opts.objetivo[i], formContent.en.opts.objetivo[i]])
+);
 
 interface LeadData {
   presupuesto: string;
@@ -7,6 +17,8 @@ interface LeadData {
   tamano_equipo: string;
   crm_actual: string;
   sector: string;
+  /** Opcional: los leads que se crean a mano desde el panel no lo traen. */
+  objetivo?: string[];
 }
 
 export function calculateScore(data: LeadData): number {
@@ -29,12 +41,17 @@ export function calculateScore(data: LeadData): number {
   };
   score += urgenciaMap[data.urgencia] ?? 0;
 
-  // Volumen de leads (max 20)
+  // Quiere automatizar un proceso (max 15). Sin objetivo, un valor neutro.
+  if (!data.objetivo?.length) score += 5;
+  else score += data.objetivo.some((o) => OBJETIVOS_AUTOMATIZACION.has(o)) ? 15 : 5;
+
+  // Volumen de leads (max 10): ya no es el filtro, el proceso a automatizar
+  // puede no tener nada que ver con leads.
   const volumenMap: Record<string, number> = {
-    "<10": 0,
-    "10-50": 10,
-    "50-200": 15,
-    "200+": 20,
+    "<10": 3,
+    "10-50": 5,
+    "50-200": 8,
+    "200+": 10,
   };
   score += volumenMap[data.volumen_leads] ?? 0;
 
@@ -58,17 +75,7 @@ export function calculateScore(data: LeadData): number {
   };
   score += crmMap[data.crm_actual] ?? 5;
 
-  // Sector (max 5)
-  const sectorMap: Record<string, number> = {
-    salud: 5,
-    formacion: 5,
-    eventos: 5,
-    consultoria: 4,
-    agencia: 4,
-    retail: 3,
-    otro: 2,
-  };
-  score += sectorMap[data.sector] ?? 2;
+  // El sector no puntua: importa el proceso, no el sector.
 
   return Math.min(score, 100);
 }
@@ -90,6 +97,7 @@ export function getTags(data: LeadData & { como_conociste: string; tier: LeadTie
     formacion: "#formacion",
     consultoria: "#consultoria",
     agencia: "#agencia",
+    industria: "#industria",
   };
   if (sectorTagMap[data.sector]) tags.push(sectorTagMap[data.sector]);
 
