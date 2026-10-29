@@ -26,7 +26,12 @@ const businessJsonLd = {
   url: SITE_URL,
   image: `${SITE_URL}/og.png`,
   description:
-    "Automatización de procesos con IA (Claude, n8n, Make, Zapier) y go-to-market B2B: CRM en GoHighLevel o HubSpot, outbound con Clay, Instantly y Valley, y seguimiento automático.",
+    "Automatización de procesos con IA para empresas: Claude, n8n, Make y Zapier conectados a su CRM (GoHighLevel o HubSpot), agentes de IA para WhatsApp y web, y el proceso comercial automatizado con Clay, Instantly y Valley.",
+  audience: {
+    "@type": "BusinessAudience",
+    audienceType: "Empresas que quieren automatizar procesos con IA",
+    geographicArea: ["España", "Latinoamérica"],
+  },
   email: "hola@rianex.es",
   sameAs: [RIANEX_LINKEDIN],
   areaServed: ["ES", "Latinoamérica"],
@@ -37,10 +42,11 @@ const businessJsonLd = {
   },
   logo: `${SITE_URL}/logos/rianex-mark.png`,
   knowsAbout: [
-    "Automatización comercial",
-    "Go-to-market",
-    "Outbound B2B",
+    "Automatización de procesos con IA",
     "Automatización de procesos",
+    "Agentes de IA",
+    "Automatización comercial",
+    "Outbound B2B",
     "n8n",
     "Make",
     "Zapier",
@@ -53,7 +59,6 @@ const businessJsonLd = {
     "Migración de CRM",
     "CRM",
     "Lead qualification",
-    "Agentes de IA",
   ],
   founder: {
     "@type": "Person",

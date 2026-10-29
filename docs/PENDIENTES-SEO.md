@@ -53,6 +53,12 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Revisar el title nuevo de la home hacia el 15 de noviembre**: desde el
+      29 de octubre es "Automatiza los procesos de tu empresa con IA". En
+      Search Console, comparar impresiones y posición de la home con las dos
+      semanas anteriores, y comprobar que no le quita la consulta
+      "automatización de procesos con IA" a /servicios/automatizacion-procesos-ia.
+
 - [ ] **Canibalización en "a medida"**: "desarrollo-a-medida-con-ia-cuando-construir"
       sale para "proyectos de ia a medida" y "desarrollo software ia a medida"
       (posición ~64). Desde el 28 de octubre ya defiende automatizar antes que
@@ -102,6 +108,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-10-29 · Cliente ideal de la web: empresas que quieren automatizar
+  procesos con IA. Fuera los "dos frentes" (automatización y go-to-market):
+  lo comercial pasa a ser un proceso más que se automatiza. Cambian el H1 y
+  el hero, el title y la description de la home y de /servicios, el "para
+  quién" de cada servicio (sin sectores ni "más de 10 leads al mes"), la
+  FAQ (pregunta nueva "¿Para qué empresas trabajáis?"), el JSON-LD (con
+  `audience`) y llms.txt. No cambia ninguna URL.
 
 - 2026-10-28 · Cuarto artículo de la serie de agentes: "Qué revisar en un
   sistema de agentes de IA antes de escalarlo"

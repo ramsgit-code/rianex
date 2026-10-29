@@ -27,17 +27,17 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "Automatización de procesos con IA y go-to-market",
+      eyebrow: "Automatización de procesos con IA para empresas",
       titlePre: "Automatiza ",
       titleRotating: [
-        "la captación de leads",
-        "tu outbound B2B",
-        "tus propuestas comerciales",
         "tus procesos con IA",
+        "las tareas que repite tu equipo",
+        "tus propuestas comerciales",
+        "el seguimiento a tus clientes",
       ],
-      titlePost: " y vende más con el mismo equipo.",
+      titlePost: " y gana horas cada semana.",
       subtitle:
-        "Automatizamos los procesos que se repiten cada semana con Claude, n8n, Make o Zapier, y montamos tu go-to-market: CRM en GoHighLevel o HubSpot, outbound con Clay, Instantly y Valley, y seguimiento automático. Con método de ingeniero industrial: primero medimos, después automatizamos.",
+        "Para empresas que quieren automatizar con IA el trabajo que se repite cada semana: pasar datos a mano, clasificar correos y pedidos, preparar informes y propuestas, atender y hacer seguimiento a clientes. Lo montamos con Claude, n8n, Make o Zapier, conectado a tu CRM y a tus herramientas. Con método de ingeniero industrial: primero medimos, después automatizamos.",
       ctaPrimary: "Pide tu diagnóstico gratuito",
       ctaSecondary: "Ver los servicios",
       note: "Primeros resultados en 4 semanas · Sin compromiso",
@@ -47,11 +47,11 @@ export const content = {
       offeringTitle: "Qué hacemos",
       offering: [
         "Automatización de procesos con IA",
-        "Integración de GoHighLevel y HubSpot",
-        "Migraciones a GoHighLevel",
-        "Outbound B2B con Clay, Instantly y Valley",
         "Agentes de IA para WhatsApp y web",
-        "Embudos y CRM en GoHighLevel",
+        "Integración de GoHighLevel y HubSpot",
+        "Propuestas, captación y seguimiento automáticos",
+        "Outbound B2B automatizado con Clay, Instantly y Valley",
+        "Migraciones a GoHighLevel",
       ],
       logosLabel: "Clientes con sistema activo",
     },
@@ -60,7 +60,7 @@ export const content = {
       tag: "Servicios",
       title: "Qué hacemos",
       subtitle:
-        "Dos frentes de un mismo sistema: automatizar los procesos que se repiten y montar el go-to-market que capta, cualifica y cierra.",
+        "Automatizamos los procesos que se repiten en tu empresa, de la operativa del día a día al proceso comercial, conectados a las herramientas que ya usas.",
       chatLabel: "Ejemplo en vivo",
       kpiLabel: "En cifras",
       scrollHint: "Ver más servicios",
@@ -259,6 +259,10 @@ export const content = {
       title: "Antes de que preguntes",
       items: [
         {
+          q: "¿Para qué empresas trabajáis?",
+          a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
+        },
+        {
           q: "¿Cómo funciona vuestra IA exactamente?",
           a: "No es una caja negra: usamos agentes de IA (LLMs) conectados a tu propio CRM, sea GoHighLevel o HubSpot, con reglas y flujos que diseñamos contigo en el diagnóstico. Ves exactamente qué automatiza cada paso, y el código y la infraestructura son tuyos.",
         },
@@ -272,7 +276,7 @@ export const content = {
         },
         {
           q: "¿Con qué herramientas trabajáis?",
-          a: "Para automatizar procesos, Claude y OpenAI, n8n, Make, Zapier y tareas programadas (crons). Para el go-to-market, GoHighLevel y HubSpot como CRM, Clay para listas y enriquecimiento, Instantly para el email en frío y Valley para LinkedIn. Elegimos según tu caso y lo que ya usas, no al revés.",
+          a: "Para automatizar procesos, Claude y OpenAI, n8n, Make, Zapier y tareas programadas (crons). Para el proceso comercial, GoHighLevel y HubSpot como CRM, Clay para listas y enriquecimiento, Instantly para el email en frío y Valley para LinkedIn. Elegimos según tu caso y lo que ya usas, no al revés.",
         },
         {
           q: "¿Es un sistema a medida o una plantilla?",
@@ -303,12 +307,12 @@ export const content = {
 
     pageCta: {
       title: "¿Quieres saber qué sistema necesitas?",
-      subtitle: "Diagnóstico gratuito de 30 minutos: vemos qué automatizar primero y cómo montar tu go-to-market.",
+      subtitle: "Diagnóstico gratuito de 30 minutos: vemos qué procesos automatizar primero y con qué herramientas.",
       button: "Pide tu diagnóstico gratuito",
     },
 
     footer: {
-      tagline: "Automatización de procesos con IA y go-to-market: Claude, n8n, Make y Zapier para la operativa; GoHighLevel, HubSpot, Clay e Instantly para vender.",
+      tagline: "Automatización de procesos con IA para empresas: Claude, n8n, Make y Zapier conectados a tu CRM y a tus herramientas, de la operativa al proceso comercial.",
       cta: "Pide tu diagnóstico gratuito",
       links: [
         { href: "/servicios", label: "Servicios" },
@@ -319,16 +323,16 @@ export const content = {
         { href: "/diagnostico", label: "Diagnóstico gratuito" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Calculadora de fuga de leads" },
       ],
-      rights: "Automatización de procesos con IA y go-to-market",
+      rights: "Automatización de procesos con IA para empresas",
       servicesLabel: "Servicios",
       pagesLabel: "Rianex",
     },
 
     servicios: {
       tag: "Servicios",
-      title: "Automatización de procesos con IA y go-to-market",
+      title: "Servicios de automatización de procesos con IA",
       description:
-        "Dos frentes de un mismo sistema: los procesos que se repiten cada semana, hechos solos, y la máquina que capta, cualifica y cierra. Cada servicio se contrata por separado o como parte de un mismo proyecto.",
+        "Automatizamos con IA los procesos que se repiten en tu empresa: la operativa del día a día y el proceso comercial. Cada servicio se contrata por separado o como parte de un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Pide tu diagnóstico gratuito",
@@ -336,13 +340,13 @@ export const content = {
       builtOn: "Construido sobre",
       groups: [
         {
-          title: "Automatización de procesos",
+          title: "Operativa y agentes de IA",
           desc: "Lo que tu equipo repite cada semana, hecho solo: con Claude, n8n, Make, Zapier o tareas programadas, conectado a tus herramientas.",
           slugs: ["automatizacion-procesos-ia", "agente-ia-whatsapp", "integracion-gohighlevel-hubspot"],
         },
         {
-          title: "Go-to-market",
-          desc: "La máquina que capta, cualifica y cierra: CRM en GoHighLevel o HubSpot, outbound con Clay, Instantly y Valley, embudos y propuestas.",
+          title: "Proceso comercial automatizado",
+          desc: "Captar, cualificar, proponer y hacer seguimiento son los procesos que más se repiten: los automatizamos sobre GoHighLevel o HubSpot, con outbound en Clay, Instantly y Valley, embudos y propuestas automáticas.",
           slugs: ["outbound-b2b", "embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
         },
       ],
@@ -353,7 +357,7 @@ export const content = {
           tagline: "Las tareas repetitivas, hechas solas.",
           problem:
             "Tu equipo pierde horas copiando datos, contestando lo mismo y persiguiendo tareas que una máquina haría sin fallos.",
-          forWho: "Negocios con procesos manuales que se repiten cada semana.",
+          forWho: "Empresas que quieren automatizar con IA los procesos manuales que repiten cada semana.",
           deliverables: [
             "Mapa de procesos y qué automatizar primero",
             "Flujos con IA en GoHighLevel, HubSpot o n8n",
@@ -367,7 +371,7 @@ export const content = {
           tagline: "Tu CRM hablando con el resto de tus herramientas.",
           problem:
             "El CRM vive aislado: los datos se copian a mano entre la web, la agenda, la facturación y WhatsApp, y nadie se fía de lo que pone.",
-          forWho: "Empresas que usan GoHighLevel o HubSpot junto a otras herramientas.",
+          forWho: "Empresas que quieren que los datos pasen solos entre GoHighLevel o HubSpot y el resto de sus herramientas.",
           deliverables: [
             "Integraciones por API, webhooks y MCP",
             "Sincronización con ERP, facturación, agenda y formularios",
@@ -395,7 +399,7 @@ export const content = {
           tagline: "Tu cliente ideal, contactado por email y LinkedIn cada semana.",
           problem:
             "Dependes de referidos o del inbound, o haces outbound a mano: no escala y los correos acaban en spam.",
-          forWho: "Empresas B2B con un cliente ideal claro (sector, tamaño, cargo) que quieren un canal de reuniones que puedan encender y apagar.",
+          forWho: "Empresas B2B con un cliente ideal claro (sector, tamaño, cargo) que quieren automatizar la prospección y tener un canal de reuniones que puedan encender y apagar.",
           deliverables: [
             "Cliente ideal, oferta y mensajes por segmento",
             "Dominios y buzones aparte, calentados y autenticados",
@@ -409,7 +413,7 @@ export const content = {
           tagline: "Atiende, cualifica y agenda citas 24/7.",
           problem:
             "Los clientes escriben por WhatsApp a cualquier hora y nadie contesta a tiempo, o tu equipo responde cien veces lo mismo.",
-          forWho: "Clínicas, academias y negocios de servicios que reciben consultas por WhatsApp y venden con cita.",
+          forWho: "Empresas que reciben consultas por WhatsApp o en la web y quieren atenderlas, cualificarlas y agendarlas en automático.",
           deliverables: [
             "Agente en la API oficial de WhatsApp Business, también en chat web y correo",
             "Conectado a tu agenda y a GoHighLevel o HubSpot",
@@ -437,7 +441,7 @@ export const content = {
           tagline: "Filtra automáticamente quién vale tu tiempo.",
           problem:
             "Traes tráfico y leads, pero no sabes cuáles son buenos hasta perder tiempo hablando con ellos.",
-          forWho: "Negocios con más de 10 leads al mes que invierten en ads o contenido.",
+          forWho: "Empresas que reciben leads cada semana y quieren cualificarlos y hacerles seguimiento en automático.",
           deliverables: [
             "Landing, formulario o quiz de precualificación",
             "Scoring automático (frío / templado / caliente / premium)",
@@ -451,7 +455,7 @@ export const content = {
           tagline: "Propuestas en minutos, no en días.",
           problem:
             "Crear propuestas a mano es lento y pierdes el momento con el cliente.",
-          forWho: "Empresas de servicios con varias propuestas al mes.",
+          forWho: "Empresas de servicios que envían varias propuestas al mes y quieren dejar de hacerlas a mano.",
           deliverables: [
             "Formulario de intake tras la llamada",
             "Propuesta web y PDF automáticas",
@@ -466,7 +470,7 @@ export const content = {
       tag: "Soluciones",
       title: "Adaptado a tu sector",
       description:
-        "El mismo enfoque, ajustado al ciclo de venta de cada negocio.",
+        "Los procesos que más se repiten en sectores donde ya los hemos automatizado. Si el tuyo no está, el método es el mismo: empezamos por el proceso que más cuesta.",
       problemLabel: "Problema:",
       solutionLabel: "Solución:",
       caseLabel: "Caso:",
@@ -512,7 +516,7 @@ export const content = {
       title: "Ramiro Pérez Rodero, ingeniero industrial que automatiza negocios con IA",
       intro: [
         "Soy Ramiro Pérez Rodero, ingeniero industrial. Vengo de trabajar en plantas industriales y hoy aplico ese rigor de procesos a la automatización con IA de negocios.",
-        "Rianex es mi estudio, con base en Ávila. Trabajo en dos frentes: automatizo los procesos que se repiten cada semana y monto el go-to-market de empresas de España y Latinoamérica, del diagnóstico al sistema en producción.",
+        "Rianex es mi estudio, con base en Ávila. Trabajo con empresas de España y Latinoamérica que quieren automatizar procesos con IA, de la operativa del día a día al proceso comercial, y las acompaño del diagnóstico al sistema en producción.",
       ],
       linkedin: "Ver mi perfil en LinkedIn",
       pillarsLabel: "Mi terreno",
@@ -578,14 +582,14 @@ export const content = {
         "Sin compromiso ni venta agresiva",
         "Análisis de tu proceso actual",
         "Recomendación concreta de sistema",
-        "Para negocios con más de 10 leads al mes",
+        "Para empresas con procesos manuales que se repiten cada semana",
       ],
     },
 
     blog: {
       tag: "Blog",
       title: "Guías prácticas",
-      description: "Automatización con IA, GoHighLevel y HubSpot. Sin teoría vacía.",
+      description: "Automatización de procesos con IA, agentes, GoHighLevel y HubSpot. Sin teoría vacía.",
       empty: "Próximamente nuevos artículos.",
     },
   },
@@ -604,17 +608,17 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "AI process automation and go-to-market",
+      eyebrow: "AI process automation for companies",
       titlePre: "Automate ",
       titleRotating: [
-        "your lead capture",
-        "your B2B outbound",
-        "your sales proposals",
         "your processes with AI",
+        "the tasks your team repeats",
+        "your sales proposals",
+        "your customer follow-up",
       ],
-      titlePost: " and sell more with the same team.",
+      titlePost: " and win back hours every week.",
       subtitle:
-        "We automate the processes that repeat every week with Claude, n8n, Make or Zapier, and build your go-to-market: CRM on GoHighLevel or HubSpot, outbound with Clay, Instantly and Valley, and automatic follow-up. With an industrial engineer's method: measure first, then automate.",
+        "For companies that want to automate the work that repeats every week with AI: copying data by hand, sorting emails and orders, preparing reports and proposals, answering and following up with customers. We build it with Claude, n8n, Make or Zapier, connected to your CRM and your tools. With an industrial engineer's method: measure first, then automate.",
       ctaPrimary: "Book my free diagnosis",
       ctaSecondary: "See the services",
       note: "First results in 4 weeks · No commitment",
@@ -624,11 +628,11 @@ export const content = {
       offeringTitle: "What we do",
       offering: [
         "AI process automation",
-        "GoHighLevel and HubSpot integration",
-        "Migrations to GoHighLevel",
-        "B2B outbound with Clay, Instantly and Valley",
         "AI agents for WhatsApp and web",
-        "Funnels and CRM on GoHighLevel",
+        "GoHighLevel and HubSpot integration",
+        "Automated proposals, capture and follow-up",
+        "Automated B2B outbound with Clay, Instantly and Valley",
+        "Migrations to GoHighLevel",
       ],
       logosLabel: "Clients with a live system",
     },
@@ -637,7 +641,7 @@ export const content = {
       tag: "Services",
       title: "What we do",
       subtitle:
-        "Two fronts of one system: automate the processes that repeat, and build the go-to-market that captures, qualifies and closes.",
+        "We automate the processes that repeat in your company, from day-to-day operations to the sales process, connected to the tools you already use.",
       chatLabel: "Live example",
       kpiLabel: "By the numbers",
       scrollHint: "See more services",
@@ -835,6 +839,10 @@ export const content = {
       title: "Before you ask",
       items: [
         {
+          q: "What kind of companies do you work with?",
+          a: "Companies that want to use AI to automate processes that are done by hand today and repeat every week: moving data between tools, sorting emails or orders, preparing reports and proposals, answering enquiries or following up with customers. The industry matters less than the process: if the task is frequent, follows rules and costs money when it fails, it can be automated. We work with companies in Spain and Latin America.",
+        },
+        {
           q: "How does your AI actually work?",
           a: "It's not a black box: we use AI agents (LLMs) connected to your own CRM, whether that's GoHighLevel or HubSpot, with rules and flows we design with you during the diagnosis. You see exactly what each step automates, and the code and infrastructure are yours.",
         },
@@ -848,7 +856,7 @@ export const content = {
         },
         {
           q: "Which tools do you work with?",
-          a: "For process automation: Claude and OpenAI, n8n, Make, Zapier and scheduled jobs (cron). For go-to-market: GoHighLevel and HubSpot as the CRM, Clay for lists and enrichment, Instantly for cold email and Valley for LinkedIn. We choose based on your case and what you already use, not the other way round.",
+          a: "For process automation: Claude and OpenAI, n8n, Make, Zapier and scheduled jobs (cron). For the sales process: GoHighLevel and HubSpot as the CRM, Clay for lists and enrichment, Instantly for cold email and Valley for LinkedIn. We choose based on your case and what you already use, not the other way round.",
         },
         {
           q: "Is it custom-built or a template?",
@@ -879,12 +887,12 @@ export const content = {
 
     pageCta: {
       title: "Want to know which system you need?",
-      subtitle: "A free 30-minute diagnosis: what to automate first and how to build your go-to-market.",
+      subtitle: "A free 30-minute diagnosis: which processes to automate first and with which tools.",
       button: "Book my free diagnosis",
     },
 
     footer: {
-      tagline: "AI process automation and go-to-market: Claude, n8n, Make and Zapier for operations; GoHighLevel, HubSpot, Clay and Instantly to sell.",
+      tagline: "AI process automation for companies: Claude, n8n, Make and Zapier connected to your CRM and your tools, from operations to the sales process.",
       cta: "Book my free diagnosis",
       links: [
         { href: "/servicios", label: "Services" },
@@ -895,16 +903,16 @@ export const content = {
         { href: "/diagnostico", label: "Free diagnosis" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Lead leakage calculator" },
       ],
-      rights: "AI process automation and go-to-market",
+      rights: "AI process automation for companies",
       servicesLabel: "Services",
       pagesLabel: "Rianex",
     },
 
     servicios: {
       tag: "Services",
-      title: "AI process automation and go-to-market",
+      title: "AI process automation services",
       description:
-        "Two fronts of one system: the processes that repeat every week, running on their own, and the engine that captures, qualifies and closes. Each service can be hired on its own or as part of one project.",
+        "We use AI to automate the processes that repeat in your company: day-to-day operations and the sales process. Each service can be hired on its own or as part of one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Book my free diagnosis",
@@ -912,13 +920,13 @@ export const content = {
       builtOn: "Built on",
       groups: [
         {
-          title: "Process automation",
+          title: "Operations and AI agents",
           desc: "What your team repeats every week, done on its own: with Claude, n8n, Make, Zapier or scheduled jobs, connected to your tools.",
           slugs: ["automatizacion-procesos-ia", "agente-ia-whatsapp", "integracion-gohighlevel-hubspot"],
         },
         {
-          title: "Go-to-market",
-          desc: "The engine that captures, qualifies and closes: CRM on GoHighLevel or HubSpot, outbound with Clay, Instantly and Valley, funnels and proposals.",
+          title: "Automated sales process",
+          desc: "Capturing, qualifying, proposing and following up are the processes that repeat most: we automate them on GoHighLevel or HubSpot, with outbound on Clay, Instantly and Valley, funnels and automatic proposals.",
           slugs: ["outbound-b2b", "embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
         },
       ],
@@ -929,7 +937,7 @@ export const content = {
           tagline: "Repetitive work, done on its own.",
           problem:
             "Your team loses hours copying data, answering the same questions and chasing tasks a machine would do without mistakes.",
-          forWho: "Businesses with manual processes that repeat every week.",
+          forWho: "Companies that want to automate the manual processes they repeat every week with AI.",
           deliverables: [
             "Process map and what to automate first",
             "AI workflows in GoHighLevel, HubSpot or n8n",
@@ -943,7 +951,7 @@ export const content = {
           tagline: "Your CRM talking to the rest of your tools.",
           problem:
             "The CRM lives in isolation: data gets copied by hand between the website, calendar, invoicing and WhatsApp, and nobody trusts what it says.",
-          forWho: "Companies using GoHighLevel or HubSpot alongside other tools.",
+          forWho: "Companies that want data to flow on its own between GoHighLevel or HubSpot and the rest of their tools.",
           deliverables: [
             "Integrations via API, webhooks and MCP",
             "Sync with ERP, invoicing, calendar and forms",
@@ -971,7 +979,7 @@ export const content = {
           tagline: "Your ideal customer, reached by email and LinkedIn every week.",
           problem:
             "You depend on referrals or inbound, or you do outbound by hand: it does not scale and emails land in spam.",
-          forWho: "B2B companies with a clear ideal customer (industry, size, role) that want a meetings channel they can switch on and off.",
+          forWho: "B2B companies with a clear ideal customer (industry, size, role) that want to automate prospecting and have a meetings channel they can switch on and off.",
           deliverables: [
             "Ideal customer, offer and messaging per segment",
             "Separate domains and inboxes, warmed up and authenticated",
@@ -985,7 +993,7 @@ export const content = {
           tagline: "Answers, qualifies and books appointments 24/7.",
           problem:
             "Customers write on WhatsApp at any hour and nobody replies in time, or your team answers the same thing a hundred times.",
-          forWho: "Clinics, academies and service businesses that get enquiries on WhatsApp and sell by appointment.",
+          forWho: "Companies that get enquiries on WhatsApp or the web and want to answer, qualify and book them automatically.",
           deliverables: [
             "Agent on the official WhatsApp Business API, also on web chat and email",
             "Connected to your calendar and to GoHighLevel or HubSpot",
@@ -1013,7 +1021,7 @@ export const content = {
           tagline: "Automatically filter who is worth your time.",
           problem:
             "You bring traffic and leads, but can't tell which are good until you've wasted time talking to them.",
-          forWho: "Businesses with 10+ leads a month running ads or content.",
+          forWho: "Companies that get leads every week and want to qualify and follow up with them automatically.",
           deliverables: [
             "Landing, form or pre-qualification quiz",
             "Automatic scoring (cold / warm / hot / premium)",
@@ -1027,7 +1035,7 @@ export const content = {
           tagline: "Proposals in minutes, not days.",
           problem:
             "Building proposals by hand is slow and you lose momentum with the client.",
-          forWho: "Service businesses sending several proposals a month.",
+          forWho: "Service companies that send several proposals a month and want to stop writing them by hand.",
           deliverables: [
             "Post-call intake form",
             "Automated web and PDF proposals",
@@ -1042,7 +1050,7 @@ export const content = {
       tag: "Solutions",
       title: "Tailored to your sector",
       description:
-        "The same approach, tuned to each business's sales cycle.",
+        "The processes that repeat most in industries where we have already automated them. If yours is not here, the method is the same: we start with the process that costs the most.",
       problemLabel: "Problem:",
       solutionLabel: "Solution:",
       caseLabel: "Case:",
@@ -1088,7 +1096,7 @@ export const content = {
       title: "Ramiro Pérez Rodero, an industrial engineer who automates businesses with AI",
       intro: [
         "I'm Ramiro Pérez Rodero, an industrial engineer. I come from working in industrial plants and now bring that process rigour to AI automation for businesses.",
-        "Rianex is my studio, based in Ávila, Spain: I design and build end-to-end AI systems —from diagnosis to production— on GoHighLevel and HubSpot, for companies in Spain and Latin America.",
+        "Rianex is my studio, based in Ávila, Spain. I work with companies in Spain and Latin America that want to automate their processes with AI, from day-to-day operations to the sales process, and take them from diagnosis to a system in production.",
       ],
       linkedin: "See my LinkedIn profile",
       pillarsLabel: "My ground",
@@ -1154,14 +1162,14 @@ export const content = {
         "No commitment, no hard selling",
         "Analysis of your current process",
         "A concrete system recommendation",
-        "For businesses with 10+ leads a month",
+        "For companies with manual processes that repeat every week",
       ],
     },
 
     blog: {
       tag: "Blog",
       title: "Practical guides",
-      description: "AI automation, GoHighLevel and HubSpot. No empty theory.",
+      description: "AI process automation, agents, GoHighLevel and HubSpot. No empty theory.",
       empty: "New articles coming soon.",
     },
   },
