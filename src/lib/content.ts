@@ -36,8 +36,6 @@ export const content = {
         "el seguimiento a tus clientes",
       ],
       titlePost: " y gana horas cada semana.",
-      subtitle:
-        "Para empresas que quieren automatizar con IA el trabajo que se repite cada semana: pasar datos a mano, clasificar correos y pedidos, preparar informes y propuestas, atender y hacer seguimiento a clientes. Lo montamos con Claude, n8n, Make o Zapier, conectado a tu CRM y a tus herramientas. Con método de ingeniero industrial: primero medimos, después automatizamos.",
       ctaPrimary: "Pide tu diagnóstico gratuito",
       ctaSecondary: "Ver los servicios",
       note: "Primeros resultados en 4 semanas · Sin compromiso",
@@ -617,8 +615,6 @@ export const content = {
         "your customer follow-up",
       ],
       titlePost: " and win back hours every week.",
-      subtitle:
-        "For companies that want to automate the work that repeats every week with AI: copying data by hand, sorting emails and orders, preparing reports and proposals, answering and following up with customers. We build it with Claude, n8n, Make or Zapier, connected to your CRM and your tools. With an industrial engineer's method: measure first, then automate.",
       ctaPrimary: "Book my free diagnosis",
       ctaSecondary: "See the services",
       note: "First results in 4 weeks · No commitment",
