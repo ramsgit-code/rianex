@@ -30,26 +30,26 @@ type PageCopy = { title: string; description: string };
 const PAGES: Record<string, Record<Lang, PageCopy>> = {
   "/": {
     es: {
-      title: "Automatización de procesos con IA y go-to-market B2B",
+      title: "Automatiza los procesos de tu empresa con IA",
       description:
-        "Automatizamos procesos con Claude, n8n, Make y Zapier, y montamos tu go-to-market: GoHighLevel o HubSpot, outbound con Clay e Instantly y seguimiento automático.",
+        "Para empresas que quieren automatizar con IA el trabajo repetitivo: datos, correos, informes, propuestas y seguimiento, con Claude, n8n, Make o Zapier y tu CRM.",
     },
     en: {
-      title: "AI process automation and B2B go-to-market",
+      title: "Automate your company's processes with AI",
       description:
-        "We automate processes with Claude, n8n, Make and Zapier, and build your go-to-market: GoHighLevel or HubSpot, outbound with Clay and Instantly, and automatic follow-up.",
+        "For companies that want AI to take over repetitive work: data entry, email, reports, proposals and follow-up, with Claude, n8n, Make or Zapier and your CRM.",
     },
   },
   "/servicios": {
     es: {
-      title: "Servicios de automatización con IA y go-to-market",
+      title: "Servicios de automatización de procesos con IA",
       description:
-        "Automatización de procesos con IA, agente de WhatsApp, integración de GoHighLevel y HubSpot, outbound B2B con Clay e Instantly, embudos, propuestas y migraciones.",
+        "Automatización de procesos con IA, agente de WhatsApp, integración de GoHighLevel y HubSpot, y proceso comercial automatizado: outbound, embudos y propuestas.",
     },
     en: {
-      title: "AI automation and go-to-market services",
+      title: "AI process automation services",
       description:
-        "AI process automation, a WhatsApp agent, GoHighLevel and HubSpot integrations, B2B outbound with Clay and Instantly, funnels, proposals and migrations.",
+        "AI process automation, a WhatsApp agent, GoHighLevel and HubSpot integrations, and an automated sales process: outbound, funnels, proposals and migrations.",
     },
   },
   "/casos-de-exito": {
@@ -92,31 +92,31 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     es: {
       title: "Testimonios y opiniones de clientes",
       description:
-        "Opiniones reales de clientes con sistemas de automatización comercial en GoHighLevel: clínicas, empresas de eventos y agencias.",
+        "Opiniones reales de clientes con procesos automatizados con IA en producción: clínicas, empresas de eventos y agencias.",
     },
     en: {
       title: "Client testimonials and reviews",
       description:
-        "Real feedback from clients running sales automation systems on GoHighLevel: clinics, event companies and agencies.",
+        "Real feedback from clients running AI-automated processes in production: clinics, event companies and agencies.",
     },
   },
   "/sobre-mi": {
     es: {
       title: "Sobre Ramiro Pérez Rodero, ingeniero industrial",
       description:
-        "Ramiro Pérez Rodero, ingeniero industrial con experiencia en plantas industriales. Automatización de procesos con IA y go-to-market B2B desde Ávila.",
+        "Ramiro Pérez Rodero, ingeniero industrial con experiencia en plantas industriales. Automatización de procesos con IA para empresas, desde Ávila.",
     },
     en: {
       title: "About Ramiro Pérez Rodero, industrial engineer",
       description:
-        "Ramiro Pérez Rodero, an industrial engineer with plant-floor experience. AI process automation and B2B go-to-market, based in Ávila, Spain.",
+        "Ramiro Pérez Rodero, an industrial engineer with plant-floor experience. AI process automation for companies, based in Ávila, Spain.",
     },
   },
   "/diagnostico": {
     es: {
       title: "Diagnóstico gratuito de automatización con IA",
       description:
-        "Diagnóstico gratuito de 30 minutos. Analizamos tu proceso comercial y te decimos qué automatizar, integrar o migrar primero.",
+        "Diagnóstico gratuito de 30 minutos. Analizamos tus procesos y te decimos qué automatizar con IA, integrar o migrar primero.",
     },
     en: {
       title: "Free AI automation assessment",

@@ -23,18 +23,24 @@ export const dynamic = "force-static";
 
 const CABECERA = `# Rianex
 
-> Automatización de procesos con IA y go-to-market B2B. Automatizamos los
-> procesos que se repiten cada semana con Claude, n8n, Make, Zapier y tareas
-> programadas, y montamos la máquina comercial: CRM en GoHighLevel o HubSpot,
-> outbound con Clay, Instantly y Valley, agentes de WhatsApp, embudos y
-> propuestas automáticas.
+> Automatización de procesos con IA para empresas. Automatizamos los procesos
+> que se repiten cada semana con Claude, n8n, Make, Zapier y tareas
+> programadas, conectados al CRM (GoHighLevel o HubSpot) y al resto de
+> herramientas: de la operativa del día a día al proceso comercial.
 
 Estudio de ingeniería con base en Ávila, España. Trabaja en español para el
 mercado español y latinoamericano, y en inglés cuando el proyecto lo pide.
 
+## Para quién
+Empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se
+repiten cada semana: pasar datos entre herramientas, clasificar correos o
+pedidos, preparar informes y propuestas, atender consultas y hacer seguimiento
+a clientes. El sector importa menos que el proceso: si es frecuente, sigue
+reglas y su fallo cuesta dinero, se puede automatizar.
+
 ## Qué hacemos
-- **Automatizar procesos**: con Claude, n8n, Make, Zapier y crons; agentes de IA en WhatsApp; GoHighLevel y HubSpot conectados con web, agenda, facturación y ERP.
-- **Go-to-market**: outbound B2B con Clay, Instantly y Valley; embudos de captación y cualificación; propuestas automáticas; implantación de GoHighLevel y migraciones de CRM con su histórico.
+- **Operativa y agentes de IA**: automatización con Claude, n8n, Make, Zapier y crons; agentes de IA en WhatsApp y web; GoHighLevel y HubSpot conectados con web, agenda, facturación y ERP.
+- **Proceso comercial automatizado**: outbound B2B con Clay, Instantly y Valley; embudos de captación y cualificación; propuestas automáticas; implantación de GoHighLevel y migraciones de CRM con su histórico.
 
 ## Cómo trabajamos
 Cuatro pasos: diagnóstico de 30 minutos, diseño del sistema, implementación y
@@ -86,7 +92,7 @@ export async function GET() {
   secciones.push(`## Páginas principales
 - [Inicio](${BASE_URL}/): qué automatizamos y cómo
 - [Servicios](${BASE_URL}/servicios): los ocho servicios en detalle
-- [Soluciones por sector](${BASE_URL}/soluciones): clínicas, eventos y formación
+- [Soluciones por sector](${BASE_URL}/soluciones): ejemplos en clínicas, eventos y formación
 - [Casos de éxito](${BASE_URL}/casos-de-exito): implantaciones reales con su resultado
 - [Testimonios](${BASE_URL}/testimonios): opiniones de clientes
 - [Sobre mí](${BASE_URL}/sobre-mi): Ramiro Pérez Rodero, quién está detrás
