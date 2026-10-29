@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
     tamano_equipo: data.tamano_equipo,
     crm_actual: data.crm_actual,
     sector: data.sector,
+    objetivo: data.objetivo,
   });
 
   const tier = getTier(score);

@@ -109,6 +109,12 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-10-29 · Scoring del diagnóstico alineado con el cliente ideal: el
+  sector ya no puntúa, el volumen de leads baja de 20 a 10 puntos y entra el
+  objetivo (15 puntos si quiere automatizar procesos, integrar herramientas,
+  el seguimiento o las propuestas). Opción nueva de sector: industria,
+  logística y distribución.
+
 - 2026-10-29 · Cliente ideal de la web: empresas que quieren automatizar
   procesos con IA. Fuera los "dos frentes" (automatización y go-to-market):
   lo comercial pasa a ser un proceso más que se automatiza. Cambian el H1 y
