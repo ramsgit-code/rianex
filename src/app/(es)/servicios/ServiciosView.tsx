@@ -1,32 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Filter,
-  Workflow,
-  Network,
-  ArrowLeftRight,
-  Send,
-  FileText,
-  Database,
-  Bot,
-  Check,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
-import { Reveal } from "@/components/Reveal";
-
-const icons: Record<string, typeof Workflow> = {
-  "automatizacion-procesos-ia": Workflow,
-  "integracion-gohighlevel-hubspot": Network,
-  "migracion-a-gohighlevel": ArrowLeftRight,
-  "outbound-b2b": Send,
-  "agente-ia-whatsapp": Bot,
-  "implementacion-crm-gohighlevel": Database,
-  "embudo-de-captacion": Filter,
-  "generador-de-propuestas": FileText,
-};
+import { Label } from "@/components/ui/Label";
 
 export function ServiciosView() {
   const { c, localize } = useLang();
@@ -34,93 +12,59 @@ export function ServiciosView() {
 
   return (
     <PageShell tag={s.tag} title={s.title} description={s.description} wide>
-      <div className="flex flex-col gap-16">
-        {s.groups.map((group, g) => (
+      <div className="flex flex-col gap-20">
+        {s.groups.map((group) => (
           <section key={group.title}>
-            <Reveal>
-              <div className="mb-6 max-w-2xl">
-                <span className="font-mono text-xs text-accent-text">
-                  0{g + 1}
-                </span>
-                <h2 className="mt-1 font-display text-2xl font-semibold tracking-tight text-foreground">
-                  {group.title}
-                </h2>
-                <p className="mt-2 leading-relaxed text-foreground-muted">
-                  {group.desc}
-                </p>
-              </div>
-            </Reveal>
-            <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 gap-4 border-b-[6px] border-accent pb-6 lg:grid-cols-12 lg:gap-10">
+              <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground lg:col-span-5">
+                {group.title}
+              </h2>
+              <p className="measure text-pretty text-lg leading-relaxed text-foreground-muted lg:col-span-7 lg:self-end">
+                {group.desc}
+              </p>
+            </div>
+
+            <div>
               {group.slugs
                 .map((slug) => s.items.find((item) => item.slug === slug))
                 .filter((item) => item !== undefined)
-                .map((item, i) => {
-                  const Icon = icons[item.slug] ?? Workflow;
-                  return (
-                    <Reveal key={item.slug} delay={i * 0.05}>
-                      <article
-                        id={item.slug}
-                        className="card grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:items-start"
-                      >
-                        <div>
-                          <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-accent/25 bg-accent/[0.08] text-accent-text">
-                            <Icon size={20} />
-                          </span>
-                          <h3 className="mt-4 font-display text-xl font-semibold text-foreground">
-                            <Link
-                              href={localize(`/servicios/${item.slug}`)}
-                              className="hover:text-accent-text"
-                            >
-                              {item.title}
-                            </Link>
-                          </h3>
-                          <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                            {item.tagline}
-                          </p>
-                          <Link
-                            href={localize(`/servicios/${item.slug}`)}
-                            className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
-                          >
-                            {s.more}
-                            <ArrowRight size={15} />
-                          </Link>
-                        </div>
+                .map((item) => (
+                  <article
+                    key={item.slug}
+                    id={item.slug}
+                    className="grid grid-cols-1 gap-8 border-b-2 border-ink py-10 lg:grid-cols-12 lg:gap-10"
+                  >
+                    <div className="lg:col-span-5">
+                      <h3 className="font-display text-3xl font-extrabold uppercase leading-[0.95] text-foreground">
+                        <Link href={localize(`/servicios/${item.slug}`)} className="hover:text-accent-text">
+                          {item.title}
+                        </Link>
+                      </h3>
+                      <p className="mt-3 text-lg leading-snug text-foreground-muted">{item.tagline}</p>
+                      <Link href={localize(`/servicios/${item.slug}`)} className="btn-secondary mt-6 min-h-[2.75rem] px-4 py-2 text-sm">
+                        {s.more}
+                        <ArrowRight size={16} aria-hidden />
+                      </Link>
+                    </div>
 
-                        <div className="flex flex-col gap-5">
-                          <div>
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                              {s.problemLabel}
-                            </p>
-                            <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                              {item.problem}
-                            </p>
-                          </div>
-                          <div>
-                            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                              {s.forWhoLabel}
-                            </p>
-                            <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                              {item.forWho}
-                            </p>
-                          </div>
-                          <ul className="flex flex-col gap-2.5">
-                            {item.deliverables.map((d) => (
-                              <li
-                                key={d}
-                                className="flex items-start gap-2.5 text-sm text-foreground-muted"
-                              >
-                                <span className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent-text">
-                                  <Check size={10} />
-                                </span>
-                                {d}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </article>
-                    </Reveal>
-                  );
-                })}
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-7">
+                      <div>
+                        <Label>{s.problemLabel.replace(":", "")}</Label>
+                        <p className="mt-2 text-[15px] leading-relaxed text-foreground-muted">{item.problem}</p>
+                        <Label className="mt-5">{s.forWhoLabel.replace(":", "")}</Label>
+                        <p className="mt-2 text-[15px] leading-relaxed text-foreground-muted">{item.forWho}</p>
+                      </div>
+                      <ul className="flex flex-col gap-2.5 border-t-2 border-ink pt-4 sm:border-l-2 sm:border-t-0 sm:pl-6 sm:pt-0">
+                        {item.deliverables.map((d) => (
+                          <li key={d} className="flex items-start gap-2.5 text-[15px] text-foreground">
+                            <Check size={17} aria-hidden className="mt-0.5 shrink-0 text-go-text" />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                ))}
             </div>
           </section>
         ))}

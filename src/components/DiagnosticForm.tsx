@@ -32,10 +32,10 @@ function Field({
 }
 
 const inputClass =
-  "bg-background border border-border rounded-lg px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent transition-colors";
+  "bg-background border border-border px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent transition-colors";
 
 const selectClass =
-  "bg-background border border-border rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent transition-colors appearance-none";
+  "bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent transition-colors appearance-none";
 
 export function DiagnosticForm() {
   const { lang } = useLang();
@@ -398,9 +398,9 @@ export function DiagnosticForm() {
                         key={opt}
                         type="button"
                         onClick={() => toggleObjetivo(opt)}
-                        className={`rounded-lg border px-4 py-2.5 text-left text-sm transition-colors ${
+                        className={`border px-4 py-2.5 text-left text-sm transition-colors ${
                           objetivoValue.includes(opt)
-                            ? "border-accent bg-accent/10 text-foreground"
+                            ? "border-accent bg-accent text-foreground"
                             : "border-border text-foreground-muted hover:border-foreground-muted"
                         }`}
                       >

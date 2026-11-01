@@ -40,19 +40,25 @@ export function Reveal({
   const Tag = MOTION[as];
   const reduceMotion = useReducedMotion();
 
-  // El bloque prefers-reduced-motion de globals.css solo frena animaciones y
-  // transiciones de CSS; estas las calcula JavaScript y se le escapaban.
-  const skip = priority || reduceMotion;
-
+  // Con prefers-reduced-motion no basta con saltarse la animacion: el HTML
+  // del servidor ya sale con opacity:0 (el servidor no sabe la preferencia) y,
+  // sin whileInView, el contenido se quedaba invisible para siempre. Se anima
+  // igual hasta el estado final, pero sin desplazamiento y en 0 segundos.
   return (
     <Tag
       className={className}
       // initial={false} hace que motion no escriba ningun estilo de partida:
       // el contenido se sirve ya visible.
-      initial={skip ? false : { opacity: 0, y }}
-      whileInView={skip ? undefined : { opacity: 1, y: 0 }}
-      viewport={skip ? undefined : { once: true, margin: "-80px" }}
-      transition={skip ? undefined : { type: "spring", stiffness: 90, damping: 18, delay }}
+      initial={priority ? false : { opacity: 0, y }}
+      whileInView={priority ? undefined : { opacity: 1, y: 0 }}
+      viewport={priority ? undefined : { once: true, margin: "-80px" }}
+      transition={
+        priority
+          ? undefined
+          : reduceMotion
+            ? { duration: 0 }
+            : { type: "spring", stiffness: 90, damping: 18, delay }
+      }
     >
       {children}
     </Tag>

@@ -13,7 +13,7 @@ function Checklist({ items }: { items: readonly string[] }) {
     <ul className="flex flex-col gap-4">
       {items.map((item) => (
         <li key={item} className="flex items-start gap-3 text-sm text-foreground-muted">
-          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent/10 text-accent-text">
+          <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-ink bg-accent text-accent-text">
             <Check size={12} />
           </span>
           {item}
@@ -35,7 +35,7 @@ export function SobreMiView() {
           alt={RAMIRO.name}
           width={200}
           height={200}
-          className="h-24 w-24 shrink-0 rounded-full border border-ink/[0.08] object-cover sm:h-28 sm:w-28"
+          className="h-24 w-24 shrink-0 rounded-full border border-border object-cover sm:h-28 sm:w-28"
           priority
         />
         <div className="flex flex-col gap-5">
@@ -48,7 +48,7 @@ export function SobreMiView() {
             href={RAMIRO.linkedin}
             target="_blank"
             rel="me noopener noreferrer"
-            className="inline-flex items-center gap-1.5 self-start text-sm font-medium text-accent-text hover:text-ink"
+            className="inline-flex items-center gap-1.5 self-start text-sm font-semibold text-foreground underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text"
           >
             {a.linkedin}
             <ArrowRight size={15} />
@@ -61,7 +61,7 @@ export function SobreMiView() {
         {a.pillars.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.06} className="h-full">
             <div className="card h-full">
-              <h2 className="font-display text-lg font-semibold text-foreground">
+              <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">
                 {p.title}
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
@@ -86,13 +86,13 @@ export function SobreMiView() {
 
       {/* stack técnico */}
       <div className="mt-16">
-        <p className="mb-4 text-xs uppercase tracking-wider text-muted">
+        <p className="mb-4 font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">
           {a.stackLabel}
         </p>
         <div className="flex flex-wrap gap-2.5">
           {a.stack.map((tech, i) => (
             <Reveal as="span" key={tech} delay={i * 0.03}>
-              <span className="inline-flex items-center rounded-lg border border-ink/[0.08] bg-ink/[0.03] px-3 py-1.5 text-sm text-foreground-muted">
+              <span className="inline-flex items-center border border-border bg-white px-3 py-1.5 text-sm text-foreground-muted">
                 {tech}
               </span>
             </Reveal>
@@ -100,21 +100,6 @@ export function SobreMiView() {
         </div>
       </div>
 
-      {/* cierre: cta al diagnostico */}
-      <Reveal delay={0.1}>
-        <div className="glass mt-16 flex flex-col items-start gap-5 p-8 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h2 className="font-display text-xl font-semibold text-foreground">
-              {a.ctaTitle}
-            </h2>
-            <p className="mt-1.5 text-sm text-foreground-muted">{a.ctaSubtitle}</p>
-          </div>
-          <Link href="/diagnostico" className="btn-primary shrink-0">
-            {a.ctaButton}
-            <ArrowRight size={16} />
-          </Link>
-        </div>
-      </Reveal>
     </PageShell>
   );
 }

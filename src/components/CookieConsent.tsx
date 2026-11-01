@@ -60,7 +60,7 @@ export function CookieConsent() {
           transition={{ type: "spring", stiffness: 200, damping: 26 }}
           className="fixed bottom-3 left-3 right-20 z-[70] sm:right-auto sm:left-4 sm:bottom-4 sm:max-w-md"
         >
-          <div className="glass flex flex-col gap-2.5 rounded-2xl border border-ink/[0.08] px-4 py-3 shadow-2xl sm:flex-row sm:items-center sm:gap-4 sm:px-5 sm:py-4">
+          <div className="glass flex flex-col gap-2.5 border border-border px-4 py-3 shadow-2xl sm:flex-row sm:items-center sm:gap-4 sm:px-5 sm:py-4">
             <p className="text-xs leading-snug text-foreground-muted sm:text-sm">
               {t.text}{" "}
               <Link href="/cookies" className="text-accent-text underline underline-offset-2">
@@ -70,7 +70,7 @@ export function CookieConsent() {
             <div className="flex shrink-0 items-center gap-2">
               <button
                 onClick={() => decide("rejected")}
-                className="rounded-lg border border-border px-3 py-1.5 text-sm text-foreground-muted transition-colors hover:text-foreground"
+                className="border border-border px-3 py-1.5 text-sm text-foreground-muted transition-colors hover:text-foreground"
               >
                 {t.reject}
               </button>

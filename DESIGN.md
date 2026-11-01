@@ -47,3 +47,11 @@ Una familia, **Archivo** (Google Fonts, eje `wdth`), cargada en `RootDocument.ts
 ## Home (`src/app/(es)/page.tsx`)
 
 Hero (titular + `ProcessBoard`) → banda de prueba grafito → Oferta en dos pasos → Qué automatizamos (áreas → servicios) → herramientas → Cómo trabajamos (raíl) → Casos (grafito) → Testimonios → Guías → FAQ → Cierre amarillo. Copia en `src/lib/home.ts`.
+
+## Páginas interiores
+
+- Cabecera común en `PageShell`: H1 condensado grande, entradilla a 65ch, sin rótulo encima.
+- Listados (`/servicios`, `/casos-de-exito`, `/soluciones`): filas separadas por línea grafito de 2px, título de grupo sobre cinta amarilla, resultado de cada caso en bloque grafito con la cifra en amarillo.
+- Fichas: "En resumen" en bloque amarillo; rótulos de dato con `<Label>` (`src/components/ui/Label.tsx`); viñetas de "incluye" en verde andon.
+- La llamada a la consultoría la pone el pie (bloque amarillo) en todas las páginas salvo la home y `/diagnostico`; las fichas no la repiten.
+- `Reveal` anima a estado final en 0 s con `prefers-reduced-motion`: el contenido nunca se queda oculto.

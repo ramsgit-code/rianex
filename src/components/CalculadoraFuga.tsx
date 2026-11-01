@@ -10,7 +10,7 @@ import { localizePath, type Lang } from "@/lib/i18n";
 // que alguien cambia un valor (para saber si la herramienta se usa).
 
 const inputClass =
-  "w-full bg-background border border-border rounded-lg px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent transition-colors";
+  "w-full bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent transition-colors";
 
 const T = {
   es: {
@@ -167,19 +167,19 @@ export function CalculadoraFuga({ lang }: { lang: Lang }) {
       <div className="flex flex-col gap-6">
         <fieldset className="card flex flex-col gap-4">
           <legend className="sr-only">{t.leakTitle}</legend>
-          <h2 className="font-display text-lg font-semibold text-foreground">{t.leakTitle}</h2>
+          <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">{t.leakTitle}</h2>
           {leakFields.map(renderField)}
         </fieldset>
         <fieldset className="card flex flex-col gap-4">
           <legend className="sr-only">{t.manualTitle}</legend>
-          <h2 className="font-display text-lg font-semibold text-foreground">{t.manualTitle}</h2>
+          <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">{t.manualTitle}</h2>
           {manualFields.map(renderField)}
         </fieldset>
       </div>
 
       <div className="flex flex-col gap-5 lg:sticky lg:top-28" aria-live="polite">
-        <section className="card border-accent/30 bg-accent/[0.04]">
-          <h2 className="text-[11px] font-semibold uppercase tracking-wider text-accent-text">{t.resultTitle}</h2>
+        <section className="bg-accent p-6 text-ink sm:p-8">
+          <h2 className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">{t.resultTitle}</h2>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <p className="font-display text-2xl font-semibold text-foreground">{num.format(r.lostLeads)}</p>
@@ -200,7 +200,7 @@ export function CalculadoraFuga({ lang }: { lang: Lang }) {
               </p>
             </div>
           </div>
-          <div className="mt-5 border-t border-ink/[0.08] pt-4">
+          <div className="mt-5 border-t border-border pt-4">
             <p className="text-sm text-foreground-muted">{t.total}</p>
             <p className="font-display text-4xl font-semibold tracking-tight text-foreground">{eur.format(r.total)}</p>
             <p className="mt-3 text-sm text-foreground-muted">
@@ -215,7 +215,7 @@ export function CalculadoraFuga({ lang }: { lang: Lang }) {
         </section>
 
         <section className="card flex flex-col items-start gap-3">
-          <h2 className="font-display text-lg font-semibold text-foreground">{t.ctaTitle}</h2>
+          <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">{t.ctaTitle}</h2>
           <p className="text-sm leading-relaxed text-foreground-muted">{t.ctaText}</p>
           <Link href={localizePath("/diagnostico", lang)} className="btn-primary">
             {t.cta}

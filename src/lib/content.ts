@@ -313,7 +313,7 @@ export const content = {
       tagline: "Agencia de automatización con IA. Consultoría gratuita y acompañamiento para automatizar procesos y adoptar la IA en tu empresa, con las herramientas que ya usas.",
       cta: "Pide tu consultoría gratuita",
       links: [
-        { href: "/servicios", label: "Servicios" },
+        { href: "/servicios", label: "Qué automatizamos" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
         { href: "/sobre-mi", label: "Nosotros" },
@@ -896,7 +896,7 @@ export const content = {
       tagline: "AI automation agency. Free consultation and hands-on support to automate processes and adopt AI in your company, with the tools you already use.",
       cta: "Book your free consultation",
       links: [
-        { href: "/servicios", label: "Services" },
+        { href: "/servicios", label: "What we automate" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
         { href: "/sobre-mi", label: "About" },
