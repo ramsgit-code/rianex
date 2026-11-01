@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { Capabilities } from "@/components/sections/Capabilities";
+import { Offer } from "@/components/sections/Offer";
+import { Areas } from "@/components/sections/Areas";
 import { Process } from "@/components/sections/Process";
-import { Pricing } from "@/components/sections/Pricing";
+import { Cases } from "@/components/sections/Cases";
+import { Close } from "@/components/sections/Close";
 import { Faq } from "@/components/sections/Faq";
 import { Guias } from "@/components/sections/Guias";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -26,7 +28,7 @@ const businessJsonLd = {
   url: SITE_URL,
   image: `${SITE_URL}/og.png`,
   description:
-    "Automatización de procesos con IA para empresas: Claude, n8n, Make y Zapier conectados a su CRM (GoHighLevel o HubSpot), agentes de IA para WhatsApp y web, y el proceso comercial automatizado con Clay, Instantly y Valley.",
+    "Agencia de automatización con IA para empresas: consultoría gratuita para detectar qué procesos automatizar y asesoramiento para implantarlo y adoptar la IA, con Claude, n8n, Make y Zapier conectados a su CRM (GoHighLevel o HubSpot).",
   audience: {
     "@type": "BusinessAudience",
     audienceType: "Empresas que quieren automatizar procesos con IA",
@@ -42,6 +44,9 @@ const businessJsonLd = {
   },
   logo: `${SITE_URL}/logos/rianex-mark.png`,
   knowsAbout: [
+    "Agencia de automatización con IA",
+    "Consultoría de IA",
+    "Adopción de IA en la empresa",
     "Automatización de procesos con IA",
     "Automatización de procesos",
     "Agentes de IA",
@@ -115,16 +120,15 @@ export default async function Home() {
       <JsonLd data={websiteJsonLd} />
       <JsonLd data={faqJsonLd} />
       <Hero />
-      <Capabilities />
+      <Offer />
+      <Areas />
       <Marquee />
+      <Process />
+      <Cases />
       <Testimonials items={testimonials} />
-      <Pricing />
-      {/* pasos: ocultos en móvil (home light), visibles en escritorio */}
-      <div className="hidden sm:block">
-        <Process />
-      </div>
       <Guias />
       <Faq />
+      <Close />
     </>
   );
 }

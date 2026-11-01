@@ -1,38 +1,37 @@
 "use client";
 
 import { useLang } from "@/components/LanguageProvider";
-import { Reveal } from "@/components/Reveal";
+import { home } from "@/lib/home";
 
+// Cómo trabajamos: una línea de producción. Las estaciones cuelgan de una
+// cinta amarilla; la primera (la consultoría gratuita) va marcada en grafito.
 export function Process() {
-  const { c } = useLang();
+  const { lang } = useLang();
+  const m = home[lang].method;
 
   return (
-    <section className="relative">
+    <section id="como-trabajamos" className="relative">
+      <div className="tape" />
       <div className="section-wide">
-        <Reveal>
-          <p className="tag">{c.process.tag}</p>
-          <h2 className="section-title mb-10 max-w-2xl">{c.process.title}</h2>
-        </Reveal>
-        <ol className="grid grid-cols-1 divide-y divide-ink/[0.06] sm:grid-cols-2 sm:gap-y-8 sm:divide-y-0 lg:grid-cols-4 lg:gap-y-0">
-          {c.process.steps.map((step, i) => (
-            <Reveal
-              as="li"
-              key={step.title}
-              delay={i * 0.08}
-              className="flex items-start gap-3.5 py-3.5 sm:flex-col sm:gap-2 sm:py-0 sm:px-6 sm:first:pl-0 lg:border-l lg:border-ink/[0.06] lg:first:border-l-0"
-            >
-              <span className="font-display text-2xl font-bold leading-none text-accent-text/50 sm:text-3xl">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div>
-                <h3 className="font-display text-base font-semibold text-foreground">
-                  {step.title}
-                </h3>
-                <p className="mt-1 text-sm leading-relaxed text-foreground-muted">
-                  {step.desc}
-                </p>
-              </div>
-            </Reveal>
+        <h2 className="section-title">{m.title}</h2>
+
+        <ol className="relative mt-14 grid grid-cols-1 gap-10 md:grid-cols-4 md:gap-6">
+          {/* raíl: horizontal en escritorio, vertical en móvil */}
+          <span aria-hidden className="absolute left-[7px] top-2 h-[calc(100%-1rem)] w-1.5 bg-accent md:left-0 md:top-[7px] md:h-1.5 md:w-full" />
+          {m.steps.map((step, i) => (
+            <li key={step.name} className="relative pl-10 md:pl-0 md:pt-12">
+              <span
+                aria-hidden
+                className={`absolute left-0 top-0.5 h-5 w-5 border-[3px] border-ink md:top-0 ${i === 0 ? "bg-ink" : "bg-background"}`}
+              />
+              <p className="font-display text-[13px] font-bold uppercase tracking-[0.08em] text-accent-text">
+                {step.time}
+              </p>
+              <h3 className="mt-2 font-display text-2xl font-extrabold uppercase leading-none text-foreground">
+                {step.name}
+              </h3>
+              <p className="mt-3 max-w-[28ch] text-[15px] leading-relaxed text-foreground-muted">{step.desc}</p>
+            </li>
           ))}
         </ol>
       </div>

@@ -16,12 +16,12 @@ export const content = {
   es: {
     nav: {
       links: [
-        { href: "/servicios", label: "Servicios" },
-        { href: "/casos-de-exito", label: "Casos de éxito" },
+        { href: "/servicios", label: "Qué automatizamos" },
+        { href: "/casos-de-exito", label: "Casos" },
+        { href: "/sobre-mi", label: "Nosotros" },
         { href: "/blog", label: "Blog" },
-        { href: "/sobre-mi", label: "Sobre mí" },
       ],
-      cta: "Diagnóstico gratis",
+      cta: "Consultoría gratuita",
       switchTo: "EN",
       switchLabel: "Ver en inglés",
     },
@@ -36,7 +36,7 @@ export const content = {
         "el seguimiento a tus clientes",
       ],
       titlePost: " y gana horas cada semana.",
-      ctaPrimary: "Pide tu diagnóstico gratuito",
+      ctaPrimary: "Pide tu consultoría gratuita",
       ctaSecondary: "Ver los servicios",
       note: "Primeros resultados en 4 semanas · Sin compromiso",
       proofMetric: "8 min",
@@ -231,7 +231,7 @@ export const content = {
       tag: "Inversión",
       title: "Cuánto cuesta automatizar tu negocio",
       subtitle:
-        "Rangos de referencia del sector. El alcance exacto —y el precio— se confirma en el diagnóstico gratuito, no antes.",
+        "Rangos de referencia del sector. El alcance exacto —y el precio— se confirma en la consultoría gratuita, no antes.",
       tiers: [
         {
           name: "Discovery",
@@ -286,7 +286,7 @@ export const content = {
         },
         {
           q: "¿Qué pasa si no encaja con mi negocio?",
-          a: "Te lo decimos en el diagnóstico gratuito de 30 minutos, sin coste ni compromiso. Si no tiene sentido trabajar juntos, te lo decimos directamente.",
+          a: "Te lo decimos en la consultoría gratuita de 30 minutos, sin coste ni compromiso. Si no tiene sentido trabajar juntos, te lo decimos directamente.",
         },
         {
           q: "¿Cuánto cuesta?",
@@ -299,29 +299,29 @@ export const content = {
       titlePre: "¿Quieres saber qué ",
       titleHighlight: "sistema necesitas?",
       subtitle:
-        "Diagnóstico gratuito de 30 minutos. Te decimos si tiene sentido trabajar juntos, sin compromiso.",
-      button: "Pide tu diagnóstico gratuito",
+        "Consultoría gratuita de 30 minutos. Te decimos si tiene sentido trabajar juntos, sin compromiso.",
+      button: "Pide tu consultoría gratuita",
     },
 
     pageCta: {
-      title: "¿Quieres saber qué sistema necesitas?",
-      subtitle: "Diagnóstico gratuito de 30 minutos: vemos qué procesos automatizar primero y con qué herramientas.",
-      button: "Pide tu diagnóstico gratuito",
+      title: "¿Qué procesos de tu empresa se pueden automatizar?",
+      subtitle: "Consultoría gratuita de 30 minutos: vemos qué procesos automatizar primero y con qué herramientas.",
+      button: "Pide tu consultoría gratuita",
     },
 
     footer: {
-      tagline: "Automatización de procesos con IA para empresas: Claude, n8n, Make y Zapier conectados a tu CRM y a tus herramientas, de la operativa al proceso comercial.",
-      cta: "Pide tu diagnóstico gratuito",
+      tagline: "Agencia de automatización con IA. Consultoría gratuita y acompañamiento para automatizar procesos y adoptar la IA en tu empresa, con las herramientas que ya usas.",
+      cta: "Pide tu consultoría gratuita",
       links: [
         { href: "/servicios", label: "Servicios" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
-        { href: "/sobre-mi", label: "Sobre mí" },
+        { href: "/sobre-mi", label: "Nosotros" },
         { href: "/blog", label: "Blog" },
-        { href: "/diagnostico", label: "Diagnóstico gratuito" },
+        { href: "/diagnostico", label: "Consultoría gratuita" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Calculadora de fuga de leads" },
       ],
-      rights: "Automatización de procesos con IA para empresas",
+      rights: "Agencia de automatización con IA",
       servicesLabel: "Servicios",
       pagesLabel: "Rianex",
     },
@@ -333,7 +333,7 @@ export const content = {
         "Automatizamos con IA los procesos que se repiten en tu empresa: la operativa del día a día y el proceso comercial. Cada servicio se contrata por separado o como parte de un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
-      cta: "Pide tu diagnóstico gratuito",
+      cta: "Pide tu consultoría gratuita",
       more: "Ver el servicio en detalle",
       builtOn: "Construido sobre",
       groups: [
@@ -574,11 +574,11 @@ export const content = {
       ],
       ctaTitle: "¿Hablamos de tu proceso?",
       ctaSubtitle: "30 minutos para ver si tiene sentido trabajar juntos.",
-      ctaButton: "Pide tu diagnóstico gratuito",
+      ctaButton: "Pide tu consultoría gratuita",
     },
 
     diagnostico: {
-      tag: "Diagnóstico gratuito",
+      tag: "Consultoría gratuita",
       title: "30 minutos para saber qué necesitas",
       description: "Rellena el formulario. Lo revisamos antes de la llamada.",
       bullets: [
@@ -600,12 +600,12 @@ export const content = {
   en: {
     nav: {
       links: [
-        { href: "/servicios", label: "Services" },
-        { href: "/casos-de-exito", label: "Case studies" },
+        { href: "/servicios", label: "What we automate" },
+        { href: "/casos-de-exito", label: "Cases" },
+        { href: "/sobre-mi", label: "About us" },
         { href: "/blog", label: "Blog" },
-        { href: "/sobre-mi", label: "About" },
       ],
-      cta: "Free diagnosis",
+      cta: "Free consultation",
       switchTo: "ES",
       switchLabel: "View in Spanish",
     },
@@ -620,7 +620,7 @@ export const content = {
         "your customer follow-up",
       ],
       titlePost: " and win back hours every week.",
-      ctaPrimary: "Book my free diagnosis",
+      ctaPrimary: "Book your free consultation",
       ctaSecondary: "See the services",
       note: "First results in 4 weeks · No commitment",
       proofMetric: "8 min",
@@ -814,7 +814,7 @@ export const content = {
       tag: "Investment",
       title: "What automating your business costs",
       subtitle:
-        "Industry reference ranges. The exact scope — and price — gets confirmed on the free diagnosis call, not before.",
+        "Industry reference ranges. The exact scope — and price — gets confirmed on the free consultation, not before.",
       tiers: [
         {
           name: "Discovery",
@@ -882,29 +882,29 @@ export const content = {
       titlePre: "Want to know which ",
       titleHighlight: "system you need?",
       subtitle:
-        "A free 30-minute diagnosis. I tell you whether it makes sense to work together — no commitment.",
-      button: "Book my free diagnosis",
+        "A free 30-minute consultation. I tell you whether it makes sense to work together — no commitment.",
+      button: "Book your free consultation",
     },
 
     pageCta: {
-      title: "Want to know which system you need?",
-      subtitle: "A free 30-minute diagnosis: which processes to automate first and with which tools.",
-      button: "Book my free diagnosis",
+      title: "Which processes in your company can be automated?",
+      subtitle: "A free 30-minute consultation: which processes to automate first and with which tools.",
+      button: "Book your free consultation",
     },
 
     footer: {
-      tagline: "AI process automation for companies: Claude, n8n, Make and Zapier connected to your CRM and your tools, from operations to the sales process.",
-      cta: "Book my free diagnosis",
+      tagline: "AI automation agency. Free consultation and hands-on support to automate processes and adopt AI in your company, with the tools you already use.",
+      cta: "Book your free consultation",
       links: [
         { href: "/servicios", label: "Services" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
         { href: "/sobre-mi", label: "About" },
         { href: "/blog", label: "Blog" },
-        { href: "/diagnostico", label: "Free diagnosis" },
+        { href: "/diagnostico", label: "Free consultation" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Lead leakage calculator" },
       ],
-      rights: "AI process automation for companies",
+      rights: "AI automation agency",
       servicesLabel: "Services",
       pagesLabel: "Rianex",
     },
@@ -916,7 +916,7 @@ export const content = {
         "We use AI to automate the processes that repeat in your company: day-to-day operations and the sales process. Each service can be hired on its own or as part of one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
-      cta: "Book my free diagnosis",
+      cta: "Book your free consultation",
       more: "See the service in detail",
       builtOn: "Built on",
       groups: [
@@ -1157,11 +1157,11 @@ export const content = {
       ],
       ctaTitle: "Want to talk about your process?",
       ctaSubtitle: "30 minutes to see if it's worth working together.",
-      ctaButton: "Book my free diagnosis",
+      ctaButton: "Book your free consultation",
     },
 
     diagnostico: {
-      tag: "Free diagnosis",
+      tag: "Free consultation",
       title: "30 minutes to know what you need",
       description: "Fill in the form. We review it before the call.",
       bullets: [

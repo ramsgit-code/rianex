@@ -13,104 +13,98 @@ export function Footer() {
   const { c, lang, localize } = useLang();
   const pathname = usePathname();
   const year = new Date().getFullYear();
-  // en /diagnostico no repetimos el CTA de diagnóstico
-  const showCta = pathname !== "/diagnostico";
+  // ni en /diagnostico ni en la home (que ya cierra con su propio bloque)
+  // repetimos la llamada a la consultoría
+  const showCta = !["/diagnostico", "/en/diagnostico", "/", "/en"].includes(pathname);
 
   return (
-    <footer className="relative mt-16 border-t border-ink/[0.08]">
-      <div className="mx-auto max-w-5xl px-6 pb-28 pt-14 sm:pb-14">
-        <div className="glass relative overflow-hidden rounded-3xl px-6 py-10 text-center md:px-10 md:py-14">
-          <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-[26rem] -translate-x-1/2 rounded-full bg-accent/12 blur-[100px]" />
-          <div className="relative">
-            <div className="flex justify-center">
-              <Image
-                src="/logos/rianex-mark-dark.png"
-                alt="Rianex"
-                width={1145}
-                height={253}
-                className="h-7 w-auto"
-              />
-            </div>
-            <p className="mx-auto mt-2 max-w-sm text-sm text-foreground-muted">
-              {c.footer.tagline}
+    <footer className="relative bg-ink text-background">
+      {showCta && (
+        <div className="bg-accent text-ink">
+          <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-12 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
+            <p className="max-w-2xl text-balance font-display text-4xl font-extrabold uppercase leading-[0.92] md:text-5xl">
+              {c.pageCta.title}
             </p>
-            {showCta && (
-              <Link href={localize("/diagnostico")} className="btn-primary mt-6">
-                {c.footer.cta}
-                <ArrowUpRight size={16} />
-              </Link>
-            )}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="inline-flex items-center gap-2 text-sm text-foreground-muted transition-colors hover:text-accent-text"
-              >
-                <Mail size={15} className="text-accent-text" />
+            <Link href={localize("/diagnostico")} className="btn-primary shrink-0">
+              {c.footer.cta}
+              <ArrowUpRight size={17} aria-hidden />
+            </Link>
+          </div>
+        </div>
+      )}
+
+      <div className="mx-auto max-w-7xl px-5 pb-28 pt-14 sm:px-8 sm:pb-12 lg:px-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <Image
+              src="/logos/rianex-mark.png"
+              alt="Rianex"
+              width={1145}
+              height={253}
+              className="h-7 w-auto"
+            />
+            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-background/70">{c.footer.tagline}</p>
+            <div className="mt-6 flex flex-col gap-3 text-[15px]">
+              <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2.5 text-background hover:text-accent">
+                <Mail size={16} aria-hidden className="text-accent" />
                 {EMAIL}
               </a>
               <a
                 href={RIANEX_LINKEDIN}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-foreground-muted transition-colors hover:text-accent-text"
+                className="inline-flex items-center gap-2.5 text-background hover:text-accent"
               >
-                <Linkedin size={15} className="text-accent-text" />
+                <Linkedin size={16} aria-hidden className="text-accent" />
                 {lang === "en" ? "Follow Rianex on LinkedIn" : "Sigue a Rianex en LinkedIn"}
               </a>
             </div>
           </div>
+
+          {/* Mapa de la web en el pie: cada servicio a un clic desde cualquier
+              pagina, para la gente y para los rastreadores. */}
+          <nav className="grid grid-cols-1 gap-10 text-[15px] sm:grid-cols-[2fr_1fr] lg:col-span-8">
+            <div>
+              <p className="border-b-2 border-accent pb-2 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-background">
+                {c.footer.servicesLabel}
+              </p>
+              <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                {c.servicios.items.map((s) => (
+                  <li key={s.slug}>
+                    <Link href={localize(`/servicios/${s.slug}`)} className="text-background/70 transition-colors hover:text-accent">
+                      {s.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="border-b-2 border-accent pb-2 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-background">
+                {c.footer.pagesLabel}
+              </p>
+              <ul className="mt-4 flex flex-col gap-2.5">
+                {c.footer.links.map((l) => (
+                  <li key={l.href}>
+                    <Link href={localize(l.href)} className="text-background/70 transition-colors hover:text-accent">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
         </div>
 
-        {/* Mapa de la web en el pie: cada servicio a un clic desde cualquier
-            pagina, para la gente y para los rastreadores. */}
-        <nav className="mt-10 grid grid-cols-1 gap-8 text-sm sm:grid-cols-[2fr_1fr]">
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-              {c.footer.servicesLabel}
-            </p>
-            <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {c.servicios.items.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={localize(`/servicios/${s.slug}`)}
-                    className="text-foreground-muted transition-colors hover:text-accent-text"
-                  >
-                    {s.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-              {c.footer.pagesLabel}
-            </p>
-            <ul className="mt-3 flex flex-col gap-2">
-              {c.footer.links.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={localize(l.href)}
-                    className="text-foreground-muted transition-colors hover:text-accent-text"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
-
-        <div className="mt-10 flex flex-col items-center gap-2 text-center text-xs text-muted">
-          <div className="flex items-center gap-4">
-            <Link href="/privacidad" className="transition-colors hover:text-accent-text">
+        <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-6 text-xs text-background/60 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {year} Rianex · {c.footer.rights}</p>
+          <div className="flex items-center gap-5">
+            <Link href="/privacidad" className="hover:text-accent">
               {lang === "en" ? "Privacy policy" : "Política de privacidad"}
             </Link>
-            <span aria-hidden>·</span>
-            <Link href="/cookies" className="transition-colors hover:text-accent-text">
+            <Link href="/cookies" className="hover:text-accent">
               {lang === "en" ? "Cookie policy" : "Política de cookies"}
             </Link>
           </div>
-          <p>© {year} Rianex · {c.footer.rights}</p>
         </div>
       </div>
     </footer>

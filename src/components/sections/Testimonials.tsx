@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { Quote, ArrowRight, ArrowLeft } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
-import { Reveal } from "@/components/Reveal";
+import { home } from "@/lib/home";
 
 export type TestimonialItem = {
   id: string;
@@ -33,20 +33,18 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
 
   return (
     <section className="relative">
+      <div className="tape" />
       <div className="section-wide">
         <div className="flex items-end justify-between gap-4">
-          <Reveal>
-            <p className="tag">{t.tag}</p>
-            <h2 className="section-title max-w-2xl">{t.title}</h2>
-          </Reveal>
+          <h2 className="section-title max-w-2xl">{home[lang].testimonialsTitle}</h2>
 
           {items.length > 1 && (
-            <Reveal className="hidden shrink-0 items-center gap-2 sm:flex">
+            <div className="hidden shrink-0 items-center gap-2 sm:flex">
               <button
                 type="button"
                 onClick={() => scroll(-1)}
                 aria-label="Anterior"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent-text"
+                className="flex h-10 w-10 items-center justify-center border-2 border-ink text-foreground transition-colors hover:bg-ink hover:text-background"
               >
                 <ArrowLeft size={18} />
               </button>
@@ -54,31 +52,30 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
                 type="button"
                 onClick={() => scroll(1)}
                 aria-label="Siguiente"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-accent/10 text-accent-text transition-colors hover:bg-accent hover:text-ink"
+                className="flex h-10 w-10 items-center justify-center border-2 border-ink bg-ink text-background transition-colors hover:bg-accent hover:text-ink"
               >
                 <ArrowRight size={18} />
               </button>
-            </Reveal>
+            </div>
           )}
         </div>
 
         {/* tira horizontal: ~2 testimonios visibles por pantalla, con scroll snap */}
-        <Reveal delay={0.08}>
-          <div
+                  <div
             ref={scrollerRef}
             className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 sm:mt-10"
           >
             {items.map((item) => (
               <figure
                 key={item.id}
-                className="card flex w-[82%] shrink-0 snap-start flex-col sm:w-[calc(50%-0.5rem)]"
+                className="flex w-[85%] shrink-0 snap-start flex-col border-2 border-ink bg-white p-6 sm:w-[calc(50%-0.5rem)] sm:p-8"
               >
-                <Quote size={20} className="text-accent-text/70" />
-                <blockquote className="mt-4 text-sm leading-relaxed text-foreground sm:text-[15px]">
+                <Quote size={26} className="fill-accent text-ink" aria-hidden />
+                <blockquote className="mt-5 text-[17px] leading-relaxed text-foreground">
                   “{lang === "en" ? item.quoteEn ?? item.quote : item.quote}”
                 </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-ink/[0.08] pt-4">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-ink/[0.08] bg-ink/[0.04] text-xs font-semibold text-accent-text">
+                <figcaption className="mt-5 flex items-center gap-3 border-t-2 border-ink pt-4">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden bg-accent text-sm font-bold text-ink">
                     {item.imageUrl ? (
                       /* eslint-disable-next-line @next/next/no-img-element */
                       <img
@@ -91,7 +88,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
                     )}
                   </span>
                   <span>
-                    <span className="block font-display text-sm font-semibold text-foreground">
+                    <span className="block text-[15px] font-bold text-foreground">
                       {item.name}
                     </span>
                     <span className="block text-xs text-foreground-muted">
@@ -107,7 +104,6 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
               </figure>
             ))}
           </div>
-        </Reveal>
 
         {/* controles móvil */}
         {items.length > 1 && (
@@ -116,7 +112,7 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
               type="button"
               onClick={() => scroll(-1)}
               aria-label="Anterior"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-accent hover:text-accent-text"
+              className="flex h-10 w-10 items-center justify-center border-2 border-ink text-foreground transition-colors hover:bg-ink hover:text-background"
             >
               <ArrowLeft size={18} />
             </button>
@@ -124,24 +120,22 @@ export function Testimonials({ items }: { items: TestimonialItem[] }) {
               type="button"
               onClick={() => scroll(1)}
               aria-label="Siguiente"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-accent/10 text-accent-text transition-colors hover:bg-accent hover:text-ink"
+              className="flex h-10 w-10 items-center justify-center border-2 border-ink bg-ink text-background transition-colors hover:bg-accent hover:text-ink"
             >
               <ArrowRight size={18} />
             </button>
           </div>
         )}
 
-        <Reveal delay={0.1}>
-          <div className="mt-8 text-center">
+                  <div className="mt-8 text-center">
             <Link
               href="/testimonios"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-foreground underline underline-offset-4 hover:text-accent-text"
             >
               {t.addCta}
               <ArrowRight size={15} />
             </Link>
           </div>
-        </Reveal>
       </div>
     </section>
   );
