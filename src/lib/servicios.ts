@@ -39,9 +39,9 @@ type Servicio = {
 };
 
 const PRECIO_ES =
-  "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 € y hay un retainer mensual opcional de mantenimiento. El precio exacto se confirma tras el diagnóstico gratuito, no antes.";
+  "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 € y hay un retainer mensual opcional de mantenimiento. El precio exacto se confirma tras la consultoría gratuita, no antes.";
 const PRECIO_EN =
-  "It depends on scope: discovery starts at €1,500, a full build runs from €5,000 to €25,000, and there is an optional monthly maintenance retainer. The exact price is confirmed after the free diagnosis, not before.";
+  "It depends on scope: discovery starts at €1,500, a full build runs from €5,000 to €25,000, and there is an optional monthly maintenance retainer. The exact price is confirmed after the free consultation, not before.";
 
 export const SERVICIOS: Record<string, Servicio> = {
   "automatizacion-procesos-ia": {

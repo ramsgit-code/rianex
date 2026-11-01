@@ -33,3 +33,6 @@ yarn-error.log*
 
 # UI/UX dev skill (local, no parte de la web)
 .claude/
+.impeccable/decision/
+.impeccable/questions/
+.impeccable/review/

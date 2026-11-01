@@ -13,6 +13,8 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- Tras el rediseño (nov-2026): revisar en GSC la home (title nuevo) a las 2 y 4 semanas, y actualizar el texto de la página de LinkedIn y la base del bot de GHL con "consultoría gratuita" en vez de "diagnóstico gratuito".
+
 - [ ] **Marcar `generate_lead` como evento clave en GA4**: en cuanto llegue
       el primer diagnóstico, Administrar → Eventos → Eventos recientes →
       estrella en `generate_lead` (y en `diagnostico_agendar` si quieres
@@ -117,6 +119,8 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-01 · Rediseño "agencia de automatización con IA": nuevo title/description de la home ("Agencia de automatización con IA para empresas"), H1 nuevo ("Si se repite, se automatiza"), "diagnóstico gratuito" pasa a "consultoría gratuita" en toda la web salvo el blog, JSON-LD con "Consultoría de IA" y "Adopción de IA". Las URLs no cambian. Vigilar en GSC las impresiones de la home las próximas 4 semanas.
 
 - 2026-10-29 · Servicios reenfocados a petición de Ramiro, en español e inglés:
   "Outbound B2B" pasa a ser prospección autónoma en la nube y Go to Market

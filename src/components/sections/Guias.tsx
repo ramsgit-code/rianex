@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
-import { Reveal } from "@/components/Reveal";
+import { home } from "@/lib/home";
 
 // Guias del blog enlazadas desde la home. La primera es el pilar de
 // "automatizacion de procesos con IA", que concentra la mayoria de las
@@ -54,41 +54,38 @@ export function Guias() {
 
   return (
     <section className="relative">
-      <div className="section-wide max-w-3xl lg:max-w-3xl">
-        <Reveal>
-          <p className="tag">{en ? "Guides (in Spanish)" : "Guías"}</p>
-          <h2 className="section-title">
-            {en ? "Before you automate anything" : "Antes de automatizar nada"}
-          </h2>
-        </Reveal>
+      <div className="tape" />
+      <div className="section-wide grid grid-cols-1 gap-10 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <h2 className="section-title">{home[lang].guides.title}</h2>
+          {home[lang].guides.note && <p className="mt-3 text-sm text-muted">{home[lang].guides.note}</p>}
+        </div>
 
-        <Reveal delay={0.04}>
-          <Link href={DESTACADA.href} className="card group mt-8 block">
-            <p className="flex items-start justify-between gap-4 font-display text-lg font-semibold text-foreground transition-colors group-hover:text-accent-text">
+        <div className="lg:col-span-8">
+          <Link href={DESTACADA.href} className="group block border-2 border-ink bg-white p-6 transition-colors hover:bg-accent sm:p-8">
+            <p className="flex items-start justify-between gap-4 font-display text-2xl font-extrabold uppercase leading-tight text-foreground sm:text-3xl">
               {DESTACADA[lang].title}
-              <ArrowUpRight size={18} className="mt-1 shrink-0 text-accent-text" />
+              <ArrowUpRight size={24} aria-hidden className="mt-1 shrink-0" />
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
+            <p className="measure mt-3 leading-relaxed text-foreground-muted group-hover:text-ink">
               {DESTACADA[lang].desc}
             </p>
           </Link>
-        </Reveal>
 
-        <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {GUIAS.map((g, i) => (
-            <li key={g.href} className="h-full">
-              <Reveal delay={0.08 + i * 0.04} className="h-full">
+          <ul className="mt-6 border-b-2 border-ink">
+            {GUIAS.map((g) => (
+              <li key={g.href} className="border-t-2 border-ink">
                 <Link
                   href={g.href}
-                  className="card group flex h-full items-start justify-between gap-3 text-sm font-semibold text-foreground transition-colors hover:text-accent-text"
+                  className="group flex items-center justify-between gap-4 py-4 text-[17px] font-semibold text-foreground transition-colors hover:text-accent-text"
                 >
                   {g[lang]}
-                  <ArrowUpRight size={16} className="mt-0.5 shrink-0 text-accent-text" />
+                  <ArrowUpRight size={18} aria-hidden className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </Link>
-              </Reveal>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

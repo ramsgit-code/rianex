@@ -1,221 +1,88 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
-import { LOGOS } from "@/lib/content";
-import { Reveal } from "@/components/Reveal";
-import { Typewriter } from "@/components/Typewriter";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { home } from "@/lib/home";
+import { ProcessBoard } from "@/components/sections/ProcessBoard";
 
-const Hero3D = dynamic(
-  () => import("@/components/Hero3D").then((m) => m.Hero3D),
-  { ssr: false }
-);
-
-const clientLogos: {
-  src: string;
-  alt: string;
-  h: string;
-  w: number;
-  height: number;
-  href?: string;
-  label?: string;
-}[] = [
-  {
-    src: LOGOS.eventosBarcelona,
-    alt: "EB Eventos Barcelona",
-    h: "h-6 sm:h-9",
-    w: 435,
-    height: 117,
-    href: "https://www.eventosbarcelona.com",
-  },
-  {
-    src: LOGOS.growth4u,
-    alt: "Growth4U",
-    h: "h-3.5 sm:h-5",
-    w: 339,
-    height: 64,
-    href: "https://growth4u.io",
-  },
-  {
-    src: LOGOS.tribeca,
-    alt: "Tribeca Media",
-    h: "h-8 sm:h-11",
-    w: 800,
-    height: 800,
-    href: "https://www.tribecamedia.com",
-    label: "Tribeca Media",
-  },
+// Versiones claras de los logos (la banda es grafito).
+// Solo casos propios de Rianex: Hospital Capilar es de Growth4U y no va aquí.
+const clientLogos = [
+  { src: "/logos/eventos-barcelona.png", alt: "Eventos Barcelona", h: "h-7 sm:h-8", w: 435, height: 117, href: "https://www.eventosbarcelona.com" },
+  { src: "/logos/tribeca.png", alt: "Tribeca Media", h: "h-9 sm:h-10", w: 800, height: 800, href: "https://www.tribecamedia.com" },
+  { src: "/logos/growth4u.png", alt: "Growth4U", h: "h-4 sm:h-[18px]", w: 339, height: 64, href: "https://growth4u.io" },
 ];
 
 export function Hero() {
-  const { c } = useLang();
-  const h = c.hero;
-  const spotRef = useRef<HTMLDivElement>(null);
-  // frase del titular que se está escribiendo: la figura 3D forma su icono
-  const [phrase, setPhrase] = useState(0);
-
-  // el objeto 3D solo se ve en escritorio (ver clase "hidden md:flex" abajo);
-  // con este check evitamos que móvil descargue three.js para nada.
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    const update = () => setIsDesktop(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  const onMove = (e: React.MouseEvent<HTMLElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - r.left;
-    const y = e.clientY - r.top;
-    if (spotRef.current) {
-      spotRef.current.style.background = `radial-gradient(520px circle at ${x}px ${y}px, rgba(199,212,0,0.10), transparent 45%)`;
-    }
-  };
+  const { lang, localize } = useLang();
+  const h = home[lang].hero;
 
   return (
-    <section
-      onMouseMove={onMove}
-      className="relative overflow-hidden pt-20 pb-10 sm:pt-36 md:pt-44 md:pb-20"
-    >
-      {/* spotlight que sigue el cursor */}
-      <div
-        ref={spotRef}
-        className="pointer-events-none absolute inset-0 z-0 hidden md:block"
-      />
-      <div className="pointer-events-none absolute left-1/2 top-0 z-0 h-72 w-[36rem] max-w-full -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
+    <section className="relative pt-[4.5rem] sm:pt-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 pb-12 pt-10 sm:px-8 sm:pt-14 lg:grid-cols-12 lg:gap-12 lg:px-12 lg:pb-14 lg:pt-14">
+        <div className="lg:col-span-6 xl:col-span-5 xl:pt-2">
+          <h1 className="font-display text-[clamp(3rem,12vw,5.25rem)] lg:text-[clamp(3.5rem,5.6vw,5.25rem)] font-extrabold uppercase leading-[0.86] tracking-[-0.015em] text-foreground">
+            <span className="block">{h.title[0]}</span>
+            <span className="mt-2 inline-block bg-accent px-2 pb-1 sm:px-2.5">{h.title[1]}</span>
+          </h1>
 
-      <div className="section-wide relative z-10 !py-0">
-        {/* primera pantalla: titular + objeto 3D + clientes (abajo) */}
-        <div className="flex min-h-[calc(100svh-7rem)] flex-col sm:min-h-[calc(100svh-8rem)] md:min-h-[calc(100svh-10rem)]">
-          <div className="flex flex-1 flex-col justify-center gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-14">
-            <div>
-              <Reveal priority>
-                {/* El H1 es la frase fija que dice qué hacemos. El titular grande rota y
-                    lleva copias invisibles para reservar alto: como H1 le daba a Google
-                    cuatro frases pegadas en vez de un titular. */}
-                <h1 className="tag uppercase tracking-wider">{h.eyebrow}</h1>
-              </Reveal>
+          <p className="measure mt-7 text-pretty text-lg leading-relaxed text-foreground-muted">
+            {h.lead}
+          </p>
 
-              <Reveal priority delay={0.05}>
-                {/* titular rotativo: una copia invisible de cada frase en la misma celda reserva
-                    el alto de la más larga, para que la página no salte al cambiar de frase */}
-                <p
-                  className="grid max-w-2xl text-balance font-display text-[clamp(2.25rem,11vw,3rem)] font-semibold leading-[1.03] tracking-tight text-foreground sm:text-6xl sm:leading-[1.0] lg:text-7xl"
-                >
-                  {h.titleRotating.map((t) => (
-                    <span key={t} aria-hidden className="invisible col-start-1 row-start-1">
-                      {h.titlePre}
-                      <span className="gradient-text">{t}</span>
-                      <span className="ml-0.5 inline-block w-[3px]" />
-                      {h.titlePost}
-                    </span>
-                  ))}
-                  <span aria-hidden className="col-start-1 row-start-1">
-                    {h.titlePre}
-                    <Typewriter
-                      key={h.titleRotating[0]}
-                      texts={h.titleRotating}
-                      className="gradient-text"
-                      onIndexChange={setPhrase}
-                    />
-                    {h.titlePost}
-                  </span>
-                  <span className="sr-only">
-                    {`${h.titlePre}${h.titleRotating[0]}${h.titlePost}`}
-                  </span>
-                </p>
-              </Reveal>
-
-              <Reveal priority delay={0.1}>
-                <div className="mt-9 flex flex-wrap items-center gap-3">
-                  <Link href="/diagnostico" className="btn-primary">
-                    {h.ctaPrimary}
-                    <ArrowRight size={16} />
-                  </Link>
-                  <Link href="#servicios" className="btn-secondary">
-                    {h.ctaSecondary}
-                  </Link>
-                </div>
-                <p className="mt-4 text-sm text-muted">{h.note}</p>
-
-                {/* prueba junto al cta: resultado real, no generico */}
-                <div className="mt-6 inline-flex items-center gap-3 rounded-xl border border-ink/[0.08] bg-ink/[0.02] py-2.5 pl-3 pr-4">
-                  <span className="font-display text-lg font-bold text-accent-text">
-                    {h.proofMetric}
-                  </span>
-                  <span className="h-6 w-px bg-ink/10" />
-                  <span className="text-xs leading-tight text-foreground-muted">
-                    {h.proofLabel}
-                    <br />
-                    <span className="font-medium text-foreground">{h.proofClient}</span>
-                  </span>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* objeto 3D interactivo (solo escritorio, para mantener el móvil ligero) */}
-            <Reveal priority delay={0.12} className="hidden md:flex md:justify-center">
-              <div className="relative h-[380px] w-[380px] lg:h-[460px] lg:w-[460px]">
-                {isDesktop && (
-                  <ErrorBoundary>
-                    <Hero3D shape={phrase} />
-                  </ErrorBoundary>
-                )}
-              </div>
-            </Reveal>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <Link href={localize("/diagnostico")} className="btn-primary">
+              {h.ctaPrimary}
+              <ArrowRight size={17} aria-hidden />
+            </Link>
+            <Link href="#que-automatizamos" className="btn-secondary">
+              {h.ctaSecondary}
+            </Link>
           </div>
+          <p className="mt-4 text-sm text-muted">{h.note}</p>
+        </div>
 
-          {/* clientes — anclados al fondo de la primera pantalla */}
-          <Reveal delay={0.16}>
-            <div className="mt-10 border-t border-ink/[0.08] pt-7 sm:mt-14 sm:pt-8">
-              <p className="mb-5 text-xs uppercase tracking-wider text-muted">
-                {h.logosLabel}
-              </p>
-              <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-5 sm:justify-start sm:gap-x-10 sm:gap-y-6">
-                {clientLogos.map((logo) => {
-                  const inner = (
-                    <span className="flex flex-col items-center gap-1.5">
-                      <Image
-                        src={logo.src}
-                        alt={logo.alt}
-                        width={logo.w}
-                        height={logo.height}
-                        className={`${logo.h} w-auto object-contain opacity-60 transition-opacity duration-300 group-hover:opacity-100`}
-                      />
-                      {logo.label && (
-                        <span className="text-[10px] uppercase tracking-wider text-muted transition-colors group-hover:text-foreground-muted">
-                          {logo.label}
-                        </span>
-                      )}
-                    </span>
-                  );
-                  return logo.href ? (
-                    <a
-                      key={logo.alt}
-                      href={logo.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={logo.alt}
-                      className="group inline-flex"
-                    >
-                      {inner}
-                    </a>
-                  ) : (
-                    <span key={logo.alt} className="group inline-flex">
-                      {inner}
-                    </span>
-                  );
-                })}
+        <div className="lg:col-span-6 xl:col-span-7">
+          <ProcessBoard tasks={h.tasks} lanes={h.lanes} label={h.boardLabel} hoursLabel={h.hoursLabel} />
+        </div>
+      </div>
+
+      {/* banda de prueba: resultado real de un caso propio */}
+      <div className="bg-ink text-background">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-6 sm:px-8 lg:flex-row lg:items-center lg:gap-12 lg:px-12">
+          <dl className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+            {h.proof.map((p) => (
+              <div key={p.metric} className="flex items-baseline gap-3">
+                <dt className="font-display text-4xl font-extrabold tabular-nums text-accent">{p.metric}</dt>
+                <dd className="max-w-[16rem] text-sm leading-snug text-background/80">
+                  {p.label} <span className="font-semibold text-background">· {h.proofClient}</span>
+                </dd>
               </div>
-            </div>
-          </Reveal>
+            ))}
+          </dl>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-background/15 pt-5 lg:ml-auto lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <span className="sr-only">{h.logosLabel}</span>
+            {clientLogos.map((logo) => (
+              <a
+                key={logo.alt}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={logo.alt}
+                className="opacity-70 transition-opacity hover:opacity-100"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={logo.w}
+                  height={logo.height}
+                  className={`${logo.h} w-auto object-contain`}
+                />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

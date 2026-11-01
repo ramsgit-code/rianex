@@ -1,35 +1,32 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { Plus } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
-import { Reveal } from "@/components/Reveal";
+import { home } from "@/lib/home";
 
 export function Faq() {
-  const { c } = useLang();
+  const { c, lang } = useLang();
   const f = c.faq;
 
   return (
     <section className="relative">
-      <div className="section-wide max-w-3xl lg:max-w-3xl">
-        <Reveal>
-          <p className="tag">{f.tag}</p>
-          <h2 className="section-title">{f.title}</h2>
-        </Reveal>
+      <div className="tape" />
+      <div className="section-wide grid grid-cols-1 gap-10 lg:grid-cols-12">
+        <h2 className="section-title lg:col-span-4">{home[lang].faqTitle}</h2>
 
-        <div className="mt-8 flex flex-col gap-3">
-          {f.items.map((item, i) => (
-            <Reveal key={item.q} delay={i * 0.04}>
-              <details className="card group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-semibold text-foreground">
-                  {item.q}
-                  <ChevronDown
-                    size={18}
-                    className="shrink-0 text-muted transition-transform duration-200 group-open:rotate-180"
-                  />
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-foreground-muted">{item.a}</p>
-              </details>
-            </Reveal>
+        <div className="border-b-2 border-ink lg:col-span-8">
+          {f.items.map((item) => (
+            <details key={item.q} className="group border-t-2 border-ink [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-5 text-lg font-semibold text-foreground transition-colors hover:text-accent-text">
+                {item.q}
+                <Plus
+                  size={22}
+                  aria-hidden
+                  className="mt-0.5 shrink-0 transition-transform duration-300 group-open:rotate-45"
+                />
+              </summary>
+              <p className="measure pb-6 text-[16px] leading-relaxed text-foreground-muted">{item.a}</p>
+            </details>
           ))}
         </div>
       </div>

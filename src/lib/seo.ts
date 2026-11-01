@@ -30,14 +30,14 @@ type PageCopy = { title: string; description: string };
 const PAGES: Record<string, Record<Lang, PageCopy>> = {
   "/": {
     es: {
-      title: "Automatiza los procesos de tu empresa con IA",
+      title: "Agencia de automatización con IA para empresas",
       description:
-        "Para empresas que quieren automatizar con IA el trabajo repetitivo: datos, correos, informes, propuestas y seguimiento, con Claude, n8n, Make o Zapier y tu CRM.",
+        "Agencia de automatización con IA: consultoría gratuita para ver qué procesos automatizar y acompañamiento para implantarlo y adoptar la IA en tu empresa.",
     },
     en: {
-      title: "Automate your company's processes with AI",
+      title: "AI automation agency for companies",
       description:
-        "For companies that want AI to take over repetitive work: data entry, email, reports, proposals and follow-up, with Claude, n8n, Make or Zapier and your CRM.",
+        "AI automation agency: a free consultation to find which processes to automate, and hands-on support to implement it and adopt AI in your company.",
     },
   },
   "/servicios": {
@@ -114,9 +114,9 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
   },
   "/diagnostico": {
     es: {
-      title: "Diagnóstico gratuito de automatización con IA",
+      title: "Consultoría gratuita de automatización con IA",
       description:
-        "Diagnóstico gratuito de 30 minutos. Analizamos tus procesos y te decimos qué automatizar con IA, integrar o migrar primero.",
+        "Consultoría gratuita de 30 minutos. Analizamos tus procesos y te decimos qué automatizar con IA, integrar o migrar primero.",
     },
     en: {
       title: "Free AI automation assessment",

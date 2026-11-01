@@ -9,54 +9,38 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#FBFBF8",
-        surface: "#F2F2ED",
-        "surface-2": "#EAEAE2",
-        ink: "#12130F",
-        border: "#E2E2D8",
-        accent: "#C7D400", // lima industrial — antes #e8ff00, bajado de saturacion para leer solido sobre claro
-        "accent-hover": "#AFBB00",
-        "accent-soft": "#9BA600",
-        // version oscura del acento, solo para TEXTO/iconos sobre claro: el lima puro
-        // no llega a 4.5:1 de contraste sobre el fondo (~1.6:1) y queda ilegible
-        "accent-text": "#6B7300",
-        // tonos solo para el fondo aurora/mesh (no UI)
-        aurora1: "#C7D400",
-        aurora2: "#7c5cff",
-        aurora3: "#19e3b1",
-        muted: "#8A8D80",
-        foreground: "#12130F",
-        "foreground-muted": "#54564C",
-        // seccion de contraste oscura (usar con poca frecuencia)
-        contrast: "#12130F",
-        "contrast-foreground": "#FBFBF8",
+        // Planta Lean: suelo de hormigón claro, grafito, cinta amarilla de
+        // seguridad como estructura y luces andon (verde/rojo) solo para estado.
+        background: "#ECEDEA",
+        surface: "#E3E4E0",
+        "surface-2": "#D8DAD4",
+        ink: "#16181B",
+        border: "#C9CBC4",
+        accent: "#FFC20E", // cinta de suelo: fondos y bandas, nunca texto sobre claro
+        "accent-hover": "#F2B400",
+        "accent-soft": "#E0A800",
+        // ámbar oscuro para TEXTO/iconos sobre claro (el amarillo no llega a 4.5:1)
+        "accent-text": "#7A5600",
+        go: "#1E9E5A", // andon verde: automatizado
+        "go-text": "#16733F",
+        stop: "#D7392B", // andon rojo: manual / parado
+        muted: "#5F6267",
+        foreground: "#16181B",
+        "foreground-muted": "#3E4147",
+        contrast: "#16181B",
+        "contrast-foreground": "#ECEDEA",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: [
-          "var(--font-space-grotesk)",
-          "var(--font-inter)",
-          "system-ui",
-          "sans-serif",
-        ],
+        sans: ["var(--font-archivo)", "system-ui", "sans-serif"],
+        display: ["var(--font-archivo)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       boxShadow: {
-        glow: "0 12px 32px -8px rgba(18,19,15,0.18)",
-        "glow-sm": "0 6px 18px -6px rgba(18,19,15,0.16)",
-        "glow-violet": "0 0 60px -16px rgba(124,92,255,0.35)",
-        glass:
-          "inset 0 1px 0 0 rgba(255,255,255,0.6), 0 8px 40px -14px rgba(18,19,15,0.12)",
-      },
-      backgroundImage: {
-        grid: "linear-gradient(to right, rgba(18,19,15,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(18,19,15,0.06) 1px, transparent 1px)",
-        "radial-fade":
-          "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(199,212,0,0.14), transparent 70%)",
-        shimmer:
-          "linear-gradient(110deg, transparent 30%, rgba(18,19,15,0.06) 50%, transparent 70%)",
-      },
-      backgroundSize: {
-        grid: "56px 56px",
+        // sin sombras decorativas: el mundo es plano. Se conservan los nombres
+        // porque el panel admin los usa.
+        glow: "0 1px 0 0 rgba(22,24,27,0.08)",
+        "glow-sm": "0 1px 0 0 rgba(22,24,27,0.08)",
+        glass: "0 1px 0 0 rgba(22,24,27,0.08)",
       },
       animation: {
         "fade-up": "fadeUp 0.6s ease-out forwards",

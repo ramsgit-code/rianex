@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Archivo, JetBrains_Mono } from "next/font/google";
 import { PublicLayout } from "@/components/PublicLayout";
 import type { Lang } from "@/lib/i18n";
 
@@ -7,16 +7,12 @@ import type { Lang } from "@/lib/i18n";
 // se corregia al hidratar, que es tarde para los rastreadores que no ejecutan
 // JavaScript. Los dos montan este mismo documento.
 
-const inter = Inter({
+// Archivo con eje de anchura: condensada para los rótulos (titulares) y
+// normal para el texto, una sola familia como la señalética de una planta.
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-space-grotesk",
+  axes: ["wdth"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -52,7 +48,7 @@ export function RootDocument({ lang, children }: { lang: Lang; children: React.R
   return (
     <html
       lang={lang}
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      className={`${archivo.variable} ${jetbrainsMono.variable}`}
     >
       {/* Es el <head> del layout raiz, solo que montado desde aqui. */}
       {/* eslint-disable-next-line @next/next/no-head-element */}

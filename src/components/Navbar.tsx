@@ -26,51 +26,53 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 md:pt-4">
-      <div
-        className={`mx-auto flex max-w-5xl items-center justify-between rounded-2xl px-4 py-2.5 transition-all duration-300 md:px-5 ${
-          scrolled
-            ? "border border-ink/[0.06] bg-background/90 shadow-glass backdrop-blur-xl"
-            : "border border-transparent bg-transparent"
-        }`}
-      >
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b-[6px] border-accent bg-background transition-colors duration-300 ${
+        scrolled ? "bg-background/95 backdrop-blur-sm" : ""
+      }`}
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:h-[4.5rem] sm:px-8 lg:px-12">
         <Link href={localize("/")} className="flex items-center" aria-label="Rianex">
           <Image
             src="/logos/rianex-mark-dark.png"
             alt="Rianex"
             width={1145}
             height={253}
-            sizes="120px"
+            sizes="130px"
             priority
-            className="h-[18px] w-auto sm:h-5"
+            className="h-5 w-auto sm:h-[22px]"
           />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={localize(l.href)}
-              className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
-                pathname === l.href
-                  ? "text-foreground"
-                  : "text-foreground-muted hover:bg-ink/[0.04] hover:text-foreground"
-              }`}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {links.map((l) => {
+            const active = pathname === localize(l.href);
+            return (
+              <Link
+                key={l.href}
+                href={localize(l.href)}
+                aria-current={active ? "page" : undefined}
+                className={`px-3 py-2 text-[15px] font-medium transition-colors ${
+                  active
+                    ? "text-foreground underline decoration-accent decoration-[3px] underline-offset-[10px]"
+                    : "text-foreground-muted hover:text-foreground"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
           <button
             onClick={toggle}
             aria-label={c.nav.switchLabel}
-            className="ml-1 inline-flex items-center gap-1.5 rounded-lg border border-ink/[0.08] px-2.5 py-1.5 text-xs font-medium text-foreground-muted transition-colors hover:border-ink/20 hover:text-foreground"
+            className="ml-2 inline-flex h-9 items-center gap-1.5 border-2 border-ink px-2.5 text-xs font-bold text-foreground transition-colors hover:bg-ink hover:text-background"
           >
-            <Languages size={14} />
+            <Languages size={14} aria-hidden />
             {c.nav.switchTo}
           </button>
-          <Link href={localize("/diagnostico")} className="btn-primary ml-2 px-4 py-2">
+          <Link href={localize("/diagnostico")} className="btn-tape ml-3 min-h-[2.5rem] px-4 py-2 text-sm">
             {c.nav.cta}
-            <ArrowRight size={15} />
+            <ArrowRight size={15} aria-hidden />
           </Link>
         </nav>
 
@@ -78,13 +80,13 @@ export function Navbar() {
           <button
             onClick={toggle}
             aria-label={c.nav.switchLabel}
-            className="inline-flex items-center gap-1 rounded-lg border border-ink/[0.08] px-2 py-1 text-xs font-medium text-foreground-muted"
+            className="inline-flex h-9 items-center gap-1 border-2 border-ink px-2 text-xs font-bold text-foreground"
           >
-            <Languages size={13} />
+            <Languages size={13} aria-hidden />
             {c.nav.switchTo}
           </button>
           <button
-            className="rounded-lg p-1 text-foreground-muted transition-colors hover:text-foreground"
+            className="inline-flex h-9 w-9 items-center justify-center bg-ink text-background"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
@@ -95,12 +97,12 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="mx-auto mt-2 flex max-w-5xl flex-col gap-1 rounded-2xl border border-ink/[0.08] bg-background/90 p-3 shadow-glass backdrop-blur-xl md:hidden">
+        <div className="border-t-2 border-ink bg-background px-5 pb-6 pt-2 md:hidden">
           {links.map((l) => (
             <Link
               key={l.href}
               href={localize(l.href)}
-              className="rounded-lg px-3 py-2 text-sm text-foreground-muted transition-colors hover:bg-ink/[0.04] hover:text-foreground"
+              className="block border-b border-border py-4 font-display text-2xl font-extrabold uppercase text-foreground"
               onClick={() => setOpen(false)}
             >
               {l.label}
@@ -108,11 +110,11 @@ export function Navbar() {
           ))}
           <Link
             href={localize("/diagnostico")}
-            className="btn-primary mt-1 w-full"
+            className="btn-tape mt-6 w-full"
             onClick={() => setOpen(false)}
           >
             {c.nav.cta}
-            <ArrowRight size={15} />
+            <ArrowRight size={15} aria-hidden />
           </Link>
         </div>
       )}

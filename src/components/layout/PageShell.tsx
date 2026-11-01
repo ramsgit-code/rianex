@@ -12,7 +12,6 @@ type PageShellProps = {
 };
 
 export function PageShell({
-  tag,
   title,
   description,
   children,
@@ -23,23 +22,21 @@ export function PageShell({
 
   return (
     <div className="relative pt-16 sm:pt-24 md:pt-28">
-      {/* glow superior del header */}
-      <div className="pointer-events-none absolute left-1/2 top-16 h-60 w-[34rem] max-w-full -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
-
       <header className={`${widthClass} relative !pb-0`}>
         <Reveal>
-          <p className="tag">{tag}</p>
-          <h1 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.1] tracking-tight text-foreground md:text-5xl">
+          {/* el rótulo de sección (tag) ya no se pinta encima del titular: lo
+              dice el propio H1 y el menú. Se conserva la prop por compatibilidad. */}
+          <h1 className="max-w-4xl text-balance font-display text-5xl font-extrabold uppercase leading-[0.92] tracking-[-0.01em] text-foreground md:text-7xl">
             {title}
           </h1>
           {description && (
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground-muted">
+            <p className="measure mt-6 text-pretty text-lg leading-relaxed text-foreground-muted sm:text-xl">
               {description}
             </p>
           )}
           {showCta && (
             <Link href="/diagnostico" className="btn-primary mt-8">
-              Pide tu diagnóstico gratuito
+              Pide tu consultoría gratuita
               <ArrowRight size={16} />
             </Link>
           )}

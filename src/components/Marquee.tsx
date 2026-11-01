@@ -1,46 +1,39 @@
 "use client";
 
 import { useLang } from "@/components/LanguageProvider";
+import { home } from "@/lib/home";
 
 const ITEMS = [
   "Claude",
+  "OpenAI",
   "n8n",
   "Make",
   "Zapier",
-  "OpenAI",
   "GoHighLevel",
   "HubSpot",
   "Clay",
   "Instantly",
   "Valley",
-  "LinkedIn",
   "WhatsApp",
-  "Koibox",
+  "Vapi",
   "API · MCP",
 ];
 
+// Herramientas: una línea de rótulos, sin animación. Es contexto, no espectáculo.
 export function Marquee() {
   const { lang } = useLang();
-  const label =
-    lang === "en" ? "Integrated with" : "Se integra con";
 
   return (
-    <section className="relative border-y border-ink/[0.06] py-8">
-      <p className="mb-5 text-center text-xs uppercase tracking-[0.2em] text-muted">
-        {label}
-      </p>
-      <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
-        <div className="flex w-max animate-marquee items-center gap-10 pr-10">
-          {[...ITEMS, ...ITEMS].map((item, i) => (
-            <span
-              key={i}
-              className="flex shrink-0 items-center gap-10 text-lg font-medium text-foreground-muted"
-            >
-              {item}
-              <span className="h-1.5 w-1.5 rounded-full bg-accent/40" />
-            </span>
+    <section className="border-y-2 border-ink bg-background">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 sm:px-8 lg:flex-row lg:items-center lg:gap-10 lg:px-12">
+        <p className="shrink-0 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
+          {home[lang].tools}
+        </p>
+        <ul className="flex flex-wrap gap-x-6 gap-y-2 text-[17px] font-semibold text-foreground-muted">
+          {ITEMS.map((item) => (
+            <li key={item}>{item}</li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

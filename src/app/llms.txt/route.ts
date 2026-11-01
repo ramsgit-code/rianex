@@ -96,7 +96,7 @@ export async function GET() {
 - [Casos de éxito](${BASE_URL}/casos-de-exito): implantaciones reales con su resultado
 - [Testimonios](${BASE_URL}/testimonios): opiniones de clientes
 - [Sobre mí](${BASE_URL}/sobre-mi): Ramiro Pérez Rodero, quién está detrás
-- [Diagnóstico gratuito](${BASE_URL}/diagnostico): formulario de 30 minutos
+- [Consultoría gratuita](${BASE_URL}/diagnostico): formulario de 30 minutos
 - [Blog](${BASE_URL}/blog): ${posts.length} artículos sobre automatización con IA
 
 La web está también en inglés bajo ${BASE_URL}/en.`);
@@ -127,7 +127,7 @@ La web está también en inglés bajo ${BASE_URL}/en.`);
   }
 
   secciones.push(`## Contacto
-- [Diagnóstico gratuito](${BASE_URL}/diagnostico)
+- [Consultoría gratuita](${BASE_URL}/diagnostico)
 - Correo: hola@rianex.es`);
 
   return new Response(secciones.join("\n\n") + "\n", {
