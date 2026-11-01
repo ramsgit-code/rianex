@@ -43,7 +43,7 @@ const LABELS = {
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+    <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">
       {children}
     </h2>
   );
@@ -118,8 +118,8 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
           </Link>
 
           <Reveal>
-            <section className="card border-accent/30 bg-accent/[0.04]">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-accent-text">
+            <section className="bg-accent p-6 text-ink sm:p-8">
+              <p className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">
                 {t.answer}
               </p>
               <p className="mt-3 text-lg leading-relaxed text-foreground">{d.answer}</p>
@@ -132,7 +132,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
               <div className="mt-6 grid gap-5 sm:grid-cols-2">
                 {d.pains.map((p) => (
                   <div key={p.title} className="card">
-                    <h3 className="font-display text-lg font-semibold text-foreground">{p.title}</h3>
+                    <h3 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">{p.title}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{p.desc}</p>
                   </div>
                 ))}
@@ -148,7 +148,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
                   <li key={a.title} className="card flex gap-4">
                     <span className="font-mono text-xs text-accent-text">0{i + 1}</span>
                     <div>
-                      <h3 className="font-display font-semibold text-foreground">{a.title}</h3>
+                      <h3 className="font-semibold text-foreground">{a.title}</h3>
                       <p className="mt-1 text-sm leading-relaxed text-foreground-muted">{a.desc}</p>
                     </div>
                   </li>
@@ -160,7 +160,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
           {d.care && (
             <Reveal>
               <section className="card">
-                <h2 className="flex items-center gap-2 font-display text-lg font-semibold text-foreground">
+                <h2 className="flex items-center gap-2 font-display text-2xl font-extrabold uppercase leading-none text-foreground">
                   <AlertTriangle size={18} className="text-accent-text" />
                   {d.care.title}
                 </h2>
@@ -179,7 +179,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
           <Reveal>
             <section className="grid gap-5 md:grid-cols-[1.4fr_1fr]">
               <div className="card">
-                <h2 className="font-display text-lg font-semibold text-foreground">{d.metricsTitle}</h2>
+                <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">{d.metricsTitle}</h2>
                 <ul className="mt-3 flex flex-col gap-2.5">
                   {d.metrics.map((m) => (
                     <li key={m} className="flex items-start gap-2.5 text-sm leading-relaxed text-foreground-muted">
@@ -190,7 +190,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
                 </ul>
               </div>
               <div className="card">
-                <h2 className="font-display text-lg font-semibold text-foreground">{t.timeline}</h2>
+                <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">{t.timeline}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-foreground-muted">{d.timeline}</p>
               </div>
             </section>
@@ -199,7 +199,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
           {caso && (
             <Reveal>
               <section className="card">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-accent-text">
+                <p className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">
                   {t.caseLabel} · {caso.sector}
                 </p>
                 <h2 className="mt-2 font-display text-2xl font-semibold text-foreground">
@@ -208,17 +208,17 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
                 </h2>
                 <div className="mt-5 grid gap-6 md:grid-cols-2">
                   <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">{t.challenge}</h3>
+                    <h3 className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">{t.challenge}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{caso.challenge}</p>
                   </div>
                   <div>
-                    <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">{t.solution}</h3>
+                    <h3 className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">{t.solution}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{caso.solution}</p>
                   </div>
                 </div>
                 <Link
                   href={href(`/casos-de-exito/${caso.slug}`)}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text"
                 >
                   {t.readCase}
                   <ArrowRight size={15} />
@@ -230,10 +230,10 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
           <Reveal>
             <section>
               <SectionTitle>{t.faq}</SectionTitle>
-              <div className="mt-6 flex flex-col divide-y divide-ink/[0.08] border-y border-ink/[0.08]">
+              <div className="mt-6 flex flex-col divide-y divide-ink border-y-2 border-ink">
                 {d.faqs.map((f) => (
                   <div key={f.q} className="py-5">
-                    <h3 className="font-display text-base font-semibold text-foreground">{f.q}</h3>
+                    <h3 className="text-lg font-semibold text-foreground">{f.q}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-foreground-muted">{f.a}</p>
                   </div>
                 ))}
@@ -248,7 +248,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
                 {servicios.map((s) => (
                   <li key={s.slug}>
                     <Link href={href(`/servicios/${s.slug}`)} className="card group block h-full">
-                      <h3 className="font-display font-semibold text-foreground group-hover:text-accent-text">
+                      <h3 className="font-semibold text-foreground group-hover:text-accent-text">
                         {s.title}
                       </h3>
                       <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{s.tagline}</p>
@@ -267,7 +267,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
                   {posts.map((p) => (
                     <li key={p.slug}>
                       <Link href={`/blog/${p.slug}`} className="card group block h-full">
-                        <h3 className="font-display font-semibold text-foreground group-hover:text-accent-text">
+                        <h3 className="font-semibold text-foreground group-hover:text-accent-text">
                           {p.title}
                         </h3>
                         <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{p.description}</p>
@@ -279,18 +279,6 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
             </Reveal>
           )}
 
-          <Reveal>
-            <section className="card flex flex-col items-start gap-4 border-accent/30 bg-accent/[0.04] sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="font-display text-xl font-semibold text-foreground">{c.pageCta.title}</h2>
-                <p className="mt-1 text-sm text-foreground-muted">{c.pageCta.subtitle}</p>
-              </div>
-              <Link href={href("/diagnostico")} className="btn-primary shrink-0">
-                {c.pageCta.button}
-                <ArrowRight size={16} />
-              </Link>
-            </section>
-          </Reveal>
         </div>
       </PageShell>
     </>

@@ -156,23 +156,23 @@ export function CalculadoraView({ lang }: { lang: Lang }) {
           <Reveal>
             <section className="grid gap-8 md:grid-cols-2">
               <div>
-                <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">{t.howTitle}</h2>
+                <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">{t.howTitle}</h2>
                 <ul className="mt-4 flex flex-col gap-3">
                   {t.how.map((x) => (
                     <li key={x} className="font-mono text-[13px] leading-relaxed text-foreground-muted">{x}</li>
                   ))}
                 </ul>
-                <h2 className="mt-8 font-display text-xl font-semibold tracking-tight text-foreground">{t.defaultsTitle}</h2>
+                <h2 className="mt-8 font-display text-2xl font-extrabold uppercase leading-none tracking-tight text-foreground">{t.defaultsTitle}</h2>
                 <p className="mt-3 leading-relaxed text-foreground-muted">{t.defaults}</p>
               </div>
               <div>
-                <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">{t.whyTitle}</h2>
+                <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">{t.whyTitle}</h2>
                 <p className="mt-4 leading-relaxed text-foreground-muted">{t.why}</p>
                 <Link
                   href={href("/servicios/embudo-de-captacion")}
                   className="card group mt-6 block"
                 >
-                  <span className="font-display font-semibold text-foreground group-hover:text-accent-text">
+                  <span className="font-semibold text-foreground group-hover:text-accent-text">
                     {t.servicesLink} <ArrowRight size={15} className="inline" />
                   </span>
                   <span className="mt-1 block text-sm text-foreground-muted">{t.servicesText}</span>
@@ -183,11 +183,11 @@ export function CalculadoraView({ lang }: { lang: Lang }) {
 
           <Reveal>
             <section>
-              <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">{t.faqTitle}</h2>
-              <div className="mt-6 flex flex-col divide-y divide-ink/[0.08] border-y border-ink/[0.08]">
+              <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">{t.faqTitle}</h2>
+              <div className="mt-6 flex flex-col divide-y divide-ink border-y-2 border-ink">
                 {t.faqs.map((f) => (
                   <div key={f.q} className="py-5">
-                    <h3 className="font-display text-base font-semibold text-foreground">{f.q}</h3>
+                    <h3 className="text-lg font-semibold text-foreground">{f.q}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-foreground-muted">{f.a}</p>
                   </div>
                 ))}
@@ -198,12 +198,12 @@ export function CalculadoraView({ lang }: { lang: Lang }) {
           {posts.length > 0 && (
             <Reveal>
               <section>
-                <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">{t.guides}</h2>
+                <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">{t.guides}</h2>
                 <ul className="mt-5 grid gap-4 md:grid-cols-3">
                   {posts.map((p) => (
                     <li key={p.slug}>
                       <Link href={`/blog/${p.slug}`} className="card group block h-full">
-                        <h3 className="font-display font-semibold text-foreground group-hover:text-accent-text">{p.title}</h3>
+                        <h3 className="font-semibold text-foreground group-hover:text-accent-text">{p.title}</h3>
                         <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{p.description}</p>
                       </Link>
                     </li>

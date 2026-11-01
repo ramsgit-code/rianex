@@ -138,9 +138,9 @@ export function renderMarkdown(
       // Tabla GFM: primera fila cabecera, segunda el separador |---|.
       const [head, , ...rows] = table;
       out.push(
-        <div key={`tb-${key++}`} className="my-5 overflow-x-auto rounded-xl border border-ink/[0.08]">
+        <div key={`tb-${key++}`} className="my-5 overflow-x-auto border border-border">
           <table className="w-full min-w-[32rem] border-collapse text-left text-sm">
-            <thead className="bg-ink/[0.03]">
+            <thead className="bg-white">
               <tr>
                 {head.map((cell, i) => (
                   <th key={i} className="px-3 py-2 font-semibold text-foreground">
@@ -151,7 +151,7 @@ export function renderMarkdown(
             </thead>
             <tbody>
               {rows.map((row, r) => (
-                <tr key={r} className="border-t border-ink/[0.08]">
+                <tr key={r} className="border-t border-border">
                   {row.map((cell, i) => (
                     <td key={i} className="px-3 py-2 align-top leading-relaxed text-foreground-muted">
                       {renderInline(cell, porDefecto)}

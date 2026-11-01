@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
-import { Reveal } from "@/components/Reveal";
+import { Label } from "@/components/ui/Label";
 
 export function SolucionesView() {
   const { c, localize } = useLang();
@@ -12,66 +12,43 @@ export function SolucionesView() {
 
   return (
     <PageShell tag={s.tag} title={s.title} description={s.description} wide>
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-        {s.items.map((item, i) => (
-          <Reveal key={item.title} delay={i * 0.05} className="h-full">
-            <article className="card flex h-full flex-col">
-              <span className="tag w-fit">{item.sector}</span>
-              <h2 className="font-display text-lg font-semibold text-foreground">
-                <Link href={localize(`/soluciones/${item.slug}`)} className="hover:text-accent-text">
-                  {item.title}
-                </Link>
-              </h2>
-
-              <div className="mt-4">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                  {s.problemLabel}
-                </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                  {item.pain}
-                </p>
-              </div>
-
-              <div className="mt-4 flex-1">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                  {s.solutionLabel}
-                </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">
-                  {item.solution}
-                </p>
-              </div>
-
-              <Link
-                href={localize(`/soluciones/${item.slug}`)}
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
-              >
-                {s.more}
-                <ArrowRight size={15} />
+      <div className="grid grid-cols-1 border-l-2 border-t-[6px] border-ink border-t-accent md:grid-cols-2">
+        {s.items.map((item) => (
+          <article key={item.title} className="flex flex-col border-b-2 border-r-2 border-ink bg-white p-7 sm:p-9">
+            <span className="tag">{item.sector}</span>
+            <h2 className="mt-2 font-display text-3xl font-extrabold uppercase leading-[0.95] text-foreground">
+              <Link href={localize(`/soluciones/${item.slug}`)} className="hover:text-accent-text">
+                {item.title}
               </Link>
+            </h2>
 
+            <Label className="mt-6">{s.problemLabel.replace(":", "")}</Label>
+            <p className="mt-2 text-[15px] leading-relaxed text-foreground-muted">{item.pain}</p>
+
+            <Label className="mt-5">{s.solutionLabel.replace(":", "")}</Label>
+            <p className="mt-2 flex-1 text-[15px] leading-relaxed text-foreground">{item.solution}</p>
+
+            <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t-2 border-ink pt-5">
+              <Link href={localize(`/soluciones/${item.slug}`)} className="inline-flex items-center gap-1.5 font-semibold text-foreground underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text">
+                {s.more}
+                <ArrowRight size={16} aria-hidden />
+              </Link>
               {"reference" in item && item.reference && (
-                <div className="mt-5 border-t border-ink/[0.08] pt-4">
-                  <span className="text-xs text-muted">
-                    {s.caseLabel} <span className="font-medium text-foreground-muted">{item.reference}</span>
-                  </span>
-                </div>
+                <span className="text-sm text-muted">
+                  {s.caseLabel} <span className="font-semibold text-foreground-muted">{item.reference}</span>
+                </span>
               )}
-            </article>
-          </Reveal>
+            </div>
+          </article>
         ))}
       </div>
 
-      <Reveal delay={0.1}>
-        <div className="mt-10 text-center">
-          <Link
-            href={localize("/casos-de-exito")}
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
-          >
-            {s.link}
-            <ArrowRight size={15} />
-          </Link>
-        </div>
-      </Reveal>
+      <div className="mt-10">
+        <Link href={localize("/casos-de-exito")} className="btn-secondary">
+          {s.link}
+          <ArrowRight size={16} aria-hidden />
+        </Link>
+      </div>
     </PageShell>
   );
 }

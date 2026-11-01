@@ -55,7 +55,7 @@ const LABELS = {
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+    <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">
       {children}
     </h2>
   );
@@ -141,8 +141,8 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
           </div>
 
           <Reveal>
-            <section className="card border-accent/30 bg-accent/[0.04]">
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-accent-text">
+            <section className="bg-accent p-6 text-ink sm:p-8">
+              <p className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">
                 {t.answer}
               </p>
               <p className="mt-3 text-lg leading-relaxed text-foreground">{d.answer}</p>
@@ -158,7 +158,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
                   playsInline
                   preload="none"
                   poster={d.video.poster}
-                  className="mt-5 aspect-video w-full rounded-2xl border border-ink/[0.08] bg-ink/[0.03]"
+                  className="mt-5 aspect-video w-full border border-border bg-white"
                 >
                   <source src={d.video.src} type="video/mp4" />
                 </video>
@@ -177,8 +177,8 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col items-center justify-center rounded-2xl border border-accent/20 bg-accent/[0.05] p-8 text-center">
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted">{t.results}</p>
+              <div className="flex flex-col items-center justify-center border border-ink bg-white p-8 text-center">
+                <p className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">{t.results}</p>
                 <p className="mt-2 font-display text-6xl font-semibold tracking-tight text-accent-text">
                   {ficha.metric}
                 </p>
@@ -194,18 +194,18 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
                 {d.built.map((b, i) => (
                   <li key={b.title} className="card">
                     <span className="font-mono text-xs text-accent-text">0{i + 1}</span>
-                    <h3 className="mt-2 font-display text-lg font-semibold text-foreground">{b.title}</h3>
+                    <h3 className="mt-2 font-display text-2xl font-extrabold uppercase leading-none text-foreground">{b.title}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{b.desc}</p>
                   </li>
                 ))}
               </ol>
               {ficha.stack.length > 0 && (
                 <div className="mt-5 flex flex-wrap items-center gap-1.5">
-                  <span className="mr-1 text-[11px] font-semibold uppercase tracking-wider text-muted">{t.stack}</span>
+                  <span className="mr-1 font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">{t.stack}</span>
                   {ficha.stack.map((tool) => (
                     <span
                       key={tool}
-                      className="rounded-full border border-ink/[0.08] bg-ink/[0.03] px-2.5 py-1 text-[11px] text-foreground-muted"
+                      className="rounded-full border border-border bg-white px-2.5 py-1 text-[11px] text-foreground-muted"
                     >
                       {tool}
                     </span>
@@ -250,7 +250,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
                 {servicios.map((s) => (
                   <li key={s.slug}>
                     <Link href={href(`/servicios/${s.slug}`)} className="card group block h-full">
-                      <h3 className="font-display font-semibold text-foreground group-hover:text-accent-text">
+                      <h3 className="font-semibold text-foreground group-hover:text-accent-text">
                         {s.title}
                       </h3>
                       <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{s.tagline}</p>
@@ -261,7 +261,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
               {sector && d.sector && (
                 <Link
                   href={href(`/soluciones/${d.sector}`)}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:text-ink"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text"
                 >
                   {t.sector}: {sector.h1}
                   <ArrowRight size={15} />
@@ -278,7 +278,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
                   {posts.map((p) => (
                     <li key={p.slug}>
                       <Link href={`/blog/${p.slug}`} className="card group block h-full">
-                        <h3 className="font-display font-semibold text-foreground group-hover:text-accent-text">
+                        <h3 className="font-semibold text-foreground group-hover:text-accent-text">
                           {p.title}
                         </h3>
                         <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{p.description}</p>
@@ -290,18 +290,6 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
             </Reveal>
           )}
 
-          <Reveal>
-            <section className="card flex flex-col items-start gap-4 border-accent/30 bg-accent/[0.04] sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="font-display text-xl font-semibold text-foreground">{c.pageCta.title}</h2>
-                <p className="mt-1 text-sm text-foreground-muted">{c.pageCta.subtitle}</p>
-              </div>
-              <Link href={href("/diagnostico")} className="btn-primary shrink-0">
-                {c.pageCta.button}
-                <ArrowRight size={16} />
-              </Link>
-            </section>
-          </Reveal>
         </div>
       </PageShell>
     </>
