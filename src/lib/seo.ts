@@ -30,12 +30,12 @@ type PageCopy = { title: string; description: string };
 const PAGES: Record<string, Record<Lang, PageCopy>> = {
   "/": {
     es: {
-      title: "Agencia de automatización con IA para empresas",
+      title: "Agencia IA",
       description:
         "Agencia de automatización con IA: agentes que contestan a cada cliente, agendan citas y envían propuestas. Más citas y más ventas sin más horas. Consultoría gratuita.",
     },
     en: {
-      title: "AI automation agency for companies",
+      title: "AI Agency",
       description:
         "AI automation agency: agents that answer every customer, book appointments and send proposals. More appointments and more sales, no extra hours. Free consultation.",
     },
@@ -141,7 +141,8 @@ export function translatedMetadata(
 ): Metadata {
   const localized = localizePath(path, lang);
   const url = `${SITE_URL}${localized === "/" ? "" : localized}`;
-  const fullTitle = `${title} | ${BRAND}`;
+  // La home va con guion ("Agencia IA - Rianex"); el resto, con barra.
+  const fullTitle = localized === "/" || localized === "/en" ? `${title} - ${BRAND}` : `${title} | ${BRAND}`;
 
   return {
     // absolute: el title ya lleva la marca, que el template no la duplique.
@@ -174,7 +175,7 @@ export function rootMetadata(lang: Lang): Metadata {
     ...home,
     metadataBase: new URL(SITE_URL),
     title: {
-      default: `${PAGES["/"][lang].title} | ${BRAND}`,
+      default: `${PAGES["/"][lang].title} - ${BRAND}`,
       template: `%s | ${BRAND}`,
     },
     // Sin canonical: una pagina que no declare el suyo heredaria el de la
