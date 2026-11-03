@@ -127,6 +127,8 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-03 · Aviso de Search Console sobre los datos estructurados de vídeo: `uploadDate` sin zona horaria y con valor no válido. El VideoObject del blog y el de los casos de éxito usaban solo la fecha (`2026-10-08`); ahora llevan fecha, hora y zona horaria (ISO 8601). Falta validar la corrección en GSC: mejoras > Vídeos > Validar corrección.
+
 - 2026-11-03 · Title de la home a petición de Ramiro: "Agencia IA - Rianex" (EN "AI Agency - Rianex"); antes "Agencia de automatización con IA para empresas | Rianex". Pierde la keyword "automatización" en el title; vigilar impresiones de la home en GSC.
 
 - 2026-11-03 · Tres artículos del radar del 2-nov: `gohighlevel-levelup-day-2026-agentes-ia` (novedades del 27-oct con el estado de cada función), `gtm-engineering-no-es-mandar-emails-con-clay` (arquitectura del sistema comercial en seis capas, caso Tribeca) y `agente-de-voz-whatsapp-agenda-citas` (el primer artículo con vídeo propio). El blog admite ahora `video`, `videoPoster` y `videoDuration` en el frontmatter: el vídeo abre el artículo y sale un VideoObject en el JSON-LD.
