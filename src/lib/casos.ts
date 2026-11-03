@@ -25,7 +25,7 @@ export type CasoDetalle = {
   quote?: { text: string; author: string; role: string };
 };
 
-type Video = { src: string; poster: string; /** ISO 8601 */ duration: string; uploadDate: string };
+type Video = { src: string; poster: string; /** ISO 8601 */ duration: string; /** ISO 8601 con zona horaria, lo exige Google */ uploadDate: string };
 
 type Caso = {
   client: CaseClient;
@@ -115,7 +115,7 @@ export const CASOS: Record<string, Caso> = {
       src: "/videos/caso-eventos-barcelona.mp4",
       poster: "/videos/caso-eventos-barcelona.jpg",
       duration: "PT1M13S",
-      uploadDate: "2026-10-08",
+      uploadDate: "2026-10-08T09:00:00+02:00",
     },
     es: {
       seoTitle: "Caso Eventos Barcelona: propuestas en 8 minutos",
@@ -187,7 +187,7 @@ export const CASOS: Record<string, Caso> = {
       src: "/videos/caso-tribeca-media.mp4",
       poster: "/videos/caso-tribeca-media.jpg",
       duration: "PT1M23S",
-      uploadDate: "2026-10-08",
+      uploadDate: "2026-10-08T09:00:00+02:00",
     },
     es: {
       seoTitle: "Caso Tribeca Media: agentes de IA de performance y contenido",

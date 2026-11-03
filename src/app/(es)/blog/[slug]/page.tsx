@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         description: post.description,
         thumbnailUrl: `${SITE_URL}${post.video.poster}`,
         contentUrl: `${SITE_URL}${post.video.src}`,
-        uploadDate: post.publishedAt.toISOString().slice(0, 10),
+        uploadDate: post.publishedAt.toISOString(),
         duration: post.video.duration,
         inLanguage: "es-ES",
       }
