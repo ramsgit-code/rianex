@@ -120,6 +120,8 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-03 · Home con 6 resultados (más ventas con los mismos leads, clientes nuevos, agenda llena, clientes atendidos, cobrar antes, horas devueltas) y "medimos el punto de partida" en la oferta. Falta ficha de servicio propia para cobros/facturas y para el asistente interno; hoy enlazan a automatización de procesos.
+
 - 2026-11-03 · Home enfocada al resultado y no al servicio: H1 "Más clientes, sin más horas", sección "Resultados que entregamos" (agenda llena, más ventas, horas devueltas, ningún cliente perdido), menú "Resultados". El title de la home no cambia (keyword); la description sí. Las URLs no cambian. Las fichas de servicio siguen con el enfoque anterior.
 
 - 2026-11-01 · Rediseño "agencia de automatización con IA": nuevo title/description de la home ("Agencia de automatización con IA para empresas"), H1 nuevo ("Si se repite, se automatiza"), "diagnóstico gratuito" pasa a "consultoría gratuita" en toda la web salvo el blog, JSON-LD con "Consultoría de IA" y "Adopción de IA". Las URLs no cambian. Vigilar en GSC las impresiones de la home las próximas 4 semanas.

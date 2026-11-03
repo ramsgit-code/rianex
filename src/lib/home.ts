@@ -70,7 +70,7 @@ type HomeCopy = {
 const es: HomeCopy = {
   hero: {
     title: ["Más clientes,", "sin más horas."],
-    lead: "Montamos agentes de IA y automatizaciones que contestan a cada cliente, agendan las citas, envían las propuestas y hacen el papeleo. Tú lo notas donde importa: la agenda llena, más ventas cerradas y un equipo que deja de hacer tareas repetidas.",
+    lead: "Montamos agentes de IA y automatizaciones que contestan a cada cliente, llenan la agenda, hacen el seguimiento comercial, persiguen los cobros y se encargan del papeleo. Tú lo notas donde importa: más ventas, cobros a tiempo y un equipo que deja de repetir tareas.",
     ctaPrimary: "Pide tu consultoría gratuita",
     ctaSecondary: "Qué resultados conseguimos",
     note: "30 minutos · Sin coste ni compromiso",
@@ -94,7 +94,7 @@ const es: HomeCopy = {
   },
   offer: {
     title: "Tú pones el objetivo. Nosotros, el sistema.",
-    lead: "No vendemos agentes ni software. Vendemos lo que consiguen: citas en la agenda, propuestas enviadas, clientes atendidos y horas recuperadas. Medimos nuestro trabajo por ese resultado, no por lo que instalamos.",
+    lead: "No vendemos agentes ni software. Vendemos lo que consiguen: citas en la agenda, propuestas enviadas, clientes atendidos y horas recuperadas. Medimos tu punto de partida antes de empezar y te enseñamos el resultado después.",
     steps: [
       {
         kicker: "Paso 1",
@@ -117,7 +117,7 @@ const es: HomeCopy = {
         points: [
           "Agentes de IA y automatizaciones hechos a tu proceso",
           "Conectados a tu CRM, correo, calendario y WhatsApp",
-          "Formación para que el equipo lo use de verdad",
+          "Formación y un asistente interno que responde con los documentos de tu empresa",
           "Seguimiento del resultado, soporte y mejoras",
         ],
       },
@@ -129,52 +129,73 @@ const es: HomeCopy = {
     more: "Cómo lo hacemos",
     items: [
       {
+        name: "Más ventas con los mismos leads",
+        line: "Los contactos que ya tienes, convertidos en clientes.",
+        examples: [
+          "Cada lead recibe respuesta en minutos, también de noche",
+          "Seguimiento automático hasta que dice sí o no",
+          "Contactos antiguos y presupuestos no aceptados, reactivados",
+        ],
+        slugs: ["embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel"],
+      },
+      {
+        name: "Clientes nuevos cada semana",
+        line: "Prospección que no depende de que alguien tenga tiempo.",
+        examples: [
+          "Empresas que encajan contigo, encontradas y contactadas",
+          "Mensajes personalizados y seguimiento sin intervención",
+          "Reuniones en tu calendario, no listas en un Excel",
+        ],
+        slugs: ["outbound-b2b"],
+      },
+      {
         name: "Agenda llena",
         line: "Cada interesado acaba con una cita, sin que nadie coja el teléfono.",
         examples: [
-          "Cada lead recibe respuesta al momento, también de noche",
+          "Ninguna llamada ni mensaje sin contestar, 24/7",
           "La cita queda agendada, confirmada y recordada",
           "Menos huecos vacíos y menos ausencias",
         ],
-        slugs: ["agente-ia-whatsapp", "embudo-de-captacion"],
+        slugs: ["agente-ia-whatsapp"],
       },
       {
-        name: "Más ventas cerradas",
-        line: "Del primer contacto a la propuesta, sin esperas.",
+        name: "Clientes atendidos al momento",
+        line: "Respuesta inmediata sin ampliar el equipo.",
         examples: [
-          "Nuevos clientes potenciales contactados cada semana",
-          "La propuesta sale minutos después de la llamada",
-          "Ningún lead se queda sin seguimiento",
+          "Las preguntas de siempre, resueltas al instante",
+          "Incidencias clasificadas y enviadas a quien toca",
+          "El estado del pedido, sin tener que llamar",
         ],
-        slugs: ["outbound-b2b", "generador-de-propuestas"],
+        slugs: ["agente-ia-whatsapp"],
+      },
+      {
+        name: "Cobrar antes",
+        line: "Facturas al día y menos dinero pendiente.",
+        examples: [
+          "Facturas leídas y registradas sin teclear",
+          "Pagos conciliados con pedidos y extractos",
+          "Recordatorios de cobro que salen solos",
+        ],
+        slugs: ["automatizacion-procesos-ia"],
       },
       {
         name: "Horas devueltas al equipo",
         line: "El trabajo administrativo, hecho sin que nadie lo toque.",
         examples: [
           "Los datos pasan entre herramientas sin copiar y pegar",
+          "Pedidos, contratos y documentos que se preparan solos",
           "El informe del lunes ya está hecho",
-          "Facturas, pedidos y correos ordenados solos",
         ],
-        slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot"],
-      },
-      {
-        name: "Ningún cliente perdido",
-        line: "Sabes qué ha pasado con cada cliente y en qué punto está.",
-        examples: [
-          "Todo el historial del cliente en un solo sitio",
-          "El pipeline a la vista, sin hojas de cálculo",
-          "Cambias de CRM sin perder nada por el camino",
-        ],
-        slugs: ["implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
+        slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
       },
     ],
     test: {
       title: "¿Dónde puedes ganar?",
       items: [
         "tardas horas en contestar a un lead",
-        "se pierden citas o no se confirman",
-        "las propuestas salen días después",
+        "tienes contactos y presupuestos olvidados",
+        "se pierden llamadas o citas",
+        "persigues facturas y cobros a mano",
         "el equipo repite las mismas tareas cada semana",
       ],
     },
@@ -182,10 +203,10 @@ const es: HomeCopy = {
   method: {
     title: "Cómo trabajamos",
     steps: [
-      { name: "Consultoría gratuita", time: "30 min", desc: "Vemos dónde está el resultado más rápido y cuánto vale." },
+      { name: "Consultoría gratuita", time: "30 min", desc: "Vemos dónde está el resultado más rápido, cuánto vale y medimos el punto de partida." },
       { name: "Diseño", time: "Tras la consultoría", desc: "El objetivo, cómo lo vamos a conseguir y el precio, por escrito." },
       { name: "Puesta en marcha", time: "Semana 4", desc: "El primer resultado suele verse en la semana 4." },
-      { name: "Seguimiento", time: "30 días incluidos", desc: "Medimos el resultado, formamos al equipo y ajustamos lo que haga falta." },
+      { name: "Seguimiento", time: "30 días incluidos", desc: "Comparamos con el punto de partida, formamos al equipo y ajustamos lo que haga falta." },
     ],
   },
   cases: {
@@ -210,7 +231,7 @@ const es: HomeCopy = {
 const en: HomeCopy = {
   hero: {
     title: ["More clients,", "no extra hours."],
-    lead: "We build AI agents and automations that answer every customer, book the appointments, send the proposals and handle the paperwork. You see it where it matters: a full calendar, more deals closed and a team that stops doing the same tasks over and over.",
+    lead: "We build AI agents and automations that answer every customer, fill your calendar, run sales follow-up, chase payments and handle the paperwork. You see it where it matters: more sales, payments on time and a team that stops repeating tasks.",
     ctaPrimary: "Book your free consultation",
     ctaSecondary: "Results we deliver",
     note: "30 minutes · Free, no commitment",
@@ -234,7 +255,7 @@ const en: HomeCopy = {
   },
   offer: {
     title: "You set the goal. We build the system.",
-    lead: "We don't sell agents or software. We sell what they achieve: appointments in the calendar, proposals sent, customers answered and hours recovered. We measure our work by that result, not by what we install.",
+    lead: "We don't sell agents or software. We sell what they achieve: appointments in the calendar, proposals sent, customers answered and hours recovered. We measure your starting point before we begin and show you the result afterwards.",
     steps: [
       {
         kicker: "Step 1",
@@ -257,7 +278,7 @@ const en: HomeCopy = {
         points: [
           "AI agents and automations built around your process",
           "Connected to your CRM, email, calendar and WhatsApp",
-          "Training so the team actually uses it",
+          "Training and an internal assistant that answers from your company's documents",
           "Result tracking, support and improvements",
         ],
       },
@@ -269,52 +290,73 @@ const en: HomeCopy = {
     more: "How we do it",
     items: [
       {
+        name: "More sales from the same leads",
+        line: "The contacts you already have, turned into clients.",
+        examples: [
+          "Every lead gets an answer within minutes, at night too",
+          "Automatic follow-up until they say yes or no",
+          "Old contacts and unaccepted quotes, brought back",
+        ],
+        slugs: ["embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel"],
+      },
+      {
+        name: "New clients every week",
+        line: "Prospecting that doesn't depend on someone having time.",
+        examples: [
+          "Companies that fit you, found and contacted",
+          "Personalised messages and follow-up with no one involved",
+          "Meetings in your calendar, not lists in a spreadsheet",
+        ],
+        slugs: ["outbound-b2b"],
+      },
+      {
         name: "A full calendar",
         line: "Every interested lead ends up with an appointment, with no one picking up the phone.",
         examples: [
-          "Every lead gets an instant answer, at night too",
+          "No call or message left unanswered, 24/7",
           "The appointment is booked, confirmed and reminded",
           "Fewer empty slots and fewer no-shows",
         ],
-        slugs: ["agente-ia-whatsapp", "embudo-de-captacion"],
+        slugs: ["agente-ia-whatsapp"],
       },
       {
-        name: "More deals closed",
-        line: "From first contact to proposal, with no waiting.",
+        name: "Customers answered instantly",
+        line: "Instant answers without growing the team.",
         examples: [
-          "New prospects contacted every week",
-          "The proposal goes out minutes after the call",
-          "No lead is left without follow-up",
+          "The usual questions, solved on the spot",
+          "Issues sorted and sent to the right person",
+          "Order status, without having to call",
         ],
-        slugs: ["outbound-b2b", "generador-de-propuestas"],
+        slugs: ["agente-ia-whatsapp"],
+      },
+      {
+        name: "Get paid sooner",
+        line: "Invoices up to date and less money outstanding.",
+        examples: [
+          "Invoices read and recorded with no typing",
+          "Payments matched to orders and statements",
+          "Payment reminders that go out on their own",
+        ],
+        slugs: ["automatizacion-procesos-ia"],
       },
       {
         name: "Hours back for the team",
         line: "Admin work, done without anyone touching it.",
         examples: [
           "Data moves between tools without copy and paste",
+          "Orders, contracts and documents that prepare themselves",
           "Monday's report is already done",
-          "Invoices, orders and emails sorted on their own",
         ],
-        slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot"],
-      },
-      {
-        name: "No client slips through",
-        line: "You know what happened with every client and where they stand.",
-        examples: [
-          "The full client history in one place",
-          "The pipeline in view, no spreadsheets",
-          "Switch CRM without losing anything on the way",
-        ],
-        slugs: ["implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
+        slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
       },
     ],
     test: {
       title: "Where can you gain?",
       items: [
         "it takes you hours to answer a lead",
-        "appointments get lost or go unconfirmed",
-        "proposals go out days later",
+        "you have forgotten contacts and quotes",
+        "calls or appointments get lost",
+        "you chase invoices and payments by hand",
         "the team repeats the same tasks every week",
       ],
     },
@@ -322,10 +364,10 @@ const en: HomeCopy = {
   method: {
     title: "How we work",
     steps: [
-      { name: "Free consultation", time: "30 min", desc: "We find the fastest result and what it is worth." },
+      { name: "Free consultation", time: "30 min", desc: "We find the fastest result, what it is worth, and measure the starting point." },
       { name: "Design", time: "After the consultation", desc: "The goal, how we will reach it and the price, in writing." },
       { name: "Go live", time: "Week 4", desc: "The first result usually shows by week 4." },
-      { name: "Follow-up", time: "30 days included", desc: "We measure the result, train the team and adjust what's needed." },
+      { name: "Follow-up", time: "30 days included", desc: "We compare against the starting point, train the team and adjust what's needed." },
     ],
   },
   cases: {
