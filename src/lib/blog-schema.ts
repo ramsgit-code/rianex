@@ -57,7 +57,15 @@ export const blogFrontmatterSchema = z.object({
   // es nofollow a proposito: si se olvida marcar, no se regala autoridad.
   linkPolicy: z.enum(LINK_POLICIES).default("nofollow"),
   draft: z.boolean().default(false),
-});
+  // Video propio que abre el articulo. Rutas de /public; la duracion va en
+  // ISO 8601 (PT1M12S) porque es lo que pide el VideoObject.
+  video: z.string().regex(/^\/videos\/[\w-]+\.mp4$/, "El video debe ser /videos/<nombre>.mp4").optional(),
+  videoPoster: z.string().regex(/^\/videos\/[\w-]+\.jpg$/, "El poster debe ser /videos/<nombre>.jpg").optional(),
+  videoDuration: z.string().regex(/^PT(\d+M)?\d+S$/, "La duracion debe ir en ISO 8601, p. ej. PT1M12S").optional(),
+}).refine(
+  (d) => !d.video || (d.videoPoster && d.videoDuration),
+  { message: "Un video necesita videoPoster y videoDuration", path: ["video"] }
+);
 
 export type BlogFrontmatter = z.infer<typeof blogFrontmatterSchema>;
 

@@ -1,0 +1,112 @@
+---
+title: "GoHighLevel LevelUp Day 2026: lo nuevo en agentes de IA"
+description: "Lo que GoHighLevel anunció el 27 de octubre para agentes de IA, explicado para pymes: voz en WhatsApp, MCP, versiones, n8n y qué está en beta."
+date: "2026-11-03"
+tags: ["gohighlevel", "agentes de ia", "voice ai", "whatsapp", "mcp", "n8n"]
+cluster: "crm"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+---
+
+El 27 de octubre GoHighLevel celebró su LevelUp Day y publicó de golpe una lista larguísima de novedades. Casi todas las que importan van en la misma dirección: los agentes de IA, de voz y de chat, pasan a ser una pieza central del CRM y no un añadido.
+
+Este resumen es para quien tiene una pyme en España y usa GoHighLevel, o se lo está pensando. Explica qué se anunció, qué está ya disponible y qué está en pruebas, y qué cambia en la práctica.
+
+## La respuesta corta
+
+GoHighLevel anunció que su Voice AI ya **contesta llamadas de WhatsApp** y puede **usar herramientas durante la llamada** (Google Calendar, Stripe o servidores MCP propios), que los agentes de voz tendrán **versiones con vuelta atrás**, que se pueden **clonar a varias subcuentas** y que un panel de **salud del agente** revisa conversaciones reales y propone mejoras del prompt. Además, sus Managed Agents pueden **importar un flujo de n8n** (en beta). Varias de estas funciones están en Labs, la zona de pruebas de GoHighLevel: conviene probarlas antes de poner a un cliente encima.
+
+## Lo que se anunció, por bloques
+
+Todo lo que sigue sale de la [publicación oficial del LevelUp Day 2026](https://www.gohighlevel.com/post/levelup-day-2026-the-next-evolution-of-highlevel-features-and-enhancements). El estado de cada función es el que indica GoHighLevel; si no dice nada, lo marco como "sin indicar".
+
+| Función | Qué hace | Estado |
+|---|---|---|
+| Voice AI en WhatsApp | El agente de voz contesta llamadas de WhatsApp, como receptor principal o de respaldo | Sin indicar |
+| Herramientas MCP en Voice AI | Durante la llamada consulta o actúa en apps conectadas: calendario, cobros, servidores propios | Sin indicar |
+| Versiones del agente de voz | Editar y probar en borrador sin afectar a las llamadas en curso, comparar versiones y volver atrás | Labs |
+| Clonar agentes a subcuentas | Copiar un agente a varias subcuentas a la vez, con sus calendarios, flujos y campos | Sin indicar |
+| Agent Health y self healing | Revisa llamadas y chats reales, prueba un prompt mejor y lo enseña con los cambios marcados antes de aplicarlo | Sin indicar |
+| Constructor por flujos en Conversation AI | Un lienzo visual que reparte la conversación entre agentes especializados | Sin indicar |
+| MCP en Conversation AI | Conectar el bot de chat a más de 40 apps del catálogo o a URLs MCP propias | Labs |
+| Elementos ricos | Botones, listas, imágenes y archivos en WhatsApp, Messenger, Instagram y chat web | Labs |
+| Managed Agents | Webhooks de entrada, memoria y uso de ordenador con aprobación explícita antes de pagar, publicar o exportar datos | Sin indicar |
+| Importar desde n8n | Subir el JSON de un flujo de n8n y convertirlo en un Managed Agent | Beta |
+| Servidor MCP de proyectos | Gestionar tareas de GoHighLevel desde Claude o Cursor | Con registro para beta privada |
+
+No hay precios en el anuncio. Las funciones de IA de GoHighLevel tienen un coste aparte de la suscripción (por uso o con el plan AI Employee), así que antes de activar nada conviene mirar en tu cuenta cuánto cuesta cada minuto de voz o cada conversación.
+
+## Qué cambia para una pyme
+
+### El teléfono de WhatsApp deja de quedarse sin contestar
+
+Muchos clientes en España ya no llaman al fijo: pulsan "llamar" en el WhatsApp de la empresa. Hasta ahora, esa llamada la cogía una persona o no la cogía nadie. Con Voice AI en WhatsApp se puede elegir entre tres modos: que conteste solo el equipo, que conteste solo el agente, o que suene primero al equipo y pase al agente si nadie descuelga en unos segundos.
+
+El tercero es el que más sentido tiene para empezar. El agente no sustituye a la recepción: cubre los huecos (comidas, picos, fuera de horario), que es donde se pierden las citas.
+
+### El agente ya puede hacer cosas, no solo hablar
+
+La diferencia entre un contestador con voz bonita y un agente útil es que el agente pueda **actuar** mientras habla: mirar huecos en la agenda, reservar, cobrar una señal o consultar un pedido. Para eso sirve MCP (Model Context Protocol), el estándar abierto para conectar agentes de IA con otras herramientas. GoHighLevel lo admite ahora en su agente de voz y, en Labs, en el de chat.
+
+En la práctica, el agente puede consultar un sistema que no es GoHighLevel (el ERP, el software de citas de una clínica, el stock de una tienda) si ese sistema tiene un servidor MCP o alguien se lo construye. Ese "alguien se lo construye" es la parte en la que se va el trabajo.
+
+### Por fin hay forma de cambiar un agente sin romperlo
+
+Hasta ahora, retocar el prompt de un agente de voz en producción era tocar en caliente: si algo salía mal, lo descubrías por la queja de un cliente. Con las versiones se edita un borrador, se prueba, se publica y, si empeora, se vuelve a la versión anterior. Es lo mínimo que se le pide a cualquier software en producción y es la novedad que más nos gusta, aunque esté en Labs.
+
+El panel de salud va en la misma línea: revisa conversaciones reales y propone mejoras del prompt, pero las enseña con los cambios marcados para que una persona decida si se aplican. Que lo apruebe una persona no es un trámite: ya explicamos por qué en [agentes de IA con aprobación humana](/blog/agentes-de-ia-con-aprobacion-humana).
+
+### n8n dentro de GoHighLevel, con matices
+
+La importación de flujos de n8n a Managed Agents es la novedad que más ruido ha hecho entre quienes automatizan. Subes el JSON exportado de n8n, GoHighLevel convierte los disparadores en webhooks y la lógica en reglas de decisión, y lo revisas antes de guardarlo.
+
+Está en beta y convierte un flujo determinista (siempre hace lo mismo) en un agente (decide qué hacer). No es lo mismo. Un flujo que mueve facturas o datos de clientes suele estar mejor como flujo que como agente: es más barato, más predecible y más fácil de auditar. Antes de importar nada, pregúntate si ese proceso necesita que alguien decida o solo que alguien ejecute. Lo desarrollamos en [agentes de IA para empresas: cuándo compensan](/blog/agentes-de-ia-para-empresas-cuando-compensan). Y si tu n8n es autoalojado, recuerda que la [versión 3.0 trae sus propios cambios](/blog/n8n-3-que-se-rompe-y-como-prepararte).
+
+### Un buen agente se puede replicar
+
+Clonar un agente a varias subcuentas con sus calendarios, flujos y campos interesa sobre todo a quien tiene varias sedes o franquicias: diseñas el agente una vez, lo pruebas en una sede y lo llevas al resto sin rehacerlo.
+
+## Lo que no ha cambiado
+
+Ninguna de estas funciones decide por ti qué debe hacer el agente, qué no debe hacer nunca y cuándo tiene que pasar la conversación a una persona. Tampoco mide si el agente agenda bien o si está espantando clientes. Las plataformas ponen cada vez más piezas de serie; el diseño del sistema sigue siendo tuyo.
+
+Antes de activar un agente de voz en el WhatsApp de tu empresa, ten respuesta a estas cinco preguntas:
+
+1. **¿Qué puede hacer sin preguntar?** Consultar huecos sí; cancelar citas, cobrar o dar precios cerrados, probablemente no.
+2. **¿Cuándo pasa a una persona?** Una queja, una urgencia, alguien que lo pide o una pregunta que no sabe responder.
+3. **¿Qué datos ve?** Con MCP el agente tiene acceso a lo que conectes. Dale solo lo que necesita para su tarea.
+4. **¿Quién revisa las conversaciones y cada cuánto?** Una muestra semanal de llamadas, escuchada por alguien que conozca el negocio.
+5. **¿Cómo sabrás si funciona?** Llamadas atendidas, citas agendadas bien y citas que luego se cancelan, medidas antes y después. Método en [cómo medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## Qué hacemos nosotros
+
+Estamos montando estas funciones en una cuenta de pruebas antes de llevarlas a clientes: sobre todo la voz en WhatsApp con el calendario y las versiones. Todavía no hemos medido cómo se comporta en castellano con llamadas reales, y no lo vamos a recomendar hasta tenerlo medido. En [este vídeo](/blog/agente-de-voz-whatsapp-agenda-citas) enseñamos cómo funciona una llamada de principio a fin.
+
+Si ya usas GoHighLevel y quieres saber cuáles de estas novedades te sirven, en la [consultoría gratuita](/diagnostico) lo vemos con tu cuenta delante. Si todavía no lo usas, empieza por [qué es GoHighLevel](/blog/que-es-gohighlevel) y por lo que cuesta una [implantación de CRM con GoHighLevel](/servicios/implementacion-crm-gohighlevel).
+
+## Preguntas frecuentes
+
+### ¿Qué se anunció en el LevelUp Day 2026 de GoHighLevel?
+
+El 27 de octubre de 2026 GoHighLevel anunció, entre otras cosas, que Voice AI contesta llamadas de WhatsApp y usa herramientas MCP durante la llamada, versiones con vuelta atrás para los agentes de voz, clonado de agentes a subcuentas, un panel de salud que propone mejoras del prompt y la importación de flujos de n8n a Managed Agents en beta.
+
+### ¿Puede el agente de voz de GoHighLevel contestar llamadas de WhatsApp?
+
+Sí, según el anuncio del 27 de octubre de 2026. Puede atender las llamadas de WhatsApp como receptor principal o como respaldo: que suene primero al equipo y pase al agente si nadie contesta en un tiempo fijado.
+
+### ¿Qué es MCP en GoHighLevel?
+
+MCP (Model Context Protocol) es un estándar abierto para conectar agentes de IA con otras herramientas. En GoHighLevel permite que el agente de voz, y el de chat en Labs, consulte o actúe en apps conectadas durante la conversación, como un calendario, una pasarela de pago o un sistema propio con servidor MCP.
+
+### ¿Puedo pasar mis flujos de n8n a GoHighLevel?
+
+GoHighLevel permite, en beta, subir el JSON de un flujo de n8n y convertirlo en un Managed Agent. Conviene revisarlo con calma: el resultado es un agente que decide, no un flujo que siempre hace lo mismo, y para procesos que mueven datos o dinero un flujo suele ser más predecible y más barato.
+
+### ¿Están ya disponibles todas estas funciones?
+
+No todas. Según GoHighLevel, las versiones del agente de voz, MCP en el agente de chat y los elementos ricos están en Labs, la importación de n8n está en beta y el servidor MCP de proyectos tiene registro para una beta privada. Para el resto, el anuncio no indica estado: compruébalo en tu cuenta.
+
+### ¿Cuánto cuesta el agente de voz de GoHighLevel?
+
+El anuncio no da precios. Las funciones de IA de GoHighLevel se pagan aparte de la suscripción, por uso o con el plan AI Employee, así que revisa la tarifa de tu cuenta antes de activarlo y calcula con tu volumen real de llamadas.
