@@ -127,6 +127,8 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-03 · Title de la home a petición de Ramiro: "Agencia IA - Rianex" (EN "AI Agency - Rianex"); antes "Agencia de automatización con IA para empresas | Rianex". Pierde la keyword "automatización" en el title; vigilar impresiones de la home en GSC.
+
 - 2026-11-03 · Tres artículos del radar del 2-nov: `gohighlevel-levelup-day-2026-agentes-ia` (novedades del 27-oct con el estado de cada función), `gtm-engineering-no-es-mandar-emails-con-clay` (arquitectura del sistema comercial en seis capas, caso Tribeca) y `agente-de-voz-whatsapp-agenda-citas` (el primer artículo con vídeo propio). El blog admite ahora `video`, `videoPoster` y `videoDuration` en el frontmatter: el vídeo abre el artículo y sale un VideoObject en el JSON-LD.
 
 - 2026-11-03 · Home con 6 resultados (más ventas con los mismos leads, clientes nuevos, agenda llena, clientes atendidos, cobrar antes, horas devueltas) y "medimos el punto de partida" en la oferta. Falta ficha de servicio propia para cobros/facturas y para el asistente interno; hoy enlazan a automatización de procesos.
