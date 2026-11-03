@@ -5,8 +5,8 @@ import { ArrowUpRight, Square } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { home } from "@/lib/home";
 
-// "Qué podemos automatizar": los servicios agrupados por área de la empresa,
-// como ejemplos. Cada enlace lleva a la página del servicio (URLs intactas).
+// "Resultados que entregamos": los servicios agrupados por resultado,
+// como el cómo. Cada enlace lleva a la página del servicio (URLs intactas).
 export function Areas() {
   const { lang, c, localize } = useLang();
   const a = home[lang].areas;

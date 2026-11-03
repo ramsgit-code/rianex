@@ -16,7 +16,7 @@ export const content = {
   es: {
     nav: {
       links: [
-        { href: "/servicios", label: "Qué automatizamos" },
+        { href: "/servicios", label: "Resultados" },
         { href: "/casos-de-exito", label: "Casos" },
         { href: "/sobre-mi", label: "Nosotros" },
         { href: "/blog", label: "Blog" },
@@ -304,16 +304,16 @@ export const content = {
     },
 
     pageCta: {
-      title: "¿Qué procesos de tu empresa se pueden automatizar?",
-      subtitle: "Consultoría gratuita de 30 minutos: vemos qué procesos automatizar primero y con qué herramientas.",
+      title: "¿Qué resultado quieres conseguir con IA?",
+      subtitle: "Consultoría gratuita de 30 minutos: vemos dónde se te escapan clientes, citas u horas y qué puedes conseguir.",
       button: "Pide tu consultoría gratuita",
     },
 
     footer: {
-      tagline: "Agencia de automatización con IA. Consultoría gratuita y acompañamiento para automatizar procesos y adoptar la IA en tu empresa, con las herramientas que ya usas.",
+      tagline: "Agencia de automatización con IA. Más citas, más ventas y horas devueltas al equipo, con agentes de IA que trabajan con las herramientas que ya usas.",
       cta: "Pide tu consultoría gratuita",
       links: [
-        { href: "/servicios", label: "Qué automatizamos" },
+        { href: "/servicios", label: "Resultados" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
         { href: "/sobre-mi", label: "Nosotros" },
@@ -330,7 +330,7 @@ export const content = {
       tag: "Servicios",
       title: "Servicios de automatización de procesos con IA",
       description:
-        "Automatizamos con IA los procesos que se repiten en tu empresa: la operativa del día a día y el proceso comercial. Cada servicio se contrata por separado o como parte de un mismo proyecto.",
+        "Cada servicio es un camino hacia un resultado: más citas en la agenda, más ventas cerradas u horas devueltas al equipo. Se contratan por separado o como parte de un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Pide tu consultoría gratuita",
@@ -600,7 +600,7 @@ export const content = {
   en: {
     nav: {
       links: [
-        { href: "/servicios", label: "What we automate" },
+        { href: "/servicios", label: "Results" },
         { href: "/casos-de-exito", label: "Cases" },
         { href: "/sobre-mi", label: "About us" },
         { href: "/blog", label: "Blog" },
@@ -887,16 +887,16 @@ export const content = {
     },
 
     pageCta: {
-      title: "Which processes in your company can be automated?",
-      subtitle: "A free 30-minute consultation: which processes to automate first and with which tools.",
+      title: "What result do you want from AI?",
+      subtitle: "A free 30-minute consultation: where you are losing clients, appointments or hours, and what you can achieve.",
       button: "Book your free consultation",
     },
 
     footer: {
-      tagline: "AI automation agency. Free consultation and hands-on support to automate processes and adopt AI in your company, with the tools you already use.",
+      tagline: "AI automation agency. More appointments, more sales and hours back for your team, with AI agents that work with the tools you already use.",
       cta: "Book your free consultation",
       links: [
-        { href: "/servicios", label: "What we automate" },
+        { href: "/servicios", label: "Results" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
         { href: "/sobre-mi", label: "About" },
@@ -913,7 +913,7 @@ export const content = {
       tag: "Services",
       title: "AI process automation services",
       description:
-        "We use AI to automate the processes that repeat in your company: day-to-day operations and the sales process. Each service can be hired on its own or as part of one project.",
+        "Each service is a path to a result: more appointments in the calendar, more deals closed or hours back for the team. Hire them on their own or as part of one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Book your free consultation",

@@ -32,12 +32,12 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     es: {
       title: "Agencia de automatización con IA para empresas",
       description:
-        "Agencia de automatización con IA: consultoría gratuita para ver qué procesos automatizar y acompañamiento para implantarlo y adoptar la IA en tu empresa.",
+        "Agencia de automatización con IA: agentes que contestan a cada cliente, agendan citas y envían propuestas. Más citas y más ventas sin más horas. Consultoría gratuita.",
     },
     en: {
       title: "AI automation agency for companies",
       description:
-        "AI automation agency: a free consultation to find which processes to automate, and hands-on support to implement it and adopt AI in your company.",
+        "AI automation agency: agents that answer every customer, book appointments and send proposals. More appointments and more sales, no extra hours. Free consultation.",
     },
   },
   "/servicios": {
