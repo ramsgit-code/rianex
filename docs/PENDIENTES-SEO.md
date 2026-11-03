@@ -70,6 +70,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       semanas anteriores, y comprobar que no le quita la consulta
       "automatización de procesos con IA" a /servicios/automatizacion-procesos-ia.
 
+- [ ] **Canibalización en GTM Engineering, revisar hacia el 1 de diciembre**:
+      `que-es-gtm-engineering` (definición) y `gtm-engineering-no-es-mandar-emails-con-clay`
+      (opinión, arquitectura comercial) comparten tema. El segundo enlaza al
+      primero como definición. Si en Search Console los dos salen para "gtm
+      engineering" y se reparten la posición, quitar "gtm engineering" del
+      title del segundo y orientarlo a "arquitectura comercial".
+
 - [ ] **Canibalización en "a medida"**: "desarrollo-a-medida-con-ia-cuando-construir"
       sale para "proyectos de ia a medida" y "desarrollo software ia a medida"
       (posición ~64). Desde el 28 de octubre ya defiende automatizar antes que
@@ -119,6 +126,8 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-03 · Tres artículos del radar del 2-nov: `gohighlevel-levelup-day-2026-agentes-ia` (novedades del 27-oct con el estado de cada función), `gtm-engineering-no-es-mandar-emails-con-clay` (arquitectura del sistema comercial en seis capas, caso Tribeca) y `agente-de-voz-whatsapp-agenda-citas` (el primer artículo con vídeo propio). El blog admite ahora `video`, `videoPoster` y `videoDuration` en el frontmatter: el vídeo abre el artículo y sale un VideoObject en el JSON-LD.
 
 - 2026-11-03 · Home con 6 resultados (más ventas con los mismos leads, clientes nuevos, agenda llena, clientes atendidos, cobrar antes, horas devueltas) y "medimos el punto de partida" en la oferta. Falta ficha de servicio propia para cobros/facturas y para el asistente interno; hoy enlazan a automatización de procesos.
 

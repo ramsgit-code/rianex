@@ -25,6 +25,7 @@ export type BlogPost = {
   publishedAt: Date;
   /** Igual a publishedAt si el articulo no se ha revisado. */
   updatedAt: Date;
+  video: { src: string; poster: string; duration: string } | null;
 };
 
 let cache: BlogPost[] | null = null;
@@ -53,6 +54,10 @@ export function getAllPosts(): BlogPost[] {
       linkPolicy: frontmatter.linkPolicy,
       publishedAt: new Date(`${frontmatter.date}T00:00:00Z`),
       updatedAt: new Date(`${frontmatter.updated ?? frontmatter.date}T00:00:00Z`),
+      video:
+        frontmatter.video && frontmatter.videoPoster && frontmatter.videoDuration
+          ? { src: frontmatter.video, poster: frontmatter.videoPoster, duration: frontmatter.videoDuration }
+          : null,
     }))
     .sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
 

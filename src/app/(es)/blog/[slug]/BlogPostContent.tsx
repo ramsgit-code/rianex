@@ -13,6 +13,7 @@ type Post = {
   publishedAt: string | null;
   /** Politica de los enlaces externos que no traen marca propia. */
   linkPolicy?: LinkPolicy;
+  video?: { src: string; poster: string } | null;
 };
 
 export function BlogPostContent({ post }: { post: Post }) {
@@ -39,6 +40,17 @@ export function BlogPostContent({ post }: { post: Post }) {
           </p>
           <h1 className="section-title">{title}</h1>
         </div>
+        {post.video && (
+          <video
+            controls
+            playsInline
+            preload="none"
+            poster={post.video.poster}
+            className="mb-10 aspect-video w-full border border-border bg-white"
+          >
+            <source src={post.video.src} type="video/mp4" />
+          </video>
+        )}
         <div>{renderMarkdown(content, post.linkPolicy ?? "nofollow")}</div>
       </div>
     </div>

@@ -70,6 +70,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     inLanguage: "es-ES",
   };
 
+  const videoJsonLd = post.video
+    ? {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        name: post.title,
+        description: post.description,
+        thumbnailUrl: `${SITE_URL}${post.video.poster}`,
+        contentUrl: `${SITE_URL}${post.video.src}`,
+        uploadDate: post.publishedAt.toISOString().slice(0, 10),
+        duration: post.video.duration,
+        inLanguage: "es-ES",
+      }
+    : null;
+
   const faqs = getPostFaqs(post);
   const faqJsonLd = faqs.length
     ? {
@@ -87,6 +101,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       <JsonLd data={articleJsonLd} />
       {faqJsonLd && <JsonLd data={faqJsonLd} />}
+      {videoJsonLd && <JsonLd data={videoJsonLd} />}
       <BlogPostContent
         post={{
           title: post.title,
@@ -95,6 +110,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           contentEn: null,
           publishedAt: post.publishedAt.toISOString(),
           linkPolicy: post.linkPolicy,
+          video: post.video,
         }}
       />
     </>
