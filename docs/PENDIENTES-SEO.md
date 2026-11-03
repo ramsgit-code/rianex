@@ -127,6 +127,8 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-03 · Title de la home definitivo a petición de Ramiro: "AI Automation Agency | Rianex" en ES y EN (sustituye a "Agencia IA - Rianex"). En ES el title va en inglés; la description sigue en español con "automatización con IA".
+
 - 2026-11-03 · Aviso de Search Console sobre los datos estructurados de vídeo: `uploadDate` sin zona horaria y con valor no válido. El VideoObject del blog y el de los casos de éxito usaban solo la fecha (`2026-10-08`); ahora llevan fecha, hora y zona horaria (ISO 8601). Falta validar la corrección en GSC: mejoras > Vídeos > Validar corrección.
 
 - 2026-11-03 · Title de la home a petición de Ramiro: "Agencia IA - Rianex" (EN "AI Agency - Rianex"); antes "Agencia de automatización con IA para empresas | Rianex". Pierde la keyword "automatización" en el title; vigilar impresiones de la home en GSC.
