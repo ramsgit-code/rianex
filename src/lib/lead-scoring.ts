@@ -105,6 +105,7 @@ export function getTags(data: LeadData & { como_conociste: string; tier: LeadTie
   const canalTagMap: Record<string, string> = {
     linkedin: "#via-linkedin",
     google: "#via-google",
+    ia: "#via-ia",
     referido: "#via-referido",
   };
   if (canalTagMap[data.como_conociste]) tags.push(canalTagMap[data.como_conociste]);

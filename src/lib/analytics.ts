@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { aiSource } from "@/lib/ai-sources";
 
 export type AnalyticsPeriod = 7 | 30 | 90;
 
@@ -39,6 +40,23 @@ export async function getAnalyticsSummary(days: AnalyticsPeriod = 30) {
     GROUP BY day
     ORDER BY day ASC`;
 
+  // Sesiones que llegan desde un asistente de IA, por asistente.
+  const withReferrer = await prisma.pageView.findMany({
+    where: { createdAt: { gte: since }, referrer: { not: null } },
+    select: { referrer: true, sessionId: true },
+    distinct: ["sessionId", "referrer"],
+  });
+  const aiSessions = new Map<string, Set<string>>();
+  for (const v of withReferrer) {
+    const name = aiSource(v.referrer);
+    if (!name) continue;
+    if (!aiSessions.has(name)) aiSessions.set(name, new Set());
+    aiSessions.get(name)!.add(v.sessionId);
+  }
+  const aiReferrals = [...aiSessions.entries()]
+    .map(([source, sessions]) => ({ source, sessions: sessions.size }))
+    .sort((a, b) => b.sessions - a.sessions);
+
   const conversionRate =
     diagnosticoViews > 0 ? Math.round((leads / diagnosticoViews) * 100) : 0;
 
@@ -50,6 +68,7 @@ export async function getAnalyticsSummary(days: AnalyticsPeriod = 30) {
     diagnosticoViews,
     conversionRate,
     topPages: topPages.map((p) => ({ path: p.path, count: p._count.path })),
+    aiReferrals,
     viewsByDay: viewsByDay.map((r) => ({
       day: r.day.toISOString().slice(0, 10),
       count: Number(r.count),

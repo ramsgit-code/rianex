@@ -18,6 +18,7 @@ export default async function AdminAnalyticsPage({
     diagnosticoViews: 0,
     conversionRate: 0,
     topPages: [],
+    aiReferrals: [],
     viewsByDay: [],
   };
 

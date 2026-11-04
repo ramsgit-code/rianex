@@ -13,6 +13,16 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **GA4, canal "IA"**: Administrar → Grupos de canales → crear un grupo
+      con un canal "IA" cuya fuente coincida con
+      `chatgpt|openai|perplexity|gemini|copilot|claude|deepseek|grok` (por
+      encima de "Referral"), y marcar `ai_referral` como evento clave en
+      cuanto llegue el primero.
+- [ ] **Claves para `npm run visibilidad-ia`**: sin claves solo pregunta a
+      Claude. Con `PERPLEXITY_API_KEY`, `GEMINI_API_KEY` y `OPENAI_API_KEY`
+      en el entorno pregunta también a Perplexity, Gemini y ChatGPT. Decidir
+      si se programa una vez al mes en rianex-server, como el radar.
+
 - Tras el rediseño (nov-2026): revisar en GSC la home (title nuevo) a las 2 y 4 semanas, y actualizar el texto de la página de LinkedIn y la base del bot de GHL con "consultoría gratuita" en vez de "diagnóstico gratuito".
 
 - [ ] **Marcar `generate_lead` como evento clave en GA4**: en cuanto llegue
@@ -126,6 +136,13 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-04 · Medición de la visibilidad en asistentes de IA: opción
+  "ChatGPT u otra IA" en "¿Cómo me conociste?" (etiqueta `#via-ia`), visitas
+  desde ChatGPT, Perplexity, Gemini, Copilot y Claude en el panel de
+  analítica (también las que solo traen `utm_source=chatgpt.com`), evento
+  `ai_referral` en GA4 y `npm run visibilidad-ia`, que pregunta cada mes a
+  los asistentes y deja el informe en `docs/visibilidad-ia/`.
 
 - 2026-11-03 · Title de la home definitivo a petición de Ramiro: "AI Automation Agency | Rianex" en ES y EN (sustituye a "Agencia IA - Rianex"). En ES el title va en inglés; la description sigue en español con "automatización con IA".
 
