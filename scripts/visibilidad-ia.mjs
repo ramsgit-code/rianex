@@ -66,19 +66,25 @@ const ASISTENTES = [
       // Desde una carpeta vacia: dentro del repo la CLI carga las memorias del
       // proyecto, que hablan de Rianex, y lo nombraria sin haberlo encontrado.
       const cwd = await mkdtemp(path.join(os.tmpdir(), "visibilidad-ia-"));
-      const { stdout } = await run(
-        "claude",
-        [
-          "-p",
-          `${q}\n\nBusca en la web antes de responder y pon al final la lista de URLs que has usado.`,
-          "--allowedTools",
-          "WebSearch,WebFetch",
-          "--output-format",
-          "text",
-        ],
-        { cwd, timeout: 300_000, maxBuffer: 10 * 1024 * 1024 }
-      );
-      return { texto: stdout, fuentes: urls(stdout) };
+      const args = [
+        "-p",
+        `${q}\n\nBusca en la web antes de responder y pon al final la lista de URLs que has usado.`,
+        "--allowedTools",
+        "WebSearch,WebFetch",
+        "--output-format",
+        "text",
+      ];
+      // Un reintento: con busqueda web, alguna pregunta se pasa del limite.
+      for (let intento = 1; ; intento++) {
+        const p = run("claude", args, { cwd, timeout: 600_000, maxBuffer: 10 * 1024 * 1024 });
+        p.child.stdin?.end(); // sin esto la CLI espera entrada antes de empezar
+        try {
+          const { stdout } = await p;
+          return { texto: stdout, fuentes: urls(stdout) };
+        } catch (e) {
+          if (intento >= 2) throw new Error(e.killed ? "sin respuesta en 10 minutos" : String(e.stderr || e.message).slice(0, 300));
+        }
+      }
     },
   },
   {
