@@ -138,6 +138,7 @@ export const formContent = {
       comoConociste: [
         ["linkedin", "LinkedIn"],
         ["google", "Google / SEO"],
+        ["ia", "ChatGPT u otra IA (Perplexity, Gemini…)"],
         ["referido", "Me lo recomendó alguien"],
         ["redes", "Redes sociales"],
         ["otro", "Otro"],
@@ -287,6 +288,7 @@ export const formContent = {
       comoConociste: [
         ["linkedin", "LinkedIn"],
         ["google", "Google / SEO"],
+        ["ia", "ChatGPT or another AI (Perplexity, Gemini…)"],
         ["referido", "Someone recommended me"],
         ["redes", "Social media"],
         ["otro", "Other"],

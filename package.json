@@ -17,7 +17,8 @@
     "supabase:setup": "tsx scripts/setup-supabase.ts",
     "supabase:connect": "tsx scripts/connect-supabase.ts",
     "blog:check": "tsx scripts/import-blog-posts.ts --check",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "visibilidad-ia": "node scripts/visibilidad-ia.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

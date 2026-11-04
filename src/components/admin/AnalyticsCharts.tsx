@@ -9,6 +9,7 @@ type AnalyticsData = {
   diagnosticoViews: number;
   conversionRate: number;
   topPages: { path: string; count: number }[];
+  aiReferrals: { source: string; sessions: number }[];
   viewsByDay: { day: string; count: number }[];
 };
 
@@ -78,6 +79,26 @@ export function AnalyticsCharts({
               </div>
             ))}
           </div>
+        )}
+      </div>
+
+      <div className="card">
+        <p className="text-sm font-medium text-foreground mb-1">Visitas desde IA</p>
+        <p className="text-xs text-muted mb-4">
+          Sesiones que llegan desde ChatGPT, Perplexity, Gemini, Copilot o Claude. Es un minimo:
+          algunas apps de IA no pasan el origen y cuentan como directas.
+        </p>
+        {data.aiReferrals.length === 0 ? (
+          <p className="text-xs text-muted">Ninguna en este periodo.</p>
+        ) : (
+          <ul className="flex flex-col gap-2">
+            {data.aiReferrals.map((r) => (
+              <li key={r.source} className="flex justify-between text-sm">
+                <span className="text-foreground-muted">{r.source}</span>
+                <span className="text-foreground shrink-0 ml-4">{r.sessions}</span>
+              </li>
+            ))}
+          </ul>
         )}
       </div>
 
