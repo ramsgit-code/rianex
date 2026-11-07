@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/Hero";
-import { Offer } from "@/components/sections/Offer";
-import { Areas } from "@/components/sections/Areas";
-import { Process } from "@/components/sections/Process";
+import { WhatWeDo } from "@/components/sections/WhatWeDo";
+import { Services } from "@/components/sections/Services";
+import { Audience } from "@/components/sections/Audience";
 import { Cases } from "@/components/sections/Cases";
 import { Close } from "@/components/sections/Close";
 import { Faq } from "@/components/sections/Faq";
@@ -47,6 +47,8 @@ const businessJsonLd = {
     "Agencia de automatización con IA",
     "Consultoría de IA",
     "Adopción de IA en la empresa",
+    "Formación en IA para empresas",
+    "Asesoramiento en IA",
     "Automatización de procesos con IA",
     "Automatización de procesos",
     "Agentes de IA",
@@ -119,11 +121,12 @@ export default async function Home() {
       <JsonLd data={businessJsonLd} />
       <JsonLd data={websiteJsonLd} />
       <JsonLd data={faqJsonLd} />
+      {/* Qué hacemos → qué servicios damos → para quién → prueba → cierre */}
       <Hero />
-      <Offer />
-      <Areas />
+      <WhatWeDo />
+      <Services />
+      <Audience />
       <Marquee />
-      <Process />
       <Cases />
       <Testimonials items={testimonials} />
       <Guias />
