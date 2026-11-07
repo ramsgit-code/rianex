@@ -5,7 +5,7 @@ asistentes de IA (ChatGPT, Perplexity, Claude, AI Overviews). Se actualiza
 cada vez que se cierra o aparece algo: lo terminado baja a **Hecho** con la
 fecha y el PR.
 
-Origen: auditoría del 2 de octubre de 2026. Último repaso: 26 de octubre (799 impresiones, 3 clics, posición 70,3; GA4 35 sesiones y `generate_lead` ya disponible para marcar). Repaso anterior: 21 de octubre
+Origen: auditoría del 2 de octubre de 2026. Último repaso: 7 de noviembre (1.480 impresiones, 6 clics, posición 67,7; GA4 51 sesiones, 0 leads; Bing 10 URLs indexadas y 0 impresiones). Repaso del 26 de octubre: 799 impresiones, 3 clics, posición 70,3. Repaso anterior: 21 de octubre
 (Search Console, 28 días: 58 páginas indexadas, solo 2 sin indexar y son
 redirecciones; 488 impresiones, 2 clics, posición media 71,4. El 54% de las
 impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
@@ -137,6 +137,8 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-07 · Pendientes de Search Console: indexación pedida (cola prioritaria) para los tres artículos del 3-nov, que estaban "Descubierta: actualmente sin indexar" (`agente-de-voz-whatsapp-agenda-citas`, `gohighlevel-levelup-day-2026-agentes-ia`, `gtm-engineering-no-es-mandar-emails-con-clay`), y para la home, para que Google recoja antes el title nuevo. Avisos de datos de vídeo a 0. El informe de indexación de vídeos marca 2 vídeos como "El vídeo no está en una página de visualización": es lo esperado, porque el vídeo acompaña al artículo o al caso y no es el contenido principal; no se corrige.
+
 - 2026-11-04 · Medición de la visibilidad en asistentes de IA: opción
   "ChatGPT u otra IA" en "¿Cómo me conociste?" (etiqueta `#via-ia`), visitas
   desde ChatGPT, Perplexity, Gemini, Copilot y Claude en el panel de
@@ -146,7 +148,7 @@ Por orden de impacto:
 
 - 2026-11-03 · Title de la home definitivo a petición de Ramiro: "AI Automation Agency | Rianex" en ES y EN (sustituye a "Agencia IA - Rianex"). En ES el title va en inglés; la description sigue en español con "automatización con IA".
 
-- 2026-11-03 · Aviso de Search Console sobre los datos estructurados de vídeo: `uploadDate` sin zona horaria y con valor no válido. El VideoObject del blog y el de los casos de éxito usaban solo la fecha (`2026-10-08`); ahora llevan fecha, hora y zona horaria (ISO 8601). Falta validar la corrección en GSC: mejoras > Vídeos > Validar corrección.
+- 2026-11-03 · Aviso de Search Console sobre los datos estructurados de vídeo: `uploadDate` sin zona horaria y con valor no válido. El VideoObject del blog y el de los casos de éxito usaban solo la fecha (`2026-10-08`); ahora llevan fecha, hora y zona horaria (ISO 8601). Resuelto: el 6 de noviembre Google volvió a leer los datos y los dos problemas quedan a 0, sin necesidad de validar.
 
 - 2026-11-03 · Title de la home a petición de Ramiro: "Agencia IA - Rianex" (EN "AI Agency - Rianex"); antes "Agencia de automatización con IA para empresas | Rianex". Pierde la keyword "automatización" en el title; vigilar impresiones de la home en GSC.
 
