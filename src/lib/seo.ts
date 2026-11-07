@@ -44,12 +44,12 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     es: {
       title: "Servicios de automatización de procesos con IA",
       description:
-        "Automatización de procesos con IA, agente de WhatsApp, integración de GoHighLevel y HubSpot, y proceso comercial automatizado: outbound, embudos y propuestas.",
+        "Automatización de procesos con IA, agentes de WhatsApp y voz, prospección B2B, CRM GoHighLevel y HubSpot, Kit IA, formación y asesoramiento en IA para empresas.",
     },
     en: {
       title: "AI process automation services",
       description:
-        "AI process automation, a WhatsApp agent, GoHighLevel and HubSpot integrations, and an automated sales process: outbound, funnels, proposals and migrations.",
+        "AI process automation, WhatsApp and voice agents, B2B prospecting, GoHighLevel and HubSpot CRM, an AI Kit, AI training and AI advisory for businesses.",
     },
   },
   "/casos-de-exito": {

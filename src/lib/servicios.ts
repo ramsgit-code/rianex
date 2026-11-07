@@ -5,17 +5,26 @@ import type { Lang } from "@/lib/i18n";
 // El titulo, el problema, el "para quien" y los entregables viven en
 // content.ts y los comparte el listado de /servicios. Aqui va lo que solo
 // tiene la pagina propia: la respuesta directa (lo primero que lee un buscador
-// o un asistente de IA), cuando encaja y cuando no, el metodo, el plazo, las
-// preguntas frecuentes, el caso y los articulos relacionados.
+// o un asistente de IA), lo que consigue el cliente, un ejemplo de como
+// funciona paso a paso, cuando encaja y cuando no, el metodo, el plazo, las
+// preguntas frecuentes, los casos y los articulos relacionados. El video de
+// cada servicio esta en servicio-media.ts, que tambien lo usa la home.
 //
 // Regla: nada de cifras ni clientes que no esten ya publicados en la web o en
 // el blog. Precios y plazos salen de pricing y faq de content.ts; los criterios,
-// de los articulos enlazados.
+// de los articulos enlazados. Hospital Capilar es cliente de Growth4U: puede
+// salir como caso de un servicio, pero siempre con la etiqueta "Con Growth4U".
+//
+// Kit IA, formacion y asesoramiento (nov-2026) son servicios nuevos: sus plazos
+// y su forma de precio estan pendientes de validar por Ramiro
+// (docs/PENDIENTES-SEO.md).
 
 export type CaseClient = "Hospital Capilar" | "Eventos Barcelona" | "Growth4U" | "Tribeca Media";
 
 type Step = { title: string; desc: string };
 type Faq = { q: string; a: string };
+/** Un paso del ejemplo "Asi funciona": etiqueta corta y que pasa. */
+type FlowStep = { label: string; text: string };
 
 export type ServicioDetalle = {
   /** Title para la SERP, sin la marca (la añade pageMetadata). */
@@ -23,15 +32,37 @@ export type ServicioDetalle = {
   metaDescription: string;
   /** Respuesta directa de 40-70 palabras: que es y como lo hacemos. */
   answer: string;
+  /** Lo que nota el cliente, en tres frases cortas. */
+  outcomes: string[];
+  /** Ejemplo ilustrativo de cuatro pasos, de lo que llega a lo que queda hecho. */
+  flow: FlowStep[];
   fit: string[];
   notFit: string[];
   steps: Step[];
   timeline: string;
+  /** Solo para precio "quote": como se fija el precio. */
+  priceNote?: string;
+  /**
+   * Que parte de un caso demuestra este servicio, cuando no es la que cuenta
+   * la ficha del caso (p. ej. Tribeca en asesoramiento: el diagnostico y el
+   * control de coste, no el Performance Agent). Sale de casos.ts.
+   */
+  caseFocus?: Partial<Record<CaseClient, string>>;
   faqs: Faq[];
 };
 
+/**
+ * Como se enseña la inversion en la ficha:
+ * - "tiers": los tres rangos de pricing (discovery, implementacion, retainer).
+ * - "advisory": solo discovery y retainer (asesoramiento).
+ * - "quote": sin rangos, con el texto de priceNote (kit y formacion).
+ */
+export type PriceKind = "tiers" | "advisory" | "quote";
+
 type Servicio = {
-  caseClient?: CaseClient;
+  /** Casos que lo demuestran, en orden. */
+  cases?: CaseClient[];
+  price?: PriceKind;
   /** Slugs de articulos del blog (solo existen en castellano). */
   posts: string[];
   es: ServicioDetalle;
@@ -45,7 +76,7 @@ const PRECIO_EN =
 
 export const SERVICIOS: Record<string, Servicio> = {
   "automatizacion-procesos-ia": {
-    caseClient: "Eventos Barcelona",
+    cases: ["Eventos Barcelona", "Tribeca Media"],
     posts: [
       "automatizar-procesos-con-ia-por-donde-empezar",
       "como-implementar-ia-en-tu-empresa",
@@ -79,6 +110,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Un primer proceso bien acotado se implanta en 4 a 6 semanas, contando la fase de definición, que suele ser la más lenta.",
+      outcomes: [
+        "Horas a la semana devueltas al equipo",
+        "Datos que pasan entre herramientas sin copiar y pegar",
+        "Menos errores y ninguna tarea olvidada",
+      ],
+      flow: [
+        { label: "Llega", text: "Un correo con un pedido, una factura o una consulta." },
+        { label: "La IA lo lee", text: "Extrae los datos, entiende qué es y lo clasifica." },
+        { label: "Se registra", text: "Los datos entran en el CRM o en tu herramienta, sin teclear." },
+        { label: "Hecho", text: "Quien tiene que actuar recibe la tarea con fecha y recordatorio." },
+      ],
       faqs: [
         {
           q: "¿Qué proceso conviene automatizar primero?",
@@ -118,6 +160,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "A well-scoped first process goes live in 4 to 6 weeks, including the definition phase, which is usually the slowest.",
+      outcomes: [
+        "Hours a week back for the team",
+        "Data that moves between tools without copy and paste",
+        "Fewer mistakes and no forgotten tasks",
+      ],
+      flow: [
+        { label: "Comes in", text: "An email with an order, an invoice or a question." },
+        { label: "AI reads it", text: "It extracts the data, understands what it is and classifies it." },
+        { label: "Recorded", text: "The data lands in the CRM or your tool, with no typing." },
+        { label: "Done", text: "Whoever needs to act gets the task, with a due date and a reminder." },
+      ],
       faqs: [
         {
           q: "Which process should I automate first?",
@@ -137,7 +190,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "integracion-gohighlevel-hubspot": {
-    caseClient: "Hospital Capilar",
+    cases: ["Hospital Capilar"],
     posts: ["integrar-gohighlevel-con-tu-stack", "whatsapp-automatizacion-ventas"],
     es: {
       seoTitle: "Integración de GoHighLevel y HubSpot con tu stack",
@@ -162,6 +215,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Entre 4 y 8 semanas según cuántos sistemas haya que conectar. El número de sistemas pesa mucho más que el volumen de datos.",
+      outcomes: [
+        "Un CRM en el que el equipo confía",
+        "Ningún dato copiado a mano entre herramientas",
+        "Aviso al momento si una conexión deja de funcionar",
+      ],
+      flow: [
+        { label: "Pasa algo", text: "Un cliente reserva, paga o rellena un formulario." },
+        { label: "Viaja solo", text: "El dato llega al CRM al momento, sin que nadie lo copie." },
+        { label: "Cuadra", text: "Agenda, facturación y CRM dicen lo mismo, sin duplicados." },
+        { label: "Vigilado", text: "Si una conexión falla, se reintenta y te avisamos." },
+      ],
       faqs: [
         {
           q: "¿Se puede integrar GoHighLevel con cualquier herramienta?",
@@ -204,6 +268,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Between 4 and 8 weeks depending on how many systems need connecting. The number of systems matters far more than data volume.",
+      outcomes: [
+        "A CRM the team trusts",
+        "No data copied by hand between tools",
+        "An alert as soon as a connection stops working",
+      ],
+      flow: [
+        { label: "Something happens", text: "A customer books, pays or fills in a form." },
+        { label: "It travels", text: "The data reaches the CRM instantly, with no one copying it." },
+        { label: "It matches", text: "Calendar, invoicing and CRM say the same thing, with no duplicates." },
+        { label: "Watched", text: "If a connection fails, it retries and we alert you." },
+      ],
       faqs: [
         {
           q: "Can GoHighLevel integrate with any tool?",
@@ -252,6 +327,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Una cuenta pequeña, con pocos miles de contactos y un puñado de automatizaciones, se migra en 2 o 3 semanas contando el paralelo. Una cuenta con integraciones a facturación, web y telefonía se va a 6 u 8.",
+      outcomes: [
+        "Un solo CRM en lugar de varias herramientas que no se hablan",
+        "Todo el histórico conservado: contactos, oportunidades y notas",
+        "El equipo trabajando en GoHighLevel desde el primer día",
+      ],
+      flow: [
+        { label: "Inventario", text: "Contactos, campos, automatizaciones e integraciones de tu CRM actual." },
+        { label: "Prueba", text: "Una migración de prueba con cien contactos para ver los problemas cuando aún son baratos." },
+        { label: "Migración", text: "Pasa todo el histórico y se rehacen las automatizaciones que hacen falta." },
+        { label: "Convivencia", text: "Los dos CRM funcionan a la vez hasta que todo cuadra." },
+      ],
       faqs: [
         {
           q: "¿Qué se migra al pasar a GoHighLevel?",
@@ -294,6 +380,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "A small account, with a few thousand contacts and a handful of automations, is migrated in 2 to 3 weeks including the parallel period. An account with invoicing, website and telephony integrations takes 6 to 8.",
+      outcomes: [
+        "One CRM instead of several tools that don't talk to each other",
+        "All history kept: contacts, opportunities and notes",
+        "The team working in GoHighLevel from day one",
+      ],
+      flow: [
+        { label: "Inventory", text: "Contacts, fields, automations and integrations in your current CRM." },
+        { label: "Test", text: "A test migration with a hundred contacts to catch problems while they are cheap." },
+        { label: "Migration", text: "All history moves over and the automations that are needed are rebuilt." },
+        { label: "Parallel run", text: "Both CRMs run side by side until everything matches." },
+      ],
       faqs: [
         {
           q: "What gets migrated when moving to GoHighLevel?",
@@ -342,6 +439,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "El calentamiento de los buzones marca el ritmo: dura de dos a tres semanas, y mientras tanto se preparan las listas y los mensajes. Las primeras campañas suelen salir hacia la semana 4.",
+      outcomes: [
+        "Empresas que encajan contigo, encontradas y contactadas cada semana",
+        "Mensajes personalizados y seguimiento sin que nadie intervenga",
+        "Reuniones en tu calendario, no listas en un Excel",
+      ],
+      flow: [
+        { label: "Busca", text: "Encuentra empresas que encajan con tu cliente ideal y las puntúa." },
+        { label: "Escribe", text: "Localiza a quien decide y le escribe un mensaje personalizado por email o LinkedIn." },
+        { label: "Insiste", text: "Si no contesta, hace el seguimiento; si contesta, la respuesta entra en tu CRM." },
+        { label: "Reunión", text: "Quien tiene interés reserva una reunión en tu calendario." },
+      ],
       faqs: [
         {
           q: "¿Cuánto cuesta montar un sistema de prospección autónomo?",
@@ -393,6 +501,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Inbox warm-up sets the pace: it takes two to three weeks, and lists and messaging are prepared meanwhile. The first campaigns usually go out around week 4.",
+      outcomes: [
+        "Companies that fit you, found and contacted every week",
+        "Personalised messages and follow-up with no one involved",
+        "Meetings in your calendar, not lists in a spreadsheet",
+      ],
+      flow: [
+        { label: "Finds", text: "It finds companies that fit your ideal client and scores them." },
+        { label: "Writes", text: "It finds the decision-maker and sends a personalised email or LinkedIn message." },
+        { label: "Follows up", text: "No reply means a follow-up; a reply lands in your CRM." },
+        { label: "Meeting", text: "Anyone interested books a meeting in your calendar." },
+      ],
       faqs: [
         {
           q: "How much does an autonomous prospecting system cost?",
@@ -423,6 +542,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "agente-ia-whatsapp": {
+    cases: ["Hospital Capilar"],
     posts: [
       "whatsapp-automatizacion-ventas",
       "automatizar-recepcion-clinica",
@@ -454,6 +574,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Entre 4 y 8 semanas desde el diagnóstico. El primer agente suele estar atendiendo en la semana 4.",
+      outcomes: [
+        "Ningún mensaje ni llamada sin contestar, 24/7",
+        "La cita queda agendada, confirmada y recordada",
+        "El equipo deja de responder cien veces lo mismo",
+      ],
+      flow: [
+        { label: "23:40", text: "Un cliente escribe por WhatsApp: ¿tenéis hueco el jueves?" },
+        { label: "Al momento", text: "El agente contesta, pregunta lo necesario y ofrece las horas libres de tu agenda." },
+        { label: "Cita hecha", text: "La cita entra en tu calendario y en el CRM, con el resumen de la conversación." },
+        { label: "El día antes", text: "Sale el recordatorio. Si el cliente pide algo fuera de lo normal, pasa a una persona." },
+      ],
       faqs: [
         {
           q: "¿Cuánto cuesta un agente de IA para WhatsApp?",
@@ -513,6 +644,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Between 4 and 8 weeks from the diagnosis. The first agent is usually answering by week 4.",
+      outcomes: [
+        "No message or call left unanswered, 24/7",
+        "The appointment is booked, confirmed and reminded",
+        "The team stops answering the same question a hundred times",
+      ],
+      flow: [
+        { label: "11:40 pm", text: "A customer messages on WhatsApp: any slot on Thursday?" },
+        { label: "Instantly", text: "The agent replies, asks what it needs and offers the free times in your calendar." },
+        { label: "Booked", text: "The appointment goes into your calendar and CRM, with a summary of the chat." },
+        { label: "The day before", text: "The reminder goes out. If the customer asks for something unusual, a person takes over." },
+      ],
       faqs: [
         {
           q: "How much does an AI agent for WhatsApp cost?",
@@ -551,7 +693,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "implementacion-crm-gohighlevel": {
-    caseClient: "Growth4U",
+    cases: ["Growth4U", "Eventos Barcelona"],
     posts: [
       "integrar-gohighlevel-con-tu-stack",
       "automatizacion-para-clinicas-captacion-y-agenda",
@@ -577,6 +719,17 @@ export const SERVICIOS: Record<string, Servicio> = {
         { title: "Formación y soporte", desc: "El equipo trabajando en el CRM desde el primer día, con 30 días de soporte para lo que salga." },
       ],
       timeline: "Entre 4 y 8 semanas según cuántos canales e integraciones haya que montar.",
+      outcomes: [
+        "Todos los clientes y oportunidades en un solo sitio",
+        "El pipeline a la vista: qué hay en cada etapa y cuánto vale",
+        "Ningún contacto sin responsable ni seguimiento",
+      ],
+      flow: [
+        { label: "Contacto", text: "Un cliente escribe por la web, por WhatsApp o por redes." },
+        { label: "Entra al CRM", text: "Se crea el contacto y la oportunidad en la etapa que toca." },
+        { label: "Se asigna", text: "Le llega a un comercial con su tarea y su recordatorio." },
+        { label: "A la vista", text: "Ves en una pantalla qué hay en cada etapa y cuánto vale." },
+      ],
       faqs: [
         {
           q: "¿GoHighLevel o HubSpot?",
@@ -618,6 +771,17 @@ export const SERVICIOS: Record<string, Servicio> = {
         { title: "Training and support", desc: "Your team working in the CRM from day one, with 30 days of support for whatever comes up." },
       ],
       timeline: "Between 4 and 8 weeks depending on how many channels and integrations are needed.",
+      outcomes: [
+        "All clients and opportunities in one place",
+        "The pipeline in view: what is in each stage and what it is worth",
+        "No contact without an owner or follow-up",
+      ],
+      flow: [
+        { label: "Contact", text: "A customer writes via the website, WhatsApp or social media." },
+        { label: "Into the CRM", text: "The contact and opportunity are created in the right stage." },
+        { label: "Assigned", text: "A salesperson gets it with a task and a reminder." },
+        { label: "In view", text: "One screen shows what is in each stage and what it is worth." },
+      ],
       faqs: [
         {
           q: "GoHighLevel or HubSpot?",
@@ -641,7 +805,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "embudo-de-captacion": {
-    caseClient: "Hospital Capilar",
+    cases: ["Hospital Capilar", "Growth4U"],
     posts: [
       "que-es-gtm-engineering",
       "como-cualificar-leads-automaticamente",
@@ -671,6 +835,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Entre 4 y 8 semanas según el alcance. Desde que el embudo está activo, la medición empieza el primer día.",
+      outcomes: [
+        "Hablas solo con los leads que encajan",
+        "Cada lead recibe respuesta en minutos, también de noche",
+        "Sabes qué campaña trae clientes, no solo leads",
+      ],
+      flow: [
+        { label: "Anuncio", text: "Alguien rellena el formulario de tu anuncio en Facebook o Instagram." },
+        { label: "Puntuación", text: "Entra en GoHighLevel con una nota según el servicio, la urgencia y el presupuesto." },
+        { label: "Si encaja", text: "Recibe un WhatsApp al momento y el Booking SDR le ofrece cita." },
+        { label: "Si aún no", text: "Recibe seguimiento por correo y WhatsApp hasta que esté listo." },
+      ],
       faqs: [
         {
           q: "¿Funciona con los formularios nativos de Meta?",
@@ -713,6 +888,17 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Between 4 and 8 weeks depending on scope. Once the funnel is live, measurement starts on day one.",
+      outcomes: [
+        "You only talk to leads that fit",
+        "Every lead gets a reply within minutes, at night too",
+        "You know which campaign brings clients, not just leads",
+      ],
+      flow: [
+        { label: "Ad", text: "Someone fills in the form on your Facebook or Instagram ad." },
+        { label: "Score", text: "They land in GoHighLevel with a score based on service, urgency and budget." },
+        { label: "If they fit", text: "They get a WhatsApp message right away and the Booking SDR offers an appointment." },
+        { label: "If not yet", text: "They get email and WhatsApp follow-up until they are ready." },
+      ],
       faqs: [
         {
           q: "Does it work with Meta's native forms?",
@@ -736,7 +922,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "generador-de-propuestas": {
-    caseClient: "Eventos Barcelona",
+    cases: ["Eventos Barcelona"],
     posts: ["propuestas-comerciales-automaticas"],
     es: {
       seoTitle: "Generador automático de propuestas comerciales",
@@ -759,6 +945,17 @@ export const SERVICIOS: Record<string, Servicio> = {
         { title: "Seguimiento", desc: "Cada propuesta es una oportunidad en el pipeline del CRM, con su etapa y recordatorios programados para que ninguna se quede sin respuesta." },
       ],
       timeline: "Entre 4 y 8 semanas según cuántas variantes de propuesta tengas.",
+      outcomes: [
+        "La propuesta sale el mismo día de la llamada",
+        "Todas con el mismo formato, precios y condiciones",
+        "Ninguna propuesta sin seguimiento",
+      ],
+      flow: [
+        { label: "Llamada", text: "Terminas la llamada con el cliente." },
+        { label: "Formulario", text: "Rellenas un formulario corto con lo que ha pedido: fecha, servicio y opciones." },
+        { label: "Propuesta", text: "Se genera en web y en PDF, con tu marca y tus precios, lista para revisar." },
+        { label: "Seguimiento", text: "Sale en minutos y el CRM programa los recordatorios si no hay respuesta." },
+      ],
       faqs: [
         {
           q: "¿La propuesta sale sola, sin que nadie la revise?",
@@ -796,6 +993,17 @@ export const SERVICIOS: Record<string, Servicio> = {
         { title: "Follow-up", desc: "Every proposal is a deal in the CRM pipeline, with its stage and scheduled reminders so none goes unanswered." },
       ],
       timeline: "Between 4 and 8 weeks depending on how many proposal variants you have.",
+      outcomes: [
+        "The proposal goes out the same day as the call",
+        "All with the same format, prices and terms",
+        "No proposal left without follow-up",
+      ],
+      flow: [
+        { label: "Call", text: "You finish the call with the client." },
+        { label: "Form", text: "You fill in a short form with what they asked for: date, service and options." },
+        { label: "Proposal", text: "It is generated as a web page and a PDF, with your brand and prices, ready to review." },
+        { label: "Follow-up", text: "It goes out in minutes and the CRM schedules reminders if there is no reply." },
+      ],
       faqs: [
         {
           q: "Does the proposal go out without anyone reviewing it?",
@@ -813,6 +1021,369 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
     },
   },
+
+  // ── Otros servicios: que el equipo use la IA (nov-2026) ─────────────────
+
+  "kit-ia": {
+    price: "quote",
+    posts: [
+      "como-implementar-ia-en-tu-empresa",
+      "herramientas-ia-para-automatizar-procesos",
+      "rgpd-y-automatizacion-con-ia",
+      "automatizar-procesos-con-ia-por-donde-empezar",
+    ],
+    es: {
+      seoTitle: "Kit IA para empresas: el equipo usando IA con orden",
+      metaDescription:
+        "Configuramos Claude o ChatGPT para tu empresa, un asistente con vuestros documentos, plantillas por puesto y una guía de uso, y formamos al equipo.",
+      answer:
+        "El Kit IA es un paquete cerrado para que tu equipo use la IA en su trabajo diario con orden. Configuramos Claude o ChatGPT con cuentas de empresa, montamos un asistente que responde con vuestros documentos, dejamos plantillas por puesto y una guía de qué datos se pueden usar, y formamos al equipo. Es el primer paso antes de automatizar procesos.",
+      outcomes: [
+        "Todo el equipo usando IA con cuentas de empresa, no personales",
+        "Respuestas al momento sobre vuestros propios documentos",
+        "Reglas claras de qué datos se pueden usar y cuáles no",
+      ],
+      flow: [
+        { label: "Semana 1", text: "Vemos qué hace cada área, qué documentos consulta y qué herramientas usa." },
+        { label: "Semana 2", text: "Montamos las cuentas, el asistente con vuestros documentos y las plantillas por puesto." },
+        { label: "Formación", text: "Sesión práctica con las tareas reales del equipo." },
+        { label: "30 días", text: "Resolvemos dudas y te decimos qué conviene automatizar después." },
+      ],
+      fit: [
+        "Varias personas ya usan ChatGPT o Claude con cuentas personales y quieres ponerle orden.",
+        "El equipo pierde tiempo buscando información en documentos, correos o carpetas compartidas.",
+        "Quieres empezar con la IA por algo que se note en semanas, antes de un proyecto de automatización.",
+      ],
+      notFit: [
+        "Quieres automatizar un proceso de punta a punta: eso es una implantación y empieza en la consultoría gratuita.",
+        "Nadie en la empresa va a tener tiempo de usarlo durante el primer mes.",
+      ],
+      steps: [
+        { title: "Cómo trabajáis", desc: "Una entrevista corta con cada área: qué tareas repiten, qué documentos consultan y qué herramientas usan." },
+        { title: "Configuración", desc: "Espacio de trabajo con cuentas de empresa, un asistente con vuestros documentos y plantillas para cada puesto." },
+        { title: "Formación", desc: "Una sesión práctica con las tareas reales del equipo, no con ejemplos genéricos." },
+        { title: "Acompañamiento", desc: "30 días resolviendo dudas y ajustando plantillas. Al final, la lista de lo que conviene automatizar después." },
+      ],
+      timeline:
+        "Entre 2 y 3 semanas desde la consultoría gratuita, según el número de personas y de documentos.",
+      priceNote:
+        "Precio cerrado según el número de personas, que te damos en la consultoría gratuita. Las licencias de Claude o ChatGPT van a nombre de tu empresa y se pagan directamente al proveedor.",
+      faqs: [
+        {
+          q: "¿Qué herramienta usáis, ChatGPT o Claude?",
+          a: "La que mejor encaje con lo que ya usáis y con el tipo de trabajo del equipo. Si trabajáis con Google Workspace o Microsoft 365, lo tenemos en cuenta. Las cuentas son de tu empresa, no nuestras.",
+        },
+        {
+          q: "¿Se usan nuestros datos para entrenar la IA?",
+          a: "Con los planes de empresa de Claude y de ChatGPT, por defecto no. Aun así, la guía de uso deja por escrito qué datos de clientes y de personas no deben entrar, y el asistente solo lee los documentos que decidáis.",
+        },
+        {
+          q: "¿En qué se diferencia de una formación?",
+          a: "La formación enseña a usar la IA. El Kit, además, deja montado lo necesario para usarla desde el día siguiente: las cuentas, el asistente con vuestros documentos, las plantillas y la guía. La formación va incluida.",
+        },
+        {
+          q: "¿Qué pasa después?",
+          a: "Al terminar sabéis qué tareas se pueden automatizar del todo y cuánto valdría hacerlo. Si queréis seguir, el siguiente paso es una implantación o el asesoramiento mensual. Si no, lo montado sigue funcionando sin nosotros.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI Kit for businesses: your team using AI properly",
+      metaDescription:
+        "We set up Claude or ChatGPT for your company, an assistant that answers from your documents, templates for each role and usage rules, and train the team.",
+      answer:
+        "The AI Kit is a fixed-scope package so your team uses AI in their daily work, properly. We set up Claude or ChatGPT with company accounts, build an assistant that answers from your documents, leave templates for each role and a guide on which data can be used, and train the team. It is the first step before automating processes.",
+      outcomes: [
+        "The whole team using AI on company accounts, not personal ones",
+        "Instant answers from your own documents",
+        "Clear rules on which data can and cannot be used",
+      ],
+      flow: [
+        { label: "Week 1", text: "We see what each area does, which documents it checks and which tools it uses." },
+        { label: "Week 2", text: "We set up the accounts, the assistant on your documents and the templates for each role." },
+        { label: "Training", text: "A hands-on session with the team's real tasks." },
+        { label: "30 days", text: "We answer questions and tell you what is worth automating next." },
+      ],
+      fit: [
+        "Several people already use ChatGPT or Claude on personal accounts and you want to bring order to it.",
+        "The team loses time looking for information in documents, emails or shared folders.",
+        "You want to start with AI through something that shows in weeks, before an automation project.",
+      ],
+      notFit: [
+        "You want to automate a process end to end: that is an implementation, and it starts with the free consultation.",
+        "Nobody in the company will have time to use it during the first month.",
+      ],
+      steps: [
+        { title: "How you work", desc: "A short interview with each area: which tasks they repeat, which documents they check and which tools they use." },
+        { title: "Setup", desc: "A workspace with company accounts, an assistant on your documents and templates for each role." },
+        { title: "Training", desc: "A hands-on session with the team's real tasks, not generic examples." },
+        { title: "Support", desc: "30 days of questions answered and templates adjusted. At the end, the list of what is worth automating next." },
+      ],
+      timeline: "2 to 3 weeks from the free consultation, depending on the number of people and documents.",
+      priceNote:
+        "A fixed price based on the number of people, which we give you in the free consultation. Claude or ChatGPT licences are in your company's name and paid directly to the provider.",
+      faqs: [
+        {
+          q: "Which tool do you use, ChatGPT or Claude?",
+          a: "Whichever fits best with what you already use and the kind of work the team does. If you work with Google Workspace or Microsoft 365, we take it into account. The accounts belong to your company, not to us.",
+        },
+        {
+          q: "Is our data used to train the AI?",
+          a: "On the business plans of Claude and ChatGPT, not by default. Even so, the usage guide sets out in writing which customer and personal data must stay out, and the assistant only reads the documents you choose.",
+        },
+        {
+          q: "How is it different from a training course?",
+          a: "Training teaches people to use AI. The Kit also leaves everything set up to use it the next day: the accounts, the assistant on your documents, the templates and the guide. Training is included.",
+        },
+        {
+          q: "What happens afterwards?",
+          a: "At the end you know which tasks can be fully automated and what that would be worth. If you want to continue, the next step is an implementation or monthly advisory. If not, what we set up keeps working without us.",
+        },
+      ],
+    },
+  },
+
+  "formacion-ia-empresas": {
+    price: "quote",
+    posts: [
+      "como-implementar-ia-en-tu-empresa",
+      "ejemplos-automatizacion-procesos-con-ia",
+      "herramientas-ia-para-automatizar-procesos",
+      "rgpd-y-automatizacion-con-ia",
+    ],
+    es: {
+      seoTitle: "Formación en IA para empresas y equipos",
+      metaDescription:
+        "Talleres prácticos de IA para dirección, ventas, atención y administración, con los procesos y documentos de tu empresa. Presenciales o en remoto.",
+      answer:
+        "Formamos a tu equipo en el uso práctico de la IA con sus propias tareas: cómo pedirle las cosas a ChatGPT o Claude, cómo usarla en ventas, atención y administración, qué datos no deben entrar y qué se puede automatizar. Son talleres prácticos, presenciales o en remoto, que imparte Ramiro Pérez, ingeniero industrial y profesor de Industria 4.0 en un máster universitario.",
+      outcomes: [
+        "El equipo aplica la IA a sus tareas al día siguiente",
+        "Plantillas que se quedan en la empresa",
+        "Criterio para saber cuándo hay que revisar lo que hace la IA",
+      ],
+      flow: [
+        { label: "Antes", text: "Cada persona cuenta qué tareas hace y con qué herramientas." },
+        { label: "Taller", text: "Practican con sus propios correos, propuestas, informes o consultas." },
+        { label: "Plantillas", text: "Lo que funciona se guarda como plantilla para el día a día." },
+        { label: "Después", text: "Sesión de dudas cuando ya lo han usado unas semanas." },
+      ],
+      fit: [
+        "Quieres que el equipo use la IA en su trabajo, no que aprenda teoría.",
+        "Hay tareas de escritura, búsqueda o análisis que se repiten: correos, propuestas, informes o atención al cliente.",
+        "Vais a automatizar procesos y quieres que el equipo entienda qué hace la IA y cuándo revisarla.",
+      ],
+      notFit: [
+        "Buscas un curso técnico de programación o de entrenamiento de modelos.",
+        "Necesitas un título o una certificación oficial.",
+      ],
+      steps: [
+        { title: "Antes del taller", desc: "Un cuestionario breve para saber qué tareas hace cada persona y con qué herramientas." },
+        { title: "Taller práctico", desc: "Cada persona trabaja con sus propios casos: correos, propuestas, informes o consultas de clientes." },
+        { title: "Plantillas", desc: "Lo que funciona en el taller se guarda como plantilla para el día a día." },
+        { title: "Seguimiento", desc: "Una sesión de dudas a las dos o tres semanas, cuando ya lo han usado de verdad." },
+      ],
+      timeline:
+        "Un taller se prepara en una o dos semanas. Un itinerario para varios perfiles se reparte en varias sesiones a lo largo de un mes.",
+      priceNote: "Depende del número de sesiones y de personas. Te lo damos en la consultoría gratuita.",
+      faqs: [
+        {
+          q: "¿Presencial o en remoto?",
+          a: "Las dos. Presencial en España y en remoto para España y Latinoamérica. En remoto trabajamos en grupos pequeños para que todo el mundo practique.",
+        },
+        {
+          q: "¿Qué herramientas se enseñan?",
+          a: "ChatGPT y Claude para el día a día y, si el equipo lo necesita, cómo funcionan las automatizaciones con n8n, Make o Zapier. Nos adaptamos a lo que ya usáis: Google Workspace, Microsoft 365 o vuestro CRM.",
+        },
+        {
+          q: "¿Qué perfiles podéis formar?",
+          a: "Dirección (qué automatizar, cuánto vale y cómo medirlo), ventas (prospección, propuestas y seguimiento), atención al cliente, administración y perfiles técnicos que van a mantener automatizaciones.",
+        },
+        {
+          q: "¿Qué diferencia hay con el Kit IA?",
+          a: "La formación enseña a usar la IA. El Kit IA incluye la formación y, además, deja montadas las cuentas de empresa, un asistente que responde con vuestros documentos y las plantillas por puesto.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI training for companies and teams",
+      metaDescription:
+        "Hands-on AI workshops for management, sales, customer service and admin, built on your company's processes and documents. On site or remote.",
+      answer:
+        "We train your team in the practical use of AI on their own tasks: how to ask ChatGPT or Claude for things, how to use it in sales, customer service and admin, which data must stay out and what can be automated. They are hands-on workshops, on site or remote, run by Ramiro Pérez, an industrial engineer who teaches Industry 4.0 on a university master's programme.",
+      outcomes: [
+        "The team applies AI to their tasks the next day",
+        "Templates that stay in the company",
+        "Judgement on when to check what the AI does",
+      ],
+      flow: [
+        { label: "Before", text: "Each person tells us which tasks they do and with which tools." },
+        { label: "Workshop", text: "They practise with their own emails, proposals, reports or enquiries." },
+        { label: "Templates", text: "What works is saved as a template for everyday use." },
+        { label: "After", text: "A Q&A session once they have used it for a few weeks." },
+      ],
+      fit: [
+        "You want the team to use AI in their work, not to learn theory.",
+        "There are writing, search or analysis tasks that repeat: emails, proposals, reports or customer service.",
+        "You are about to automate processes and want the team to understand what the AI does and when to check it.",
+      ],
+      notFit: [
+        "You are looking for a technical course in programming or model training.",
+        "You need an official qualification or certificate.",
+      ],
+      steps: [
+        { title: "Before the workshop", desc: "A short questionnaire to learn which tasks each person does and with which tools." },
+        { title: "Hands-on workshop", desc: "Each person works on their own cases: emails, proposals, reports or customer enquiries." },
+        { title: "Templates", desc: "What works in the workshop is saved as a template for everyday use." },
+        { title: "Follow-up", desc: "A Q&A session two or three weeks later, once they have really used it." },
+      ],
+      timeline:
+        "A workshop takes one or two weeks to prepare. A programme for several profiles is spread over several sessions across a month.",
+      priceNote: "It depends on the number of sessions and people. We give it to you in the free consultation.",
+      faqs: [
+        {
+          q: "On site or remote?",
+          a: "Both. On site in Spain and remote for Spain and Latin America. Remote sessions run in small groups so everyone practises.",
+        },
+        {
+          q: "Which tools do you teach?",
+          a: "ChatGPT and Claude for everyday work and, if the team needs it, how automations work with n8n, Make or Zapier. We adapt to what you already use: Google Workspace, Microsoft 365 or your CRM.",
+        },
+        {
+          q: "Which profiles can you train?",
+          a: "Management (what to automate, what it is worth and how to measure it), sales (prospecting, proposals and follow-up), customer service, admin and technical profiles who will maintain automations.",
+        },
+        {
+          q: "How is it different from the AI Kit?",
+          a: "Training teaches people to use AI. The AI Kit includes the training and also sets up company accounts, an assistant that answers from your documents and templates for each role.",
+        },
+      ],
+    },
+  },
+
+  "asesoramiento-ia": {
+    cases: ["Tribeca Media"],
+    price: "advisory",
+    posts: [
+      "automatizar-procesos-con-ia-por-donde-empezar",
+      "medir-un-proceso-antes-de-automatizarlo",
+      "cuanto-cuesta-automatizar-un-proceso-con-ia",
+      "revisar-sistema-de-agentes-ia-antes-de-escalar",
+      "coste-agente-de-ia-en-produccion",
+    ],
+    es: {
+      seoTitle: "Asesoramiento en IA para empresas",
+      metaDescription:
+        "Hoja de ruta de IA por orden de impacto, elección de herramientas y proveedores, y seguimiento mensual con dirección. Un responsable de IA sin contratarlo.",
+      answer:
+        "El asesoramiento en IA es acompañamiento para dirección: ordenamos qué procesos automatizar y en qué orden, te ayudamos a elegir herramientas y proveedores, revisamos con datos lo que ya está en marcha y decidimos contigo el siguiente paso cada mes. Es tener un responsable de IA a tiempo parcial, sin contratarlo.",
+      outcomes: [
+        "Una hoja de ruta de IA con orden y prioridades",
+        "Herramientas y proveedores elegidos con criterio",
+        "El coste y el resultado de la IA, medidos cada mes",
+      ],
+      flow: [
+        { label: "Mapa", text: "Dónde se van el tiempo y el dinero, medido." },
+        { label: "Hoja de ruta", text: "Qué automatizar primero, con qué herramienta y cuánto cuesta." },
+        { label: "Cada mes", text: "Revisión de lo que está en marcha, de los proveedores y del coste de la IA." },
+        { label: "Siguiente paso", text: "Decidimos qué viene después con los datos delante." },
+      ],
+      fit: [
+        "Tienes varias ideas de IA a la vez y no sabes cuál hacer primero.",
+        "Te llegan propuestas de proveedores y no sabes si están bien planteadas ni bien de precio.",
+        "Ya tienes automatizaciones o agentes en marcha y quieres que alguien vigile que funcionan y cuánto cuestan.",
+      ],
+      notFit: [
+        "Quieres que lo construyamos todo nosotros: eso es una implantación, aunque puede ir acompañada de asesoramiento.",
+        "Buscas una sola reunión para orientarte: para eso está la consultoría gratuita.",
+      ],
+      steps: [
+        { title: "Mapa de procesos", desc: "Dónde se van el tiempo y el dinero, con los datos del punto de partida." },
+        { title: "Hoja de ruta", desc: "Qué automatizar primero, con qué herramienta, cuánto cuesta y qué se espera ganar." },
+        { title: "Seguimiento mensual", desc: "Revisión con dirección de lo que está en marcha, de los proveedores y del coste de la IA." },
+        { title: "Ajuste", desc: "El orden cambia cuando los datos lo piden, no cuando aparece una herramienta nueva." },
+      ],
+      timeline: "El mapa y la hoja de ruta están en 2 a 4 semanas. Después, el seguimiento es mensual.",
+      caseFocus: {
+        "Tribeca Media":
+          "Antes de construir nada, un diagnóstico técnico del código y del sistema en vivo, y un plan de corrección por fases priorizado por riesgo. Después, observabilidad: chequeos de salud con avisos, el coste de cada llamada a la IA registrado y un tope de gasto por cliente.",
+      },
+      faqs: [
+        {
+          q: "¿Necesito tener algo automatizado ya?",
+          a: "No. Muchas empresas empiezan por aquí precisamente para no equivocarse con la primera automatización. Si ya tenéis algo en marcha, es lo primero que revisamos.",
+        },
+        {
+          q: "¿Trabajáis con nuestros proveedores actuales?",
+          a: "Sí. El asesoramiento no obliga a que lo construyamos nosotros. Revisamos las propuestas y el trabajo de otros proveedores con el mismo criterio que aplicamos al nuestro.",
+        },
+        {
+          q: "¿Qué se revisa cada mes?",
+          a: "Lo que ya funciona (volumen, tiempo ahorrado y errores), lo que cuesta la IA en uso, lo que está en construcción y si el siguiente paso de la hoja de ruta sigue siendo el correcto.",
+        },
+        {
+          q: "¿Cuánto cuesta?",
+          a: "El mapa de procesos y la hoja de ruta son un discovery, que arranca en 1.500 €. El seguimiento mensual va de 1.000 € a 5.000 € al mes según el alcance. El precio exacto se confirma tras la consultoría gratuita.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI advisory for businesses",
+      metaDescription:
+        "An AI roadmap ordered by impact, help choosing tools and vendors, and monthly follow-up with management. An AI lead without hiring one.",
+      answer:
+        "AI advisory is support for management: we put in order which processes to automate and when, help you choose tools and vendors, review what is already running with data and decide the next step with you every month. It is like having a part-time head of AI, without hiring one.",
+      outcomes: [
+        "An AI roadmap with clear order and priorities",
+        "Tools and vendors chosen with judgement",
+        "The cost and the result of AI, measured every month",
+      ],
+      flow: [
+        { label: "Map", text: "Where time and money go, measured." },
+        { label: "Roadmap", text: "What to automate first, with which tool and at what cost." },
+        { label: "Every month", text: "A review of what is running, the vendors and the cost of AI." },
+        { label: "Next step", text: "We decide what comes next with the data in front of us." },
+      ],
+      fit: [
+        "You have several AI ideas at once and don't know which to do first.",
+        "You receive vendor proposals and can't tell whether they are well designed or well priced.",
+        "You already have automations or agents running and want someone to check that they work and what they cost.",
+      ],
+      notFit: [
+        "You want us to build everything: that is an implementation, although it can come with advisory.",
+        "You want a single meeting to get your bearings: that is what the free consultation is for.",
+      ],
+      steps: [
+        { title: "Process map", desc: "Where time and money go, with baseline data." },
+        { title: "Roadmap", desc: "What to automate first, with which tool, at what cost and with what expected gain." },
+        { title: "Monthly follow-up", desc: "A review with management of what is running, the vendors and the cost of AI." },
+        { title: "Adjust", desc: "The order changes when the data says so, not when a new tool appears." },
+      ],
+      timeline: "The map and roadmap take 2 to 4 weeks. After that, follow-up is monthly.",
+      caseFocus: {
+        "Tribeca Media":
+          "Before building anything, a technical review of the code and the live system, and a phased fix plan prioritised by risk. Then observability: health checks with alerts, the cost of every AI call recorded and a spending cap per client.",
+      },
+      faqs: [
+        {
+          q: "Do I need to have something automated already?",
+          a: "No. Many companies start here precisely so they don't get the first automation wrong. If you already have something running, that is the first thing we review.",
+        },
+        {
+          q: "Do you work with our current vendors?",
+          a: "Yes. Advisory does not require us to build anything. We review other vendors' proposals and work with the same criteria we apply to our own.",
+        },
+        {
+          q: "What gets reviewed each month?",
+          a: "What is already working (volume, time saved and errors), what the AI costs in use, what is being built and whether the next step on the roadmap is still the right one.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "The process map and roadmap are a discovery, starting at €1,500. Monthly follow-up runs from €1,000 to €5,000 a month depending on scope. The exact price is confirmed after the free consultation.",
+        },
+      ],
+    },
+  },
 };
 
 export const SERVICIO_SLUGS = Object.keys(SERVICIOS);
@@ -820,5 +1391,5 @@ export const SERVICIO_SLUGS = Object.keys(SERVICIOS);
 export function getServicio(slug: string, lang: Lang) {
   const s = SERVICIOS[slug];
   if (!s) return null;
-  return { ...s[lang], caseClient: s.caseClient, posts: s.posts };
+  return { ...s[lang], cases: s.cases ?? [], price: s.price ?? "tiers", posts: s.posts };
 }

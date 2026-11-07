@@ -1,10 +1,10 @@
 import type { Lang } from "@/lib/i18n";
 
 // ──────────────────────────────────────────────────────────────────────────
-// Copia de la home (ES / EN). La home vende el RESULTADO, no el servicio:
-// agenda llena, más ventas, horas devueltas. Los agentes y automatizaciones
-// son el cómo y van en segundo plano. Los servicios de content.ts cuelgan de
-// cada resultado y conservan sus URLs.
+// Copia de la home (ES / EN). Orden pensado para que se entienda en segundos:
+// qué hacemos (tres pasos, el primero gratis) → qué servicios damos (las
+// fichas de content.ts, con sus URLs intactas) → para quién trabajamos (con
+// las empresas reales y la llamada a la consultoría) → prueba y cierre.
 //
 // Las tareas y horas del tablero del hero son un EJEMPLO ilustrativo y la
 // página lo dice; las cifras reales salen solo de casos publicados.
@@ -14,12 +14,7 @@ export type BoardStage = 0 | 1 | 2; // 0 llega, 1 la IA lo gestiona, 2 hecho
 
 export type BoardTask = { title: string; area: string; hours: number; start: BoardStage };
 
-type AreaBlock = {
-  name: string;
-  line: string;
-  examples: string[];
-  slugs: string[];
-};
+type Chip = { name: string; href?: string };
 
 type HomeCopy = {
   hero: {
@@ -36,28 +31,37 @@ type HomeCopy = {
     proofClient: string;
     logosLabel: string;
   };
-  offer: {
+  whatWeDo: {
     title: string;
     lead: string;
     steps: {
       kicker: string;
       name: string;
-      price: string;
+      chip: string;
       desc: string;
       points: string[];
       cta?: string;
     }[];
   };
-  areas: {
+  services: {
     title: string;
     lead: string;
-    more: string;
-    items: AreaBlock[];
-    test: { title: string; items: string[] };
+    all: string;
   };
-  method: {
+  audience: {
     title: string;
-    steps: { name: string; time: string; desc: string }[];
+    lead: string;
+    profilesTitle: string;
+    profiles: { name: string; line: string }[];
+    fitTitle: string;
+    fit: string[];
+    sectorsTitle: string;
+    sectors: Chip[];
+    alsoTitle: string;
+    also: Chip[];
+    clientsTitle: string;
+    clientCta: string;
+    cta: { title: string; text: string; button: string; note: string };
   };
   cases: { title: string; lead: string; cta: string; read: string };
   tools: string;
@@ -70,9 +74,9 @@ type HomeCopy = {
 const es: HomeCopy = {
   hero: {
     title: ["Más clientes,", "sin más horas."],
-    lead: "Montamos agentes de IA y automatizaciones que contestan a cada cliente, llenan la agenda, hacen el seguimiento comercial, persiguen los cobros y se encargan del papeleo. Tú lo notas donde importa: más ventas, cobros a tiempo y un equipo que deja de repetir tareas.",
+    lead: "Somos una agencia de automatización con IA. Montamos agentes y automatizaciones que contestan a cada cliente, llenan la agenda, hacen el seguimiento comercial y se encargan del papeleo, y formamos a tu equipo para usar la IA en su día a día.",
     ctaPrimary: "Pide tu consultoría gratuita",
-    ctaSecondary: "Qué resultados conseguimos",
+    ctaSecondary: "Ver servicios",
     note: "30 minutos · Sin coste ni compromiso",
     lanes: ["Llega", "La IA lo gestiona", "Hecho"],
     boardLabel: "Tablero de ejemplo",
@@ -92,122 +96,91 @@ const es: HomeCopy = {
     proofClient: "Eventos Barcelona",
     logosLabel: "Empresas con sistema activo",
   },
-  offer: {
-    title: "Tú pones el objetivo. Nosotros, el sistema.",
-    lead: "No vendemos agentes ni software. Vendemos lo que consiguen: citas en la agenda, propuestas enviadas, clientes atendidos y horas recuperadas. Medimos tu punto de partida antes de empezar y te enseñamos el resultado después.",
+  whatWeDo: {
+    title: "Qué hacemos",
+    lead: "Automatizamos con IA el trabajo que tu equipo repite cada semana —atender, vender, agendar, facturar y el papeleo— y nos quedamos hasta que se nota en la agenda, en las ventas y en las horas. Siempre en este orden:",
     steps: [
       {
         kicker: "Paso 1",
         name: "Consultoría gratuita",
-        price: "Gratis · 30 min",
-        desc: "Buscamos dónde se te escapan clientes, citas o horas, y te decimos qué resultado puedes conseguir con IA, por dónde empezar y en cuánto tiempo.",
+        chip: "Gratis · 30 min",
+        desc: "Revisamos tus procesos y te decimos qué automatizar primero, qué ganarías y cuánto costaría. Si no compensa, te lo decimos.",
         points: [
-          "Dónde estás perdiendo leads, citas o ventas",
+          "Dónde se te escapan clientes, citas u horas",
           "Qué resultado conseguir primero y cuánto vale",
-          "Qué haría falta, con lo que ya usas",
-          "Si no compensa, te lo decimos",
+          "Qué haría falta, con las herramientas que ya usas",
         ],
         cta: "Reservar la consultoría",
       },
       {
         kicker: "Paso 2",
-        name: "Lo ponemos a funcionar",
-        price: "Según alcance",
-        desc: "Construimos el sistema, lo conectamos a tus herramientas y acompañamos al equipo hasta que el resultado se ve en el día a día: en la agenda, en las ventas y en las horas.",
+        name: "Implantación",
+        chip: "Primer resultado: semana 4",
+        desc: "Diseñamos y construimos los agentes de IA y las automatizaciones, conectados a tu CRM, correo, calendario y WhatsApp. El objetivo y el precio, por escrito antes de empezar.",
         points: [
-          "Agentes de IA y automatizaciones hechos a tu proceso",
-          "Conectados a tu CRM, correo, calendario y WhatsApp",
-          "Formación y un asistente interno que responde con los documentos de tu empresa",
-          "Seguimiento del resultado, soporte y mejoras",
+          "Hecho sobre tu proceso, no una plantilla",
+          "Con las herramientas que ya usas",
+          "El código y las cuentas son tuyos",
+        ],
+      },
+      {
+        kicker: "Paso 3",
+        name: "Formación y acompañamiento",
+        chip: "30 días incluidos",
+        desc: "Formamos al equipo para que use el sistema y la IA en su día a día, comparamos el resultado con el punto de partida y ajustamos lo que haga falta.",
+        points: [
+          "Formación práctica para el equipo",
+          "Resultado medido contra el punto de partida",
+          "Soporte, mantenimiento y mejoras",
         ],
       },
     ],
   },
-  areas: {
-    title: "Resultados que entregamos",
-    lead: "Así se nota en tu negocio. Debajo de cada resultado hay agentes de IA y automatizaciones, pero de eso nos ocupamos nosotros.",
-    more: "Cómo lo hacemos",
-    items: [
-      {
-        name: "Más ventas con los mismos leads",
-        line: "Los contactos que ya tienes, convertidos en clientes.",
-        examples: [
-          "Cada lead recibe respuesta en minutos, también de noche",
-          "Seguimiento automático hasta que dice sí o no",
-          "Contactos antiguos y presupuestos no aceptados, reactivados",
-        ],
-        slugs: ["embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel"],
-      },
-      {
-        name: "Clientes nuevos cada semana",
-        line: "Prospección que no depende de que alguien tenga tiempo.",
-        examples: [
-          "Empresas que encajan contigo, encontradas y contactadas",
-          "Mensajes personalizados y seguimiento sin intervención",
-          "Reuniones en tu calendario, no listas en un Excel",
-        ],
-        slugs: ["outbound-b2b"],
-      },
-      {
-        name: "Agenda llena",
-        line: "Cada interesado acaba con una cita, sin que nadie coja el teléfono.",
-        examples: [
-          "Ninguna llamada ni mensaje sin contestar, 24/7",
-          "La cita queda agendada, confirmada y recordada",
-          "Menos huecos vacíos y menos ausencias",
-        ],
-        slugs: ["agente-ia-whatsapp"],
-      },
-      {
-        name: "Clientes atendidos al momento",
-        line: "Respuesta inmediata sin ampliar el equipo.",
-        examples: [
-          "Las preguntas de siempre, resueltas al instante",
-          "Incidencias clasificadas y enviadas a quien toca",
-          "El estado del pedido, sin tener que llamar",
-        ],
-        slugs: ["agente-ia-whatsapp"],
-      },
-      {
-        name: "Cobrar antes",
-        line: "Facturas al día y menos dinero pendiente.",
-        examples: [
-          "Facturas leídas y registradas sin teclear",
-          "Pagos conciliados con pedidos y extractos",
-          "Recordatorios de cobro que salen solos",
-        ],
-        slugs: ["automatizacion-procesos-ia"],
-      },
-      {
-        name: "Horas devueltas al equipo",
-        line: "El trabajo administrativo, hecho sin que nadie lo toque.",
-        examples: [
-          "Los datos pasan entre herramientas sin copiar y pegar",
-          "Pedidos, contratos y documentos que se preparan solos",
-          "El informe del lunes ya está hecho",
-        ],
-        slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
-      },
+  services: {
+    title: "Servicios",
+    lead: "Ocho servicios para automatizar lo que más se repite y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
+    all: "Ver todos los servicios en detalle",
+  },
+  audience: {
+    title: "Para quién trabajamos",
+    lead: "Pymes y empresas medianas de España y Latinoamérica con trabajo que se repite cada semana. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
+    profilesTitle: "Quién nos llama",
+    profiles: [
+      { name: "Dueños y gerentes", line: "Quieren crecer sin ampliar plantilla y saber qué automatizar primero." },
+      { name: "Responsables de ventas", line: "Pierden leads por no contestar a tiempo y quieren más reuniones cada semana." },
+      { name: "Operaciones y administración", line: "Pasan horas copiando datos, persiguiendo papeles y preparando informes." },
+      { name: "Equipos que empiezan con la IA", line: "Ya la usan cada uno a su manera y quieren hacerlo con orden y criterio." },
     ],
-    test: {
-      title: "¿Dónde puedes ganar?",
-      items: [
-        "tardas horas en contestar a un lead",
-        "tienes contactos y presupuestos olvidados",
-        "se pierden llamadas o citas",
-        "persigues facturas y cobros a mano",
-        "el equipo repite las mismas tareas cada semana",
-      ],
+    fitTitle: "Encaja si…",
+    fit: [
+      "tardas horas en contestar a un lead",
+      "tienes contactos y presupuestos olvidados",
+      "se pierden llamadas o citas",
+      "el equipo repite las mismas tareas cada semana",
+      "cada uno usa la IA por su cuenta, sin reglas",
+    ],
+    sectorsTitle: "Dónde ya lo hemos aplicado",
+    sectors: [
+      { name: "Eventos", href: "/soluciones/eventos" },
+      { name: "Marketing y agencias" },
+      { name: "Clínicas (con Growth4U)", href: "/soluciones/clinicas" },
+    ],
+    alsoTitle: "Y también encaja en",
+    also: [
+      { name: "Academias y formación", href: "/soluciones/academias" },
+      { name: "Gestorías y asesorías" },
+      { name: "Servicios profesionales B2B" },
+      { name: "Inmobiliarias" },
+      { name: "Distribución y logística" },
+    ],
+    clientsTitle: "Empresas para las que trabajamos",
+    clientCta: "Ver el caso",
+    cta: {
+      title: "¿Tu empresa encaja?",
+      text: "En 30 minutos lo vemos juntos y te llevas un plan concreto, aunque no trabajemos juntos.",
+      button: "Agenda tu consultoría gratuita",
+      note: "Gratis · Sin compromiso",
     },
-  },
-  method: {
-    title: "Cómo trabajamos",
-    steps: [
-      { name: "Consultoría gratuita", time: "30 min", desc: "Vemos dónde está el resultado más rápido, cuánto vale y medimos el punto de partida." },
-      { name: "Diseño", time: "Tras la consultoría", desc: "El objetivo, cómo lo vamos a conseguir y el precio, por escrito." },
-      { name: "Puesta en marcha", time: "Semana 4", desc: "El primer resultado suele verse en la semana 4." },
-      { name: "Seguimiento", time: "30 días incluidos", desc: "Comparamos con el punto de partida, formamos al equipo y ajustamos lo que haga falta." },
-    ],
   },
   cases: {
     title: "Resultados reales",
@@ -231,9 +204,9 @@ const es: HomeCopy = {
 const en: HomeCopy = {
   hero: {
     title: ["More clients,", "no extra hours."],
-    lead: "We build AI agents and automations that answer every customer, fill your calendar, run sales follow-up, chase payments and handle the paperwork. You see it where it matters: more sales, payments on time and a team that stops repeating tasks.",
+    lead: "We are an AI automation agency. We build agents and automations that answer every customer, fill your calendar, run sales follow-up and handle the paperwork, and we train your team to use AI day to day.",
     ctaPrimary: "Book your free consultation",
-    ctaSecondary: "Results we deliver",
+    ctaSecondary: "See services",
     note: "30 minutes · Free, no commitment",
     lanes: ["Comes in", "AI handles it", "Done"],
     boardLabel: "Example board",
@@ -253,122 +226,91 @@ const en: HomeCopy = {
     proofClient: "Eventos Barcelona",
     logosLabel: "Companies with a live system",
   },
-  offer: {
-    title: "You set the goal. We build the system.",
-    lead: "We don't sell agents or software. We sell what they achieve: appointments in the calendar, proposals sent, customers answered and hours recovered. We measure your starting point before we begin and show you the result afterwards.",
+  whatWeDo: {
+    title: "What we do",
+    lead: "We use AI to automate the work your team repeats every week —answering customers, selling, booking, invoicing and the paperwork— and we stay until it shows in your calendar, your sales and your hours. Always in this order:",
     steps: [
       {
         kicker: "Step 1",
         name: "Free consultation",
-        price: "Free · 30 min",
-        desc: "We find where you are losing clients, appointments or hours, and tell you what result AI can get you, where to start and how long it takes.",
+        chip: "Free · 30 min",
+        desc: "We review your processes and tell you what to automate first, what you would gain and what it would cost. If it doesn't pay off, we tell you.",
         points: [
-          "Where you are losing leads, appointments or sales",
+          "Where you are losing clients, appointments or hours",
           "Which result to go for first and what it is worth",
-          "What it would take, with what you already use",
-          "If it doesn't pay off, we tell you",
+          "What it would take, with the tools you already use",
         ],
         cta: "Book the consultation",
       },
       {
         kicker: "Step 2",
-        name: "We make it work",
-        price: "Depends on scope",
-        desc: "We build the system, connect it to your tools and stay with your team until the result shows up day to day: in the calendar, in sales and in hours.",
+        name: "Implementation",
+        chip: "First result: week 4",
+        desc: "We design and build the AI agents and automations, connected to your CRM, email, calendar and WhatsApp. The goal and the price, in writing before we start.",
         points: [
-          "AI agents and automations built around your process",
-          "Connected to your CRM, email, calendar and WhatsApp",
-          "Training and an internal assistant that answers from your company's documents",
-          "Result tracking, support and improvements",
+          "Built around your process, not a template",
+          "With the tools you already use",
+          "The code and the accounts are yours",
+        ],
+      },
+      {
+        kicker: "Step 3",
+        name: "Training and support",
+        chip: "30 days included",
+        desc: "We train the team to use the system and AI day to day, compare the result with the starting point and adjust whatever is needed.",
+        points: [
+          "Hands-on training for the team",
+          "Result measured against the starting point",
+          "Support, maintenance and improvements",
         ],
       },
     ],
   },
-  areas: {
-    title: "Results we deliver",
-    lead: "This is how it shows in your business. Under each result there are AI agents and automations, but that part is on us.",
-    more: "How we do it",
-    items: [
-      {
-        name: "More sales from the same leads",
-        line: "The contacts you already have, turned into clients.",
-        examples: [
-          "Every lead gets an answer within minutes, at night too",
-          "Automatic follow-up until they say yes or no",
-          "Old contacts and unaccepted quotes, brought back",
-        ],
-        slugs: ["embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel"],
-      },
-      {
-        name: "New clients every week",
-        line: "Prospecting that doesn't depend on someone having time.",
-        examples: [
-          "Companies that fit you, found and contacted",
-          "Personalised messages and follow-up with no one involved",
-          "Meetings in your calendar, not lists in a spreadsheet",
-        ],
-        slugs: ["outbound-b2b"],
-      },
-      {
-        name: "A full calendar",
-        line: "Every interested lead ends up with an appointment, with no one picking up the phone.",
-        examples: [
-          "No call or message left unanswered, 24/7",
-          "The appointment is booked, confirmed and reminded",
-          "Fewer empty slots and fewer no-shows",
-        ],
-        slugs: ["agente-ia-whatsapp"],
-      },
-      {
-        name: "Customers answered instantly",
-        line: "Instant answers without growing the team.",
-        examples: [
-          "The usual questions, solved on the spot",
-          "Issues sorted and sent to the right person",
-          "Order status, without having to call",
-        ],
-        slugs: ["agente-ia-whatsapp"],
-      },
-      {
-        name: "Get paid sooner",
-        line: "Invoices up to date and less money outstanding.",
-        examples: [
-          "Invoices read and recorded with no typing",
-          "Payments matched to orders and statements",
-          "Payment reminders that go out on their own",
-        ],
-        slugs: ["automatizacion-procesos-ia"],
-      },
-      {
-        name: "Hours back for the team",
-        line: "Admin work, done without anyone touching it.",
-        examples: [
-          "Data moves between tools without copy and paste",
-          "Orders, contracts and documents that prepare themselves",
-          "Monday's report is already done",
-        ],
-        slugs: ["automatizacion-procesos-ia", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
-      },
+  services: {
+    title: "Services",
+    lead: "Eight services to automate what repeats most and three to help your team learn to use AI. Hire them on their own or together in one project.",
+    all: "See every service in detail",
+  },
+  audience: {
+    title: "Who we work with",
+    lead: "Small and mid-sized companies in Spain and Latin America with work that repeats every week. The industry matters less than the process: if a task is frequent, follows rules and costs money when it fails, it can be automated.",
+    profilesTitle: "Who calls us",
+    profiles: [
+      { name: "Owners and managers", line: "They want to grow without hiring more people and to know what to automate first." },
+      { name: "Sales leads", line: "They lose leads by not replying in time and want more meetings every week." },
+      { name: "Operations and admin", line: "They spend hours copying data, chasing paperwork and preparing reports." },
+      { name: "Teams starting with AI", line: "Everyone already uses it their own way and they want to do it with order and judgement." },
     ],
-    test: {
-      title: "Where can you gain?",
-      items: [
-        "it takes you hours to answer a lead",
-        "you have forgotten contacts and quotes",
-        "calls or appointments get lost",
-        "you chase invoices and payments by hand",
-        "the team repeats the same tasks every week",
-      ],
+    fitTitle: "A good fit if…",
+    fit: [
+      "it takes you hours to answer a lead",
+      "you have forgotten contacts and quotes",
+      "calls or appointments get lost",
+      "the team repeats the same tasks every week",
+      "everyone uses AI on their own, with no rules",
+    ],
+    sectorsTitle: "Where we have already applied it",
+    sectors: [
+      { name: "Events", href: "/soluciones/eventos" },
+      { name: "Marketing and agencies" },
+      { name: "Clinics (with Growth4U)", href: "/soluciones/clinicas" },
+    ],
+    alsoTitle: "It also fits",
+    also: [
+      { name: "Academies and training", href: "/soluciones/academias" },
+      { name: "Accounting and advisory firms" },
+      { name: "B2B professional services" },
+      { name: "Real estate" },
+      { name: "Distribution and logistics" },
+    ],
+    clientsTitle: "Companies we work for",
+    clientCta: "See the case",
+    cta: {
+      title: "Is your company a fit?",
+      text: "In 30 minutes we look at it together and you leave with a concrete plan, even if we don't work together.",
+      button: "Book your free consultation",
+      note: "Free · No commitment",
     },
-  },
-  method: {
-    title: "How we work",
-    steps: [
-      { name: "Free consultation", time: "30 min", desc: "We find the fastest result, what it is worth, and measure the starting point." },
-      { name: "Design", time: "After the consultation", desc: "The goal, how we will reach it and the price, in writing." },
-      { name: "Go live", time: "Week 4", desc: "The first result usually shows by week 4." },
-      { name: "Follow-up", time: "30 days included", desc: "We compare against the starting point, train the team and adjust what's needed." },
-    ],
   },
   cases: {
     title: "Real results",

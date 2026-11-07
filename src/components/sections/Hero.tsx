@@ -37,7 +37,7 @@ export function Hero() {
               {h.ctaPrimary}
               <ArrowRight size={17} aria-hidden />
             </Link>
-            <Link href="#que-automatizamos" className="btn-secondary">
+            <Link href="#servicios" className="btn-secondary">
               {h.ctaSecondary}
             </Link>
           </div>
