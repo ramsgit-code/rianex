@@ -176,6 +176,11 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-09 · "Para quién trabajamos": inmobiliarias y negocios con cita
+  previa pasan por delante de talleres mecánicos, a petición de Ramiro. Orden:
+  agencias de marketing, eventos, clínicas y hospitales, inmobiliarias,
+  negocios con cita previa y talleres (también en la entradilla y la FAQ).
+
 - 2026-11-09 · "Para quién trabajamos": agencias de marketing y empresas de
   eventos pasan a ser las dos primeras tarjetas (con los casos de Tribeca
   Media, Growth4U y Eventos Barcelona), a petición de Ramiro. Seis sectores
