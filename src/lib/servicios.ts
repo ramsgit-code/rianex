@@ -549,6 +549,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       "agentes-de-ia-para-empresas-cuando-compensan",
       "agentes-de-ia-vps-propio-o-nube",
       "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
+      "cobrar-la-ia-por-resultado",
     ],
     es: {
       seoTitle: "Agente de IA para WhatsApp, Telegram y voz: citas 24/7",
