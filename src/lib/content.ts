@@ -259,7 +259,7 @@ export const content = {
       items: [
         {
           q: "¿Para qué empresas trabajáis?",
-          a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
+          a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. Trabajamos sobre todo con clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias, y también con empresas de servicios y B2B. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
         },
         {
           q: "¿Cómo funciona vuestra IA exactamente?",
@@ -460,7 +460,7 @@ export const content = {
           tagline: "Atienden, cualifican y agendan citas 24/7, por escrito o por teléfono.",
           problem:
             "Los clientes escriben o llaman a cualquier hora y nadie contesta a tiempo, o tu equipo responde cien veces lo mismo.",
-          forWho: "Negocios con cita previa, como peluquerías, clínicas, fisioterapeutas o gestorías, y cualquier empresa que recibe consultas por WhatsApp, Telegram, teléfono o la web.",
+          forWho: "Negocios con cita previa, como clínicas, talleres mecánicos, peluquerías, fisioterapeutas o gestorías, inmobiliarias que agendan visitas y cualquier empresa que recibe consultas por WhatsApp, Telegram, teléfono o la web.",
           deliverables: [
             "Agente en la API oficial de WhatsApp Business o en Telegram, también en chat web",
             "Agente de voz creado en Vapi que atiende llamadas y agenda",
@@ -939,7 +939,7 @@ export const content = {
       items: [
         {
           q: "What kind of companies do you work with?",
-          a: "Companies that want to use AI to automate processes that are done by hand today and repeat every week: moving data between tools, sorting emails or orders, preparing reports and proposals, answering enquiries or following up with customers. The industry matters less than the process: if the task is frequent, follows rules and costs money when it fails, it can be automated. We work with companies in Spain and Latin America.",
+          a: "Companies that want to use AI to automate processes that are done by hand today and repeat every week: moving data between tools, sorting emails or orders, preparing reports and proposals, answering enquiries or following up with customers. We mostly work with clinics and hospitals, car repair shops, appointment-based businesses and real estate agencies, as well as service and B2B companies. The industry matters less than the process: if the task is frequent, follows rules and costs money when it fails, it can be automated. We work with companies in Spain and Latin America.",
         },
         {
           q: "How does your AI actually work?",
@@ -1140,7 +1140,7 @@ export const content = {
           tagline: "Answer, qualify and book appointments 24/7, in writing or by phone.",
           problem:
             "Customers write or call at any hour and nobody answers in time, or your team answers the same thing a hundred times.",
-          forWho: "Appointment-based businesses such as hair salons, clinics, physiotherapists or accounting firms, and any company that gets enquiries on WhatsApp, Telegram, the phone or the web.",
+          forWho: "Appointment-based businesses such as clinics, car repair shops, hair salons, physiotherapists or accounting firms, real estate agencies that book viewings, and any company that gets enquiries on WhatsApp, Telegram, the phone or the web.",
           deliverables: [
             "Agent on the official WhatsApp Business API or on Telegram, also on web chat",
             "Voice agent built on Vapi that answers calls and books",

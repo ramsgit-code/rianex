@@ -6,8 +6,9 @@ import { ArrowRight, ArrowUpRight, Square } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { home } from "@/lib/home";
 
-// "Para quién trabajamos": perfiles, señales de encaje, sectores y las
-// empresas reales (solo casos propios: Hospital Capilar es de Growth4U y no
+// "Para quién trabajamos": sectores destacados (clínicas y hospitales,
+// talleres, negocios con cita previa, inmobiliarias), perfiles, señales de
+// encaje y las empresas reales (solo casos propios: Hospital Capilar es de Growth4U y no
 // va en los logos de la home). Termina con la llamada a la consultoría.
 
 const LOGO_SIZE: Record<string, { w: number; h: number; cls: string }> = {
@@ -58,23 +59,67 @@ export function Audience() {
           </p>
         </div>
 
-        {/* Quién nos llama */}
+        {/* Sectores destacados: qué duele (rojo) y qué automatizamos (verde) */}
         <h3 className="mt-14 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
-          {a.profilesTitle}
+          {a.sectorsTitle}
         </h3>
         <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {a.profiles.map((p, i) => (
-            <li key={p.name} className="card">
-              <span className="font-mono text-xs text-accent-text">0{i + 1}</span>
-              <p className="mt-2 font-display text-2xl font-extrabold uppercase leading-[0.95] text-foreground">{p.name}</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-foreground-muted">{p.line}</p>
+          {a.sectors.map((sec) => (
+            <li key={sec.name} className="flex flex-col border-2 border-ink bg-white">
+              <div className="flex flex-1 flex-col p-6">
+                <p className="font-display text-2xl font-extrabold uppercase leading-[0.95] text-foreground">{sec.name}</p>
+                {sec.note && (
+                  <span className="mt-2 w-fit bg-ink px-1.5 py-0.5 font-display text-[11px] font-bold uppercase tracking-[0.06em] text-background">
+                    {sec.note}
+                  </span>
+                )}
+                <p className="mt-4 flex items-start gap-2.5 text-[15px] leading-relaxed text-foreground-muted">
+                  <span aria-hidden className="mt-[7px] h-2.5 w-2.5 shrink-0 bg-stop" />
+                  {sec.pain}
+                </p>
+                <p className="mt-3 flex items-start gap-2.5 text-[15px] font-medium leading-relaxed text-foreground">
+                  <span aria-hidden className="mt-[7px] h-2.5 w-2.5 shrink-0 bg-go" />
+                  {sec.fix}
+                </p>
+              </div>
+              <Link
+                href={localize(sec.href)}
+                className="group flex items-center justify-between gap-2 border-t-2 border-ink px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
+              >
+                {sec.link}
+                <ArrowUpRight
+                  size={15}
+                  aria-hidden
+                  className="shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </Link>
             </li>
           ))}
         </ul>
+        <div className="mt-5 flex flex-col gap-1 sm:flex-row sm:items-start sm:gap-4">
+          <h3 className="shrink-0 pt-[9px] font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
+            {a.alsoTitle}
+          </h3>
+          <Chips items={a.also} localize={localize} />
+        </div>
 
-        {/* Encaje y sectores */}
-        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-12">
-          <div className="border-2 border-ink bg-white p-6 sm:p-8 lg:col-span-5">
+        {/* Quién nos llama y encaje */}
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <h3 className="font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
+              {a.profilesTitle}
+            </h3>
+            <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {a.profiles.map((p, i) => (
+                <li key={p.name} className="card">
+                  <span className="font-mono text-xs text-accent-text">0{i + 1}</span>
+                  <p className="mt-2 font-display text-xl font-extrabold uppercase leading-[0.95] text-foreground">{p.name}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-foreground-muted">{p.line}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="self-start border-2 border-ink bg-white p-6 sm:p-8 lg:col-span-5 lg:mt-[34px]">
             <p className="font-display text-2xl font-extrabold uppercase leading-tight">{a.fitTitle}</p>
             <ul className="mt-5 flex flex-col gap-3">
               {a.fit.map((t) => (
@@ -84,20 +129,6 @@ export function Audience() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="flex flex-col gap-8 lg:col-span-7">
-            <div>
-              <h3 className="font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
-                {a.sectorsTitle}
-              </h3>
-              <Chips items={a.sectors} localize={localize} />
-            </div>
-            <div>
-              <h3 className="font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
-                {a.alsoTitle}
-              </h3>
-              <Chips items={a.also} localize={localize} />
-            </div>
           </div>
         </div>
 

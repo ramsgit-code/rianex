@@ -84,6 +84,17 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Páginas de sector para talleres, negocios con cita previa e
+      inmobiliarias**: desde el 9 de noviembre la home las destaca en "Para
+      quién trabajamos", pero solo clínicas tiene página propia en
+      /soluciones (eventos y academias también, aunque no se destacan). Hoy
+      las tarjetas de talleres y negocios con cita llevan a
+      /servicios/agente-ia-whatsapp, y la de inmobiliarias a la implantación
+      de CRM. Con /soluciones/talleres, /soluciones/negocios-con-cita e
+      /soluciones/inmobiliarias (en `src/lib/sectores.ts`, sin casos
+      inventados) habría páginas para "automatización talleres mecánicos",
+      "agente WhatsApp inmobiliaria", etc.
+
 - [ ] **Vídeo de prospección B2B**: es el único de los ocho servicios sin
       vídeo (`~/rianex-videos`, hace falta un visual nuevo). Tampoco tienen
       vídeo Kit IA, formación ni asesoramiento.
@@ -164,6 +175,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-09 · "Para quién trabajamos" con cuatro sectores destacados, a
+  petición de Ramiro: clínicas y hospitales (con el caso de Growth4U),
+  talleres mecánicos, negocios con cita previa e inmobiliarias. Cada tarjeta
+  dice qué duele, qué automatizamos y a qué servicio lleva. Se añaden a la
+  entradilla, a la FAQ "¿Para qué empresas trabajáis?" y al "para quién" del
+  agente de WhatsApp (la meta description de esa ficha no se toca, que está
+  en medición hasta el 26-nov).
 
 - 2026-11-07 · Web reorganizada para que se entienda en segundos. Home: Qué
   hacemos (tres pasos: consultoría gratuita, implantación, formación y

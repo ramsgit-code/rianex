@@ -559,7 +559,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       fit: [
         "Muchas consultas llegan por WhatsApp por la tarde, de noche o en fin de semana, y nadie contesta a tiempo.",
         "Tu equipo responde cien veces lo mismo, pero la respuesta exige mirar algo: la agenda, un precio, unas sesiones pendientes.",
-        "Vendes con cita previa: peluquerías, clínicas, fisioterapeutas, gestorías, centros de estética o cualquier negocio de servicios.",
+        "Vendes con cita previa: clínicas, talleres mecánicos, peluquerías, fisioterapeutas, centros de estética, gestorías o cualquier negocio de servicios.",
         "Se te escapan llamadas porque estás atendiendo a un cliente y nadie coge el teléfono.",
       ],
       notFit: [
@@ -629,7 +629,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       fit: [
         "Many enquiries arrive on WhatsApp in the evening, at night or at weekends, and nobody answers in time.",
         "Your team answers the same thing a hundred times, but the answer requires checking something: the calendar, a price, remaining sessions.",
-        "You sell by appointment: hair salons, clinics, physiotherapists, accounting firms, beauty centres or any service business.",
+        "You sell by appointment: clinics, car repair shops, hair salons, physiotherapists, beauty centres, accounting firms or any service business.",
         "You miss calls because you are with a client and nobody picks up the phone.",
       ],
       notFit: [

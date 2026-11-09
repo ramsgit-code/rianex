@@ -56,7 +56,8 @@ type HomeCopy = {
     fitTitle: string;
     fit: string[];
     sectorsTitle: string;
-    sectors: Chip[];
+    /** Sectores destacados: qué duele y qué automatizamos. */
+    sectors: { name: string; pain: string; fix: string; href: string; link: string; note?: string }[];
     alsoTitle: string;
     also: Chip[];
     clientsTitle: string;
@@ -143,7 +144,7 @@ const es: HomeCopy = {
   },
   audience: {
     title: "Para quién trabajamos",
-    lead: "Pymes y empresas medianas de España y Latinoamérica con trabajo que se repite cada semana. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
+    lead: "Pymes y empresas medianas de España y Latinoamérica que atienden, dan cita y venden cada día: clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
     profilesTitle: "Quién nos llama",
     profiles: [
       { name: "Dueños y gerentes", line: "Quieren crecer sin ampliar plantilla y saber qué automatizar primero." },
@@ -159,18 +160,45 @@ const es: HomeCopy = {
       "el equipo repite las mismas tareas cada semana",
       "cada uno usa la IA por su cuenta, sin reglas",
     ],
-    sectorsTitle: "Dónde ya lo hemos aplicado",
+    sectorsTitle: "Sectores con los que trabajamos",
     sectors: [
-      { name: "Eventos", href: "/soluciones/eventos" },
-      { name: "Marketing y agencias" },
-      { name: "Clínicas (con Growth4U)", href: "/soluciones/clinicas" },
+      {
+        name: "Clínicas y hospitales",
+        pain: "Llamadas sin coger, citas sin confirmar y pacientes que no vuelven.",
+        fix: "Respuesta al momento por WhatsApp y teléfono, precualificación por tratamiento, recordatorios y lista de espera.",
+        href: "/soluciones/clinicas",
+        link: "Ver la solución para clínicas",
+        note: "Caso con Growth4U",
+      },
+      {
+        name: "Talleres mecánicos",
+        pain: "El teléfono suena mientras estás debajo de un coche y nadie lo coge.",
+        fix: "Cita por WhatsApp o teléfono a cualquier hora, aviso de revisión e ITV, presupuesto enviado y aviso de coche listo.",
+        href: "/servicios/agente-ia-whatsapp",
+        link: "Ver el agente de WhatsApp y voz",
+      },
+      {
+        name: "Negocios con cita previa",
+        pain: "Peluquerías, estética, fisioterapia o centros deportivos: huecos vacíos por ausencias y mensajes contestados a deshoras.",
+        fix: "Un agente que agenda 24/7, confirma y recuerda la cita, y rellena las cancelaciones con la lista de espera.",
+        href: "/servicios/agente-ia-whatsapp",
+        link: "Ver el agente de WhatsApp y voz",
+      },
+      {
+        name: "Inmobiliarias",
+        pain: "Los leads de los portales se enfrían antes de que alguien los llame.",
+        fix: "Respuesta al momento a cada lead, cualificación por presupuesto y zona, visitas agendadas y cada operación en el CRM.",
+        href: "/servicios/implementacion-crm-gohighlevel",
+        link: "Ver la implantación de CRM",
+      },
     ],
-    alsoTitle: "Y también encaja en",
+    alsoTitle: "Y también",
     also: [
+      { name: "Empresas de eventos", href: "/soluciones/eventos" },
       { name: "Academias y formación", href: "/soluciones/academias" },
+      { name: "Agencias de marketing" },
       { name: "Gestorías y asesorías" },
-      { name: "Servicios profesionales B2B" },
-      { name: "Inmobiliarias" },
+      { name: "Empresas B2B y servicios profesionales" },
       { name: "Distribución y logística" },
     ],
     clientsTitle: "Empresas para las que trabajamos",
@@ -273,7 +301,7 @@ const en: HomeCopy = {
   },
   audience: {
     title: "Who we work with",
-    lead: "Small and mid-sized companies in Spain and Latin America with work that repeats every week. The industry matters less than the process: if a task is frequent, follows rules and costs money when it fails, it can be automated.",
+    lead: "Small and mid-sized companies in Spain and Latin America that serve customers, book appointments and sell every day: clinics and hospitals, car repair shops, appointment-based businesses and real estate agencies. The industry matters less than the process: if a task is frequent, follows rules and costs money when it fails, it can be automated.",
     profilesTitle: "Who calls us",
     profiles: [
       { name: "Owners and managers", line: "They want to grow without hiring more people and to know what to automate first." },
@@ -289,18 +317,45 @@ const en: HomeCopy = {
       "the team repeats the same tasks every week",
       "everyone uses AI on their own, with no rules",
     ],
-    sectorsTitle: "Where we have already applied it",
+    sectorsTitle: "Industries we work with",
     sectors: [
-      { name: "Events", href: "/soluciones/eventos" },
-      { name: "Marketing and agencies" },
-      { name: "Clinics (with Growth4U)", href: "/soluciones/clinicas" },
+      {
+        name: "Clinics and hospitals",
+        pain: "Missed calls, unconfirmed appointments and patients who never come back.",
+        fix: "Instant replies on WhatsApp and phone, pre-qualification by treatment, reminders and a waiting list.",
+        href: "/soluciones/clinicas",
+        link: "See the solution for clinics",
+        note: "Case with Growth4U",
+      },
+      {
+        name: "Car repair shops",
+        pain: "The phone rings while you're under a car and nobody picks up.",
+        fix: "Bookings on WhatsApp or by phone at any hour, service and MOT reminders, quotes sent and a 'your car is ready' message.",
+        href: "/servicios/agente-ia-whatsapp",
+        link: "See the WhatsApp and voice agent",
+      },
+      {
+        name: "Appointment-based businesses",
+        pain: "Hair salons, beauty, physio or gyms: empty slots from no-shows and messages answered at odd hours.",
+        fix: "An agent that books 24/7, confirms and reminds, and fills cancellations from the waiting list.",
+        href: "/servicios/agente-ia-whatsapp",
+        link: "See the WhatsApp and voice agent",
+      },
+      {
+        name: "Real estate agencies",
+        pain: "Leads from property portals go cold before anyone calls them.",
+        fix: "An instant reply to every lead, qualification by budget and area, viewings booked and every deal in the CRM.",
+        href: "/servicios/implementacion-crm-gohighlevel",
+        link: "See CRM implementation",
+      },
     ],
-    alsoTitle: "It also fits",
+    alsoTitle: "And also",
     also: [
+      { name: "Event companies", href: "/soluciones/eventos" },
       { name: "Academies and training", href: "/soluciones/academias" },
+      { name: "Marketing agencies" },
       { name: "Accounting and advisory firms" },
-      { name: "B2B professional services" },
-      { name: "Real estate" },
+      { name: "B2B companies and professional services" },
       { name: "Distribution and logistics" },
     ],
     clientsTitle: "Companies we work for",
