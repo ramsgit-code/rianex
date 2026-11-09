@@ -1,0 +1,131 @@
+---
+title: "Cobrar la IA por resultado: qué puede copiar una pyme de Sierra"
+description: "Sierra supera los 400 M$ de ARR cobrando por resultado e Intercom cobra 0,99 $ por resolución. Cuándo encaja en una pyme y cómo calcular el coste por cita."
+date: "2026-11-09"
+tags: ["precio por resultado", "agentes de ia", "booking sdr", "coste de la ia", "whatsapp"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Cada vez más gerentes hacen la misma pregunta cuando se habla de agentes de IA: si la máquina hace en minutos lo que antes llevaba horas, ¿por qué voy a pagarlo como si fueran horas? En Estados Unidos, dos de las empresas que más venden agentes de atención al cliente ya han respondido cobrando por resultado. Este artículo cuenta qué hacen, cuándo tiene sentido copiarlo en una pyme española y cómo se calcula lo que cuesta de verdad cada resultado, con un agente que agenda citas como ejemplo.
+
+## La respuesta corta
+
+Cobrar la IA por resultado significa que el cliente paga por cada cosa útil que consigue el agente, como una conversación resuelta, una cita agendada o una propuesta enviada, y no por horas, licencias ni consumo del modelo. Funciona cuando el resultado se puede contar sin discusión, se puede atribuir al agente y se repite lo bastante cada mes.
+
+En una pyme, el formato que mejor encaja es mixto: una implantación cerrada, una cuota base que cubre la infraestructura y el mantenimiento, y un importe por resultado con un tope mensual. El agente que agenda citas (lo que en inglés llaman *Booking SDR*) es el caso más claro, porque una cita es un hecho con fecha y hora en el calendario.
+
+## Qué hacen Sierra e Intercom
+
+**Sierra** vende agentes de atención al cliente a grandes empresas. El 30 de octubre de 2026 anunció que había superado los [400 millones de dólares de ingresos recurrentes anuales](https://sierra.ai/blog/our-customers-ambition-is-accelerating-our-growth), con más de 150 millones añadidos solo en el tercer trimestre. Tardó seis meses en pasar de 100 a 200 millones y cinco en pasar de 200 a 400. Su principio de precio cabe en una frase: "pagas por resultados, no por los tokens que se usan". Los ejemplos que pone son un préstamo refinanciado, un siniestro pagado, una venta cerrada o un cliente que no se da de baja.
+
+**Intercom** cobra su agente, Fin, a [0,99 dólares por resolución](https://www.intercom.com/small-business). Y no obliga a usar su propio software de atención al cliente: Fin también [se instala encima de Zendesk o Salesforce](https://www.intercom.com/help/en/articles/10118495-fin-for-zendesk-and-salesforce-explained), así que se vende como una capa sobre lo que la empresa ya tiene.
+
+Los dos modelos tienen tres cosas en común:
+
+- **El resultado queda registrado en un sistema.** Un ticket cerrado, una venta anotada o una baja que no se produjo. No hace falta discutir si ocurrió.
+- **Trabajan con mucho volumen.** Con millones de conversaciones, los casos dudosos se diluyen.
+- **Necesitan controlar lo que les cuesta cada conversación.** Si el coste por resultado se dispara, el margen desaparece. Es la parte menos visible del modelo y la que decide si es un negocio.
+
+## Por qué ahora: el coste se puede controlar
+
+Hace dos años, cobrar por resultado era apostar a que la factura del modelo no se comería el margen. Hoy se puede diseñar para que no pase. El ejemplo más comentado de las últimas semanas es Revolut, aunque no venga de la atención al cliente.
+
+Según [contó su responsable de infraestructura](https://www.theregister.com/a/5307345) en la conferencia AI Engineer de Nueva York, Revolut ha recortado en torno a un 90 % lo que gasta en IA para programar. Lo hizo sirviendo un modelo abierto, GLM, en sus propias máquinas para unos 2.000 ingenieros. Claude Code y Codex se quedan para los casos difíciles, y las imágenes van a Gemini a través de un router, porque GLM solo trabaja con texto. Son cifras de una presentación de la empresa que nadie ha auditado por fuera, pero el patrón no depende de que la cifra exacta sea un 90 %.
+
+Ese patrón es el que permite cobrar por resultado: un modelo barato hace el grueso del trabajo, uno caro se reserva para las excepciones y una regla decide cuál entra en cada caso. En un agente que agenda citas, el grueso es contestar el horario, mirar huecos libres y confirmar. Solo la conversación rara necesita un modelo potente o una persona. Cómo registrar el coste de cada llamada y ponerle tope lo contamos en [coste de un agente de IA en producción](/blog/coste-agente-de-ia-en-produccion).
+
+## Cuándo encaja en una pyme y cuándo no
+
+Cobrar por resultado no sirve para todo. Esta tabla resume dónde funciona:
+
+| | Encaja | No encaja |
+|---|---|---|
+| **El resultado** | Se cuenta sin discusión: una cita en el calendario, una propuesta enviada | Es difuso: "más ventas", "mejor atención" |
+| **La atribución** | El agente lo consigue sin que nadie intervenga | Depende de varias personas, como una venta que cierra el comercial tras tres reuniones |
+| **El volumen** | Decenas o cientos al mes | Una veintena de consultas al mes, que atiende mejor una persona |
+| **El ciclo** | Corto: la cita se agenda en la misma conversación | Largo: ventas que tardan meses en cerrarse |
+
+Por eso los dos candidatos más claros en una pyme son el agente que agenda citas y el generador de propuestas, que cobraría por propuesta enviada. Cobrar por venta cerrada casi nunca funciona, porque en la venta influyen demasiadas cosas que el agente no controla.
+
+## Antes de firmar: qué cuenta como una cita
+
+La mayoría de los conflictos de un contrato por resultado vienen de no haber definido bien el resultado. En un agente de citas hay tres opciones, y cada una reparte el riesgo de forma distinta:
+
+- **Cita agendada:** cuenta en cuanto entra en el calendario. Es fácil de medir, pero el riesgo de que el cliente no se presente lo asume la empresa.
+- **Cita confirmada:** cuenta cuando el cliente responde al recordatorio. Es el término medio y el que recomendamos estudiar primero.
+- **Cita atendida:** cuenta solo si el cliente se presenta. El riesgo pasa al proveedor, pero depende de que alguien en la empresa marque la asistencia, cada día y sin olvidos.
+
+Además del tipo de cita, el contrato debería dejar por escrito:
+
+- **Qué criterios tiene que cumplir la cita.** El servicio, la zona o el presupuesto que se acordaron. Sin esto, el incentivo del proveedor es llenar la agenda de citas que no valen.
+- **Qué pasa con los duplicados y los cambios de fecha.** Una persona que reprograma tres veces es una sola cita.
+- **Qué pasa cuando interviene una persona.** Si la conversación la termina alguien del equipo, lo lógico es que no cuente como resultado del agente.
+- **Dónde se mide.** Una sola fuente de verdad, normalmente el calendario o el CRM, a la que las dos partes tengan acceso.
+
+## Cómo calcular el coste real por cita
+
+El coste de cada cita que agenda un agente tiene cuatro partes:
+
+1. **Costes fijos al mes:** el CRM o la subcuenta de GoHighLevel, el servidor, el número de WhatsApp o la línea de teléfono, la monitorización y el mantenimiento.
+2. **El modelo de IA por conversación:** con un modelo pequeño para el grueso, son céntimos por conversación.
+3. **Los mensajes de WhatsApp:** responder dentro de las 24 horas siguientes a que el cliente te escriba no tiene coste de Meta. Las plantillas que inicia la empresa, como los recordatorios o una campaña para reactivar contactos, se pagan por mensaje según el país y el tipo de mensaje. Conviene mirar la tarifa vigente de Meta para España.
+4. **Los minutos de voz, si hay agente de voz:** la plataforma de Vapi cobra [0,05 dólares por minuto](https://vapi.ai/pricing), y a eso se suman la transcripción, el modelo y la voz. Según su propia calculadora, el total queda entre 0,08 y 0,13 dólares por minuto, más lo que cobre el operador de la línea.
+
+La cuenta es: **coste por cita = (fijos + conversaciones × coste por conversación + minutos × coste por minuto + plantillas × coste por plantilla) ÷ citas**.
+
+Un ejemplo con números redondos. Son supuestos para enseñar la cuenta, no datos de un cliente:
+
+| Concepto | Supuesto | Al mes |
+|---|---|---|
+| Costes fijos | CRM, servidor, línea y monitorización | 300 € |
+| Modelo de IA | 700 conversaciones a 3 céntimos | 21 € |
+| Voz | 100 llamadas de 3 minutos a 0,15 €, con la línea | 45 € |
+| Recordatorios por WhatsApp | 150 citas con 2 plantillas a 2 céntimos | 6 € |
+| **Total** | | **372 €** |
+| **Citas confirmadas** | | **150** |
+
+Con estos supuestos, cada cita cuesta unos **2,50 €**, y menos de **50 céntimos** si se quitan los costes fijos. La conclusión es la misma casi siempre: lo variable es poco y lo que pesa son los costes fijos y la implantación.
+
+Por eso el precio por cita no se fija a partir del coste, sino de lo que vale una cita para el negocio y de cuántas se perdían antes de tener el agente. Si no sabes cuántas consultas se quedan sin respuesta hoy, ese es el primer número que hay que sacar: cómo hacerlo en una semana lo explicamos en [medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## Cómo se monta el precio
+
+Un precio por resultado para un agente de citas suele tener tres piezas:
+
+- **Implantación cerrada.** La construcción del agente, sus conexiones con el calendario y el CRM, y las pruebas. Se paga una vez. Hoy la implantación de un [agente de IA para WhatsApp](/servicios/agente-ia-whatsapp) va de 5.000 € a 25.000 €, según cuántos sistemas toque y cuántas excepciones tenga el proceso.
+- **Cuota base mensual.** Cubre los costes fijos y el mantenimiento, para que un mes flojo no deje el sistema sin vigilar.
+- **Importe por cita confirmada, con tope mensual.** El tope protege el presupuesto de la empresa si un mes entra mucho más volumen del previsto.
+
+Hay dos riesgos que conviene pactar desde el principio. El primero son los cambios de precio de terceros: si Meta o el proveedor del modelo suben sus tarifas, el contrato debería prever una revisión. El segundo es la propiedad. Las cuentas del CRM, el número de WhatsApp y los flujos deberían estar a nombre de la empresa, para que pueda cambiar de proveedor sin perder lo construido.
+
+## Preguntas frecuentes
+
+### ¿Qué significa cobrar la IA por resultado?
+
+Que el cliente paga por cada cosa útil que consigue el agente, como una conversación resuelta, una cita agendada o una propuesta enviada, en lugar de pagar por horas, licencias o consumo del modelo. Funciona cuando el resultado se puede contar sin discusión y atribuir al agente.
+
+### ¿Cuánto cobra Intercom por su agente Fin?
+
+0,99 dólares por resolución, según su página de precios. Fin puede funcionar con el software de atención al cliente de Intercom o encima de otros como Zendesk o Salesforce.
+
+### ¿Cuánto factura Sierra cobrando por resultado?
+
+Más de 400 millones de dólares de ingresos recurrentes anuales, según anunció la propia empresa el 30 de octubre de 2026, con más de 150 millones añadidos en el tercer trimestre.
+
+### ¿Qué resultado conviene cobrar en un agente que agenda citas?
+
+La cita confirmada, es decir, la que el cliente confirma al recibir el recordatorio, es el término medio entre la cita agendada, que deja a la empresa el riesgo de que el cliente no se presente, y la cita atendida, que depende de que alguien marque la asistencia. Además, la cita debe cumplir los criterios acordados para que el agente no llene la agenda de citas que no valen.
+
+### ¿Cuánto cuesta cada cita que agenda un agente de IA?
+
+Depende del volumen y de los costes fijos. En un ejemplo con 150 citas al mes, WhatsApp y algo de voz, el coste variable sale por menos de 50 céntimos por cita y el total, con los fijos, por unos 2,50 €. Lo que más pesa son los costes fijos y la implantación, no el modelo de IA.
+
+### ¿Tiene sentido cobrar por resultado en una empresa pequeña?
+
+Solo si hay volumen suficiente. Con una veintena de consultas al mes, el coste fijo se reparte entre muy pocas citas y es mejor un precio cerrado, o que las atienda una persona.
+
+### ¿Por dónde empiezo?
+
+Por saber cuántas consultas te llegan y cuántas se quedan sin cita hoy. Si quieres hacer la cuenta con tus números, en la [consultoría gratuita](/diagnostico) de 30 minutos vemos si un agente de citas encaja en tu caso y con qué formato de precio.
