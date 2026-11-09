@@ -176,6 +176,11 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-09 · "Para quién trabajamos": agencias de marketing y empresas de
+  eventos pasan a ser las dos primeras tarjetas (con los casos de Tribeca
+  Media, Growth4U y Eventos Barcelona), a petición de Ramiro. Seis sectores
+  en dos filas de tres; salen de la línea "Y también".
+
 - 2026-11-09 · "Para quién trabajamos" con cuatro sectores destacados, a
   petición de Ramiro: clínicas y hospitales (con el caso de Growth4U),
   talleres mecánicos, negocios con cita previa e inmobiliarias. Cada tarjeta

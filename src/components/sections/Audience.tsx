@@ -6,8 +6,9 @@ import { ArrowRight, ArrowUpRight, Square } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { home } from "@/lib/home";
 
-// "Para quién trabajamos": sectores destacados (clínicas y hospitales,
-// talleres, negocios con cita previa, inmobiliarias), perfiles, señales de
+// "Para quién trabajamos": sectores destacados (primero agencias de
+// marketing y eventos, donde están los casos propios; después clínicas y
+// hospitales, talleres, negocios con cita previa e inmobiliarias), perfiles, señales de
 // encaje y las empresas reales (solo casos propios: Hospital Capilar es de Growth4U y no
 // va en los logos de la home). Termina con la llamada a la consultoría.
 
@@ -63,7 +64,7 @@ export function Audience() {
         <h3 className="mt-14 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
           {a.sectorsTitle}
         </h3>
-        <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {a.sectors.map((sec) => (
             <li key={sec.name} className="flex flex-col border-2 border-ink bg-white">
               <div className="flex flex-1 flex-col p-6">

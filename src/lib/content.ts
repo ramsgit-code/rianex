@@ -259,7 +259,7 @@ export const content = {
       items: [
         {
           q: "¿Para qué empresas trabajáis?",
-          a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. Trabajamos sobre todo con clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias, y también con empresas de servicios y B2B. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
+          a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. Trabajamos sobre todo con agencias de marketing, empresas de eventos, clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias, y también con empresas de servicios y B2B. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
         },
         {
           q: "¿Cómo funciona vuestra IA exactamente?",
@@ -939,7 +939,7 @@ export const content = {
       items: [
         {
           q: "What kind of companies do you work with?",
-          a: "Companies that want to use AI to automate processes that are done by hand today and repeat every week: moving data between tools, sorting emails or orders, preparing reports and proposals, answering enquiries or following up with customers. We mostly work with clinics and hospitals, car repair shops, appointment-based businesses and real estate agencies, as well as service and B2B companies. The industry matters less than the process: if the task is frequent, follows rules and costs money when it fails, it can be automated. We work with companies in Spain and Latin America.",
+          a: "Companies that want to use AI to automate processes that are done by hand today and repeat every week: moving data between tools, sorting emails or orders, preparing reports and proposals, answering enquiries or following up with customers. We mostly work with marketing agencies, event companies, clinics and hospitals, car repair shops, appointment-based businesses and real estate agencies, as well as service and B2B companies. The industry matters less than the process: if the task is frequent, follows rules and costs money when it fails, it can be automated. We work with companies in Spain and Latin America.",
         },
         {
           q: "How does your AI actually work?",
