@@ -13,8 +13,11 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Landings de campaña**: hay una por servicio en `www.rianex.es/l/<servicio>`
-      (lista en `src/lib/landings.ts`). Para anuncios, añade UTM a la URL,
+- [ ] **Landings de campaña**: cinco por nicho para Meta, LinkedIn y outbound
+      (`/l/agencias-de-marketing`, `/l/empresas-de-eventos`, `/l/clinicas`,
+      `/l/inmobiliarias`, `/l/negocios-con-cita`; copia en `src/lib/nichos.ts`)
+      y una por servicio para Google Ads de búsqueda (`/l/<servicio>`,
+      `src/lib/landings.ts`). Para anuncios, añade UTM a la URL,
       p. ej. `https://www.rianex.es/l/agente-ia-whatsapp?utm_source=meta&utm_campaign=agente-nov`.
       Cada lead que entra por una landing llega a GoHighLevel con las
       etiquetas `landing-<servicio>` y `utm-<fuente>` (también los parciales
@@ -194,6 +197,15 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-09 · Landings por nicho en `/l/<nicho>`, a petición de Ramiro
+  (las por servicio eran un malentendido; se quedan para Google Ads de
+  búsqueda): agencias de marketing (casos Tribeca y Growth4U), empresas de
+  eventos (Eventos Barcelona), clínicas (Hospital Capilar con Growth4U, con
+  el bloque de datos de salud), inmobiliarias y negocios con cita previa (sin
+  caso propio: la banda de prueba lo dice sin inventar cifras). Clínicas y
+  eventos reutilizan el texto de /soluciones y llevan canonical a esa página.
+  Piezas comunes en `src/components/landing/Partes.tsx`.
 
 - 2026-11-09 · Landings de conversión por servicio en `/l/<servicio>` (11,
   solo en castellano), para campañas: sin menú ni chat, titular de resultado,

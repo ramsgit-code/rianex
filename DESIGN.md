@@ -56,9 +56,9 @@ Hero (titular + `ProcessBoard`) → banda de prueba grafito → Qué hacemos (tr
 - La llamada a la consultoría la pone el pie (bloque amarillo) en todas las páginas salvo la home y `/diagnostico`; las fichas no la repiten.
 - `Reveal` anima a estado final en 0 s con `prefers-reduced-motion`: el contenido nunca se queda oculto.
 
-## Landings de campaña (`/l/<servicio>`)
+## Landings de campaña (`/l/<nicho>` y `/l/<servicio>`)
 
 - Sin menú, pie ni chat (`PublicLayout` las detecta por la ruta): cabecera con la marca y un solo botón, pie legal mínimo.
 - Todos los botones van a `#formulario`, que lleva el `DiagnosticForm` con `landing=<slug>`.
 - Mismo sistema visual que la web, sin `Reveal`: todo visible desde el primer render.
-- Copia propia solo en titular y entradilla (`src/lib/landings.ts`); el resto sale de las fichas de servicio.
+- Por nicho (`src/lib/nichos.ts`, vista `NichoView`): titular, problemas en tarjetas con banda roja, qué automatizamos con banda verde, servicios que lo componen y casos del sector. Por servicio (`src/lib/landings.ts`, `LandingView`): titular propio y el resto de la ficha del servicio. Piezas comunes en `src/components/landing/Partes.tsx`.
