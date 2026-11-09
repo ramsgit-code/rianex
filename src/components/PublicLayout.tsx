@@ -18,6 +18,18 @@ export function PublicLayout({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
   }
 
+  // Landings de campaña (/l/<servicio>): sin menú, pie ni chat, para que la
+  // única salida sea el formulario. La propia página pinta su cabecera y pie.
+  if (pathname.startsWith("/l/")) {
+    return (
+      <LanguageProvider>
+        <AnalyticsTracker />
+        <main>{children}</main>
+        <CookieConsent />
+      </LanguageProvider>
+    );
+  }
+
   return (
     <LanguageProvider>
       <ScrollProgress />

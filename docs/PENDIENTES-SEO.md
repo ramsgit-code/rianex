@@ -13,6 +13,17 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Landings de campaña**: hay una por servicio en `www.rianex.es/l/<servicio>`
+      (lista en `src/lib/landings.ts`). Para anuncios, añade UTM a la URL,
+      p. ej. `https://www.rianex.es/l/agente-ia-whatsapp?utm_source=meta&utm_campaign=agente-nov`.
+      Cada lead que entra por una landing llega a GoHighLevel con las
+      etiquetas `landing-<servicio>` y `utm-<fuente>` (también los parciales
+      del paso 1), y el payload del lead guarda todas las UTM. En GA4,
+      `generate_lead` lleva el parámetro `landing`: regístralo como dimensión
+      personalizada (Administrar → Definiciones personalizadas) para verlo en
+      los informes. Revisa los titulares de cada landing antes de gastar en
+      anuncios.
+
 - [ ] **¿Cobra Rianex por resultado?** El artículo "Cobrar la IA por
       resultado" (9-nov) explica el formato (implantación cerrada + cuota
       base + importe por cita confirmada con tope) sin decir que Rianex lo
@@ -183,6 +194,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-09 · Landings de conversión por servicio en `/l/<servicio>` (11,
+  solo en castellano), para campañas: sin menú ni chat, titular de resultado,
+  vídeo o ejemplo paso a paso, prueba, "es para ti si", qué incluye, cómo
+  empezamos, casos, el formulario de la consultoría dentro de la página y
+  FAQ. Con `noindex, follow` y canonical a la ficha de `/servicios`, fuera
+  del sitemap. Origen del lead (landing + UTM) en el payload, en etiquetas de
+  GoHighLevel y en el evento `generate_lead` de GA4 (`src/lib/origen.ts`).
 
 - 2026-11-09 · "Para quién trabajamos": talleres mecánicos sale de las
   tarjetas principales y pasa a "Y también", a petición de Ramiro. Quedan

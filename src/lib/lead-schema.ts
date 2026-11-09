@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { origenSchema } from "@/lib/origen";
 
 // Campo trampa: va oculto en el formulario, una persona nunca lo ve ni lo
 // rellena, los bots que autocompletan todo si. Si llega con contenido, el
@@ -34,6 +35,8 @@ export const leadFormSchema = z.object({
     .or(z.literal("")),
   como_conociste: z.string().min(1),
   notas: z.string().optional(),
+  // Landing y UTM de la campaña (src/lib/origen.ts).
+  origen: origenSchema,
 });
 
 export type LeadFormData = z.infer<typeof leadFormSchema>;

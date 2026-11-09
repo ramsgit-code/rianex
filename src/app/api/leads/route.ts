@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { calculateScore, getTier } from "@/lib/lead-scoring";
 import { upsertContact, removeContactTags, createOpportunity, buildCustomFields } from "@/lib/ghl";
 import { leadFormSchema, HONEYPOT_FIELD } from "@/lib/lead-schema";
+import { origenTags } from "@/lib/origen";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
 import { PRIVACY_POLICY_VERSION } from "@/lib/legal";
@@ -94,7 +95,7 @@ export async function POST(req: NextRequest) {
       phone: data.telefono,
       website: data.web,
       source: data.como_conociste,
-      tags: ["lead-completo"],
+      tags: ["lead-completo", ...origenTags(data.origen)],
     });
 
     if (contact?.contact?.id) {
