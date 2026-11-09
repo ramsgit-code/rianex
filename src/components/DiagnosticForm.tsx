@@ -10,6 +10,7 @@ import { ArrowRight, ArrowLeft, CheckCircle, Loader2 } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { getForm } from "@/lib/formContent";
 import { HONEYPOT_FIELD } from "@/lib/lead-schema";
+import { leerOrigen } from "@/lib/origen";
 
 const TOTAL_STEPS = 5;
 
@@ -37,7 +38,11 @@ const inputClass =
 const selectClass =
   "bg-background border border-border px-4 py-2.5 text-sm text-foreground focus:outline-none focus:border-accent transition-colors appearance-none";
 
-export function DiagnosticForm() {
+/**
+ * landing: slug del servicio cuando el formulario va dentro de una landing
+ * (/l/<servicio>). Viaja con las UTM de la URL como "origen" del lead.
+ */
+export function DiagnosticForm({ landing }: { landing?: string } = {}) {
   const { lang } = useLang();
   const f = getForm(lang);
 
@@ -129,7 +134,7 @@ export function DiagnosticForm() {
     fetch("/api/leads/partial", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, email: email.trim().toLowerCase(), telefono }),
+      body: JSON.stringify({ nombre, email: email.trim().toLowerCase(), telefono, origen: leerOrigen(landing) }),
       keepalive: true,
     }).catch(() => {
       partialSent.current = false;
@@ -156,7 +161,7 @@ export function DiagnosticForm() {
       const res = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, origen: leerOrigen(landing) }),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -173,7 +178,7 @@ export function DiagnosticForm() {
       // Conversion principal de la web (evento recomendado de GA4, marcado
       // como evento clave). Sin datos personales: solo sector e idioma. Si el
       // visitante no acepto cookies, Consent Mode lo manda sin identificador.
-      window.gtag?.("event", "generate_lead", { sector: data.sector, idioma: lang });
+      window.gtag?.("event", "generate_lead", { sector: data.sector, idioma: lang, ...(landing ? { landing } : {}) });
       setSubmitted(true);
     } catch {
       setSubmitError(f.errors.connFail);

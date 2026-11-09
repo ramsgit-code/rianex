@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { upsertContact } from "@/lib/ghl";
 import { rateLimit } from "@/lib/rate-limit";
+import { origenSchema, origenTags } from "@/lib/origen";
 
 const partialSchema = z.object({
   nombre: z.string().optional(),
   email: z.string().email().transform((v) => v.trim().toLowerCase()),
   telefono: z.string().min(7),
+  origen: origenSchema,
 });
 
 export async function POST(req: NextRequest) {
@@ -25,7 +27,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Validation failed" }, { status: 400 });
   }
 
-  const { nombre, email, telefono } = parsed.data;
+  const { nombre, email, telefono, origen } = parsed.data;
   const [firstName, ...rest] = (nombre ?? "").trim().split(" ");
   const lastName = rest.join(" ");
 
@@ -36,7 +38,7 @@ export async function POST(req: NextRequest) {
       email,
       phone: telefono,
       source: "web-form-parcial",
-      tags: ["lead-incompleto"],
+      tags: ["lead-incompleto", ...origenTags(origen)],
     });
   } catch (err) {
     // no bloqueante: el formulario sigue su curso; si GHL falla, se captura al final

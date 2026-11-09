@@ -55,3 +55,10 @@ Hero (titular + `ProcessBoard`) → banda de prueba grafito → Qué hacemos (tr
 - Fichas: "En resumen" en bloque amarillo; vídeo (si lo hay, `src/lib/servicio-media.ts`) junto a "Qué consigues"; "Así funciona" en cuatro tarjetas con banda andon (rojo lo que llega, ámbar lo que hace el sistema, verde lo hecho) y la etiqueta "Ejemplo ilustrativo"; casos reales en bloque grafito; rótulos de dato con `<Label>` (`src/components/ui/Label.tsx`); viñetas de "incluye" en verde andon.
 - La llamada a la consultoría la pone el pie (bloque amarillo) en todas las páginas salvo la home y `/diagnostico`; las fichas no la repiten.
 - `Reveal` anima a estado final en 0 s con `prefers-reduced-motion`: el contenido nunca se queda oculto.
+
+## Landings de campaña (`/l/<servicio>`)
+
+- Sin menú, pie ni chat (`PublicLayout` las detecta por la ruta): cabecera con la marca y un solo botón, pie legal mínimo.
+- Todos los botones van a `#formulario`, que lleva el `DiagnosticForm` con `landing=<slug>`.
+- Mismo sistema visual que la web, sin `Reveal`: todo visible desde el primer render.
+- Copia propia solo en titular y entradilla (`src/lib/landings.ts`); el resto sale de las fichas de servicio.
