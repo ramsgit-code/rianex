@@ -16,7 +16,8 @@ export const content = {
   es: {
     nav: {
       links: [
-        { href: "/servicios", label: "Resultados" },
+        { href: "/servicios", label: "Servicios" },
+        { href: "/#para-quien", label: "Para quién" },
         { href: "/casos-de-exito", label: "Casos" },
         { href: "/sobre-mi", label: "Nosotros" },
         { href: "/blog", label: "Blog" },
@@ -258,7 +259,7 @@ export const content = {
       items: [
         {
           q: "¿Para qué empresas trabajáis?",
-          a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
+          a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. Trabajamos sobre todo con clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias, y también con empresas de servicios y B2B. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
         },
         {
           q: "¿Cómo funciona vuestra IA exactamente?",
@@ -283,6 +284,10 @@ export const content = {
         {
           q: "¿Cuánto tarda en estar en producción?",
           a: "Entre 4 y 8 semanas desde el diagnóstico, según el alcance. El primer sistema suele estar activo en la semana 4.",
+        },
+        {
+          q: "¿También formáis al equipo para usar la IA?",
+          a: "Sí. Toda implantación incluye formación y 30 días de soporte. Si lo que buscas es que el equipo empiece a usar la IA en su día a día, el Kit IA deja montado Claude o ChatGPT con cuentas de empresa y un asistente que responde con vuestros documentos, y hacemos talleres prácticos por perfil: dirección, ventas, atención y administración.",
         },
         {
           q: "¿Qué pasa si no encaja con mi negocio?",
@@ -313,7 +318,8 @@ export const content = {
       tagline: "Agencia de automatización con IA. Más citas, más ventas y horas devueltas al equipo, con agentes de IA que trabajan con las herramientas que ya usas.",
       cta: "Pide tu consultoría gratuita",
       links: [
-        { href: "/servicios", label: "Resultados" },
+        { href: "/servicios", label: "Servicios" },
+        { href: "/#para-quien", label: "Para quién trabajamos" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
         { href: "/sobre-mi", label: "Nosotros" },
@@ -328,29 +334,68 @@ export const content = {
 
     servicios: {
       tag: "Servicios",
-      title: "Servicios de automatización de procesos con IA",
+      title: "Servicios de automatización con IA",
       description:
-        "Cada servicio es un camino hacia un resultado: más citas en la agenda, más ventas cerradas u horas devueltas al equipo. Se contratan por separado o como parte de un mismo proyecto.",
+        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar— y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Pide tu consultoría gratuita",
       more: "Ver el servicio en detalle",
+      short: "Ver servicio",
+      video: "Con vídeo",
       builtOn: "Construido sobre",
       groups: [
         {
-          title: "Operativa y agentes de IA",
-          desc: "Lo que tu equipo repite cada semana, hecho solo: con Claude, n8n, Make, Zapier o tareas programadas, y agentes que atienden por WhatsApp, Telegram o teléfono.",
-          slugs: ["automatizacion-procesos-ia", "agente-ia-whatsapp", "integracion-gohighlevel-hubspot"],
+          title: "Vender y atender",
+          desc: "Captar clientes, contestar a cada uno a tiempo, cerrar la cita y enviar la propuesta: prospección autónoma, leads de Meta cualificados, agentes de WhatsApp, Telegram y voz, y propuestas automáticas.",
+          slugs: ["agente-ia-whatsapp", "outbound-b2b", "embudo-de-captacion", "generador-de-propuestas"],
         },
         {
-          title: "Proceso comercial automatizado",
-          desc: "Captar, cualificar, proponer y hacer seguimiento son los procesos que más se repiten: prospección autónoma en la nube, captación de leads de Meta, propuestas automáticas y tu CRM en GoHighLevel o HubSpot, con el pipeline a la vista.",
-          slugs: ["outbound-b2b", "embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
+          title: "Operativa y CRM",
+          desc: "Lo que el equipo repite cada semana, hecho solo con Claude, n8n, Make o Zapier, y tu CRM en GoHighLevel o HubSpot, conectado al resto de herramientas y con el pipeline a la vista.",
+          slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Otros servicios: IA para tu equipo",
+          desc: "Para que el equipo use la IA con criterio en su día a día: un kit para empezar con orden, formación práctica y asesoramiento para decidir qué automatizar y con quién.",
+          slugs: ["kit-ia", "formacion-ia-empresas", "asesoramiento-ia"],
         },
       ],
+      complementary: {
+        title: "Servicios complementarios",
+        more: "Saber más",
+        desc: "Para sistemas que ya funcionan o para preparar el terreno antes de automatizar.",
+        items: [
+          {
+            title: "Mantenimiento y mejoras",
+            desc: "Vigilamos que tus automatizaciones y agentes sigan funcionando, los ajustamos cuando cambia el proceso y añadimos mejoras. Cuota mensual.",
+          },
+          {
+            title: "Auditoría de agentes y automatizaciones",
+            desc: "Revisamos un sistema de IA que ya tienes, hecho por nosotros o por otros, antes de escalarlo: qué falla, qué cuesta y qué reforzar primero.",
+            href: "/blog/revisar-sistema-de-agentes-ia-antes-de-escalar",
+          },
+          {
+            title: "Control del coste de la IA",
+            desc: "Medimos cuánto gasta cada agente en modelos de IA y avisamos cuando el gasto se dispara o algo falla.",
+            href: "/blog/coste-agente-de-ia-en-produccion",
+          },
+          {
+            title: "Medición del punto de partida",
+            desc: "Antes de automatizar, medimos cuánto tarda y cuánto se pierde hoy, para comparar el resultado después.",
+            href: "/blog/medir-un-proceso-antes-de-automatizarlo",
+          },
+          {
+            title: "Calculadora de fuga de leads",
+            desc: "Gratis y sin registro: cuánto dinero se pierde al año por los leads que no llegan a una conversación.",
+            href: "/herramientas/calculadora-fuga-de-leads",
+          },
+        ],
+      },
       items: [
         {
           slug: "automatizacion-procesos-ia",
+          area: "Operativa",
           title: "Automatización de procesos con IA",
           tagline: "Las tareas repetitivas, hechas solas.",
           problem:
@@ -365,6 +410,7 @@ export const content = {
         },
         {
           slug: "integracion-gohighlevel-hubspot",
+          area: "CRM",
           title: "Integración de GoHighLevel y HubSpot",
           tagline: "Tu CRM hablando con el resto de tus herramientas.",
           problem:
@@ -379,6 +425,7 @@ export const content = {
         },
         {
           slug: "migracion-a-gohighlevel",
+          area: "CRM",
           title: "Migración a GoHighLevel",
           tagline: "De HubSpot u otro CRM a GoHighLevel, con todo tu histórico.",
           problem:
@@ -393,6 +440,7 @@ export const content = {
         },
         {
           slug: "outbound-b2b",
+          area: "Ventas",
           title: "Prospección autónoma y Go to Market B2B",
           tagline: "Un sistema en la nube que busca clientes, les escribe y hace el seguimiento solo.",
           problem:
@@ -407,11 +455,12 @@ export const content = {
         },
         {
           slug: "agente-ia-whatsapp",
+          area: "Atención y agenda",
           title: "Agentes de IA para WhatsApp, Telegram y voz",
           tagline: "Atienden, cualifican y agendan citas 24/7, por escrito o por teléfono.",
           problem:
             "Los clientes escriben o llaman a cualquier hora y nadie contesta a tiempo, o tu equipo responde cien veces lo mismo.",
-          forWho: "Negocios con cita previa, como peluquerías, clínicas, fisioterapeutas o gestorías, y cualquier empresa que recibe consultas por WhatsApp, Telegram, teléfono o la web.",
+          forWho: "Negocios con cita previa, como clínicas, talleres mecánicos, peluquerías, fisioterapeutas o gestorías, inmobiliarias que agendan visitas y cualquier empresa que recibe consultas por WhatsApp, Telegram, teléfono o la web.",
           deliverables: [
             "Agente en la API oficial de WhatsApp Business o en Telegram, también en chat web",
             "Agente de voz creado en Vapi que atiende llamadas y agenda",
@@ -421,6 +470,7 @@ export const content = {
         },
         {
           slug: "implementacion-crm-gohighlevel",
+          area: "CRM",
           title: "Implantación de CRM",
           tagline: "GoHighLevel o HubSpot, montado a tu proceso y con el pipeline a la vista.",
           problem:
@@ -435,6 +485,7 @@ export const content = {
         },
         {
           slug: "embudo-de-captacion",
+          area: "Captación",
           title: "Captación y cualificación de leads de Meta",
           tagline: "Los leads de tus campañas, filtrados y agendados en automático.",
           problem:
@@ -449,6 +500,7 @@ export const content = {
         },
         {
           slug: "generador-de-propuestas",
+          area: "Ventas",
           title: "Generador de propuestas automático",
           tagline: "Propuestas en minutos, no en días.",
           problem:
@@ -459,6 +511,51 @@ export const content = {
             "Aplicación de propuestas en Vercel: web y PDF al momento",
             "Pipeline de propuestas en tu CRM para ver cómo evoluciona cada una",
             "Recordatorios de seguimiento automáticos",
+          ],
+        },
+        {
+          slug: "kit-ia",
+          area: "Adopción de IA",
+          title: "Kit IA para empresas",
+          tagline: "Tu equipo usando IA desde la primera semana, con orden.",
+          problem:
+            "Cada persona usa ChatGPT a su manera, con su cuenta personal, sin saber qué datos puede pegar ni cómo sacarle partido de verdad.",
+          forWho: "Empresas que quieren que todo el equipo use la IA en su trabajo diario, antes o a la vez que automatizan procesos.",
+          deliverables: [
+            "Claude o ChatGPT configurado para la empresa, con cuentas y permisos",
+            "Asistente interno que responde con vuestros documentos",
+            "Plantillas por puesto: ventas, atención, administración y dirección",
+            "Guía de uso de datos y formación, con 30 días de dudas resueltas",
+          ],
+        },
+        {
+          slug: "formacion-ia-empresas",
+          area: "Formación",
+          title: "Formación en IA para equipos",
+          tagline: "Talleres prácticos con las tareas y documentos de tu empresa.",
+          problem:
+            "El equipo ha oído hablar de la IA pero no sabe aplicarla a su trabajo, y los cursos genéricos se olvidan en una semana.",
+          forWho: "Empresas que quieren formar a dirección, ventas, atención o administración en el uso práctico de la IA.",
+          deliverables: [
+            "Talleres prácticos, presenciales o en remoto",
+            "Contenido hecho con los procesos y documentos de tu empresa",
+            "Itinerarios por perfil: dirección, ventas, atención, administración y técnico",
+            "Plantillas y material que se quedan en la empresa",
+          ],
+        },
+        {
+          slug: "asesoramiento-ia",
+          area: "Estrategia",
+          title: "Asesoramiento en IA",
+          tagline: "Un responsable de IA a tiempo parcial, de tu lado cada mes.",
+          problem:
+            "Sabes que la IA puede ayudarte, pero no tienes a nadie dentro que decida qué automatizar, con qué herramientas y a qué proveedor creer.",
+          forWho: "Dirección de pymes y empresas medianas que quieren una hoja de ruta de IA y alguien que la siga con ellos.",
+          deliverables: [
+            "Mapa de procesos y hoja de ruta por orden de impacto",
+            "Elección de herramientas y revisión de propuestas de proveedores",
+            "Reunión mensual de seguimiento con dirección",
+            "Coste y resultado de la IA medidos cada mes",
           ],
         },
       ],
@@ -600,7 +697,8 @@ export const content = {
   en: {
     nav: {
       links: [
-        { href: "/servicios", label: "Results" },
+        { href: "/servicios", label: "Services" },
+        { href: "/#para-quien", label: "Who it's for" },
         { href: "/casos-de-exito", label: "Cases" },
         { href: "/sobre-mi", label: "About us" },
         { href: "/blog", label: "Blog" },
@@ -841,7 +939,7 @@ export const content = {
       items: [
         {
           q: "What kind of companies do you work with?",
-          a: "Companies that want to use AI to automate processes that are done by hand today and repeat every week: moving data between tools, sorting emails or orders, preparing reports and proposals, answering enquiries or following up with customers. The industry matters less than the process: if the task is frequent, follows rules and costs money when it fails, it can be automated. We work with companies in Spain and Latin America.",
+          a: "Companies that want to use AI to automate processes that are done by hand today and repeat every week: moving data between tools, sorting emails or orders, preparing reports and proposals, answering enquiries or following up with customers. We mostly work with clinics and hospitals, car repair shops, appointment-based businesses and real estate agencies, as well as service and B2B companies. The industry matters less than the process: if the task is frequent, follows rules and costs money when it fails, it can be automated. We work with companies in Spain and Latin America.",
         },
         {
           q: "How does your AI actually work?",
@@ -866,6 +964,10 @@ export const content = {
         {
           q: "How long until it's live?",
           a: "4 to 8 weeks from the diagnosis, depending on scope. The first full system is usually live by week 4.",
+        },
+        {
+          q: "Do you also train the team to use AI?",
+          a: "Yes. Every implementation includes training and 30 days of support. If what you want is for the team to start using AI every day, the AI Kit sets up Claude or ChatGPT with company accounts and an assistant that answers from your documents, and we run hands-on workshops by profile: management, sales, customer service and admin.",
         },
         {
           q: "What if it's not a fit for my business?",
@@ -896,7 +998,8 @@ export const content = {
       tagline: "AI automation agency. More appointments, more sales and hours back for your team, with AI agents that work with the tools you already use.",
       cta: "Book your free consultation",
       links: [
-        { href: "/servicios", label: "Results" },
+        { href: "/servicios", label: "Services" },
+        { href: "/#para-quien", label: "Who we work with" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
         { href: "/sobre-mi", label: "About" },
@@ -911,29 +1014,68 @@ export const content = {
 
     servicios: {
       tag: "Services",
-      title: "AI process automation services",
+      title: "AI automation services",
       description:
-        "Each service is a path to a result: more appointments in the calendar, more deals closed or hours back for the team. Hire them on their own or as part of one project.",
+        "Eight services to automate what repeats most in your company —selling, serving customers, operations— and three to help your team learn to use AI. Hire them on their own or together in one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Book your free consultation",
       more: "See the service in detail",
+      short: "See service",
+      video: "With video",
       builtOn: "Built on",
       groups: [
         {
-          title: "Operations and AI agents",
-          desc: "What your team repeats every week, done on its own: with Claude, n8n, Make, Zapier or scheduled jobs, and agents that answer on WhatsApp, Telegram or the phone.",
-          slugs: ["automatizacion-procesos-ia", "agente-ia-whatsapp", "integracion-gohighlevel-hubspot"],
+          title: "Sell and serve",
+          desc: "Finding clients, answering each one on time, booking the appointment and sending the proposal: autonomous prospecting, qualified Meta leads, WhatsApp, Telegram and voice agents, and automatic proposals.",
+          slugs: ["agente-ia-whatsapp", "outbound-b2b", "embudo-de-captacion", "generador-de-propuestas"],
         },
         {
-          title: "Automated sales process",
-          desc: "Capturing, qualifying, proposing and following up are the processes that repeat most: autonomous prospecting in the cloud, Meta lead capture, automatic proposals and your CRM on GoHighLevel or HubSpot, with the pipeline in view.",
-          slugs: ["outbound-b2b", "embudo-de-captacion", "generador-de-propuestas", "implementacion-crm-gohighlevel", "migracion-a-gohighlevel"],
+          title: "Operations and CRM",
+          desc: "What the team repeats every week, done on its own with Claude, n8n, Make or Zapier, and your CRM on GoHighLevel or HubSpot, connected to your other tools and with the pipeline in view.",
+          slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Other services: AI for your team",
+          desc: "So the team uses AI with judgement every day: a kit to start properly, hands-on training and advisory to decide what to automate and with whom.",
+          slugs: ["kit-ia", "formacion-ia-empresas", "asesoramiento-ia"],
         },
       ],
+      complementary: {
+        title: "Complementary services",
+        more: "Learn more",
+        desc: "For systems that already run, or to prepare the ground before automating.",
+        items: [
+          {
+            title: "Maintenance and improvements",
+            desc: "We make sure your automations and agents keep working, adjust them when the process changes and add improvements. Monthly fee.",
+          },
+          {
+            title: "Agent and automation audit",
+            desc: "We review an AI system you already have, built by us or by others, before you scale it: what fails, what it costs and what to reinforce first.",
+            href: "/blog/revisar-sistema-de-agentes-ia-antes-de-escalar",
+          },
+          {
+            title: "AI cost control",
+            desc: "We measure how much each agent spends on AI models and alert you when spend spikes or something fails.",
+            href: "/blog/coste-agente-de-ia-en-produccion",
+          },
+          {
+            title: "Baseline measurement",
+            desc: "Before automating, we measure how long things take and how much is lost today, so the result can be compared afterwards.",
+            href: "/blog/medir-un-proceso-antes-de-automatizarlo",
+          },
+          {
+            title: "Lead leakage calculator",
+            desc: "Free, no sign-up: how much money is lost each year to leads that never reach a conversation.",
+            href: "/herramientas/calculadora-fuga-de-leads",
+          },
+        ],
+      },
       items: [
         {
           slug: "automatizacion-procesos-ia",
+          area: "Operations",
           title: "AI process automation",
           tagline: "Repetitive work, done on its own.",
           problem:
@@ -948,6 +1090,7 @@ export const content = {
         },
         {
           slug: "integracion-gohighlevel-hubspot",
+          area: "CRM",
           title: "GoHighLevel and HubSpot integration",
           tagline: "Your CRM talking to the rest of your tools.",
           problem:
@@ -962,6 +1105,7 @@ export const content = {
         },
         {
           slug: "migracion-a-gohighlevel",
+          area: "CRM",
           title: "Migration to GoHighLevel",
           tagline: "From HubSpot or another CRM to GoHighLevel, history included.",
           problem:
@@ -976,6 +1120,7 @@ export const content = {
         },
         {
           slug: "outbound-b2b",
+          area: "Sales",
           title: "Autonomous prospecting and B2B go-to-market",
           tagline: "A cloud system that finds clients, writes to them and follows up on its own.",
           problem:
@@ -990,11 +1135,12 @@ export const content = {
         },
         {
           slug: "agente-ia-whatsapp",
+          area: "Service and booking",
           title: "AI agents for WhatsApp, Telegram and voice",
           tagline: "Answer, qualify and book appointments 24/7, in writing or by phone.",
           problem:
             "Customers write or call at any hour and nobody answers in time, or your team answers the same thing a hundred times.",
-          forWho: "Appointment-based businesses such as hair salons, clinics, physiotherapists or accounting firms, and any company that gets enquiries on WhatsApp, Telegram, the phone or the web.",
+          forWho: "Appointment-based businesses such as clinics, car repair shops, hair salons, physiotherapists or accounting firms, real estate agencies that book viewings, and any company that gets enquiries on WhatsApp, Telegram, the phone or the web.",
           deliverables: [
             "Agent on the official WhatsApp Business API or on Telegram, also on web chat",
             "Voice agent built on Vapi that answers calls and books",
@@ -1004,6 +1150,7 @@ export const content = {
         },
         {
           slug: "implementacion-crm-gohighlevel",
+          area: "CRM",
           title: "CRM implementation",
           tagline: "GoHighLevel or HubSpot, set up to your process with the pipeline in view.",
           problem:
@@ -1018,6 +1165,7 @@ export const content = {
         },
         {
           slug: "embudo-de-captacion",
+          area: "Lead generation",
           title: "Meta lead capture and qualification",
           tagline: "Leads from your campaigns, filtered and booked automatically.",
           problem:
@@ -1032,6 +1180,7 @@ export const content = {
         },
         {
           slug: "generador-de-propuestas",
+          area: "Sales",
           title: "Automated proposal generator",
           tagline: "Proposals in minutes, not days.",
           problem:
@@ -1042,6 +1191,51 @@ export const content = {
             "Proposal app on Vercel: web and PDF on the spot",
             "Proposal pipeline in your CRM to see how each one progresses",
             "Automatic follow-up reminders",
+          ],
+        },
+        {
+          slug: "kit-ia",
+          area: "AI adoption",
+          title: "AI Kit for businesses",
+          tagline: "Your team using AI from the first week, properly.",
+          problem:
+            "Everyone uses ChatGPT their own way, on a personal account, without knowing which data they can paste in or how to really get value from it.",
+          forWho: "Companies that want the whole team to use AI in their daily work, before or while they automate processes.",
+          deliverables: [
+            "Claude or ChatGPT set up for the company, with accounts and permissions",
+            "An internal assistant that answers from your documents",
+            "Templates for each role: sales, service, admin and management",
+            "Data usage guide and training, with 30 days of questions answered",
+          ],
+        },
+        {
+          slug: "formacion-ia-empresas",
+          area: "Training",
+          title: "AI training for teams",
+          tagline: "Hands-on workshops with your company's own tasks and documents.",
+          problem:
+            "The team has heard about AI but doesn't know how to apply it to their work, and generic courses are forgotten within a week.",
+          forWho: "Companies that want to train management, sales, customer service or admin in the practical use of AI.",
+          deliverables: [
+            "Hands-on workshops, on site or remote",
+            "Content built on your company's processes and documents",
+            "Tracks by profile: management, sales, service, admin and technical",
+            "Templates and material that stay in the company",
+          ],
+        },
+        {
+          slug: "asesoramiento-ia",
+          area: "Strategy",
+          title: "AI advisory",
+          tagline: "A part-time head of AI, on your side every month.",
+          problem:
+            "You know AI can help, but nobody inside decides what to automate, with which tools and which vendor to trust.",
+          forWho: "Management at small and mid-sized companies who want an AI roadmap and someone to follow it through with them.",
+          deliverables: [
+            "Process map and roadmap ordered by impact",
+            "Tool selection and review of vendor proposals",
+            "Monthly follow-up meeting with management",
+            "Cost and result of AI measured every month",
           ],
         },
       ],

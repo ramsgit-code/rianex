@@ -49,7 +49,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     toggle: () => setLang(lang === "es" ? "en" : "es"),
     c: content[lang] as unknown as Content,
     otherLangHref: localizePath(pathname, lang === "es" ? "en" : "es"),
-    localize: (path: string) => localizePath(path, lang),
+    localize: (path: string) => {
+      // Los articulos del blog solo existen en castellano.
+      if (path.startsWith("/blog/")) return path;
+      // Anclas de la home ("/#para-quien") en el idioma activo.
+      const [route, hash] = path.split("#");
+      const base = localizePath(route || "/", lang);
+      return hash ? `${base}#${hash}` : base;
+    },
   };
 
   return <LangContext.Provider value={value}>{children}</LangContext.Provider>;

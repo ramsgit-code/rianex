@@ -13,6 +13,25 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Validar los servicios nuevos (nov-2026)**: Kit IA, Formación en IA y
+      Asesoramiento en IA (`src/lib/servicios.ts` y `src/lib/content.ts`).
+      Revisar sobre todo: plazos (Kit 2-3 semanas, taller 1-2 semanas de
+      preparación, hoja de ruta 2-4 semanas), que el asesoramiento use los
+      rangos de discovery (desde 1.500 €) y retainer (1.000-5.000 €/mes), que
+      Kit y formación salgan sin precio ("te lo damos en la consultoría") y que
+      la formación diga que eres "profesor de Industria 4.0 en un máster
+      universitario" (sale de la base del bot; si prefieres no decirlo, se
+      quita). Si tienes precio de partida para el Kit o un taller, pásamelo.
+- [ ] **Fotos reales para las fichas**: hoy cada servicio lleva vídeo
+      ilustrativo (Remotion) y un esquema "Así funciona", pero ninguna foto.
+      Lo que más sumaría: una foto tuya dando una formación o un taller (para
+      /servicios/formacion-ia-empresas y Kit IA) y capturas reales,
+      anonimizadas y con permiso, del sistema de Eventos Barcelona (la
+      propuesta en web) y del panel de Tribeca.
+- [ ] **Bot de GHL y LinkedIn con los servicios nuevos**: la base del bot
+      (`rianex-chatbot-kb.md`) y la página de LinkedIn no conocen el Kit IA,
+      la formación ni el asesoramiento.
+
 - [ ] **GA4, canal "IA"**: Administrar → Grupos de canales → crear un grupo
       con un canal "IA" cuya fuente coincida con
       `chatgpt|openai|perplexity|gemini|copilot|claude|deepseek|grok` (por
@@ -64,6 +83,26 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       nuevos (en `linkedin/textos-linkedin-es.md` de tu carpeta local).
 
 ## Código
+
+- [ ] **Páginas de sector para talleres, negocios con cita previa e
+      inmobiliarias**: desde el 9 de noviembre la home las destaca en "Para
+      quién trabajamos", pero solo clínicas tiene página propia en
+      /soluciones (eventos y academias también, aunque no se destacan). Hoy
+      las tarjetas de talleres y negocios con cita llevan a
+      /servicios/agente-ia-whatsapp, y la de inmobiliarias a la implantación
+      de CRM. Con /soluciones/talleres, /soluciones/negocios-con-cita e
+      /soluciones/inmobiliarias (en `src/lib/sectores.ts`, sin casos
+      inventados) habría páginas para "automatización talleres mecánicos",
+      "agente WhatsApp inmobiliaria", etc.
+
+- [ ] **Vídeo de prospección B2B**: es el único de los ocho servicios sin
+      vídeo (`~/rianex-videos`, hace falta un visual nuevo). Tampoco tienen
+      vídeo Kit IA, formación ni asesoramiento.
+- [ ] **Revisar las tres fichas nuevas hacia el 5 de diciembre**:
+      /servicios/kit-ia, /servicios/formacion-ia-empresas y
+      /servicios/asesoramiento-ia. En Search Console, que estén indexadas y
+      qué consultas traen ("formación ia empresas", "asesoramiento ia",
+      "kit ia"). Si no indexan, pedir la indexación a mano.
 
 - [ ] **Revisar las fichas de servicio reenfocadas hacia el 26 de noviembre**:
       el 29 de octubre cambiaron title y meta de /servicios/outbound-b2b
@@ -136,6 +175,29 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-09 · "Para quién trabajamos" con cuatro sectores destacados, a
+  petición de Ramiro: clínicas y hospitales (con el caso de Growth4U),
+  talleres mecánicos, negocios con cita previa e inmobiliarias. Cada tarjeta
+  dice qué duele, qué automatizamos y a qué servicio lleva. Se añaden a la
+  entradilla, a la FAQ "¿Para qué empresas trabajáis?" y al "para quién" del
+  agente de WhatsApp (la meta description de esa ficha no se toca, que está
+  en medición hasta el 26-nov).
+
+- 2026-11-07 · Web reorganizada para que se entienda en segundos. Home: Qué
+  hacemos (tres pasos: consultoría gratuita, implantación, formación y
+  acompañamiento) → Servicios (tarjetas por grupo, con los que tienen vídeo
+  marcados) → Otros servicios (Kit IA, formación, asesoramiento) y
+  complementarios → Para quién trabajamos (perfiles, encaje, sectores,
+  empresas reales y llamada a la consultoría). Menú: Servicios, Para quién,
+  Casos, Nosotros, Blog. Fichas de servicio con vídeo, "Qué consigues",
+  ejemplo "Así funciona" en cuatro pasos y varios casos por servicio
+  (Hospital Capilar siempre "Con Growth4U"; VideoObject en las que tienen
+  vídeo). Tres páginas nuevas: /servicios/kit-ia,
+  /servicios/formacion-ia-empresas y /servicios/asesoramiento-ia, con FAQ y
+  Service en JSON-LD. Vídeos de servicio re-renderizados con "consultoría
+  gratuita" en el cierre y los títulos actuales de CRM y leads de Meta; los
+  de los casos, también.
 
 - 2026-11-07 · Pendientes de Search Console: indexación pedida (cola prioritaria) para los tres artículos del 3-nov, que estaban "Descubierta: actualmente sin indexar" (`agente-de-voz-whatsapp-agenda-citas`, `gohighlevel-levelup-day-2026-agentes-ia`, `gtm-engineering-no-es-mandar-emails-con-clay`), y para la home, para que Google recoja antes el title nuevo. Avisos de datos de vídeo a 0. El informe de indexación de vídeos marca 2 vídeos como "El vídeo no está en una página de visualización": es lo esperado, porque el vídeo acompaña al artículo o al caso y no es el contenido principal; no se corrige.
 

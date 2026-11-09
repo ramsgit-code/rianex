@@ -8,7 +8,7 @@ web
 
 ## Users
 
-Dueños, gerentes y responsables de operaciones o ventas de pymes y empresas medianas de España y Latinoamérica. Saben que "deberían estar usando IA", pero no saben qué procesos se pueden automatizar, por dónde empezar ni en quién confiar. Llegan desde Google, LinkedIn o una recomendación y deciden en pocos minutos si piden una consultoría.
+Dueños, gerentes y responsables de operaciones o ventas de pymes y empresas medianas de España y Latinoamérica. Sectores destacados en la web (nov-2026, decisión de Ramiro): clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias; también eventos, academias, agencias, gestorías, B2B y distribución. Saben que "deberían estar usando IA", pero no saben qué procesos se pueden automatizar, por dónde empezar ni en quién confiar. Llegan desde Google, LinkedIn o una recomendación y deciden en pocos minutos si piden una consultoría.
 
 ## Product Purpose
 
@@ -16,6 +16,7 @@ Rianex es una agencia de automatización con IA. Vende dos cosas, en este orden:
 
 1. **Consultoría gratuita**: una sesión en la que se revisan los procesos de la empresa y se señala qué se puede automatizar o agilizar con IA y qué se ganaría.
 2. **Asesoramiento e implantación**: acompañar a la empresa a integrar esas automatizaciones y a adoptar la IA en el día a día del equipo (diseño, construcción, puesta en producción, formación y mantenimiento).
+3. **IA para el equipo** ("Otros servicios", nov-2026): Kit IA (Claude o ChatGPT con cuentas de empresa, asistente con los documentos de la empresa, plantillas por puesto, guía de datos y formación), formación en IA por perfiles y asesoramiento mensual en IA para dirección. Más servicios complementarios: mantenimiento, auditoría de agentes, control del coste de la IA y medición del punto de partida.
 
 Mensaje central: casi cualquier proceso que se repite se puede automatizar o agilizar. Éxito = el visitante pide la consultoría gratuita (`/diagnostico`).
 
