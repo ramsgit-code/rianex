@@ -198,6 +198,10 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-09 · Las tarjetas de sector de la home (ES) llevan a su landing
+  `/l/<nicho>`; en EN siguen a páginas en inglés porque las landings solo
+  están en castellano. El logo de las landings vuelve a la home.
+
 - 2026-11-09 · Landings por nicho en `/l/<nicho>`, a petición de Ramiro
   (las por servicio eran un malentendido; se quedan para Google Ads de
   búsqueda): agencias de marketing (casos Tribeca y Growth4U), empresas de

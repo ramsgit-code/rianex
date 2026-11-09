@@ -56,7 +56,7 @@ type HomeCopy = {
     fitTitle: string;
     fit: string[];
     sectorsTitle: string;
-    /** Sectores destacados: qué duele y qué automatizamos. */
+    /** Sectores destacados: qué duele y qué automatizamos. En ES llevan a su landing (/l/<nicho>); en EN, a páginas en inglés. */
     sectors: { name: string; pain: string; fix: string; href: string; link: string; note?: string }[];
     alsoTitle: string;
     also: Chip[];
@@ -166,39 +166,39 @@ const es: HomeCopy = {
         name: "Agencias de marketing",
         pain: "Campañas revisadas tarde, informes a mano y leads que nadie sigue a tiempo.",
         fix: "Agentes de IA que revisan Meta y Google Ads y actúan con aprobación humana, captación con scoring en GoHighLevel e informes que se hacen solos.",
-        href: "/casos-de-exito/tribeca-media",
-        link: "Ver el caso Tribeca Media",
+        href: "/l/agencias-de-marketing",
+        link: "Ver cómo lo hacemos en agencias",
         note: "Casos: Tribeca Media y Growth4U",
       },
       {
         name: "Empresas de eventos",
         pain: "Cada propuesta tarda días y, cuando llega, el cliente ya ha pedido presupuesto a otro.",
         fix: "Propuesta en web y PDF minutos después de la llamada, correos de clientes, artistas y proveedores ordenados en el CRM y seguimiento automático.",
-        href: "/casos-de-exito/eventos-barcelona",
-        link: "Ver el caso Eventos Barcelona",
+        href: "/l/empresas-de-eventos",
+        link: "Ver cómo lo hacemos en eventos",
         note: "Caso: Eventos Barcelona",
       },
       {
         name: "Clínicas y hospitales",
         pain: "Llamadas sin coger, citas sin confirmar y pacientes que no vuelven.",
         fix: "Respuesta al momento por WhatsApp y teléfono, precualificación por tratamiento, recordatorios y lista de espera.",
-        href: "/soluciones/clinicas",
-        link: "Ver la solución para clínicas",
+        href: "/l/clinicas",
+        link: "Ver cómo lo hacemos en clínicas",
         note: "Caso con Growth4U",
       },
       {
         name: "Inmobiliarias",
         pain: "Los leads de los portales se enfrían antes de que alguien los llame.",
         fix: "Respuesta al momento a cada lead, cualificación por presupuesto y zona, visitas agendadas y cada operación en el CRM.",
-        href: "/servicios/implementacion-crm-gohighlevel",
-        link: "Ver la implantación de CRM",
+        href: "/l/inmobiliarias",
+        link: "Ver cómo lo hacemos en inmobiliarias",
       },
       {
         name: "Negocios con cita previa",
         pain: "Peluquerías, estética, fisioterapia o centros deportivos: huecos vacíos por ausencias y mensajes contestados a deshoras.",
         fix: "Un agente que agenda 24/7, confirma y recuerda la cita, y rellena las cancelaciones con la lista de espera.",
-        href: "/servicios/agente-ia-whatsapp",
-        link: "Ver el agente de WhatsApp y voz",
+        href: "/l/negocios-con-cita",
+        link: "Ver cómo lo hacemos en negocios con cita",
       },
     ],
     alsoTitle: "Y también",

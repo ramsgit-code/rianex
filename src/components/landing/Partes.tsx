@@ -54,15 +54,18 @@ export function LandingHeader() {
   return (
     <header className="border-b-[6px] border-accent bg-background">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-12">
-        <Image
-          src="/logos/rianex-mark-dark.png"
-          alt="Rianex"
-          width={1145}
-          height={253}
-          sizes="130px"
-          priority
-          className="h-5 w-auto sm:h-[22px]"
-        />
+        {/* La marca vuelve a la home: desde nov-2026 se llega aquí también desde la web. */}
+        <Link href="/" aria-label="Rianex, inicio">
+          <Image
+            src="/logos/rianex-mark-dark.png"
+            alt="Rianex"
+            width={1145}
+            height={253}
+            sizes="130px"
+            priority
+            className="h-5 w-auto sm:h-[22px]"
+          />
+        </Link>
         <a href="#formulario" className="btn-tape min-h-[2.5rem] px-4 py-2 text-sm">
           Consultoría gratuita
           <ArrowRight size={15} aria-hidden />
