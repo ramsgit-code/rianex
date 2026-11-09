@@ -144,7 +144,7 @@ const es: HomeCopy = {
   },
   audience: {
     title: "Para quién trabajamos",
-    lead: "Pymes y empresas medianas de España y Latinoamérica que atienden, dan cita y venden cada día: clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
+    lead: "Pymes y empresas medianas de España y Latinoamérica que atienden, dan cita y venden cada día: agencias de marketing, empresas de eventos, clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
     profilesTitle: "Quién nos llama",
     profiles: [
       { name: "Dueños y gerentes", line: "Quieren crecer sin ampliar plantilla y saber qué automatizar primero." },
@@ -162,6 +162,22 @@ const es: HomeCopy = {
     ],
     sectorsTitle: "Sectores con los que trabajamos",
     sectors: [
+      {
+        name: "Agencias de marketing",
+        pain: "Campañas revisadas tarde, informes a mano y leads que nadie sigue a tiempo.",
+        fix: "Agentes de IA que revisan Meta y Google Ads y actúan con aprobación humana, captación con scoring en GoHighLevel e informes que se hacen solos.",
+        href: "/casos-de-exito/tribeca-media",
+        link: "Ver el caso Tribeca Media",
+        note: "Casos: Tribeca Media y Growth4U",
+      },
+      {
+        name: "Empresas de eventos",
+        pain: "Cada propuesta tarda días y, cuando llega, el cliente ya ha pedido presupuesto a otro.",
+        fix: "Propuesta en web y PDF minutos después de la llamada, correos de clientes, artistas y proveedores ordenados en el CRM y seguimiento automático.",
+        href: "/casos-de-exito/eventos-barcelona",
+        link: "Ver el caso Eventos Barcelona",
+        note: "Caso: Eventos Barcelona",
+      },
       {
         name: "Clínicas y hospitales",
         pain: "Llamadas sin coger, citas sin confirmar y pacientes que no vuelven.",
@@ -194,9 +210,7 @@ const es: HomeCopy = {
     ],
     alsoTitle: "Y también",
     also: [
-      { name: "Empresas de eventos", href: "/soluciones/eventos" },
       { name: "Academias y formación", href: "/soluciones/academias" },
-      { name: "Agencias de marketing" },
       { name: "Gestorías y asesorías" },
       { name: "Empresas B2B y servicios profesionales" },
       { name: "Distribución y logística" },
@@ -301,7 +315,7 @@ const en: HomeCopy = {
   },
   audience: {
     title: "Who we work with",
-    lead: "Small and mid-sized companies in Spain and Latin America that serve customers, book appointments and sell every day: clinics and hospitals, car repair shops, appointment-based businesses and real estate agencies. The industry matters less than the process: if a task is frequent, follows rules and costs money when it fails, it can be automated.",
+    lead: "Small and mid-sized companies in Spain and Latin America that serve customers, book appointments and sell every day: marketing agencies, event companies, clinics and hospitals, car repair shops, appointment-based businesses and real estate agencies. The industry matters less than the process: if a task is frequent, follows rules and costs money when it fails, it can be automated.",
     profilesTitle: "Who calls us",
     profiles: [
       { name: "Owners and managers", line: "They want to grow without hiring more people and to know what to automate first." },
@@ -319,6 +333,22 @@ const en: HomeCopy = {
     ],
     sectorsTitle: "Industries we work with",
     sectors: [
+      {
+        name: "Marketing agencies",
+        pain: "Campaigns reviewed late, reports built by hand and leads nobody follows up in time.",
+        fix: "AI agents that review Meta and Google Ads and act with human approval, lead capture with scoring in GoHighLevel and reports that build themselves.",
+        href: "/casos-de-exito/tribeca-media",
+        link: "See the Tribeca Media case",
+        note: "Cases: Tribeca Media and Growth4U",
+      },
+      {
+        name: "Event companies",
+        pain: "Every proposal takes days and, by the time it arrives, the client has asked someone else for a quote.",
+        fix: "A web and PDF proposal minutes after the call, emails from clients, artists and suppliers sorted in the CRM, and automatic follow-up.",
+        href: "/casos-de-exito/eventos-barcelona",
+        link: "See the Eventos Barcelona case",
+        note: "Case: Eventos Barcelona",
+      },
       {
         name: "Clinics and hospitals",
         pain: "Missed calls, unconfirmed appointments and patients who never come back.",
@@ -351,9 +381,7 @@ const en: HomeCopy = {
     ],
     alsoTitle: "And also",
     also: [
-      { name: "Event companies", href: "/soluciones/eventos" },
       { name: "Academies and training", href: "/soluciones/academias" },
-      { name: "Marketing agencies" },
       { name: "Accounting and advisory firms" },
       { name: "B2B companies and professional services" },
       { name: "Distribution and logistics" },

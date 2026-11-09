@@ -8,7 +8,7 @@ web
 
 ## Users
 
-Dueños, gerentes y responsables de operaciones o ventas de pymes y empresas medianas de España y Latinoamérica. Sectores destacados en la web (nov-2026, decisión de Ramiro): clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias; también eventos, academias, agencias, gestorías, B2B y distribución. Saben que "deberían estar usando IA", pero no saben qué procesos se pueden automatizar, por dónde empezar ni en quién confiar. Llegan desde Google, LinkedIn o una recomendación y deciden en pocos minutos si piden una consultoría.
+Dueños, gerentes y responsables de operaciones o ventas de pymes y empresas medianas de España y Latinoamérica. Sectores destacados en la web, en este orden (nov-2026, decisión de Ramiro): agencias de marketing y empresas de eventos (donde están los casos propios), clínicas y hospitales, talleres mecánicos, negocios con cita previa e inmobiliarias; también academias, gestorías, B2B y distribución. Saben que "deberían estar usando IA", pero no saben qué procesos se pueden automatizar, por dónde empezar ni en quién confiar. Llegan desde Google, LinkedIn o una recomendación y deciden en pocos minutos si piden una consultoría.
 
 ## Product Purpose
 
