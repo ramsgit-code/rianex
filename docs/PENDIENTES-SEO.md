@@ -185,6 +185,11 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-09 · "Para quién trabajamos": inmobiliarias y negocios con cita
+  previa pasan por delante de talleres mecánicos, a petición de Ramiro. Orden:
+  agencias de marketing, eventos, clínicas y hospitales, inmobiliarias,
+  negocios con cita previa y talleres (también en la entradilla y la FAQ).
+
 - 2026-11-09 · Artículo "Cobrar la IA por resultado: qué puede copiar una
   pyme de Sierra" (`/blog/cobrar-la-ia-por-resultado`, cluster agentes-ia),
   idea del radar del 9-nov. Cifras comprobadas en la fuente primaria: Sierra

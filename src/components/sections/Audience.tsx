@@ -8,7 +8,7 @@ import { home } from "@/lib/home";
 
 // "Para quién trabajamos": sectores destacados (primero agencias de
 // marketing y eventos, donde están los casos propios; después clínicas y
-// hospitales, talleres, negocios con cita previa e inmobiliarias), perfiles, señales de
+// hospitales, inmobiliarias, negocios con cita previa y talleres), perfiles, señales de
 // encaje y las empresas reales (solo casos propios: Hospital Capilar es de Growth4U y no
 // va en los logos de la home). Termina con la llamada a la consultoría.
 
