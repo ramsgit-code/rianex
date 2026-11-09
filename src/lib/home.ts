@@ -144,7 +144,7 @@ const es: HomeCopy = {
   },
   audience: {
     title: "Para quién trabajamos",
-    lead: "Pymes y empresas medianas de España y Latinoamérica que atienden, dan cita y venden cada día: agencias de marketing, empresas de eventos, clínicas y hospitales, inmobiliarias, negocios con cita previa y talleres mecánicos. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
+    lead: "Pymes y empresas medianas de España y Latinoamérica que atienden, dan cita y venden cada día: agencias de marketing, empresas de eventos, clínicas y hospitales, inmobiliarias y negocios con cita previa. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
     profilesTitle: "Quién nos llama",
     profiles: [
       { name: "Dueños y gerentes", line: "Quieren crecer sin ampliar plantilla y saber qué automatizar primero." },
@@ -200,17 +200,11 @@ const es: HomeCopy = {
         href: "/servicios/agente-ia-whatsapp",
         link: "Ver el agente de WhatsApp y voz",
       },
-      {
-        name: "Talleres mecánicos",
-        pain: "El teléfono suena mientras estás debajo de un coche y nadie lo coge.",
-        fix: "Cita por WhatsApp o teléfono a cualquier hora, aviso de revisión e ITV, presupuesto enviado y aviso de coche listo.",
-        href: "/servicios/agente-ia-whatsapp",
-        link: "Ver el agente de WhatsApp y voz",
-      },
     ],
     alsoTitle: "Y también",
     also: [
       { name: "Academias y formación", href: "/soluciones/academias" },
+      { name: "Talleres mecánicos" },
       { name: "Gestorías y asesorías" },
       { name: "Empresas B2B y servicios profesionales" },
       { name: "Distribución y logística" },
@@ -315,7 +309,7 @@ const en: HomeCopy = {
   },
   audience: {
     title: "Who we work with",
-    lead: "Small and mid-sized companies in Spain and Latin America that serve customers, book appointments and sell every day: marketing agencies, event companies, clinics and hospitals, real estate agencies, appointment-based businesses and car repair shops. The industry matters less than the process: if a task is frequent, follows rules and costs money when it fails, it can be automated.",
+    lead: "Small and mid-sized companies in Spain and Latin America that serve customers, book appointments and sell every day: marketing agencies, event companies, clinics and hospitals, real estate agencies and appointment-based businesses. The industry matters less than the process: if a task is frequent, follows rules and costs money when it fails, it can be automated.",
     profilesTitle: "Who calls us",
     profiles: [
       { name: "Owners and managers", line: "They want to grow without hiring more people and to know what to automate first." },
@@ -371,17 +365,11 @@ const en: HomeCopy = {
         href: "/servicios/agente-ia-whatsapp",
         link: "See the WhatsApp and voice agent",
       },
-      {
-        name: "Car repair shops",
-        pain: "The phone rings while you're under a car and nobody picks up.",
-        fix: "Bookings on WhatsApp or by phone at any hour, service and MOT reminders, quotes sent and a 'your car is ready' message.",
-        href: "/servicios/agente-ia-whatsapp",
-        link: "See the WhatsApp and voice agent",
-      },
     ],
     alsoTitle: "And also",
     also: [
       { name: "Academies and training", href: "/soluciones/academias" },
+      { name: "Car repair shops" },
       { name: "Accounting and advisory firms" },
       { name: "B2B companies and professional services" },
       { name: "Distribution and logistics" },
