@@ -93,16 +93,15 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
-- [ ] **Páginas de sector para talleres, negocios con cita previa e
+- [ ] **Páginas de sector para negocios con cita previa e
       inmobiliarias**: desde el 9 de noviembre la home las destaca en "Para
-      quién trabajamos", pero solo clínicas tiene página propia en
-      /soluciones (eventos y academias también, aunque no se destacan). Hoy
-      las tarjetas de talleres y negocios con cita llevan a
+      quién trabajamos", pero solo clínicas y eventos tienen página propia
+      en /soluciones. Hoy la tarjeta de negocios con cita lleva a
       /servicios/agente-ia-whatsapp, y la de inmobiliarias a la implantación
-      de CRM. Con /soluciones/talleres, /soluciones/negocios-con-cita e
-      /soluciones/inmobiliarias (en `src/lib/sectores.ts`, sin casos
-      inventados) habría páginas para "automatización talleres mecánicos",
-      "agente WhatsApp inmobiliaria", etc.
+      de CRM. Con /soluciones/negocios-con-cita y /soluciones/inmobiliarias
+      (en `src/lib/sectores.ts`, sin casos inventados) habría páginas para
+      "agente WhatsApp inmobiliaria", "recordatorio de citas automático", etc.
+      Las agencias de marketing tampoco tienen página de sector.
 
 - [ ] **Vídeo de prospección B2B**: es el único de los ocho servicios sin
       vídeo (`~/rianex-videos`, hace falta un visual nuevo). Tampoco tienen
@@ -184,6 +183,12 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-09 · "Para quién trabajamos": talleres mecánicos sale de las
+  tarjetas principales y pasa a "Y también", a petición de Ramiro. Quedan
+  cinco: agencias de marketing y eventos (más anchas, con casos), y clínicas
+  y hospitales, inmobiliarias y negocios con cita previa. Fuera también de la
+  entradilla y de la FAQ.
 
 - 2026-11-09 · "Para quién trabajamos": inmobiliarias y negocios con cita
   previa pasan por delante de talleres mecánicos, a petición de Ramiro. Orden:

@@ -8,7 +8,7 @@ import { home } from "@/lib/home";
 
 // "Para quién trabajamos": sectores destacados (primero agencias de
 // marketing y eventos, donde están los casos propios; después clínicas y
-// hospitales, inmobiliarias, negocios con cita previa y talleres), perfiles, señales de
+// hospitales, inmobiliarias y negocios con cita previa), perfiles, señales de
 // encaje y las empresas reales (solo casos propios: Hospital Capilar es de Growth4U y no
 // va en los logos de la home). Termina con la llamada a la consultoría.
 
@@ -64,9 +64,13 @@ export function Audience() {
         <h3 className="mt-14 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
           {a.sectorsTitle}
         </h3>
-        <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {a.sectors.map((sec) => (
-            <li key={sec.name} className="flex flex-col border-2 border-ink bg-white">
+        {/* Las dos primeras (con casos propios) van más anchas: 2 arriba y 3 abajo. */}
+        <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          {a.sectors.map((sec, i) => (
+            <li
+              key={sec.name}
+              className={`flex flex-col border-2 border-ink bg-white ${i < 2 ? "lg:col-span-3" : "lg:col-span-2"}`}
+            >
               <div className="flex flex-1 flex-col p-6">
                 <p className="font-display text-2xl font-extrabold uppercase leading-[0.95] text-foreground">{sec.name}</p>
                 {sec.note && (
