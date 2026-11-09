@@ -13,6 +13,15 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **¿Cobra Rianex por resultado?** El artículo "Cobrar la IA por
+      resultado" (9-nov) explica el formato (implantación cerrada + cuota
+      base + importe por cita confirmada con tope) sin decir que Rianex lo
+      ofrezca. Si decides ofrecerlo, pásame la cuota base y el importe por
+      cita y añadimos el bloque "Cómo cobramos" en la ficha del agente de
+      WhatsApp y en el artículo. Eventos Barcelona no tiene agente de citas,
+      así que no sirve para calcular el coste real por cita: hará falta el
+      primer cliente propio con agente de citas.
+
 - [ ] **Validar los servicios nuevos (nov-2026)**: Kit IA, Formación en IA y
       Asesoramiento en IA (`src/lib/servicios.ts` y `src/lib/content.ts`).
       Revisar sobre todo: plazos (Kit 2-3 semanas, taller 1-2 semanas de
@@ -180,6 +189,15 @@ Por orden de impacto:
   previa pasan por delante de talleres mecánicos, a petición de Ramiro. Orden:
   agencias de marketing, eventos, clínicas y hospitales, inmobiliarias,
   negocios con cita previa y talleres (también en la entradilla y la FAQ).
+
+- 2026-11-09 · Artículo "Cobrar la IA por resultado: qué puede copiar una
+  pyme de Sierra" (`/blog/cobrar-la-ia-por-resultado`, cluster agentes-ia),
+  idea del radar del 9-nov. Cifras comprobadas en la fuente primaria: Sierra
+  (su blog, 30-oct), Fin (página de precios y ayuda de Intercom), Revolut
+  (The Register, 3-nov; cifras de la empresa sin auditar) y Vapi (su
+  calculadora). El ejemplo de coste por cita usa supuestos redondos marcados
+  como tales; no se dan tarifas de Meta por mensaje porque las fuentes no
+  coinciden. Enlazado desde la ficha del agente de WhatsApp.
 
 - 2026-11-09 · "Para quién trabajamos": agencias de marketing y empresas de
   eventos pasan a ser las dos primeras tarjetas (con los casos de Tribeca
