@@ -198,6 +198,16 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-11 · Posicionamiento aclarado por Ramiro: Rianex es una agencia
+  de automatización con IA, y un MVP o un pequeño software puede ser el
+  resultado de automatizar un proceso. Se corrige donde la web decía "no
+  desarrollamos aplicaciones": la sección "No es empezar por una aplicación"
+  y la FAQ "¿Hacéis aplicaciones a medida?" de proyectos de IA a medida, y el
+  cierre de "Desarrollo a medida con IA o automatización", con la app de
+  propuestas de Eventos Barcelona como ejemplo. La base del bot de GHL
+  (`rianex-chatbot-kb.md`, fuera del repo) se actualiza igual y hay que
+  pegarla en el bot.
+
 - 2026-11-09 · Las tarjetas de sector de la home (ES) llevan a su landing
   `/l/<nicho>`; en EN siguen a páginas en inglés porque las landings solo
   están en castellano. El logo de las landings vuelve a la home.
