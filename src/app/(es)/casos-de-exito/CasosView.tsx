@@ -94,6 +94,30 @@ export function CasosView() {
           );
         })}
       </div>
+
+      {/* Control: lo que diferencia un caso de una demo. Sale de los casos publicados. */}
+      <section className="mt-16">
+        <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">{cs.control.title}</h2>
+        <p className="measure mt-4 text-lg leading-relaxed text-foreground-muted">{cs.control.lead}</p>
+        <ul className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+          {cs.control.items.map((item) => (
+            <li key={item.title} className="flex flex-col border border-border bg-white">
+              <span aria-hidden className="block h-2 w-full bg-go" />
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">{item.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-foreground-muted">{item.desc}</p>
+                <Link
+                  href={item.href}
+                  className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text"
+                >
+                  {item.label}
+                  <ArrowRight size={15} aria-hidden />
+                </Link>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
     </PageShell>
   );
 }

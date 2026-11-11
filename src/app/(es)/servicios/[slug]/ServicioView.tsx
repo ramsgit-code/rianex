@@ -8,6 +8,7 @@ import { localizePath, type Lang } from "@/lib/i18n";
 import { getServicio, type CaseClient } from "@/lib/servicios";
 import { SERVICIO_VIDEO } from "@/lib/servicio-media";
 import { CASOS, casoSlug } from "@/lib/casos";
+import { MANTENIMIENTO } from "@/lib/mantenimiento";
 import { getPost } from "@/lib/blog";
 import { SITE_URL } from "@/lib/seo";
 
@@ -17,7 +18,8 @@ import { SITE_URL } from "@/lib/seo";
 //
 // Orden: en resumen → video y que consigues → asi funciona (ejemplo) → problema,
 // para quien e incluye → encaja / no encaja → metodo → plazo e inversion →
-// casos reales → FAQ → guias → otros servicios. La llamada a la consultoria
+// mantenimiento mensual (solo agentes y automatizaciones) → casos reales → FAQ
+// → guias → otros servicios. La llamada a la consultoria
 // la pone el pie de la pagina.
 
 const LABELS = {
@@ -120,6 +122,7 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
     .filter((x) => x !== null);
   const posts = d.posts.map((s) => getPost(s)).filter((p) => p !== null);
   const otros = c.servicios.items.filter((i) => i.slug !== slug);
+  const mant = d.maintenance ? MANTENIMIENTO[lang] : null;
   const tiers =
     d.price === "advisory"
       ? [c.pricing.tiers[0], c.pricing.tiers[2]]
@@ -376,6 +379,42 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
               </div>
             </section>
           </Reveal>
+
+          {/* Mantenimiento mensual: lo que incluye el retainer, en las fichas de agentes y automatizaciones. */}
+          {mant && (
+            <Reveal>
+              <section className="border-2 border-ink bg-white p-6 sm:p-8">
+                <span className="data-tag">{mant.tag}</span>
+                <div className="mt-4">
+                  <SectionTitle>{mant.title}</SectionTitle>
+                </div>
+                <p className="measure mt-4 leading-relaxed text-foreground-muted">{mant.lead}</p>
+                <ul className="mt-6 grid gap-5 sm:grid-cols-2">
+                  {mant.items.map((item) => (
+                    <li key={item.title} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center bg-go text-white">
+                        <Check size={14} aria-hidden />
+                      </span>
+                      <div>
+                        <h3 className="font-semibold leading-snug text-foreground">{item.title}</h3>
+                        <p className="mt-1 text-sm leading-relaxed text-foreground-muted">{item.desc}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-sm leading-relaxed text-foreground">{mant.price}</p>
+                  <Link
+                    href={mant.link.href}
+                    className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text"
+                  >
+                    {mant.link.label}
+                    <ArrowRight size={15} aria-hidden />
+                  </Link>
+                </div>
+              </section>
+            </Reveal>
+          )}
 
           {/* Casos reales. Hospital Capilar lleva "Con Growth4U" en su etiqueta. */}
           {casos.length > 0 && (

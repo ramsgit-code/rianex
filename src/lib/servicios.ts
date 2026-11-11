@@ -63,6 +63,8 @@ type Servicio = {
   /** Casos que lo demuestran, en orden. */
   cases?: CaseClient[];
   price?: PriceKind;
+  /** Muestra el bloque fijo "Mantenimiento mensual" (mantenimiento.ts). */
+  maintenance?: boolean;
   /** Slugs de articulos del blog (solo existen en castellano). */
   posts: string[];
   es: ServicioDetalle;
@@ -77,6 +79,7 @@ const PRECIO_EN =
 export const SERVICIOS: Record<string, Servicio> = {
   "automatizacion-procesos-ia": {
     cases: ["Eventos Barcelona", "Tribeca Media"],
+    maintenance: true,
     posts: [
       "automatizar-procesos-con-ia-por-donde-empezar",
       "como-implementar-ia-en-tu-empresa",
@@ -543,6 +546,7 @@ export const SERVICIOS: Record<string, Servicio> = {
 
   "agente-ia-whatsapp": {
     cases: ["Hospital Capilar"],
+    maintenance: true,
     posts: [
       "whatsapp-automatizacion-ventas",
       "automatizar-recepcion-clinica",
@@ -696,6 +700,7 @@ export const SERVICIOS: Record<string, Servicio> = {
 
   "implementacion-crm-gohighlevel": {
     cases: ["Growth4U", "Eventos Barcelona"],
+    maintenance: true,
     posts: [
       "integrar-gohighlevel-con-tu-stack",
       "automatizacion-para-clinicas-captacion-y-agenda",
@@ -859,7 +864,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "¿Qué es un Booking SDR?",
-          a: "Un sistema que, en vez de esperar a que un comercial llame, ofrece al lead cualificado los huecos libres y agenda la cita directamente en tu calendario o en tu software de citas. En Hospital Capilar agenda en Koibox.",
+          a: "Un sistema que, en vez de esperar a que un comercial llame, ofrece al lead cualificado los huecos libres y agenda la cita directamente en tu calendario o en tu software de citas. En Hospital Capilar, un proyecto con Growth4U, agenda en Koibox.",
         },
         {
           q: "¿Qué pasa con los leads que aún no están listos?",
@@ -912,7 +917,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "What is a Booking SDR?",
-          a: "A system that, instead of waiting for a salesperson to call, offers the qualified lead the free slots and books the appointment straight into your calendar or booking software. At Hospital Capilar it books into Koibox.",
+          a: "A system that, instead of waiting for a salesperson to call, offers the qualified lead the free slots and books the appointment straight into your calendar or booking software. At Hospital Capilar, a project with Growth4U, it books into Koibox.",
         },
         {
           q: "What happens to leads that are not ready yet?",
@@ -1393,5 +1398,5 @@ export const SERVICIO_SLUGS = Object.keys(SERVICIOS);
 export function getServicio(slug: string, lang: Lang) {
   const s = SERVICIOS[slug];
   if (!s) return null;
-  return { ...s[lang], cases: s.cases ?? [], price: s.price ?? "tiers", posts: s.posts };
+  return { ...s[lang], cases: s.cases ?? [], price: s.price ?? "tiers", maintenance: s.maintenance ?? false, posts: s.posts };
 }

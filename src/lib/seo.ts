@@ -56,12 +56,12 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     es: {
       title: "Casos de éxito de automatización con IA",
       description:
-        "Sistemas de IA en producción sobre GoHighLevel: −32% de coste por paciente en una clínica y −85% de tiempo de respuesta en una empresa de eventos.",
+        "Casos reales con cifras: propuestas en 8 minutos en una empresa de eventos y un agente de Meta y Google Ads que no actúa sin aprobación humana.",
     },
     en: {
       title: "AI automation case studies",
       description:
-        "AI systems running on GoHighLevel: −32% cost per patient at a clinic and −85% response time at an events company. Challenge, build and result.",
+        "Real cases with numbers: proposals in 8 minutes at an events company and a Meta and Google Ads agent that never acts without human approval.",
     },
   },
   "/soluciones": {

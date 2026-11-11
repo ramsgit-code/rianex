@@ -43,6 +43,14 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       así que no sirve para calcular el coste real por cita: hará falta el
       primer cliente propio con agente de citas.
 
+- [ ] **Validar el bloque "Mantenimiento mensual" (11-nov)** en las fichas
+      del agente de WhatsApp, automatización de procesos e implantación de
+      CRM (`src/lib/mantenimiento.ts`). Promete cuatro cosas: pruebas con
+      casos reales antes de cada cambio de modelo, informe mensual de coste
+      por respuesta correcta, registro de cambios en el CRM y revisión de
+      claves y proveedores, dentro del retainer de 1.000-5.000 €/mes. Si algo
+      no lo vas a dar, se quita; si tienes un precio de entrada para el
+      mantenimiento de un solo agente, lo ponemos.
 - [ ] **Validar los servicios nuevos (nov-2026)**: Kit IA, Formación en IA y
       Asesoramiento en IA (`src/lib/servicios.ts` y `src/lib/content.ts`).
       Revisar sobre todo: plazos (Kit 2-3 semanas, taller 1-2 semanas de
@@ -201,6 +209,18 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-11 · Casos y mantenimiento (radar del 11-nov). Hospital Capilar
+  sale siempre como proyecto "con Growth4U": tarjeta de /casos-de-exito,
+  title, meta y H1 de su caso, /soluciones y la pregunta del Booking SDR. La
+  meta de /casos-de-exito ya no abre con su −32%: abre con Eventos Barcelona
+  y Tribeca. En "Cómo cualificar leads" se quitan el 40% y el 60% (no estaban
+  confirmados) y queda el −32% de coste por paciente, con Growth4U. Growth4U
+  sigue como caso propio (cliente de Rianex, confirmado el 11-nov). Bloque
+  fijo "Mantenimiento mensual" (`src/lib/mantenimiento.ts`) en agente de
+  WhatsApp, automatización de procesos e implantación de CRM, y sección
+  "Cómo controlamos lo que hace la IA" en /casos-de-exito, con datos de
+  Tribeca. Sin nombrar competidores ni bajar precios.
 
 - 2026-11-11 · Radar del 11-nov. Artículo nuevo "Tu chatbot tiene que decir
   que es una IA: qué exige el AI Act" (`/blog/ai-act-chatbot-decir-que-es-ia`),
