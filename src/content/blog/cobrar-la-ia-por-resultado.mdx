@@ -1,28 +1,31 @@
 ---
 title: "Cobrar la IA por resultado: qué puede copiar una pyme de Sierra"
-description: "Sierra supera los 400 M$ de ARR cobrando por resultado e Intercom cobra 0,99 $ por resolución. Cuándo encaja en una pyme y cómo calcular el coste por cita."
+description: "Sierra, Intercom y ahora Zendesk cobran la IA por resultado. Cuándo encaja en una pyme, qué control debe pasar el resultado y cuánto cuesta cada cita."
 date: "2026-11-09"
+updated: "2026-11-11"
 tags: ["precio por resultado", "agentes de ia", "booking sdr", "coste de la ia", "whatsapp"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
 draft: false
 ---
 
-Cada vez más gerentes hacen la misma pregunta cuando se habla de agentes de IA: si la máquina hace en minutos lo que antes llevaba horas, ¿por qué voy a pagarlo como si fueran horas? En Estados Unidos, dos de las empresas que más venden agentes de atención al cliente ya han respondido cobrando por resultado. Este artículo cuenta qué hacen, cuándo tiene sentido copiarlo en una pyme española y cómo se calcula lo que cuesta de verdad cada resultado, con un agente que agenda citas como ejemplo.
+Cada vez más gerentes hacen la misma pregunta cuando se habla de agentes de IA: si la máquina hace en minutos lo que antes llevaba horas, ¿por qué voy a pagarlo como si fueran horas? En Estados Unidos, tres de las empresas que más venden agentes de atención al cliente ya han respondido cobrando por resultado. Este artículo cuenta qué hacen, cuándo tiene sentido copiarlo en una pyme española y cómo se calcula lo que cuesta de verdad cada resultado, con un agente que agenda citas como ejemplo.
 
 ## La respuesta corta
 
 Cobrar la IA por resultado significa que el cliente paga por cada cosa útil que consigue el agente, como una conversación resuelta, una cita agendada o una propuesta enviada, y no por horas, licencias ni consumo del modelo. Funciona cuando el resultado se puede contar sin discusión, se puede atribuir al agente y se repite lo bastante cada mes.
 
-En una pyme, el formato que mejor encaja es mixto: una implantación cerrada, una cuota base que cubre la infraestructura y el mantenimiento, y un importe por resultado con un tope mensual. El agente que agenda citas (lo que en inglés llaman *Booking SDR*) es el caso más claro, porque una cita es un hecho con fecha y hora en el calendario.
+En una pyme, el formato que mejor encaja es mixto: una implantación cerrada, una cuota base que cubre la infraestructura y el mantenimiento, y un importe por resultado con un tope mensual. Y el resultado solo debería contar cuando pasa un control, como ya hace Zendesk. El agente que agenda citas (lo que en inglés llaman *Booking SDR*) es el caso más claro, porque una cita es un hecho con fecha y hora en el calendario.
 
-## Qué hacen Sierra e Intercom
+## Qué hacen Sierra, Intercom y Zendesk
 
 **Sierra** vende agentes de atención al cliente a grandes empresas. El 30 de octubre de 2026 anunció que había superado los [400 millones de dólares de ingresos recurrentes anuales](https://sierra.ai/blog/our-customers-ambition-is-accelerating-our-growth), con más de 150 millones añadidos solo en el tercer trimestre. Tardó seis meses en pasar de 100 a 200 millones y cinco en pasar de 200 a 400. Su principio de precio cabe en una frase: "pagas por resultados, no por los tokens que se usan". Los ejemplos que pone son un préstamo refinanciado, un siniestro pagado, una venta cerrada o un cliente que no se da de baja.
 
 **Intercom** cobra su agente, Fin, a [0,99 dólares por resolución](https://www.intercom.com/small-business). Y no obliga a usar su propio software de atención al cliente: Fin también [se instala encima de Zendesk o Salesforce](https://www.intercom.com/help/en/articles/10118495-fin-for-zendesk-and-salesforce-explained), así que se vende como una capa sobre lo que la empresa ya tiene.
 
-Los dos modelos tienen tres cosas en común:
+**Zendesk** se sumó el 11 de noviembre de 2026 con su [Outcome AI Platform](https://itbrief.asia/story/zendesk-launches-outcome-ai-platform-with-new-pricing). Deja de cobrar por usuario: el cliente fija un presupuesto de resultados y paga por "incidencias elegibles resueltas y trabajo completado". Lo importante es el matiz: cada resultado se evalúa por calidad y completitud antes de contar. No ha publicado un precio por resolución.
+
+Los tres modelos tienen tres cosas en común:
 
 - **El resultado queda registrado en un sistema.** Un ticket cerrado, una venta anotada o una baja que no se produjo. No hace falta discutir si ocurrió.
 - **Trabajan con mucho volumen.** Con millones de conversaciones, los casos dudosos se diluyen.
@@ -63,6 +66,18 @@ Además del tipo de cita, el contrato debería dejar por escrito:
 - **Qué pasa con los duplicados y los cambios de fecha.** Una persona que reprograma tres veces es una sola cita.
 - **Qué pasa cuando interviene una persona.** Si la conversación la termina alguien del equipo, lo lógico es que no cuente como resultado del agente.
 - **Dónde se mide.** Una sola fuente de verdad, normalmente el calendario o el CRM, a la que las dos partes tengan acceso.
+
+## Cobrar solo el resultado que pasa un control
+
+Lo de Zendesk ataca el mayor riesgo de cobrar por resultado: que el proveedor gane más cuantos más resultados cuente, sean buenos o no. Si un resultado solo cuenta cuando pasa un control, el incentivo cambia. Ya no compensa inflar la cifra, compensa que cada resultado sirva.
+
+En una pyme ese control no necesita una plataforma. Basta con decidir qué señal demuestra que el resultado sirvió y que esa señal quede registrada en un sistema:
+
+- **En un agente de citas:** la cita confirmada que cumple los criterios acordados, como vimos arriba.
+- **En un generador de propuestas:** no la propuesta generada, sino la propuesta enviada sin que el comercial haya tenido que rehacerla. En un sistema como el que montamos para [Eventos Barcelona](/casos-de-exito/eventos-barcelona), donde la propuesta sale en unos ocho minutos después de la llamada, bastaría con registrar si el comercial la envía tal cual o la rehace.
+- **En un agente de atención:** la consulta resuelta sin que el cliente vuelva a escribir por lo mismo en los días siguientes.
+
+Y además de la señal automática, una revisión periódica de una muestra, hecha por alguien de la empresa. Es la forma de comprobar que la señal mide lo que tiene que medir.
 
 ## Cómo calcular el coste real por cita
 
@@ -109,6 +124,10 @@ Que el cliente paga por cada cosa útil que consigue el agente, como una convers
 ### ¿Cuánto cobra Intercom por su agente Fin?
 
 0,99 dólares por resolución, según su página de precios. Fin puede funcionar con el software de atención al cliente de Intercom o encima de otros como Zendesk o Salesforce.
+
+### ¿Cómo cobra Zendesk por su IA?
+
+Desde el 11 de noviembre de 2026, con su Outcome AI Platform, el cliente fija un presupuesto de resultados y paga por las incidencias elegibles resueltas y el trabajo completado, en lugar de por usuario. Cada resultado se evalúa por calidad y completitud antes de contar. Zendesk no ha publicado un precio por resolución.
 
 ### ¿Cuánto factura Sierra cobrando por resultado?
 
