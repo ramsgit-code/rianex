@@ -72,14 +72,11 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       estrella en `generate_lead` (y en `diagnostico_agendar` si quieres
       medir también las reservas). GA4 no deja marcarlo antes de recibirlo.
 
-- [ ] **Bing, revisar hacia el 9 de noviembre**: a 26 de octubre Bing solo
-      tenía 4 URLs indexadas de las 47 que conoce por el sitemap, 0
-      impresiones y 0 citas en AI Performance (Copilot) en 30 días, y 0
-      backlinks. No hay bloqueo técnico (robots, `noindex` y respuesta a
-      Bingbot correctos). Ese día se enviaron las 49 URLs del sitemap por URL
-      Submission (cupo de 100 al día). Mirar en Site Explorer cuántas ha
-      indexado y, si siguen sin entrar, volver a enviarlas. Bing pesa mucho
-      los enlaces externos: ver la tarea de enlaces.
+- [ ] **Bing, revisar hacia el 1 de diciembre**: a 11 de noviembre tiene
+      22 URLs indexadas (10 el 9-nov), 2 impresiones, 0 citas en Copilot y 0
+      backlinks. No reenviar en bloque por URL Submission: ya conoce las URLs.
+      Las nuevas se avisan con `npm run indexnow`. Lo que más lo movería son
+      los enlaces externos (ver la tarea de enlaces).
 - [ ] **Forks públicos**: el original ya es privado, pero
       `ramirogrowth4u/rianex` (tuyo) y `philippe-G4U/rianex` siguen públicos y
       salen buscando "Rianex". Borrar el tuyo (Settings → Danger Zone → Delete)
@@ -197,6 +194,13 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-11 · Indexación pedida en Search Console (cola prioritaria) para
+  las cuatro URLs nuevas que Google aún no conocía:
+  `/blog/cobrar-la-ia-por-resultado`, `/servicios/asesoramiento-ia`,
+  `/servicios/formacion-ia-empresas` y `/servicios/kit-ia`. IndexNow enviado
+  para esas cuatro y para los dos artículos editados en el #56 (6 URLs).
+  Bing revisado: 22 URLs indexadas.
 
 - 2026-11-11 · Posicionamiento aclarado por Ramiro: Rianex es una agencia
   de automatización con IA, y un MVP o un pequeño software puede ser el
