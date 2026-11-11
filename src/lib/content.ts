@@ -186,7 +186,7 @@ export const content = {
           challenge:
             "Captaban muchos leads pero sin ningún filtro previo ni visibilidad del embudo: no sabían qué contactos merecía la pena trabajar ni en qué paso se perdían las oportunidades.",
           solution:
-            "Montamos un sistema en GoHighLevel que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y, con un Booking SDR, agenda la cita directamente en Koibox. Todo el embudo queda medido de punta a punta: conversión, abandono, citas y ventas.",
+            "Con Growth4U, montamos un sistema en GoHighLevel que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y, con un Booking SDR, agenda la cita directamente en Koibox. Todo el embudo queda medido de punta a punta: conversión, abandono, citas y ventas.",
           stack: ["GoHighLevel", "WhatsApp", "Koibox"],
           metric: "−32%",
           metricLabel: "coste por paciente (CPP) en 8 semanas",
@@ -578,7 +578,7 @@ export const content = {
           title: "Clínicas y Hospitales",
           pain: "Llamadas sin conversión por falta de filtro previo.",
           solution: "Precualificación por tratamiento, urgencia y presupuesto en GoHighLevel.",
-          reference: "Hospital Capilar",
+          reference: "Hospital Capilar (con Growth4U)",
         },
         {
           sector: "Eventos",
@@ -602,8 +602,32 @@ export const content = {
       tag: "Casos de éxito",
       title: "Sistemas que funcionan hoy",
       description:
-        "Negocios reales con problemas distintos y un mismo enfoque: diagnosticar el cuello de botella, montar el sistema y medir el resultado desde el primer día.",
+        "Agencias de marketing, empresas de eventos y clínicas: el cuello de botella que tenían, lo que montamos y lo que cambió, con cifras. Y cómo controlamos lo que hace la IA.",
       stackLabel: "Stack implementado",
+      control: {
+        title: "Cómo controlamos lo que hace la IA",
+        lead: "Poner un agente en marcha es la parte fácil. Lo difícil es que siga haciendo lo correcto cuando cambian los modelos, las herramientas y los datos. Así lo hacemos:",
+        items: [
+          {
+            title: "Una persona aprueba antes de que actúe",
+            desc: "En Tribeca Media, el agente propone pausar campañas o bajar presupuesto en Meta y Google Ads, pero no ejecuta nada sin el visto bueno de una persona. Cada acción queda registrada.",
+            href: "/blog/agentes-de-ia-con-aprobacion-humana",
+            label: "Cómo se diseña la aprobación humana",
+          },
+          {
+            title: "Pruebas antes de cada cambio",
+            desc: "El sistema de Tribeca tiene casi 1.000 tests automáticos. En un agente de atención, antes de cambiar de modelo o de instrucciones pasamos una batería de conversaciones reales: si empeora, no se cambia.",
+            href: "/blog/revisar-sistema-de-agentes-ia-antes-de-escalar",
+            label: "Qué revisar antes de escalar",
+          },
+          {
+            title: "El coste de la IA, medido y con tope",
+            desc: "En Tribeca, el coste de cada llamada a la IA se registra por cliente y tiene un tope diario. El modelo se elige por su coste por respuesta correcta, no por el precio por token.",
+            href: "/blog/coste-agente-de-ia-en-produccion",
+            label: "Cómo se mide el coste de un agente",
+          },
+        ],
+      },
     },
 
     sobreMi: {
@@ -866,7 +890,7 @@ export const content = {
           challenge:
             "They captured plenty of leads but with no upfront filtering or visibility into the funnel: they didn't know which contacts were worth working or where opportunities were being lost.",
           solution:
-            "We built a GoHighLevel system that qualifies every lead with a scoring quiz, runs automated WhatsApp follow-up and, with a Booking SDR, books the appointment straight into Koibox. The whole funnel is measured end to end: conversion, drop-off, appointments and sales.",
+            "With Growth4U, we built a GoHighLevel system that qualifies every lead with a scoring quiz, runs automated WhatsApp follow-up and, with a Booking SDR, books the appointment straight into Koibox. The whole funnel is measured end to end: conversion, drop-off, appointments and sales.",
           stack: ["GoHighLevel", "WhatsApp", "Koibox"],
           metric: "−32%",
           metricLabel: "cost per patient (CPP) in 8 weeks",
@@ -1258,7 +1282,7 @@ export const content = {
           title: "Clinics & Hospitals",
           pain: "Calls with no conversion due to a lack of upfront filtering.",
           solution: "Pre-qualification by treatment, urgency and budget on GoHighLevel.",
-          reference: "Hospital Capilar",
+          reference: "Hospital Capilar (with Growth4U)",
         },
         {
           sector: "Events",
@@ -1282,8 +1306,32 @@ export const content = {
       tag: "Case studies",
       title: "Systems that work today",
       description:
-        "Real businesses with different bottlenecks and one same approach: diagnose the bottleneck, build the system and measure the result from day one.",
+        "Marketing agencies, event companies and clinics: the bottleneck they had, what we built and what changed, in numbers. And how we keep the AI under control.",
       stackLabel: "Stack we built",
+      control: {
+        title: "How we keep the AI under control",
+        lead: "Launching an agent is the easy part. The hard part is keeping it doing the right thing as models, tools and data change. This is how we do it:",
+        items: [
+          {
+            title: "A person approves before it acts",
+            desc: "At Tribeca Media, the agent proposes pausing campaigns or cutting budget on Meta and Google Ads, but runs nothing without a person's sign-off. Every action is logged.",
+            href: "/blog/agentes-de-ia-con-aprobacion-humana",
+            label: "How to design human approval (in Spanish)",
+          },
+          {
+            title: "Tests before every change",
+            desc: "Tribeca's system has almost 1,000 automated tests. On a customer service agent, before switching model or instructions we run a set of real conversations: if it gets worse, it does not change.",
+            href: "/blog/revisar-sistema-de-agentes-ia-antes-de-escalar",
+            label: "What to review before scaling (in Spanish)",
+          },
+          {
+            title: "AI cost, measured and capped",
+            desc: "At Tribeca, the cost of every AI call is recorded per client and has a daily cap. The model is chosen by its cost per correct answer, not by the price per token.",
+            href: "/blog/coste-agente-de-ia-en-produccion",
+            label: "How to measure an agent's cost (in Spanish)",
+          },
+        ],
+      },
     },
 
     sobreMi: {

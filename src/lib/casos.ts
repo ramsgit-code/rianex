@@ -49,10 +49,10 @@ export const CASOS: Record<string, Caso> = {
     services: ["embudo-de-captacion", "integracion-gohighlevel-hubspot", "implementacion-crm-gohighlevel"],
     posts: ["como-cualificar-leads-automaticamente", "automatizacion-para-clinicas-captacion-y-agenda"],
     es: {
-      seoTitle: "Caso Hospital Capilar: −32% de coste por paciente",
+      seoTitle: "Hospital Capilar con Growth4U: −32% de coste por paciente",
       metaDescription:
-        "Cómo Hospital Capilar bajó un 32% su coste por paciente en 8 semanas con un quiz de cualificación, seguimiento por WhatsApp y un Booking SDR que agenda en Koibox.",
-      h1: "Hospital Capilar: −32% de coste por paciente en 8 semanas",
+        "Proyecto con Growth4U: cómo Hospital Capilar bajó un 32% su coste por paciente en 8 semanas con un quiz, seguimiento por WhatsApp y un Booking SDR en Koibox.",
+      h1: "Hospital Capilar, con Growth4U: −32% de coste por paciente en 8 semanas",
       answer:
         "Hospital Capilar, una clínica de Madrid, captaba muchos leads sin ningún filtro ni visibilidad del embudo. En un proyecto con Growth4U, montamos en GoHighLevel un sistema que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y agenda la cita directamente en Koibox con un Booking SDR. En 8 semanas, el coste por paciente bajó un 32%.",
       context: [
@@ -77,10 +77,10 @@ export const CASOS: Record<string, Caso> = {
       },
     },
     en: {
-      seoTitle: "Hospital Capilar case: −32% cost per patient",
+      seoTitle: "Hospital Capilar with Growth4U: −32% cost per patient",
       metaDescription:
-        "How Hospital Capilar cut its cost per patient by 32% in 8 weeks with a qualification quiz, WhatsApp follow-up and a Booking SDR that books into Koibox.",
-      h1: "Hospital Capilar: −32% cost per patient in 8 weeks",
+        "A project with Growth4U: how Hospital Capilar cut its cost per patient by 32% in 8 weeks with a quiz, WhatsApp follow-up and a Booking SDR in Koibox.",
+      h1: "Hospital Capilar, with Growth4U: −32% cost per patient in 8 weeks",
       answer:
         "Hospital Capilar, a clinic in Madrid, was getting plenty of leads with no filter and no visibility of the funnel. In a project with Growth4U, we built a GoHighLevel system that qualifies every lead with a scoring quiz, follows up automatically on WhatsApp and books the appointment straight into Koibox with a Booking SDR. In 8 weeks, cost per patient fell by 32%.",
       context: [
