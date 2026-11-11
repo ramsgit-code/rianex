@@ -2,6 +2,7 @@
 title: "Automatizar la recepción de una clínica: WhatsApp, llamadas y citas"
 description: "Qué tareas de recepción de una clínica se resuelven con reglas, cuáles con IA y cuáles debe llevar una persona, incluidas las consultas fuera de horario."
 date: "2026-10-23"
+updated: "2026-11-11"
 tags: ["clínicas", "recepción", "whatsapp", "agenda", "ia"]
 cluster: "captacion"
 author: "Ramiro Pérez Rodero"
@@ -69,6 +70,21 @@ Ahí un menú no llega y un modelo de lenguaje sí. La IA aporta en cuatro cosas
 
 Eso es lo que suele llamarse "recepcionista virtual": un agente que responde y agenda dentro de límites claros. Cuándo compensa, lo contamos en [agentes de IA para empresas](/blog/agentes-de-ia-para-empresas-cuando-compensan).
 
+## Lo que el agente nunca confirma sin mirar el sistema
+
+El fallo más peligroso de un recepcionista de IA no es no saber algo. Es contestar con seguridad algo que no ha comprobado.
+
+Una prueba que conviene hacer antes de ponerlo a trabajar: alguien llama o escribe a última hora de la tarde, nervioso, y pregunta si el doctor sigue en la clínica porque necesita venir ya. Un agente mal diseñado contesta "sí, venga ahora mismo", porque es la respuesta que parece ayudar. Pero no ha mirado nada. Si el doctor ya se ha ido, esa respuesta es mucho peor que un "no lo sé".
+
+Los modelos de lenguaje tienden a dar la respuesta que encaja con la conversación, aunque no tengan el dato. Por eso la regla no puede ir solo en las instrucciones: el agente solo afirma lo que ha leído en un sistema durante esa misma conversación.
+
+- **Huecos y disponibilidad:** solo los que ha leído en la agenda en ese momento.
+- **Quién está en la clínica:** nunca, salvo que haya un dato fiable y actualizado. Si no lo hay, da el teléfono de urgencias o pasa la conversación a una persona.
+- **Precios:** solo los de la tabla que ha dado la clínica. Si no está, dice que lo confirma recepción.
+- **Citas:** solo da una cita por hecha cuando el software de agenda ha devuelto la cita creada.
+
+Antes de entregarlo, se pasa una batería de conversaciones difíciles y se comprueba que en ninguna inventa: la urgencia fuera de horario, la pregunta por un profesional concreto, el precio de algo que no está en la lista y la agenda que no responde. La batería se repite cada vez que cambian el modelo o las instrucciones, porque un agente que ayer no inventaba puede hacerlo mañana. Si el agente atiende también llamadas, aplican las mismas reglas: lo contamos en [agente de voz que contesta en WhatsApp y agenda la cita](/blog/agente-de-voz-whatsapp-agenda-citas).
+
 ## Lo que tiene que seguir siendo humano
 
 Hay una línea que no depende de lo buena que sea la tecnología.
@@ -99,11 +115,12 @@ En nuestros montajes, la conversación y el seguimiento suelen vivir en GoHighLe
 
 ## Datos de salud: cuidado con WhatsApp
 
-Los datos de salud son categoría especial en el RGPD, y pedir cita para un tratamiento ya dice algo sobre la salud de alguien. Tres reglas prácticas:
+Los datos de salud son categoría especial en el RGPD, y pedir cita para un tratamiento ya dice algo sobre la salud de alguien. Cuatro reglas prácticas:
 
 - **No pedir información clínica por WhatsApp.** El sistema pregunta qué servicio interesa y cuándo puede venir. Síntomas, historial o pruebas se tratan en consulta o en el software clínico.
 - **Mensajes discretos.** Un recordatorio dice "tienes cita mañana a las 10", no el nombre del tratamiento.
 - **Consentimiento y registro.** Saber qué ha aceptado cada paciente y poder demostrarlo.
+- **Decir que es una IA.** Desde agosto de 2026, el agente tiene que avisar en el primer mensaje de que es una inteligencia artificial. Lo explicamos en [qué exige el AI Act a tu chatbot](/blog/ai-act-chatbot-decir-que-es-ia).
 
 Lo desarrollamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
 
@@ -136,6 +153,10 @@ Con acuse inmediato, respuestas a las dudas habituales y un enlace para reservar
 ### ¿Se puede conectar WhatsApp con el software de agenda de la clínica?
 
 Depende del software. Muchos ofrecen API o integración, y entonces el sistema puede leer huecos y escribir citas. Si no la tienen, se propone hueco y una persona lo confirma en la agenda.
+
+### ¿Qué no debe decir nunca un recepcionista de IA?
+
+Nada que no haya comprobado en un sistema durante la conversación: que hay hueco, que un profesional está en la clínica, un precio que no está en la tabla de la clínica o que una cita está dada antes de que la agenda la haya creado. Si no tiene el dato, lo dice y pasa la conversación a una persona.
 
 ### ¿Es legal usar WhatsApp automatizado en una clínica?
 

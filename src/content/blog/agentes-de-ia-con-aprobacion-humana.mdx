@@ -2,6 +2,7 @@
 title: "Agentes de IA con aprobación humana: cómo diseñarla bien"
 description: "Qué debe aprobar una persona cuando un agente de IA toca dinero o clientes: quién aprueba, cuándo caduca y qué no se automatiza nunca. Con un caso real."
 date: "2026-10-28"
+updated: "2026-11-11"
 tags: ["agentes de ia", "aprobación humana", "human in the loop", "meta ads", "google ads"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -24,6 +25,12 @@ La versión ingenua es un botón de "Aprobar" debajo de cada propuesta del agent
 - **No todo el que ve puede decidir.** En cualquier empresa hay quien debe ver lo que hace el agente pero no mover dinero. Si el botón aparece para todos, la regla depende de la buena voluntad.
 - **El mundo cambia entre la aprobación y la ejecución.** Alguien sube el presupuesto a mano en Meta cinco minutos después de que se aprobara bajarlo. Si el agente ejecuta con la cifra que tenía apuntada, deshace un cambio humano sin que nadie lo vea.
 - **Demasiadas aprobaciones se aprueban sin leer.** Si cada acción pide dos firmas, en dos semanas la gente firma por inercia. El control real baja aunque en el papel suba.
+
+## 50 millones para que los agentes pidan permiso
+
+La idea ya mueve dinero. El 10 de noviembre de 2026, la israelí Bay [salió con 50 millones de dólares](https://siliconangle.com/2026/11/10/ai-security-startup-bay-launches-with-50m-to-vet-agent-actions-before-they-run/), con Battery Ventures al frente de su serie A, para revisar cada acción de un agente antes de que se ejecute. Su producto hace inventario de los agentes que hay en los portátiles, la nube y las aplicaciones de una empresa, los somete a una misma política y bloquea las acciones que considera demasiado arriesgadas. Su tesis: filtrar lo que se le pide al agente no basta, porque una petición de aspecto inofensivo puede acabar con un agente borrando una base de datos de producción.
+
+Bay está pensada para empresas grandes con decenas de agentes. Una pyme con uno o dos no necesita una plataforma así, pero sí el mismo principio: lo que se controla es la acción, no la conversación. Es lo que hace el diseño de abajo, con una diferencia. Donde Bay bloquea por política, aquí una persona decide.
 
 ## Las seis decisiones de diseño
 
@@ -130,6 +137,10 @@ Porque una propuesta se hace con los datos de un momento. Pasado un día, esos d
 ### ¿Puede un agente aprobar lo que propone otro agente?
 
 Un segundo modelo puede revisar una propuesta y señalar errores, y es buena práctica que sea de otro proveedor para que no comparta los mismos fallos. Pero lo que toca dinero o a un cliente lo debe aprobar una persona, al menos hasta que haya un historial que justifique dar autonomía con topes.
+
+### ¿Hay herramientas que controlen las acciones de los agentes?
+
+Sí, y es un mercado que crece. Bay, por ejemplo, salió en noviembre de 2026 con 50 millones de dólares para revisar cada acción de los agentes de una empresa antes de que se ejecute y bloquear las arriesgadas. Para una pyme con pocos agentes suele bastar con diseñarlo dentro del propio agente: el agente propone, una persona aprueba y los límites viven en el código.
 
 ### ¿Cuándo se puede quitar la aprobación humana?
 

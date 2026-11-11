@@ -13,6 +13,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Bot de GHL: que diga que es una IA (obligatorio desde el 2-ago-2026,
+      art. 50 del AI Act).** La base `rianex-chatbot-kb.md` (fuera del repo)
+      ya lo pide en el primer mensaje desde el 11-nov: hay que pegarla en el
+      bot de GHL. Revisar también cualquier agente de WhatsApp o de voz
+      entregado a clientes: aviso en el primer mensaje o saludo de voz, y
+      quién se encarga del marcado del contenido antes del 2-dic-2026.
+
 - [ ] **Landings de campaña**: cinco por nicho para Meta, LinkedIn y outbound
       (`/l/agencias-de-marketing`, `/l/empresas-de-eventos`, `/l/clinicas`,
       `/l/inmobiliarias`, `/l/negocios-con-cita`; copia en `src/lib/nichos.ts`)
@@ -194,6 +201,16 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-11 · Radar del 11-nov. Artículo nuevo "Tu chatbot tiene que decir
+  que es una IA: qué exige el AI Act" (`/blog/ai-act-chatbot-decir-que-es-ia`),
+  con cifras y citas comprobadas en el DOUE (vía BOE), el Ómnibus 2026/1744 y
+  las directrices de la Comisión sobre el art. 50; enlazado desde RGPD,
+  recepción de clínicas y la ficha del agente de WhatsApp. Actualizados:
+  cobrar por resultado (Zendesk y "cobrar solo lo que pasa un control"),
+  recepción de clínica (lo que el agente nunca confirma sin mirar el sistema;
+  el caso de r/n8n del veterinario no se pudo comprobar y no se cita) y
+  agentes con aprobación humana (Bay, 50 M$).
 
 - 2026-11-11 · Indexación pedida en Search Console (cola prioritaria) para
   las cuatro URLs nuevas que Google aún no conocía:
