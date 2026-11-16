@@ -1,7 +1,8 @@
 ---
 title: "Propuestas para licitaciones con IA: qué automatizar y qué no"
-description: "Qué partes de una licitación puede preparar la IA (requisitos, checklist, memoria técnica, plazos) y cuáles deben quedarse en manos de una persona."
+description: "Qué partes de una licitación puede preparar la IA (requisitos, checklist, oferta técnica, plazos), qué revisa una persona y si hay herramientas que la redacten."
 date: "2026-10-23"
+updated: "2026-11-16"
 tags: ["licitaciones", "propuestas", "ia", "sector público"]
 cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
@@ -17,6 +18,21 @@ Por eso la pregunta útil no es si la IA puede escribir una propuesta para una l
 ## La respuesta corta
 
 La IA sirve para preparar licitaciones en las partes que consisten en leer y ordenar: extraer del pliego los requisitos de solvencia, los criterios de valoración y los plazos, montar una checklist de cumplimiento, buscar en proyectos anteriores las fichas y respuestas reutilizables y redactar un primer borrador de la memoria técnica. Lo que no debe decidir es la oferta económica, los compromisos que asume la empresa ni la firma. Un generador de propuestas para licitaciones acelera el trabajo y reduce olvidos, pero siempre termina en revisión humana.
+
+## ¿Hay una herramienta que redacte la oferta técnica de una licitación?
+
+Sí, pero no sola. Una herramienta puede leer el pliego, montar la estructura de la oferta técnica siguiendo los criterios de valoración y rellenarla con contenido que tu empresa ya tiene aprobado. Lo que no puede es inventarse la parte que gana el concurso: tu metodología real, los medios que de verdad vas a poner y los compromisos que puedes cumplir. Si no tiene ese material, rellena con texto genérico que suena bien y no puntúa.
+
+Un sistema que funciona hace cuatro cosas, en este orden:
+
+1. **Lee el pliego y saca los criterios.** Cada criterio de valoración, con su peso, la extensión máxima y el orden en que el órgano de contratación quiere leerlo.
+2. **Arma el índice de la oferta.** Un apartado por criterio, en ese orden y con ese nombre. Parece poco, pero quien valora busca cada criterio donde lo espera, y una oferta desordenada pierde puntos aunque diga lo correcto.
+3. **Rellena con contenido aprobado.** Para cada apartado busca en tu biblioteca las respuestas, fichas de proyecto y descripciones de equipo que ya usaste y validaste, y redacta un borrador a partir de ellas. Donde no encuentra nada, deja el hueco marcado en vez de escribir algo genérico.
+4. **Un segundo agente revisa la oferta contra el pliego.** Es un agente distinto, que no ha visto cómo se escribió el borrador: solo recibe el pliego y la oferta. Comprueba que cada criterio tiene respuesta, que no se pasa de la extensión y que no aparece ningún compromiso (plazo, mejora, persona adscrita) que no esté en la lista de lo validado. Al no tener el contexto de quien escribió, no da por bueno lo que se quería decir: solo ve lo que está escrito.
+
+Después, una persona lee la oferta entera, completa los huecos marcados y decide. La oferta económica y la firma no pasan por la herramienta.
+
+Las herramientas generalistas de chat sirven para el paso 1 y para probar el paso 3 con un pliego concreto. Lo que no traen es tu biblioteca, la lista de compromisos validados ni el revisor contra el pliego, que es lo que evita sorpresas. Por eso, cuando una empresa licita a menudo, suele compensar montarlo como sistema propio.
 
 ## Qué implica responder a una licitación
 
@@ -93,6 +109,10 @@ Las herramientas genéricas de chat sirven para probar, pero un sistema así sue
 ### ¿Puede la IA hacer una licitación entera?
 
 No conviene. Puede leer los pliegos, extraer requisitos, preparar la checklist y redactar un borrador de la memoria técnica. La oferta económica, los compromisos y la firma tienen que decidirlos personas, y todo lo generado necesita revisión antes de presentarse.
+
+### ¿Hay alguna herramienta que redacte automáticamente la oferta técnica?
+
+Hay herramientas que preparan un borrador: leen el pliego, ordenan la oferta según los criterios de valoración y la rellenan con material de la empresa. Ninguna debería presentarla sola. Lo que mejor funciona es un segundo agente que revisa la oferta contra el pliego, sin haber visto cómo se escribió, y una persona que valida los compromisos y la firma.
 
 ### ¿Qué es un generador de propuestas para licitaciones?
 
