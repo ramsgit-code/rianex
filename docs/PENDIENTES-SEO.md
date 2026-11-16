@@ -182,12 +182,15 @@ Por orden de impacto:
       la lista oficial y campo `updated`. Es contenido con fecha: si se
       queda viejo, pierde la consulta.
 
-- [ ] **Cifras sin fuente en artículos antiguos**: la descripción de "Cómo
-      cualificar leads automáticamente" dice "El 80% de los leads que recibes
-      no van a comprar", y el de propuestas dice "en 8 minutos: cómo lo hago"
-      con ese tono de primera persona de antes. Revisar los tres artículos de
-      abril (cualificar leads, propuestas, WhatsApp) con el mismo criterio que
-      la home.
+- [ ] **Cifras sin fuente en artículos antiguos**: el de propuestas dice
+      "en 8 minutos: cómo lo hago" con ese tono de primera persona de antes.
+      Revisar los artículos de abril que quedan (propuestas, WhatsApp) con el
+      mismo criterio que la home. El de cualificar leads ya está (16-nov).
+- [ ] **Directrices del art. 50 en el DOUE**: el radar del 16-nov dice que
+      salieron el 12-nov como comunicación C/2026/6005 (CELEX 52026XC06005),
+      pero solo lo cuenta CASRAI y EUR-Lex no se pudo abrir. Si se confirma,
+      añadir la referencia en `/blog/ai-act-chatbot-decir-que-es-ia` antes
+      del 2-dic.
 - [ ] **Revisar a mediados de noviembre** el pilar "por dónde empezar"
       (title "qué es y por dónde empezar" desde el 26 de octubre): posición
       para "automatización de procesos con ia" (78 a 26 de octubre) y
@@ -209,6 +212,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-16 · Radar del 16-nov. Propuestas para licitaciones: sección
+  nueva "¿Hay una herramienta que redacte la oferta técnica de una
+  licitación?" (la búsqueda está en la posición 8,7), con el segundo agente
+  que revisa la oferta contra el pliego, y su pregunta frecuente. Cualificar
+  leads: title y description nuevos (fuera el 80% sin fuente), respuesta
+  corta, sección de señales, agente que investiga la cuenta y aprobación
+  humana (Rox, 100 M$, Fortune) y cuatro preguntas frecuentes.
 
 - 2026-11-11 · Casos y mantenimiento (radar del 11-nov). Hospital Capilar
   sale siempre como proyecto "con Growth4U": tarjeta de /casos-de-exito,
