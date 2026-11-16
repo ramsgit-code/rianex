@@ -1161,7 +1161,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     es: {
       seoTitle: "Formación en IA para empresas y equipos",
       metaDescription:
-        "Talleres prácticos de IA para dirección, ventas, atención y administración, con los procesos y documentos de tu empresa. Presenciales o en remoto.",
+        "Talleres prácticos de IA para dirección, ventas, atención y administración, con tus procesos y documentos. Presenciales o en remoto, bonificables por FUNDAE.",
       answer:
         "Formamos a tu equipo en el uso práctico de la IA con sus propias tareas: cómo pedirle las cosas a ChatGPT o Claude, cómo usarla en ventas, atención y administración, qué datos no deben entrar y qué se puede automatizar. Son talleres prácticos, presenciales o en remoto, que imparte Ramiro Pérez, ingeniero industrial y profesor de Industria 4.0 en un máster universitario.",
       outcomes: [
@@ -1192,7 +1192,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "Un taller se prepara en una o dos semanas. Un itinerario para varios perfiles se reparte en varias sesiones a lo largo de un mes.",
-      priceNote: "Depende del número de sesiones y de personas. Te lo damos en la consultoría gratuita.",
+      priceNote: "Depende del número de sesiones y de personas, y se puede bonificar con el crédito de formación de FUNDAE (lo explicamos en las preguntas frecuentes). Te lo damos en la consultoría gratuita.",
       faqs: [
         {
           q: "¿Presencial o en remoto?",
@@ -1207,6 +1207,10 @@ export const SERVICIOS: Record<string, Servicio> = {
           a: "Dirección (qué automatizar, cuánto vale y cómo medirlo), ventas (prospección, propuestas y seguimiento), atención al cliente, administración y perfiles técnicos que van a mantener automatizaciones.",
         },
         {
+          q: "¿Se puede bonificar con FUNDAE?",
+          a: "Sí, si tu empresa cotiza por formación profesional y está al corriente con Hacienda y la Seguridad Social, porque un taller de IA aplicada a vuestro trabajo guarda relación con la actividad de la empresa. El coste se descuenta de las cotizaciones a la Seguridad Social con el crédito de formación del año: las empresas de 1 a 5 personas tienen garantizados 420 €, y las de más de 5 tienen un porcentaje de lo que cotizaron por formación profesional el año anterior y ponen una parte (la cofinanciación). La gestión la hace tu empresa en la aplicación de FUNDAE o una entidad organizadora, como tu gestoría: se comunica el inicio de cada grupo hasta dos días antes de empezar y la finalización al terminar, y la bonificación se aplica después. Nosotros impartimos el taller y te damos el programa, las horas, el control de asistencia y la factura. Una charla o una jornada suelta no es bonificable; un taller con programa, sí.",
+        },
+        {
           q: "¿Qué diferencia hay con el Kit IA?",
           a: "La formación enseña a usar la IA. El Kit IA incluye la formación y, además, deja montadas las cuentas de empresa, un asistente que responde con vuestros documentos y las plantillas por puesto.",
         },
@@ -1215,7 +1219,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     en: {
       seoTitle: "AI training for companies and teams",
       metaDescription:
-        "Hands-on AI workshops for management, sales, customer service and admin, built on your company's processes and documents. On site or remote.",
+        "Hands-on AI workshops for management, sales, service and admin, on your own processes and documents. On site or remote, FUNDAE-eligible in Spain.",
       answer:
         "We train your team in the practical use of AI on their own tasks: how to ask ChatGPT or Claude for things, how to use it in sales, customer service and admin, which data must stay out and what can be automated. They are hands-on workshops, on site or remote, run by Ramiro Pérez, an industrial engineer who teaches Industry 4.0 on a university master's programme.",
       outcomes: [
@@ -1246,7 +1250,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
       timeline:
         "A workshop takes one or two weeks to prepare. A programme for several profiles is spread over several sessions across a month.",
-      priceNote: "It depends on the number of sessions and people. We give it to you in the free consultation.",
+      priceNote: "It depends on the number of sessions and people, and in Spain it can be funded with your FUNDAE training credit (see the FAQ). We give it to you in the free consultation.",
       faqs: [
         {
           q: "On site or remote?",
@@ -1259,6 +1263,10 @@ export const SERVICIOS: Record<string, Servicio> = {
         {
           q: "Which profiles can you train?",
           a: "Management (what to automate, what it is worth and how to measure it), sales (prospecting, proposals and follow-up), customer service, admin and technical profiles who will maintain automations.",
+        },
+        {
+          q: "Can it be funded through FUNDAE?",
+          a: "Yes, for Spanish companies that pay the vocational training contribution and are up to date with tax and Social Security, since a workshop on AI applied to your work relates to the company's activity. The cost is deducted from Social Security contributions using the year's training credit: companies with 1 to 5 people are guaranteed €420, and larger ones get a percentage of what they paid in training contributions the year before and cover part of the cost themselves (co-financing). Your company handles it in the FUNDAE application, or an organising entity such as your accountancy firm does: the start of each group is notified up to two days before it begins and the end once it finishes, and the credit is applied afterwards. We run the workshop and give you the programme, hours, attendance record and invoice. A one-off talk or event is not eligible; a workshop with a programme is.",
         },
         {
           q: "How is it different from the AI Kit?",

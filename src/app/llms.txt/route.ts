@@ -92,7 +92,7 @@ export async function GET() {
   secciones.push(`## Páginas principales
 - [Inicio](${BASE_URL}/): qué automatizamos y cómo
 - [Servicios](${BASE_URL}/servicios): los ocho servicios en detalle
-- [Soluciones por sector](${BASE_URL}/soluciones): ejemplos en clínicas, eventos y formación
+- [Soluciones por sector](${BASE_URL}/soluciones): ejemplos en agencias de marketing, eventos, clínicas y formación
 - [Casos de éxito](${BASE_URL}/casos-de-exito): implantaciones reales con su resultado
 - [Testimonios](${BASE_URL}/testimonios): opiniones de clientes
 - [Sobre mí](${BASE_URL}/sobre-mi): Ramiro Pérez Rodero, quién está detrás

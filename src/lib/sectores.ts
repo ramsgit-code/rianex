@@ -5,7 +5,8 @@ import type { CaseClient } from "@/lib/servicios";
 //
 // Misma regla que servicios.ts: nada de cifras ni clientes que no esten ya
 // publicados. Clinicas sale del articulo de clinicas y del caso de Hospital
-// Capilar; eventos, del caso y del articulo de Eventos Barcelona. Academias
+// Capilar; eventos, del caso y del articulo de Eventos Barcelona; agencias de
+// marketing, de los casos de Tribeca Media y Growth4U. Academias
 // no tiene caso ni articulo propio todavia, asi que describe el metodo sin
 // prometer resultados.
 
@@ -39,8 +40,138 @@ type Sector = {
 };
 
 export const SECTORES: Record<string, Sector> = {
-  clinicas: {
+  "agencias-de-marketing": {
     index: 0,
+    caseClient: "Tribeca Media",
+    services: ["automatizacion-procesos-ia", "embudo-de-captacion", "agente-ia-whatsapp", "generador-de-propuestas"],
+    posts: [
+      "agente-ia-meta-ads-google-ads",
+      "agentes-de-ia-con-aprobacion-humana",
+      "como-cualificar-leads-automaticamente",
+      "coste-agente-de-ia-en-produccion",
+    ],
+    es: {
+      seoTitle: "Automatización con IA para agencias de marketing",
+      metaDescription:
+        "Agentes que revisan Meta y Google Ads con aprobación humana, captación con scoring en GoHighLevel e informes automáticos. Casos de Tribeca Media y Growth4U.",
+      h1: "Automatización con IA para agencias de marketing",
+      answer:
+        "Una agencia pierde margen en lo que se repite con cada cliente: revisar campañas, montar informes, seguir los leads y preparar propuestas. Automatizamos esas tareas con agentes de IA que revisan Meta y Google Ads y proponen cambios que una persona aprueba, captación con puntuación en GoHighLevel e informes y propuestas que se generan solos. Lo hemos hecho en Tribeca Media y en Growth4U.",
+      painsTitle: "Dónde se le va el margen a una agencia",
+      pains: [
+        { title: "Campañas revisadas tarde", desc: "Un anuncio fatigado o un presupuesto mal repartido se ve en la reunión semanal, cuando ya ha gastado." },
+        { title: "Informes a mano", desc: "Cada mes, horas sacando datos de Meta, Google y el CRM para montar el mismo informe para cada cliente." },
+        { title: "Leads que nadie sigue", desc: "La campaña trae leads, pero el cliente tarda en contestarlos y acaba diciendo que la agencia no le trae ventas." },
+        { title: "Propuestas y altas lentas", desc: "Cada cliente nuevo pide una propuesta a medida y un alta que el equipo monta a mano." },
+      ],
+      automationsTitle: "Qué automatizamos",
+      automations: [
+        { title: "Agente de performance", desc: "Revisa Meta y Google Ads, detecta lo que deja de funcionar y propone pausar, bajar presupuesto o crear campañas, que nacen en pausa. Nada se ejecuta sin aprobación." },
+        { title: "Creatividades cuando un anuncio se fatiga", desc: "Genera una imagen nueva y la deja lista para revisar. Solo se sube lo que se aprueba." },
+        { title: "Captación con scoring", desc: "Cada lead entra en GoHighLevel con una puntuación y su seguimiento automático, para la agencia o para sus clientes." },
+        { title: "Respuesta a los leads de tus clientes", desc: "Un agente de WhatsApp que contesta y agenda por ellos, para que el resultado de la campaña se vea en ventas y no solo en leads." },
+        { title: "Informes que se hacen solos", desc: "Los datos de las plataformas y del CRM, en el mismo informe cada semana, sin montarlo a mano." },
+        { title: "Propuestas en minutos", desc: "Un formulario corto tras la llamada y la propuesta sale en web y PDF, con la marca de la agencia." },
+      ],
+      care: {
+        title: "Lo que hay que tocar con cuidado",
+        items: [
+          "Son las cuentas de tus clientes: cada acción del agente la aprueba una persona con permiso, y la aprobación caduca si nadie la usa.",
+          "Subir presupuesto nunca es automático. Bajarlo o pausar sí se propone, y se puede deshacer.",
+          "Cada cliente con sus cuentas, sus límites y su coste de IA, medido por separado y con tope diario.",
+          "Todo queda registrado: qué propuso el agente, quién lo aprobó y qué se ejecutó.",
+        ],
+      },
+      metricsTitle: "Qué medimos",
+      metrics: [
+        "Horas al mes que el equipo dedica a revisar campañas, montar informes y preparar propuestas.",
+        "Cuánto tarda en recibir respuesta un lead nuevo de cada cliente.",
+        "Coste de IA por cliente y acciones propuestas, aprobadas y rechazadas.",
+      ],
+      timeline:
+        "El primer sistema suele estar en marcha en 4 a 8 semanas desde la consultoría, según cuántas cuentas y herramientas haya que conectar.",
+      faqs: [
+        {
+          q: "¿La IA toca las campañas de mis clientes sin control?",
+          a: "No. El agente propone y una persona con permiso aprueba cada acción. En Tribeca Media las aprobaciones caducan a las 24 horas, cada acción queda registrada, subir presupuesto nunca es automático y una bajada se puede deshacer.",
+        },
+        {
+          q: "¿Funciona con varias cuentas de clientes?",
+          a: "Sí. Cada cliente con sus cuentas, sus límites y su coste: en Tribeca Media el gasto en IA se mide por cliente y tiene un tope diario.",
+        },
+        {
+          q: "¿Qué se automatiza primero en una agencia?",
+          a: "Lo que se repite con cada cliente y se puede medir: la revisión diaria de campañas, el informe semanal o la respuesta a los leads. En Growth4U, una agencia de marketing, empezamos por la captación: un funnel en GoHighLevel con puntuación automática y seguimiento.",
+        },
+        {
+          q: "¿Con qué herramientas trabajáis?",
+          a: "Meta Ads y Google Ads; GoHighLevel o HubSpot como CRM; Claude u OpenAI para los agentes, y n8n, Make o Zapier para conectar el resto. Partimos de lo que ya usáis.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI automation for marketing agencies",
+      metaDescription:
+        "Agents that review Meta and Google Ads with human approval, lead capture with scoring in GoHighLevel and automatic reports. Tribeca Media and Growth4U cases.",
+      h1: "AI automation for marketing agencies",
+      answer:
+        "An agency loses margin on what repeats with every client: reviewing campaigns, building reports, following up leads and preparing proposals. We automate those tasks with AI agents that review Meta and Google Ads and propose changes a person approves, lead capture with scoring in GoHighLevel, and reports and proposals that build themselves. We have done it at Tribeca Media and Growth4U.",
+      painsTitle: "Where an agency loses its margin",
+      pains: [
+        { title: "Campaigns reviewed late", desc: "A fatigued ad or a badly split budget shows up in the weekly meeting, once it has already spent." },
+        { title: "Reports by hand", desc: "Every month, hours pulling data from Meta, Google and the CRM to build the same report for each client." },
+        { title: "Leads nobody follows", desc: "The campaign brings leads, but the client is slow to answer them and ends up saying the agency brings no sales." },
+        { title: "Slow proposals and onboarding", desc: "Every new client needs a tailored proposal and an onboarding the team builds by hand." },
+      ],
+      automationsTitle: "What we automate",
+      automations: [
+        { title: "Performance agent", desc: "Reviews Meta and Google Ads, spots what stops working and proposes pausing, cutting budget or creating campaigns, which start paused. Nothing runs without approval." },
+        { title: "Creatives when an ad fatigues", desc: "Generates a new image and leaves it ready for review. Only what is approved gets uploaded." },
+        { title: "Lead capture with scoring", desc: "Every lead lands in GoHighLevel with a score and automatic follow-up, for the agency or for its clients." },
+        { title: "Replies to your clients' leads", desc: "A WhatsApp agent that answers and books for them, so the campaign result shows up in sales, not just leads." },
+        { title: "Reports that build themselves", desc: "Platform and CRM data in the same report every week, without building it by hand." },
+        { title: "Proposals in minutes", desc: "A short form after the call and the proposal goes out as a web page and PDF, with the agency's branding." },
+      ],
+      care: {
+        title: "What needs careful handling",
+        items: [
+          "These are your clients' accounts: every agent action is approved by an authorised person, and the approval expires if nobody uses it.",
+          "Raising budget is never automatic. Cutting it or pausing is proposed, and can be undone.",
+          "Each client with its own accounts, limits and AI cost, measured separately with a daily cap.",
+          "Everything is logged: what the agent proposed, who approved it and what was executed.",
+        ],
+      },
+      metricsTitle: "What we measure",
+      metrics: [
+        "Hours a month the team spends reviewing campaigns, building reports and preparing proposals.",
+        "How long a new lead from each client waits for a reply.",
+        "AI cost per client, and actions proposed, approved and rejected.",
+      ],
+      timeline:
+        "The first system is usually running 4 to 8 weeks after the consultation, depending on how many accounts and tools need connecting.",
+      faqs: [
+        {
+          q: "Does the AI touch my clients' campaigns without control?",
+          a: "No. The agent proposes and an authorised person approves every action. At Tribeca Media approvals expire after 24 hours, every action is logged, raising budget is never automatic and a cut can be undone.",
+        },
+        {
+          q: "Does it work with several client accounts?",
+          a: "Yes. Each client with its own accounts, limits and cost: at Tribeca Media AI spend is measured per client and has a daily cap.",
+        },
+        {
+          q: "What does an agency automate first?",
+          a: "What repeats with every client and can be measured: the daily campaign review, the weekly report or replying to leads. At Growth4U, a marketing agency, we started with lead capture: a GoHighLevel funnel with automatic scoring and follow-up.",
+        },
+        {
+          q: "Which tools do you work with?",
+          a: "Meta Ads and Google Ads; GoHighLevel or HubSpot as CRM; Claude or OpenAI for the agents, and n8n, Make or Zapier to connect the rest. We start from what you already use.",
+        },
+      ],
+    },
+  },
+
+  clinicas: {
+    index: 2,
     caseClient: "Hospital Capilar",
     services: ["embudo-de-captacion", "agente-ia-whatsapp", "integracion-gohighlevel-hubspot"],
     posts: [
@@ -280,7 +411,7 @@ export const SECTORES: Record<string, Sector> = {
   },
 
   academias: {
-    index: 2,
+    index: 3,
     services: ["embudo-de-captacion", "agente-ia-whatsapp", "implementacion-crm-gohighlevel"],
     posts: [
       "como-cualificar-leads-automaticamente",
