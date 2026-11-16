@@ -166,8 +166,8 @@ const es: HomeCopy = {
         name: "Agencias de marketing",
         pain: "Campañas revisadas tarde, informes a mano y leads que nadie sigue a tiempo.",
         fix: "Agentes de IA que revisan Meta y Google Ads y actúan con aprobación humana, captación con scoring en GoHighLevel e informes que se hacen solos.",
-        href: "/l/agencias-de-marketing",
-        link: "Ver cómo lo hacemos en agencias",
+        href: "/soluciones/agencias-de-marketing",
+        link: "Ver la solución para agencias",
         note: "Casos: Tribeca Media y Growth4U",
       },
       {
@@ -331,8 +331,8 @@ const en: HomeCopy = {
         name: "Marketing agencies",
         pain: "Campaigns reviewed late, reports built by hand and leads nobody follows up in time.",
         fix: "AI agents that review Meta and Google Ads and act with human approval, lead capture with scoring in GoHighLevel and reports that build themselves.",
-        href: "/casos-de-exito/tribeca-media",
-        link: "See the Tribeca Media case",
+        href: "/soluciones/agencias-de-marketing",
+        link: "See the solution for agencies",
         note: "Cases: Tribeca Media and Growth4U",
       },
       {

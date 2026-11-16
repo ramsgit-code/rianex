@@ -51,6 +51,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       claves y proveedores, dentro del retainer de 1.000-5.000 €/mes. Si algo
       no lo vas a dar, se quita; si tienes un precio de entrada para el
       mantenimiento de un solo agente, lo ponemos.
+- [ ] **FUNDAE en la ficha de formación (16-nov)**: la web dice que Rianex
+      imparte el taller y da "el programa, las horas, el control de
+      asistencia y la factura" para justificar la bonificación, y que la
+      gestión la hace la empresa o una entidad organizadora (su gestoría).
+      Confirma que lo puedes dar así. Si quieres hacer tú de entidad
+      organizadora, hay que darse de alta en la aplicación de FUNDAE.
+
 - [ ] **Validar los servicios nuevos (nov-2026)**: Kit IA, Formación en IA y
       Asesoramiento en IA (`src/lib/servicios.ts` y `src/lib/content.ts`).
       Revisar sobre todo: plazos (Kit 2-3 semanas, taller 1-2 semanas de
@@ -212,6 +219,18 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-16 · Mejoras de web del radar del 16-nov. Página nueva
+  `/soluciones/agencias-de-marketing` (ES y EN), primera del listado de
+  sectores, con los casos de Tribeca Media y Growth4U; la home enlaza ahí
+  desde la tarjeta de agencias (antes iba a la landing y, en inglés, al caso
+  de Tribeca). Title y meta de /soluciones con agencias. `/en/diagnostico`:
+  title "Free process automation assessment (30 min)" para la búsqueda en
+  posición 5,7 con 0 clics. Formación en IA: pregunta frecuente sobre la
+  bonificación de FUNDAE (datos de la FAQ oficial de fundae.es: crédito
+  mínimo de 420 € para 1-5 personas, porcentajes por tamaño, cofinanciación,
+  comunicar el inicio hasta dos días antes y la finalización), y mención en
+  la meta y en el precio.
 
 - 2026-11-16 · Radar del 16-nov. Propuestas para licitaciones: sección
   nueva "¿Hay una herramienta que redacte la oferta técnica de una

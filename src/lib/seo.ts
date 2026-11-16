@@ -66,14 +66,14 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
   },
   "/soluciones": {
     es: {
-      title: "Automatización para clínicas, eventos y academias",
+      title: "Automatización con IA para agencias, eventos y clínicas",
       description:
-        "El mismo enfoque de automatización con IA, ajustado al ciclo de venta de clínicas, empresas de eventos, academias y servicios profesionales.",
+        "El mismo enfoque de automatización con IA, ajustado a agencias de marketing, empresas de eventos, clínicas y academias, con casos reales en cada uno.",
     },
     en: {
-      title: "Automation for clinics, events and academies",
+      title: "AI automation for agencies, events and clinics",
       description:
-        "The same AI automation approach, tuned to the sales cycle of clinics, event companies, training academies and professional services.",
+        "The same AI automation approach, tuned to marketing agencies, event companies, clinics and training academies, with real cases in each.",
     },
   },
   "/blog": {
@@ -119,9 +119,9 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
         "Consultoría gratuita de 30 minutos. Analizamos tus procesos y te decimos qué automatizar con IA, integrar o migrar primero.",
     },
     en: {
-      title: "Free AI automation assessment",
+      title: "Free process automation assessment (30 min)",
       description:
-        "A free 30-minute assessment. We review your sales process and tell you what to automate, integrate or migrate first.",
+        "Book a free 30-minute process automation assessment. We review how your team works and tell you what to automate with AI, integrate or migrate first.",
     },
   },
 };
