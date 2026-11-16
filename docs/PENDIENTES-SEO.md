@@ -126,6 +126,10 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Pedir indexación el 17-nov** (el 16 se agotó el cupo de Search
+      Console): `/en/soluciones/agencias-de-marketing` (aún no está en
+      Google) y `/servicios/agente-ia-whatsapp` (bloque de mantenimiento).
+
 - [ ] **Páginas de sector para negocios con cita previa e
       inmobiliarias**: desde el 9 de noviembre la home las destaca en "Para
       quién trabajamos", pero solo clínicas y eventos tienen página propia
@@ -219,6 +223,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-16 · Indexación pedida en Search Console (cola prioritaria) para
+  9 URLs: `/soluciones/agencias-de-marketing` y `/blog/ai-act-chatbot-decir-que-es-ia`
+  (las dos aún no estaban en Google), `/blog/propuestas-licitaciones-con-ia`,
+  `/blog/como-cualificar-leads-automaticamente`, `/servicios/formacion-ia-empresas`,
+  `/en/diagnostico`, `/casos-de-exito`, `/soluciones` y
+  `/blog/cobrar-la-ia-por-resultado`. Cupo diario agotado antes de las dos
+  últimas (ver "Código").
 
 - 2026-11-16 · Mejoras de web del radar del 16-nov. Página nueva
   `/soluciones/agencias-de-marketing` (ES y EN), primera del listado de
