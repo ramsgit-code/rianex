@@ -234,11 +234,11 @@ export function ProofBand({ casos, line }: { casos: CasoLanding[]; line?: string
           <p className="max-w-xl text-[15px] leading-relaxed text-background/85">{line}</p>
         ) : (
           <dl className="flex flex-col gap-5 sm:flex-row sm:gap-10">
-            {proof.proof.map((p) => (
+            {proof.proof.slice(0, 2).map((p) => (
               <div key={p.metric} className="flex items-baseline gap-3">
                 <dt className="font-display text-4xl font-extrabold tabular-nums text-accent">{p.metric}</dt>
                 <dd className="max-w-[16rem] text-sm leading-snug text-background/80">
-                  {p.label} <span className="font-semibold text-background">· {proof.proofClient}</span>
+                  {p.label} <span className="font-semibold text-background">· {p.client}</span>
                 </dd>
               </div>
             ))}
