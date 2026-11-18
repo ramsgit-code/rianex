@@ -126,10 +126,6 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
-- [ ] **Pedir indexación el 17-nov** (el 16 se agotó el cupo de Search
-      Console): `/en/soluciones/agencias-de-marketing` (aún no está en
-      Google) y `/servicios/agente-ia-whatsapp` (bloque de mantenimiento).
-
 - [ ] **Páginas de sector para negocios con cita previa e
       inmobiliarias**: desde el 9 de noviembre la home las destaca en "Para
       quién trabajamos", pero solo clínicas y eventos tienen página propia
@@ -222,6 +218,12 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-18 · Indexación pedida en Search Console (cola prioritaria) para
+  los cuatro artículos cambiados en #63 y las dos URLs pendientes del 16-nov:
+  `/en/soluciones/agencias-de-marketing` (aún no estaba en Google) y
+  `/servicios/agente-ia-whatsapp`. IndexNow aceptó 6 URLs, incluida la
+  redirigida. Las 4 páginas nuevas del 11-nov ya están indexadas.
 
 - 2026-11-18 · Canibalización del pilar y de "a medida". "Automatización de
   procesos con IA" se la repartían tres artículos, todos en la posición
