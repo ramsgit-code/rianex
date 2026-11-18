@@ -6,6 +6,8 @@ const SLUGS_ANTIGUOS = {
   "agentes-ia-whatsapp-seguimiento-24-7": "whatsapp-automatizacion-ventas",
   "cualificar-leads-scoring-gohighlevel": "como-cualificar-leads-automaticamente",
   "booking-sdr-mas-reuniones-sin-ampliar-equipo": "whatsapp-automatizacion-ventas",
+  // Se repartia "proyectos de IA a medida" con el articulo de proyectos (noviembre de 2026).
+  "desarrollo-a-medida-con-ia-cuando-construir": "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
 };
 
 /** @type {import('next').NextConfig} */

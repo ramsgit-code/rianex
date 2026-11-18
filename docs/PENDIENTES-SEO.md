@@ -158,11 +158,17 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       comparar impresiones y posición con las cuatro semanas anteriores. Si
       "outbound b2b" pierde mucho, valorar un artículo propio para esa consulta.
 
-- [ ] **Revisar el title nuevo de la home hacia el 15 de noviembre**: desde el
-      29 de octubre es "Automatiza los procesos de tu empresa con IA". En
-      Search Console, comparar impresiones y posición de la home con las dos
-      semanas anteriores, y comprobar que no le quita la consulta
-      "automatización de procesos con IA" a /servicios/automatizacion-procesos-ia.
+- [ ] **Revisar la canibalización del pilar y de "a medida" hacia el 2 de diciembre**
+      (cambios del 18-nov). En Search Console, 28 días:
+      - "automatización de procesos con ia" (434 impr): el 18-nov se la
+        repartían el pilar (261, pos ~86), ejemplos (175) y herramientas (95).
+        Debería quedar casi toda en el pilar y su posición subir.
+      - "ejemplos de automatización de procesos" (pos 26-30) y
+        "generador de propuestas para licitaciones" (pos 16,7): ¿suben?
+      - "proyectos de ia a medida" (pos 11,6, más 42 del artículo ya
+        redirigido): ¿entra en primera página?
+      Si el pilar sigue en la posición 80 o más, el freno son los enlaces
+      externos, no el contenido (ver "Para Ramiro").
 
 - [ ] **Canibalización en GTM Engineering, revisar hacia el 1 de diciembre**:
       `que-es-gtm-engineering` (definición) y `gtm-engineering-no-es-mandar-emails-con-clay`
@@ -170,13 +176,6 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       primero como definición. Si en Search Console los dos salen para "gtm
       engineering" y se reparten la posición, quitar "gtm engineering" del
       title del segundo y orientarlo a "arquitectura comercial".
-
-- [ ] **Canibalización en "a medida"**: "desarrollo-a-medida-con-ia-cuando-construir"
-      sale para "proyectos de ia a medida" y "desarrollo software ia a medida"
-      (posición ~64). Desde el 28 de octubre ya defiende automatizar antes que
-      construir y dice que Rianex no hace apps. Revisar a mediados de
-      noviembre: si "proyectos de IA a medida" entra en primera página y el
-      otro sigue sin tráfico, redirigirlo con un 301 al de proyectos.
 
 Por orden de impacto:
 
@@ -223,6 +222,20 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-18 · Canibalización del pilar y de "a medida". "Automatización de
+  procesos con IA" se la repartían tres artículos, todos en la posición
+  80-90: el title de ejemplos pasa a "12 ejemplos de automatización de
+  procesos en una pyme, con IA" y el de herramientas a "Herramientas de IA
+  para automatizar procesos", y los dos enlazan al pilar con ese texto.
+  `desarrollo-a-medida-con-ia-cuando-construir` (pos 42 para "proyectos de
+  ia a medida", sin clics) se redirige con un 301 a
+  `proyectos-de-ia-a-medida-ejemplos-plazos-precio` (pos 11,6), que recoge
+  su sección sobre Lovable y la pregunta de si es lo que te diferencia.
+  Licitaciones: title "Generador de propuestas para licitaciones con IA"
+  (la búsqueda está en la posición 16,7). La home no compite por la
+  consulta de automatización (16 impresiones en 28 días, casi todas de
+  marca): revisión del title cerrada.
 
 - 2026-11-16 · Indexación pedida en Search Console (cola prioritaria) para
   9 URLs: `/soluciones/agencias-de-marketing` y `/blog/ai-act-chatbot-decir-que-es-ia`
