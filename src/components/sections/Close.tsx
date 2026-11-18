@@ -1,13 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { EmailCta } from "@/components/EmailCta";
 import { useLang } from "@/components/LanguageProvider";
 import { home } from "@/lib/home";
 
 // Cierre de la home: la cinta amarilla ocupa toda la sección.
 export function Close() {
-  const { lang, localize } = useLang();
+  const { lang } = useLang();
   const k = home[lang].close;
 
   return (
@@ -18,10 +17,16 @@ export function Close() {
         </h2>
         <div className="lg:col-span-4">
           <p className="measure text-pretty text-lg leading-relaxed text-ink/85">{k.lead}</p>
-          <Link href={localize("/diagnostico")} className="btn-primary mt-7 w-full sm:w-auto">
-            {k.button}
-            <ArrowRight size={17} aria-hidden />
-          </Link>
+          <div className="mt-7">
+            <EmailCta
+              button={k.button}
+              placeholder={k.emailPlaceholder}
+              label={k.emailLabel}
+              origin="cierre"
+              tone="tape"
+              stacked
+            />
+          </div>
           <p className="mt-4 text-sm">
             <a href="mailto:hola@rianex.es" className="underline">
               {k.mail}

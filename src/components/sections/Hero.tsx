@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { home } from "@/lib/home";
 import { ProcessBoard } from "@/components/sections/ProcessBoard";
+import { EmailCta } from "@/components/EmailCta";
 
 // Versiones claras de los logos (la banda es grafito).
 // Solo casos propios de Rianex: Hospital Capilar es de Growth4U y no va aquí.
@@ -32,16 +32,21 @@ export function Hero() {
             {h.lead}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={localize("/diagnostico")} className="btn-primary">
-              {h.ctaPrimary}
-              <ArrowRight size={17} aria-hidden />
-            </Link>
-            <Link href="#servicios" className="btn-secondary">
+          {/* Captura progresiva: el email llega ya escrito al paso 1 del diagnóstico */}
+          <div className="mt-8">
+            <EmailCta
+              button={h.ctaPrimary}
+              placeholder={h.emailPlaceholder}
+              label={h.emailLabel}
+              origin="hero"
+            />
+          </div>
+          <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted">
+            <span>{h.note}</span>
+            <Link href="#servicios" className="font-semibold text-foreground underline underline-offset-4 hover:text-accent-text">
               {h.ctaSecondary}
             </Link>
-          </div>
-          <p className="mt-4 text-sm text-muted">{h.note}</p>
+          </p>
         </div>
 
         <div className="lg:col-span-6 xl:col-span-7">
@@ -49,20 +54,30 @@ export function Hero() {
         </div>
       </div>
 
-      {/* banda de prueba: resultado real de un caso propio */}
+      {/* banda de prueba: cifras de casos propios, cada una con la objeción que responde */}
       <div className="bg-ink text-background">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-6 sm:px-8 lg:flex-row lg:items-center lg:gap-12 lg:px-12">
-          <dl className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-8 sm:px-8 lg:px-12">
+          <h2 className="sr-only">{h.proofTitle}</h2>
+          <ul className="grid grid-cols-2 gap-px bg-background/15 lg:grid-cols-4">
             {h.proof.map((p) => (
-              <div key={p.metric} className="flex items-baseline gap-3">
-                <dt className="font-display text-4xl font-extrabold tabular-nums text-accent">{p.metric}</dt>
-                <dd className="max-w-[16rem] text-sm leading-snug text-background/80">
-                  {p.label} <span className="font-semibold text-background">· {h.proofClient}</span>
-                </dd>
-              </div>
+              <li key={p.tag} className="bg-ink">
+                <Link
+                  href={localize(p.href)}
+                  className="group flex h-full flex-col gap-2 px-3 py-4 sm:px-5"
+                >
+                  <span className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-background/60">
+                    {p.tag}
+                  </span>
+                  <span className="font-display text-3xl font-extrabold tabular-nums text-accent sm:text-4xl">{p.metric}</span>
+                  <span className="text-sm leading-snug text-background/80">{p.label}</span>
+                  <span className="mt-auto pt-1 text-sm font-semibold text-background underline-offset-4 group-hover:underline">
+                    {p.client} →
+                  </span>
+                </Link>
+              </li>
             ))}
-          </dl>
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-background/15 pt-5 lg:ml-auto lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+          </ul>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-background/15 pt-6">
             <span className="sr-only">{h.logosLabel}</span>
             {clientLogos.map((logo) => (
               <a

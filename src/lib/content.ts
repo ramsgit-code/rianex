@@ -290,6 +290,18 @@ export const content = {
           a: "Sí. Toda implantación incluye formación y 30 días de soporte. Si lo que buscas es que el equipo empiece a usar la IA en su día a día, el Kit IA deja montado Claude o ChatGPT con cuentas de empresa y un asistente que responde con vuestros documentos, y hacemos talleres prácticos por perfil: dirección, ventas, atención y administración.",
         },
         {
+          q: "¿La IA va a sustituir a mi equipo?",
+          a: "No es el objetivo. La IA se queda con lo repetitivo —contestar lo de siempre, pasar datos de una herramienta a otra, confirmar citas, preparar documentos— y el equipo dedica ese tiempo a vender, atender los casos difíciles y cerrar. Donde más se nota no es en recortar costes, sino en lo que antes se perdía: leads que nadie contestaba a tiempo, citas sin confirmar o propuestas que llegaban tarde. En Eventos Barcelona, el equipo dejó de maquetar propuestas y dedica ese tiempo al seguimiento.",
+        },
+        {
+          q: "¿Qué pasa con mis datos? ¿Cumple el RGPD y la ley europea de IA?",
+          a: "Los datos se quedan en tus herramientas y en cuentas a nombre de tu empresa: tu CRM, tu correo, tu calendario y los proveedores de IA que elegimos contigo. Las acciones delicadas, como cambiar una campaña o enviar algo en tu nombre, pueden pasar por la aprobación de una persona antes de ejecutarse. Y los agentes que hablan con tus clientes avisan de que son una IA, como exige la ley europea de IA desde agosto de 2026.",
+        },
+        {
+          q: "¿Cómo sé que me va a compensar?",
+          a: "Antes de empezar dejamos por escrito el objetivo, cómo se mide y el precio. Medimos el punto de partida (horas, tiempo de respuesta, citas o propuestas) y, tras la entrega, comparamos el resultado con ese punto. Si en la consultoría vemos que no compensa, te lo decimos.",
+        },
+        {
           q: "¿Qué pasa si no encaja con mi negocio?",
           a: "Te lo decimos en la consultoría gratuita de 30 minutos, sin coste ni compromiso. Si no tiene sentido trabajar juntos, te lo decimos directamente.",
         },
@@ -1000,6 +1012,18 @@ export const content = {
         {
           q: "Do you also train the team to use AI?",
           a: "Yes. Every implementation includes training and 30 days of support. If what you want is for the team to start using AI every day, the AI Kit sets up Claude or ChatGPT with company accounts and an assistant that answers from your documents, and we run hands-on workshops by profile: management, sales, customer service and admin.",
+        },
+        {
+          q: "Will AI replace my team?",
+          a: "That's not the goal. AI takes the repetitive work —answering the usual questions, moving data between tools, confirming appointments, preparing documents— and the team spends that time selling, handling the hard cases and closing. Where it shows most is not cost cutting but what used to slip away: leads nobody answered in time, unconfirmed appointments or proposals that arrived late. At Eventos Barcelona, the team stopped laying out proposals and spends that time on follow-up.",
+        },
+        {
+          q: "What about my data? Is it GDPR and EU AI Act compliant?",
+          a: "Your data stays in your tools and in accounts in your company's name: your CRM, email, calendar and the AI providers we choose with you. Sensitive actions, such as changing a campaign or sending something on your behalf, can require a person's approval before they run. And agents that talk to your customers say they are an AI, as the EU AI Act requires since August 2026.",
+        },
+        {
+          q: "How do I know it will pay off?",
+          a: "Before we start, we put the goal, how it is measured and the price in writing. We measure the starting point (hours, response time, appointments or proposals) and, after delivery, compare the result against it. If the consultation shows it won't pay off, we tell you.",
         },
         {
           q: "What if it's not a fit for my business?",

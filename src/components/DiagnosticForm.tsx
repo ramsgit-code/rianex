@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -101,6 +101,14 @@ export function DiagnosticForm({ landing }: { landing?: string } = {}) {
     resolver: zodResolver(schema),
     defaultValues: { objetivo: [] },
   });
+
+  // Email escrito en el hero o el cierre de la home (EmailCta → ?email=).
+  useEffect(() => {
+    const prefill = new URLSearchParams(window.location.search).get("email");
+    if (prefill && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(prefill)) {
+      setValue("email", prefill.trim().toLowerCase());
+    }
+  }, [setValue]);
 
   const objetivoValue = watch("objetivo") || [];
 

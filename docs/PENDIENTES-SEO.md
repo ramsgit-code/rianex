@@ -13,6 +13,14 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Agente de Rianex que atiende tras el formulario** (modelo de venta,
+      `docs/MODELO-DE-VENTA.md`, punto 2). HappyRobot, tras captar el lead,
+      ofrece "habla ahora con nuestro agente (3 min)" para preparar la demo:
+      es la prueba más creíble para quien vende agentes. Decide si montamos
+      un agente de voz (Vapi) o de chat que haga la precualificación en la
+      pantalla de gracias de `/diagnostico`, junto al calendario. Hace falta
+      que diga que es una IA en el primer mensaje (AI Act, art. 50).
+
 - [ ] **Bot de GHL: que diga que es una IA (obligatorio desde el 2-ago-2026,
       art. 50 del AI Act).** La base `rianex-chatbot-kb.md` (fuera del repo)
       ya lo pide en el primer mensaje desde el 11-nov: hay que pegarla en el
@@ -126,6 +134,16 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Hub de comparativas** (modelo de venta, punto 9): artículos
+      "X vs Y" con tabla, limitaciones honestas de cada opción y "elige X
+      si…". Primeros: n8n vs Make vs Zapier; GoHighLevel vs HubSpot para
+      pymes; agencia de automatización vs freelance vs equipo interno;
+      Vapi vs Retell para agentes de voz. Comprobar canibalización con
+      `herramientas-ia-para-automatizar-procesos` y `que-es-gohighlevel`.
+- [ ] **Cifras clave arriba en cada caso** (modelo de venta, punto 4): un
+      bloque de 2-3 cifras y los servicios usados antes del texto, en
+      `CasoView.tsx`, con datos que ya están en `results` de `casos.ts`.
+
 - [ ] **Páginas de sector para negocios con cita previa e
       inmobiliarias**: desde el 9 de noviembre la home las destaca en "Para
       quién trabajamos", pero solo clínicas y eventos tienen página propia
@@ -219,6 +237,12 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-18 · Modelo de venta (referencia HappyRobot,
+  `docs/MODELO-DE-VENTA.md`): email en el hero y el cierre que llega ya
+  escrito al paso 1 de `/diagnostico`, evento GA4 `email_cta`; banda de
+  cuatro cifras de casos propios etiquetadas por objeción; tres FAQ de
+  objeciones en la home (sustituir al equipo, datos y AI Act, cómo sé que
+  compensa), también en el FAQPage.
 - 2026-11-18 · Indexación pedida en Search Console (cola prioritaria) para
   los cuatro artículos cambiados en #63 y las dos URLs pendientes del 16-nov:
   `/en/soluciones/agencias-de-marketing` (aún no estaba en Google) y

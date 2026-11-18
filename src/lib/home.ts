@@ -27,8 +27,15 @@ type HomeCopy = {
     boardLabel: string;
     hoursLabel: string;
     tasks: BoardTask[];
-    proof: { metric: string; label: string }[];
-    proofClient: string;
+    /** Placeholder y etiqueta accesible del campo de email del hero. */
+    emailPlaceholder: string;
+    emailLabel: string;
+    /**
+     * Cifras de casos propios publicados, cada una con la objeción que
+     * responde (rapidez, atención, control, alcance). Nunca cifras sin caso.
+     */
+    proofTitle: string;
+    proof: { tag: string; metric: string; label: string; client: string; href: string }[];
     logosLabel: string;
   };
   whatWeDo: {
@@ -69,7 +76,7 @@ type HomeCopy = {
   testimonialsTitle: string;
   guides: { title: string; note?: string };
   faqTitle: string;
-  close: { title: string; highlight: string; lead: string; button: string; mail: string };
+  close: { title: string; highlight: string; lead: string; button: string; mail: string; emailPlaceholder: string; emailLabel: string };
 };
 
 const es: HomeCopy = {
@@ -90,11 +97,15 @@ const es: HomeCopy = {
       { title: "Las mismas dudas por WhatsApp", area: "Atención", hours: 6, start: 1 },
       { title: "Mañana hay 12 citas sin confirmar", area: "Agenda", hours: 3, start: 2 },
     ],
+    emailPlaceholder: "Tu email de trabajo",
+    emailLabel: "Tu email",
+    proofTitle: "Resultados en empresas con sistema activo",
     proof: [
-      { metric: "8 min", label: "de la llamada a la propuesta enviada, antes 1-3 días" },
-      { metric: "−85%", label: "tiempo de respuesta al cliente" },
+      { tag: "Rapidez", metric: "8 min", label: "de la llamada a la propuesta enviada; antes, 1-3 días", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
+      { tag: "Atención", metric: "−85%", label: "de tiempo de respuesta al cliente", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
+      { tag: "Control", metric: "0", label: "cambios en campañas de Meta y Google Ads sin el visto bueno de una persona", client: "Tribeca Media", href: "/casos-de-exito/tribeca-media" },
+      { tag: "Alcance", metric: "100%", label: "del proceso comercial automatizado: captar, puntuar y hacer seguimiento", client: "Growth4U", href: "/casos-de-exito/growth4u" },
     ],
-    proofClient: "Eventos Barcelona",
     logosLabel: "Empresas con sistema activo",
   },
   whatWeDo: {
@@ -234,6 +245,8 @@ const es: HomeCopy = {
     lead: "En 30 minutos te decimos qué puedes conseguir con IA, cuánto tardaría y qué haría falta. Gratis, sin compromiso y con un plan concreto aunque no trabajemos juntos.",
     button: "Pide tu consultoría gratuita",
     mail: "o escríbenos a hola@rianex.es",
+    emailPlaceholder: "Tu email de trabajo",
+    emailLabel: "Tu email",
   },
 };
 
@@ -255,11 +268,15 @@ const en: HomeCopy = {
       { title: "The same WhatsApp questions", area: "Support", hours: 6, start: 1 },
       { title: "12 appointments tomorrow, unconfirmed", area: "Calendar", hours: 3, start: 2 },
     ],
+    emailPlaceholder: "Your work email",
+    emailLabel: "Your email",
+    proofTitle: "Results at companies with a live system",
     proof: [
-      { metric: "8 min", label: "from call to proposal sent, previously 1-3 days" },
-      { metric: "−85%", label: "customer response time" },
+      { tag: "Speed", metric: "8 min", label: "from call to proposal sent; previously 1-3 days", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
+      { tag: "Service", metric: "−85%", label: "customer response time", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
+      { tag: "Control", metric: "0", label: "changes to Meta and Google Ads campaigns without a person's sign-off", client: "Tribeca Media", href: "/casos-de-exito/tribeca-media" },
+      { tag: "Scope", metric: "100%", label: "of the sales process automated: capture, scoring and follow-up", client: "Growth4U", href: "/casos-de-exito/growth4u" },
     ],
-    proofClient: "Eventos Barcelona",
     logosLabel: "Companies with a live system",
   },
   whatWeDo: {
@@ -399,6 +416,8 @@ const en: HomeCopy = {
     lead: "In 30 minutes we tell you what AI can get you, how long it would take and what it would need. Free, no commitment, and with a concrete plan even if we don't work together.",
     button: "Book your free consultation",
     mail: "or email us at hola@rianex.es",
+    emailPlaceholder: "Your work email",
+    emailLabel: "Your email",
   },
 };
 
