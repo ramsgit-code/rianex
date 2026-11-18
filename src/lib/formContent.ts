@@ -149,6 +149,9 @@ export const formContent = {
       body: "Hemos recibido tu diagnóstico. Si quieres avanzar más rápido, puedes agendar directamente en nuestro calendario.",
       button: "Reserva tu hueco ahora",
       note: "O espera nuestro email. Revisaremos tu solicitud hoy mismo.",
+      chatBody: "¿Quieres adelantar trabajo? Cuéntale tu caso a nuestro asistente de IA y llegaremos a la consultoría con él entendido.",
+      chatButton: "Adelanta tu caso por chat",
+      chatHint: "~3 min · Sin preparar nada",
     },
   },
 
@@ -299,6 +302,9 @@ export const formContent = {
       body: "We've received your diagnosis. If you want to move faster, you can book directly on our calendar.",
       button: "Book your slot now",
       note: "Or wait for our email. We'll review your request today.",
+      chatBody: "Want to get ahead? Tell our AI assistant about your case and we'll arrive at the consultation with it understood.",
+      chatButton: "Get ahead by chat",
+      chatHint: "~3 min · No prep",
     },
   },
 } as const;

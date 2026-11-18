@@ -393,7 +393,7 @@ export function LandingFooter() {
   return (
     <footer className="bg-ink text-background/60">
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
-        <p>© {new Date().getFullYear()} Rianex · Agencia de automatización con IA · hola@rianex.es</p>
+        <p>© {new Date().getFullYear()} Rianex · AI Workflow & Business Automation · hola@rianex.es</p>
         <div className="flex gap-5">
           <Link href="/privacidad" className="hover:text-accent">
             Política de privacidad

@@ -101,6 +101,22 @@ export async function removeContactTags(contactId: string, tags: string[]) {
   });
 }
 
+// Añade tags a un contacto (p. ej. "chat-ia" tras el chat de precualificación).
+export async function addContactTags(contactId: string, tags: string[]) {
+  return ghlFetch(`/contacts/${contactId}/tags`, {
+    method: "POST",
+    body: JSON.stringify({ tags }),
+  });
+}
+
+// Deja una nota en la ficha del contacto (resumen del chat de precualificación).
+export async function addContactNote(contactId: string, body: string) {
+  return ghlFetch(`/contacts/${contactId}/notes`, {
+    method: "POST",
+    body: JSON.stringify({ body }),
+  });
+}
+
 // Contact: creates or returns existing if email already in GHL
 export async function createOrUpdateContact(payload: GHLContactPayload) {
   if (!GHL_API_KEY || !GHL_LOCATION_ID) {

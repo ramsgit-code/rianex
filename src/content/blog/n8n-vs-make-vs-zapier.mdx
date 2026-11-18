@@ -1,0 +1,109 @@
+---
+title: "n8n vs Make vs Zapier: cuál elegir para tu empresa en 2026"
+description: "Comparativa de n8n, Make y Zapier: precio y forma de cobro, dónde quedan los datos, IA y agentes, y qué conector encaja en cada empresa. Con sus limitaciones."
+date: "2026-11-18"
+tags: ["n8n", "make", "zapier", "comparativa", "automatización", "no-code"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+n8n, Make y Zapier hacen lo mismo a grandes rasgos: conectan herramientas que no se hablan y ejecutan un flujo cada vez que pasa algo. Llega un formulario, se crea el contacto en el CRM, se avisa por Slack y se manda un correo. Las diferencias están en cómo cobran, dónde guardan los datos y cuánto saber técnico piden. Y esas diferencias deciden cuánto te cuesta la automatización dentro de un año.
+
+Trabajamos con las tres. Esta comparativa recoge lo que publican en sus webs oficiales a 18 de noviembre de 2026 y lo que hemos visto al usarlas con clientes.
+
+## La respuesta corta
+
+- **Zapier**, si nadie del equipo es técnico, tienes pocos flujos y quieres el catálogo de integraciones más grande. Sus datos se alojan en Estados Unidos.
+- **Make**, si tus flujos tienen ramas, bucles y transformaciones de datos, te importa el precio por operación y necesitas que los datos se alojen en la Unión Europea.
+- **n8n**, si tienes volumen alto, alguien técnico que lo cuide o necesitas controlar dónde están los datos: se puede alojar en un servidor propio o en su nube de Frankfurt.
+
+La forma de cobro es lo que más pesa. Zapier cobra por tarea, Make por crédito y n8n por ejecución del flujo completo, tenga tres pasos o treinta.
+
+## Comparativa en una tabla
+
+| | Zapier | Make | n8n |
+|---|---|---|---|
+| Unidad de cobro | Tarea (cada acción) | Crédito (casi todas las acciones, 1) | Ejecución del flujo entero |
+| Plan gratuito | 100 tareas/mes, Zaps de 2 pasos | 1.000 créditos/mes | No en la nube (prueba de 1.000 ejecuciones); gratis autoalojado |
+| Plan de entrada | Pro desde 19,99 $/mes (anual), 750 tareas | Core (importe en su web) | Starter 20 €/mes (anual), 2.500 ejecuciones |
+| Integraciones | Más de 9.000 apps | Más de 3.000 apps | Más de 2.000 |
+| Dónde quedan los datos | EE. UU., sin opción solo UE | Región EE. UU. o UE, a elegir al crear la cuenta | Nube en Frankfurt o tu propio servidor |
+| IA y agentes | Zapier Agents, Copilot y MCP | Make AI Agents en el lienzo, MCP y subagentes | Nodos de agente, MCP y asistente desde Starter |
+| Para quién | Equipos no técnicos, pocos flujos | Flujos visuales complejos con presupuesto ajustado | Volumen alto, perfil técnico o soberanía del dato |
+
+Fuentes: páginas de precios de [Zapier](https://zapier.com/pricing), [Make](https://www.make.com/en/pricing) y [n8n](https://n8n.io/pricing/), y la [política de datos de Zapier](https://zapier.com/legal/data-privacy). Make carga sus importes con JavaScript y cambia de oferta a menudo: confírmalos en su web antes de decidir.
+
+## Zapier: el más fácil de empezar
+
+**Lo que hace bien.** Es el que menos explicación necesita. Su catálogo pasa de 9.000 aplicaciones, así que casi cualquier herramienta de nicho tiene conector. El plan de pago incluye Copilot para montar flujos describiéndolos y Zapier Agents para tareas con IA. Los disparadores y los pasos de filtro y formato no gastan tareas.
+
+**Limitaciones honestas.**
+- Cobra por tarea: un flujo de ocho pasos que se ejecuta 200 veces al mes son unas 1.600 tareas. Los flujos largos se encarecen rápido.
+- Si te pasas del plan, el exceso se cobra a 1,25 veces el precio en pago anual y a 2,5 veces en pago mensual.
+- Aloja los datos en servidores de Estados Unidos y no ofrece alojarlos solo en la UE. Para datos de pacientes o de clientes sensibles, hay que revisarlo con tu responsable de protección de datos (ver [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia)).
+
+## Make: flujos complejos con buen precio por operación
+
+**Lo que hace bien.** El lienzo visual permite ramas, bucles, agregadores y manejo de errores que en Zapier exigen trucos. Cobra por créditos, y la mayoría de acciones gastan uno. Deja elegir región de la Unión Europea al crear la organización. Además, en 2026 ha metido agentes de IA en el propio lienzo, con herramientas MCP y subagentes. Tiene SOC 2 tipo II e ISO 27001.
+
+**Limitaciones honestas.**
+- La región se elige al crear la organización y luego no se puede cambiar, salvo en Enterprise. Y con funciones de IA, la zona UE no garantiza que el procesamiento del modelo se quede en Europa.
+- Los créditos caducan al final del periodo, y si se acaban, los escenarios se paran hasta que compras más.
+- No publica sus importes en texto legible: hay que mirarlos en su página de precios.
+- La curva de aprendizaje es mayor que la de Zapier: el poder del lienzo se paga en tiempo de formación.
+
+## n8n: control y coste fijo por ejecución
+
+**Lo que hace bien.** Cobra por ejecución del flujo completo, sin contar pasos. Un flujo largo con muchas llamadas a IA cuesta lo mismo que uno corto. Se puede alojar gratis en tu propio servidor (Community Edition) o usar su nube con servidores en Frankfurt. Es el más flexible para meter código propio cuando una integración no existe, y trae nodos de agente de IA y MCP desde el plan de entrada.
+
+**Limitaciones honestas.**
+- No es software libre en sentido estricto: su licencia (Sustainable Use License) permite usarlo para fines internos de tu negocio, pero no revenderlo como servicio. Algunas funciones son solo de la edición Enterprise ([licencia](https://github.com/n8n-io/n8n/blob/master/LICENSE.md)).
+- Autoalojado, alguien tiene que mantenerlo: actualizaciones, copias de seguridad y seguridad del servidor.
+- La versión 3.0 está en beta desde el 27 de octubre y saldrá estable a principios de diciembre, con cambios que rompen flujos y que eliminan la instalación por npm. Lo explicamos en [n8n 3: qué se rompe y cómo prepararte](/blog/n8n-3-que-se-rompe-y-como-prepararte).
+- No tiene plan gratis en la nube, y el plan Business salta a 667 €/mes.
+
+## Cómo elegir: cuatro preguntas
+
+1. **¿Cuántos pasos tienen tus flujos y cuántas veces se ejecutan?** Multiplica: si sale una cifra alta de tareas al mes, Zapier será el más caro y n8n el más barato.
+2. **¿Dónde tienen que estar los datos?** Si la respuesta es "en la UE", descarta Zapier y elige región UE en Make o n8n en Frankfurt o autoalojado.
+3. **¿Quién lo va a mantener?** Sin perfil técnico, Zapier o Make. Con alguien técnico (en casa o externo), n8n.
+4. **¿Qué herramientas tienes que conectar?** Si alguna es muy de nicho, mira primero si tiene conector en cada plataforma. Es el desempate más habitual.
+
+En la práctica, muchas empresas acaban con dos: Zapier o Make para lo sencillo que monta el propio equipo, y n8n para los procesos con volumen o con datos sensibles.
+
+## Elige Zapier si…
+
+…el equipo no es técnico, tienes menos de diez flujos con pocos pasos y valoras sobre todo empezar hoy.
+
+## Elige Make si…
+
+…tus flujos tienen lógica (si pasa esto, haz aquello; repite para cada línea del pedido), quieres pagar poco por operación y necesitas región UE.
+
+## Elige n8n si…
+
+…ejecutas miles de flujos al mes, usas mucha IA en cada flujo, necesitas controlar dónde están los datos o tienes a alguien que pueda mantenerlo.
+
+Si tienes dudas entre dos, en la [consultoría gratuita](/diagnostico) revisamos tus procesos y te decimos cuál encaja, con el coste estimado de cada opción. Para ver qué más hace falta además del conector, lee [herramientas de IA para automatizar procesos](/blog/herramientas-ia-para-automatizar-procesos).
+
+## Preguntas frecuentes
+
+### ¿Cuál es más barato: n8n, Make o Zapier?
+
+Depende del volumen y de los pasos. Con pocos flujos cortos, los planes de entrada de las tres son parecidos. Con flujos largos y mucho volumen, n8n suele salir más barato porque cobra por ejecución completa y no por paso, y Zapier más caro porque cobra cada tarea.
+
+### ¿n8n es gratis?
+
+La edición Community es gratuita si la alojas en tu propio servidor, para uso interno de tu empresa. Pagas el servidor y el tiempo de mantenerlo. La nube de n8n no tiene plan gratuito: empieza en 20 €/mes con pago anual.
+
+### ¿Cuál cumple mejor el RGPD?
+
+Ninguna herramienta "cumple el RGPD" por sí sola: cumple tu empresa con cómo la usa. Lo que cambia es dónde quedan los datos. Zapier los aloja en Estados Unidos con cláusulas contractuales tipo; Make permite región UE; n8n ofrece nube en Frankfurt o tu propio servidor.
+
+### ¿Cuál es mejor para agentes de IA?
+
+Las tres tienen agentes en 2026. n8n es el más flexible para agentes que llaman a muchas herramientas, porque una ejecución larga no se cobra por paso. Make los integra en su lienzo visual y Zapier es el más rápido de configurar para casos sencillos.
+
+### ¿Se puede migrar de Zapier a n8n o Make?
+
+Sí, pero no hay importación automática fiable: los flujos se rehacen. Conviene aprovechar la migración para revisar qué flujos siguen haciendo falta y documentarlos.

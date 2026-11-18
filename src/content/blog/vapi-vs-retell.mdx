@@ -1,0 +1,108 @@
+---
+title: "Vapi vs Retell AI: agentes de voz para empresas en España"
+description: "Vapi o Retell AI para montar un agente de voz: coste real por minuto, números +34, datos en la UE, integraciones con GoHighLevel y n8n, y cuál encaja en tu caso."
+date: "2026-11-18"
+tags: ["vapi", "retell", "agente de voz", "voice ai", "comparativa", "telefonía"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Vapi y Retell AI son las dos plataformas más usadas para montar agentes de voz: un asistente que coge el teléfono, entiende lo que le dicen, consulta tu calendario o tu CRM y contesta con voz natural. Las dos funcionan en español. Las diferencias están en cómo cobran, cuánto saber técnico piden y qué pasa con los números españoles y con los datos.
+
+Nosotros montamos los agentes de voz con Vapi. Esta comparativa usa lo que publican las dos en sus webs y documentación oficiales a 18 de noviembre de 2026, y marca lo que solo sale de sus foros.
+
+## La respuesta corta
+
+- **Vapi**, si hay alguien técnico que lo monte (un desarrollador o una agencia), quieres elegir cada pieza (transcripción, modelo, voz, telefonía) y vas a integrarlo con tus sistemas por API.
+- **Retell AI**, si quieres construir y ajustar el agente desde un editor visual sin programar, con integraciones ya hechas con GoHighLevel, n8n y Cal.com.
+
+En los dos casos, para un número español (+34) hay que traerlo de un operador como Twilio o por SIP, con sus requisitos. Y ninguno aloja los datos en la UE en sus planes normales.
+
+## Comparativa en una tabla
+
+| | Vapi | Retell AI |
+|---|---|---|
+| Precio de plataforma | 0,05 $/min | 0,055 $/min de motor de voz |
+| Coste total orientativo | 82–129 $ por 1.000 min (estimación de Vapi) | 0,07–0,31 $/min (rango de Retell) |
+| Qué se paga aparte | Transcripción, modelo, voz y telefonía, al precio de cada proveedor | Modelo, voz y telefonía |
+| Crédito para probar | 5 $ | 10 $ |
+| Latencia que declaran | Menos de 500 ms de media | Unos 600 ms |
+| Español | Sí, según el proveedor de transcripción y voz | Sí; varios dialectos, lista en su panel |
+| Números +34 | Importados (Twilio, Telnyx, DIDWW) o SIP | Importados o SIP |
+| Datos en la UE | Región UE solo con su plan Premier | Infraestructura en EE. UU. |
+| Certificaciones | SOC 2, HIPAA (complemento de pago) y PCI | SOC 2 tipo 1 y 2; HIPAA en Enterprise |
+| Cómo se construye | Pensado para API (desarrolladores) | Editor visual sin código y constructor de flujos |
+
+Fuentes: [precios de Vapi](https://vapi.ai/pricing), [precios de Retell](https://www.retellai.com/pricing), [telefonía de Vapi](https://docs.vapi.ai/phone-calling), [región UE de Vapi](https://docs.vapi.ai/security-and-privacy/eu-region) y [residencia de datos de Retell](https://www.retellai.com/glossary/data-residency). Ninguna de las dos explica cómo mide su latencia.
+
+## Lo que cuesta un minuto de verdad
+
+En las dos, el precio por minuto de la plataforma es solo una parte. Cada minuto de llamada pasa por varias piezas: transcribir lo que dice la persona, el modelo de lenguaje que decide qué contestar, la voz que lo dice y la línea telefónica. Vapi cobra 0,05 $/min y deja pagar cada pieza a su proveedor sin recargo; su propia estimación queda entre 82 y 129 $ por cada 1.000 minutos. Retell cobra 0,055 $/min de motor y suma el resto; su rango va de 0,07 a 0,31 $/min según el modelo y la voz.
+
+La voz y el modelo son lo que más mueve la factura. Una voz premium o un modelo grande pueden doblar el coste por minuto. Retell cobra también los silencios y las esperas de la llamada.
+
+## Números españoles: lo que nadie te cuenta
+
+Los números gratuitos de Vapi son solo de Estados Unidos y solo para llamadas entrantes. Según su comunidad, Retell tampoco vende números españoles. Así que, con cualquiera de las dos, un +34 se contrata en un operador (Twilio, Telnyx, DIDWW) o se conecta por SIP desde tu centralita.
+
+En Twilio, un número geográfico español pide una dirección en la provincia del prefijo y DNI o, si es empresa, CIF y domicilio en España ([requisitos de Twilio para España](https://www.twilio.com/en-us/guidelines/es/regulatory)).
+
+## Datos personales y RGPD
+
+Ninguna de las dos aloja los datos en la UE en sus planes normales: Vapi ofrece región europea solo con su plan Premier, que se contrata hablando con ventas, y Retell declara que hoy no opera servicios dentro de la UE y cubre el RGPD con un acuerdo de tratamiento y cláusulas contractuales tipo. Para un negocio con datos de salud, como una clínica, esto hay que revisarlo antes de empezar (ver [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia)).
+
+Y desde agosto de 2026, el agente tiene que decir al empezar que es una IA. Lo explicamos en [qué exige la ley de IA a un chatbot o agente](/blog/ai-act-chatbot-decir-que-es-ia).
+
+## Vapi: lo que hace bien y sus límites
+
+**Lo que hace bien.** Libertad para elegir cada pieza y cambiarla: transcripción, modelo, voz y telefonía. Está pensado para integrarse por API con lo que tengas, y tiene herramientas para GoHighLevel (buscar y crear contactos, consultar disponibilidad y crear citas). Declara la latencia más baja de las dos.
+
+**Limitaciones honestas.**
+- El coste real se reparte entre cuatro o cinco proveedores: hay que vigilar varias facturas.
+- La región UE solo existe en el plan Premier, y HIPAA es un complemento de 2.000 $/mes.
+- Está pensado para desarrolladores: sin perfil técnico, cuesta montarlo bien.
+
+## Retell AI: lo que hace bien y sus límites
+
+**Lo que hace bien.** Un editor visual para construir y ajustar el agente sin programar, con integración propia con GoHighLevel, un nodo para n8n y conexión con Cal.com para consultar huecos, reservar, cambiar y cancelar citas. Incluye 20 llamadas simultáneas.
+
+**Limitaciones honestas.**
+- Sin alojamiento de datos en la UE.
+- Cobra también los silencios y las esperas.
+- En su foro hay usuarios con errores en el flujo de reservas con Cal.com, cuyas herramientas antiguas se retiraron el 31 de octubre de 2026.
+- Las llamadas simultáneas por encima de 20 cuestan 8 $/mes cada una.
+
+## Elige Vapi si…
+
+…tienes un desarrollador o una agencia que lo monte, quieres controlar cada pieza y su coste, o el agente tiene que hablar con tus sistemas por API.
+
+## Elige Retell si…
+
+…quieres que alguien sin perfil técnico pueda construir y cambiar el agente, usas GoHighLevel, n8n o Cal.com y te bastan sus integraciones ya hechas.
+
+## ¿Y la voz de GoHighLevel?
+
+Si ya usas GoHighLevel, su Voice AI es una tercera opción: viene dentro del CRM y cobra por minuto (0,045 $/min de motor más la voz y el modelo). Para agendar citas desde el propio CRM puede bastar. Lo mostramos en vídeo en [un agente de voz que contesta en WhatsApp y te agenda la cita](/blog/agente-de-voz-whatsapp-agenda-citas). Si dudas entre las tres, en la [consultoría gratuita](/diagnostico) vemos tus llamadas y te decimos cuál compensa.
+
+## Preguntas frecuentes
+
+### ¿Cuánto cuesta un agente de voz por minuto?
+
+Sumando plataforma, transcripción, modelo, voz y telefonía, entre unos 0,08 y 0,30 $ por minuto según las piezas que elijas. Vapi estima entre 82 y 129 $ por cada 1.000 minutos; Retell da un rango de 0,07 a 0,31 $/min.
+
+### ¿Vapi y Retell hablan bien español?
+
+Sí. En Vapi depende del proveedor de transcripción y de voz que elijas; en Retell se elige el idioma y el dialecto en el panel. Conviene probar con llamadas reales de tus clientes, con su acento y su ruido de fondo.
+
+### ¿Puedo usar mi número de teléfono español?
+
+Sí, conectándolo por SIP desde tu centralita o trayendo un número de un operador como Twilio. Ninguna de las dos vende números españoles directamente.
+
+### ¿Cuál es más fácil de usar?
+
+Retell, por su editor visual sin código. Vapi está pensado para desarrolladores y da más control a cambio de más trabajo técnico.
+
+### ¿Los datos se quedan en Europa?
+
+En los planes normales, no. Vapi ofrece una región UE solo en su plan Premier; Retell no opera hoy dentro de la UE y cubre el RGPD con un acuerdo de tratamiento de datos y cláusulas contractuales tipo.

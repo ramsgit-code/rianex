@@ -30,14 +30,14 @@ type PageCopy = { title: string; description: string };
 const PAGES: Record<string, Record<Lang, PageCopy>> = {
   "/": {
     es: {
-      title: "AI Automation Agency",
+      title: "Agencia de AI Workflow & Business Automation",
       description:
-        "Agencia de automatización con IA: agentes que contestan a cada cliente, agendan citas y envían propuestas. Más citas y más ventas sin más horas. Consultoría gratuita.",
+        "AI Workflow & Business Automation: automatizamos con IA los flujos de trabajo de tu empresa —atención, ventas, agenda y papeleo— con agentes. Consultoría gratuita.",
     },
     en: {
-      title: "AI Automation Agency",
+      title: "AI Workflow & Business Automation Agency",
       description:
-        "AI automation agency: agents that answer every customer, book appointments and send proposals. More appointments and more sales, no extra hours. Free consultation.",
+        "AI Workflow & Business Automation: we automate your company's workflows with AI agents —customer service, sales, scheduling and paperwork. Free consultation.",
     },
   },
   "/servicios": {

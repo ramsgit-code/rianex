@@ -327,7 +327,7 @@ export const content = {
     },
 
     footer: {
-      tagline: "Agencia de automatización con IA. Más citas, más ventas y horas devueltas al equipo, con agentes de IA que trabajan con las herramientas que ya usas.",
+      tagline: "AI Workflow & Business Automation: automatizamos con IA los flujos de trabajo de tu empresa. Más citas, más ventas y horas devueltas al equipo, con agentes de IA que trabajan con las herramientas que ya usas.",
       cta: "Pide tu consultoría gratuita",
       links: [
         { href: "/servicios", label: "Servicios" },
@@ -339,7 +339,7 @@ export const content = {
         { href: "/diagnostico", label: "Consultoría gratuita" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Calculadora de fuga de leads" },
       ],
-      rights: "Agencia de automatización con IA",
+      rights: "AI Workflow & Business Automation",
       servicesLabel: "Servicios",
       pagesLabel: "Rianex",
     },
@@ -1051,7 +1051,7 @@ export const content = {
     },
 
     footer: {
-      tagline: "AI automation agency. More appointments, more sales and hours back for your team, with AI agents that work with the tools you already use.",
+      tagline: "AI Workflow & Business Automation: we automate your company's workflows with AI. More appointments, more sales and hours back for your team, with AI agents that work with the tools you already use.",
       cta: "Book your free consultation",
       links: [
         { href: "/servicios", label: "Services" },
@@ -1063,7 +1063,7 @@ export const content = {
         { href: "/diagnostico", label: "Free consultation" },
         { href: "/herramientas/calculadora-fuga-de-leads", label: "Lead leakage calculator" },
       ],
-      rights: "AI automation agency",
+      rights: "AI Workflow & Business Automation",
       servicesLabel: "Services",
       pagesLabel: "Rianex",
     },

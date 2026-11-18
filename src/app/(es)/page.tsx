@@ -27,8 +27,9 @@ const businessJsonLd = {
   name: "Rianex",
   url: SITE_URL,
   image: `${SITE_URL}/og.png`,
+  slogan: "AI Workflow & Business Automation",
   description:
-    "Agencia de automatización con IA para empresas: consultoría gratuita para detectar qué procesos automatizar y asesoramiento para implantarlo y adoptar la IA, con Claude, n8n, Make y Zapier conectados a su CRM (GoHighLevel o HubSpot).",
+    "AI Workflow & Business Automation: agencia que automatiza con IA los flujos de trabajo y los procesos de negocio de las empresas. Consultoría gratuita para detectar qué procesos automatizar y asesoramiento para implantarlo y adoptar la IA, con Claude, n8n, Make y Zapier conectados a su CRM (GoHighLevel o HubSpot).",
   audience: {
     "@type": "BusinessAudience",
     audienceType: "Empresas que quieren automatizar procesos con IA",
@@ -44,6 +45,10 @@ const businessJsonLd = {
   },
   logo: `${SITE_URL}/logos/rianex-mark.png`,
   knowsAbout: [
+    "AI Workflow Automation",
+    "Business Automation",
+    "Automatización de flujos de trabajo con IA",
+    "Automatización empresarial",
     "Agencia de automatización con IA",
     "Consultoría de IA",
     "Adopción de IA en la empresa",

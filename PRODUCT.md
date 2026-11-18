@@ -22,6 +22,8 @@ Mensaje central: casi cualquier proceso que se repite se puede automatizar o agi
 
 ## Positioning
 
+Categoría (nov-2026, decisión de Ramiro): **AI Workflow & Business Automation**, igual en español y en inglés: es el título de la home, la entradilla del hero, el pie, el `slogan` del schema y la cabecera de llms.txt. En español se explica a continuación como "automatizamos con IA los flujos de trabajo y los procesos de tu empresa".
+
 Agencia de automatización con IA dirigida por un ingeniero industrial (Ramiro Pérez), que parte del proceso de negocio y no de la herramienta: primero mapa de procesos y consultoría gratuita, luego implantación con las herramientas que la empresa ya usa. El código y la infraestructura son del cliente. No vende desarrollo de software ni apps.
 
 ## Operating Context

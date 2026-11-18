@@ -82,7 +82,7 @@ type HomeCopy = {
 const es: HomeCopy = {
   hero: {
     title: ["Más clientes,", "sin más horas."],
-    lead: "Somos una agencia de automatización con IA. Montamos agentes y automatizaciones que contestan a cada cliente, llenan la agenda, hacen el seguimiento comercial y se encargan del papeleo, y formamos a tu equipo para usar la IA en su día a día.",
+    lead: "Somos una agencia de AI Workflow & Business Automation: automatizamos con IA los flujos de trabajo y los procesos de tu empresa. Montamos agentes y automatizaciones que contestan a cada cliente, llenan la agenda, hacen el seguimiento comercial y se encargan del papeleo, y formamos a tu equipo para usar la IA en su día a día.",
     ctaPrimary: "Pide tu consultoría gratuita",
     ctaSecondary: "Ver servicios",
     note: "30 minutos · Sin coste ni compromiso",
@@ -253,7 +253,7 @@ const es: HomeCopy = {
 const en: HomeCopy = {
   hero: {
     title: ["More clients,", "no extra hours."],
-    lead: "We are an AI automation agency. We build agents and automations that answer every customer, fill your calendar, run sales follow-up and handle the paperwork, and we train your team to use AI day to day.",
+    lead: "We are an AI Workflow & Business Automation agency: we use AI to automate your company's workflows and business processes. We build agents and automations that answer every customer, fill your calendar, run sales follow-up and handle the paperwork, and we train your team to use AI day to day.",
     ctaPrimary: "Book your free consultation",
     ctaSecondary: "See services",
     note: "30 minutes · Free, no commitment",

@@ -5,6 +5,7 @@ import { leadFormSchema, HONEYPOT_FIELD } from "@/lib/lead-schema";
 import { origenTags } from "@/lib/origen";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rate-limit";
+import { chatEnabled, createChatToken } from "@/lib/chat-token";
 import { PRIVACY_POLICY_VERSION } from "@/lib/legal";
 
 export async function POST(req: NextRequest) {
@@ -136,5 +137,7 @@ export async function POST(req: NextRequest) {
     score,
     tier,
     ghlSynced,
+    // Chat de precualificación en la pantalla de gracias (solo si está activo).
+    chatToken: submissionId && chatEnabled() ? createChatToken(submissionId) : null,
   });
 }

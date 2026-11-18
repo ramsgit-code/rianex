@@ -8,6 +8,7 @@ import { z } from "zod";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowRight, ArrowLeft, CheckCircle, Loader2 } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
+import { ChatPrecualificacion } from "@/components/ChatPrecualificacion";
 import { getForm } from "@/lib/formContent";
 import { HONEYPOT_FIELD } from "@/lib/lead-schema";
 import { leerOrigen } from "@/lib/origen";
@@ -50,6 +51,9 @@ export function DiagnosticForm({ landing }: { landing?: string } = {}) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  // Chat de precualificación: solo si /api/leads devuelve token (clave activa).
+  const [chatToken, setChatToken] = useState<string | null>(null);
+  const [chatOpen, setChatOpen] = useState(false);
   // datos para prellenar el formulario del calendario de GHL tras enviar
   const [booking, setBooking] = useState<{
     firstName: string;
@@ -176,6 +180,8 @@ export function DiagnosticForm({ landing }: { landing?: string } = {}) {
         setSubmitError(err.error ?? f.errors.sendFail);
         return;
       }
+      const result = await res.json().catch(() => ({}));
+      if (typeof result.chatToken === "string") setChatToken(result.chatToken);
       const [bFirst, ...bRest] = data.nombre.trim().split(" ");
       setBooking({
         firstName: bFirst,
@@ -246,6 +252,21 @@ export function DiagnosticForm({ landing }: { landing?: string } = {}) {
           {f.success.button} <ArrowRight size={16} />
         </a>
         <p className="mt-4 text-xs text-muted">{f.success.note}</p>
+        {chatToken && (
+          <div className="mx-auto mt-10 max-w-xl border-t-2 border-ink pt-8">
+            {chatOpen ? (
+              <ChatPrecualificacion token={chatToken} lang={lang} name={booking?.firstName ?? ""} />
+            ) : (
+              <>
+                <p className="text-foreground-muted">{f.success.chatBody}</p>
+                <button type="button" onClick={() => setChatOpen(true)} className="btn-secondary mt-5">
+                  {f.success.chatButton}
+                </button>
+                <p className="mt-3 text-xs text-muted">{f.success.chatHint}</p>
+              </>
+            )}
+          </div>
+        )}
       </motion.div>
     );
   }
