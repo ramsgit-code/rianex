@@ -23,8 +23,8 @@ export const dynamic = "force-static";
 
 const CABECERA = `# Rianex
 
-> Automatización de procesos con IA para empresas. Automatizamos los procesos
-> que se repiten cada semana con Claude, n8n, Make, Zapier y tareas
+> AI Workflow & Business Automation. Automatizamos con IA los flujos de
+> trabajo y los procesos de negocio que se repiten cada semana con Claude, n8n, Make, Zapier y tareas
 > programadas, conectados al CRM (GoHighLevel o HubSpot) y al resto de
 > herramientas: de la operativa del día a día al proceso comercial.
 
