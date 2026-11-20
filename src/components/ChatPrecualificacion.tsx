@@ -64,6 +64,13 @@ export function ChatPrecualificacion({ token, lang, name }: { token: string; lan
       }
     } catch {
       setError(t.error);
+      // Si falla una respuesta, el mensaje del lead vuelve a la caja para
+      // reenviarlo: dejarlo en la conversación dejaría dos mensajes seguidos
+      // del lead, y el servidor rechaza esa conversación.
+      if (!end) {
+        setTurns(messages.slice(0, -1));
+        setInput(messages[messages.length - 1].content);
+      }
     } finally {
       setLoading(false);
     }
