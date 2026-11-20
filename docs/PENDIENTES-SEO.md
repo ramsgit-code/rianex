@@ -13,11 +13,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Activar el chat de precualificación** (hecho en código el 18-nov):
-      crea una clave en console.anthropic.com y añádela en Vercel como
-      `ANTHROPIC_API_KEY` (Production y Preview), y redepliega. Sin ella, la
-      pantalla de gracias solo muestra el calendario. Opcional: Upstash Redis
-      para que el límite por IP sea global.
+- [ ] **Saldo de Anthropic para el chat**: el 20-nov se cargaron 5 $
+      (unas 50 conversaciones con Opus, a ~0,10 $ cada una). Activa la
+      recarga automática o un aviso de saldo en console.anthropic.com: sin
+      saldo, el chat responde con error y el lead solo ve el calendario.
+- [ ] **Borrar el lead de prueba** "Prueba Chat Rianex" (correo de pruebas)
+      en GHL, con sus dos oportunidades, y sus dos solicitudes del panel.
+
 - [ ] **Pegar la categoría "AI Workflow & Business Automation"** en el
       titular de la página de LinkedIn, la base del bot de GHL y la imagen
       `public/og.png` (fuera del alcance del código).
@@ -232,6 +234,10 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-20 · Chat de precualificación activo en producción
+  (`ANTHROPIC_API_KEY` en Vercel). Prueba completa: formulario → chat de 4
+  preguntas → cierre → nota en GHL sin errores. #67: si falla una respuesta,
+  el mensaje vuelve a la caja en vez de bloquear el chat.
 - 2026-11-18 · Categoría "AI Workflow & Business Automation" en ES y EN
   (title y description de la home, hero, pie, schema `slogan` y
   `knowsAbout`, llms.txt). Chat de precualificación con Claude tras el
