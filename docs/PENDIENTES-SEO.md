@@ -13,6 +13,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **¿El diagnóstico gratis lleva entregable por escrito?** (radar del
+      23-nov, referencia Noah). Si después de cada llamada de 30 minutos vas
+      a mandar en 24 horas una página con los 2-3 procesos a automatizar
+      primero, horas y coste orientativo, lo prometemos en `/diagnostico`
+      con un bloque "Qué te llevas" y un `Service` en JSON-LD. Sin tu OK no
+      se promete.
+
 - [ ] **Saldo de Anthropic para el chat**: el 20-nov se cargaron 5 $
       (unas 50 conversaciones con Opus, a ~0,10 $ cada una). Activa la
       recarga automática o un aviso de saldo en console.anthropic.com: sin
@@ -233,6 +240,16 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-23 · Radar del 23-nov (cifras comprobadas en fuente primaria):
+  "ejemplos de automatización" pasa de 12 a 15 (presupuesto cerrado en un
+  minuto, atender a los agentes de IA de tus clientes, revisión contable con
+  firma humana; tabla de ejemplos reales de noviembre y FAQ "¿un agente puede
+  llamar a mi negocio?") para atacar las búsquedas en posición 23 y 30.
+  "Coste de un agente en producción" añade cómo se factura (cuota fija y
+  consumo con margen por escrito, referencia Thunderphone). n8n 3.0: title
+  con "estable en diciembre" y estado a fecha. Enlaces internos "doce" →
+  "quince".
 
 - 2026-11-20 · Chat de precualificación activo en producción
   (`ANTHROPIC_API_KEY` en Vercel). Prueba completa: formulario → chat de 4
