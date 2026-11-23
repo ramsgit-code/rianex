@@ -1,7 +1,8 @@
 ---
 title: "Coste de un agente de IA en producción: cómo medirlo y limitarlo"
-description: "Cómo saber cuánto gasta un agente de IA y ponerle tope: registrar cada llamada, elegir el modelo por tarea, procesar por lotes y cortar antes de gastar."
+description: "Cuánto gasta un agente de IA, cómo ponerle tope y cómo facturarlo: registrar cada llamada, modelo por tarea, lotes y consumo separado de la cuota."
 date: "2026-10-28"
+updated: "2026-11-23"
 tags: ["agentes de ia", "coste de la ia", "observabilidad", "llm"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -14,7 +15,7 @@ Cuando empezamos a trabajar en la plataforma de agentes de Tribeca Media, ese er
 
 ## La respuesta corta
 
-Para controlar el coste de un agente de IA hacen falta cinco piezas: registrar cada llamada al modelo con su cliente, su agente, su modelo, sus tokens y su coste; elegir el modelo según la tarea, con uno pequeño por defecto; mandar por lotes lo que no es urgente; poner topes por cliente que corten antes de gastar, no después; y avisos de salud para enterarse cuando un agente falla o se queda en bucle. Con eso, el coste deja de ser una sorpresa a fin de mes y pasa a ser un número que se mira cada semana.
+Para controlar el coste de un agente de IA hacen falta cinco piezas: registrar cada llamada al modelo con su cliente, su agente, su modelo, sus tokens y su coste; elegir el modelo según la tarea, con uno pequeño por defecto; mandar por lotes lo que no es urgente; poner topes por cliente que corten antes de gastar, no después; y avisos de salud para enterarse cuando un agente falla o se queda en bucle. Con eso, el coste deja de ser una sorpresa a fin de mes y pasa a ser un número que se mira cada semana. Y para facturarlo con claridad, el consumo va separado de la cuota de mantenimiento, con el margen por escrito.
 
 ## De dónde sale el gasto
 
@@ -96,6 +97,28 @@ Si el sistema ya tiene varios agentes y servicios, todo esto forma parte de una 
 | Reintentos y errores | Más de lo habitual: suele ser una API externa que ha cambiado |
 | Topes alcanzados | Un cliente que llega al tope cada día necesita revisar su configuración o su precio |
 
+## Cómo se factura: cuota fija y consumo a la vista
+
+Medir el gasto sirve también para la otra cara de la pregunta: cuando una empresa contrata a alguien para montar y mantener un agente de WhatsApp o de voz, ¿cómo debería llegarle la factura?
+
+Lo que más asusta a quien contrata un agente no es el precio de la implantación, que se acuerda una vez. Es no saber cuánto pagará al mes. Y la manera más clara de quitar esa duda es separar dos conceptos que muchas veces van mezclados en una sola cuota:
+
+| Concepto | Qué incluye | Cómo se cobra |
+|---|---|---|
+| Cuota de mantenimiento | Vigilancia, alertas, ajustes del agente, pruebas antes de cambiar de modelo, informe mensual | Importe fijo al mes |
+| Consumo | Lo que cobran los proveedores: las conversaciones de WhatsApp de Meta, los tokens del modelo, los minutos de voz y de teléfono | Lo que cueste ese mes, con el margen de gestión acordado y publicado |
+
+Hay al menos un proveedor que ya lo hace así en público. Thunderphone, una plataforma de agentes de voz, publica su regla: cobra las llamadas a lo que le cobran sus proveedores, más el alojamiento, más un margen que va del 17 % en las llamadas más baratas al 25 % en las más caras, según [su anuncio de Zeus](https://thunderphone.com/blog/introducing-zeus). No es la única forma válida de cobrar, pero sí una referencia pública de cuánto margen se aplica sobre el consumo.
+
+Lo que conviene pedir a quien te monte el agente, cobre como cobre:
+
+- **El consumo, desglosado.** Cuánto ha sido de Meta, cuánto del modelo y cuánto de voz. Con la tabla de llamadas del apartado 1, sale con una consulta.
+- **El margen, por escrito.** Un porcentaje fijo sobre el consumo o un precio por conversación, pero que no cambie sin aviso.
+- **Un tope.** Un importe mensual a partir del cual el agente avisa o se para, como los de la tabla de topes.
+- **Qué pasa si cambia el precio del proveedor.** Si el modelo baja de precio, que la bajada llegue a la factura; si sube, que se avise antes.
+
+Con el consumo separado, la cuota de mantenimiento se explica por lo que es: el trabajo de que el agente siga funcionando bien, no un precio que esconde el gasto.
+
 ## Un caso real: Tribeca Media
 
 En [Tribeca Media](/casos-de-exito/tribeca-media), la plataforma KEYWORKERS da a cada cliente un equipo de agentes de IA para marketing. Antes de construir el agente de campañas hicimos un diagnóstico del sistema y un bloque de observabilidad y coste: chequeos de salud con avisos, el coste de cada llamada y de cada imagen registrado, tope de gasto por cliente y auditorías por lotes a mitad de precio.
@@ -115,6 +138,10 @@ Es poder ver desde fuera qué hace el agente: qué llamadas hace, cuánto tarda,
 ### ¿Conviene usar un modelo local para ahorrar?
 
 Para tareas sencillas y repetitivas, como extraer datos de un texto o clasificar, un modelo local puede ahorrar mucho. Para decisiones que tocan dinero o clientes, la diferencia de calidad suele pesar más que el ahorro. Lo comparamos en [agentes en servidor propio o en la nube](/blog/agentes-de-ia-vps-propio-o-nube).
+
+### ¿Cuánto margen debería cobrar quien me monta el agente sobre el consumo?
+
+No hay una cifra estándar. Como referencia pública, Thunderphone cobra las llamadas de voz a coste más un margen del 17 % al 25 %. Más que el porcentaje exacto, importa que el margen esté por escrito, que el consumo llegue desglosado y que la cuota de mantenimiento vaya aparte.
 
 ### ¿Qué pasa cuando un cliente llega al tope de gasto?
 
