@@ -190,9 +190,9 @@ export const CASOS: Record<string, Caso> = {
       uploadDate: "2026-10-08T09:00:00+02:00",
     },
     es: {
-      seoTitle: "Caso Tribeca Media: agentes de IA de performance y contenido",
+      seoTitle: "Tribeca Media: agente de IA que gestiona Meta y Google Ads",
       metaDescription:
-        "Cómo construimos para KEYWORKERS, la plataforma de Tribeca Media, un agente de IA que gestiona campañas de Meta y Google Ads con aprobación humana, y el agente de contenido.",
+        "Para KEYWORKERS, la plataforma de Tribeca Media, construimos un agente que revisa campañas de Meta y Google Ads, propone cambios y no ejecuta nada sin aprobación.",
       h1: "Tribeca Media: agentes de IA de performance y contenido para KEYWORKERS",
       answer:
         "Tribeca Media construye KEYWORKERS, una plataforma de agentes de IA para marketing. Su agente leía las campañas de Meta Ads pero no actuaba sobre ellas. Construimos el Performance Agent: revisa Meta y Google Ads, propone pausar, bajar presupuesto o crear campañas, lo ejecuta solo cuando una persona lo aprueba y genera creatividades nuevas cuando un anuncio se fatiga. Ahora construimos el Content Agent.",
