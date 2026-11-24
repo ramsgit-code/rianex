@@ -1,0 +1,88 @@
+---
+title: "Cámaras con IA en supermercados: parking, colas y limpieza"
+description: "Vídeo: cómo el parking de un supermercado anticipa las colas, qué horas flojas aprovechar con una promoción y cómo limpiar según el uso, con las cámaras que ya hay."
+date: "2026-11-24"
+tags: ["cámaras con IA", "supermercados", "parking", "colas", "limpieza", "vídeo"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+video: "/videos/camaras-supermercado.mp4"
+videoPoster: "/videos/camaras-supermercado.jpg"
+videoDuration: "PT1M41S"
+---
+
+Un supermercado con parking tiene, sin saberlo, el mejor contador de clientes que existe: cada coche que entra es una compra que empieza. Con las cámaras que ya vigilan el parking y un modelo de visión, ese dato se convierte en decisiones: cuántas cajas abrir, cuándo reponer y limpiar, y qué horas flojas aprovechar con una promoción. El vídeo de arriba lo enseña de principio a fin. Es una simulación: el supermercado y los datos son ficticios.
+
+## La respuesta corta
+
+Las cámaras del parking cuentan los coches que entran cada 15 minutos y cuánto se queda cada uno en su plaza, que es casi lo que dura la compra, sin leer matrículas. Con eso se ve a qué horas viene la gente, se avisa para abrir caja antes de que se forme la cola y se mide si una promoción trae más visitas. Las cámaras de dentro añaden las colas reales en caja, los derrames en los pasillos y la limpieza de los aseos según el uso.
+
+## El parking, tu contador de visitas
+
+- **Coches que entran, cada 15 minutos.** Sumados por día y hora, dan el mapa de cuándo viene tu clientela: el pico del sábado a mediodía, la tarde de los viernes, la hora más floja del martes.
+- **Cuánto se queda cada coche.** El sistema sigue cada coche en su plaza mientras está aparcado, sin leer la matrícula. Esa estancia es una buena medida de lo que dura la compra.
+- **Plazas libres en tiempo real.** Útil para los paneles de la entrada y para saber cuándo el parking es el que limita las ventas.
+
+Nada de esto exige cámaras nuevas si las que hay ven bien las plazas. Lo comprobamos con unas horas de grabación de un día con movimiento, como un sábado por la mañana.
+
+## De los coches a la caja
+
+Lo que entra por el parking llega a caja unos minutos después. Si un sábado a las 11:30 entran 26 coches en un cuarto de hora, la cola es cuestión de tiempo. El sistema lo ve venir y avisa al encargado para abrir otra caja antes de que se forme, no cuando la cola ya llega al pasillo. La cámara de la línea de cajas confirma después la espera real en cada una y cierra el aviso.
+
+## Vender más y mejor con estos datos
+
+- **Abrir cajas antes de perder clientes.** Una cola larga hace que alguien deje el carro y se vaya. Anticiparla vale más que reaccionar a ella.
+- **Promociones en las horas flojas.** Si el martes de 15:00 a 17:00 es la franja más tranquila de la semana, es la candidata para una oferta. Y como el parking cuenta las visitas, se mide si la promoción ha traído más coches o solo ha rebajado el precio a quien ya venía.
+- **Reponer y limpiar sin molestar.** Las horas flojas son también las buenas para reponer lineales y limpiar a fondo, antes del siguiente pico.
+- **Turnos según la afluencia real.** Los horarios del equipo dejan de hacerse a ojo: se ajustan al mapa de visitas de las últimas semanas.
+- **Conversión y ticket medio por hora.** Si cruzamos las visitas con los tickets del TPV, ves qué parte de los que vienen compran y cuánto, hora a hora. Es la forma de saber si un mal día fue por menos clientes o por menos compra.
+
+## Limpieza según el uso, no según la hora
+
+- **Derrames en los pasillos.** Un líquido o un objeto en el suelo se detecta y se avisa al equipo de limpieza con el pasillo exacto, antes de que alguien resbale.
+- **Aseos según el número de usos.** Sin ninguna cámara dentro: se cuentan las entradas desde el pasillo y el aviso salta al llegar al número de usos que fijes. Se limpia cuando hace falta, no cada dos horas aunque no haya entrado nadie.
+- **Tiempo de respuesta por zona.** Desde el aviso hasta que la incidencia desaparece de la imagen. Sirve para organizar el servicio y, si la limpieza está subcontratada, para hablar con datos con la empresa. Lo explicamos en [cámaras con IA para el servicio de limpieza](/l/camaras-ia-limpieza).
+
+## Lo que ve el gerente
+
+Un panel web con el mapa de calor de visitas por día y hora, los coches de hoy, la duración media de la compra, la espera en caja y los avisos de limpieza. Encima, sugerencias concretas para la semana: abrir dos cajas más el sábado de 11:00 a 13:00 porque la espera pasó de cuatro minutos, probar una promoción en la hora más floja o reponer antes del pico de la tarde. Las sugerencias las prepara la IA a partir de los datos; la decisión es del gerente.
+
+## Qué hace falta
+
+- **Cámaras IP o un grabador** que den la imagen por RTSP u ONVIF, lo habitual en la mayoría de marcas. En el parking basta con que vean bien las plazas y la entrada.
+- **Un equipo pequeño en el local** que analiza las cámaras y envía solo recuentos, tiempos y avisos. El vídeo no tiene por qué salir del supermercado.
+- **Los tickets del TPV**, por API o en un fichero diario, si quieres conversión y ticket medio por hora. Sin ellos, el resto funciona igual.
+- **Alguien que reciba los avisos**: el encargado para las cajas y el equipo de limpieza para los pasillos y los aseos.
+
+## Privacidad y ley
+
+El sistema cuenta coches y personas sin saber quién es nadie: no hace reconocimiento facial y no necesita leer matrículas para medir la estancia. Aun así, usar las cámaras de seguridad para medir la operación es una finalidad nueva que hay que declarar y, si los datos sirven también para organizar el trabajo, la plantilla tiene que saberlo antes. Lo resumimos, con los artículos de la ley, en [cámaras con IA para controlar tu negocio](/blog/camaras-con-ia-para-controlar-tu-negocio).
+
+## Cómo empezar
+
+Con una prueba sobre unas horas de grabación de tus propias cámaras, de un sábado por la mañana si puede ser: así se ve qué se puede medir con fiabilidad y qué cámara no llega. Lo normal es empezar por el parking, que da el dato más valioso con menos trabajo, y sumar después cajas y limpieza.
+
+Es un servicio nuevo en Rianex y todavía no tenemos un caso publicado, así que no damos cifras de resultados: las medimos contigo. Tienes el detalle en [cámaras con IA para supermercados](/l/camaras-ia-supermercados) y en el servicio de [control con cámaras e IA](/servicios/control-con-camaras-ia). Si quieres ver qué te diría el parking de tu supermercado, lo vemos en la [consultoría gratuita](/diagnostico).
+
+## Preguntas frecuentes
+
+### ¿Cómo sabe el parking cuánto dura la compra?
+
+Sigue cada coche en su plaza desde que aparca hasta que se va. Esa estancia incluye ir y volver del coche, pero en un supermercado es una aproximación muy buena de lo que dura la compra, y no necesita leer la matrícula.
+
+### ¿Sirve si el supermercado no tiene parking propio?
+
+Sí, aunque cambia la fuente: se cuentan las personas que entran por la puerta y se miden las colas en caja. Se pierde la previsión que da ver llegar los coches unos minutos antes.
+
+### ¿Hay cámaras en los aseos?
+
+No, nunca. Las entradas se cuentan desde el pasillo con la cámara que ya vigila esa zona.
+
+### ¿Las sugerencias del panel las decide la IA?
+
+No. La IA prepara las sugerencias a partir de los datos, como abrir cajas en una franja o probar una promoción en otra, y las decide el gerente.
+
+### ¿El vídeo es un supermercado real?
+
+No. Es una simulación con un supermercado y datos ficticios, hecha para enseñar cómo funciona: el parking, las cajas, la limpieza y el panel del gerente.

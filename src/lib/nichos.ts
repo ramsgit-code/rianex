@@ -402,7 +402,7 @@ export const NICHOS: Record<string, Nicho> = {
   },
 
   "camaras-ia-tiendas": {
-    title: "Cámaras con IA para tiendas y supermercados",
+    title: "Cámaras con IA para tiendas",
     h1: "Abre otra caja antes de que la cola se vaya.",
     lead: "Tus cámaras cuentan quién entra, miden la cola de cada caja y mostrador y avisan cuando hay que abrir otra. Cruzado con los tickets, sabes cuántos de los que entran acaban comprando.",
     outcomes: [
@@ -444,6 +444,125 @@ export const NICHOS: Record<string, Nicho> = {
       },
       FAQ_CAMARAS_SIRVEN,
       FAQ_CAMARAS_CARAS,
+      FAQ_CAMARAS_PRECIO,
+    ],
+  },
+
+  "camaras-ia-supermercados": {
+    title: "Cámaras con IA para supermercados",
+    h1: "Sabes cuándo se va a llenar la tienda antes de que pase.",
+    lead: "Las cámaras del parking cuentan los coches que entran y cuánto se queda cada uno; las de dentro miden las colas y avisan de un derrame. Con eso abres cajas a tiempo, repones y limpias en las horas flojas y decides cuándo lanzar una promoción.",
+    outcomes: [
+      "Visitas por día y hora, contadas en el parking",
+      "Aviso para abrir caja antes de que se forme la cola",
+      "Derrames y aseos atendidos según el uso, no según la hora",
+    ],
+    painsTitle: "Dónde se te escapan ventas",
+    pains: [
+      { title: "Colas que espantan", desc: "El sábado a mediodía la cola llega al pasillo y hay quien deja el carro y se va. La caja se abre cuando ya es tarde." },
+      { title: "Visitas que nadie cuenta", desc: "Sabes lo que facturas cada día, pero no cuánta gente vino ni a qué hora: un mal día no sabes si fue por menos clientes o por menos compra." },
+      { title: "Promociones a ciegas", desc: "Las ofertas se lanzan sin saber qué horas están flojas ni si traen a más gente al parking." },
+      { title: "Limpieza a horario fijo", desc: "Se limpia cada dos horas aunque no haya pasado nadie, y un derrame en un pasillo espera a que alguien lo vea." },
+    ],
+    automationsTitle: "Qué medimos",
+    automations: [
+      { title: "Coches que entran", desc: "Entradas al parking cada 15 minutos, por día y por hora: el mapa de cuándo viene tu clientela." },
+      { title: "Duración de la compra", desc: "Cuánto se queda cada coche en su plaza, sin leer matrículas: casi lo que dura la compra." },
+      { title: "Previsión de cola", desc: "Si entran muchos coches de golpe, aviso para abrir caja antes de que se forme la cola." },
+      { title: "Espera en caja", desc: "Personas en cola y tiempo de espera en cada caja y en cada mostrador." },
+      { title: "Derrames en los pasillos", desc: "Un líquido o un objeto en el suelo, avisado al equipo de limpieza con el pasillo exacto." },
+      { title: "Aseos según el uso", desc: "Entradas contadas desde el pasillo, sin cámaras dentro: se limpia cuando toca, no cada dos horas." },
+    ],
+    flow: [
+      { label: "Sábado 11:30", text: "Entran 26 coches al parking en un cuarto de hora." },
+      { label: "Previsión", text: "En unos 10 minutos, esos clientes estarán en caja." },
+      { label: "Aviso", text: "El encargado recibe «Abre la caja 3» antes de que se forme la cola." },
+      { label: "El lunes", text: "El panel enseña el pico del sábado y la hora más floja de la semana, para ajustar turnos y promociones." },
+    ],
+    services: ["control-con-camaras-ia", "automatizacion-procesos-ia"],
+    cases: [],
+    proofLine: PROOF_CAMARAS,
+    video: {
+      src: "/videos/camaras-supermercado.mp4",
+      poster: "/videos/camaras-supermercado.jpg",
+      caption: "Simulación con un supermercado y datos ficticios: parking, cajas, limpieza y panel del gerente.",
+    },
+    panel: {
+      title: "Lo que ve el gerente",
+      lead: "Un panel web con las visitas por día y hora, la duración media de la compra, la espera en caja y los avisos de limpieza. Y sugerencias concretas: cuántas cajas abrir el sábado, qué hora floja aprovechar con una promoción y cuándo reponer y limpiar sin molestar.",
+      src: "/videos/panel-gerente-supermercado.jpg",
+      alt: "Panel de un supermercado: mapa de calor de visitas por día y hora, coches hoy, duración de la compra, espera en caja, avisos de limpieza, sugerencias de la semana y entradas cada 15 minutos con previsión.",
+      caption: "Ejemplo con datos ficticios. El panel se adapta a lo que quieras medir.",
+    },
+    care: cuidadoCamaras(
+      "No se leen matrículas para medir la estancia: cada coche se sigue en su plaza mientras está aparcado.",
+    ),
+    timeline: PLAZO_CAMARAS,
+    faqs: [
+      {
+        q: "¿Cómo ayuda a vender más?",
+        a: "Con datos que hoy no tienes: a qué horas viene la gente, cuánto se queda y cuánta cola aguanta. Con eso se abren cajas antes de perder clientes en la cola, se lanzan promociones en las horas flojas y se mide si traen más coches. Si además cruzamos las visitas con los tickets del TPV, ves qué parte de los que vienen compran y cuánto, hora a hora.",
+      },
+      {
+        q: "¿Hace falta leer las matrículas?",
+        a: "No. Para contar entradas y medir cuánto se queda cada coche basta con seguirlo en su plaza mientras está aparcado. Si algún día hiciera falta leerlas, por ejemplo para limitar el tiempo en un parking gratuito, se guardan solo el tiempo necesario.",
+      },
+      {
+        q: "¿Hay cámaras en los aseos?",
+        a: "No, nunca. Se cuentan las entradas desde el pasillo con la cámara que ya vigila esa zona, y el aviso de limpieza salta al llegar al número de usos que fijes.",
+      },
+      FAQ_CAMARAS_SIRVEN,
+      FAQ_CAMARAS_PRECIO,
+    ],
+  },
+
+  "camaras-ia-limpieza": {
+    title: "Cámaras con IA para el servicio de limpieza",
+    h1: "Limpiar donde hace falta, cuando hace falta.",
+    lead: "Para empresas de limpieza y responsables de instalaciones: las cámaras que ya hay cuentan cuánta gente pasa por cada zona y detectan derrames o papeleras llenas, para limpiar según el uso real y no a horario fijo.",
+    outcomes: [
+      "Limpieza según el uso de cada zona, no a horario fijo",
+      "Derrames y papeleras llenas avisados al momento",
+      "Un informe por zona para enseñar el servicio con datos",
+    ],
+    painsTitle: "Dónde se va el tiempo de limpieza",
+    pains: [
+      { title: "Limpiar lo que ya está limpio", desc: "Las rondas a horario fijo pasan igual por una zona vacía que por la que han usado doscientas personas." },
+      { title: "El derrame que nadie ve", desc: "Un líquido en el suelo de un pasillo o un vestíbulo espera a que alguien lo vea o, peor, a que alguien resbale." },
+      { title: "Papeleras desbordadas", desc: "Se vacían cuando toca la ronda, aunque lleven una hora llenas." },
+      { title: "Sin datos ante el cliente", desc: "Cuando el cliente se queja, no hay datos de cuánta gente pasó ni de cuánto se tardó en atender cada aviso." },
+    ],
+    automationsTitle: "Qué medimos",
+    automations: [
+      { title: "Usos por zona", desc: "Personas que entran en aseos, vestíbulos o salas, contadas desde fuera. Nunca con cámaras dentro de aseos o vestuarios." },
+      { title: "Limpieza según el uso", desc: "Aviso al equipo al llegar al número de usos que fijes para cada zona." },
+      { title: "Derrames y objetos en el suelo", desc: "Detectados en pasillos y vestíbulos y avisados con la zona exacta." },
+      { title: "Papeleras y contenedores", desc: "Aviso cuando una papelera o un contenedor está lleno o desbordado, si la cámara lo ve." },
+      { title: "Tiempo de respuesta", desc: "Cuánto pasa desde el aviso hasta que la incidencia desaparece de la imagen, por zona y por turno." },
+      { title: "Informe para el cliente", desc: "Usos, avisos y tiempos de respuesta por zona, cada semana, para enseñar el servicio con datos." },
+    ],
+    flow: [
+      { label: "12:40", text: "Han entrado 60 personas en los aseos de la planta 1 desde la última limpieza." },
+      { label: "Aviso", text: "El equipo recibe en el móvil: «Aseos planta 1: 60 usos, toca limpiar»." },
+      { label: "12:52", text: "La cámara del vestíbulo detecta un derrame junto a la entrada y avisa con la zona." },
+      { label: "Viernes", text: "El informe del cliente muestra usos, avisos y tiempos de respuesta por zona." },
+    ],
+    services: ["control-con-camaras-ia", "automatizacion-procesos-ia"],
+    cases: [],
+    proofLine: PROOF_CAMARAS,
+    care: cuidadoCamaras("Nunca hay cámaras dentro de aseos, vestuarios ni zonas de descanso: se cuenta desde fuera."),
+    timeline: PLAZO_CAMARAS,
+    faqs: [
+      {
+        q: "¿Sirve para empresas de limpieza o para el propio negocio?",
+        a: "Para los dos. Una empresa de limpieza lo usa para organizar las rondas y enseñar datos a su cliente; un centro comercial, unas oficinas o un supermercado, para avisar a su propio equipo. Las cámaras son las del edificio.",
+      },
+      {
+        q: "¿Controla al personal de limpieza?",
+        a: "No es su objetivo: mide zonas, usos e incidencias, no a personas. El tiempo de respuesta se calcula desde el aviso hasta que la incidencia desaparece de la imagen, por zona y por turno. Si los datos se usan también para organizar el trabajo, la plantilla tiene que saberlo antes (art. 89 de la LOPDGDD).",
+      },
+      FAQ_CAMARAS_SIRVEN,
+      FAQ_CAMARAS_LEY,
       FAQ_CAMARAS_PRECIO,
     ],
   },

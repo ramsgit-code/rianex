@@ -14,11 +14,15 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 ## Para Ramiro (requieren login o una decisión)
 
 - [ ] **Control con cámaras e IA (24-nov): validar lo que escribí yo.**
-      Servicio nuevo en `/servicios/control-con-camaras-ia`, cinco landings
-      (`/l/camaras-ia-restaurantes`, `-parkings`, `-tiendas`, `-almacenes`,
-      `-talleres`), la de Google Ads `/l/control-con-camaras-ia`, el vídeo
-      (simulación en un restaurante) y el artículo
-      `/blog/camaras-con-ia-para-controlar-tu-negocio`. Sin tu OK siguen
+      Servicio nuevo en `/servicios/control-con-camaras-ia`, siete landings
+      (`/l/camaras-ia-restaurantes`, `-parkings`, `-supermercados`,
+      `-tiendas`, `-almacenes`, `-talleres`, `-limpieza`), la de Google Ads
+      `/l/control-con-camaras-ia`, dos vídeos (simulaciones en un restaurante
+      y en un supermercado) y dos artículos
+      (`/blog/camaras-con-ia-para-controlar-tu-negocio` y
+      `/blog/camaras-con-ia-en-supermercados`). El panel del supermercado
+      enseña "sugerencias de la semana" preparadas por la IA: si las vas a
+      ofrecer, hay que construirlas. Sin tu OK siguen
       siendo supuestos míos: el **plazo** (3 a 6 semanas), la **forma de
       precio** (instalación más cuota mensual, sin cifras), la **prueba con
       grabaciones del cliente** como primer paso (¿la cobras o va dentro de la
@@ -259,6 +263,14 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-24 · Control con cámaras, segunda tanda: landing de
+  supermercados (parking como contador de visitas, previsión de cola,
+  derrames y aseos según el uso, con vídeo de 1:41 y captura del panel del
+  gerente) y de limpieza (empresas de limpieza e instalaciones), "Tiendas y
+  supermercados" separado en dos, artículo
+  `camaras-con-ia-en-supermercados` con el vídeo y el primer artículo con
+  secciones de supermercados y limpieza.
 
 - 2026-11-24 · Control con cámaras e IA: ficha del servicio en castellano e
   inglés (con "Dónde se usa" por sector), grupo propio en `/servicios` y en la
