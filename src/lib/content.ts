@@ -258,6 +258,10 @@ export const content = {
       title: "Antes de que preguntes",
       items: [
         {
+          q: "¿Qué hace una agencia de automatización con IA?",
+          a: "Una agencia de automatización con IA revisa cómo trabaja tu empresa, detecta las tareas que se repiten (contestar a clientes, dar citas, hacer seguimiento comercial, preparar propuestas y papeleo) y las automatiza con agentes de IA y herramientas como n8n, Make o Zapier, conectadas a tu CRM. En Rianex, con sede en Ávila, empezamos por una consultoría gratuita de 30 minutos, seguimos con la implantación y acompañamos a tu equipo en su uso. Trabajamos con empresas de toda España y Latinoamérica.",
+        },
+        {
           q: "¿Para qué empresas trabajáis?",
           a: "Para empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se repiten cada semana: pasar datos entre herramientas, clasificar correos o pedidos, preparar informes y propuestas, atender consultas o hacer seguimiento a clientes. Trabajamos sobre todo con agencias de marketing, empresas de eventos, clínicas y hospitales, inmobiliarias y negocios con cita previa, y también con empresas de servicios y B2B. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar. Trabajamos con empresas de España y Latinoamérica.",
         },

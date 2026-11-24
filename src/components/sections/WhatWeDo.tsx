@@ -64,6 +64,20 @@ export function WhatWeDo() {
             );
           })}
         </ol>
+
+        <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t-2 border-ink pt-6">
+          {o.links.map((l) => (
+            <li key={l.href}>
+              <Link
+                href={localize(l.href)}
+                className="inline-flex items-center gap-1 text-[15px] font-semibold text-foreground underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text"
+              >
+                {l.label}
+                <ArrowRight size={14} aria-hidden />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

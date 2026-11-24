@@ -27,6 +27,11 @@ const DESTACADA = {
 
 const GUIAS = [
   {
+    href: "/blog/agencia-automatizacion-vs-freelance-vs-equipo-interno",
+    es: "Agencia de automatización, freelance o equipo interno",
+    en: "Automation agency, freelancer or in-house team",
+  },
+  {
     href: "/blog/medir-un-proceso-antes-de-automatizarlo",
     es: "Cómo medir un proceso antes de automatizarlo",
     en: "How to measure a process before automating it",

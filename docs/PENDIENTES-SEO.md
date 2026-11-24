@@ -121,6 +121,15 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       en el entorno pregunta también a Perplexity, Gemini y ChatGPT. Decidir
       si se programa una vez al mes en rianex-server, como el radar.
 
+- [ ] **Home para «agencia de automatización» (24-nov)**: title «Agencia de
+      automatización con IA en Ávila», H1 con la keyword, H2 con variantes,
+      enlaces internos bajo «qué hacemos», FAQ nueva y JSON-LD
+      Organization + ProfessionalService con Ávila. Revisar en GSC a las 2 y
+      4 semanas las consultas «agencia de automatización», «agencia de
+      automatización con ia» y «automatización con ia para empresas». Si la
+      posición no se mueve, el freno son los enlaces externos y los perfiles
+      (Google Business Profile, Clutch, Sortlist).
+
 - Tras el rediseño (nov-2026): revisar en GSC la home (title nuevo) a las 2 y 4 semanas, y actualizar el texto de la página de LinkedIn y la base del bot de GHL con "consultoría gratuita" en vez de "diagnóstico gratuito".
 
 - [ ] **Marcar `generate_lead` como evento clave en GA4**: en cuanto llegue

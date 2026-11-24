@@ -23,7 +23,7 @@ export function Hero() {
     <section className="relative pt-[4.5rem] sm:pt-20">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 pb-12 pt-10 sm:px-8 sm:pt-14 lg:grid-cols-12 lg:gap-12 lg:px-12 lg:pb-14 lg:pt-14">
         <div className="lg:col-span-6 xl:col-span-5 xl:pt-2">
-          <h1 className="font-display text-[clamp(3rem,12vw,5.25rem)] lg:text-[clamp(3.5rem,5.6vw,5.25rem)] font-extrabold uppercase leading-[0.86] tracking-[-0.015em] text-foreground">
+          <h1 className="font-display text-[clamp(2.25rem,9.5vw,4.25rem)] lg:text-[clamp(2.75rem,4.6vw,4.25rem)] font-extrabold uppercase leading-[0.86] tracking-[-0.015em] text-foreground">
             <span className="block">{h.title[0]}</span>
             <span className="mt-2 inline-block bg-accent px-2 pb-1 sm:px-2.5">{h.title[1]}</span>
           </h1>
@@ -90,7 +90,7 @@ export function Hero() {
               >
                 <Image
                   src={logo.src}
-                  alt={logo.alt}
+                  alt={`Logotipo de ${logo.alt}`}
                   width={logo.w}
                   height={logo.height}
                   className={`${logo.h} w-auto object-contain`}
