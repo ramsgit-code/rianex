@@ -272,6 +272,10 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-24 · Vídeo de `reducir-gasto-tokens-ia-selectiva` rehecho con
+  grabaciones reales (58 s): el mismo pedido ficticio ejecutado dos veces en
+  un n8n aislado con un modelo local pequeño. Cifras medidas: 6 llamadas,
+  1.436 tokens y 107,5 s frente a 1 llamada, 107 tokens y 5,6 s.
 - 2026-11-24 · «IA para licitaciones» en `propuestas-licitaciones-con-ia`
   (ya en posición 4 para «licitaciones ia» y 6-8 para dos búsquedas de
   compra): title «IA para licitaciones: herramientas para redactar la oferta
