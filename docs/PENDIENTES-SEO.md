@@ -13,6 +13,8 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Dónde buscar clics (24-nov-2026).** En 90 días, el 89% de las impresiones sin marca está más allá de la posición 50 y solo el 1% en el top 10: las búsquedas genéricas («automatización de procesos con IA», «agentes de IA») no traerán clics en meses. Prioridad: búsquedas de compra donde ya salimos en el top 20 (licitaciones: «busco una herramienta para redactar ofertas técnicas…» en la 6-8), búsquedas entre la 4 y la 15, y artículos para búsquedas concretas en nichos con poca competencia en español (GoHighLevel en español, qué es n8n). El informe semanal de Rizzo ya elige así. Lo que mueve la búsqueda genérica son enlaces externos.
+- [x] **«Proyectos de IA a medida» vuelve al principio del título (24-nov-2026).** El #73 lo había cambiado a «Precio de…» y apartó la única búsqueda sin marca con volumen en el top 30 (101 impresiones en 90 días, posición 30). Título: «Proyectos de IA a medida para empresas: precio, plazos y ejemplos»; H2 con «en producción» (posición 13). Regla: al cambiar el título de una página con impresiones, la búsqueda que las trae va al principio. Medir en 2-3 semanas.
 - [x] **Grupo «automatización de procesos con IA» ordenado (24-nov-2026).** Página principal: por dónde empezar. Ejemplos y herramientas dejan de usar la frase principal en título, descripción y enlaces (se quedan con «ejemplos» e «IA para automatizar procesos / herramientas»); cuánto cuesta se fusiona en la página de precio con 301; los cuatro artículos enlazan al servicio. Medir en 4-6 semanas: la principal debería salir de la posición 80; si herramientas sigue sin búsquedas propias, fusionarla en la principal. Para el top 10 de la búsqueda genérica harán falta enlaces externos.
 - [x] ~~**Subir de la posición 80 los artículos de «automatizar procesos con IA».** Por dónde empezar, ejemplos, herramientas y cómo implementar suman ~2.800 impresiones en 90 días en la posición 77-82 y 0 clics (Search Console, 24-nov). Revisar si se canibalizan entre sí y decidir cuál es la página principal de cada búsqueda antes de reescribir.
 - [x] **Títulos y descripciones para clics (24-nov-2026).** Seis páginas que ya salen en primera página sin clics: cross-selling por WhatsApp (pos. 7), /en/diagnostico (pos. 5-6), caso Tribeca Media (pos. 8,6, casi todo búsquedas de la marca), n8n 3 (pos. 10), Clay/Treg/ColdIQ (pos. 4-5) y GTM engineering. Títulos con la palabra exacta que se busca y una promesa que el contenido cumple. Medir el CTR en 2-3 semanas.
@@ -278,6 +280,23 @@ Por orden de impacto:
   Gobierto Contratación, según su web), llamada al servicio, secciones cortas
   de buscar licitaciones, analizar el pliego y memoria técnica, y dos
   preguntas nuevas. Medir en 4-6 semanas.
+- 2026-11-24 · `reducir-gasto-tokens-ia-selectiva` reescrito con voz propia
+  (primera persona, sin giros de texto generado) y con una cuenta de ejemplo
+  en tokens (números redondos, rotulados como inventados). Mismos datos,
+  título, descripción, preguntas frecuentes y enlaces. Vídeo sustituido por
+  la versión genérica de 1:32 (sin pádel ni Eventos Barcelona).
+- 2026-11-24 · Artículo `reducir-gasto-tokens-ia-selectiva` («Cómo reducir
+  el gasto en tokens de IA: IA selectiva en 6 pasos»), con vídeo propio de
+  1:38 al principio. Cifras del S-1 y del folleto final de Anthropic
+  comprobadas en EDGAR (80 % de ingresos por consumo, NRR ~900 % sin Pro ni
+  Max, -40 % de coste por tarea de Opus 5.5 frente a Opus 5); la mediana de
+  NRR del software cotizado es 109 % (Clouded Judgement, 19-nov), no el
+  108 % del borrador. Caso propio: Eventos Barcelona (8 pasos, IA en 2).
+  Enlaza a coste de un agente, medir un proceso, cuándo compensa un agente,
+  cobrar por resultado y n8n vs Make vs Zapier. Medir en 3-4 semanas
+  «reducir tokens», «coste de tokens» y «tokenmaxxing»; si no entra nada,
+  decidir si se fusiona con coste de un agente en producción.
+
 - 2026-11-24 · Aviso de cookies como modal que bloquea la página hasta que
   el visitante acepta o rechaza (antes era una tarjeta pequeña que se podía
   ignorar, y sin decisión GA4 no mide). Rechazar sigue al mismo nivel y

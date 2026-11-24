@@ -1,0 +1,190 @@
+---
+title: "Cómo reducir el gasto en tokens de IA: IA selectiva en 6 pasos"
+description: "El tokenmaxxing sale caro. Qué dice el S-1 de Anthropic sobre el consumo de IA y cómo hacer que tus sistemas llamen al modelo solo donde aporta."
+date: "2026-11-24"
+tags: ["coste de la ia", "tokens", "agentes de ia", "n8n", "lean", "vídeo"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+video: "/videos/ia-selectiva.mp4"
+videoPoster: "/videos/ia-selectiva.jpg"
+videoDuration: "PT1M32S"
+---
+
+La mayoría de empresas que usan IA la usan para todo, y pagan por ello cada vez que la usan. En el sector ya tiene nombre, medio en broma: *tokenmaxxing*. Es dejar que un agente piense, pruebe y repita en bucle hasta resolver una tarea, sin mirar cuánto consume. Funciona, y hay trabajos para los que no conozco nada mejor. Para muchos otros es como contratar a un consultor sénior para que te archive las facturas.
+
+Anthropic, la empresa que hace Claude, empezó a cotizar el 19 de noviembre, y su folleto de salida a bolsa pone cifras a ese consumo. Las hemos contrastado una por una con el documento original, porque algunas de las que circulan estos días no coinciden con él. En este artículo cuento qué le dicen esas cifras a una empresa que ya usa IA y cómo montamos en Rianex sistemas que llaman al modelo solo en los pasos donde hace falta.
+
+## La respuesta corta
+
+La IA selectiva consiste en usar la IA para *construir* el sistema y dejar que el sistema funcione casi siempre con lógica normal: reglas, código o un flujo en n8n. El modelo entra solo en los pasos donde hay que entender lenguaje libre o decidir algo ambiguo. Los tokens se gastan una vez, al construir, y no en cada ejecución.
+
+Para llegar ahí aplicamos *lean*, el método con el que una fábrica elimina desperdicio, en seis pasos: mapear el proceso, medir el coste por tarea, separar lo determinista de lo ambiguo, elegir el modelo justo para cada paso, recortar el contexto y volver a medir. Hay una prueba rápida para saber si un proceso es candidato: si sus reglas se pueden escribir en un folio, no necesitas que un modelo las razone en cada ejecución.
+
+## Qué es el tokenmaxxing y por qué sale caro
+
+Un agente de IA trabaja en bucle: lee el contexto, decide, ejecuta, revisa el resultado y vuelve a empezar. Cada vuelta consume *tokens*, la unidad en la que se factura un modelo (lo que le mandas más lo que contesta). Y cada vuelta cuesta un poco más que la anterior, porque el agente arrastra todo lo que ya ha hecho.
+
+Para una tarea abierta, ese bucle es justo lo que quieres. El desperdicio aparece cuando se le encarga un trabajo repetitivo y predecible, como clasificar un correo por su remitente, validar un formulario o pasar datos del CRM a una hoja de cálculo. En *lean* se llama sobreproceso: hacer más trabajo del que el resultado necesita.
+
+Se paga de tres maneras. La más visible es el dinero: pagas por pensar algo que ya estaba pensado, y lo pagas en cada ejecución. La segunda es el tiempo, porque cada llamada al modelo son segundos y una regla tarda milisegundos. La tercera es la que a mí más me preocupa, la fiabilidad. Ante la misma entrada, un modelo puede contestar distinto y una regla de código no. Y cuantos más pasos encadena un agente, más fácil es que alguno se tuerza sin que nadie lo vea.
+
+### La cuenta, en tokens
+
+El precio por token cambia cada pocos meses, así que la cuenta que aguanta el paso del tiempo es la de tokens. Un ejemplo con números redondos, inventados para ver el orden de magnitud: un proceso de seis pasos que se ejecuta 300 veces al día.
+
+- Si el modelo interviene en los seis pasos y en cada llamada lee unos 4.000 tokens entre instrucciones, herramientas e historial, son 24.000 tokens de entrada por tarea: 7,2 millones al día.
+- Si entra en un solo paso, con el contexto recortado a 1.000 tokens, son 300.000 al día.
+
+Veinticuatro veces menos, sin cambiar de proveedor ni de modelo. Tus números serán otros, y por eso el segundo paso del método es medirlos.
+
+## Lo que dice el S-1 de Anthropic
+
+Anthropic presentó su folleto de salida a bolsa, el [Form S-1](https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm), ante la SEC el 26 de octubre de 2026. Lo que interesa a quien paga la factura cabe en una tabla:
+
+| Dato del S-1 | Cifra |
+|---|---|
+| Ingresos del primer semestre de 2026 | 16.286 M$ (1.163 M$ un año antes) |
+| Ingresos por consumo (pago por uso, medido en tokens) | 13.064 M$, el 80 % |
+| Ingresos por suscripción | 3.222 M$, el 20 % |
+| Retención neta de ingresos a 30 de septiembre de 2026 | ~900 % |
+| Gasto medio de los usuarios de Claude Enterprise que no usan Claude Code | Menos de 75 $ al mes |
+| Gasto del 5 % que más gasta entre los que sí usan Claude Code | Unas 20 veces esa cifra |
+
+El [folleto final](https://www.sec.gov/Archives/edgar/data/2130357/000162828026074944/anthropicpbc-424b4.htm), del 19 de noviembre, amplía los datos a nueve meses: 33.242 M$ de ingresos, de los que el 79 % sigue siendo consumo.
+
+La cifra del 900 % conviene leerla despacio, porque se está citando mal. No quiere decir que los clientes gasten «nueve veces más», sino unas nueve veces lo que gastaban: quienes ya pagaban hace un año gastaron en el tercer trimestre de 2026 unas nueve veces lo del mismo trimestre de 2025. Anthropic hace ese cálculo sin contar las suscripciones Pro y Max. Como referencia, la mediana de las empresas de software cotizadas está en el [109 %](https://cloudedjudgement.substack.com/p/clouded-judgement-111926-security); el 108 % que también circula es el dato de 2025.
+
+A una empresa que usa IA, estas cifras le dicen dos cosas.
+
+La primera, que el negocio de quien te vende el modelo es que lo uses más. Sería injusto decir que no ayuda a gastar menos: el propio S-1 cuenta que Claude Opus 5.5 redujo el coste por tarea en torno a un 40 % frente a Opus 5, entre bajada de precio y mejor eficiencia. Pero el uso crece más deprisa de lo que baja el precio. Si no fuera así, la retención no sería del 900 %.
+
+La segunda es de dónde sale ese crecimiento. El dato de Claude Code da una pista: entre los usuarios de empresa de este agente, que trabaja en bucle, el 5 % que más gasta paga unas veinte veces lo que gasta de media quien no lo usa. Tu empresa no es el cliente medio de Anthropic y nadie dice que tu factura vaya a multiplicarse por nueve. Pero si tus procesos dependen de agentes que razonan cada paso, va en la misma dirección: cada proceso nuevo que les encargues es consumo que se suma, todos los meses.
+
+## Qué es la IA selectiva
+
+La IA selectiva usa la IA para *construir* el sistema, y deja que el sistema funcione casi siempre con lógica normal. El modelo entra solo en los pasos que necesitan entender lenguaje o decidir algo ambiguo. Y cuando entra no ejecuta nada: devuelve un dato con formato fijo (un día, una franja, una categoría) y el flujo hace el resto.
+
+Un ejemplo: un club de pádel que recibe reservas por WhatsApp.
+
+| Paso | Con un agente para todo | Con IA selectiva |
+|---|---|---|
+| Llega un mensaje | El modelo lo lee y decide qué hacer | Botones y palabras clave lo dirigen: reservar, cancelar, horarios |
+| Consultar huecos libres | El modelo llama a la agenda | El flujo consulta la agenda |
+| Confirmar la reserva | El modelo redacta la confirmación | Plantilla con día, hora y pista |
+| Recordatorio del día antes | El modelo decide qué escribir | Tarea programada con plantilla |
+| "¿Hay algo el jueves después de comer para cuatro?" | El modelo | Un modelo pequeño lo convierte en día, franja y jugadores; el flujo busca el hueco |
+| Una queja o un caso raro | El modelo improvisa | Pasa a una persona |
+
+Con un agente para todo, cada mensaje pasa por el modelo. Con IA selectiva, un flujo en n8n o en el CRM gestiona horarios, disponibilidad, confirmaciones y recordatorios con reglas fijas, y el modelo solo interpreta los mensajes que no encajan en ninguna regla.
+
+Para quien reserva, las dos versiones son iguales: escribe y le contestan. Por dentro cambia lo que cuesta cada conversación, lo que tarda la respuesta y que el sistema hace siempre lo mismo ante la misma situación. Hay otra ventaja que no se valora hasta que algo falla. Cuando el modelo se equivoca, el error se queda en un paso y se ve, en vez de torcer una cadena de diez.
+
+### Un caso real: el flujo comercial de Eventos Barcelona
+
+En el sistema comercial que montamos para [Eventos Barcelona](/casos-de-exito/eventos-barcelona) hay ocho pasos entre el correo que entra y el seguimiento de la propuesta. La IA decide en dos:
+
+1. Limpiar el correo y descartar remitentes automáticos: regla.
+2. Buscar o crear el contacto en el CRM: regla.
+3. ¿Es un cliente, un artista o un proveedor?: IA.
+4. ¿Habla de un proyecto nuevo o de uno ya abierto?: IA.
+5. Abrir la oportunidad en su pipeline o añadir una nota: regla.
+6. Generar la propuesta con su marca: plantilla.
+7. Enviarla y registrarla: regla.
+8. Recordatorio a las 48 horas y aviso al comercial a las 72: regla.
+
+La propuesta sale en unos ocho minutos desde el final de la llamada, cuando antes tardaba de uno a tres días, y el tiempo de respuesta al cliente ha bajado un 85 %. El paso más vistoso, la propuesta con su marca, es precisamente uno de los que no usa ningún modelo: es una plantilla.
+
+## Cómo se hace: lean aplicado a la IA
+
+En una fábrica, *lean* significa eliminar el desperdicio (*muda*) de cada proceso. Soy ingeniero industrial y es el método que usamos en Rianex también con la IA: un token que no aporta nada al resultado es desperdicio, igual que un palé que se mueve dos veces. Son seis pasos.
+
+### 1. Mapear el proceso
+
+Dibuja cada paso del flujo, de la entrada a la salida, y marca en cuáles interviene hoy el modelo. Con el dibujo delante casi siempre aparecen pasos donde el modelo hace algo que ya estaba decidido: cambiar el formato de una fecha, copiar un campo, elegir una rama que depende de una sola casilla. Cómo sacar el mapa y los números en una semana lo contamos en [medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
+
+### 2. Medir el coste por tarea
+
+Calcula cuánto cuesta cada ejecución completa en tokens, en tiempo y en errores. La factura del mes no dice dónde se va el dinero. Hace falta el coste de cada reserva, cada propuesta o cada ticket, y para tenerlo hay que registrar cada llamada al modelo con su tarea, su modelo, sus tokens y su coste, como explicamos en [coste de un agente de IA en producción](/blog/coste-agente-de-ia-en-produccion). Sin ese número, lo demás es opinar.
+
+### 3. Separar lo determinista de lo ambiguo
+
+Para cada paso, una sola pregunta: ante la misma entrada, ¿la respuesta correcta es siempre la misma?
+
+Si lo es, el paso pasa a código o a un flujo en n8n. Ahí caen validar, calcular, mover datos y enviar recordatorios. Si hay que entender texto libre o decidir con criterio, se queda el modelo, y se le pide un dato concreto con formato fijo, no que ejecute la acción.
+
+De los seis, este es el paso que más ahorra. Una llamada que desaparece cuesta cero, y eso no lo iguala ningún modelo barato.
+
+### 4. Elegir el modelo justo para cada paso
+
+Una clasificación sencilla no necesita el modelo más potente. Usa modelos pequeños y baratos donde basten y reserva el grande para lo difícil, con una regla que decida cuál entra en cada caso. Es el patrón con el que Revolut dice haber recortado en torno a un 90 % su gasto en IA para programar, como contamos en [cobrar la IA por resultado](/blog/cobrar-la-ia-por-resultado). En Eventos Barcelona, los dos pasos de IA los resuelve un modelo abierto que corre en un servidor propio, sin coste por uso.
+
+Eso sí, compara el coste por respuesta correcta y no el precio por token. Un modelo barato que falla mucho no es barato.
+
+### 5. Recortar el contexto y reutilizar
+
+Envía al modelo solo la información que necesita, no el historial entero. Coloca delante la parte fija de las instrucciones para aprovechar la caché del proveedor, que cobra mucho menos lo que se repite en cada llamada. Guarda las respuestas a las preguntas que se repiten. Y lo que no corre prisa, mándalo por lotes, que los proveedores cobran a mitad de precio.
+
+El propio S-1 de Anthropic describe dos palancas de este tipo en sus modelos: un control de esfuerzo, para decidir en cada petición cuánto razona el modelo, y una búsqueda de herramientas que carga solo las que hacen falta para la tarea en vez de mandarlas todas en cada llamada.
+
+### 6. Volver a medir y estandarizar
+
+Compara antes y después con las mismas cuatro medidas:
+
+| Métrica | Qué te dice |
+|---|---|
+| Coste por tarea completa | Lo que pagas de verdad por cada reserva, propuesta o ticket |
+| Porcentaje de ejecuciones que llegan al modelo | Cuánto del proceso sigue "pensando" |
+| Tiempo de respuesta | Si el cliente nota la diferencia |
+| Errores y pasos a una persona | Si el ahorro se ha comido la calidad |
+
+Lo que funciona se convierte en plantilla para el siguiente proceso. Es la mejora continua de una planta, aplicada a un flujo.
+
+## Cuándo sí compensa un agente
+
+Nada de esto va contra los agentes. En Rianex programamos con uno todos los días y no lo cambiaríamos por un flujo. Un agente compensa cuando la tarea cambia cada vez y equivocarse sale más caro que el consumo. Lo desarrollamos en [agentes de IA para empresas: cuándo compensan](/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+| Situación | Mejor opción |
+|---|---|
+| Proceso repetitivo con reglas claras (reservas, altas en el CRM, recordatorios) | Flujo determinista e IA puntual |
+| Mucho volumen y poco valor por ejecución | Flujo determinista y modelo pequeño |
+| Entender textos libres de clientes | Modelo solo en ese paso |
+| Tarea abierta y distinta cada vez (investigar, programar, analizar) | Agente |
+| Prototipo para validar una idea | Agente; se optimiza después |
+
+La última fila tiene trampa. Para validar una idea, un agente que lo hace todo es lo más rápido de montar, y está bien empezar así. El error es dejarlo como está cuando el proceso ya se repite cien veces al día.
+
+## Preguntas frecuentes
+
+### ¿Qué es el tokenmaxxing?
+
+Es dejar que un agente de IA piense, pruebe y repita en bucle hasta resolver una tarea, sin mirar cuánto consume. El término se usa medio en broma en el sector. Tiene sentido en tareas abiertas, pero en procesos repetitivos se paga cada vez por razonar algo que ya estaba decidido.
+
+### ¿Qué es la IA selectiva?
+
+Es diseñar los sistemas para que funcionen casi siempre con reglas, código o flujos, y llamen al modelo de IA solo en los pasos que necesitan entender lenguaje libre o decidir algo ambiguo. La IA se usa para construir el sistema, no para ejecutar cada paso.
+
+### ¿Cuánto ingresa Anthropic por el consumo de su IA?
+
+Según su S-1, en el primer semestre de 2026 ingresó 16.286 millones de dólares, de los que 13.064 millones (el 80 %) vinieron de cobrar por consumo, medido en tokens, y 3.222 millones de suscripciones. En los nueve primeros meses del año, según el folleto final, fueron 33.242 millones, el 79 % por consumo.
+
+### ¿Qué significa una retención neta de ingresos del 900 %?
+
+Que los clientes que ya pagaban a Anthropic hace un año gastaron en el tercer trimestre de 2026 unas nueve veces lo que gastaban en el mismo trimestre de 2025. Anthropic la calcula sin contar a los suscriptores de Claude Pro y Max. La mediana de las empresas de software cotizadas ronda el 109 %.
+
+### ¿Usar menos el modelo no empeora el resultado?
+
+En los pasos deterministas pasa lo contrario: una regla da siempre la misma respuesta correcta y un modelo no. Donde hace falta entender lenguaje, el modelo se queda. Lo que se compara antes y después es el coste por tarea y la tasa de error, no el número de llamadas.
+
+### ¿Se puede aplicar a un agente que ya está en marcha?
+
+Sí, y suele ser donde más se nota. Se registran sus llamadas durante una o dos semanas, se ve qué pasos se repiten con la misma respuesta y esos pasan a reglas. El agente se queda con las conversaciones que lo necesitan.
+
+### ¿Con qué herramientas se monta?
+
+Con las que ya tenga la empresa: un flujo en n8n o Make, el propio CRM (GoHighLevel, HubSpot) o código a medida para la lógica fija, y un modelo de Anthropic, OpenAI o Google en los pasos de lenguaje. Comparamos las tres plataformas de flujos en [n8n vs Make vs Zapier](/blog/n8n-vs-make-vs-zapier).
+
+## ¿Cuánto te cuesta cada tarea de IA?
+
+Si tu empresa ya usa IA en atención al cliente, ventas u operaciones, lo primero que miraría es cuánto cuesta cada tarea y qué parte de ese coste paga algo que ya estaba decidido. En Rianex diseñamos automatizaciones con IA selectiva: revisamos tus flujos actuales, medimos el coste por tarea y te proponemos qué pasar a lógica fija y dónde mantener el modelo. Escríbeme a [hola@rianex.es](mailto:hola@rianex.es) o reserva la [consultoría gratuita](/diagnostico) y lo vemos con tus números.
