@@ -272,6 +272,11 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-24 · `reducir-gasto-tokens-ia-selectiva` reescrito con voz propia
+  (primera persona, sin giros de texto generado) y con una cuenta de ejemplo
+  en tokens (números redondos, rotulados como inventados). Mismos datos,
+  título, descripción, preguntas frecuentes y enlaces. Vídeo sustituido por
+  la versión genérica de 1:32 (sin pádel ni Eventos Barcelona).
 - 2026-11-24 · Artículo `reducir-gasto-tokens-ia-selectiva` («Cómo reducir
   el gasto en tokens de IA: IA selectiva en 6 pasos»), con vídeo propio de
   1:38 al principio. Cifras del S-1 y del folleto final de Anthropic
