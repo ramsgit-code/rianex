@@ -37,7 +37,7 @@ export function LandingView({ slug }: { slug: string }) {
     <div className="bg-background">
       <LandingHeader />
       <Hero h1={l.h1} lead={l.lead} outcomes={d.outcomes} video={video} flow={d.flow} />
-      <ProofBand casos={casos} />
+      <ProofBand casos={casos} line={l.proofLine} />
 
       {/* Es para ti si */}
       <section className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12">

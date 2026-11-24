@@ -18,11 +18,13 @@ import {
 } from "@/components/landing/Partes";
 
 // Landing de campaña de un nicho (/l/<nicho>): agencias de marketing, eventos,
-// clínicas, inmobiliarias y negocios con cita. Para Meta, LinkedIn y outbound:
-// quien llega se reconoce en el titular, en sus problemas y en el caso.
+// clínicas, inmobiliarias y negocios con cita, y las de control con cámaras
+// (/l/camaras-ia-<sector>). Para Meta, LinkedIn y outbound: quien llega se
+// reconoce en el titular, en sus problemas y en el caso.
 //
-// Orden: titular → prueba → ¿te suena? (problemas) → qué automatizamos →
-// así funciona → cuidado (datos de salud, solo clínicas) → servicios y cómo
+// Orden: titular → prueba → ¿te suena? (problemas) → qué automatizamos (o qué
+// medimos) → así funciona → cuidado (datos de salud en clínicas, privacidad en
+// las de cámaras) → servicios y cómo
 // empezamos → casos → formulario → preguntas → cierre amarillo.
 
 export function NichoView({ slug }: { slug: string }) {
@@ -58,7 +60,7 @@ export function NichoView({ slug }: { slug: string }) {
       <section className="bg-white">
         <div className="tape" />
         <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
-          <H2>Qué automatizamos</H2>
+          <H2>{n.automationsTitle ?? "Qué automatizamos"}</H2>
           <ol className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {n.automations.map((a, i) => (
               <li key={a.title} className="flex flex-col border border-border bg-background">

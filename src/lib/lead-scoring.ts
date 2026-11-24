@@ -5,9 +5,9 @@ export type LeadTier = "cold" | "warm" | "hot" | "premium";
 // Objetivos del formulario que piden automatizar un proceso: es el cliente
 // ideal de la web (empresas que quieren automatizar procesos con IA). Llegan
 // como el texto de la opcion en el idioma del formulario, asi que se comparan
-// por posicion en las dos listas.
+// por posicion en las dos listas. El 9 es el control con camaras e IA.
 const OBJETIVOS_AUTOMATIZACION = new Set<string>(
-  [0, 1, 5, 6].flatMap((i) => [formContent.es.opts.objetivo[i], formContent.en.opts.objetivo[i]])
+  [0, 1, 5, 6, 9].flatMap((i) => [formContent.es.opts.objetivo[i], formContent.en.opts.objetivo[i]])
 );
 
 interface LeadData {

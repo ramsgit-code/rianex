@@ -91,7 +91,7 @@ export async function GET() {
 
   secciones.push(`## Páginas principales
 - [Inicio](${BASE_URL}/): qué automatizamos y cómo
-- [Servicios](${BASE_URL}/servicios): los ocho servicios en detalle
+- [Servicios](${BASE_URL}/servicios): todos los servicios en detalle
 - [Soluciones por sector](${BASE_URL}/soluciones): ejemplos en agencias de marketing, eventos, clínicas y formación
 - [Casos de éxito](${BASE_URL}/casos-de-exito): implantaciones reales con su resultado
 - [Testimonios](${BASE_URL}/testimonios): opiniones de clientes
