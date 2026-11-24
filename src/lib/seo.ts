@@ -119,9 +119,9 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
         "Consultoría gratuita de 30 minutos. Analizamos tus procesos y te decimos qué automatizar con IA, integrar o migrar primero.",
     },
     en: {
-      title: "Free process automation assessment (30 min)",
+      title: "Free Process Automation Assessment: 30-Minute Expert Review",
       description:
-        "Book a free 30-minute process automation assessment. We review how your team works and tell you what to automate with AI, integrate or migrate first.",
+        "Book a free 30-minute process automation assessment: we map how your team works and tell you what to automate first, with a rough estimate of time and cost.",
     },
   },
 };

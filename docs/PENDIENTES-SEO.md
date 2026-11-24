@@ -13,6 +13,9 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Subir de la posición 80 los artículos de «automatizar procesos con IA».** Por dónde empezar, ejemplos, herramientas y cómo implementar suman ~2.800 impresiones en 90 días en la posición 77-82 y 0 clics (Search Console, 24-nov). Revisar si se canibalizan entre sí y decidir cuál es la página principal de cada búsqueda antes de reescribir.
+- [x] **Títulos y descripciones para clics (24-nov-2026).** Seis páginas que ya salen en primera página sin clics: cross-selling por WhatsApp (pos. 7), /en/diagnostico (pos. 5-6), caso Tribeca Media (pos. 8,6, casi todo búsquedas de la marca), n8n 3 (pos. 10), Clay/Treg/ColdIQ (pos. 4-5) y GTM engineering. Títulos con la palabra exacta que se busca y una promesa que el contenido cumple. Medir el CTR en 2-3 semanas.
+
 - [ ] **Control con cámaras e IA: lo que queda abierto.** El 24-nov
       validaste el plazo (3 a 6 semanas), el precio (instalación más cuota
       mensual), que la prueba con grabaciones va aparte de la consultoría y
