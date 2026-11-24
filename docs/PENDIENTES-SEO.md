@@ -272,6 +272,18 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-24 · Artículo `reducir-gasto-tokens-ia-selectiva` («Cómo reducir
+  el gasto en tokens de IA: IA selectiva en 6 pasos»), con vídeo propio de
+  1:38 al principio. Cifras del S-1 y del folleto final de Anthropic
+  comprobadas en EDGAR (80 % de ingresos por consumo, NRR ~900 % sin Pro ni
+  Max, -40 % de coste por tarea de Opus 5.5 frente a Opus 5); la mediana de
+  NRR del software cotizado es 109 % (Clouded Judgement, 19-nov), no el
+  108 % del borrador. Caso propio: Eventos Barcelona (8 pasos, IA en 2).
+  Enlaza a coste de un agente, medir un proceso, cuándo compensa un agente,
+  cobrar por resultado y n8n vs Make vs Zapier. Medir en 3-4 semanas
+  «reducir tokens», «coste de tokens» y «tokenmaxxing»; si no entra nada,
+  decidir si se fusiona con coste de un agente en producción.
+
 - 2026-11-24 · Aviso de cookies como modal que bloquea la página hasta que
   el visitante acepta o rechaza (antes era una tarjeta pequeña que se podía
   ignorar, y sin decisión GA4 no mide). Rechazar sigue al mismo nivel y
