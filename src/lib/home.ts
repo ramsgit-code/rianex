@@ -49,6 +49,8 @@ type HomeCopy = {
       points: string[];
       cta?: string;
     }[];
+    /** Enlaces internos bajo los tres pasos: servicios, casos y guías. */
+    links: { href: string; label: string }[];
   };
   services: {
     title: string;
@@ -81,8 +83,8 @@ type HomeCopy = {
 
 const es: HomeCopy = {
   hero: {
-    title: ["Más clientes,", "sin más horas."],
-    lead: "Somos una agencia de AI Workflow & Business Automation: automatizamos con IA los flujos de trabajo y los procesos de tu empresa. Montamos agentes y automatizaciones que contestan a cada cliente, llenan la agenda, hacen el seguimiento comercial y se encargan del papeleo, y formamos a tu equipo para usar la IA en su día a día.",
+    title: ["Agencia de automatización con IA:", "más clientes, sin más horas."],
+    lead: "Somos una agencia de automatización con IA (AI Workflow & Business Automation) con sede en Ávila: automatizamos los flujos de trabajo y los procesos de tu empresa. Montamos agentes y automatizaciones que contestan a cada cliente, llenan la agenda, hacen el seguimiento comercial y se encargan del papeleo, y formamos a tu equipo para usar la IA en su día a día.",
     ctaPrimary: "Pide tu consultoría gratuita",
     ctaSecondary: "Ver servicios",
     note: "30 minutos · Sin coste ni compromiso",
@@ -109,7 +111,7 @@ const es: HomeCopy = {
     logosLabel: "Empresas con sistema activo",
   },
   whatWeDo: {
-    title: "Qué hacemos",
+    title: "Automatización de procesos con IA: qué hacemos",
     lead: "Automatizamos con IA el trabajo que tu equipo repite cada semana —atender, vender, agendar, facturar y el papeleo— y nos quedamos hasta que se nota en la agenda, en las ventas y en las horas. Siempre en este orden:",
     steps: [
       {
@@ -147,14 +149,20 @@ const es: HomeCopy = {
         ],
       },
     ],
+    links: [
+      { href: "/servicios", label: "Servicios de automatización con IA" },
+      { href: "/casos-de-exito", label: "Casos de éxito de automatización" },
+      { href: "/blog/automatizar-procesos-con-ia-por-donde-empezar", label: "Automatización de procesos con IA: por dónde empezar" },
+      { href: "/blog/agencia-automatizacion-vs-freelance-vs-equipo-interno", label: "Agencia de automatización, freelance o equipo interno" },
+    ],
   },
   services: {
-    title: "Servicios",
+    title: "Servicios de automatización con IA",
     lead: "Ocho servicios para automatizar lo que más se repite, uno para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
     all: "Ver todos los servicios en detalle",
   },
   audience: {
-    title: "Para quién trabajamos",
+    title: "Automatización con IA para empresas: para quién trabajamos",
     lead: "Pymes y empresas medianas de España y Latinoamérica que atienden, dan cita y venden cada día: agencias de marketing, empresas de eventos, clínicas y hospitales, inmobiliarias y negocios con cita previa. El sector importa menos que el proceso: si una tarea es frecuente, sigue reglas y fallar cuesta dinero, se puede automatizar.",
     profilesTitle: "Quién nos llama",
     profiles: [
@@ -233,7 +241,7 @@ const es: HomeCopy = {
     },
   },
   cases: {
-    title: "Resultados reales",
+    title: "Resultados reales de automatización",
     lead: "Empresas que ya lo notan en sus números.",
     cta: "Ver todos los casos",
     read: "Leer el caso",
@@ -255,7 +263,7 @@ const es: HomeCopy = {
 
 const en: HomeCopy = {
   hero: {
-    title: ["More clients,", "no extra hours."],
+    title: ["AI automation agency:", "more clients, no extra hours."],
     lead: "We are an AI Workflow & Business Automation agency: we use AI to automate your company's workflows and business processes. We build agents and automations that answer every customer, fill your calendar, run sales follow-up and handle the paperwork, and we train your team to use AI day to day.",
     ctaPrimary: "Book your free consultation",
     ctaSecondary: "See services",
@@ -283,7 +291,7 @@ const en: HomeCopy = {
     logosLabel: "Companies with a live system",
   },
   whatWeDo: {
-    title: "What we do",
+    title: "AI process automation: what we do",
     lead: "We use AI to automate the work your team repeats every week —answering customers, selling, booking, invoicing and the paperwork— and we stay until it shows in your calendar, your sales and your hours. Always in this order:",
     steps: [
       {
@@ -321,9 +329,14 @@ const en: HomeCopy = {
         ],
       },
     ],
+    links: [
+      { href: "/servicios", label: "AI automation services" },
+      { href: "/casos-de-exito", label: "AI automation case studies" },
+      { href: "/blog/automatizar-procesos-con-ia-por-donde-empezar", label: "AI process automation: where to start (in Spanish)" },
+    ],
   },
   services: {
-    title: "Services",
+    title: "AI automation services",
     lead: "Eight services to automate what repeats most, one to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
     all: "See every service in detail",
   },

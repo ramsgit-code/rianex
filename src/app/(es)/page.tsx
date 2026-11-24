@@ -23,9 +23,12 @@ const SITE_URL = "https://www.rianex.es";
 
 const businessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": `${SITE_URL}/#organization`,
   name: "Rianex",
+  alternateName: "Rianex, agencia de automatización con IA",
   url: SITE_URL,
+  serviceType: "Agencia de automatización con IA",
   image: `${SITE_URL}/og.png`,
   slogan: "AI Workflow & Business Automation",
   description:
@@ -41,7 +44,23 @@ const businessJsonLd = {
   address: {
     "@type": "PostalAddress",
     addressLocality: "Ávila",
+    addressRegion: "Castilla y León",
     addressCountry: "ES",
+  },
+  location: {
+    "@type": "Place",
+    name: "Rianex, Ávila (España)",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Ávila",
+      addressRegion: "Castilla y León",
+      addressCountry: "ES",
+    },
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios de automatización con IA",
+    url: `${SITE_URL}/servicios`,
   },
   logo: `${SITE_URL}/logos/rianex-mark.png`,
   knowsAbout: [
