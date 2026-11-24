@@ -13,6 +13,25 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Control con cámaras e IA (24-nov): validar lo que escribí yo.**
+      Servicio nuevo en `/servicios/control-con-camaras-ia`, cinco landings
+      (`/l/camaras-ia-restaurantes`, `-parkings`, `-tiendas`, `-almacenes`,
+      `-talleres`), la de Google Ads `/l/control-con-camaras-ia`, el vídeo
+      (simulación en un restaurante) y el artículo
+      `/blog/camaras-con-ia-para-controlar-tu-negocio`. Sin tu OK siguen
+      siendo supuestos míos: el **plazo** (3 a 6 semanas), la **forma de
+      precio** (instalación más cuota mensual, sin cifras), la **prueba con
+      grabaciones del cliente** como primer paso (¿la cobras o va dentro de la
+      consultoría?), procesar **en un equipo en el local** siempre que se
+      pueda (¿qué hardware y qué modelo vas a usar?) y las marcas de cámara
+      que citamos (Hikvision, Dahua, Axis, Uniview). Que un asesor de
+      protección de datos lea las FAQ legales (art. 22 y 89 de la LOPDGDD,
+      evaluación de impacto, matrículas) antes de gastar en anuncios. No hay
+      caso propio: en cuanto haya un piloto, cambiamos la banda de prueba de
+      las landings por el caso. Las landings son `noindex` como el resto de
+      `/l/`; si quieres que posicionen por sí mismas ("cámaras con IA para
+      restaurantes"), las pasamos a `/soluciones/` con versión en inglés.
+
 - [ ] **¿El diagnóstico gratis lleva entregable por escrito?** (radar del
       23-nov, referencia Noah). Si después de cada llamada de 30 minutos vas
       a mandar en 24 horas una página con los 2-3 procesos a automatizar
@@ -240,6 +259,17 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-24 · Control con cámaras e IA: ficha del servicio en castellano e
+  inglés (con "Dónde se usa" por sector), grupo propio en `/servicios` y en la
+  home con enlaces a las landings, cinco landings por sector con "Qué
+  medimos" y privacidad, landing de Google Ads, opción nueva en el objetivo
+  del formulario (puntúa como automatización), contexto en el chat de
+  precualificación, `llms.txt` y metadatos de `/servicios`. Vídeo de 1:29
+  (simulación: cámara de la terraza, aviso al encargado y panel del
+  gerente) en la ficha, la landing de Google Ads y la de restaurantes, con
+  captura del panel en esta última. Artículo
+  `camaras-con-ia-para-controlar-tu-negocio` con el vídeo.
 
 - 2026-11-23 · Radar del 23-nov (cifras comprobadas en fuente primaria):
   "ejemplos de automatización" pasa de 12 a 15 (presupuesto cerrado en un

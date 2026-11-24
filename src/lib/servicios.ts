@@ -1042,7 +1042,7 @@ export const SERVICIOS: Record<string, Servicio> = {
 
   "control-con-camaras-ia": {
     price: "quote",
-    posts: ["rgpd-y-automatizacion-con-ia", "medir-un-proceso-antes-de-automatizarlo"],
+    posts: ["camaras-con-ia-para-controlar-tu-negocio", "rgpd-y-automatizacion-con-ia", "medir-un-proceso-antes-de-automatizarlo"],
     es: {
       seoTitle: "Cámaras con IA para controlar tu negocio: mesas, plazas y colas",
       metaDescription:
