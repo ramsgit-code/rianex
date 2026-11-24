@@ -1042,7 +1042,7 @@ export const SERVICIOS: Record<string, Servicio> = {
 
   "control-con-camaras-ia": {
     price: "quote",
-    posts: ["camaras-con-ia-para-controlar-tu-negocio", "rgpd-y-automatizacion-con-ia", "medir-un-proceso-antes-de-automatizarlo"],
+    posts: ["camaras-con-ia-para-controlar-tu-negocio", "camaras-con-ia-en-supermercados", "rgpd-y-automatizacion-con-ia", "medir-un-proceso-antes-de-automatizarlo"],
     es: {
       seoTitle: "Cámaras con IA para controlar tu negocio: mesas, plazas y colas",
       metaDescription:
@@ -1091,7 +1091,12 @@ export const SERVICIOS: Record<string, Servicio> = {
           href: "/l/camaras-ia-parkings",
         },
         {
-          title: "Tiendas y supermercados",
+          title: "Supermercados",
+          desc: "Coches que entran al parking por hora, cuánto dura la compra, aviso para abrir caja antes de la cola y limpieza según el uso.",
+          href: "/l/camaras-ia-supermercados",
+        },
+        {
+          title: "Tiendas",
           desc: "Colas en caja y mostrador, visitantes por hora, aforo y cuántos de los que entran acaban comprando.",
           href: "/l/camaras-ia-tiendas",
         },
@@ -1104,6 +1109,11 @@ export const SERVICIOS: Record<string, Servicio> = {
           title: "Talleres mecánicos",
           desc: "Ocupación de cada elevador, horas reales de cada coche frente a las previstas y clientes esperando en recepción.",
           href: "/l/camaras-ia-talleres",
+        },
+        {
+          title: "Limpieza",
+          desc: "Usos por zona contados desde fuera, derrames y papeleras llenas avisados al momento y limpieza según el uso, no a horario fijo.",
+          href: "/l/camaras-ia-limpieza",
         },
         {
           title: "Y también",
@@ -1172,9 +1182,11 @@ export const SERVICIOS: Record<string, Servicio> = {
       uses: [
         { title: "Restaurants", desc: "How long each table waits to be served, how long it takes to clear and how long each meal lasts, by table and time slot." },
         { title: "Car parks", desc: "Free spaces in real time, vehicles that overstay, misused reserved spaces and queues at the barrier." },
-        { title: "Shops and supermarkets", desc: "Queues at tills and counters, visitors per hour, capacity and how many of those who come in end up buying." },
+        { title: "Supermarkets", desc: "Cars entering the car park per hour, how long the shop takes, an alert to open a till before the queue forms and cleaning based on use." },
+        { title: "Shops", desc: "Queues at tills and counters, visitors per hour, capacity and how many of those who come in end up buying." },
         { title: "Warehouses and logistics", desc: "Time each lorry spends at the dock, blocked aisles and emergency exits, and hi-vis vests or helmets where they are required." },
         { title: "Car repair shops", desc: "Occupancy of each lift, actual hours per car against the estimate and customers waiting at reception." },
+        { title: "Cleaning", desc: "Use per zone counted from outside, spills and full bins flagged at once, and cleaning based on use, not a fixed schedule." },
         { title: "And also", desc: "Gyms (capacity per room), hotels (reception and buffet), petrol stations and car washes (queues) and shopping centres (footfall by zone)." },
       ],
       faqs: [

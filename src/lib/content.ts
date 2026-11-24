@@ -375,9 +375,11 @@ export const content = {
           sectors: [
             { label: "Restaurantes", href: "/l/camaras-ia-restaurantes" },
             { label: "Parkings", href: "/l/camaras-ia-parkings" },
-            { label: "Tiendas y supermercados", href: "/l/camaras-ia-tiendas" },
+            { label: "Supermercados", href: "/l/camaras-ia-supermercados" },
+            { label: "Tiendas", href: "/l/camaras-ia-tiendas" },
             { label: "Almacenes y logística", href: "/l/camaras-ia-almacenes" },
             { label: "Talleres mecánicos", href: "/l/camaras-ia-talleres" },
+            { label: "Limpieza", href: "/l/camaras-ia-limpieza" },
           ],
         },
         {
@@ -545,7 +547,7 @@ export const content = {
           tagline: "Tus cámaras miden esperas, colas y ocupación, y avisan.",
           problem:
             "Tienes cámaras, pero solo se miran cuando ya ha pasado algo: nadie sabe cuánto espera una mesa, cuántas plazas quedan libres o cuánto dura la cola.",
-          forWho: "Restaurantes, parkings, tiendas, almacenes y talleres que quieren medir y controlar la operación con las cámaras que ya tienen.",
+          forWho: "Restaurantes, parkings, supermercados, tiendas, almacenes, talleres y servicios de limpieza que quieren medir y controlar la operación con las cámaras que ya tienen.",
           deliverables: [
             "Prueba con las grabaciones de tus cámaras",
             "Zonas y reglas por mesa, plaza, caja o muelle",
@@ -1127,9 +1129,11 @@ export const content = {
           sectors: [
             { label: "Restaurants" },
             { label: "Car parks" },
-            { label: "Shops and supermarkets" },
+            { label: "Supermarkets" },
+            { label: "Shops" },
             { label: "Warehouses and logistics" },
             { label: "Car repair shops" },
+            { label: "Cleaning" },
           ],
         },
         {
@@ -1297,7 +1301,7 @@ export const content = {
           tagline: "Your cameras measure waits, queues and occupancy, and send alerts.",
           problem:
             "You have cameras, but they only get checked after something has happened: nobody knows how long a table waits, how many spaces are free or how long the queue is.",
-          forWho: "Restaurants, car parks, shops, warehouses and repair shops that want to measure and monitor operations with the cameras they already have.",
+          forWho: "Restaurants, car parks, supermarkets, shops, warehouses, repair shops and cleaning services that want to measure and monitor operations with the cameras they already have.",
           deliverables: [
             "Trial with footage from your cameras",
             "Zones and rules per table, space, till or dock",
