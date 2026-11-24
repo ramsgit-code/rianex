@@ -71,7 +71,7 @@ export const LANDINGS: Record<string, Landing> = {
     h1: "Tus cámaras, midiendo y avisando por ti.",
     lead: "Conectamos las cámaras que ya tienes a una IA que mide esperas, colas y ocupación por zona, y avisa al encargado en cuanto algo se pasa de tiempo. Sin reconocimiento facial.",
     proofLine:
-      "Antes de instalar nada, probamos con unas horas de grabación de tus propias cámaras y te enseñamos qué se puede medir y con qué fiabilidad.",
+      "Sin comprar equipos: antes de instalar nada, una prueba con unas horas de grabación de tus propias cámaras para ver qué se puede medir y con qué fiabilidad.",
   },
   "kit-ia": {
     title: "Kit IA para empresas",
