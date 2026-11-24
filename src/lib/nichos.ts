@@ -44,6 +44,8 @@ export type Nicho = {
   /** Frase de la banda de prueba cuando el nicho no tiene caso propio. */
   proofLine?: string;
   video?: Video;
+  /** Captura de lo que ve quien dirige el negocio (el panel de control con cámaras). */
+  panel?: { title: string; lead: string; src: string; alt: string; caption: string };
   care?: { title: string; items: string[] };
   timeline: string;
   faqs: Faq[];
@@ -321,6 +323,17 @@ export const NICHOS: Record<string, Nicho> = {
     services: ["control-con-camaras-ia", "automatizacion-procesos-ia"],
     cases: [],
     proofLine: PROOF_CAMARAS,
+    video: {
+      ...SERVICIO_VIDEO["control-con-camaras-ia"],
+      caption: "Simulación con un restaurante y datos ficticios: la cámara, el aviso y el panel del gerente.",
+    },
+    panel: {
+      title: "Lo que ve el gerente",
+      lead: "Un panel web con el plano del local en directo, la espera media hasta atender, las mesas sin recoger, lo que dura cada comida y los avisos de la noche. Y la espera por franja horaria, para ajustar los turnos.",
+      src: "/videos/panel-gerente-restaurante.jpg",
+      alt: "Panel de control de sala de un restaurante: plano con el estado de cada mesa, indicadores de espera, mesas sin recoger y duración de la comida, avisos de la noche y espera media por franja horaria.",
+      caption: "Ejemplo con datos ficticios. El panel se adapta a lo que quieras medir.",
+    },
     care: cuidadoCamaras(),
     timeline: PLAZO_CAMARAS,
     faqs: [

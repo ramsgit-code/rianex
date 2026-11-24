@@ -36,7 +36,13 @@ export function LandingView({ slug }: { slug: string }) {
   return (
     <div className="bg-background">
       <LandingHeader />
-      <Hero h1={l.h1} lead={l.lead} outcomes={d.outcomes} video={video} flow={d.flow} />
+      <Hero
+        h1={l.h1}
+        lead={l.lead}
+        outcomes={d.outcomes}
+        video={video && { ...video, caption: video.note?.es }}
+        flow={d.flow}
+      />
       <ProofBand casos={casos} line={l.proofLine} />
 
       {/* Es para ti si */}

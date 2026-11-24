@@ -238,8 +238,10 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
                   >
                     <source src={video.src} type="video/mp4" />
                   </video>
-                  {(video.demo || t.videoNote) && (
-                    <p className="mt-2 text-xs text-muted">{video.demo ? t.videoDemo : t.videoNote}</p>
+                  {(video.note || video.demo || t.videoNote) && (
+                    <p className="mt-2 text-xs text-muted">
+                      {video.note ? video.note[lang] : video.demo ? t.videoDemo : t.videoNote}
+                    </p>
                   )}
                 </div>
                 <div className="border-2 border-ink bg-white p-6 sm:p-7">
