@@ -269,6 +269,12 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-24 · Aviso de cookies como modal que bloquea la página hasta que
+  el visitante acepta o rechaza (antes era una tarjeta pequeña que se podía
+  ignorar, y sin decisión GA4 no mide). Rechazar sigue al mismo nivel y
+  tamaño que Aceptar (guía de la AEPD). En /cookies y /privacidad no
+  bloquea. A vigilar en GA4: subida de sesiones medidas desde esta fecha.
+
 - 2026-11-24 · Artículo `proyectos-de-ia-a-medida-ejemplos-plazos-precio`
   reescrito para intención de compra: title y meta con el rango de precio
   y plazo del propio texto, resumen al principio, dos llamadas a

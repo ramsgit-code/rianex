@@ -91,16 +91,21 @@ a {
   }
 }
 
-/* El aviso de cookies es fixed y tapaba el titular en escritorio y el boton
-   principal en movil. Mientras esta en pantalla le reservamos su altura al
-   final de la pagina para que no se superponga a nada. */
+/* Aviso de cookies. En casi toda la web es un modal que bloquea hasta que el
+   visitante elige: la pagina de detras no hace scroll. En /cookies y
+   /privacidad va abajo sin bloquear y le reservamos su altura al final de la
+   pagina para que no tape el texto de la politica. */
+:root[data-cookie-banner="blocking"] {
+  overflow: hidden;
+}
+
 :root[data-cookie-banner="visible"] body {
-  padding-bottom: 8.5rem;
+  padding-bottom: 17rem;
 }
 
 @media (min-width: 640px) {
   :root[data-cookie-banner="visible"] body {
-    padding-bottom: 6.5rem;
+    padding-bottom: 15rem;
   }
 }
 
