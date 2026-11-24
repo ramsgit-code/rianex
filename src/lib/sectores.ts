@@ -308,7 +308,7 @@ export const SECTORES: Record<string, Sector> = {
     posts: [
       "propuestas-comerciales-automaticas",
       "automatizar-procesos-con-ia-por-donde-empezar",
-      "cuanto-cuesta-automatizar-un-proceso-con-ia",
+      "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
     ],
     es: {
       seoTitle: "Automatización para empresas de eventos",

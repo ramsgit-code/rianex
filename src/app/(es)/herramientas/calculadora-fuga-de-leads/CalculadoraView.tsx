@@ -98,7 +98,7 @@ export const CALCULADORA_COPY = {
 } as const;
 
 const POSTS = [
-  "cuanto-cuesta-automatizar-un-proceso-con-ia",
+  "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
   "como-cualificar-leads-automaticamente",
   "automatizar-procesos-con-ia-por-donde-empezar",
 ];

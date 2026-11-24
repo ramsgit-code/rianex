@@ -13,7 +13,8 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Subir de la posición 80 los artículos de «automatizar procesos con IA».** Por dónde empezar, ejemplos, herramientas y cómo implementar suman ~2.800 impresiones en 90 días en la posición 77-82 y 0 clics (Search Console, 24-nov). Revisar si se canibalizan entre sí y decidir cuál es la página principal de cada búsqueda antes de reescribir.
+- [x] **Grupo «automatización de procesos con IA» ordenado (24-nov-2026).** Página principal: por dónde empezar. Ejemplos y herramientas dejan de usar la frase principal en título, descripción y enlaces (se quedan con «ejemplos» e «IA para automatizar procesos / herramientas»); cuánto cuesta se fusiona en la página de precio con 301; los cuatro artículos enlazan al servicio. Medir en 4-6 semanas: la principal debería salir de la posición 80; si herramientas sigue sin búsquedas propias, fusionarla en la principal. Para el top 10 de la búsqueda genérica harán falta enlaces externos.
+- [x] ~~**Subir de la posición 80 los artículos de «automatizar procesos con IA».** Por dónde empezar, ejemplos, herramientas y cómo implementar suman ~2.800 impresiones en 90 días en la posición 77-82 y 0 clics (Search Console, 24-nov). Revisar si se canibalizan entre sí y decidir cuál es la página principal de cada búsqueda antes de reescribir.
 - [x] **Títulos y descripciones para clics (24-nov-2026).** Seis páginas que ya salen en primera página sin clics: cross-selling por WhatsApp (pos. 7), /en/diagnostico (pos. 5-6), caso Tribeca Media (pos. 8,6, casi todo búsquedas de la marca), n8n 3 (pos. 10), Clay/Treg/ColdIQ (pos. 4-5) y GTM engineering. Títulos con la palabra exacta que se busca y una promesa que el contenido cumple. Medir el CTR en 2-3 semanas.
 
 - [ ] **Control con cámaras e IA: lo que queda abierto.** El 24-nov

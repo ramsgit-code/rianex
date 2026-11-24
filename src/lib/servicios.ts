@@ -92,7 +92,6 @@ export const SERVICIOS: Record<string, Servicio> = {
       "ejemplos-automatizacion-procesos-con-ia",
       "herramientas-ia-para-automatizar-procesos",
       "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
-      "cuanto-cuesta-automatizar-un-proceso-con-ia",
       "rgpd-y-automatizacion-con-ia",
       "n8n-3-que-se-rompe-y-como-prepararte",
     ],
@@ -1467,7 +1466,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     posts: [
       "automatizar-procesos-con-ia-por-donde-empezar",
       "medir-un-proceso-antes-de-automatizarlo",
-      "cuanto-cuesta-automatizar-un-proceso-con-ia",
+      "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
       "revisar-sistema-de-agentes-ia-antes-de-escalar",
       "coste-agente-de-ia-en-produccion",
     ],
