@@ -8,6 +8,8 @@ const SLUGS_ANTIGUOS = {
   "booking-sdr-mas-reuniones-sin-ampliar-equipo": "whatsapp-automatizacion-ventas",
   // Se repartia "proyectos de IA a medida" con el articulo de proyectos (noviembre de 2026).
   "desarrollo-a-medida-con-ia-cuando-construir": "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
+  // «Cuánto cuesta» competía con la página de precio: su contenido útil pasó allí (24-nov-2026).
+  "cuanto-cuesta-automatizar-un-proceso-con-ia": "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
 };
 
 /** @type {import('next').NextConfig} */

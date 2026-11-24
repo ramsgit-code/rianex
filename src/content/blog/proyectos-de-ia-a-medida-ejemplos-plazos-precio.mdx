@@ -124,7 +124,21 @@ Dentro de la horquilla de implementación, el proyecto cae más arriba o más ab
 
 Lo que mueve el precio dentro de cada tramo es casi siempre lo mismo: **cuántos sistemas hay que conectar**, **cuántas excepciones tiene el proceso**, **cuánto cuesta que se equivoque** (si un error es una factura mal emitida, hacen falta validaciones y revisión humana) y **en qué estado están los datos** (si viven en hojas de cálculo que cada uno rellena a su manera, hay que limpiarlas antes).
 
-Lo que suele costar menos de lo que la gente imagina es el uso del modelo de IA en sí. En los volúmenes de una empresa mediana, la factura de la API es una cifra pequeña al lado de construir y mantener el sistema, siempre que la IA se use solo donde hace falta. El desglose completo está en [cuánto cuesta automatizar un proceso con IA](/blog/cuanto-cuesta-automatizar-un-proceso-con-ia).
+Lo que suele costar menos de lo que la gente imagina es el uso del modelo de IA en sí. En los volúmenes de una empresa mediana, la factura de la API es una cifra pequeña al lado de construir y mantener el sistema, siempre que la IA se use solo donde hace falta.
+
+## Cómo calcular si te compensa, antes de pedir presupuesto
+
+Esto lo puedes hacer tú esta tarde. Coge el proceso y saca tres números:
+
+- **Frecuencia**: cuántas veces ocurre a la semana.
+- **Tiempo**: cuántos minutos se va cada vez, de principio a fin.
+- **Coste por hora** de quien lo hace, con su coste real para la empresa, no su sueldo bruto dividido entre horas.
+
+Multiplica los tres y tienes el coste anual de seguir haciéndolo a mano. Si ese número no llega a lo que costaría automatizarlo, la respuesta es no automatizarlo, y es una respuesta perfectamente buena.
+
+Pero en los procesos comerciales el dinero casi nunca está en las horas que se ahorran, sino en lo que se deja de perder: el contacto que no recibe respuesta a tiempo y se va con otro, la propuesta que llega cuando el cliente ya ha decidido, la cita que nadie confirma. Para ponerle número hacen falta otros dos datos: **cuántos contactos entran al mes** y **cuántos se pierden sin llegar a una conversación real**. En procesos sin sistema, la fuga habitual está entre el 30% y el 60%. Multiplica los contactos perdidos por tu tasa de cierre y por tu ticket medio, y tienes el coste anual de la fuga. Ese número suele ser entre cinco y diez veces mayor que el ahorro de horas, y es el que decide si el proyecto tiene sentido.
+
+Si quieres hacer las dos cuentas con tus números, está la [calculadora de fuga de leads](/herramientas/calculadora-fuga-de-leads): sin registro y en el navegador.
 
 > **[Diagnóstico gratis de 30 minutos: te digo qué automatizar primero y cuánto cuesta](/diagnostico)**
 
@@ -137,6 +151,7 @@ Da igual con quién lo hagas. Antes de aceptar un presupuesto de IA a medida, co
 - **De quién es lo construido y dónde vive.** Lo razonable es que los flujos, el código y las cuentas de las herramientas estén a tu nombre, para que puedas cambiar de proveedor sin empezar de cero.
 - **Qué pasa cuando el modelo se equivoca.** Debe haber una salida manual, avisos y alguien que se entere.
 - **Qué incluye el mantenimiento.** Los modelos cambian de versión, las APIs de terceros cambian sus condiciones y los procesos evolucionan. Un sistema sin mantenimiento empieza a degradarse en meses.
+- **Qué pasa si dentro de tres meses algo cambia y deja de funcionar.** Si la respuesta es un presupuesto nuevo, el precio de hoy no es el precio. Un presupuesto muy por debajo de los demás suele dejar fuera la definición del proceso, las pruebas con casos reales o el mantenimiento.
 - **Cómo se tratan los datos personales.** Qué datos salen hacia el proveedor del modelo, con qué contrato y en qué región. Lo repasamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
 
 ## Cómo saber si tu empresa necesita un proyecto a medida
@@ -186,6 +201,10 @@ Sobre todo por cuatro motivos: se deja a la IA todo el flujo en lugar de solo la
 ### ¿Se puede pagar por fases?
 
 Sí, y es lo recomendable. El discovery se puede contratar solo y la implementación se divide en fases, para que cada una se justifique con lo que ahorra la anterior.
+
+### ¿Cómo sé si me compensa automatizar un proceso?
+
+Multiplica cuántas veces ocurre a la semana, cuántos minutos lleva y el coste por hora de quien lo hace: es lo que te cuesta seguir haciéndolo a mano. En procesos comerciales suma los contactos que se pierden por tu tasa de cierre y tu ticket medio, que suele pesar más que el ahorro de horas. Lo explicamos arriba, en cómo calcular si te compensa.
 
 ### ¿Por dónde empiezo?
 
