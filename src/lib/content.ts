@@ -348,13 +348,14 @@ export const content = {
       tag: "Servicios",
       title: "Servicios de automatización con IA",
       description:
-        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar— y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
+        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar—, uno para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Pide tu consultoría gratuita",
       more: "Ver el servicio en detalle",
       short: "Ver servicio",
       video: "Con vídeo",
+      bySector: "Por sector",
       builtOn: "Construido sobre",
       groups: [
         {
@@ -366,6 +367,18 @@ export const content = {
           title: "Operativa y CRM",
           desc: "Lo que el equipo repite cada semana, hecho solo con Claude, n8n, Make o Zapier, y tu CRM en GoHighLevel o HubSpot, conectado al resto de herramientas y con el pipeline a la vista.",
           slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Control con cámaras e IA",
+          desc: "Las cámaras que ya tienes, convertidas en datos: cuánto espera una mesa, cuántas plazas quedan libres, cuánta cola hay o cuánto tarda un camión en el muelle, con avisos al momento y sin reconocimiento facial.",
+          slugs: ["control-con-camaras-ia"],
+          sectors: [
+            { label: "Restaurantes", href: "/l/camaras-ia-restaurantes" },
+            { label: "Parkings", href: "/l/camaras-ia-parkings" },
+            { label: "Tiendas y supermercados", href: "/l/camaras-ia-tiendas" },
+            { label: "Almacenes y logística", href: "/l/camaras-ia-almacenes" },
+            { label: "Talleres mecánicos", href: "/l/camaras-ia-talleres" },
+          ],
         },
         {
           title: "Otros servicios: IA para tu equipo",
@@ -523,6 +536,21 @@ export const content = {
             "Aplicación de propuestas en Vercel: web y PDF al momento",
             "Pipeline de propuestas en tu CRM para ver cómo evoluciona cada una",
             "Recordatorios de seguimiento automáticos",
+          ],
+        },
+        {
+          slug: "control-con-camaras-ia",
+          area: "Visión artificial",
+          title: "Control con cámaras e IA",
+          tagline: "Tus cámaras miden esperas, colas y ocupación, y avisan.",
+          problem:
+            "Tienes cámaras, pero solo se miran cuando ya ha pasado algo: nadie sabe cuánto espera una mesa, cuántas plazas quedan libres o cuánto dura la cola.",
+          forWho: "Restaurantes, parkings, tiendas, almacenes y talleres que quieren medir y controlar la operación con las cámaras que ya tienen.",
+          deliverables: [
+            "Prueba con las grabaciones de tus cámaras",
+            "Zonas y reglas por mesa, plaza, caja o muelle",
+            "Avisos al encargado por WhatsApp, Telegram o pantalla",
+            "Panel con esperas y ocupación por zona y franja",
           ],
         },
         {
@@ -1072,13 +1100,14 @@ export const content = {
       tag: "Services",
       title: "AI automation services",
       description:
-        "Eight services to automate what repeats most in your company —selling, serving customers, operations— and three to help your team learn to use AI. Hire them on their own or together in one project.",
+        "Eight services to automate what repeats most in your company —selling, serving customers, operations—, one to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Book your free consultation",
       more: "See the service in detail",
       short: "See service",
       video: "With video",
+      bySector: "By sector",
       builtOn: "Built on",
       groups: [
         {
@@ -1090,6 +1119,18 @@ export const content = {
           title: "Operations and CRM",
           desc: "What the team repeats every week, done on its own with Claude, n8n, Make or Zapier, and your CRM on GoHighLevel or HubSpot, connected to your other tools and with the pipeline in view.",
           slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Camera monitoring with AI",
+          desc: "The cameras you already have, turned into data: how long a table waits, how many parking spaces are free, how long the queue is or how long a lorry takes at the dock, with instant alerts and no facial recognition.",
+          slugs: ["control-con-camaras-ia"],
+          sectors: [
+            { label: "Restaurants" },
+            { label: "Car parks" },
+            { label: "Shops and supermarkets" },
+            { label: "Warehouses and logistics" },
+            { label: "Car repair shops" },
+          ],
         },
         {
           title: "Other services: AI for your team",
@@ -1247,6 +1288,21 @@ export const content = {
             "Proposal app on Vercel: web and PDF on the spot",
             "Proposal pipeline in your CRM to see how each one progresses",
             "Automatic follow-up reminders",
+          ],
+        },
+        {
+          slug: "control-con-camaras-ia",
+          area: "Computer vision",
+          title: "Camera monitoring with AI",
+          tagline: "Your cameras measure waits, queues and occupancy, and send alerts.",
+          problem:
+            "You have cameras, but they only get checked after something has happened: nobody knows how long a table waits, how many spaces are free or how long the queue is.",
+          forWho: "Restaurants, car parks, shops, warehouses and repair shops that want to measure and monitor operations with the cameras they already have.",
+          deliverables: [
+            "Trial with footage from your cameras",
+            "Zones and rules per table, space, till or dock",
+            "Alerts to the manager via WhatsApp, Telegram or a screen",
+            "Dashboard with waits and occupancy by zone and time slot",
           ],
         },
         {
@@ -1464,3 +1520,11 @@ export const content = {
 } as const;
 
 export type Content = (typeof content)["es"];
+
+/** Sector de un grupo de servicios; en inglés va sin enlace (las landings de /l/ son solo en castellano). */
+export type SectorServicio = { label: string; href?: string };
+
+/** Los sectores de un grupo de /servicios, si los tiene (hoy solo control con cámaras). */
+export function sectoresDe(group: object): readonly SectorServicio[] {
+  return "sectors" in group ? (group.sectors as readonly SectorServicio[]) : [];
+}

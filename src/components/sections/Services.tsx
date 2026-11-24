@@ -4,12 +4,15 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Play } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { home } from "@/lib/home";
+import { sectoresDe } from "@/lib/content";
 import { SERVICIO_VIDEO } from "@/lib/servicio-media";
 
 // "Servicios": las fichas de content.ts agrupadas como en /servicios, en
 // tarjetas kanban. El último grupo ("Otros servicios": kit, formación y
-// asesoramiento) va en grafito para separarlo de la automatización. Debajo,
-// los complementarios en lista. Cada tarjeta lleva a la página del servicio.
+// asesoramiento) va en grafito para separarlo de la automatización. Un grupo
+// de un solo servicio (control con cámaras) lleva al lado sus sectores, que en
+// castellano enlazan a las landings de /l/. Debajo, los complementarios en
+// lista. Cada tarjeta lleva a la página del servicio.
 export function Services() {
   const { lang, c, localize } = useLang();
   const k = home[lang].services;
@@ -31,6 +34,7 @@ export function Services() {
         <div className="mt-14 flex flex-col gap-16">
           {s.groups.map((group, gi) => {
             const dark = gi === last;
+            const sectors = sectoresDe(group);
             return (
               <div key={group.title}>
                 <div className="grid grid-cols-1 gap-3 border-b-[6px] border-accent pb-5 lg:grid-cols-12 lg:gap-10">
@@ -43,7 +47,7 @@ export function Services() {
                 </div>
                 <ul
                   className={`mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 ${
-                    group.slugs.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4"
+                    group.slugs.length === 3 || sectors.length > 0 ? "lg:grid-cols-3" : "lg:grid-cols-4"
                   }`}
                 >
                   {group.slugs.map((slug) => {
@@ -97,6 +101,32 @@ export function Services() {
                       </li>
                     );
                   })}
+                  {sectors.length > 0 && (
+                    <li className="flex flex-col justify-center border border-dashed border-ink/40 p-6 lg:col-span-2">
+                      <span className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-accent-text">
+                        {s.bySector}
+                      </span>
+                      <ul className="mt-4 flex flex-wrap gap-2">
+                        {sectors.map((x) => (
+                          <li key={x.label}>
+                            {x.href ? (
+                              <Link
+                                href={x.href}
+                                className="inline-flex items-center gap-1 border-2 border-ink bg-white px-3 py-1.5 text-sm font-semibold text-foreground transition-colors hover:bg-accent"
+                              >
+                                {x.label}
+                                <ArrowUpRight size={14} aria-hidden />
+                              </Link>
+                            ) : (
+                              <span className="inline-flex border border-border bg-white px-3 py-1.5 text-sm font-medium text-foreground">
+                                {x.label}
+                              </span>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  )}
                 </ul>
               </div>
             );

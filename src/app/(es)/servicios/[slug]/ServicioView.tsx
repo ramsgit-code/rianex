@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, Minus, Play } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Minus, Play } from "lucide-react";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { JsonLd } from "@/components/JsonLd";
@@ -16,7 +16,8 @@ import { SITE_URL } from "@/lib/seo";
 // (respuesta directa, FAQ, metodo) tiene que estar en el HTML que leen los
 // rastreadores y los asistentes de IA, no aparecer al hidratar.
 //
-// Orden: en resumen → video y que consigues → asi funciona (ejemplo) → problema,
+// Orden: en resumen → video y que consigues → asi funciona (ejemplo) → donde
+// se usa (solo si la ficha trae `uses`, p. ej. control con camaras) → problema,
 // para quien e incluye → encaja / no encaja → metodo → plazo e inversion →
 // mantenimiento mensual (solo agentes y automatizaciones) → casos reales → FAQ
 // → guias → otros servicios. La llamada a la consultoria
@@ -33,6 +34,8 @@ const LABELS = {
     outcomes: "Qué consigues",
     flow: "Así funciona",
     flowNote: "Ejemplo ilustrativo",
+    uses: "Dónde se usa",
+    useLink: "Ver cómo funciona",
     problem: "El problema",
     forWho: "Para quién",
     includes: "Qué incluye",
@@ -62,6 +65,8 @@ const LABELS = {
     outcomes: "What you get",
     flow: "How it works",
     flowNote: "Illustrative example",
+    uses: "Where it is used",
+    useLink: "See how it works",
     problem: "The problem",
     forWho: "Who it is for",
     includes: "What is included",
@@ -233,8 +238,10 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
                   >
                     <source src={video.src} type="video/mp4" />
                   </video>
-                  {(video.demo || t.videoNote) && (
-                    <p className="mt-2 text-xs text-muted">{video.demo ? t.videoDemo : t.videoNote}</p>
+                  {(video.note || video.demo || t.videoNote) && (
+                    <p className="mt-2 text-xs text-muted">
+                      {video.note ? video.note[lang] : video.demo ? t.videoDemo : t.videoNote}
+                    </p>
                   )}
                 </div>
                 <div className="border-2 border-ink bg-white p-6 sm:p-7">
@@ -280,6 +287,37 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
               </ol>
             </section>
           </Reveal>
+
+          {/* Donde se usa, por tipo de negocio. Las landings de /l/ solo existen en castellano. */}
+          {d.uses && d.uses.length > 0 && (
+            <Reveal>
+              <section>
+                <SectionTitle>{t.uses}</SectionTitle>
+                <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {d.uses.map((u) => (
+                    <li key={u.title} className="flex flex-col border border-border bg-white">
+                      <span aria-hidden className={`block h-2 w-full ${u.href ? "bg-go" : "bg-border"}`} />
+                      <div className="flex flex-1 flex-col p-5">
+                        <p className="font-display text-xl font-extrabold uppercase leading-[0.95] text-foreground">
+                          {u.title}
+                        </p>
+                        <p className="mt-2 text-[15px] leading-relaxed text-foreground-muted">{u.desc}</p>
+                        {u.href && lang === "es" && (
+                          <Link
+                            href={u.href}
+                            className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:text-accent-text"
+                          >
+                            {t.useLink}
+                            <ArrowUpRight size={14} aria-hidden />
+                          </Link>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </Reveal>
+          )}
 
           <Reveal>
             <section className="grid gap-8 md:grid-cols-2">

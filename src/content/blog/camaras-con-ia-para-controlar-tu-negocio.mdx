@@ -1,0 +1,102 @@
+---
+title: "Cámaras con IA para controlar tu negocio: qué miden y qué no"
+description: "Vídeo: cómo las cámaras de un restaurante miden mesas sin atender y sin recoger, qué se mide en parkings, tiendas y almacenes, y qué dice la ley."
+date: "2026-11-24"
+tags: ["cámaras con IA", "visión artificial", "analítica de vídeo", "restaurantes", "parkings", "vídeo"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+video: "/videos/servicio-control-con-camaras-ia.mp4"
+videoPoster: "/videos/servicio-control-con-camaras-ia.jpg"
+videoDuration: "PT1M29S"
+---
+
+Casi todos los negocios tienen cámaras, y casi nadie las mira hasta que pasa algo. Con un modelo de visión por ordenador, esas mismas cámaras pueden medir lo que hoy se controla a ojo: cuánto espera una mesa a que la atiendan, cuántas plazas quedan libres en el parking o cuánta gente hay en la cola de la caja. El vídeo de arriba lo enseña en un restaurante. Es una simulación: el restaurante y los datos son ficticios, no la grabación de un cliente.
+
+## La respuesta corta
+
+Una cámara con IA no reconoce a nadie: detecta personas, vehículos y objetos como formas y mide cuánto tiempo pasan en cada zona que marques, como una mesa, una plaza o una caja. Con eso calcula esperas, ocupación y colas, y avisa al encargado cuando algo se pasa del límite. Funciona con las cámaras IP que ya tienes, si ven bien la zona, y lo que sale del local son tiempos, recuentos y avisos, no vídeo.
+
+## Qué pasa en el vídeo
+
+- **Cada mesa es una zona.** Sobre la imagen de la cámara de la terraza se marca cada mesa. El sistema sabe en todo momento si está libre, si hay clientes comiendo, si acaban de sentarse o si se han ido y la mesa sigue sin recoger.
+- **La mesa 12 se ocupa a las 21:10 y empieza a contar.** Nadie se acerca. A los cinco minutos, el límite que fijó el restaurante, la mesa se pone en rojo.
+- **El encargado recibe el aviso en el móvil**: «Mesa 12, terraza: 5 minutos sin atender». Manda a un camarero y, en cuanto llega a la mesa, el aviso se cierra solo.
+- **Mientras, en la mesa 4 los clientes se han ido** y el sistema mide cuánto tarda en quedar lista para los siguientes.
+- **El gerente lo ve todo en un panel web**: el plano del local con el estado de cada mesa, la espera media hasta atender, las mesas sin recoger, lo que dura cada comida y la espera por franja horaria de los últimos días.
+
+Para distinguir a un camarero de un cliente no hace falta saber quién es nadie: el cliente se sienta y se queda; el camarero llega de pie, se para un momento y se va. Si el equipo lleva uniforme, todavía más fácil.
+
+## Qué se puede medir, según el negocio
+
+La regla es sencilla: si una persona lo sabría mirando la pantalla, la IA lo puede medir. Estos son los usos que más sentido tienen en una pyme.
+
+### Restaurantes
+
+Mesas sin atender, mesas sin recoger con gente esperando en la puerta, cuánto dura cada comida y cuántas vueltas da cada mesa por franja. Lo contamos con más detalle en [cámaras con IA para restaurantes](/l/camaras-ia-restaurantes).
+
+### Parkings
+
+Plazas libres en tiempo real por planta o zona, vehículos que superan el tiempo permitido en un parking de clientes, plazas de recarga ocupadas por quien no carga y colas en la barrera. Una cámara bien colocada cubre muchas plazas a la vez, sin un sensor en cada una. Más en [cámaras con IA para parkings](/l/camaras-ia-parkings).
+
+### Tiendas y supermercados
+
+Personas en cola en cada caja o mostrador, con aviso para abrir otra; visitantes por hora y, cruzados con los tickets del TPV, cuántos de los que entran acaban comprando. Más en [cámaras con IA para tiendas](/l/camaras-ia-tiendas).
+
+### Almacenes y logística
+
+Cuánto pasa cada camión en el muelle, camiones esperando en la puerta, pasillos y salidas de emergencia bloqueados, y chaleco o casco en las zonas donde son obligatorios. Más en [cámaras con IA para almacenes](/l/camaras-ia-almacenes).
+
+### Talleres mecánicos
+
+Ocupación de cada elevador, horas reales de cada coche frente a las presupuestadas y clientes esperando en recepción. Más en [cámaras con IA para talleres](/l/camaras-ia-talleres).
+
+## Qué hace falta
+
+- **Cámaras IP o un grabador al que se pueda conectar.** La mayoría de marcas (Hikvision, Dahua, Axis, Uniview…) dan la imagen por RTSP u ONVIF, que es lo que se necesita. Lo que importa es el ángulo y la luz: una cámara que ve la zona de lado, a contraluz o casi a oscuras mide mal.
+- **Dónde se procesa el vídeo.** Lo preferible es un equipo pequeño dentro del local que analiza las cámaras y solo envía los datos. Si se hace en la nube, hay que dejar por escrito dónde, cuánto se guarda y quién lo ve.
+- **Límites que tengan sentido.** A partir de cuántos minutos es una espera, cuánto puede estar un coche en el parking de clientes, cuántas personas en cola justifican abrir otra caja. Se fijan con el negocio y se ajustan con las primeras semanas de uso.
+- **Alguien que reciba el aviso y pueda actuar.** Un aviso que llega a quien no puede hacer nada con él es ruido.
+
+Antes de activar ningún aviso conviene medir unas semanas cómo está el servicio hoy. Sin ese punto de partida no hay forma de saber después si ha mejorado, y es justo lo que explicamos en [medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## Qué dice la ley (y qué no hacemos)
+
+Esto no es asesoramiento legal, pero sí lo que conviene tener claro antes de empezar:
+
+- **Las cámaras de seguridad tienen una finalidad declarada.** La [Ley Orgánica de Protección de Datos](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) permite la videovigilancia para la seguridad de personas, bienes e instalaciones (artículo 22), con su cartel informativo y las imágenes borradas en un mes como máximo. Usar esas cámaras para medir la operación es una finalidad nueva: hay que declararla, justificarla y documentarla.
+- **Si el análisis sirve también para controlar el trabajo, la plantilla tiene que saberlo antes.** El artículo 89 obliga a informar de forma previa, expresa, clara y concisa a los trabajadores y, en su caso, a sus representantes. Y nunca puede haber cámaras en vestuarios, aseos, comedores o zonas de descanso.
+- **Según el caso, toca una evaluación de impacto.** La [guía de la AEPD sobre videovigilancia](https://www.aepd.es/guias/guia-videovigilancia.pdf) es el punto de partida, y tu asesor de protección de datos tiene la última palabra.
+- **La matrícula es un dato personal.** Si un parking la lee, se guarda solo el tiempo necesario para calcular la estancia o el cobro.
+- **No hacemos reconocimiento facial ni detectamos emociones.** El [Reglamento europeo de IA](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) prohíbe desde febrero de 2025 deducir las emociones de una persona en el lugar de trabajo. Aunque no estuviera prohibido, no hace falta para medir una mesa o una plaza.
+
+La idea de fondo es medir la operación, no a las personas: los datos van por mesa, zona y franja, no por empleado. Tratamos los datos con el mismo criterio que en cualquier automatización, como contamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
+
+## Cómo empezar sin instalar nada
+
+Lo primero no es comprar hardware. Es una prueba con unas horas de grabación de tus propias cámaras, de un día normal de trabajo: con eso se ve qué se puede medir con fiabilidad, qué cámara no llega y dónde haría falta otra. Si la prueba sale bien, se elige una sola métrica para empezar, la que más dinero cuesta hoy, y se amplía después.
+
+Es un servicio nuevo en Rianex y todavía no tenemos un caso publicado, así que no damos cifras de resultados: las medimos contigo. Todo lo que incluye, el plazo y cómo se fija el precio está en [control con cámaras e IA](/servicios/control-con-camaras-ia). Si quieres ver qué se podría medir en tu negocio, lo vemos en la [consultoría gratuita](/diagnostico).
+
+## Preguntas frecuentes
+
+### ¿Sirven las cámaras de seguridad que ya tengo?
+
+Casi siempre, si son cámaras IP o van a un grabador que da la imagen por RTSP u ONVIF. Lo que decide es el ángulo y la luz: en una prueba con unas horas de grabación se ve qué cámaras valen y dónde haría falta otra.
+
+### ¿La cámara reconoce a las personas?
+
+No. Detecta personas como formas, sin saber quién es quién, y no guarda caras ni perfiles. Lo que registra son tiempos, recuentos y ocupación por zona.
+
+### ¿Se puede usar para vigilar a un empleado?
+
+No es para eso. Mide mesas, plazas, colas y muelles, y los datos van por zona y por franja. Si el análisis sirve también para controlar el trabajo, la ley obliga a informar antes a la plantilla.
+
+### ¿El vídeo sale del local?
+
+No tiene por qué. Lo preferible es analizarlo en un equipo dentro del local y enviar solo tiempos, recuentos y avisos.
+
+### ¿El vídeo del artículo es un caso real?
+
+No. Es una simulación con un restaurante y datos ficticios, hecha para enseñar cómo funciona: la cámara, el aviso al encargado y el panel del gerente.

@@ -17,7 +17,8 @@ import type { Lang } from "@/lib/i18n";
 //
 // Kit IA, formacion y asesoramiento (nov-2026) son servicios nuevos: sus plazos
 // y su forma de precio estan pendientes de validar por Ramiro
-// (docs/PENDIENTES-SEO.md).
+// (docs/PENDIENTES-SEO.md). Lo mismo el control con camaras e IA (24-nov-2026),
+// que ademas no tiene caso propio todavia: ni cifras ni clientes.
 
 export type CaseClient = "Hospital Capilar" | "Eventos Barcelona" | "Growth4U" | "Tribeca Media";
 
@@ -48,6 +49,11 @@ export type ServicioDetalle = {
    * control de coste, no el Performance Agent). Sale de casos.ts.
    */
   caseFocus?: Partial<Record<CaseClient, string>>;
+  /**
+   * Donde se usa, por tipo de negocio (control con camaras). Cada uno enlaza
+   * a su landing de /l/ si la tiene (solo en castellano).
+   */
+  uses?: { title: string; desc: string; href?: string }[];
   faqs: Faq[];
 };
 
@@ -1025,6 +1031,173 @@ export const SERVICIOS: Record<string, Servicio> = {
           a: "At Eventos Barcelona each proposal took 1 to 3 days to go out. With the generator it goes out minutes after the call, and client response time dropped by 85%.",
         },
         { q: "How much does it cost?", a: PRECIO_EN },
+      ],
+    },
+  },
+
+  // ── Control con cámaras e IA (24-nov-2026) ──────────────────────────────
+  // Análisis de vídeo de las cámaras que ya tiene el cliente: tiempos, colas y
+  // ocupación por zona, con avisos. Sin reconocimiento facial ni control
+  // individual. Landings por sector en nichos.ts (/l/camaras-ia-<sector>).
+
+  "control-con-camaras-ia": {
+    price: "quote",
+    posts: ["camaras-con-ia-para-controlar-tu-negocio", "rgpd-y-automatizacion-con-ia", "medir-un-proceso-antes-de-automatizarlo"],
+    es: {
+      seoTitle: "Cámaras con IA para controlar tu negocio: mesas, plazas y colas",
+      metaDescription:
+        "Conectamos tus cámaras a una IA que mide mesas sin atender, plazas libres, colas y muelles ocupados, y avisa al encargado. Sin reconocimiento facial.",
+      answer:
+        "Controlar con cámaras e IA es usar las cámaras que ya tienes para medir lo que pasa en tu negocio sin que nadie lo apunte: cuánto espera una mesa a que la atiendan, cuánto tarda en recogerse, cuántas plazas quedan libres o cuánta gente hay en la cola. Un modelo de visión analiza el vídeo, guarda tiempos y recuentos por zona y avisa al encargado cuando algo se pasa del límite. No identifica a nadie.",
+      outcomes: [
+        "Avisos al momento cuando algo se pasa de tiempo, no al revisar la grabación",
+        "Esperas, colas y ocupación medidas cada día, por zona y por franja",
+        "Las cámaras que ya pagas, trabajando también para la operación",
+      ],
+      flow: [
+        { label: "La cámara ve", text: "A las 21:10 se sienta una pareja en la mesa 12 y nadie se acerca." },
+        { label: "La IA mide", text: "Cuenta el tiempo desde que se sientan hasta que llega alguien del equipo." },
+        { label: "Avisa", text: "A los 5 minutos, el encargado recibe en el móvil: «Mesa 12, terraza: sin atender»." },
+        { label: "Queda medido", text: "Cada espera se guarda por mesa, zona y franja, para ver dónde se atasca el servicio." },
+      ],
+      fit: [
+        "Tienes cámaras IP o un grabador al que se puede conectar, y ven bien lo que importa: mesas, plazas, cajas o muelles.",
+        "Lo que quieres controlar se ve: si una persona lo sabría mirando la pantalla, la IA lo puede medir.",
+        "Hoy lo controla alguien a ojo, o nadie, y un descuido cuesta dinero: una mesa que se va, una plaza mal usada, una cola que abandona.",
+      ],
+      notFit: [
+        "Quieres saber quién es cada persona o vigilar a un empleado concreto: no hacemos reconocimiento facial ni control individual.",
+        "Las cámaras no cubren la zona o graban casi a oscuras: antes hay que mover o añadir una cámara, y te lo decimos en la prueba.",
+      ],
+      steps: [
+        { title: "Prueba con tus grabaciones", desc: "Nos pasas unas horas de vídeo de tus cámaras y comprobamos qué se puede medir con fiabilidad y qué cámara no llega." },
+        { title: "Zonas y reglas", desc: "Marcamos sobre la imagen cada mesa, plaza, caja o muelle y fijamos los límites: a partir de cuántos minutos se avisa y a quién." },
+        { title: "Instalación", desc: "Un equipo pequeño en el local, o un servidor en la nube, lee las cámaras y analiza el vídeo. Lo que sale son tiempos, recuentos y avisos." },
+        { title: "Avisos y panel", desc: "Avisos por WhatsApp, Telegram o una pantalla, y un panel con las esperas y la ocupación. Ajustamos los límites con las primeras semanas de uso." },
+      ],
+      timeline:
+        "Entre 3 y 6 semanas desde la consultoría gratuita: la primera para la prueba con tus grabaciones y el resto para instalar y ajustar los avisos, según cuántas cámaras y zonas haya.",
+      priceNote:
+        "Depende de cuántas cámaras y zonas se analicen y de si el vídeo se procesa en el local o en la nube. Hay una parte de instalación y una cuota mensual por el análisis, los avisos y el mantenimiento. Te damos el precio cerrado después de la consultoría y de la prueba con tus grabaciones.",
+      uses: [
+        {
+          title: "Restaurantes",
+          desc: "Cuánto espera cada mesa a que la atiendan, cuánto tarda en recogerse y cuánto dura cada comida, por mesa y por franja.",
+          href: "/l/camaras-ia-restaurantes",
+        },
+        {
+          title: "Parkings",
+          desc: "Plazas libres en tiempo real, vehículos que se pasan de tiempo, plazas reservadas mal usadas y colas en la barrera.",
+          href: "/l/camaras-ia-parkings",
+        },
+        {
+          title: "Tiendas y supermercados",
+          desc: "Colas en caja y mostrador, visitantes por hora, aforo y cuántos de los que entran acaban comprando.",
+          href: "/l/camaras-ia-tiendas",
+        },
+        {
+          title: "Almacenes y logística",
+          desc: "Tiempo de cada camión en el muelle, pasillos y salidas de emergencia bloqueados y chaleco o casco donde son obligatorios.",
+          href: "/l/camaras-ia-almacenes",
+        },
+        {
+          title: "Talleres mecánicos",
+          desc: "Ocupación de cada elevador, horas reales de cada coche frente a las previstas y clientes esperando en recepción.",
+          href: "/l/camaras-ia-talleres",
+        },
+        {
+          title: "Y también",
+          desc: "Gimnasios (aforo por sala), hoteles (recepción y bufé), gasolineras y túneles de lavado (colas) y centros comerciales (afluencia por zona).",
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Sirven las cámaras que ya tengo?",
+          a: "Casi siempre. Trabajamos con cámaras IP y grabadores que dan la imagen por RTSP u ONVIF, lo habitual en Hikvision, Dahua, Axis, Uniview y la mayoría de marcas. Lo que importa es el ángulo y la luz: en la prueba con tus grabaciones te decimos qué cámaras valen y dónde haría falta otra.",
+        },
+        {
+          q: "¿Reconoce caras o identifica a las personas?",
+          a: "No. El sistema detecta personas, vehículos y objetos como formas, sin saber quién es quién, y no guarda caras ni perfiles. Lo que se registra son tiempos, recuentos y ocupación por zona. Tampoco detecta emociones: en el trabajo está prohibido por la ley europea de IA.",
+        },
+        {
+          q: "¿Se puede analizar con IA el vídeo de las cámaras?",
+          a: "Sí, con condiciones. Las cámaras tienen que tener ya sus carteles y una finalidad declarada; si el análisis sirve también para medir la operación, hay que informar antes a la plantilla (art. 89 de la LOPDGDD) y, según el caso, hacer una evaluación de impacto. Te damos los textos y la descripción técnica para que los revise tu asesor de protección de datos.",
+        },
+        {
+          q: "¿El vídeo sale de mi local?",
+          a: "Siempre que se puede, no: el análisis se hace en un equipo dentro del local y lo único que sale son tiempos, recuentos y avisos. Si conviene procesarlo en la nube, se acuerda por escrito dónde se procesa, cuánto se guarda y quién puede verlo.",
+        },
+        {
+          q: "¿Cuánto cuesta?",
+          a: "Depende de cuántas cámaras y zonas se analicen y de si el vídeo se procesa en el local o en la nube: una parte de instalación y una cuota mensual por el análisis, los avisos y el mantenimiento. El precio cerrado se da tras la consultoría gratuita y la prueba con tus grabaciones, no antes.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI camera analytics for businesses: tables, parking and queues",
+      metaDescription:
+        "We connect your cameras to an AI that measures unattended tables, free parking spaces, queues and busy loading docks, and alerts the manager. No facial recognition.",
+      answer:
+        "Camera monitoring with AI means using the cameras you already have to measure what happens in your business without anyone writing it down: how long a table waits to be served, how long it takes to clear, how many parking spaces are free or how many people are queuing. A vision model analyses the video, stores times and counts by zone and alerts the manager when something goes over the limit. It does not identify anyone.",
+      outcomes: [
+        "Alerts the moment something runs over time, not when someone reviews the footage",
+        "Waits, queues and occupancy measured every day, by zone and time slot",
+        "The cameras you already pay for, also working for your operations",
+      ],
+      flow: [
+        { label: "The camera sees", text: "At 21:10 a couple sits down at table 12 and nobody comes over." },
+        { label: "The AI measures", text: "It counts the time from when they sit down until someone from the team arrives." },
+        { label: "It alerts", text: "After 5 minutes, the manager gets a message: “Table 12, terrace: not attended”." },
+        { label: "It is recorded", text: "Every wait is stored by table, zone and time slot, to see where service gets stuck." },
+      ],
+      fit: [
+        "You have IP cameras or a recorder that can be connected, and they clearly see what matters: tables, spaces, tills or docks.",
+        "What you want to monitor is visible: if a person could tell by looking at the screen, the AI can measure it.",
+        "Today someone keeps an eye on it, or nobody does, and a slip costs money: a table that leaves, a misused space, a queue that walks out.",
+      ],
+      notFit: [
+        "You want to know who each person is or watch a specific employee: we do not do facial recognition or individual monitoring.",
+        "The cameras do not cover the area or record almost in the dark: a camera has to be moved or added first, and we tell you in the trial.",
+      ],
+      steps: [
+        { title: "Trial with your footage", desc: "You send us a few hours of video from your cameras and we check what can be measured reliably and which camera falls short." },
+        { title: "Zones and rules", desc: "We mark each table, space, till or dock on the image and set the limits: after how many minutes an alert goes out, and to whom." },
+        { title: "Installation", desc: "A small device on site, or a cloud server, reads the cameras and analyses the video. What comes out is times, counts and alerts." },
+        { title: "Alerts and dashboard", desc: "Alerts via WhatsApp, Telegram or a screen, and a dashboard with waits and occupancy. We fine-tune the limits during the first weeks of use." },
+      ],
+      timeline:
+        "3 to 6 weeks from the free consultation: the first for the trial with your footage and the rest to install and tune the alerts, depending on the number of cameras and zones.",
+      priceNote:
+        "It depends on how many cameras and zones are analysed and whether the video is processed on site or in the cloud. There is a setup fee and a monthly fee for analysis, alerts and maintenance. We give you a fixed price after the consultation and the trial with your footage.",
+      uses: [
+        { title: "Restaurants", desc: "How long each table waits to be served, how long it takes to clear and how long each meal lasts, by table and time slot." },
+        { title: "Car parks", desc: "Free spaces in real time, vehicles that overstay, misused reserved spaces and queues at the barrier." },
+        { title: "Shops and supermarkets", desc: "Queues at tills and counters, visitors per hour, capacity and how many of those who come in end up buying." },
+        { title: "Warehouses and logistics", desc: "Time each lorry spends at the dock, blocked aisles and emergency exits, and hi-vis vests or helmets where they are required." },
+        { title: "Car repair shops", desc: "Occupancy of each lift, actual hours per car against the estimate and customers waiting at reception." },
+        { title: "And also", desc: "Gyms (capacity per room), hotels (reception and buffet), petrol stations and car washes (queues) and shopping centres (footfall by zone)." },
+      ],
+      faqs: [
+        {
+          q: "Do my existing cameras work?",
+          a: "Almost always. We work with IP cameras and recorders that stream over RTSP or ONVIF, which is standard for Hikvision, Dahua, Axis, Uniview and most brands. What matters is the angle and the light: in the trial with your footage we tell you which cameras work and where another one would be needed.",
+        },
+        {
+          q: "Does it recognise faces or identify people?",
+          a: "No. The system detects people, vehicles and objects as shapes, without knowing who is who, and stores no faces or profiles. What is recorded is times, counts and occupancy by zone. Nor does it detect emotions: in the workplace that is banned by the EU AI Act.",
+        },
+        {
+          q: "Is it legal to analyse camera footage with AI?",
+          a: "Yes, under conditions. The cameras must already have their signs and a declared purpose; if the analysis is also used to measure operations, staff must be informed beforehand (in Spain, article 89 of the LOPDGDD) and, depending on the case, an impact assessment carried out. We give you the texts and the technical description for your data protection adviser to review.",
+        },
+        {
+          q: "Does the video leave my premises?",
+          a: "Whenever possible, no: the analysis runs on a device on site and only times, counts and alerts leave it. If cloud processing makes more sense, we agree in writing where it is processed, how long it is kept and who can see it.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "It depends on how many cameras and zones are analysed and whether the video is processed on site or in the cloud: a setup fee and a monthly fee for analysis, alerts and maintenance. The fixed price comes after the free consultation and the trial with your footage, not before.",
+        },
       ],
     },
   },

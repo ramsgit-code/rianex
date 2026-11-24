@@ -150,7 +150,7 @@ const es: HomeCopy = {
   },
   services: {
     title: "Servicios",
-    lead: "Ocho servicios para automatizar lo que más se repite y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
+    lead: "Ocho servicios para automatizar lo que más se repite, uno para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
     all: "Ver todos los servicios en detalle",
   },
   audience: {
@@ -219,6 +219,8 @@ const es: HomeCopy = {
       { name: "Gestorías y asesorías" },
       { name: "Empresas B2B y servicios profesionales" },
       { name: "Distribución y logística" },
+      { name: "Restaurantes (control con cámaras)", href: "/l/camaras-ia-restaurantes" },
+      { name: "Parkings (control con cámaras)", href: "/l/camaras-ia-parkings" },
     ],
     clientsTitle: "Empresas para las que trabajamos",
     clientCta: "Ver el caso",
@@ -321,7 +323,7 @@ const en: HomeCopy = {
   },
   services: {
     title: "Services",
-    lead: "Eight services to automate what repeats most and three to help your team learn to use AI. Hire them on their own or together in one project.",
+    lead: "Eight services to automate what repeats most, one to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
     all: "See every service in detail",
   },
   audience: {
@@ -390,6 +392,8 @@ const en: HomeCopy = {
       { name: "Accounting and advisory firms" },
       { name: "B2B companies and professional services" },
       { name: "Distribution and logistics" },
+      { name: "Restaurants (camera monitoring)", href: "/servicios/control-con-camaras-ia" },
+      { name: "Car parks (camera monitoring)", href: "/servicios/control-con-camaras-ia" },
     ],
     clientsTitle: "Companies we work for",
     clientCta: "See the case",

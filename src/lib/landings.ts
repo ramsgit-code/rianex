@@ -17,6 +17,12 @@ export type Landing = {
   lead: string;
   /** Title de la pestaña y de la tarjeta social. */
   title: string;
+  /**
+   * Frase de la banda de prueba cuando el servicio no tiene caso propio. Sin
+   * ella salen las cifras de la home (Eventos Barcelona), que no prueban este
+   * servicio.
+   */
+  proofLine?: string;
 };
 
 export const LANDINGS: Record<string, Landing> = {
@@ -59,6 +65,13 @@ export const LANDINGS: Record<string, Landing> = {
     title: "Migración a GoHighLevel",
     h1: "Pásate a GoHighLevel sin perder ni un contacto.",
     lead: "Migramos contactos, oportunidades, notas y automatizaciones desde HubSpot u otro CRM, con una prueba previa y los dos sistemas en paralelo hasta que todo cuadra.",
+  },
+  "control-con-camaras-ia": {
+    title: "Control con cámaras e IA",
+    h1: "Tus cámaras, midiendo y avisando por ti.",
+    lead: "Conectamos las cámaras que ya tienes a una IA que mide esperas, colas y ocupación por zona, y avisa al encargado en cuanto algo se pasa de tiempo. Sin reconocimiento facial.",
+    proofLine:
+      "Antes de instalar nada, probamos con unas horas de grabación de tus propias cámaras y te enseñamos qué se puede medir y con qué fiabilidad.",
   },
   "kit-ia": {
     title: "Kit IA para empresas",
