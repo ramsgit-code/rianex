@@ -13,28 +13,21 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Control con cámaras e IA (24-nov): validar lo que escribí yo.**
-      Servicio nuevo en `/servicios/control-con-camaras-ia`, siete landings
-      (`/l/camaras-ia-restaurantes`, `-parkings`, `-supermercados`,
-      `-tiendas`, `-almacenes`, `-talleres`, `-limpieza`), la de Google Ads
-      `/l/control-con-camaras-ia`, dos vídeos (simulaciones en un restaurante
-      y en un supermercado) y dos artículos
-      (`/blog/camaras-con-ia-para-controlar-tu-negocio` y
-      `/blog/camaras-con-ia-en-supermercados`). El panel del supermercado
-      enseña "sugerencias de la semana" preparadas por la IA: si las vas a
-      ofrecer, hay que construirlas. Sin tu OK siguen
-      siendo supuestos míos: el **plazo** (3 a 6 semanas), la **forma de
-      precio** (instalación más cuota mensual, sin cifras), la **prueba con
-      grabaciones del cliente** como primer paso (¿la cobras o va dentro de la
-      consultoría?), procesar **en un equipo en el local** siempre que se
-      pueda (¿qué hardware y qué modelo vas a usar?) y las marcas de cámara
-      que citamos (Hikvision, Dahua, Axis, Uniview). Que un asesor de
-      protección de datos lea las FAQ legales (art. 22 y 89 de la LOPDGDD,
-      evaluación de impacto, matrículas) antes de gastar en anuncios. No hay
-      caso propio: en cuanto haya un piloto, cambiamos la banda de prueba de
-      las landings por el caso. Las landings son `noindex` como el resto de
-      `/l/`; si quieres que posicionen por sí mismas ("cámaras con IA para
-      restaurantes"), las pasamos a `/soluciones/` con versión en inglés.
+- [ ] **Control con cámaras e IA: lo que queda abierto.** El 24-nov
+      validaste el plazo (3 a 6 semanas), el precio (instalación más cuota
+      mensual), que la prueba con grabaciones va aparte de la consultoría y
+      con precio cerrado, y que no se compra nada: se instala en los sistemas
+      del cliente. Quedan dos cosas: (1) el **precio de la prueba**, que no
+      se publica pero tendrás que dar en cada consultoría, y (2) que un
+      **asesor de protección de datos** lea las FAQ legales (art. 22 y 89 de
+      la LOPDGDD, evaluación de impacto, matrículas) antes de gastar en
+      anuncios. Decidido por mí: las "sugerencias de la semana" del panel se
+      ofrecen como parte del informe semanal (Claude lee los datos de la
+      semana y propone; decide el gerente). Sin caso propio todavía: en
+      cuanto haya un piloto, cambiamos la banda de prueba de las landings
+      por el caso. Las landings son `noindex` como el resto de `/l/`; si
+      quieres que posicionen solas, las pasamos a `/soluciones/` con versión
+      en inglés.
 
 - [ ] **¿El diagnóstico gratis lleva entregable por escrito?** (radar del
       23-nov, referencia Noah). Si después de cada llamada de 30 minutos vas
@@ -263,6 +256,13 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-24 · Control con cámaras: decisiones de Ramiro aplicadas en la
+  ficha (ES/EN), las landings, el chat y los dos artículos. La prueba con
+  grabaciones es la primera fase, con precio cerrado y aparte de la
+  consultoría gratuita; después, instalación y cuota mensual; no se compra
+  ningún equipo (se instala en un ordenador o servidor del cliente, o en su
+  nube).
 
 - 2026-11-24 · Control con cámaras, segunda tanda: landing de
   supermercados (parking como contador de visitas, previsión de cola,

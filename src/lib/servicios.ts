@@ -1070,15 +1070,15 @@ export const SERVICIOS: Record<string, Servicio> = {
         "Las cámaras no cubren la zona o graban casi a oscuras: antes hay que mover o añadir una cámara, y te lo decimos en la prueba.",
       ],
       steps: [
-        { title: "Prueba con tus grabaciones", desc: "Nos pasas unas horas de vídeo de tus cámaras y comprobamos qué se puede medir con fiabilidad y qué cámara no llega." },
+        { title: "Prueba con tus grabaciones", desc: "Nos pasas unas horas de vídeo de tus cámaras y comprobamos qué se puede medir con fiabilidad y qué cámara no llega. Es la primera fase, con su propio precio cerrado." },
         { title: "Zonas y reglas", desc: "Marcamos sobre la imagen cada mesa, plaza, caja o muelle y fijamos los límites: a partir de cuántos minutos se avisa y a quién." },
-        { title: "Instalación", desc: "Un equipo pequeño en el local, o un servidor en la nube, lee las cámaras y analiza el vídeo. Lo que sale son tiempos, recuentos y avisos." },
+        { title: "Instalación", desc: "En tus propios sistemas, sin comprar equipos: un ordenador o servidor que ya tengas en el local, o la nube de tu empresa. Lee las cámaras y lo que sale son tiempos, recuentos y avisos." },
         { title: "Avisos y panel", desc: "Avisos por WhatsApp, Telegram o una pantalla, y un panel con las esperas y la ocupación. Ajustamos los límites con las primeras semanas de uso." },
       ],
       timeline:
         "Entre 3 y 6 semanas desde la consultoría gratuita: la primera para la prueba con tus grabaciones y el resto para instalar y ajustar los avisos, según cuántas cámaras y zonas haya.",
       priceNote:
-        "Depende de cuántas cámaras y zonas se analicen y de si el vídeo se procesa en el local o en la nube. Hay una parte de instalación y una cuota mensual por el análisis, los avisos y el mantenimiento. Te damos el precio cerrado después de la consultoría y de la prueba con tus grabaciones.",
+        "Primero, la prueba con tus grabaciones: va aparte de la consultoría gratuita y tiene un precio cerrado, que te damos en ella. Después, la instalación y una cuota mensual por el análisis, los avisos y el mantenimiento, según cuántas cámaras y zonas se analicen; se cierran tras la prueba. No hay que comprar equipos: funciona con tus cámaras y en tus sistemas.",
       uses: [
         {
           title: "Restaurantes",
@@ -1123,7 +1123,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       faqs: [
         {
           q: "¿Sirven las cámaras que ya tengo?",
-          a: "Casi siempre. Trabajamos con cámaras IP y grabadores que dan la imagen por RTSP u ONVIF, lo habitual en Hikvision, Dahua, Axis, Uniview y la mayoría de marcas. Lo que importa es el ángulo y la luz: en la prueba con tus grabaciones te decimos qué cámaras valen y dónde haría falta otra.",
+          a: "Casi siempre. Trabajamos con cámaras IP y grabadores que dan la imagen por RTSP u ONVIF, lo habitual en Hikvision, Dahua, Axis, Uniview y la mayoría de marcas. Lo que importa es el ángulo y la luz: en la prueba con tus grabaciones te decimos qué cámaras valen y dónde haría falta otra. Y no hay que comprar ningún equipo: el análisis se instala en tus sistemas.",
         },
         {
           q: "¿Reconoce caras o identifica a las personas?",
@@ -1135,11 +1135,11 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "¿El vídeo sale de mi local?",
-          a: "Siempre que se puede, no: el análisis se hace en un equipo dentro del local y lo único que sale son tiempos, recuentos y avisos. Si conviene procesarlo en la nube, se acuerda por escrito dónde se procesa, cuánto se guarda y quién puede verlo.",
+          a: "No tiene por qué. El análisis se instala en un ordenador o servidor que ya tengas en el local y lo único que sale son tiempos, recuentos y avisos. Si prefieres la nube, se hace en una cuenta a nombre de tu empresa y se deja por escrito dónde se procesa, cuánto se guarda y quién puede verlo.",
         },
         {
           q: "¿Cuánto cuesta?",
-          a: "Depende de cuántas cámaras y zonas se analicen y de si el vídeo se procesa en el local o en la nube: una parte de instalación y una cuota mensual por el análisis, los avisos y el mantenimiento. El precio cerrado se da tras la consultoría gratuita y la prueba con tus grabaciones, no antes.",
+          a: "Primero, la prueba con tus grabaciones, con un precio cerrado y aparte de la consultoría gratuita. Después, la instalación y una cuota mensual por el análisis, los avisos y el mantenimiento, que dependen de cuántas cámaras y zonas se analicen y se cierran tras la prueba. No hay que comprar equipos.",
         },
       ],
     },
@@ -1170,15 +1170,15 @@ export const SERVICIOS: Record<string, Servicio> = {
         "The cameras do not cover the area or record almost in the dark: a camera has to be moved or added first, and we tell you in the trial.",
       ],
       steps: [
-        { title: "Trial with your footage", desc: "You send us a few hours of video from your cameras and we check what can be measured reliably and which camera falls short." },
+        { title: "Trial with your footage", desc: "You send us a few hours of video from your cameras and we check what can be measured reliably and which camera falls short. It is the first phase, with its own fixed price." },
         { title: "Zones and rules", desc: "We mark each table, space, till or dock on the image and set the limits: after how many minutes an alert goes out, and to whom." },
-        { title: "Installation", desc: "A small device on site, or a cloud server, reads the cameras and analyses the video. What comes out is times, counts and alerts." },
+        { title: "Installation", desc: "On your own systems, with nothing to buy: a computer or server you already have on site, or your company's cloud. It reads the cameras, and what comes out is times, counts and alerts." },
         { title: "Alerts and dashboard", desc: "Alerts via WhatsApp, Telegram or a screen, and a dashboard with waits and occupancy. We fine-tune the limits during the first weeks of use." },
       ],
       timeline:
         "3 to 6 weeks from the free consultation: the first for the trial with your footage and the rest to install and tune the alerts, depending on the number of cameras and zones.",
       priceNote:
-        "It depends on how many cameras and zones are analysed and whether the video is processed on site or in the cloud. There is a setup fee and a monthly fee for analysis, alerts and maintenance. We give you a fixed price after the consultation and the trial with your footage.",
+        "First, the trial with your footage: it is separate from the free consultation and has a fixed price, which we give you there. Then a setup fee and a monthly fee for analysis, alerts and maintenance, depending on how many cameras and zones are analysed; both are fixed after the trial. There is no equipment to buy: it works with your cameras and on your systems.",
       uses: [
         { title: "Restaurants", desc: "How long each table waits to be served, how long it takes to clear and how long each meal lasts, by table and time slot." },
         { title: "Car parks", desc: "Free spaces in real time, vehicles that overstay, misused reserved spaces and queues at the barrier." },
@@ -1192,7 +1192,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       faqs: [
         {
           q: "Do my existing cameras work?",
-          a: "Almost always. We work with IP cameras and recorders that stream over RTSP or ONVIF, which is standard for Hikvision, Dahua, Axis, Uniview and most brands. What matters is the angle and the light: in the trial with your footage we tell you which cameras work and where another one would be needed.",
+          a: "Almost always. We work with IP cameras and recorders that stream over RTSP or ONVIF, which is standard for Hikvision, Dahua, Axis, Uniview and most brands. What matters is the angle and the light: in the trial with your footage we tell you which cameras work and where another one would be needed. And there is no equipment to buy: the analysis is installed on your systems.",
         },
         {
           q: "Does it recognise faces or identify people?",
@@ -1204,11 +1204,11 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "Does the video leave my premises?",
-          a: "Whenever possible, no: the analysis runs on a device on site and only times, counts and alerts leave it. If cloud processing makes more sense, we agree in writing where it is processed, how long it is kept and who can see it.",
+          a: "It does not have to. The analysis is installed on a computer or server you already have on site, and only times, counts and alerts leave it. If you prefer the cloud, it runs on an account in your company's name and we agree in writing where it is processed, how long it is kept and who can see it.",
         },
         {
           q: "How much does it cost?",
-          a: "It depends on how many cameras and zones are analysed and whether the video is processed on site or in the cloud: a setup fee and a monthly fee for analysis, alerts and maintenance. The fixed price comes after the free consultation and the trial with your footage, not before.",
+          a: "First, the trial with your footage, at a fixed price and separate from the free consultation. Then a setup fee and a monthly fee for analysis, alerts and maintenance, which depend on how many cameras and zones are analysed and are fixed after the trial. There is no equipment to buy.",
         },
       ],
     },

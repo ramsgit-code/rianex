@@ -86,12 +86,12 @@ const FAQ_CAMARAS_LEY = faqCamaras("¿Se puede analizar con IA el vídeo de las 
 const FAQ_CAMARAS_PRECIO = faqCamaras("¿Cuánto cuesta?");
 
 const PROOF_CAMARAS =
-  "Antes de instalar nada, probamos con unas horas de grabación de tus propias cámaras y te enseñamos qué se puede medir y con qué fiabilidad.";
+  "Sin comprar equipos: antes de instalar nada, una prueba con unas horas de grabación de tus propias cámaras para ver qué se puede medir y con qué fiabilidad.";
 
 const CUIDADO_CAMARAS = [
   "Detecta personas, vehículos y objetos como formas: no sabe quién es quién ni guarda caras.",
   "Mide la operación (mesas, plazas, colas, muelles), no a cada empleado: los datos van por zona y por franja.",
-  "Siempre que se puede, el vídeo se analiza dentro del local y solo salen tiempos, recuentos y avisos.",
+  "El vídeo se analiza en tus propios sistemas, sin comprar equipos, y solo salen tiempos, recuentos y avisos.",
   "Te damos el texto para informar a la plantilla y la descripción técnica para tu asesor de protección de datos.",
 ];
 
@@ -101,7 +101,7 @@ const cuidadoCamaras = (extra?: string) => ({
 });
 
 const PLAZO_CAMARAS =
-  "Entre 3 y 6 semanas desde la consultoría. Lo primero es la prueba con unas horas de grabación de tus cámaras, en un día normal de trabajo.";
+  "Entre 3 y 6 semanas desde la consultoría. Lo primero es la prueba con unas horas de grabación de tus cámaras, en un día normal de trabajo: va aparte de la consultoría y con precio cerrado.";
 
 export const NICHOS: Record<string, Nicho> = {
   "agencias-de-marketing": {
