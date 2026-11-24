@@ -257,6 +257,13 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-24 · Artículo `proyectos-de-ia-a-medida-ejemplos-plazos-precio`
+  reescrito para intención de compra: title y meta con el rango de precio
+  y plazo del propio texto, resumen al principio, dos llamadas a
+  `/diagnostico` (tras los precios y al final, sin prometer entregable
+  escrito), enlace a `/servicios/desarrollo-ia-a-medida` y una pregunta
+  nueva en el FAQ ("qué incluye"), que alimenta el JSON-LD FAQPage.
+
 - 2026-11-24 · Control con cámaras: decisiones de Ramiro aplicadas en la
   ficha (ES/EN), las landings, el chat y los dos artículos. La prueba con
   grabaciones es la primera fase, con precio cerrado y aparte de la
