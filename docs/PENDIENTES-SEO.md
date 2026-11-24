@@ -272,6 +272,14 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-24 · «IA para licitaciones» en `propuestas-licitaciones-con-ia`
+  (ya en posición 4 para «licitaciones ia» y 6-8 para dos búsquedas de
+  compra): title «IA para licitaciones: herramientas para redactar la oferta
+  técnica», sección tras la respuesta corta con los tres tipos de herramienta
+  (generalista, específica de licitaciones, generador propio; solo se nombra
+  Gobierto Contratación, según su web), llamada al servicio, secciones cortas
+  de buscar licitaciones, analizar el pliego y memoria técnica, y dos
+  preguntas nuevas. Medir en 4-6 semanas.
 - 2026-11-24 · `reducir-gasto-tokens-ia-selectiva` reescrito con voz propia
   (primera persona, sin giros de texto generado) y con una cuenta de ejemplo
   en tokens (números redondos, rotulados como inventados). Mismos datos,
