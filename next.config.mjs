@@ -42,9 +42,9 @@ const nextConfig = {
       // El servicio de agentes paso a centrarse en WhatsApp (octubre de 2026).
       { source: "/servicios/agentes-ia-vps", destination: "/servicios/agente-ia-whatsapp", permanent: true },
       { source: "/en/servicios/agentes-ia-vps", destination: "/en/servicios/agente-ia-whatsapp", permanent: true },
-      // El desarrollo a medida dejo de ser un servicio (octubre de 2026).
-      { source: "/servicios/desarrollo-ia-a-medida", destination: "/servicios/automatizacion-procesos-ia", permanent: true },
-      { source: "/en/servicios/desarrollo-ia-a-medida", destination: "/en/servicios/automatizacion-procesos-ia", permanent: true },
+      // El desarrollo a medida vuelve como servicio propio (25-nov-2026).
+      { source: "/servicios/desarrollo-ia-a-medida", destination: "/servicios/desarrollo-software-a-medida", permanent: true },
+      { source: "/en/servicios/desarrollo-ia-a-medida", destination: "/en/servicios/desarrollo-software-a-medida", permanent: true },
       ...SIN_TRADUCIR.map((slug) => ({
         source: `/en/blog/${slug}`,
         destination: `/blog/${slug}`,

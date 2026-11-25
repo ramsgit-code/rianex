@@ -7,6 +7,7 @@ import { RAMIRO } from "@/lib/seo";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
+import { TRAYECTORIA } from "@/lib/trayectoria";
 
 function Checklist({ items }: { items: readonly string[] }) {
   return (
@@ -24,8 +25,9 @@ function Checklist({ items }: { items: readonly string[] }) {
 }
 
 export function SobreMiView() {
-  const { c } = useLang();
+  const { c, lang } = useLang();
   const a = c.sobreMi;
+  const t = TRAYECTORIA[lang];
 
   return (
     <PageShell tag={a.tag} title={a.title} wide>
@@ -71,6 +73,29 @@ export function SobreMiView() {
           </Reveal>
         ))}
       </div>
+
+      {/* trayectoria: de donde viene el metodo (Nissan, UCAV, Michelin) */}
+      <section className="mt-16" aria-labelledby="trayectoria">
+        <h2 id="trayectoria" className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">
+          {t.title}
+        </h2>
+        <p className="mt-3 max-w-2xl leading-relaxed text-foreground-muted">{t.lead}</p>
+        <ol className="mt-8 flex flex-col border-t-2 border-ink">
+          {t.items.map((p) => (
+            <li key={p.org} className="grid gap-2 border-b border-border py-5 md:grid-cols-[14rem_1fr] md:gap-8">
+              <div>
+                <p className="font-display text-xl font-extrabold uppercase leading-tight text-foreground">{p.org}</p>
+                <p className="mt-1 text-xs text-muted">{p.role}</p>
+              </div>
+              <p className="text-sm leading-relaxed text-foreground-muted">{p.desc}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-6 text-sm text-foreground-muted">
+          <span className="font-semibold text-foreground">{t.education.title}: </span>
+          {t.education.items.join(" · ")}
+        </p>
+      </section>
 
       {/* especialidades tecnicas + como trabajamos, lado a lado en escritorio */}
       <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2">

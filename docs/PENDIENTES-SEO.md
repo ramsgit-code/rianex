@@ -13,6 +13,28 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Validar el reposicionamiento del 25-nov** (lo pediste: «actualiza la
+      web con el enfoque que estoy haciendo ahora»). Lo que más conviene
+      revisar:
+      - **Precios de las ocho ofertas cerradas** (`src/lib/ofertas.ts`), que
+        son recomendación mía salvo el radar (3.100 € + 190 €/mes) y la app
+        interna (6.000 € + 200 €/mes), que salen de propuestas tuyas. Falta
+        el plazo del outbound en LinkedIn y qué cubre cada cuota mensual.
+      - **Casos**: Eventos Barcelona como proyecto de Rianex con «17 de 50
+        oportunidades en 7 semanas» y LinkedIn (1.298 / 477 / 62); Tribeca
+        con la auditoría (3 críticos, 9 altos, 6 medios; 64 % y 73 %);
+        Growth4U con sus clientes sin nombre; Hospital Capilar sin el −32 %
+        y sin su cita (la cita decía que bajó el coste por paciente).
+      - **Nissan en `/sobre-mi`** con sus cifras (3 M€, −5 %, entregas a
+        tiempo >95 %, 20+ responsables): mira la política de Nissan sobre
+        redes y webs comerciales.
+      - **Servicio de software a medida** y **página de industria y
+        logística** (sin caso industrial propio todavía: se apoya en tu
+        trayectoria).
+      - **LinkedIn**: textos nuevos en `linkedin/textos-linkedin-2026-11-25.md`
+        y base del bot en `rianex-chatbot-kb.2026-11-25.md` (fuera del repo).
+        Pegar la base en el bot de GHL cuando valides los precios.
+
 - [ ] **Sortlist**: perfil en sortlist.com/agency/rianex con 3 reseñas
       (5/5), 3 trabajos e índice de calidad del 58%; «Inteligencia
       Artificial» es ya el primer servicio. Lo que queda depende de ti: foto
@@ -370,6 +392,21 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · **Reposicionamiento con lo que Rianex hace de verdad**
+  (inventario de las carpetas de EB, Tribeca, Growth4U, herramientas propias
+  y LinkedIn, en `~/Documents/rianex web/inventario-2026-11-25/`). Cuatro
+  líneas de trabajo (automatización, captación y go-to-market, software e IA
+  a medida, auditoría y consultoría de IA) en la home, `/servicios`,
+  `llms.txt` y el JSON-LD. Página nueva **`/ofertas`** con ocho ofertas
+  cerradas y precio publicado (OfferCatalog). Servicio nuevo
+  **`/servicios/desarrollo-software-a-medida`** (el antiguo
+  `desarrollo-ia-a-medida` redirige ahí). Sector nuevo
+  **`/soluciones/industria-logistica`**, también en la home. **Casos
+  reescritos** con lo que dicen los documentos; fuera el −32 % de Hospital
+  Capilar y el −85 % de Eventos Barcelona en toda la web, el blog y el chat
+  (sin documento que los respalde). **`/sobre-mi`** con la trayectoria
+  (Nissan, UCAV, Michelin, Busch) y Person con ocupaciones y formación.
 
 - 2026-11-25 · Séptima tanda (claude-seo, segunda parte), a petición de
   Ramiro. (1) **Títulos cortos**: campo `seoTitle` opcional en el

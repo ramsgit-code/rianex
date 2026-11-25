@@ -20,7 +20,16 @@ const personJsonLd = {
     sameAs: [RAMIRO.linkedin],
     jobTitle: "Ingeniero industrial",
     description:
-      "Ingeniero industrial con experiencia en plantas industriales. Automatización y desarrollo con IA sobre GoHighLevel y HubSpot.",
+      "Ingeniero industrial. Fundador de Rianex (automatización con IA, captación y software a medida) y responsable de proyecto en la transformación digital de la cadena de suministro de Nissan. Profesor de Industria 4.0 en el máster de la UCAV.",
+    hasOccupation: [
+      { "@type": "Occupation", name: "Fundador de Rianex" },
+      { "@type": "Occupation", name: "Business Analyst y jefe de proyecto, cadena de suministro de Nissan" },
+      { "@type": "Occupation", name: "Profesor de Industria 4.0, Máster en Ingeniería Industrial (UCAV)" },
+    ],
+    alumniOf: [
+      { "@type": "CollegeOrUniversity", name: "Universidad de Valladolid" },
+      { "@type": "CollegeOrUniversity", name: "Universidad Europea" },
+    ],
     url: `${SITE_URL}/sobre-mi`,
     email: "hola@rianex.es",
     address: { "@type": "PostalAddress", addressLocality: "Ávila", addressCountry: "ES" },
@@ -33,6 +42,11 @@ const personJsonLd = {
       "Migración de CRM",
       "Integraciones por API",
       "Ingeniería industrial",
+      "Cadena de suministro",
+      "Migración de ERP",
+      "Industria 4.0",
+      "Desarrollo de software a medida",
+      "Prospección B2B",
     ],
   },
 };

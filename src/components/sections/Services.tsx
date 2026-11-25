@@ -8,8 +8,8 @@ import { sectoresDe, sectoresRotulo } from "@/lib/content";
 import { SERVICIO_VIDEO } from "@/lib/servicio-media";
 
 // "Servicios": las fichas de content.ts agrupadas como en /servicios, en
-// tarjetas kanban. El último grupo ("Otros servicios": kit, formación y
-// asesoramiento) va en grafito para separarlo de la automatización. Un grupo
+// tarjetas kanban. El último grupo ("Auditoría y consultoría de IA": asesoramiento,
+// IA selectiva, formación y kit) va en grafito para separarlo del resto. Un grupo
 // de un solo servicio (control con cámaras, IA selectiva) lleva al lado sus
 // sectores o usos, que en castellano pueden enlazar a /l/ o al blog. Debajo, los complementarios en
 // lista. Cada tarjeta lleva a la página del servicio.

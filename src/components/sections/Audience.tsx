@@ -64,12 +64,14 @@ export function Audience() {
         <h3 className="mt-14 font-display text-[13px] font-bold uppercase tracking-[0.08em] text-foreground">
           {a.sectorsTitle}
         </h3>
-        {/* Las dos primeras (con casos propios) van más anchas: 2 arriba y 3 abajo. */}
+        {/* Las dos primeras (con casos propios) van más anchas. El resto va de
+            tres en tres si cuadran filas completas; si no, de dos en dos, para
+            que ninguna tarjeta quede sola en su fila. */}
         <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
           {a.sectors.map((sec, i) => (
             <li
               key={sec.name}
-              className={`flex flex-col border-2 border-ink bg-white ${i < 2 ? "lg:col-span-3" : "lg:col-span-2"}`}
+              className={`flex flex-col border-2 border-ink bg-white ${i < 2 || (a.sectors.length - 2) % 3 !== 0 ? "lg:col-span-3" : "lg:col-span-2"}`}
             >
               <div className="flex flex-1 flex-col p-6">
                 <p className="font-display text-2xl font-extrabold uppercase leading-[0.95] text-foreground">{sec.name}</p>
