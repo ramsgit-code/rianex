@@ -74,6 +74,6 @@ export const MANTENIMIENTO: Record<Lang, Mantenimiento> = {
     ],
     price:
       "This is the monthly retainer in the investment table: €1,000 to €5,000 a month, depending on how many workflows and agents you have in production. The exact price is confirmed in the free consultation.",
-    link: { href: "/blog/coste-agente-de-ia-en-produccion", label: "How to measure and cap an agent's cost (in Spanish)" },
+    link: { href: "/blog/coste-agente-de-ia-en-produccion", label: "How to measure and cap an agent's cost" },
   },
 };

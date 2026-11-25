@@ -1,0 +1,150 @@
+---
+title: "Outcome-based pricing for AI: what an SME can copy from Sierra"
+description: "Sierra, Intercom and now Zendesk charge for AI by outcome. When it fits an SME, what check the outcome must pass and what each appointment costs."
+date: "2026-11-09"
+updated: "2026-11-11"
+tags: ["outcome-based pricing", "ai agents", "booking sdr", "ai cost", "whatsapp"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+More and more managers ask the same question when AI agents come up: if the machine does in minutes what used to take hours, why should I pay for it as if it were hours? In the United States, three of the companies that sell the most customer service agents have already answered by charging by outcome. This article covers what they do, when it makes sense to copy it in a Spanish SME and how to calculate what each outcome really costs, using an agent that books appointments as the example.
+
+## The short answer
+
+Charging for AI by outcome means the client pays for each useful thing the agent achieves, such as a resolved conversation, a booked appointment or a proposal sent, and not for hours, licences or model usage. It works when the outcome can be counted without argument, can be attributed to the agent and repeats often enough each month.
+
+In an SME, the format that fits best is mixed: a fixed-price implementation, a base fee that covers infrastructure and maintenance, and an amount per outcome with a monthly cap. And the outcome should only count when it passes a check, as Zendesk already does. The agent that books appointments (known as a *Booking SDR*) is the clearest case, because an appointment is a fact with a date and time in the calendar.
+
+## What Sierra, Intercom and Zendesk do
+
+**Sierra** sells customer service agents to large companies. On 30 October 2026 it announced that it had passed [400 million dollars in annual recurring revenue](https://sierra.ai/blog/our-customers-ambition-is-accelerating-our-growth), with more than 150 million added in the third quarter alone. It took six months to go from 100 to 200 million and five to go from 200 to 400. Its pricing principle fits in one sentence: "you pay for outcomes, not for the tokens used". The examples it gives are a refinanced loan, a paid claim, a closed sale or a customer who does not cancel.
+
+**Intercom** charges for its agent, Fin, at [0.99 dollars per resolution](https://www.intercom.com/small-business). And it does not force you to use its own customer service software: Fin can also be [installed on top of Zendesk or Salesforce](https://www.intercom.com/help/en/articles/10118495-fin-for-zendesk-and-salesforce-explained), so it is sold as a layer over what the company already has.
+
+**Zendesk** joined on 11 November 2026 with its [Outcome AI Platform](https://itbrief.asia/story/zendesk-launches-outcome-ai-platform-with-new-pricing). It stops charging per user: the client sets an outcome budget and pays for "eligible resolved tickets and completed work". The important part is the nuance: each outcome is assessed for quality and completeness before it counts. It has not published a price per resolution.
+
+The three models have three things in common:
+
+- **The outcome is recorded in a system.** A closed ticket, a logged sale or a cancellation that did not happen. There is no need to argue about whether it occurred.
+- **They work with high volume.** With millions of conversations, the doubtful cases are diluted.
+- **They need to control what each conversation costs them.** If the cost per outcome shoots up, the margin disappears. It is the least visible part of the model and the one that decides whether it is a business.
+
+## Why now: the cost can be controlled
+
+Two years ago, charging by outcome meant betting that the model bill would not eat the margin. Today it can be designed so that it does not happen. The most talked-about example of recent weeks is Revolut, even though it does not come from customer service.
+
+According to what [its head of infrastructure said](https://www.theregister.com/a/5307345) at the AI Engineer conference in New York, Revolut has cut what it spends on AI for coding by around 90%. It did so by serving an open model, GLM, on its own machines for some 2,000 engineers. Claude Code and Codex are kept for the hard cases, and images go to Gemini through a router, because GLM only works with text. These are figures from a company presentation that nobody has audited from outside, but the pattern does not depend on the exact figure being 90%.
+
+That pattern is what makes charging by outcome possible: a cheap model does the bulk of the work, an expensive one is reserved for the exceptions and a rule decides which one comes in for each case. In an agent that books appointments, the bulk is answering with opening hours, checking free slots and confirming. Only the unusual conversation needs a powerful model or a person. We explain how to log the cost of each call and put a cap on it in [cost of an AI agent in production](/en/blog/coste-agente-de-ia-en-produccion).
+
+## When it fits an SME and when it does not
+
+Charging by outcome does not work for everything. This table sums up where it works:
+
+| | Fits | Does not fit |
+|---|---|---|
+| **The outcome** | Counted without argument: an appointment in the calendar, a proposal sent | Vague: "more sales", "better service" |
+| **The attribution** | The agent achieves it without anyone stepping in | Depends on several people, like a sale the salesperson closes after three meetings |
+| **The volume** | Dozens or hundreds a month | Twenty or so enquiries a month, which a person handles better |
+| **The cycle** | Short: the appointment is booked in the same conversation | Long: sales that take months to close |
+
+That is why the two clearest candidates in an SME are the agent that books appointments and the proposal generator, which would charge per proposal sent. Charging per closed sale almost never works, because too many things the agent does not control influence the sale.
+
+## Before signing: what counts as an appointment
+
+Most disputes in an outcome-based contract come from not having defined the outcome properly. In an appointment agent there are three options, and each one shares out the risk differently:
+
+- **Booked appointment:** counts as soon as it enters the calendar. It is easy to measure, but the risk of the customer not turning up is borne by the company.
+- **Confirmed appointment:** counts when the customer replies to the reminder. It is the middle ground and the one we recommend looking at first.
+- **Attended appointment:** counts only if the customer turns up. The risk moves to the provider, but it depends on someone in the company marking attendance, every day and without forgetting.
+
+As well as the type of appointment, the contract should put in writing:
+
+- **What criteria the appointment has to meet.** The service, the area or the budget that were agreed. Without this, the provider's incentive is to fill the calendar with appointments that are no good.
+- **What happens with duplicates and date changes.** A person who reschedules three times is one appointment.
+- **What happens when a person steps in.** If the conversation is finished by someone on the team, the logical thing is that it does not count as an outcome of the agent.
+- **Where it is measured.** A single source of truth, normally the calendar or the CRM, that both parties have access to.
+
+## Charge only for the outcome that passes a check
+
+What Zendesk has done tackles the biggest risk of charging by outcome: that the provider earns more the more outcomes it counts, whether they are good or not. If an outcome only counts when it passes a check, the incentive changes. Inflating the figure no longer pays; what pays is that each outcome is useful.
+
+In an SME that check does not need a platform. It is enough to decide which signal proves that the outcome was useful and to have that signal recorded in a system:
+
+- **In an appointment agent:** the confirmed appointment that meets the agreed criteria, as we saw above.
+- **In a proposal generator:** not the proposal generated, but the proposal sent without the salesperson having had to redo it. In a system like the one we built for [Eventos Barcelona](/en/casos-de-exito/eventos-barcelona), where the proposal goes out about eight minutes after the call, it would be enough to record whether the salesperson sends it as is or redoes it.
+- **In a customer service agent:** the enquiry resolved without the customer writing again about the same thing in the following days.
+
+And in addition to the automatic signal, a periodic review of a sample, done by someone in the company. It is the way to check that the signal measures what it has to measure.
+
+## How to calculate the real cost per appointment
+
+The cost of each appointment an agent books has four parts:
+
+1. **Fixed costs per month:** the CRM or the GoHighLevel sub-account, the server, the WhatsApp number or the phone line, monitoring and maintenance.
+2. **The AI model per conversation:** with a small model for the bulk, it is cents per conversation.
+3. **WhatsApp messages:** replying within the 24 hours after the customer writes to you has no cost from Meta. Templates that the company initiates, such as reminders or a campaign to reactivate contacts, are paid per message according to the country and the type of message. It is worth checking Meta's current rate for Spain.
+4. **Voice minutes, if there is a voice agent:** the Vapi platform charges [0.05 dollars per minute](https://vapi.ai/pricing), and on top of that come the transcription, the model and the voice. According to its own calculator, the total comes to between 0.08 and 0.13 dollars per minute, plus whatever the line operator charges.
+
+The sum is: **cost per appointment = (fixed costs + conversations × cost per conversation + minutes × cost per minute + templates × cost per template) ÷ appointments**.
+
+An example with round numbers. These are assumptions to show the sum, not data from a client:
+
+| Item | Assumption | Per month |
+|---|---|---|
+| Fixed costs | CRM, server, line and monitoring | 300 € |
+| AI model | 700 conversations at 3 cents | 21 € |
+| Voice | 100 calls of 3 minutes at 0.15 €, with the line | 45 € |
+| WhatsApp reminders | 150 appointments with 2 templates at 2 cents | 6 € |
+| **Total** | | **372 €** |
+| **Confirmed appointments** | | **150** |
+
+With these assumptions, each appointment costs about **2.50 €**, and less than **50 cents** if the fixed costs are taken out. The conclusion is almost always the same: the variable part is small and what weighs is the fixed costs and the implementation.
+
+That is why the price per appointment is not set from the cost, but from what an appointment is worth to the business and how many were being lost before having the agent. If you do not know how many enquiries go unanswered today, that is the first number to get: we explain how to do it in one week in [measuring a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## How the price is put together
+
+An outcome-based price for an appointment agent usually has three parts:
+
+- **Fixed-price implementation.** Building the agent, its connections to the calendar and the CRM, and the testing. It is paid once. Today the implementation of an [AI agent for WhatsApp](/en/servicios/agente-ia-whatsapp) ranges from 5,000 € to 25,000 €, depending on how many systems it touches and how many exceptions the process has.
+- **Monthly base fee.** It covers the fixed costs and maintenance, so that a slow month does not leave the system unwatched.
+- **Amount per confirmed appointment, with a monthly cap.** The cap protects the company's budget if a month brings much more volume than expected.
+
+There are two risks worth agreeing on from the start. The first is third-party price changes: if Meta or the model provider raise their rates, the contract should provide for a review. The second is ownership. The CRM accounts, the WhatsApp number and the workflows should be in the company's name, so that it can change provider without losing what has been built.
+
+## Frequently asked questions
+
+### What does charging for AI by outcome mean?
+
+That the client pays for each useful thing the agent achieves, such as a resolved conversation, a booked appointment or a proposal sent, instead of paying for hours, licences or model usage. It works when the outcome can be counted without argument and attributed to the agent.
+
+### How much does Intercom charge for its Fin agent?
+
+0.99 dollars per resolution, according to its pricing page. Fin can work with Intercom's customer service software or on top of others such as Zendesk or Salesforce.
+
+### How does Zendesk charge for its AI?
+
+Since 11 November 2026, with its Outcome AI Platform, the client sets an outcome budget and pays for eligible resolved tickets and completed work, instead of per user. Each outcome is assessed for quality and completeness before it counts. Zendesk has not published a price per resolution.
+
+### How much revenue does Sierra make charging by outcome?
+
+More than 400 million dollars in annual recurring revenue, as the company itself announced on 30 October 2026, with more than 150 million added in the third quarter.
+
+### Which outcome should be charged for in an agent that books appointments?
+
+The confirmed appointment, meaning the one the customer confirms on receiving the reminder, is the middle ground between the booked appointment, which leaves the company with the risk of the customer not turning up, and the attended appointment, which depends on someone marking attendance. In addition, the appointment must meet the agreed criteria so that the agent does not fill the calendar with appointments that are no good.
+
+### How much does each appointment booked by an AI agent cost?
+
+It depends on the volume and the fixed costs. In an example with 150 appointments a month, WhatsApp and some voice, the variable cost comes to less than 50 cents per appointment and the total, with fixed costs, to about 2.50 €. What weighs most is the fixed costs and the implementation, not the AI model.
+
+### Does charging by outcome make sense in a small company?
+
+Only if there is enough volume. With twenty or so enquiries a month, the fixed cost is spread over very few appointments and a fixed price is better, or having a person handle them.
+
+### Where do I start?
+
+By knowing how many enquiries you get and how many end up without an appointment today. If you want to do the sum with your numbers, in the 30-minute [free consultation](/en/diagnostico) we look at whether an appointment agent fits your case and with what pricing format.

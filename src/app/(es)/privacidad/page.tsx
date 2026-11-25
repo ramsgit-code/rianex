@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
+import { translatedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Política de privacidad",
-  description:
-    "Información sobre el tratamiento de datos personales en Rianex conforme al RGPD y la LOPDGDD.",
-  robots: { index: true, follow: true },
-  alternates: { canonical: "/privacidad" },
-};
+export const metadata: Metadata = translatedMetadata(
+  "/privacidad",
+  "es",
+  "Política de privacidad",
+  "Información sobre el tratamiento de datos personales en Rianex conforme al RGPD y la LOPDGDD."
+);
 
 const EMAIL = "hola@rianex.es";
 

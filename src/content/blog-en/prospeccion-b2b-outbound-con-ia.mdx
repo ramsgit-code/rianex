@@ -1,0 +1,125 @@
+---
+title: "B2B prospecting with AI: how to set up outbound in Spain"
+description: "How to set up B2B outbound prospecting with AI in Spain: ideal customer, separate domains, enrichment, email and LinkedIn sequences and what the law says."
+date: "2026-10-28"
+tags: ["b2b prospecting", "outbound", "cold email", "linkedin", "clay", "go-to-market"]
+cluster: "outbound"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Most small B2B companies in Spain sell through referrals. It works until it stops working: a weak quarter, a large client that leaves, and suddenly there is no way to generate meetings on demand.
+
+Outbound is exactly that: a channel for meetings that you can switch on and off. With AI it has become much cheaper to set up, and also much easier to do badly. This article explains how we set it up, step by step, and which mistakes cost the most.
+
+## The short answer
+
+B2B outbound prospecting means proactively writing to companies that fit your ideal customer, by email and LinkedIn, with a message that talks about their case, and bringing every reply into your CRM. It is built from five pieces: ideal customer and offer, sending infrastructure separate from your domain, enriched and verified lists, sequences coordinated across several channels and reply handling. AI helps above all with researching each account and classifying replies; the judgement about who to write to and what to offer is still yours. The first campaigns usually go out around week 4, because new mailboxes need two or three weeks of warm-up.
+
+## Step 1: ideal customer and offer, before any tool
+
+The most common mistake is starting with the tools. Clay, Instantly or Valley do not fix an offer nobody cares about or a list of the wrong people.
+
+Before touching anything you have to be able to write three things on one page:
+
+- **Who**: sector, company size, country and job title of the person who decides. The more specific, the better: "dental clinics with 3 to 15 chairs in Madrid and Barcelona, manager or medical director" works; "SMEs" does not.
+- **When**: what signal indicates that it is a good moment. A company that is hiring salespeople, has just opened an office or has changed its sales director is more receptive than one that is not moving.
+- **What**: what you offer that matters to that person, in one sentence and without jargon. Not "automation solutions", but "no patient who writes on WhatsApp on a Saturday is left without an answer".
+
+If these three things are not clear, no sequence is going to work. We cover it in more detail in [what is GTM Engineering](/en/blog/que-es-gtm-engineering).
+
+## Step 2: sending infrastructure, separate from your domain
+
+Cold email does not go out from your main domain. It goes out from similar secondary domains (for example, `yourcompany-mail.com` or `contact-yourcompany.es`), with two or three mailboxes each, authenticated with SPF, DKIM and DMARC and warmed up for two or three weeks before sending anything.
+
+There are two reasons:
+
+1. **You protect your main domain.** If something goes wrong and a domain ends up on spam lists, the one that gets burned is the secondary one, not the one your team uses to invoice and talk to customers.
+2. **You spread the volume.** Each mailbox sends few emails a day. With several mailboxes you reach the volume you need without any of them raising suspicion.
+
+Tools like Instantly manage the warm-up, the distribution across mailboxes and the sequences. It is the most technical part and the least visible, but it is the one that decides whether your emails land in the inbox or in spam.
+
+## Step 3: enriched and verified lists
+
+An outbound list is not bought ready-made. It is built: you start from the companies that fit, look for the people with the right job title inside each one, find their work email, verify that it exists and add whatever is needed to personalise the message.
+
+That process is called **enrichment**, and it is where the market has changed most with AI. Today there are three ways to do it: with a platform like Clay, with an AI agent that calls the data APIs directly (Treg is the most recent example) or by outsourcing it to a specialist agency such as ColdIQ. We compare them in [Clay, Treg or ColdIQ: how to enrich data for B2B prospecting](/en/blog/clay-treg-coldiq-enriquecimiento-prospeccion-b2b).
+
+Two rules apply to all three:
+
+- **Found is not the same as deliverable.** An email that appears in a database may no longer exist. Verify every address before sending and set the doubtful ones aside.
+- **Pay only for what you are going to use.** Filter first with the data you already have (sector, size, country) and enrich afterwards. Enriching a whole list to discard half of it is throwing money away.
+
+## Step 4: email and LinkedIn sequences, coordinated
+
+Some job titles read email and others only answer on LinkedIn. A sequence that combines the two channels reaches more people without pushing harder on either one.
+
+A typical sequence has three to five touches spread over two or three weeks: LinkedIn invitation, first email, LinkedIn message if they accepted, second email with a different angle and a short closing message. Valley or similar tools automate the LinkedIn part; Instantly, the email part.
+
+In our own LinkedIn prospecting in October, of 6 invitations to people with mutual connections, 4 accepted; of 14 invitations to people with no mutual connections, 3 accepted. It is a small sample, but it points to something that repeats: **start with those who are two steps away from you**.
+
+On the message, three things that work:
+
+- **Talk about their case, not yours.** One sentence showing that you have looked at their company is worth more than three paragraphs about what you do.
+- **Ask for little.** "Does it make sense for me to tell you how others do it?" converts better than "shall we book 30 minutes?".
+- **Short.** If it cannot be read on a phone without scrolling, there is too much text.
+
+AI helps to research each account and to propose the first line. A person should review those first lines before launching, at least in the first campaigns: a personalisation error ("I saw you opened in Valencia", when it was in Valladolid) burns the account more than a generic message.
+
+## Step 5: replies into the CRM, classified
+
+Outbound that works generates replies, and replies have to be handled the same day. Each one is classified (interested, not now, not the right person, unsubscribe) and goes into the CRM with the conversation history. The interested ones get a link to book a meeting; the "not now" ones are scheduled for another message in a few months; unsubscribes are respected without exception.
+
+Here AI is very useful: classifying replies is exactly the kind of free-text reading task that a model does well. If you already have GoHighLevel or HubSpot, everything can go in there; we explain it in [integrating GoHighLevel with your stack](/en/blog/integrar-gohighlevel-con-tu-stack).
+
+## What the law says in Spain
+
+This point deserves care. The LSSI limits the sending of unsolicited commercial communications by email, and the GDPR requires a legal basis for processing personal data, professional data included.
+
+In practice, what we do is:
+
+- Write to people in professional roles about matters related to their work, with one-to-one messages and not mass sends.
+- Always identify who is writing and give a simple way to stop receiving messages.
+- Combine email with LinkedIn, where professional contact is the normal use of the platform.
+- Keep a record of where each piece of data comes from and delete anyone who asks.
+
+This is not legal advice. If your sector is sensitive (health, finance, public sector), it is worth reviewing it with your adviser before launching.
+
+## How long it takes and how much it costs
+
+**Timeline:** mailbox warm-up sets the pace. It lasts two to three weeks, and in that time the ideal customer, the lists and the messages are worked on. The first campaigns usually go out around week 4.
+
+**Cost:** there are two parts. Setting it up, which at Rianex falls within the implementation range (from €5,000 to €25,000, depending on channels, volume and how much has to be connected to your CRM). And the tools, which you contract in your own name and pay for directly: domains and mailboxes, the sending tool, the LinkedIn tool and enrichment.
+
+## The four most expensive mistakes
+
+1. **Sending from your main domain.** Saving a few euros a month on domains can cost you months of emails in spam.
+2. **Buying a list.** Old data, emails that bounce and people who do not fit. High bounce rates damage the reputation of your mailboxes.
+3. **Measuring opens.** Email clients fake them or block them. Measure replies and meetings.
+4. **Not answering quickly.** An interested reply that waits two days goes cold just like an inbound lead.
+
+## Frequently asked questions
+
+### What is B2B outbound prospecting?
+
+It means proactively looking for companies that fit your ideal customer and writing to them by email, LinkedIn or phone to open a sales conversation, instead of waiting for them to arrive through referrals or the website.
+
+### How long does it take to produce results?
+
+The first campaigns go out around week 4, because of mailbox warm-up. The first replies arrive in the following days; to know whether the channel really works you need a month or two of campaigns and several messages tested.
+
+### Email or LinkedIn?
+
+Both, coordinated. Each channel reaches different people, and combining them lets you push less on each one.
+
+### Can I do it with my main domain?
+
+It is not recommended. If the sends generate complaints or bounces, the domain affected is the one your team uses for everything else. Secondary domains cost little and isolate the risk.
+
+### Does AI write the messages?
+
+It helps to research each company and to propose the personalised part. The offer, the tone and the review of the first campaigns should belong to a person who knows the business.
+
+### Can you set it up for us?
+
+Yes, it is one of our services: [B2B outbound](/en/servicios/outbound-b2b). If you first want to see whether it makes sense in your case, the [free assessment](/en/diagnostico) takes 30 minutes.

@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
-
-// La pagina es la misma: las vistas sacan el idioma del contexto, que a su vez
-// lo saca de la URL. Aqui solo cambia el metadata.
-export { default } from "@/app/(es)/casos-de-exito/page";
+import { ListingJsonLd } from "@/components/ListingJsonLd";
+import { CasosView } from "@/app/(es)/casos-de-exito/CasosView";
 
 export const metadata: Metadata = pageMetadata("/casos-de-exito", "en");
+
+// La vista es la misma (saca el idioma de la URL); el JSON-LD va en ingles.
+export default function CasosPageEn() {
+  return (
+    <>
+      <ListingJsonLd path="/casos-de-exito" lang="en" />
+      <CasosView />
+    </>
+  );
+}

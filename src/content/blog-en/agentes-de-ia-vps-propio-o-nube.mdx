@@ -1,0 +1,92 @@
+---
+title: "AI agents: your own server or a managed cloud service"
+description: "Cost, data control and vendor lock-in. When your own VPS pays off for your agents and when it is making life complicated for no reason."
+date: "2026-09-20"
+updated: "2026-11-25"
+tags: ["ai agents", "vps", "infrastructure", "gdpr"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+When an AI agent stops being an experiment and starts serving real customers, a decision appears that almost nobody makes in time: where it lives.
+
+The default answer is a closed service, because it can be set up in an afternoon. It is a good answer to start with and a bad answer to stay with, depending on the case. It is worth understanding why before the change gets expensive.
+
+## The two options
+
+**Managed service.** You sign up for a platform that hosts the agent, manages the model and charges you per conversation, per message or per seat. You configure and they take care of the rest.
+
+**Your own server.** A VPS where your agent runs, with the integrations and the logic written for your case. You pay for the server and for the model calls separately.
+
+It is not an ideological decision. It is arithmetic and control.
+
+## What changes in the cost
+
+The important difference is not the price, it is the shape of the price.
+
+A managed service has a **variable cost**: it grows with use. It is great when use is small, because you start out paying almost nothing. And it is uncomfortable when the business works, because success makes the bill more expensive exactly when you have the most conversations.
+
+Your own server has a **fixed cost** plus the model calls. A VPS that handles a customer service agent comfortably costs what it costs per month, whether it handles a hundred conversations or three thousand. The model calls do scale, but they are the cheap part.
+
+The crossover point depends on the volume and on each provider's rates, so I am not giving a figure that would be a lie in six months. The way to calculate it is stable, though: take your real monthly volume, look at what it would cost you on the managed service and compare it with the server plus the estimated model usage. If the business is going to grow, do the sums with next year's volume too, because migrating later costs more than starting well.
+
+## What changes in data control
+
+This is where the decision stops being an economic one.
+
+If your agent handles health data, financial data or any sensitive category, the place where it is processed matters legally, not just technically. With a closed service you need its data processing agreement, and you need to know where its servers are and what they do with what passes through them. With your own server in the European Union, you control where each thing is stored and for how long.
+
+This does not make your own server the legal option and the managed one the illegal option. There are perfectly sound managed services with their safeguards in order. What it does do is change who answers for what, and that is better known beforehand and not during an audit.
+
+We cover it in more detail in [GDPR and AI automation](/en/blog/rgpd-y-automatizacion-con-ia).
+
+## What changes in dependency
+
+An agent built on a closed platform lives inside that platform. If they raise prices, if they shut down, if they change the API or if they decide your use case no longer fits their terms, the work done cannot be taken elsewhere without redoing it.
+
+With your own infrastructure, the agent is your code. Changing model is changing a setting. Changing server provider is moving a container.
+
+This matters little in the first month and quite a lot in the third year.
+
+## When to choose each one
+
+**Managed service** if you are validating whether the agent is useful, the volume is low, you do not handle sensitive data and you have nobody who can look after a server. It is the right option to start with, and there is no shame in staying there if the numbers work.
+
+**Your own server** if the volume is already high and the variable bill hurts, if you handle sensitive data, if you need integrations the platform does not offer, or if the agent is part of the product and you cannot afford for it to depend on someone else's decisions.
+
+## What you have to accept with your own server
+
+To be honest, because this is rarely told.
+
+A server is a thing that has to be maintained. Security updates, backups, certificates, monitoring that it is still up. If nobody takes care of that, the saving turns into a three-day outage at the worst possible time.
+
+The sensible way to solve it is to set up the monitoring from the start: an automatic alert when the server stops showing signs of life, automatic backups and a plan for what to do if it goes down. It is not complicated, but it has to be done, and someone has to decide who does it.
+
+If there is nobody who is going to take care of it, the managed service works out cheaper even if the spreadsheet says otherwise.
+
+## The route we usually recommend
+
+Start on a managed service to validate that the agent solves something real. Measure volume and cost for two or three months. And decide with that data, instead of deciding before knowing anything.
+
+The only thing worth doing from minute one is not tying yourself down: keep the agent's logic and its integrations separate from the specific platform, so that moving is a job of days and not of months.
+
+## Frequently asked questions
+
+### Which is better for an AI agent, your own server or a cloud service?
+
+It depends on the volume, on the data and on who is going to maintain it. The managed service is the right option if you are validating, the volume is low, you do not handle sensitive data and you have nobody to look after a server. Your own server fits when the volume is already high, the data is sensitive, you need integrations the platform does not offer or the agent is part of your product.
+
+### Which is cheaper, your own VPS or a managed platform?
+
+It depends on the volume. The managed service has a variable cost that grows with use, and your own server has a fixed cost plus the model calls, which are the cheap part. To find out in your case, take your real monthly volume, look at what it would cost on the managed service and compare it with the server plus the estimated model usage. If the business is going to grow, do the sums with next year's volume too.
+
+### Where should I host an AI agent that handles sensitive data?
+
+With health data, financial data or any sensitive category, the place where it is processed matters legally. With your own server in the European Union you control where each thing is stored and for how long. A managed service can also be sound, but you need its data processing agreement and you need to know where its servers are and what they do with what passes through them.
+
+### What maintenance does an AI agent on your own server need?
+
+Security updates, backups, certificates and monitoring that the server is still up. The sensible thing is to set it up from the start: an automatic alert when it stops showing signs of life, automatic backups and a plan for what to do if it goes down. If there is nobody who is going to take care of it, the managed service works out cheaper even if the spreadsheet says otherwise.
+
+If you want us to look at your numbers, the [free assessment](/en/diagnostico) is 30 minutes and you leave with the sums done for your case.

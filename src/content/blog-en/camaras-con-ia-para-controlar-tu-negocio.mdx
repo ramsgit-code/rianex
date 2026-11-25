@@ -1,0 +1,110 @@
+---
+title: "AI cameras to monitor your business: what they measure and what not"
+description: "Video: how a restaurant's cameras measure unattended and uncleared tables, what is measured in car parks, shops and warehouses, and what the law says."
+date: "2026-11-24"
+tags: ["ai cameras", "computer vision", "video analytics", "restaurants", "car parks", "video"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+video: "/videos/servicio-control-con-camaras-ia.mp4"
+videoPoster: "/videos/servicio-control-con-camaras-ia.jpg"
+videoDuration: "PT1M29S"
+---
+
+Almost every business has cameras, and almost nobody looks at them until something happens. With a computer vision model, those same cameras can measure what is checked by eye today: how long a table waits to be served, how many spaces are free in the car park or how many people are in the checkout queue. The video above shows it in a restaurant. It is a simulation: the restaurant and the data are fictional, not a recording from a client.
+
+## The short answer
+
+An AI camera does not recognise anyone: it detects people, vehicles and objects as shapes and measures how long they spend in each zone you mark, such as a table, a parking space or a checkout. From that it calculates waits, occupancy and queues, and alerts the manager when something goes over the limit. It works with the IP cameras you already have, if they have a good view of the zone, and what leaves the premises is times, counts and alerts, not video.
+
+## What happens in the video
+
+- **Each table is a zone.** Each table is marked on the image from the terrace camera. The system knows at all times whether it is free, whether customers are eating, whether they have just sat down or whether they have left and the table has still not been cleared.
+- **Table 12 is occupied at 21:10 and the count starts.** Nobody comes over. At five minutes, the limit the restaurant set, the table turns red.
+- **The manager gets the alert on their phone**: "Table 12, terrace: 5 minutes unattended". They send a waiter and, as soon as the waiter reaches the table, the alert closes by itself.
+- **Meanwhile, at table 4 the customers have left** and the system measures how long it takes to be ready for the next ones.
+- **The general manager sees it all on a web dashboard**: the floor plan with the status of each table, the average wait until service, the uncleared tables, how long each meal lasts and the wait by time slot over the last few days.
+
+To tell a waiter from a customer you do not need to know who anyone is: the customer sits down and stays; the waiter arrives on foot, stops for a moment and leaves. If the team wears a uniform, it is easier still.
+
+## What can be measured, by type of business
+
+The rule is simple: if a person would know it by looking at the screen, the AI can measure it. These are the uses that make most sense in an SME.
+
+### Restaurants
+
+Unattended tables, uncleared tables with people waiting at the door, how long each meal lasts and how many times each table turns per time slot. We cover it in more detail in [AI cameras for restaurants](/l/camaras-ia-restaurantes).
+
+### Car parks
+
+Free spaces in real time by floor or zone, vehicles that exceed the permitted time in a customer car park, charging spaces occupied by someone who is not charging and queues at the barrier. One well-placed camera covers many spaces at once, without a sensor in each one. More in [AI cameras for car parks](/l/camaras-ia-parkings).
+
+### Supermarkets
+
+The car park is the best visit counter a supermarket has: how many cars come in per hour, how long each one stays (almost the length of the shop) and when there is going to be a queue at the checkout. Inside, queues, spills and toilets cleaned according to use. We explain it with a video in [AI cameras in supermarkets](/en/blog/camaras-con-ia-en-supermercados).
+
+### Shops
+
+People queuing at each checkout or counter, with an alert to open another; visitors per hour and, cross-checked against the POS receipts, how many of those who come in end up buying. More in [AI cameras for shops](/l/camaras-ia-tiendas).
+
+### Warehouses and logistics
+
+How long each lorry spends at the dock, lorries waiting at the gate, blocked aisles and emergency exits, and vest or helmet in the areas where they are mandatory. More in [AI cameras for warehouses](/l/camaras-ia-almacenes).
+
+### Car repair workshops
+
+Occupancy of each lift, actual hours on each car against the hours quoted and customers waiting at reception. More in [AI cameras for workshops](/l/camaras-ia-talleres).
+
+### Cleaning
+
+For cleaning companies and facility managers: how many people pass through each area (counted from outside, never inside toilets or changing rooms), spills and full bins reported straight away, and cleaning according to use instead of on a fixed schedule. More in [AI cameras for the cleaning service](/l/camaras-ia-limpieza).
+
+## What you need
+
+- **IP cameras or a recorder you can connect to.** Most brands (Hikvision, Dahua, Axis, Uniview…) deliver the image over RTSP or ONVIF, which is what is needed. What matters is the angle and the light: a camera that sees the zone side-on, against the light or almost in the dark measures badly.
+- **Where the video is processed.** On your own systems, without buying anything: the analysis is installed on a computer or server you already have on the premises, or in your company's cloud, and it only sends the data. If it is in the cloud, you have to put in writing where, how long it is kept and who sees it.
+- **Limits that make sense.** From how many minutes it counts as a wait, how long a car can be in the customer car park, how many people in the queue justify opening another checkout. They are set with the business and adjusted over the first weeks of use.
+- **Someone who receives the alert and can act.** An alert that reaches someone who can do nothing about it is noise.
+
+Before switching on any alert, it is worth measuring for a few weeks how the service is today. Without that baseline there is no way to know afterwards whether it has improved, and that is exactly what we explain in [measuring a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## What the law says (and what we do not do)
+
+This is not legal advice, but it is what you should be clear about before starting:
+
+- **Security cameras have a declared purpose.** The [Ley Orgánica de Protección de Datos](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) allows video surveillance for the security of people, property and facilities (article 22), with its information sign and the images deleted within one month at most. Using those cameras to measure operations is a new purpose: it has to be declared, justified and documented.
+- **If the analysis also serves to monitor work, the staff have to know beforehand.** Article 89 requires employees and, where applicable, their representatives to be informed in advance, expressly, clearly and concisely. And there can never be cameras in changing rooms, toilets, canteens or rest areas.
+- **Depending on the case, an impact assessment is required.** The [AEPD guide on video surveillance](https://www.aepd.es/guias/guia-videovigilancia.pdf) is the starting point, and your data protection adviser has the last word.
+- **A number plate is personal data.** If a car park reads it, it is kept only for the time needed to calculate the stay or the charge.
+- **We do not do facial recognition or detect emotions.** The [European AI Regulation](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) has prohibited inferring a person's emotions in the workplace since February 2025. Even if it were not prohibited, it is not needed to measure a table or a parking space.
+
+The underlying idea is to measure the operation, not the people: the data is by table, zone and time slot, not by employee. We handle the data with the same criteria as in any automation, as we explain in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
+
+## How to start without installing anything
+
+The first step is not buying hardware: in fact, you do not need to buy anything. It is a test with a few hours of footage from your own cameras, from a normal working day: that shows what can be measured reliably, which camera is not up to it and where another would be needed. At Rianex that test is the first phase of the project, with its own fixed price. If the test goes well, a single metric is chosen to start with, the one that costs the most money today, and it is extended later.
+
+This is a new service at Rianex and we do not yet have a published case, so we do not give result figures: we measure them with you. Everything it includes, the timeline and how the price is set is in [control with cameras and AI](/en/servicios/control-con-camaras-ia). If you want to see what could be measured in your business, we look at it in the [free consultation](/en/diagnostico).
+
+## Frequently asked questions
+
+### Will the security cameras I already have work?
+
+Almost always, if they are IP cameras or go to a recorder that delivers the image over RTSP or ONVIF. What decides it is the angle and the light: a test with a few hours of footage shows which cameras are good enough and where another would be needed.
+
+### Does the camera recognise people?
+
+No. It detects people as shapes, without knowing who is who, and it stores no faces or profiles. What it records is times, counts and occupancy by zone.
+
+### Can it be used to watch an employee?
+
+That is not what it is for. It measures tables, parking spaces, queues and docks, and the data is by zone and by time slot. If the analysis also serves to monitor work, the law requires the staff to be informed beforehand.
+
+### Does the video leave the premises?
+
+It does not have to. The analysis is installed on your own systems, for example a computer or server on the premises, and it only sends times, counts and alerts.
+
+### Is the video in the article a real case?
+
+No. It is a simulation with a fictional restaurant and fictional data, made to show how it works: the camera, the alert to the manager and the general manager's dashboard.

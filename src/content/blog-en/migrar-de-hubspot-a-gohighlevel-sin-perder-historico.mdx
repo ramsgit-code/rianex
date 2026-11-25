@@ -1,0 +1,108 @@
+---
+title: "Migrate from HubSpot to GoHighLevel without losing your history"
+description: "What you can take with you, what never comes across and in which order to do it so you are not left without a CRM halfway. Checklist from a real migration."
+date: "2026-09-22"
+updated: "2026-11-25"
+tags: ["gohighlevel", "hubspot", "migration", "crm"]
+cluster: "crm"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Changing CRM is frightening for a reasonable motive: the whole sales history of the company is in there. The conversations, the notes, who said what on which call, why that deal was lost.
+
+The fear is not unfounded, but the real risk is not where people think. Almost nobody loses the contacts. What gets lost, when something gets lost, is the context: the loose notes, the associated emails and the automations nobody documented.
+
+This is what comes across, what does not and in which order it is best to do it.
+
+## What comes across without trouble
+
+**Contacts and companies.** With all their fields, including custom ones. It is an export and an import, and it is the part that almost always goes well.
+
+**Opportunities with their stage and amount.** They come across, although the stages of the old pipeline have to be mapped to those of the new one, and that mapping is a business decision that should not be delegated to whoever does the technical migration.
+
+**Notes and activities.** They come across if they are exported properly. The catch is that they are often exported without the reference to the contact, and then they arrive as a pile of text with no owner. You have to check that each note keeps its link.
+
+**Lists and segments.** They are not migrated as such, but they are rebuilt from the fields. If the segmentation is based on properties that do travel, it is rebuilt without losing anything.
+
+## What does not come across
+
+It is better to know this beforehand and not halfway through.
+
+**Complete email threads.** What was synchronised from the inbox usually stays behind. You can export the record that there was an email, but the whole thread rarely travels intact.
+
+**Automations.** Workflows are not migrated: they are rebuilt. And this, which sounds bad, is usually the best part of the move. Almost every account with years of use has automations that nobody remembers creating and that are still running. Rebuilding them forces you to decide which ones still make sense.
+
+**Reports and dashboards.** They are rebuilt. That is useful too: half of the reports that exist in an old CRM are looked at by nobody.
+
+**Call recordings.** They depend on the telephony provider, not on the CRM. If they are hosted in the old CRM, they have to be downloaded before closing the account or they disappear with it.
+
+## The order that avoids being left without a CRM
+
+The most expensive mistake is switching off the old one before the new one works. This order avoids it.
+
+**One: inventory.** Before exporting anything, list what there is. How many contacts, which custom fields, which automations are really active, which integrations depend on the current CRM. This phase is boring and it is the one that decides whether the migration goes well.
+
+**Two: rebuild the structure at the destination.** Create the custom fields, the pipeline with its stages and the tags before putting in a single contact. Importing data onto a structure that does not exist produces stray fields that then have to be cleaned up by hand.
+
+**Three: a test migration with a sample.** One hundred contacts, not all of them. Check that the fields arrive, that the notes keep their owner, that the opportunities land in the right stage. This is where the problems appear, and they appear cheaply.
+
+**Four: rebuild the critical automations.** Only the ones that are really needed. And test them with real cases before a sale depends on them.
+
+**Five: full migration and a parallel period.** Both systems running at the same time for a few weeks. It is uncomfortable and it is the only way to discover what was forgotten without it costing money.
+
+**Six: switch off the old one.** After exporting a full copy and storing it outside, not inside either of the two systems.
+
+## The parallel period is non-negotiable
+
+It is the part everyone wants to skip because they are in a hurry and the one that prevents disasters.
+
+During those weeks, the team works in the new one and the old one stays for reference. Every time someone says "in the other system I did this like so", it is written down and solved. After two or three weeks those questions stop, and at that point it is clear that it can be switched off.
+
+If it is switched off on day one, those questions appear all the same, but with nowhere to look up the answer.
+
+## What to export even if you do not migrate it
+
+Before closing the old account, store outside it:
+
+- A full export of contacts, companies and opportunities, in CSV.
+- An export of notes and activities.
+- A screenshot or documentation of each active automation, even if you are not going to rebuild it.
+- The call recordings, if they are hosted there.
+- The list of connected integrations, to know what has to be reconnected.
+
+Store it somewhere that does not depend on either of the two CRMs. It sounds obvious and it gets forgotten.
+
+## How long it takes
+
+A migration of a small account, with a few thousand contacts and a handful of automations, is done in two or three weeks including the parallel period.
+
+A large account, with integrations to invoicing, website and telephony, goes to six or eight. The difference is almost never in the volume of data, but in the number of connected systems that have to be reconnected and tested again.
+
+## What you gain and what you lose
+
+To be honest: HubSpot does things GoHighLevel does not, above all in advanced reporting and in the ecosystem of native integrations. And GoHighLevel does things that in HubSpot cost an additional module, above all messaging, funnels and automation with no contact limit.
+
+The migration pays off when you pay for features you do not use, when the cost grows with every contact you add, or when you need WhatsApp and SMS integrated in the same place as the pipeline.
+
+It does not pay off if your team depends on complex reports or on native integrations that only exist there. In that case, integrating the two works out better than moving, and we cover it in [integrating GoHighLevel with your stack](/en/blog/integrar-gohighlevel-con-tu-stack).
+
+## Frequently asked questions
+
+### What data can be migrated from HubSpot to GoHighLevel?
+
+Contacts and companies with all their fields, including custom ones, and opportunities with their stage and amount, after mapping the stages of the old pipeline to those of the new one. Notes and activities also come across if they are exported with the reference to the contact. Lists and segments are not migrated as such, but they are rebuilt from the fields.
+
+### What do you lose when migrating from HubSpot to GoHighLevel?
+
+Complete email threads rarely travel intact, although you can export the record that there was an email. Automations and reports are not migrated, they are rebuilt. Call recordings hosted in the old CRM have to be downloaded before closing the account, or they disappear with it.
+
+### How long does a migration from HubSpot to GoHighLevel take?
+
+A small account, with a few thousand contacts and a handful of automations, is migrated in two or three weeks including the parallel period. A large account, with integrations to invoicing, website and telephony, goes to six or eight. The difference is almost never in the volume of data, but in how many connected systems have to be reconnected and tested again.
+
+### When does it pay off to move from HubSpot to GoHighLevel?
+
+When you pay for features you do not use, when the cost grows with every contact you add or when you need WhatsApp and SMS in the same place as the pipeline. It does not pay off if your team depends on complex reports or on native integrations that only exist in HubSpot. In that case integrating the two works out better than moving.
+
+If you are not sure which case is yours, in the [free assessment](/en/diagnostico) we look at it with your account in front of us and you get a recommendation with reasons, not a quote.

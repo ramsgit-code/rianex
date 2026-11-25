@@ -1,0 +1,110 @@
+---
+title: "GDPR and AI automation: what you can automate"
+description: "Consent, automated decisions and data leaving the EU. What the law allows, what it asks you to prove and the most common mistakes in Spain."
+date: "2026-09-26"
+updated: "2026-11-25"
+tags: ["gdpr", "ai", "automation", "legal"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+This article is not legal advice. It is what we have learned building automated systems that process customer data in Spain, and the mistakes we see again and again. For anything important, talk to a specialist.
+
+That said, most of the problems we find are not legal subtleties. They are four basic things done wrong out of ignorance, and they cost nothing to fix if you think about them before building.
+
+## One: you must be able to prove consent, not just ask for it
+
+Almost every website has an acceptance checkbox on its form. Far fewer keep proof that it was ticked.
+
+Article 7.1 of the GDPR says the controller must **be able to demonstrate** that the person consented. A checkbox ticked in a browser that has since been closed proves nothing if the system did not record it.
+
+What you need to store with each contact is when they gave consent and to which exact text. If the privacy policy changes in March, you must be able to tell who accepted the January version from who accepted the April one.
+
+This is one more field in the database and five minutes of work if it is done at the start. If it is done later, you have to decide what to do with all the earlier contacts, which is a much worse conversation.
+
+**The related mistake:** validating the checkbox only in the browser. If the server accepts the submission without checking it, the form is decorative. Anyone who sends the data directly skips it, and your database ends up with records that have no legal basis.
+
+## Two: analytics is not "strictly necessary"
+
+This is where most Spanish websites fail, and it is easy to check.
+
+Article 22.2 of the LSSI requires prior consent to store information on the user's device, unless it is essential to provide the service. And note that it does not only cover cookies: local storage and session storage count just the same.
+
+Analytics is not essential for the website to work. So it needs permission before storing anything, including a session identifier of your own.
+
+The test is simple: open your website in a new window, do not touch the cookie notice and look at the network tab of the browser. If you see requests to your own analytics endpoint or to Google before accepting, you have the problem.
+
+The correct way with Google Analytics is consent mode: the tag starts with everything denied and only begins to measure properly when the person accepts. In the meantime it sends signals without identifiers, which is what lets you keep aggregate data without breaking the rule.
+
+**The detail that gets missed:** the loading order. The declaration of denied consent has to run before the measurement script loads. If it arrives later, the cookie has already been written and whatever you say afterwards makes no difference.
+
+## Three: be careful with fully automated decisions
+
+Article 22 of the GDPR gives people the right not to be subject to a decision based solely on automated processing that produces legal effects or significantly affects them.
+
+In practice, for a sales system this almost never applies: scoring contacts to decide who your team calls first is not a decision with legal effects. A person still decides.
+
+Where it does apply is when the system **rejects** automatically, with no human involvement and with a real consequence for the person asking: refusing a loan, discarding a job application, excluding someone from a service.
+
+The practical rule we use: if the system can say no to someone and that no closes a door for them, there has to be a person who can review it, and that person has to know it is their job. A human who approves everything that arrives without looking at it does not count as human involvement.
+
+## Four: know where the data leaves
+
+Every tool that touches your customers' data is a data processor, and it has to be named in your privacy policy.
+
+That includes the obvious ones, such as the CRM and the hosting, and the ones that are always forgotten: the AI model provider, the translation service, the chat widget, the email tool.
+
+Two questions for each one:
+
+**Where the data is processed.** If it is outside the European Economic Area, the transfer needs a legal safeguard. Today that usually means standard contractual clauses, and for the United States also the adequacy framework, which you should check that the specific provider has.
+
+**What they do with what passes through.** With AI providers this matters especially: you have to check whether they use what you send them for training and whether there is a business option that excludes it. Usually there is one, and usually it is not turned on by default.
+
+**The most common mistake:** using an unofficial endpoint of some free service because it works well and does not ask for a key. Without a contract there is no data processing agreement, and it can also stop working any day without notice.
+
+## What you can automate without headaches
+
+So it does not look as if everything is a problem. With consent properly collected and the processors declared, you can automate without surprises:
+
+- Creating and updating records in the CRM.
+- Scoring and prioritising contacts for the sales team.
+- Replying, scheduling and following up on any channel.
+- Generating proposals and documents.
+- Classifying and summarising conversations.
+- Alerting the team internally about what needs attention.
+
+Which is, in practice, everything that moves the business.
+
+## A list to review what you already have
+
+Six checks you can do today:
+
+- Open your website without accepting cookies and see whether anything fires before your permission.
+- Send your form without ticking the consent checkbox and check whether the server accepts it anyway.
+- See whether you store the consent date with each contact.
+- List every tool that touches customer data and compare it with your privacy policy.
+- Check whether your AI provider is configured not to use your data for training.
+- If you have a chatbot or a voice agent, check that it says it is an AI in the first message. The AI Act requires it from August 2026, and it does not replace the information the GDPR asks for: we explain it in [what the AI Act requires of your chatbot](/en/blog/ai-act-chatbot-decir-que-es-ia).
+
+If any of them fails, it can be fixed. And it is much cheaper to fix it now than when someone asks.
+
+For the rest of the process, there is [where to start automating](/en/blog/automatizar-procesos-con-ia-por-donde-empezar). If you handle sensitive data, the decision of where to host your agents also counts: we cover it in [own server or cloud](/en/blog/agentes-de-ia-vps-propio-o-nube).
+
+## Frequently asked questions
+
+### Which processes can be automated with AI while complying with the GDPR?
+
+With consent properly collected and the data processors declared, almost everything that moves the business: creating and updating records in the CRM, scoring contacts, replying, scheduling and following up, generating proposals and summarising conversations. The point where you need to stop and think is when the system can reject someone with no person involved.
+
+### How do I prove that a contact gave consent?
+
+By storing with each contact when they gave it and to which exact text, so that you can tell who accepted one version of the privacy policy from who accepted the next. Article 7.1 of the GDPR requires you to be able to demonstrate it, and a checkbox that was ticked in the browser but that the system did not record proves nothing. The checkbox also has to be checked on the server, because if it is only validated in the browser anyone can skip it.
+
+### Can an AI make decisions about customers with no person involved?
+
+It depends on the decision. Scoring contacts to decide who the team calls first has no legal effects, and there Article 22 of the GDPR almost never applies. It does apply when the system rejects on its own and that rejection has a real consequence, such as refusing a loan or discarding a job application. In those cases there has to be a person who can review it and who knows it is their job.
+
+### What should I check before sending customer data to an AI provider?
+
+Where the data is processed and what the provider does with it. If the processing is outside the European Economic Area, the transfer needs a legal safeguard, which today usually means standard contractual clauses and, for the United States, also the adequacy framework. You also have to look at whether the provider uses what you send for training and whether it has a business option that excludes it, because it is usually not turned on by default. And the provider has to be named in your privacy policy as a data processor.

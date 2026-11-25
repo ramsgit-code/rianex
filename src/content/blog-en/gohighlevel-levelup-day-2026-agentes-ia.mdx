@@ -1,0 +1,112 @@
+---
+title: "GoHighLevel LevelUp Day 2026: what's new in AI agents"
+description: "What GoHighLevel announced on 27 October for AI agents, explained for SMEs: voice on WhatsApp, MCP, versions, n8n and what is in beta."
+date: "2026-11-03"
+tags: ["gohighlevel", "ai agents", "voice ai", "whatsapp", "mcp", "n8n"]
+cluster: "crm"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+---
+
+On 27 October GoHighLevel held its LevelUp Day and published a very long list of new features all at once. Almost all the ones that matter point in the same direction: AI agents, voice and chat, become a central part of the CRM and not an add-on.
+
+This summary is for anyone who has an SME in Spain and uses GoHighLevel, or is thinking about it. It explains what was announced, what is already available and what is in testing, and what changes in practice.
+
+## The short answer
+
+GoHighLevel announced that its Voice AI now **answers WhatsApp calls** and can **use tools during the call** (Google Calendar, Stripe or your own MCP servers), that voice agents will have **versions with rollback**, that they can be **cloned to several sub-accounts** and that an **agent health** panel reviews real conversations and proposes improvements to the prompt. In addition, its Managed Agents can **import an n8n workflow** (in beta). Several of these features are in Labs, GoHighLevel's testing area: it is worth trying them before putting a client on top of them.
+
+## What was announced, by block
+
+Everything that follows comes from the [official LevelUp Day 2026 post](https://www.gohighlevel.com/post/levelup-day-2026-the-next-evolution-of-highlevel-features-and-enhancements). The status of each feature is the one GoHighLevel gives; if it says nothing, I mark it as "not stated".
+
+| Feature | What it does | Status |
+|---|---|---|
+| Voice AI on WhatsApp | The voice agent answers WhatsApp calls, as the main receiver or as backup | Not stated |
+| MCP tools in Voice AI | During the call it looks things up or acts in connected apps: calendar, payments, your own servers | Not stated |
+| Voice agent versions | Edit and test in draft without affecting calls in progress, compare versions and roll back | Labs |
+| Clone agents to sub-accounts | Copy an agent to several sub-accounts at once, with its calendars, workflows and fields | Not stated |
+| Agent Health and self healing | Reviews real calls and chats, tests a better prompt and shows it with the changes marked before applying it | Not stated |
+| Flow builder in Conversation AI | A visual canvas that splits the conversation between specialised agents | Not stated |
+| MCP in Conversation AI | Connect the chat bot to more than 40 apps from the catalogue or to your own MCP URLs | Labs |
+| Rich elements | Buttons, lists, images and files on WhatsApp, Messenger, Instagram and web chat | Labs |
+| Managed Agents | Inbound webhooks, memory and computer use with explicit approval before paying, publishing or exporting data | Not stated |
+| Import from n8n | Upload the JSON of an n8n workflow and turn it into a Managed Agent | Beta |
+| Projects MCP server | Manage GoHighLevel tasks from Claude or Cursor | Sign-up for private beta |
+
+There are no prices in the announcement. GoHighLevel's AI features have a cost separate from the subscription (by usage or with the AI Employee plan), so before turning anything on it is worth checking in your account how much each voice minute or each conversation costs.
+
+## What changes for an SME
+
+### The WhatsApp phone stops going unanswered
+
+Many customers in Spain no longer call the landline: they tap "call" on the company's WhatsApp. Until now, that call was picked up by a person or by nobody. With Voice AI on WhatsApp you can choose between three modes: only the team answers, only the agent answers, or it rings the team first and passes to the agent if nobody picks up within a few seconds.
+
+The third is the one that makes most sense to start with. The agent does not replace the front desk: it covers the gaps (lunch breaks, peaks, out of hours), which is where appointments are lost.
+
+### The agent can now do things, not just talk
+
+The difference between an answering machine with a nice voice and a useful agent is that the agent can **act** while it talks: check free slots in the calendar, book, take a deposit or look up an order. That is what MCP (Model Context Protocol) is for, the open standard for connecting AI agents to other tools. GoHighLevel now supports it in its voice agent and, in Labs, in the chat agent.
+
+In practice, the agent can query a system that is not GoHighLevel (the ERP, a clinic's appointment software, a shop's stock) if that system has an MCP server or someone builds one for it. That "someone builds one for it" is the part where the work goes.
+
+### At last there is a way to change an agent without breaking it
+
+Until now, tweaking the prompt of a voice agent in production meant working on a live system: if something went wrong, you found out from a customer's complaint. With versions you edit a draft, test it, publish it and, if it gets worse, go back to the previous version. It is the minimum you ask of any software in production and it is the new feature we like most, even though it is in Labs.
+
+The health panel goes in the same direction: it reviews real conversations and proposes improvements to the prompt, but it shows them with the changes marked so that a person decides whether they are applied. Having a person approve it is not a formality: we have already explained why in [AI agents with human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
+
+### n8n inside GoHighLevel, with caveats
+
+Importing n8n workflows into Managed Agents is the new feature that has made the most noise among people who automate. You upload the JSON exported from n8n, GoHighLevel converts the triggers into webhooks and the logic into decision rules, and you review it before saving it.
+
+It is in beta and it turns a deterministic workflow (it always does the same thing) into an agent (it decides what to do). That is not the same. A workflow that moves invoices or customer data is usually better as a workflow than as an agent: it is cheaper, more predictable and easier to audit. Before importing anything, ask yourself whether that process needs someone to decide or only someone to execute. We cover this in [AI agents for companies: when they pay off](/en/blog/agentes-de-ia-para-empresas-cuando-compensan). And if your n8n is self-hosted, remember that [version 3.0 brings its own changes](/en/blog/n8n-3-que-se-rompe-y-como-prepararte).
+
+### A good agent can be replicated
+
+Cloning an agent to several sub-accounts with its calendars, workflows and fields matters most to anyone with several sites or franchises: you design the agent once, test it at one site and take it to the rest without redoing it.
+
+## What has not changed
+
+None of these features decides for you what the agent should do, what it should never do and when it has to pass the conversation to a person. Nor does any of them measure whether the agent books well or is scaring customers away. The platforms provide more and more parts as standard; the design of the system is still yours.
+
+Before turning on a voice agent on your company's WhatsApp, have an answer to these five questions:
+
+1. **What can it do without asking?** Checking free slots, yes; cancelling appointments, taking payment or giving fixed prices, probably not.
+2. **When does it pass to a person?** A complaint, an emergency, someone who asks for it or a question it cannot answer.
+3. **What data does it see?** With MCP the agent has access to whatever you connect. Give it only what it needs for its task.
+4. **Who reviews the conversations and how often?** A weekly sample of calls, listened to by someone who knows the business.
+5. **How will you know whether it works?** Calls answered, appointments booked correctly and appointments that are later cancelled, measured before and after. The method is in [how to measure a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## What we are doing
+
+We are setting up these features in a test account before taking them to clients: above all voice on WhatsApp with the calendar and versions. We have not yet measured how it behaves in Spanish with real calls, and we are not going to recommend it until we have it measured. In [this video](/en/blog/agente-de-voz-whatsapp-agenda-citas) we show how a call works from start to finish.
+
+If you already use GoHighLevel and want to know which of these new features are useful to you, in the [free consultation](/en/diagnostico) we look at it with your account in front of us. If you do not use it yet, start with [what GoHighLevel is](/en/blog/que-es-gohighlevel) and with what a [CRM implementation with GoHighLevel](/en/servicios/implementacion-crm-gohighlevel) costs.
+
+## Frequently asked questions
+
+### What was announced at GoHighLevel's LevelUp Day 2026?
+
+On 27 October 2026 GoHighLevel announced, among other things, that Voice AI answers WhatsApp calls and uses MCP tools during the call, versions with rollback for voice agents, cloning of agents to sub-accounts, a health panel that proposes improvements to the prompt and the import of n8n workflows into Managed Agents in beta.
+
+### Can GoHighLevel's voice agent answer WhatsApp calls?
+
+Yes, according to the announcement of 27 October 2026. It can handle WhatsApp calls as the main receiver or as backup: it rings the team first and passes to the agent if nobody answers within a set time.
+
+### What is MCP in GoHighLevel?
+
+MCP (Model Context Protocol) is an open standard for connecting AI agents to other tools. In GoHighLevel it lets the voice agent, and the chat agent in Labs, look things up or act in connected apps during the conversation, such as a calendar, a payment gateway or your own system with an MCP server.
+
+### Can I move my n8n workflows to GoHighLevel?
+
+GoHighLevel lets you, in beta, upload the JSON of an n8n workflow and turn it into a Managed Agent. It is worth reviewing it carefully: the result is an agent that decides, not a workflow that always does the same thing, and for processes that move data or money a workflow is usually more predictable and cheaper.
+
+### Are all these features already available?
+
+Not all of them. According to GoHighLevel, voice agent versions, MCP in the chat agent and rich elements are in Labs, the n8n import is in beta and the projects MCP server has a sign-up for a private beta. For the rest, the announcement gives no status: check it in your account.
+
+### How much does GoHighLevel's voice agent cost?
+
+The announcement gives no prices. GoHighLevel's AI features are paid for separately from the subscription, by usage or with the AI Employee plan, so check the rate in your account before turning it on and do the sums with your real call volume.

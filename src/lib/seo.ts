@@ -89,7 +89,7 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     en: {
       title: "AI automation and GoHighLevel blog",
       description:
-        "Practical guides on AI automation, agents, GoHighLevel and HubSpot: costs, migrations, integrations, GDPR and real cases. Articles in Spanish.",
+        "Practical guides on AI automation, agents, GoHighLevel and HubSpot: costs, migrations, integrations, GDPR and real cases.",
     },
   },
   "/testimonios": {

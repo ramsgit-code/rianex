@@ -209,14 +209,14 @@ const es: HomeCopy = {
         name: "Inmobiliarias",
         pain: "Los leads de los portales se enfrían antes de que alguien los llame.",
         fix: "Respuesta al momento a cada lead, cualificación por presupuesto y zona, visitas agendadas y cada operación en el CRM.",
-        href: "/l/inmobiliarias",
+        href: "/soluciones/inmobiliarias",
         link: "Ver cómo lo hacemos en inmobiliarias",
       },
       {
         name: "Negocios con cita previa",
         pain: "Peluquerías, estética, fisioterapia o centros deportivos: huecos vacíos por ausencias y mensajes contestados a deshoras.",
         fix: "Un agente que agenda 24/7, confirma y recuerda la cita, y rellena las cancelaciones con la lista de espera.",
-        href: "/l/negocios-con-cita",
+        href: "/soluciones/negocios-con-cita",
         link: "Ver cómo lo hacemos en negocios con cita",
       },
     ],
@@ -332,7 +332,7 @@ const en: HomeCopy = {
     links: [
       { href: "/servicios", label: "AI automation services" },
       { href: "/casos-de-exito", label: "AI automation case studies" },
-      { href: "/blog/automatizar-procesos-con-ia-por-donde-empezar", label: "AI process automation: where to start (in Spanish)" },
+      { href: "/blog/automatizar-procesos-con-ia-por-donde-empezar", label: "AI process automation: where to start" },
     ],
   },
   services: {
@@ -427,7 +427,7 @@ const en: HomeCopy = {
   },
   tools: "Works with the tools you already use",
   testimonialsTitle: "What clients say",
-  guides: { title: "Before you automate anything", note: "Guides in Spanish" },
+  guides: { title: "Before you automate anything" },
   faqTitle: "Frequently asked questions",
   close: {
     title: "More appointments, more sales",

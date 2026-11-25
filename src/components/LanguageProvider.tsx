@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { content, type Content } from "@/lib/content";
-import { EN_PREFIX, ES_ONLY_ROUTES, langFromPathname, localizePath, type Lang } from "@/lib/i18n";
+import { EN_PREFIX, langFromPathname, localizePath, type Lang } from "@/lib/i18n";
 
 type LangContextValue = {
   lang: Lang;
@@ -21,17 +21,14 @@ type LangContextValue = {
 };
 
 /**
- * Destino del selector de idioma. Los articulos, los textos legales y las
- * landings de campaña solo existen en castellano: desde ahi el selector lleva
- * a la portada inglesa en vez de a una URL que redirige o da 404.
+ * Destino del selector de idioma. Las landings de campaña solo existen en
+ * castellano: desde ahi el selector lleva a la portada inglesa en vez de a
+ * una URL que da 404.
  */
 function otherLangHref(pathname: string, lang: Lang): string {
   if (lang === "en") return localizePath(pathname, "es");
-  const soloCastellano =
-    pathname.startsWith("/blog/") ||
-    pathname.startsWith("/l/") ||
-    (ES_ONLY_ROUTES as readonly string[]).includes(pathname);
-  return soloCastellano ? EN_PREFIX : localizePath(pathname, "en");
+  // Un articulo sin traducir redirige solo al original (next.config.mjs).
+  return pathname.startsWith("/l/") ? EN_PREFIX : localizePath(pathname, "en");
 }
 
 const LangContext = createContext<LangContextValue | null>(null);
@@ -64,8 +61,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     c: content[lang] as unknown as Content,
     otherLangHref: otherLangHref(pathname, lang),
     localize: (path: string) => {
-      // Los articulos del blog solo existen en castellano.
-      if (path.startsWith("/blog/")) return path;
+      // Las landings de campaña solo existen en castellano.
+      if (path.startsWith("/l/")) return path;
       // Anclas de la home ("/#para-quien") en el idioma activo.
       const [route, hash] = path.split("#");
       const base = localizePath(route || "/", lang);

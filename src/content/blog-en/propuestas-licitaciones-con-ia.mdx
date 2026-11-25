@@ -1,0 +1,198 @@
+---
+title: "AI for public tenders: tools for writing the technical bid"
+description: "Which AI tool to use to write the technical bid for a public tender, what each type does and what a person must always review."
+date: "2026-10-23"
+updated: "2026-11-24"
+tags: ["public tenders", "proposals", "ai", "public sector"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Preparing a public tender involves little writing and a lot of reading. Tender documents of forty pages, a technical annex of another sixty, a bid template, a list of documents that must be submitted in a specific order and format. And all of it with a deadline that does not move.
+
+The bottleneck is not the writing. It is not missing anything.
+
+That is why the useful question is not whether AI can write a proposal for a public tender. It can. The question is which parts are worth handing over and which it should never touch.
+
+## The short answer
+
+AI helps prepare public tenders in the parts that consist of reading and organising: extracting the solvency requirements, the evaluation criteria and the deadlines from the tender documents, building a compliance checklist, searching previous projects for reusable project sheets and answers, and writing a first draft of the technical report. What it must not decide is the financial offer, the commitments the company takes on or the signature. A proposal generator for public tenders speeds up the work and reduces omissions, but it always ends in human review.
+
+## Which tool should you use to write the technical bid for a public tender?
+
+There are three types of tool. None of them submits the bid for you, and in all three a person's review is mandatory. What changes is how much preparatory work they save you and how much it costs to get them running.
+
+### A general-purpose assistant (ChatGPT, Claude) with the tender documents
+
+You upload the tender documents and ask it to summarise them, pull out the evaluation criteria or propose an outline for the bid.
+
+- **What it does well:** reading long tender documents, pulling out criteria, deadlines and requirements, proposing a table of contents and writing a first draft from the notes you give it. There is nothing to install.
+- **What it does not do:** it does not know your company. Without your methodology, your project sheets and your real resources, it fills the gaps with generic text that sounds good and scores little. It also does not keep the list of validated commitments or check the bid against the tender documents, unless you ask it to every time.
+- **Who it fits:** anyone who bids a few times a year or wants to try it on one specific tender before investing. Watch what documentation you upload and under what terms the provider handles it.
+
+### Tools built specifically for public tenders
+
+These are platforms designed for bidding: they usually combine a tender search engine, analysis of the tender documents and a bid writer. For example, [Gobierto Contratación](https://contratos.gobierto.es/ayuda/empresas/redactor/introduccion) describes a writer that generates drafts of technical reports, methodologies and schedules from your previous bids and your own documentation, with traceability of changes. There are more tools of this kind, and it is worth comparing their features and terms directly on their websites.
+
+- **What they do well:** they come with the bidding workflow already solved (search, analyse, write) and they have the formats and vocabulary of the sector. They are quick to get running.
+- **What they do not do:** they are closed products, with the workflow their makers designed. What they write is only as good as the material you give them, and fitting them to your templates, your CRM or your way of reviewing usually has limits. A website saying it avoids hallucinations is no substitute for reading the bid.
+- **Who it fits:** companies that bid fairly often and can adapt to a standard workflow, with no need to integrate it with their systems.
+
+### Your own generator connected to your templates and documentation
+
+A custom system that reads the tender documents, builds the table of contents, writes with your library of answers, project sheets and templates, and runs a reviewer against the tender documents (we explain it below).
+
+- **What it does well:** it uses your approved material and your format, flags the gaps instead of making things up, checks the commitments against a validated list and connects to your CRM, your folders and your deadline alerts.
+- **What it does not do:** it is neither free nor immediate. It requires organising the library first and spending time building it. If you bid rarely, it does not pay off.
+- **Who it fits:** companies that bid often, with good material of their own and processes that do not fit a standard product.
+
+Not sure which one is yours? If you bid rarely, start with a general-purpose assistant. If you bid often and your workflow is standard, look at the specific tools. If the bottleneck is your own templates and documentation, your own generator is what usually ends up paying off.
+
+If you want us to build that third type, we do it in the [proposal generator](/en/servicios/generador-de-propuestas) service: we start from your tender documents and your documentation, and the person who signs keeps deciding. In the [free assessment](/en/diagnostico) we see whether it pays off for you before building anything.
+
+## How a system that writes the technical bid works
+
+The short answer is that a tool can prepare the bid, but not on its own. A tool can read the tender documents, build the structure of the technical bid following the evaluation criteria and fill it with content your company has already approved. What it cannot do is invent the part that wins the tender: your real methodology, the resources you are actually going to commit and the commitments you can meet. If it does not have that material, it fills in with generic text that sounds good and does not score.
+
+A system that works does four things, in this order:
+
+1. **It reads the tender documents and pulls out the criteria.** Each evaluation criterion, with its weight, the maximum length and the order in which the contracting authority wants to read it.
+2. **It builds the table of contents of the bid.** One section per criterion, in that order and with that name. It seems minor, but the evaluator looks for each criterion where they expect it, and a disorganised bid loses points even if it says the right things.
+3. **It fills in with approved content.** For each section it searches your library for the answers, project sheets and team descriptions you have already used and validated, and writes a draft from them. Where it finds nothing, it leaves the gap flagged instead of writing something generic.
+4. **A second agent reviews the bid against the tender documents.** It is a different agent, one that has not seen how the draft was written: it only receives the tender documents and the bid. It checks that every criterion has an answer, that the length is not exceeded and that no commitment appears (deadline, improvement, assigned person) that is not on the validated list. Because it lacks the writer's context, it does not accept what was meant: it only sees what is written.
+
+After that, a person reads the whole bid, completes the flagged gaps and decides. The financial offer and the signature do not go through the tool.
+
+## Finding public tenders with AI
+
+Finding public tenders is mostly filtering, and a good part of it is solved without AI:
+
+- **Alerts.** The [Plataforma de Contratación del Sector Público](https://contrataciondelestado.es) lets you search tenders by criteria without registering, and it offers registered companies personalised services (its guide for economic operators includes subscriptions). There are also official gazettes and third-party search engines that send notices by email. Check which filters each one supports.
+- **Filter by CPV.** The CPV code classifies the subject of the contract. Start with the few codes for what you actually do, and widen only if the list comes up short.
+- **Filter by fit.** This is where AI does help: it reads the summary or the tender documents of each tender that passes the filter and scores it against your criteria (solvency you can prove, amount, area, deadline). That way you review ten and not two hundred.
+
+AI does not replace the alerts: it sits after them, to decide which ones deserve a read.
+
+## Analysing the tender documents with AI
+
+This is the task with the biggest savings. With the administrative clauses document and the technical specifications document, ask for a structured output:
+
+- **Solvency requirements**, economic and technical, and whether you can prove them.
+- **Award criteria**, with their weight and separating those scored by formula from those scored by value judgement.
+- **Deadlines:** submission, queries, corrections.
+- **Documentation** that must be provided and which envelope each item goes in.
+- **A compliance checklist** with an owner and a status for each point.
+
+Have each piece of data carry the clause it comes from, so a person can check it in seconds. On the checklist, a missing document weighs more than a weak report.
+
+## The technical report with AI
+
+The technical report (the technical bid) is what people search for most, as «memoria técnica IA»:
+
+- **What AI writes well:** the outline according to the evaluation criteria, the first draft of each section from your material, the adjustment of tone and length and the consistency between sections.
+- **What a person reviews:** that the methodology is the one you actually apply, the resources and deadlines you commit to meeting, the improvements offered, the project and team data, and the gaps the system has left flagged.
+
+## What responding to a public tender involves
+
+To see where AI fits, the work first has to be split into parts. A response to a public tender usually includes five blocks:
+
+- **Reading the tender documents.** The administrative clauses document and the technical specifications document.
+- **Solvency requirements.** Economic and technical. Minimum turnover, proven experience, certificates, team.
+- **Technical report.** The document that explains how the contract is going to be carried out. It is usually the part scored by value judgement.
+- **Financial offer.** The price and, sometimes, quantifiable improvements that score by formula.
+- **Administrative documentation.** Self-declarations, powers of attorney, certificates showing you are up to date with your obligations and the rest of the paperwork each procedure requires.
+
+Each block carries a different risk. An error in the report costs points. An error in the administrative documentation can leave you out before anyone reads the report. An error in the financial offer can win you a contract that loses money.
+
+## Where AI really helps
+
+**Extracting requirements and building the checklist.** We saw it in analysing the tender documents with AI: unstructured text turned into data and into a checklist, which is exactly where AI adds value and a rule falls short.
+
+**Reusing a library of answers.** Companies that bid often answer the same things many times: description of the methodology, quality plan, human resources, similar projects. If those answers and the sheets from previous projects are organised, AI can propose which ones fit each criterion of the new tender documents.
+
+**Writing the draft of the technical report.** It is the starting point, not the final version, and it comes from your library and from the technical team's notes.
+
+**Tracking deadlines.** Submission date, query period, corrections, openings. This does not need AI: it needs classic automation that warns in time. But it is fed by the dates AI has extracted from the tender documents.
+
+## Where AI must not decide
+
+**The financial offer.** The price depends on real costs, margin, risk and commercial strategy. A model knows none of that with the reliability required. It can calculate the score each price would get under the formula in the tender documents, which is a useful aid, but a person decides the figure.
+
+**The commitments.** Execution deadlines, improvements offered, resources assigned to the contract. Everything written in a bid binds the company if it wins. A generated draft can promise something nobody has validated, and that is paid for throughout the life of the contract.
+
+**The signature and the submission.** Responsibility for what is submitted lies with the company and with whoever signs. Human review is not an optional step in the process: it is the process.
+
+**Confidentiality.** The tender documents are public, but your documentation is not: accounts, team data, CVs, supplier prices, client information in the project sheets. You need to know where all of that is processed, which AI provider sees it and under what terms. We explain it in more detail in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
+
+| Task | Who does it | Why |
+| --- | --- | --- |
+| Extracting requirements, criteria and dates from the tender documents | AI, with review | Reading long, unstructured text |
+| Compliance checklist | Automation | Fixed rules once the requirements are extracted |
+| Proposing reusable answers and project sheets | AI | Search by meaning in the library |
+| Draft of the technical report | AI, with review | Writing from your own material |
+| Deadline alerts | Automation | Needs no judgement |
+| Financial offer | Person | Depends on costs, margin and strategy |
+| Commitments, improvements and signature | Person | They bind the company if it wins |
+
+## Public tenders and sales proposals: the same system
+
+A public tender and a sales proposal look like different worlds. One has tender documents, a public platform and a regulated procedure. The other, a client asking for a quote after a call.
+
+Underneath, the system is the same:
+
+1. **Structured intake.** Collecting the input information in fields, not in loose notes.
+2. **Template.** A fixed structure that reflects what the recipient expects to see.
+3. **Generation.** Filling the template with data and text written from your own material.
+4. **Review.** A person validates before sending.
+5. **Follow-up.** Statuses, alerts and reminders until there is a reply.
+
+For sales proposals we implemented it at [Eventos Barcelona](/en/casos-de-exito/eventos-barcelona). Before, each proposal took between one and three days. Now the salesperson fills in a form in GoHighLevel in three to five minutes after the call, and the system generates a branded web proposal and a PDF, which comes out in about sixty seconds. In total, about eight minutes from hanging up. After that, follow-up is automatic: a reminder if they have not opened it in 48 hours and an alert to the salesperson if they have opened it and there is no reply in 72. Response time to the client dropped by 85%. The full process is in [how we produce sales proposals in 8 minutes](/en/blog/propuestas-comerciales-automaticas).
+
+In a public tender the pieces change. The intake is not a form after a call, it is the tender documents themselves, and AI does the extraction. The template is set by the contracting authority. The review weighs much more, because there is more at stake and less room to correct. But the logic is the same, and that is why it makes sense to build it as a single [proposal generator](/en/servicios/generador-de-propuestas) that covers both cases.
+
+## Where to start
+
+If your company bids for tenders often, the first step is not AI. It is organising the library: answers that already worked, project sheets with verified data, certificates with their expiry date. Without that, AI has nowhere to get anything reliable from and will tend to fill in with generic text.
+
+The second step is measuring how long a tender takes today from start to finish and where the time goes. We explain it in [how to measure a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo). If you do not know whether it is the right moment to automate, the guide on [where to start automating processes with AI](/en/blog/automatizar-procesos-con-ia-por-donde-empezar) helps you decide.
+
+Then come the extraction of requirements and the checklist, which give the most return with the least risk. The assisted technical report comes last, when the library is already mature.
+
+Generic chat tools are fine for trying things out, but a system like this usually ends up being a custom build connected to your documents and your CRM. We cover what it costs and how long it takes to build in [custom AI projects](/en/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio), and indicative timelines and prices in [custom AI projects](/en/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio).
+
+## Frequently asked questions
+
+### Can AI do an entire public tender?
+
+It is not advisable. It can read the tender documents, extract requirements, prepare the checklist and write a draft of the technical report. The financial offer, the commitments and the signature have to be decided by people, and everything generated needs review before it is submitted.
+
+### Is there a tool that writes the technical bid automatically?
+
+There are tools that prepare a draft: they read the tender documents, order the bid according to the evaluation criteria and fill it with the company's material. None should submit it on its own. What works best is a second agent that reviews the bid against the tender documents, without having seen how it was written, and a person who validates the commitments and the signature.
+
+### What is the best AI for public tenders?
+
+There is no single best one for everyone. To try it on one tender, a general-purpose assistant such as ChatGPT or Claude. To bid often with a standard workflow, a tool built specifically for public tenders. If your templates and your documentation are what make the difference, your own generator. In all three cases, the quality of the bid depends on the material of your own that you give it and on human review.
+
+### Can AI find public tenders for me?
+
+Only in part. The alerts from the Plataforma de Contratación del Sector Público, the gazettes and the search engines find the tenders; AI helps afterwards, to score which ones fit your company. What it must not do is decide for you whether you bid.
+
+### What is a proposal generator for public tenders?
+
+It is a system that turns the tender documents and the company's own material into a structured proposal. It extracts requirements and evaluation criteria, proposes answers from a library of previous projects, generates drafts and tracks the deadlines. The final decision remains human.
+
+### Is it safe to upload the tender documents and my documentation to an AI?
+
+The tender documents are public, but your documentation includes financial, personal and client data. You need to use providers whose terms do not train on your data, know where it is processed and comply with the GDPR for anything containing personal data.
+
+### Does the same system work for sales proposals and for public tenders?
+
+Yes, the base is the same: structured intake, template, generation, review and follow-up. What changes is the input source, which in a public tender is the tender documents, and the weight of the review, which is greater.
+
+### Where do I start using AI in public tenders?
+
+By organising the library of answers and project sheets, and then with the extraction of requirements and the compliance checklist. These are the parts with the most savings and the least risk.
+
+If you want to see which parts of your tenders or proposals can be automated, the [free assessment](/en/diagnostico) is 30 minutes and you leave with a concrete list of where to start, with or without us.

@@ -1,0 +1,100 @@
+---
+title: "AI agents for business: what they are and when they pay off"
+description: "An AI agent is not a chatbot. What agents really do, in which cases they save real hours and when it is not worth building one."
+date: "2026-09-18"
+updated: "2026-11-25"
+tags: ["ai agents", "automation", "customer service"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+The word agent has been used for so many different things in two years that it now means almost nothing. A chatbot with hand-written answers is called an agent, so is an automation flow, and so is a system that makes decisions and carries out actions. They are not the same and they do not cost the same.
+
+It is worth separating them, because the difference decides whether the project works out or stays a nice demo.
+
+## What separates an agent from a chatbot
+
+A chatbot answers. An agent acts.
+
+A chatbot receives a message, looks for the closest answer and returns it. If the question does not fit, it replies with something generic or hands the conversation to a person. Its only effect on the world is the text it writes.
+
+An agent receives a request, decides what has to be done, does it in the company's systems and replies with the result. It checks a calendar and books a slot. It looks up an order and confirms its status. It qualifies a contact and puts it in the pipeline with its score. It sends an alert to the right person.
+
+The practical difference is that the chatbot takes work off the person who writes and the agent takes work off the person who works. Only the second one removes hours.
+
+## The three cases where they really pay off
+
+After a fair number of implementations, agents perform clearly in three situations.
+
+**When the volume of repeated enquiries is high and the answer requires looking something up.** Questions like "when will my order arrive?", "what are your opening hours on Thursday?", "do I have any sessions left?". They are repetitive, but a fixed answer does not solve them: someone has to check a system. A chatbot is no use and a person burns out.
+
+**When the first contact arrives out of hours.** This is the most profitable case and the least considered. In service businesses, a large share of contacts comes in during the evening, at night or at the weekend, exactly when nobody answers. An agent that qualifies and books at eleven at night recovers contacts that would otherwise be lost, because people looking for a service write to several places and stay with the first one that replies.
+
+**When the input is free text.** A structured form can be processed with rules. A message written by hand cannot. If your process starts with people describing their problem in their own words, there is work there that only a model can do well.
+
+## When it is not worth it
+
+This needs saying too, because it saves money.
+
+**If the volume is low.** Below a certain number of interactions per day, the cost of building, hosting and maintaining the agent is higher than what it saves. With twenty enquiries a month, a person answers.
+
+**If every case is different.** When the answer depends on nuances that only someone with years in the trade knows, the agent will get the easy ones right and fail on the ones that matter. And the ones that matter are the ones that cost you customers.
+
+**If the process underneath is broken.** An agent on top of an undefined process inherits the mess and multiplies it. First you put the process in order, then you automate it. We go into this in [where to start automating](/en/blog/automatizar-procesos-con-ia-por-donde-empezar).
+
+**If there is nothing to connect it to.** An agent is worth what its access is worth. If it cannot read the calendar, query the CRM or create records, it is not an agent: it is a chatbot that writes better.
+
+## What it really costs to build
+
+The model is the cheap part. The work is somewhere else.
+
+**The connections.** Every system the agent needs to reach is integration work: CRM, calendar, invoicing, warehouse. Most of the effort goes here, and it is the part no demo shows.
+
+**The limits.** You have to decide what the agent can do on its own and what has to go through a person. Cancelling an appointment, applying a discount, promising a deadline. This is not a technical decision, it is a business one, and it has to be made before building. How to design it is in [AI agents with human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
+
+**The edge cases.** What happens when the system does not respond, when someone writes something that makes no sense, when they ask for something that was not planned for. A serious agent has a handover to a person at every one of those points, and that handover has to be designed.
+
+**The maintenance.** Processes change, prices change, opening hours change. An agent that is not updated starts giving false information, and that is worse than not having one.
+
+**The usage.** Each call to the model costs little, but an agent running on its own across many customers adds up. It has to be measured from day one: we explain it in [the cost of an AI agent in production](/en/blog/coste-agente-de-ia-en-produccion).
+
+## Where the agent lives
+
+There are two routes and the choice has consequences for cost and control.
+
+Closed services are quick to set up and you pay per use or per conversation. They work well to get started and for small volumes.
+
+Your own server gives you control over the data, a fixed cost instead of a variable one and the freedom to change model. It pays off above a certain volume and when the data the agent handles is sensitive.
+
+We compare them in detail in [agents on your own server or in the cloud](/en/blog/agentes-de-ia-vps-propio-o-nube).
+
+## How to know whether yours pays off
+
+Three numbers and one decision:
+
+- How many repeated interactions your team handles per day.
+- How many minutes each one takes.
+- How many contacts arrive out of hours and what happens to them.
+
+If the first two multiplied come to more than one hour a day, or if the third is a number that makes you uncomfortable, there is a case. If not, there are more profitable things to do first.
+
+## Frequently asked questions
+
+### What is the difference between an AI agent and a chatbot?
+
+A chatbot answers and an agent acts. The chatbot returns the answer closest to the question, and its only effect is the text it writes. The agent decides what has to be done, does it in the company's systems, such as booking a slot in the calendar or putting a contact in the pipeline, and replies with the result.
+
+### When does an AI agent pay off in a company?
+
+In three situations: when there are many repeated enquiries whose answer requires looking something up in a system, when a large share of contacts arrives out of hours and when the input is free text that cannot be processed with rules. As a reference, if the repeated interactions your team handles add up to more than one hour a day, or if the contacts arriving out of hours are a number that makes you uncomfortable, there is a case.
+
+### When is it not worth building an AI agent?
+
+When the volume is low, when every case is different and depends on the nuances of the trade, when the process underneath is undefined or when there are no systems to connect it to. With twenty enquiries a month, a person answers. And an agent that cannot read the calendar or query the CRM is a chatbot that writes better.
+
+### What is the hardest part of building an AI agent?
+
+The model is the cheap part. Most of the effort goes into the connections with the CRM, the calendar, invoicing or the warehouse. After that come deciding what the agent can do on its own and what goes through a person, designing the handover to a person for the edge cases and keeping it up to date when prices, opening hours or processes change.
+
+In the [free assessment](/en/diagnostico) we look at those numbers on your real process and you get a yes or a no with figures, not a generic recommendation.

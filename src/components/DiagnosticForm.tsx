@@ -349,7 +349,7 @@ export function DiagnosticForm({ landing }: { landing?: string } = {}) {
                     />
                     <span>
                       {f.consentPre}
-                      <Link href="/privacidad" target="_blank" className="text-accent-text underline underline-offset-2">
+                      <Link href={lang === "en" ? "/en/privacidad" : "/privacidad"} target="_blank" className="text-accent-text underline underline-offset-2">
                         {f.consentLink}
                       </Link>
                       {f.consentPost}

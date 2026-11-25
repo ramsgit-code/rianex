@@ -13,10 +13,11 @@ type Post = {
   descriptionEn: string | null;
   publishedAt: string | null;
   tags: string[];
+  tagsEn?: string[] | null;
 };
 
 export function BlogView({ posts }: { posts: Post[] }) {
-  const { c, lang } = useLang();
+  const { c, lang, localize } = useLang();
   const b = c.blog;
 
   return (
@@ -30,7 +31,7 @@ export function BlogView({ posts }: { posts: Post[] }) {
               <li key={post.slug}>
                 <Reveal delay={i * 0.05} className="h-full">
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={localize(`/blog/${post.slug}`)}
                     className="card group flex h-full flex-col"
                   >
                     <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground transition-colors group-hover:text-accent-text">
@@ -44,11 +45,12 @@ export function BlogView({ posts }: { posts: Post[] }) {
                     <p className="text-xs text-muted">
                       {post.publishedAt
                         ? new Date(post.publishedAt).toLocaleDateString(
-                            lang === "en" ? "en-GB" : "es-ES"
+                            lang === "en" ? "en-GB" : "es-ES",
+                            { timeZone: "UTC" }
                           )
                         : ""}
                       {post.tags.length > 0 &&
-                        ` · ${post.tags.slice(0, 2).join(", ")}`}
+                        ` · ${((lang === "en" && post.tagsEn) || post.tags).slice(0, 2).join(", ")}`}
                     </p>
                   </Link>
                 </Reveal>

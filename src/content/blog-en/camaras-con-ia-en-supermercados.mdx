@@ -1,0 +1,88 @@
+---
+title: "AI cameras in supermarkets: car park, queues and cleaning"
+description: "Video: how a supermarket car park anticipates queues, which quiet hours to use for a promotion and how to clean by usage, with the cameras already there."
+date: "2026-11-24"
+tags: ["ai cameras", "supermarkets", "car park", "queues", "cleaning", "video"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+video: "/videos/camaras-supermercado.mp4"
+videoPoster: "/videos/camaras-supermercado.jpg"
+videoDuration: "PT1M41S"
+---
+
+A supermarket with a car park has, without knowing it, the best customer counter there is: every car that comes in is a shop that begins. With the cameras that already watch the car park and a vision model, that data turns into decisions: how many checkouts to open, when to restock and clean, and which quiet hours to use for a promotion. The video above shows it from start to finish. It is a simulation: the supermarket and the data are fictitious.
+
+## The short answer
+
+The car park cameras count the cars that come in every 15 minutes and how long each one stays in its space, which is almost how long the shop lasts, without reading number plates. With that you can see at what times people come, send an alert to open a checkout before the queue forms and measure whether a promotion brings more visits. The cameras inside add the real queues at the checkouts, spills in the aisles and toilet cleaning based on usage.
+
+## The car park, your visit counter
+
+- **Cars coming in, every 15 minutes.** Added up by day and hour, they give the map of when your customers come: the Saturday midday peak, Friday afternoons, the quietest hour on Tuesday.
+- **How long each car stays.** The system follows each car in its space while it is parked, without reading the number plate. That stay is a good measure of how long the shop lasts.
+- **Free spaces in real time.** Useful for the panels at the entrance and for knowing when the car park is what limits sales.
+
+None of this requires new cameras if the existing ones see the spaces well. We check it with a few hours of footage from a busy day, such as a Saturday morning.
+
+## From the cars to the checkout
+
+What comes in through the car park reaches the checkout a few minutes later. If on a Saturday at 11:30 there are 26 cars coming in within a quarter of an hour, the queue is a matter of time. The system sees it coming and alerts the supervisor to open another checkout before it forms, not when the queue already reaches the aisle. The camera on the checkout line then confirms the real wait at each one and closes the alert.
+
+## Selling more and better with this data
+
+- **Open checkouts before losing customers.** A long queue makes someone leave their trolley and go. Anticipating it is worth more than reacting to it.
+- **Promotions in the quiet hours.** If Tuesday from 15:00 to 17:00 is the quietest slot of the week, it is the candidate for an offer. And as the car park counts the visits, you can measure whether the promotion has brought more cars or has only lowered the price for those who were already coming.
+- **Restock and clean without getting in the way.** The quiet hours are also the good ones for restocking shelves and deep cleaning, before the next peak.
+- **Shifts based on real footfall.** The team's schedules stop being done by eye: they are adjusted to the visit map of the last few weeks.
+- **Conversion and average ticket per hour.** If we cross the visits with the POS tickets, you see what share of those who come buy and how much, hour by hour. It is the way to know whether a bad day was down to fewer customers or to smaller purchases.
+
+## Cleaning by usage, not by the clock
+
+- **Spills in the aisles.** A liquid or an object on the floor is detected and the cleaning team is alerted with the exact aisle, before someone slips.
+- **Toilets by number of uses.** With no camera inside: entries are counted from the corridor and the alert goes off when the number of uses you set is reached. It gets cleaned when it is needed, not every two hours even if nobody has gone in.
+- **Response time by area.** From the alert until the incident disappears from the image. It is useful for organising the service and, if cleaning is subcontracted, for talking to the company with data. We explain it in [AI cameras for the cleaning service](/l/camaras-ia-limpieza).
+
+## What the manager sees
+
+A web dashboard with the heat map of visits by day and hour, today's cars, the average length of the shop, the wait at the checkout and the cleaning alerts. On top, specific suggestions for the week: open two more checkouts on Saturday from 11:00 to 13:00 because the wait went over four minutes, try a promotion in the quietest hour or restock before the afternoon peak. The suggestions are prepared by the AI from the data; the decision is the manager's.
+
+## What is needed
+
+- **IP cameras or a recorder** that provide the image over RTSP or ONVIF, which is usual in most brands. In the car park it is enough for them to see the spaces and the entrance well.
+- **Your own systems.** The analysis is installed on a computer or server the supermarket already has, or in the company's cloud, and sends only counts, times and alerts. There is no equipment to buy and the video does not have to leave the supermarket.
+- **The POS tickets**, by API or in a daily file, if you want conversion and average ticket per hour. Without them, the rest works just the same.
+- **Someone to receive the alerts**: the supervisor for the checkouts and the cleaning team for the aisles and the toilets.
+
+## Privacy and the law
+
+The system counts cars and people without knowing who anyone is: it does no facial recognition and does not need to read number plates to measure the stay. Even so, using the security cameras to measure the operation is a new purpose that has to be declared and, if the data is also used to organise the work, the staff have to know beforehand. We summarise it, with the articles of the law, in [AI cameras to monitor your business](/en/blog/camaras-con-ia-para-controlar-tu-negocio).
+
+## How to start
+
+With a test on a few hours of footage from your own cameras, from a Saturday morning if possible: that shows what can be measured reliably and which camera falls short. It is the first phase of the project, with its own fixed price, and there is nothing to buy. The normal thing is to start with the car park, which gives the most valuable data with the least work, and add checkouts and cleaning afterwards.
+
+It is a new service at Rianex and we do not have a published case yet, so we do not give result figures: we measure them with you. The detail is in [AI cameras for supermarkets](/l/camaras-ia-supermercados) and in the [monitoring with cameras and AI](/en/servicios/control-con-camaras-ia) service. If you want to see what your supermarket's car park would tell you, we look at it in the [free consultation](/en/diagnostico).
+
+## Frequently asked questions
+
+### How does the car park know how long the shop lasts?
+
+It follows each car in its space from the moment it parks until it leaves. That stay includes walking to and from the car, but in a supermarket it is a very good approximation of how long the shop lasts, and it does not need to read the number plate.
+
+### Does it work if the supermarket has no car park of its own?
+
+Yes, although the source changes: the people coming in through the door are counted and the queues at the checkouts are measured. You lose the forecast you get from seeing the cars arrive a few minutes earlier.
+
+### Are there cameras in the toilets?
+
+No, never. Entries are counted from the corridor with the camera that already watches that area.
+
+### Does the AI decide the suggestions on the dashboard?
+
+No. The AI prepares the suggestions from the data, such as opening checkouts in one slot or trying a promotion in another, and the manager decides on them.
+
+### Is the video a real supermarket?
+
+No. It is a simulation with a fictitious supermarket and data, made to show how it works: the car park, the checkouts, the cleaning and the manager's dashboard.

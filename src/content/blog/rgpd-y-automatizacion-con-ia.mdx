@@ -2,7 +2,7 @@
 title: "RGPD y automatización con IA: qué puedes automatizar"
 description: "Consentimiento, decisiones automatizadas y datos que salen de la UE. Lo que la ley permite, lo que exige probar y los fallos más comunes en España."
 date: "2026-09-26"
-updated: "2026-11-11"
+updated: "2026-11-25"
 tags: ["rgpd", "ia", "automatización", "legal"]
 cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
@@ -90,3 +90,21 @@ Seis comprobaciones que puedes hacer hoy:
 Si alguna falla, se arregla. Y sale mucho más barato arreglarlo ahora que cuando alguien pregunte.
 
 Para el resto del proceso, está [por dónde empezar a automatizar](/blog/automatizar-procesos-con-ia-por-donde-empezar). Si manejas datos sensibles, la decisión de dónde alojar tus agentes también cuenta: lo vemos en [servidor propio o nube](/blog/agentes-de-ia-vps-propio-o-nube).
+
+## Preguntas frecuentes
+
+### ¿Qué procesos se pueden automatizar con IA cumpliendo el RGPD?
+
+Con el consentimiento bien recogido y los encargados del tratamiento declarados, casi todo lo que mueve el negocio: crear y actualizar registros en el CRM, puntuar contactos, responder, agendar y hacer seguimiento, generar propuestas y resumir conversaciones. Donde hay que parar a pensar es cuando el sistema puede rechazar a alguien sin que intervenga una persona.
+
+### ¿Cómo demuestro que un contacto dio su consentimiento?
+
+Guardando junto a cada contacto cuándo lo dio y a qué texto concreto, de modo que puedas distinguir a quien aceptó una versión de la política de privacidad de quien aceptó la siguiente. El artículo 7.1 del RGPD exige poder demostrarlo, y una casilla que se marcó en el navegador pero que el sistema no registró no demuestra nada. La casilla tiene que comprobarse también en el servidor, porque si solo se valida en el navegador cualquiera se la salta.
+
+### ¿Puede una IA tomar decisiones sobre clientes sin que intervenga una persona?
+
+Depende de la decisión. Puntuar contactos para decidir a quién llama antes el equipo no tiene efectos jurídicos, y ahí el artículo 22 del RGPD casi nunca aplica. Sí aplica cuando el sistema rechaza por su cuenta y ese rechazo tiene consecuencia real, como denegar una financiación o descartar una candidatura. En esos casos tiene que haber una persona que pueda revisarlo y que sepa que ese es su trabajo.
+
+### ¿Qué hay que comprobar antes de pasar datos de clientes a un proveedor de IA?
+
+Dónde se procesan y qué hace el proveedor con ellos. Si el tratamiento es fuera del Espacio Económico Europeo, la transferencia necesita amparo, que hoy suelen ser cláusulas contractuales tipo y, para Estados Unidos, también el marco de adecuación. Hay que mirar además si usa lo que le mandas para entrenar y si tiene una opción de uso empresarial que lo excluya, porque normalmente no viene activada por defecto. Y el proveedor tiene que aparecer nombrado en tu política de privacidad como encargado del tratamiento.

@@ -10,8 +10,7 @@ import { home } from "@/lib/home";
 // impresiones en Search Console: enlazarlo desde la pagina con mas autoridad
 // del sitio es la señal interna mas fuerte que le podemos dar.
 //
-// Los articulos solo existen en castellano, asi que en /en se enlaza la
-// version en castellano y se avisa en el titulo.
+// En /en se enlaza la traduccion de cada articulo (/en/blog/<slug>).
 
 const DESTACADA = {
   href: "/blog/automatizar-procesos-con-ia-por-donde-empezar",
@@ -66,7 +65,7 @@ const GUIAS = [
 ];
 
 export function Guias() {
-  const { lang } = useLang();
+  const { lang, localize } = useLang();
   const en = lang === "en";
 
   return (
@@ -79,7 +78,7 @@ export function Guias() {
         </div>
 
         <div className="lg:col-span-8">
-          <Link href={DESTACADA.href} className="group block border-2 border-ink bg-white p-6 transition-colors hover:bg-accent sm:p-8">
+          <Link href={localize(DESTACADA.href)} className="group block border-2 border-ink bg-white p-6 transition-colors hover:bg-accent sm:p-8">
             <p className="flex items-start justify-between gap-4 font-display text-2xl font-extrabold uppercase leading-tight text-foreground sm:text-3xl">
               {DESTACADA[lang].title}
               <ArrowUpRight size={24} aria-hidden className="mt-1 shrink-0" />
@@ -93,7 +92,7 @@ export function Guias() {
             {GUIAS.map((g) => (
               <li key={g.href} className="border-t-2 border-ink">
                 <Link
-                  href={g.href}
+                  href={localize(g.href)}
                   className="group flex items-center justify-between gap-4 py-4 text-[17px] font-semibold text-foreground transition-colors hover:text-accent-text"
                 >
                   {g[lang]}

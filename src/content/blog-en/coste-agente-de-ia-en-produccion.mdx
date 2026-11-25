@@ -1,0 +1,150 @@
+---
+title: "Cost of an AI agent in production: how to measure and cap it"
+description: "How much an AI agent spends, how to cap it and how to bill it: log every call, a model per task, batches and usage kept separate from the fee."
+date: "2026-10-28"
+updated: "2026-11-23"
+tags: ["ai agents", "ai cost", "observability", "llm"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+The question "how much does AI cost us?" has an easy answer when there is one test agent: whatever the provider's invoice says at the end of the month. It stops having one when there are several agents, several clients and scheduled tasks that run by themselves in the early hours. The invoice says how much, but not who, or on what, or whether it is right.
+
+When we started working on Tribeca Media's agent platform, that was one of the starting points: there was no way to know how much each agent spent on AI or when it failed. Before letting an agent touch a client's money, you have to be able to see what it does and what it costs. This is what we built and what we recommend for any agent in production.
+
+## The short answer
+
+Controlling the cost of an AI agent takes five pieces: logging every call to the model with its client, its agent, its model, its tokens and its cost; choosing the model according to the task, with a small one by default; sending in batches whatever is not urgent; setting caps per client that cut off before spending, not after; and health alerts so you find out when an agent fails or gets stuck in a loop. With that, the cost stops being a surprise at the end of the month and becomes a number you look at every week. And to bill it clearly, usage goes separately from the maintenance fee, with the margin in writing.
+
+## Where the spend comes from
+
+The model charges by tokens: what you send it and what it answers. But in an agent the spend does not come only from "the questions":
+
+- **The context.** Every call carries the agent's instructions, the client's data and sometimes the history. If nobody watches it, it grows with each version.
+- **Scheduled tasks.** An audit that runs twice a day over a hundred clients is six thousand calls a month, even if nobody is looking.
+- **Retries.** If an external API fails and the agent retries by sending everything to the model again, the same task is paid for several times.
+- **Images and other models.** Generating creatives, transcribing audio or reading documents has its own price, which does not show up in the token counter.
+- **Loops.** An agent that calls itself or another agent with no stop condition is the fastest way to burn budget.
+
+## 1. Log every call
+
+The basic piece is a table in which every call to the model leaves a row with:
+
+- the client and, if applicable, the organisation and the project;
+- the agent and the task that triggered it;
+- the model used;
+- the input and output tokens;
+- the cost calculated at that moment.
+
+Images and any other paid AI service go into the same table, with their real cost. In our case, measured in production, each image generated at medium quality comes to about 4 cents.
+
+With that table, the questions that had no answer before are answered with a query: how much each client spends per day, which agent is the most expensive, which task has shot up this week. It also lets you pass the cost on or set prices per client with data, not by eye.
+
+## 2. Choose the model according to the task
+
+The price difference between a small model and a large one is several times per token. Using the large one for everything is the most common cost mistake.
+
+The rule we apply: small model by default and large model only when the task justifies it. In the campaign agent, the routine review runs on the small one, and only when there is a serious anomaly pending does it switch to the large one to analyse it.
+
+Two conditions for it to work:
+
+- **The decision lives in one place.** If each agent chooses its model with its own logic, nobody knows which one is used or why. Better a central configuration that any agent queries.
+- **It is not written in the code.** The model name must come from the configuration, so it can be changed without touching code when a better or cheaper one comes out.
+
+## 3. Batches and caching for what is not urgent
+
+Model providers offer batch processing of requests in exchange for not answering right away, with a 50% discount. Scheduled tasks that nobody is waiting for in real time, such as a campaign audit at nine in the morning, are the perfect case. On the Tribeca platform the campaign audits are processed this way, at half price.
+
+The other lever is prompt caching: the fixed part of the instructions, which is repeated in every call, is charged much more cheaply when the provider has it stored. Ordering the prompt so the fixed part goes first and the variable part after is a small change with an effect on every call.
+
+## 4. Caps that cut off before spending
+
+Measuring is not enough: you have to be able to stop. The caps we recommend:
+
+| Cap | What it protects | How it is applied |
+|---|---|---|
+| Daily spend per client | One client eating everyone's budget | Checked before every call |
+| Global daily spend | A failure that affects everyone at once | Cuts off all agents when the limit is reached |
+| Units per client per day | Images, posts or specific actions | Prior reservation: first the slot is reserved, then it is generated |
+| Retries per task | Loops and chain errors | A fixed number and then an alert to a person |
+
+Three details that avoid scares:
+
+- **Cut off before, not after.** The cap is checked before calling the model. A cap that is looked at the end of the day only tells you how far over you went.
+- **A single formula.** If there are two ways to calculate the limit in two parts of the code, sooner or later they give different results and nobody knows which one rules.
+- **A single clock.** "Daily" means something different if one part of the system counts days in Spanish time and another in a different zone. We cover it in [the article on human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
+
+## 5. Health and alerts
+
+The hardest spend to see is that of the agent that fails silently. It does not overspend: it spends for nothing, or stops doing its job without anyone finding out.
+
+That is why cost control goes together with observability:
+
+- **Health checks** on every service and every scheduled task, with an alert to a person if something has been down for longer than a reasonable time.
+- **Duration of each run.** If the audit that took ten minutes starts taking an hour, something has changed.
+- **Logs with the client and the task** on every line, so you can follow what happened with one specific client without reading everything.
+
+If the system already has several agents and services, all of this is part of a wider review: [what to review in an agent system before scaling it](/en/blog/revisar-sistema-de-agentes-ia-antes-de-escalar).
+
+## What to look at every week
+
+| Metric | Warning sign |
+|---|---|
+| Cost per client per day | A client that rises without its volume having changed |
+| Cost per task | A task whose average cost grows week after week (context getting fatter) |
+| Percentage of calls to the large model | It rises without there being more anomalies |
+| Retries and errors | More than usual: it is normally an external API that has changed |
+| Caps reached | A client that hits the cap every day needs its configuration or its price reviewed |
+
+## How it is billed: fixed fee and usage in plain sight
+
+Measuring the spend also helps with the other side of the question: when a company hires someone to build and maintain a WhatsApp or voice agent, how should the invoice reach them?
+
+What most worries someone hiring an agent is not the price of the implementation, which is agreed once. It is not knowing how much they will pay per month. And the clearest way to remove that doubt is to separate two items that are often mixed into a single fee:
+
+| Item | What it includes | How it is charged |
+|---|---|---|
+| Maintenance fee | Monitoring, alerts, agent adjustments, tests before changing model, monthly report | Fixed amount per month |
+| Usage | What the providers charge: Meta's WhatsApp conversations, the model's tokens, the voice and phone minutes | Whatever it costs that month, with the management margin agreed and published |
+
+There is at least one provider that already does it this way in public. Thunderphone, a voice agent platform, publishes its rule: it charges calls at what its providers charge it, plus hosting, plus a margin that goes from 17% on the cheapest calls to 25% on the most expensive, according to [its Zeus announcement](https://thunderphone.com/blog/introducing-zeus). It is not the only valid way to charge, but it is a public reference for how much margin is applied on usage.
+
+What you should ask of whoever builds your agent, however they charge:
+
+- **The usage, broken down.** How much was Meta, how much the model and how much voice. With the call table from section 1, it comes out with a query.
+- **The margin, in writing.** A fixed percentage on usage or a price per conversation, but one that does not change without notice.
+- **A cap.** A monthly amount above which the agent warns or stops, like those in the caps table.
+- **What happens if the provider's price changes.** If the model drops in price, the drop should reach the invoice; if it rises, you should be told beforehand.
+
+With usage separated, the maintenance fee is explained by what it is: the work of keeping the agent running well, not a price that hides the spend.
+
+## A real case: Tribeca Media
+
+At [Tribeca Media](/en/casos-de-exito/tribeca-media), the KEYWORKERS platform gives each client a team of AI agents for marketing. Before building the campaign agent we did an assessment of the system and a block of observability and cost work: health checks with alerts, the cost of every call and every image logged, a spending cap per client and batch audits at half price.
+
+With that in place, the [Meta Ads and Google Ads agent](/en/blog/agente-ia-meta-ads-google-ads) could start acting on real campaigns knowing at all times how much each client costs and with the assurance that a failure does not turn into an invoice.
+
+## Frequently asked questions
+
+### How much does an AI agent in production cost per month?
+
+It depends on how many calls it makes, which model it uses and how much context it sends in each one. In most well-designed agents the model spend is the small part of the total cost; the expensive part is building it and maintaining the integrations. The only way to know precisely is to log every call from day one.
+
+### What is observability for an AI agent?
+
+It is being able to see from outside what the agent does: which calls it makes, how long it takes, how much it costs, when it fails and what it decided with which data. Without observability, an agent is a black box that is only reviewed when something goes wrong.
+
+### Is it worth using a local model to save money?
+
+For simple, repetitive tasks, such as extracting data from a text or classifying, a local model can save a lot. For decisions that touch money or clients, the difference in quality usually weighs more than the saving. We compare them in [agents on your own server or in the cloud](/en/blog/agentes-de-ia-vps-propio-o-nube).
+
+### How much margin should whoever builds my agent charge on usage?
+
+There is no standard figure. As a public reference, Thunderphone charges voice calls at cost plus a margin of 17% to 25%. More than the exact percentage, what matters is that the margin is in writing, that usage arrives broken down and that the maintenance fee is separate.
+
+### What happens when a client reaches the spending cap?
+
+The agent stops calling the model for that client until the next day and sends an alert. Pending tasks are not lost: they stay undone and are shown as such. That is preferable to carrying on spending without control.
+
+If you already have agents running and do not know how much they cost or when they fail, in the [free assessment](/en/diagnostico) we review your system and come out with a plan for measurement and caps.

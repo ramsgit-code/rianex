@@ -9,6 +9,10 @@ import type { CaseClient } from "@/lib/servicios";
 // marketing, de los casos de Tribeca Media y Growth4U. Academias
 // no tiene caso ni articulo propio todavia, asi que describe el metodo sin
 // prometer resultados.
+//
+// Inmobiliarias y negocios con cita previa tampoco tienen caso: salen de las
+// landings de nichos.ts y de la ficha del agente de WhatsApp en servicios.ts
+// (plazo, precio y preguntas), sin cifras de resultado ni caseClient.
 
 type Item = { title: string; desc: string };
 type Faq = { q: string; a: string };
@@ -505,6 +509,248 @@ export const SECTORES: Record<string, Sector> = {
         {
           q: "What happens to people who do not enrol now?",
           a: "They are not discarded: they enter an email and WhatsApp follow-up sequence and return to the team when they show intent, for example when the start date they were interested in approaches.",
+        },
+      ],
+    },
+  },
+
+  inmobiliarias: {
+    index: 4,
+    services: ["agente-ia-whatsapp", "implementacion-crm-gohighlevel", "embudo-de-captacion"],
+    posts: [
+      "como-cualificar-leads-automaticamente",
+      "whatsapp-automatizacion-ventas",
+      "agentes-de-ia-para-empresas-cuando-compensan",
+      "que-es-gohighlevel",
+    ],
+    es: {
+      seoTitle: "Automatización con IA para inmobiliarias",
+      metaDescription:
+        "Un agente de IA para inmobiliarias responde al momento a los leads de los portales, cualifica por presupuesto y zona, agenda la visita y lo deja en el CRM.",
+      h1: "Automatización con IA para inmobiliarias",
+      answer:
+        "La automatización con IA para inmobiliarias hace que cada contacto de los portales o de la web reciba respuesta en minutos, también el fin de semana, sin depender de que un comercial esté libre. Un agente de IA contesta por WhatsApp o correo, pregunta presupuesto, zona, plazo y financiación, y agenda la visita con quien encaja. Inmuebles, compradores, propietarios y operaciones quedan en un solo CRM, GoHighLevel o HubSpot.",
+      painsTitle: "Dónde se pierden operaciones",
+      pains: [
+        { title: "El lead que se enfría", desc: "Quien pregunta por un piso escribe a varias agencias. Si contestas al día siguiente, ya ha quedado con otra." },
+        { title: "Visitas que no encajan", desc: "Se enseñan pisos a quien no tiene el presupuesto ni la financiación, y la tarde se va en visitas que no acaban en nada." },
+        { title: "Contactos repartidos", desc: "Los leads viven en el correo de cada agente, en WhatsApp y en una hoja de cálculo. Cuando alguien se va, se lleva su cartera." },
+        { title: "Propietarios sin noticias", desc: "El propietario no sabe cuántas visitas ha tenido su inmueble y llama para preguntar." },
+      ],
+      automationsTitle: "Qué automatizamos",
+      automations: [
+        { title: "Respuesta inmediata", desc: "El aviso del portal o el formulario de la web se lee solo, se crea el contacto y sale una respuesta por WhatsApp o correo en minutos, también de noche y en fin de semana." },
+        { title: "Cualificación", desc: "Presupuesto, zona, plazo y si necesita financiación, antes de proponer una visita. El comercial enseña pisos a quien puede comprarlos." },
+        { title: "Visitas agendadas", desc: "El comprador elige hueco en la agenda del comercial y recibe recordatorio; si cancela, el hueco se libera." },
+        { title: "El CRM de la agencia", desc: "Inmuebles, compradores, propietarios y operaciones en GoHighLevel o HubSpot, con el pipeline a la vista. La cartera es de la agencia, no del correo de cada agente." },
+        { title: "Informe al propietario", desc: "Las visitas y el interés que ha tenido su inmueble, enviados solos cada semana." },
+      ],
+      metricsTitle: "Qué medimos",
+      metrics: [
+        "Cuántos leads entran al mes y por qué portal o canal.",
+        "Cuánto tarda cada lead en recibir la primera respuesta.",
+        "Qué parte de los leads llega a visita y qué parte de las visitas acaba en operación.",
+        "Cuántos contactos siguen sin seguimiento y desde cuándo.",
+      ],
+      timeline:
+        "Entre 4 y 8 semanas desde la consultoría. Lo primero suele ser la respuesta inmediata a los leads de los portales: es lo que antes se nota.",
+      faqs: [
+        {
+          q: "¿Qué hace un agente de IA en una inmobiliaria?",
+          a: "Responde al momento a quien pregunta por un inmueble, informa de lo que está publicado, pregunta presupuesto, zona, plazo y financiación, y agenda la visita en la agenda del comercial. No negocia ni valora inmuebles: eso es cosa del comercial, y lo que se sale de ahí pasa a una persona.",
+        },
+        {
+          q: "¿Se conecta con los portales inmobiliarios?",
+          a: "Los portales avisan de cada contacto por correo, y ese aviso es la entrada: el sistema lo lee, crea el contacto y responde. Si tu software inmobiliario tiene API, también se conecta a él.",
+        },
+        {
+          q: "¿De quién son los datos de los compradores?",
+          a: "De la agencia. Se guardan en tu CRM, con el consentimiento registrado, y las cuentas están a tu nombre, no al nuestro.",
+        },
+        {
+          q: "¿Cuánto cuesta?",
+          a: "Depende del alcance: el discovery arranca en 1.500 €, la implementación completa va de 5.000 € a 25.000 € y hay un retainer mensual opcional de mantenimiento. El precio exacto se confirma tras la consultoría gratuita, no antes.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI automation for real estate agencies",
+      metaDescription:
+        "An AI agent for real estate agencies replies to portal leads at once, qualifies by budget and area, books the viewing and logs it all in the CRM.",
+      h1: "AI automation for real estate agencies",
+      answer:
+        "AI automation for real estate agencies means every enquiry from the property portals or your website gets a reply within minutes, weekends included, without waiting for an agent to be free. An AI agent answers on WhatsApp or email, asks about budget, area, timing and financing, and books the viewing with the buyers who fit. Properties, buyers, owners and deals sit in a single CRM, GoHighLevel or HubSpot.",
+      painsTitle: "Where deals are lost",
+      pains: [
+        { title: "The lead that goes cold", desc: "Someone asking about a flat writes to several agencies. If you reply the next day, they have already arranged a viewing with another." },
+        { title: "Viewings that do not fit", desc: "Flats are shown to people without the budget or the financing, and the afternoon goes on viewings that lead nowhere." },
+        { title: "Scattered contacts", desc: "Leads live in each agent's inbox, in WhatsApp and in a spreadsheet. When someone leaves, their portfolio leaves with them." },
+        { title: "Owners left without news", desc: "The owner does not know how many viewings the property has had, and calls to ask." },
+      ],
+      automationsTitle: "What we automate",
+      automations: [
+        { title: "Instant response", desc: "The portal notification or the website form is read automatically, the contact is created and a reply goes out on WhatsApp or email within minutes, at night and at weekends too." },
+        { title: "Qualification", desc: "Budget, area, timing and whether they need financing, before a viewing is offered. The agent shows flats to people who can buy them." },
+        { title: "Booked viewings", desc: "The buyer picks a slot in the agent's calendar and gets a reminder; if they cancel, the slot is freed." },
+        { title: "The agency's CRM", desc: "Properties, buyers, owners and deals in GoHighLevel or HubSpot, with the pipeline in view. The portfolio belongs to the agency, not to each agent's inbox." },
+        { title: "Owner report", desc: "The viewings and interest the property has had, sent automatically every week." },
+      ],
+      metricsTitle: "What we measure",
+      metrics: [
+        "How many leads come in each month, and from which portal or channel.",
+        "How long each lead waits for the first reply.",
+        "What share of leads reaches a viewing, and what share of viewings ends in a deal.",
+        "How many contacts have had no follow-up, and since when.",
+      ],
+      timeline:
+        "Between 4 and 8 weeks from the consultation. The first piece is usually the instant reply to portal leads: it is what you notice soonest.",
+      faqs: [
+        {
+          q: "What does an AI agent do in a real estate agency?",
+          a: "It replies at once to anyone asking about a property, gives the information that is published, asks about budget, area, timing and financing, and books the viewing in the agent's calendar. It does not negotiate or value properties: that is the agent's job, and anything beyond it goes to a person.",
+        },
+        {
+          q: "Does it connect to the property portals?",
+          a: "The portals notify you of each enquiry by email, and that notification is the entry point: the system reads it, creates the contact and replies. If your real estate software has an API, it connects to that too.",
+        },
+        {
+          q: "Who owns the buyers' data?",
+          a: "The agency. It is stored in your CRM, with consent recorded, and the accounts are in your name, not ours.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "It depends on scope: discovery starts at €1,500, a full build runs from €5,000 to €25,000, and there is an optional monthly maintenance retainer. The exact price is confirmed after the free consultation, not before.",
+        },
+      ],
+    },
+  },
+
+  "negocios-con-cita": {
+    index: 5,
+    services: ["agente-ia-whatsapp", "automatizacion-procesos-ia", "implementacion-crm-gohighlevel"],
+    posts: [
+      "agente-de-voz-whatsapp-agenda-citas",
+      "automatizar-recepcion-clinica",
+      "whatsapp-automatizacion-ventas",
+      "ai-act-chatbot-decir-que-es-ia",
+    ],
+    es: {
+      seoTitle: "Agente de IA para negocios con cita previa",
+      metaDescription:
+        "Agente de IA que contesta por WhatsApp y teléfono, da la cita en tu agenda y envía el recordatorio de citas automático. Para peluquerías, estética y fisios.",
+      h1: "Agente de IA para negocios con cita previa",
+      answer:
+        "Un agente de IA para negocios con cita previa contesta por WhatsApp y por teléfono a cualquier hora, resuelve las dudas de siempre y da la cita en tu agenda mientras atiendes a un cliente. Después envía un recordatorio de citas automático que el cliente confirma con un mensaje, y cubre las cancelaciones con la lista de espera. Lo montamos para peluquerías, centros de estética, fisioterapia, consultas y centros deportivos.",
+      painsTitle: "Dónde se pierden citas",
+      pains: [
+        { title: "El teléfono que no puedes coger", desc: "Estás con un cliente y suena el teléfono. Quien llama no deja mensaje: llama al siguiente." },
+        { title: "Mensajes a deshoras", desc: "Se piden citas por WhatsApp a las once de la noche y se contestan al día siguiente, cuando ya han reservado en otro sitio." },
+        { title: "El hueco vacío", desc: "Una cita a la que no viene nadie es una hora que ya no se puede volver a vender." },
+        { title: "El cliente que no repite", desc: "Quedó contento, pero nadie le recordó que ya tocaba volver." },
+      ],
+      automationsTitle: "Qué automatizamos",
+      automations: [
+        { title: "Agente de WhatsApp y voz", desc: "Contesta, resuelve las dudas de siempre (precios, horarios y servicios) y da la cita en tu agenda. Lo que se sale de lo normal pasa a una persona." },
+        { title: "Recordatorio de citas automático", desc: "Sale al reservar y el día antes, y el cliente confirma con un mensaje. Si cancela, el hueco se libera solo." },
+        { title: "Lista de espera", desc: "Cuando se libera un hueco, se avisa a quien lo estaba esperando." },
+        { title: "Vuelta del cliente", desc: "Un mensaje cuando toca repetir: el corte, la revisión o la siguiente sesión." },
+        { title: "Reseñas", desc: "Después de la cita, se pide la reseña a los clientes contentos." },
+      ],
+      care: {
+        title: "Lo que hay que tocar con cuidado",
+        items: [
+          "El agente dice que es una IA en el primer mensaje o al empezar la llamada: lo exige el AI Act desde agosto de 2026.",
+          "Qué decide el agente solo y qué pasa siempre por una persona se fija contigo antes de construir.",
+          "Si tratas datos de salud, como en fisioterapia o en una consulta, los mensajes automáticos no nombran el tratamiento: basta con «tienes cita mañana a las 10».",
+          "El agente necesita la API oficial de WhatsApp Business. Mantienes tu número, pero deja de usarse en la app del móvil.",
+        ],
+      },
+      metricsTitle: "Qué medimos",
+      metrics: [
+        "Cuántos mensajes y llamadas entran, y cuántos se quedan sin contestar.",
+        "Cuánto tarda la primera respuesta, dentro y fuera de horario.",
+        "Qué parte de las citas acaba en ausencia.",
+        "Cuántas cancelaciones se cubren con la lista de espera.",
+        "Cuántos clientes vuelven después del mensaje de repetición.",
+      ],
+      timeline:
+        "Entre 4 y 8 semanas desde el diagnóstico. El primer agente suele estar atendiendo en la semana 4.",
+      faqs: [
+        {
+          q: "¿Cómo funciona el recordatorio de citas automático?",
+          a: "El cliente recibe un mensaje al reservar y otro el día antes, y confirma o cancela contestando. La respuesta actualiza la agenda sin que nadie lo teclee: si cancela, el hueco se libera y se avisa a quien estaba en la lista de espera.",
+        },
+        {
+          q: "¿Puede agendar citas en mi calendario?",
+          a: "Sí. Consulta los huecos libres y reserva directamente en tu agenda: el calendario de GoHighLevel o HubSpot, Google Calendar o tu software de citas si tiene API. Después envía la confirmación y los recordatorios.",
+        },
+        {
+          q: "¿Sirve la app de WhatsApp Business del móvil?",
+          a: "No. El agente necesita la API oficial de WhatsApp Business, que se da de alta con Meta directamente o a través de una plataforma como GoHighLevel. Puedes mantener tu número actual: se migra a la API. Lo que no se puede es seguir usándolo a la vez en la app del móvil.",
+        },
+        {
+          q: "¿Cuánto cuesta un agente de IA para WhatsApp?",
+          a: "La construcción entra en el rango de implementación, de 5.000 € a 25.000 €. Lo que más mueve el precio es cuántos sistemas tiene que consultar el agente y cuántas excepciones tiene tu proceso. Aparte están los costes de uso, que pagas directamente: Meta cobra por los mensajes de plantilla que inicia tu empresa (contestar a quien te escribe dentro de las 24 horas no tiene coste de Meta), Vapi cobra por minuto de llamada si hay agente de voz y el modelo de IA cobra por uso, o tiene coste fijo si va en servidor propio.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI agent for appointment-based businesses",
+      metaDescription:
+        "An AI agent that answers on WhatsApp and the phone, books into your calendar and sends automatic appointment reminders. For salons, beauty centres and physios.",
+      h1: "AI agent for appointment-based businesses",
+      answer:
+        "An AI agent for appointment-based businesses answers on WhatsApp and on the phone at any hour, handles the usual questions and books the appointment into your calendar while you are with a customer. It then sends an automatic appointment reminder the customer confirms with a message, and fills cancellations from the waiting list. We build it for hair salons, beauty centres, physiotherapy, private practices and sports centres.",
+      painsTitle: "Where appointments are lost",
+      pains: [
+        { title: "The phone you cannot pick up", desc: "You are with a customer and the phone rings. The caller leaves no message: they call the next place." },
+        { title: "Messages out of hours", desc: "People ask for appointments on WhatsApp at eleven at night and get an answer the next day, once they have booked somewhere else." },
+        { title: "The empty slot", desc: "An appointment nobody turns up to is an hour that can no longer be sold." },
+        { title: "The customer who does not come back", desc: "They left happy, but nobody reminded them it was time to return." },
+      ],
+      automationsTitle: "What we automate",
+      automations: [
+        { title: "WhatsApp and voice agent", desc: "It answers, handles the usual questions (prices, opening hours and services) and books the appointment into your calendar. Anything out of the ordinary goes to a person." },
+        { title: "Automatic appointment reminders", desc: "Sent when booking and the day before, and the customer confirms with a message. If they cancel, the slot is freed automatically." },
+        { title: "Waiting list", desc: "When a slot is freed, whoever was waiting for it is notified." },
+        { title: "Bringing customers back", desc: "A message when it is time to return: the haircut, the check-up or the next session." },
+        { title: "Reviews", desc: "After the appointment, happy customers are asked for a review." },
+      ],
+      care: {
+        title: "What needs careful handling",
+        items: [
+          "The agent says it is an AI in the first message or at the start of the call: the AI Act has required it since August 2026.",
+          "What the agent decides on its own and what always goes to a person is agreed with you before building.",
+          "If you handle health data, as in physiotherapy or a private practice, automated messages do not name the treatment: “you have an appointment tomorrow at 10” is enough.",
+          "The agent needs the official WhatsApp Business API. You keep your number, but it stops being used in the phone app.",
+        ],
+      },
+      metricsTitle: "What we measure",
+      metrics: [
+        "How many messages and calls come in, and how many go unanswered.",
+        "How long the first reply takes, in and out of hours.",
+        "What share of appointments ends in a no-show.",
+        "How many cancellations are filled from the waiting list.",
+        "How many customers return after the come-back message.",
+      ],
+      timeline:
+        "Between 4 and 8 weeks from the diagnosis. The first agent is usually answering by week 4.",
+      faqs: [
+        {
+          q: "How do automatic appointment reminders work?",
+          a: "The customer gets a message when booking and another the day before, and confirms or cancels by replying. The reply updates the calendar without anyone typing it: if they cancel, the slot is freed and whoever was on the waiting list is notified.",
+        },
+        {
+          q: "Can it book appointments in my calendar?",
+          a: "Yes. It checks free slots and books straight into your calendar: GoHighLevel or HubSpot calendars, Google Calendar or your booking software if it has an API. Then it sends the confirmation and reminders.",
+        },
+        {
+          q: "Does the WhatsApp Business phone app work?",
+          a: "No. The agent needs the official WhatsApp Business API, set up with Meta directly or through a platform such as GoHighLevel. You can keep your current number: it is migrated to the API. What you cannot do is keep using it in the phone app at the same time.",
+        },
+        {
+          q: "How much does an AI agent for WhatsApp cost?",
+          a: "The build falls within the implementation range, €5,000 to €25,000. What moves the price most is how many systems the agent has to check and how many exceptions your process has. Usage costs are separate and you pay them directly: Meta charges for template messages your business initiates (replying to someone who writes to you within 24 hours has no Meta fee), Vapi charges per call minute if there is a voice agent, and the AI model charges per use, or has a fixed cost on your own server.",
         },
       ],
     },

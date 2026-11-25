@@ -1,0 +1,122 @@
+---
+title: "Your chatbot must say it is an AI: what the AI Act requires"
+description: "Since August 2026, your chatbot or voice agent must disclose that it is an AI. What the AI Act requires of an SME, what it does not and what is due on 2 December."
+date: "2026-11-11"
+tags: ["ai act", "ai regulation", "chatbot", "whatsapp", "ai agents", "legal"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+If your company has a chatbot on its website, an agent that replies on WhatsApp or one that picks up the phone, since 2 August 2026 it has a new obligation: to say that it is an AI. Article 50 of the European Artificial Intelligence Regulation, the AI Act, requires it, and there is no grace period, even if the agent was running before that date.
+
+It is one of the few AI Act obligations that land squarely on an SME, and also one of the easiest to meet. This article covers what it requires, what it does not, who is liable if someone else built the agent for you and what is due on 2 December.
+
+## The short answer
+
+A chatbot or AI agent that talks to people has to disclose clearly that it is an AI, at the latest in the first interaction: in the first message if it is in writing, and with a spoken sentence at the start if it is by phone. A notice in the terms of use is not enough. The obligation applies from 2 August 2026 and the maximum fine is 15 million euros or 3% of turnover, the lower of the two figures in the case of an SME. An agent that handles customer enquiries or books appointments is not high-risk, so the rest of the AI Act barely affects it.
+
+## What the law says exactly
+
+Article 50(1) of [Regulation (EU) 2024/1689](https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81079) says that providers shall ensure that AI systems intended to interact directly with people "are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI system". There is one exception: where this is obvious to a person who is "reasonably well-informed, observant and circumspect".
+
+Article 50(5) adds the how and the when: the information shall be provided "in a clear and distinguishable manner at the latest at the time of the first interaction or exposure", and in line with accessibility requirements.
+
+The obviousness exception is of use to almost nobody. The [European Commission guidelines on Article 50](https://ai-act-service-desk.ec.europa.eu/sites/default/files/2026-07/guidelines_on_the_implementation_of_the_transparency_obligations_for_certain_ai_systems_under_article_50_of_the_ai_act_bzptwqhk0ikg1dtlddap41psfy_131215.pdf), published in July 2026, ask for it to be read narrowly and give, as an example of a case that is not obvious, precisely the most common one: customer service chatbots built into a website or a support tool. The guidelines are not binding, but they are how the Commission is going to read the rule. AESIA has [the frequently asked questions in Spanish](https://aesia.digital.gob.es/es/recursos/ria-articulo-50-faqs-directrices-sobre-transparencia).
+
+## How to disclose it properly, and what does not count
+
+According to the guidelines, a single visible notice before the first interaction is enough in most cases. In practice:
+
+- **In writing (website or WhatsApp):** the agent's first message says it is an AI, in plain words. For example: "Hi, I'm the virtual assistant of Clínica Norte, an artificial intelligence system. I can book you an appointment and answer questions. If you would rather talk to a person, just tell me".
+- **By phone:** a spoken sentence at the start of the call, such as "You are being attended by an artificial intelligence assistant of Clínica Norte". A tone or an audio signal can help, but on its own it is not enough.
+- **If the agent acts on your behalf** (it calls a supplier, books or negotiates), as well as saying that it is an AI it has to say who it is acting for.
+
+What does not count:
+
+- Putting it only in the terms of use, in a link or in the documentation. That can complement the notice, but it does not replace it.
+- Just calling it an "assistant", or giving it a person's name and photo that lead people to think it is one.
+- A generic notice along the lines of "this website uses artificial intelligence".
+
+Two cases worth planning for. If the customer asks whether they are talking to a machine, the agent has to say yes. And in sensitive conversations (health, complaints, elderly or vulnerable people) the guidelines recommend repeating it during the conversation, not only at the start.
+
+A nuance for mixed systems: a rule-based bot with no AI, such as a button menu or a fixed automatic reply, falls outside Article 50. So does AI that only suggests replies to a member of the team, if that person is the one who reviews and sends them. What does not exempt you is the fact that a person can step in if they want to: if the agent replies on its own, it has to disclose.
+
+## Who is liable: you or whoever builds it for you
+
+The AI Act distinguishes two roles. The **provider** is whoever develops the system, or has it developed, and puts it into service under their own name or trademark. The **deployer** is whoever uses it under their authority. The notice in Articles 50(1) and 50(5) is the provider's obligation.
+
+The typical SME case, in which an agency builds an agent on top of the OpenAI or Anthropic model and the agent runs under the SME's brand, is not expressly settled in any official text. The guidelines give clues: whoever puts a chatbot into service for their own use and under their own name is a provider, and a company remains the deployer even if contractors are involved. You can also hold both roles at once. The reasonable approach is to assume the SME is liable too, and to settle it in the contract:
+
+- That the notice is in the first message and in the voice greeting, and that it has been tested before delivery.
+- Who takes care of marking the content (we cover it below).
+- That any change to the agent's instructions keeps the notice.
+
+## 2 December: marking the content
+
+Article 50(2) requires providers of systems that generate audio, image, video or text to have that output marked in a machine-readable format, so that it can be detected as generated by an AI. According to the guidelines, that in principle covers an agent's text or voice replies. Short sequences, such as single words or labels, are left out.
+
+For systems that were already on the market before 2 August 2026, [Regulation (EU) 2026/1744](https://www.boe.es/buscar/doc.php?id=DOUE-L-2026-81147), known as the Digital Omnibus on AI, gives until **2 December 2026**. That grace period is only for marking. The notice that it is an AI has been required since August.
+
+The system provider can rely on the marking done by the model provider, but remains responsible. If your agent uses the API of a commercial model, the question for your provider, or for whoever built it for you, is specific: is the output marked in a way that complies with Article 50(2), and who guarantees it?
+
+## What the AI Act does not require of your agent
+
+An agent that handles customer enquiries, answers questions or books appointments **is not high-risk**. The high-risk list in Annex III covers other uses: selecting staff, assessing a person's creditworthiness, pricing life or health insurance, triaging patients in emergency healthcare or recognising emotions. The high-risk obligations, moreover, have been postponed to 2 December 2027.
+
+Watch out for two of those uses in appointment-based businesses. If a clinic's agent decides which patient is urgent, it enters triage territory: better to design it so that it detects the emergency and hands it to a person, as we explain in [automating a clinic's front desk](/en/blog/automatizar-recepcion-clinica). And an agent that analyses tone of voice to detect emotions has rules of its own.
+
+If you are the deployer and not the provider, Article 50 adds no further duties in the normal case. They only appear if the agent uses a voice that imitates a real person, which would be a deep fake (*deepfake*), or if it detects emotions.
+
+## Fines and what happens in Spain
+
+Article 99 sets the maximum fine for breaching Article 50 at 15 million euros or 3% of worldwide turnover, whichever is higher. For SMEs the lower one applies. For a company with a turnover of 2 million euros, the cap would be €60,000.
+
+In Spain, the market surveillance authority is the Agencia Española de Supervisión de la Inteligencia Artificial (AESIA), created by Real Decreto 729/2023, although its formal designation before the Commission is still listed as pending. The draft organic law that was going to set the Spanish regime of infringements has lapsed with the dissolution of the Cortes ([Real Decreto 806/2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20742)), with elections on 29 November. That does not leave a gap: the European regulation applies directly in its entirety. What remains to be defined is how penalties will be processed in Spain, not whether the obligation exists.
+
+## The notice does not replace the GDPR
+
+Saying that it is an AI does not cover the information that data protection requires. The Commission makes it clear: the obligation in Article 50(1) has a different purpose and does not affect the GDPR's information obligations. Nor those of consumer law on the essential characteristics of the service, which apply even if the interaction with the AI is considered obvious.
+
+So the agent needs both things: the notice that it is an AI and the information on what data it collects, what for and on what legal basis. We explain it in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
+
+## Checklist to review your agent today
+
+1. Open a new conversation on WhatsApp or on the website: does the first message say it is an AI?
+2. Call the voice agent's number: does it say so in a sentence at the start?
+3. Ask it "are you a person?": does it answer no?
+4. Check the agent's name and photo: could they make someone think it is a person?
+5. Ask your provider in writing who takes care of marking the content before 2 December.
+6. Check that the agent does not decide on emergencies, creditworthiness or staff selection. If it does, it needs a thorough review.
+
+## Frequently asked questions
+
+### Does my chatbot have to say it is an AI?
+
+Yes, since 2 August 2026, if it replies using artificial intelligence and talks directly to people. It has to disclose it clearly at the latest in the first interaction. The exception for when it is obvious is read narrowly, and the Commission gives customer service chatbots as an example of a case that is not obvious.
+
+### Is it enough to put it in the terms of use or the privacy policy?
+
+No. According to the Commission's guidelines, a notice that is only in the terms of use, in a link or in the documentation can complement the notice in the conversation, but it does not replace it.
+
+### How does a voice agent have to disclose it?
+
+With a spoken sentence at the start of the call, for example "you are being attended by an artificial intelligence assistant". A tone or an audio signal can help, but it is not enough on its own. In long calls it is a good idea to repeat it.
+
+### Is a WhatsApp agent that books appointments high-risk?
+
+No. Handling customer enquiries and booking appointments is not on the high-risk list in Annex III. Using it to triage patients in emergencies, select staff, assess creditworthiness or price life or health insurance would be.
+
+### What is the fine for not disclosing it?
+
+Up to 15 million euros or 3% of worldwide turnover. For SMEs the lower of the two amounts applies. In Spain, the market surveillance authority is AESIA.
+
+### What is due on 2 December 2026?
+
+The deadline for systems that were already on the market before August 2026 to mark their generated content (audio, image, video or text) in a machine-readable format, as Article 50(2) requires. The notice that it is an AI does not have that deadline: it has been required since 2 August.
+
+### If an agency built the agent for me, who is liable?
+
+There is no official answer for that specific case. The notice is the provider's obligation, and if the agent runs under your name or your brand it is reasonable to assume that you are one too. It is worth putting in writing in the contract that the notice and the marking are part of the delivery.
+
+If you want us to check whether your chatbot or your voice agent complies, we look at it with you in the 30-minute [free consultation](/en/diagnostico).

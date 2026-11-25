@@ -8,9 +8,7 @@ import type { LinkPolicy } from "@/lib/blog-schema";
 
 type Post = {
   title: string;
-  titleEn: string | null;
   content: string;
-  contentEn: string | null;
   publishedAt: string | null;
   /** Solo si el articulo se ha revisado despues de publicarse. */
   updatedAt?: string | null;
@@ -36,21 +34,20 @@ function fecha(iso: string, en: boolean) {
 }
 
 export function BlogPostContent({ post }: { post: Post }) {
-  const { lang } = useLang();
+  // El idioma sale de la URL: /en/blog/<slug> recibe ya la traduccion.
+  const { lang, localize } = useLang();
   const en = lang === "en";
-
-  const title = en ? post.titleEn ?? post.title : post.title;
-  const content = en ? post.contentEn ?? post.content : post.content;
+  const { title, content } = post;
 
   return (
     <article className="pt-36 pb-16 md:pt-40">
       <div className="section">
         <nav aria-label={en ? "Breadcrumb" : "Migas de pan"} className="text-sm text-muted">
-          <Link href="/" className="hover:text-foreground">
+          <Link href={localize("/")} className="hover:text-foreground">
             {en ? "Home" : "Inicio"}
           </Link>
           <span aria-hidden className="mx-2">/</span>
-          <Link href="/blog" className="hover:text-foreground">
+          <Link href={localize("/blog")} className="hover:text-foreground">
             Blog
           </Link>
         </nav>
@@ -59,7 +56,7 @@ export function BlogPostContent({ post }: { post: Post }) {
           {/* Firma y fechas a la vista: quién lo escribe y cuándo se revisó. */}
           <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-foreground-muted">
             {post.author && (
-              <Link href={post.author.href} rel="author" className="inline-flex items-center gap-2 font-medium text-foreground hover:underline">
+              <Link href={localize(post.author.href)} rel="author" className="inline-flex items-center gap-2 font-medium text-foreground hover:underline">
                 <Image
                   src={post.author.photo}
                   alt=""
@@ -102,7 +99,7 @@ export function BlogPostContent({ post }: { post: Post }) {
           <aside className="mt-16 border-t-2 border-ink pt-8">
             <h2 className="font-display text-2xl font-extrabold uppercase text-foreground">
               {en ? "Keep reading" : "Sigue leyendo"}
-              {post.clusterLabel && !en && (
+              {post.clusterLabel && (
                 <span className="mt-1 block font-sans text-sm font-medium normal-case text-muted">
                   {post.clusterLabel}
                 </span>
@@ -111,7 +108,7 @@ export function BlogPostContent({ post }: { post: Post }) {
             <ul className="mt-6 grid gap-6 md:grid-cols-3">
               {post.related.map((r) => (
                 <li key={r.slug}>
-                  <Link href={`/blog/${r.slug}`} className="group block">
+                  <Link href={localize(`/blog/${r.slug}`)} className="group block">
                     <span className="font-semibold text-foreground group-hover:underline">{r.title}</span>
                     <span className="mt-2 block text-sm text-foreground-muted">{r.description}</span>
                   </Link>

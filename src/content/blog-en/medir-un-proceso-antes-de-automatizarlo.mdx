@@ -1,0 +1,164 @@
+---
+title: "Measure a process before automating it and know if it worked"
+description: "How to get the volume, time and leakage of a process in one week with no tools, turn it into money and check at 30, 60 and 90 days whether automation worked."
+date: "2026-10-23"
+tags: ["automation", "processes", "roi", "measurement", "ai"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+In a plant nobody touches a line without having measured it first. You time it, you count the good parts and the bad ones, you change something and you measure again. Otherwise there is no way of knowing whether the change helped.
+
+In the office of an SME the opposite happens. A process is automated, someone says that "it runs better now" and three months later nobody knows whether it is true.
+
+This article develops the step that we sum up in one line in the guide on [where to start automating processes with AI](/en/blog/automatizar-procesos-con-ia-por-donde-empezar): measure volume, time and leakage before touching anything.
+
+## The short answer
+
+To measure a process before automating it, three numbers are enough: volume (how many times it happens), time (how much each one costs) and leakage (how many are lost and where). You get them in one week with no tools: counting in the CRM, the inbox or WhatsApp, and timing ten real cases. With them you calculate how much the process is worth in hours and in money. Then you repeat the measurement at 30, 60 and 90 days with the same rules, and you watch two leading indicators: first response time and percentage of contacts with follow-up.
+
+## Why measure before and not after
+
+Measuring afterwards without a baseline is no use. You may know that today you reply in two hours, but if you do not know how long you took before, you cannot say you have improved.
+
+Measuring also forces you to define the process: to count how many enquiries are lost you have to decide what counts as "lost".
+
+You do not need laboratory precision. You need the before number and the after number to be obtained in the same way.
+
+## How to get each number in one week
+
+A spreadsheet and a stopwatch are enough.
+
+### Volume: count what is already recorded
+
+The volume is almost always written down somewhere, although spread out:
+
+- **CRM**: filter the contacts created in the last four weeks.
+- **Email inbox**: search by the subject line of the web form or by the contact address.
+- **WhatsApp**: count new conversations per day.
+- **Phone**: the log of incoming calls on the mobile or the switchboard.
+
+Add up the channels. More usually comes in than people thought, because each person only sees their own.
+
+### Time: time ten cases
+
+Do not ask how long it takes: time it. The estimate from the person who does the task usually falls short because it does not count interruptions or searches.
+
+Choose ten normal cases, neither the easiest nor the oddest. Measure from when the contact arrives until it is answered, booked or sent, and note the waiting time separately. A proposal can take forty minutes of work and two days to go out.
+
+Ten cases are enough to get an order of magnitude. If they come out very scattered, measure ten more.
+
+### Leakage: sample and follow the trail
+
+For leakage you do not need to review everything. Take a sample: the last 30 or 50 contacts that came in at least three weeks ago, to give them time to progress. For each one, note where it stands today.
+
+## Where the leakage hides
+
+Leakage is almost never a rejected contact. It is a forgotten contact. When you review the sample, each one falls into one of these three categories:
+
+**No reply.** Nobody answered. Messages outside working hours, on a channel nobody looks at or in the inbox of someone on holiday.
+
+**Late reply.** They were answered, but when they had already sorted it out with someone else. To find out, compare the time of arrival with the time of the first reply.
+
+**No follow-up.** They were answered in time, said "I'll have a look and let you know" and nobody wrote to them again. It is the biggest leak and the most invisible, because in the records it shows as handled.
+
+Each one is fixed with something different. The first, by centralising channels. The second, with an automatic reply that acknowledges receipt and qualifies, as we explain in [how to qualify leads automatically](/en/blog/como-cualificar-leads-automaticamente). The third, with reminders and follow-up sequences.
+
+## An example with round numbers
+
+This is a hypothetical example to illustrate the calculation, not a real case.
+
+Take a clinic that receives 120 enquiries a month across website, WhatsApp and phone. Timing ten cases, each enquiry takes about 6 minutes of work between replying, answering questions and booking. On reviewing a sample, 30% of the enquiries are lost: some with no reply, others answered the next day, others with no follow-up after the first message. That is 36 enquiries a month.
+
+Of the enquiries that are handled well, say 40% end in an appointment, and each appointment is worth 150 euros on average.
+
+The sums:
+
+- **Time**: 120 × 6 minutes = 12 hours a month. At a real cost of 25 euros an hour, 300 euros a month.
+- **Leakage**: 36 lost enquiries × 40% × 150 euros = 2,160 euros a month that do not come in.
+
+The time is what the clinic notices. The leakage is what it costs. If you want to see how this applies to a specific front desk, we cover it in [automating a clinic's front desk](/en/blog/automatizar-recepcion-clinica).
+
+## The formula to turn it into money
+
+Monthly value of the process = (hours saved × real cost per hour) + (contacts recovered × conversion rate × average ticket).
+
+Two warnings:
+
+- **Real cost per hour** is what that person costs the company, not their gross salary divided by hours.
+- **Contacts recovered** are not all the ones that were leaking. Be conservative: assume you recover half and check afterwards.
+
+With that number you can compare it with what automating would cost. You have the cost breakdown in [how much it costs to automate a process with AI](/en/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio), and if you prefer to work out the leakage without a spreadsheet, there is the [lead leakage calculator](/en/herramientas/calculadora-fuga-de-leads).
+
+## Before and after: 30, 60 and 90 days
+
+Once it is implemented, repeat the measurement with the same rules: same channels, same definition of "lost", same sample size.
+
+**At 30 days** look at whether the system works: whether the contacts come in where they should and the replies go out. The business side is still noise.
+
+**At 60 days** the leading indicators should already have moved clearly.
+
+**At 90 days** compare volume, time and leakage with the baseline. It is the first moment at which it makes sense to talk about return.
+
+If something big changes in those months, such as a campaign or a peak season, note it down so as not to attribute it to the automation.
+
+## The indicators that move first
+
+Revenue takes time to reflect an improvement. There are two numbers that move in days and anticipate the rest:
+
+- **First response time**: from when the contact comes in until they receive a useful reply, not an empty automatic acknowledgement.
+- **Percentage of contacts with follow-up**: how many of those who did not close on the first contact received at least a second message.
+
+At [Eventos Barcelona](/en/casos-de-exito/eventos-barcelona) the number that had to move was the response time. Before, each proposal took between one and three days to go out after the call with the client. With the system, it goes out in about eight minutes, and the response time to the client dropped by 85%. We could state that because the earlier time had been measured. We describe it in more detail in [proposals and tenders with AI](/en/blog/propuestas-licitaciones-con-ia).
+
+## Template to measure your process
+
+Copy it into a spreadsheet and fill in the baseline column this week.
+
+| Indicator | How it is obtained | Baseline | 30 days | 60 days | 90 days |
+| --- | --- | --- | --- | --- | --- |
+| Monthly volume | Count entries in CRM, inbox, WhatsApp and phone | | | | |
+| Working time per case | Time 10 normal cases | | | | |
+| First response time | Time of arrival against time of first useful reply, in the sample | | | | |
+| % with no reply | Sample of 30 to 50 contacts that are three weeks old | | | | |
+| % with follow-up | Same sample: how many received a second message | | | | |
+| Total leakage | No reply + late reply + no follow-up | | | | |
+| Conversion | Contacts that end in a sale or appointment | | | | |
+| Estimated monthly value | Formula above | | | | |
+
+## Common mistakes when measuring
+
+**Estimating instead of counting.** "We get about fifty a week" almost never matches what the records say.
+
+**Changing the definition between measurements.** If before "lost" meant not replying within a week and afterwards it means not replying within 24 hours, the comparison is not valid.
+
+**Measuring only the time saved.** It is the easy thing to count and the one that weighs least in a sales process.
+
+**Choosing the easy cases to time.** You get nice times that look nothing like the day-to-day.
+
+**Measuring only once afterwards.** One good month proves nothing. Three points in a row do.
+
+## Frequently asked questions
+
+### How do you measure a process in a company?
+
+With three numbers: how many times it happens, how long it takes each time and how many times it gets lost along the way. You count them in the records that already exist (CRM, email, WhatsApp), time ten real cases and review a sample of 30 to 50 cases to see where they get stuck.
+
+### How do you calculate the ROI of an automation?
+
+Add the hours saved times their real cost and the contacts recovered times your conversion rate and your average ticket. That monthly value, compared with what it costs to implement and maintain the automation, gives you the return. In sales processes, the leakage part usually weighs much more than the time part.
+
+### How long do you have to wait to know whether an automation works?
+
+Leading indicators, such as first response time, move in days. To talk about a business result it is better to wait until 90 days and compare with the baseline measured in the same way as before.
+
+### Does process improvement with AI really work in an SME?
+
+It works when it is applied to a process that happens often, has clear rules and has been measured beforehand. Without prior measurement, nothing can be stated either for or against. You have specific cases in [examples of process automation with AI](/en/blog/ejemplos-automatizacion-procesos-con-ia).
+
+### Do I need a tool to measure before automating?
+
+No. A spreadsheet, the history you already have and a week of attention are enough.
+
+If you want us to help you get the baseline for your process and decide what to automate, see how we work in [AI process automation](/en/servicios/automatizacion-procesos-ia) or book the [free assessment](/en/diagnostico): 30 minutes and you leave with the numbers and a specific list.

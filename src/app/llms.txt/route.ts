@@ -43,7 +43,7 @@ reglas y su fallo cuesta dinero, se puede automatizar.
 - **Proceso comercial automatizado**: prospección B2B autónoma en la nube y go-to-market (scoring con SABI, Clay y Databricks; email con Instantly o Lemlist; LinkedIn con Valley; todo en HubSpot o GoHighLevel); captación y cualificación de leads de Meta Ads en GoHighLevel; propuestas automáticas en una aplicación en Vercel con su pipeline en el CRM; implantación de CRM y migración de HubSpot a GoHighLevel con su histórico.
 
 ## Cómo trabajamos
-Cuatro pasos: diagnóstico de 30 minutos, diseño del sistema, implementación y
+Cuatro pasos: consultoría gratuita de 30 minutos, diseño del sistema, implementación y
 entrega con formación y 30 días de soporte.
 
 Precio a medida según el alcance: el discovery arranca en 1.500 €, la
@@ -77,7 +77,9 @@ export async function GET() {
 
   secciones.push(
     "## Casos de éxito\n" +
+      // Los casos propios primero; Hospital Capilar es un proyecto con Growth4U.
       Object.entries(CASOS)
+        .sort(([a], [b]) => Number(a === "hospital-capilar") - Number(b === "hospital-capilar"))
         .map(([slug, caso]) => `- [${caso.es.h1}](${BASE_URL}/casos-de-exito/${slug}): ${caso.es.answer}`)
         .join("\n")
   );
@@ -92,14 +94,14 @@ export async function GET() {
   secciones.push(`## Páginas principales
 - [Inicio](${BASE_URL}/): qué automatizamos y cómo
 - [Servicios](${BASE_URL}/servicios): todos los servicios en detalle
-- [Soluciones por sector](${BASE_URL}/soluciones): ejemplos en agencias de marketing, eventos, clínicas y formación
+- [Soluciones por sector](${BASE_URL}/soluciones): agencias de marketing, eventos, clínicas, inmobiliarias, negocios con cita previa y formación
 - [Casos de éxito](${BASE_URL}/casos-de-exito): implantaciones reales con su resultado
 - [Testimonios](${BASE_URL}/testimonios): opiniones de clientes
 - [Sobre mí](${BASE_URL}/sobre-mi): Ramiro Pérez Rodero, quién está detrás
 - [Consultoría gratuita](${BASE_URL}/diagnostico): formulario de 30 minutos
 - [Blog](${BASE_URL}/blog): ${posts.length} artículos sobre automatización con IA
 
-La web está también en inglés bajo ${BASE_URL}/en.`);
+La web está también en inglés bajo ${BASE_URL}/en, con los artículos del blog traducidos en ${BASE_URL}/en/blog.`);
 
   // El blog agrupado por cluster: le da al modelo la estructura tematica, que
   // es justo lo que un indice plano de titulos no transmite.
