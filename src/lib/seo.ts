@@ -13,6 +13,10 @@ import { alternates, localizePath, type Lang } from "@/lib/i18n";
 
 export const SITE_URL = "https://www.rianex.es";
 
+/** @id de la empresa y de la persona en el JSON-LD: los mismos en toda la web. */
+export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+export const PERSON_ID = `${SITE_URL}/sobre-mi#ramiro`;
+
 /** La persona detras de Rianex: una sola fuente para el schema y la web. */
 export const RAMIRO = {
   name: "Ramiro Pérez Rodero",

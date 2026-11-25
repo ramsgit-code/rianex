@@ -65,7 +65,7 @@ type HomeCopy = {
     fitTitle: string;
     fit: string[];
     sectorsTitle: string;
-    /** Sectores destacados: qué duele y qué automatizamos. En ES llevan a su landing (/l/<nicho>); en EN, a páginas en inglés. */
+    /** Sectores destacados: qué duele y qué automatizamos. En ES llevan a su página de /soluciones si existe (es la que posiciona) y, si no, a su landing (/l/<nicho>, noindex); en EN, a páginas en inglés. */
     sectors: { name: string; pain: string; fix: string; href: string; link: string; note?: string }[];
     alsoTitle: string;
     also: Chip[];
@@ -193,7 +193,7 @@ const es: HomeCopy = {
         name: "Empresas de eventos",
         pain: "Cada propuesta tarda días y, cuando llega, el cliente ya ha pedido presupuesto a otro.",
         fix: "Propuesta en web y PDF minutos después de la llamada, correos de clientes, artistas y proveedores ordenados en el CRM y seguimiento automático.",
-        href: "/l/empresas-de-eventos",
+        href: "/soluciones/eventos",
         link: "Ver cómo lo hacemos en eventos",
         note: "Caso: Eventos Barcelona",
       },
@@ -201,7 +201,7 @@ const es: HomeCopy = {
         name: "Clínicas y hospitales",
         pain: "Llamadas sin coger, citas sin confirmar y pacientes que no vuelven.",
         fix: "Respuesta al momento por WhatsApp y teléfono, precualificación por tratamiento, recordatorios y lista de espera.",
-        href: "/l/clinicas",
+        href: "/soluciones/clinicas",
         link: "Ver cómo lo hacemos en clínicas",
         note: "Caso con Growth4U",
       },

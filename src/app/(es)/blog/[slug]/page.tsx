@@ -2,7 +2,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { BlogPostContent } from "./BlogPostContent";
-import { getAllPosts, getPost, getPostFaqs } from "@/lib/blog";
+import { getAllPosts, getPost, getPostFaqs, getRelatedPosts } from "@/lib/blog";
+import { CLUSTERS } from "@/lib/blog-schema";
+import { PERSON_ID, ORGANIZATION_ID, RAMIRO } from "@/lib/seo";
 
 const SITE_URL = "https://www.rianex.es";
 
@@ -63,12 +65,46 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     image: `${SITE_URL}/og/blog/${post.slug}`,
     datePublished: post.publishedAt.toISOString(),
     dateModified: post.updatedAt.toISOString(),
-    author: { "@type": "Person", name: post.author },
-    publisher: { "@type": "Organization", name: "Rianex", url: SITE_URL },
+    // Mismos @id que la home y /sobre-mi: asi buscadores y asistentes unen el
+    // articulo con la persona que lo firma y con la empresa, en vez de ver un
+    // nombre suelto en cada pagina.
+    author: {
+      "@type": "Person",
+      "@id": PERSON_ID,
+      name: post.author,
+      url: `${SITE_URL}/sobre-mi`,
+      image: `${SITE_URL}${RAMIRO.photo}`,
+      jobTitle: "Ingeniero industrial",
+      sameAs: [RAMIRO.linkedin],
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Rianex",
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logos/rianex-mark.png` },
+    },
     mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
     keywords: post.tags.join(", "),
     inLanguage: "es-ES",
   };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+    ],
+  };
+
+  const revisado = post.updatedAt.getTime() > post.publishedAt.getTime();
+  const related = getRelatedPosts(post).map((r) => ({
+    slug: r.slug,
+    title: r.title,
+    description: r.description,
+  }));
 
   const videoJsonLd = post.video
     ? {
@@ -100,6 +136,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <>
       <JsonLd data={articleJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
       {faqJsonLd && <JsonLd data={faqJsonLd} />}
       {videoJsonLd && <JsonLd data={videoJsonLd} />}
       <BlogPostContent
@@ -109,6 +146,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           content: post.content,
           contentEn: null,
           publishedAt: post.publishedAt.toISOString(),
+          updatedAt: revisado ? post.updatedAt.toISOString() : null,
+          author: { name: post.author, photo: RAMIRO.photo, href: "/sobre-mi" },
+          clusterLabel: CLUSTERS[post.cluster],
+          related,
           linkPolicy: post.linkPolicy,
           video: post.video,
         }}

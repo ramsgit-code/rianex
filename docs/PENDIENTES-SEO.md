@@ -5,13 +5,40 @@ asistentes de IA (ChatGPT, Perplexity, Claude, AI Overviews). Se actualiza
 cada vez que se cierra o aparece algo: lo terminado baja a **Hecho** con la
 fecha y el PR.
 
-Origen: auditoría del 2 de octubre de 2026. Último repaso: 7 de noviembre (1.480 impresiones, 6 clics, posición 67,7; GA4 51 sesiones, 0 leads; Bing 10 URLs indexadas y 0 impresiones). Repaso del 26 de octubre: 799 impresiones, 3 clics, posición 70,3. Repaso anterior: 21 de octubre
+Origen: auditoría del 2 de octubre de 2026. Auditoría técnica, SEO y GEO completa el 25 de noviembre (113 URLs rastreadas, todas con 200; ver «Hecho» y los puntos nuevos de «Para Ramiro» y «Código»). Repaso anterior: 7 de noviembre (1.480 impresiones, 6 clics, posición 67,7; GA4 51 sesiones, 0 leads; Bing 10 URLs indexadas y 0 impresiones). Repaso del 26 de octubre: 799 impresiones, 3 clics, posición 70,3. Repaso anterior: 21 de octubre
 (Search Console, 28 días: 58 páginas indexadas, solo 2 sin indexar y son
 redirecciones; 488 impresiones, 2 clics, posición media 71,4. El 54% de las
 impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 `generate_lead` todavía, un `form_start`).
 
 ## Para Ramiro (requieren login o una decisión)
+
+- [ ] **GEO: estar donde miran los asistentes (auditoría del 25-nov).** Claude
+      no nombra a Rianex en ninguna de las 12 preguntas (informe del 4-nov),
+      y buscando «Rianex agencia automatización IA Ávila» o «rianex.es» la web
+      no sale. Los asistentes recomiendan agencias a partir de listados de
+      terceros: upliora.es, clutch.co, javadex.es, sortlist, aisuperior.com,
+      malt.com, ecosistemastartup.com, el directorio de agencias de Semrush y
+      experts.n8n.io. Rianex no está en ninguno. Por orden: (1) perfiles en
+      Clutch (con una reseña verificada de Eventos Barcelona), Sortlist,
+      experts.n8n.io, directorio de partners de HighLevel, Malt y Google
+      Business Profile en Ávila, con el mismo nombre, descripción y URL;
+      (2) escribir a upliora, aisuperior y ecosistemastartup para entrar en
+      sus listas de agencias de automatización con IA en España; (3) los dos
+      enlaces de Eventos Barcelona y Tribeca Media, que siguen pendientes.
+      Cada perfil que se abra se añade al `sameAs` del JSON-LD de la home.
+      Esto pesa más que cualquier cambio dentro de la web.
+- [ ] **Medir la visibilidad cada mes**: el único informe es del 4-nov y
+      solo pregunta a Claude. Con las claves de Perplexity, Gemini y OpenAI,
+      programar `npm run visibilidad-ia` en rianex-server el día 1 de cada mes.
+- [ ] **`/sobre-mi` se queda corta** (417 palabras, foto de 200×200) y es la
+      página que sostiene la firma de los 39 artículos. Pásame trayectoria
+      con fechas, el máster donde das clase, proyectos con nombre y la foto
+      original, y la amplío.
+- [ ] **Core Web Vitals sin medir**: el 25-nov la API de PageSpeed dio cuota
+      agotada. Pasar pagespeed.web.dev a la home, `/diagnostico` y un
+      artículo, en móvil, y mirar sobre todo si el aviso de cookies (modal
+      que bloquea) es el elemento más grande de la primera pantalla.
 
 - [ ] **Dónde buscar clics (24-nov-2026).** En 90 días, el 89% de las impresiones sin marca está más allá de la posición 50 y solo el 1% en el top 10: las búsquedas genéricas («automatización de procesos con IA», «agentes de IA») no traerán clics en meses. Prioridad: búsquedas de compra donde ya salimos en el top 20 (licitaciones: «busco una herramienta para redactar ofertas técnicas…» en la 6-8), búsquedas entre la 4 y la 15, y artículos para búsquedas concretas en nichos con poca competencia en español (GoHighLevel en español, qué es n8n). El informe semanal de Rizzo ya elige así. Lo que mueve la búsqueda genérica son enlaces externos.
 - [x] **«Proyectos de IA a medida» vuelve al principio del título (24-nov-2026).** El #73 lo había cambiado a «Precio de…» y apartó la única búsqueda sin marca con volumen en el top 30 (101 impresiones en 90 días, posición 30). Título: «Proyectos de IA a medida para empresas: precio, plazos y ejemplos»; H2 con «en producción» (posición 13). Regla: al cambiar el título de una página con impresiones, la búsqueda que las trae va al principio. Medir en 2-3 semanas.
@@ -183,6 +210,39 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
+
+- [ ] **Títulos que se cortan**: 42 de 71 páginas indexables pasan de 60
+      caracteres contando « | Rianex»; 13 pasan de 70. En el blog, quitar el
+      sufijo cuando el título ya pasa de 55. 12 descripciones pasan de 160.
+- [ ] **Preguntas frecuentes en los 8 artículos que no tienen** (y por tanto
+      sin `FAQPage`): RGPD el primero (22 enlaces internos), cuándo compensan
+      los agentes, propuestas comerciales, clínicas captación y agenda,
+      WhatsApp para ventas, integrar GoHighLevel, migrar de HubSpot y servidor
+      propio o nube.
+- [ ] **Fuentes en los artículos**: 23 de 39 no enlazan a ninguna fuente
+      externa. Empezar por los de más impresiones: por dónde empezar,
+      proyectos de IA a medida, qué es GoHighLevel y qué es GTM Engineering.
+- [ ] **Dato propio citable**: la medición del vídeo de IA selectiva (6
+      llamadas, 1.436 tokens y 107,5 s frente a 1 llamada, 107 tokens y
+      5,6 s) merece un bloque propio con método, fecha y tabla.
+- [ ] **Tarjetas de inmobiliarias y negocios con cita de la home**: siguen
+      enlazando a su landing `noindex` porque no hay página de sector (ver
+      más abajo «Páginas de sector»). Al crearlas, cambiar el enlace en
+      `src/lib/home.ts`. Los enlaces a las landings de cámaras se quedan:
+      no tienen equivalente indexable.
+- [ ] **`Organization`**: añadir `legalName`, `foundingDate` y
+      `contactPoint`, y cada perfil externo nuevo en `sameAs`.
+- [ ] **`llms.txt`**: dice «diagnóstico de 30 minutos» (la web dice
+      «consultoría gratuita») y lista Hospital Capilar por delante de los
+      casos propios. Valorar un `llms-full.txt`.
+- [ ] **Menores**: `manifest.webmanifest`, quitar la cabecera
+      `x-powered-by`, `/testimonios` (282 palabras) y `/soluciones` (341)
+      son finas, 25 artículos sin `updated`.
+- [ ] **`lastmod` del sitemap**: desde el 25-nov sale de la constante
+      `LASTMOD` de `src/app/sitemap.ts`, por sección. Hay que actualizarla en
+      el mismo PR que cambie el contenido de una sección.
+
 - [ ] **Cifras clave arriba en cada caso** (modelo de venta, punto 4): un
       bloque de 2-3 cifras y los servicios usados antes del texto, en
       `CasoView.tsx`, con datos que ya están en `results` de `casos.ts`.
@@ -279,6 +339,26 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · Auditoría técnica, SEO y GEO, primera tanda. (1) El selector
+  de idioma es un enlace y no un botón, y las 30 URLs inglesas llevan su
+  `<loc>` en el sitemap: antes no recibían ningún enlace interno. Desde un
+  artículo, un texto legal o una landing, que solo existen en castellano,
+  lleva a `/en`. (2) Las tarjetas de eventos y clínicas de la home enlazan a
+  `/soluciones` en vez de a la landing `noindex`; las landings llevan
+  canonical propia (antes `noindex` con canonical a otra URL, dos señales
+  contradictorias). (3) Artículos con firma y foto enlazadas a `/sobre-mi`,
+  fecha en `<time>`, «Actualizado el…» cuando hay `updated`, migas de pan y
+  tres relacionados (por etiquetas y clúster); en el JSON-LD, autor y editor
+  con el mismo `@id` que la home y `/sobre-mi`, logo del editor y
+  `BreadcrumbList`. La fecha ya no cambia de día según la zona horaria del
+  visitante. (4) Enlaces internos: licitaciones y n8n vs Make vs Zapier en
+  las guías de la home, y las comparativas, el agente de voz, cross-selling
+  y GTM en las fichas de servicio que les tocan. (5) `lastmod` real por
+  sección en el sitemap (antes, la fecha de cada despliegue). (6) Caché de
+  un día para `/videos` y `/logos` (antes `max-age=0`). Medir en 3-4
+  semanas: páginas inglesas indexadas, posición de `/soluciones/clinicas` y
+  `/soluciones/eventos`, y clics del artículo de licitaciones.
 
 - 2026-11-25 · Servicio **IA selectiva** (`/servicios/ia-selectiva`, ES/EN):
   grupo propio «Optimizar la IA que ya usas» en `/servicios` y la home, con

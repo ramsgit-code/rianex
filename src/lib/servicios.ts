@@ -95,6 +95,8 @@ export const SERVICIOS: Record<string, Servicio> = {
       "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
       "rgpd-y-automatizacion-con-ia",
       "n8n-3-que-se-rompe-y-como-prepararte",
+      "n8n-vs-make-vs-zapier",
+      "agencia-automatizacion-vs-freelance-vs-equipo-interno",
     ],
     es: {
       seoTitle: "Automatización de procesos con IA para empresas",
@@ -200,7 +202,7 @@ export const SERVICIOS: Record<string, Servicio> = {
 
   "integracion-gohighlevel-hubspot": {
     cases: ["Hospital Capilar"],
-    posts: ["integrar-gohighlevel-con-tu-stack", "whatsapp-automatizacion-ventas"],
+    posts: ["integrar-gohighlevel-con-tu-stack", "whatsapp-automatizacion-ventas", "gohighlevel-vs-hubspot"],
     es: {
       seoTitle: "Integración de GoHighLevel y HubSpot con tu stack",
       metaDescription:
@@ -313,6 +315,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     posts: [
       "migrar-de-hubspot-a-gohighlevel-sin-perder-historico",
       "integrar-gohighlevel-con-tu-stack",
+      "gohighlevel-vs-hubspot",
     ],
     es: {
       seoTitle: "Migración de HubSpot a GoHighLevel sin perder datos",
@@ -423,7 +426,7 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   "outbound-b2b": {
-    posts: ["prospeccion-b2b-outbound-con-ia", "clay-treg-coldiq-enriquecimiento-prospeccion-b2b", "que-es-gtm-engineering"],
+    posts: ["prospeccion-b2b-outbound-con-ia", "clay-treg-coldiq-enriquecimiento-prospeccion-b2b", "que-es-gtm-engineering", "gtm-engineering-no-es-mandar-emails-con-clay"],
     es: {
       seoTitle: "Prospección B2B automatizada y Go to Market con IA",
       metaDescription:
@@ -561,6 +564,9 @@ export const SERVICIOS: Record<string, Servicio> = {
       "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
       "cobrar-la-ia-por-resultado",
       "ai-act-chatbot-decir-que-es-ia",
+      "agente-de-voz-whatsapp-agenda-citas",
+      "vapi-vs-retell",
+      "cross-selling-por-whatsapp",
     ],
     es: {
       seoTitle: "Agente de IA para WhatsApp, Telegram y voz: citas 24/7",
@@ -710,6 +716,9 @@ export const SERVICIOS: Record<string, Servicio> = {
     posts: [
       "integrar-gohighlevel-con-tu-stack",
       "automatizacion-para-clinicas-captacion-y-agenda",
+      "que-es-gohighlevel",
+      "gohighlevel-vs-hubspot",
+      "gohighlevel-levelup-day-2026-agentes-ia",
     ],
     es: {
       seoTitle: "Implantación de CRM: GoHighLevel y HubSpot",
@@ -936,7 +945,7 @@ export const SERVICIOS: Record<string, Servicio> = {
 
   "generador-de-propuestas": {
     cases: ["Eventos Barcelona"],
-    posts: ["propuestas-comerciales-automaticas"],
+    posts: ["propuestas-comerciales-automaticas", "propuestas-licitaciones-con-ia"],
     es: {
       seoTitle: "Generador automático de propuestas comerciales",
       metaDescription:
@@ -1679,6 +1688,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
       "revisar-sistema-de-agentes-ia-antes-de-escalar",
       "coste-agente-de-ia-en-produccion",
+      "agencia-automatizacion-vs-freelance-vs-equipo-interno",
     ],
     es: {
       seoTitle: "Asesoramiento en IA para empresas",

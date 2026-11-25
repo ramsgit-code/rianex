@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { pageMetadata, RAMIRO, SITE_URL } from "@/lib/seo";
+import { ORGANIZATION_ID, pageMetadata, PERSON_ID, RAMIRO, SITE_URL } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { SobreMiView } from "./SobreMiView";
 
@@ -14,6 +14,7 @@ const personJsonLd = {
   url: `${SITE_URL}/sobre-mi`,
   mainEntity: {
     "@type": "Person",
+    "@id": PERSON_ID,
     name: RAMIRO.name,
     image: `${SITE_URL}${RAMIRO.photo}`,
     sameAs: [RAMIRO.linkedin],
@@ -23,7 +24,7 @@ const personJsonLd = {
     url: `${SITE_URL}/sobre-mi`,
     email: "hola@rianex.es",
     address: { "@type": "PostalAddress", addressLocality: "Ávila", addressCountry: "ES" },
-    worksFor: { "@type": "ProfessionalService", name: "Rianex", url: SITE_URL },
+    worksFor: { "@type": "ProfessionalService", "@id": ORGANIZATION_ID, name: "Rianex", url: SITE_URL },
     knowsAbout: [
       "Automatización con IA",
       "Agentes de IA",

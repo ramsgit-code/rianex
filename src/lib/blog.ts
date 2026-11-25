@@ -70,6 +70,31 @@ export function getPost(slug: string): BlogPost | null {
 }
 
 /**
+ * Articulos relacionados para el pie de cada articulo. Primero los que
+ * comparten mas etiquetas, despues los del mismo cluster y, a igualdad, los
+ * revisados mas recientemente. Reparte enlaces internos a los articulos que
+ * solo se enlazaban desde el listado.
+ */
+export function getRelatedPosts(post: BlogPost, max = 3): BlogPost[] {
+  const tags = new Set(post.tags.map((t) => t.toLowerCase()));
+  return getAllPosts()
+    .filter((p) => p.slug !== post.slug)
+    .map((p) => ({
+      p,
+      comunes: p.tags.filter((t) => tags.has(t.toLowerCase())).length,
+      mismoCluster: p.cluster === post.cluster ? 1 : 0,
+    }))
+    .sort(
+      (a, b) =>
+        b.comunes - a.comunes ||
+        b.mismoCluster - a.mismoCluster ||
+        b.p.updatedAt.getTime() - a.p.updatedAt.getTime()
+    )
+    .slice(0, max)
+    .map(({ p }) => p);
+}
+
+/**
  * Preguntas de la seccion "## Preguntas frecuentes" (cada una un "###"), para
  * el FAQPage del articulo. Los enlaces se quedan en texto: el schema no los
  * necesita y Google muestra la respuesta sin formato.

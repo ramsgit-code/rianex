@@ -11,7 +11,8 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { c, toggle, localize } = useLang();
+  const { c, lang, otherLangHref, localize } = useLang();
+  const otherLang = lang === "es" ? "en" : "es";
   const links = c.nav.links;
 
   useEffect(() => {
@@ -62,14 +63,18 @@ export function Navbar() {
               </Link>
             );
           })}
-          <button
-            onClick={toggle}
+          {/* Enlace y no botón: los rastreadores no siguen un <button>, y sin
+              <a> las páginas inglesas no recibían ningún enlace interno. */}
+          <Link
+            href={otherLangHref}
+            hrefLang={otherLang}
+            lang={otherLang}
             aria-label={c.nav.switchLabel}
             className="ml-2 inline-flex h-9 items-center gap-1.5 border-2 border-ink px-2.5 text-xs font-bold text-foreground transition-colors hover:bg-ink hover:text-background"
           >
             <Languages size={14} aria-hidden />
             {c.nav.switchTo}
-          </button>
+          </Link>
           <Link href={localize("/diagnostico")} className="btn-tape ml-3 min-h-[2.5rem] px-4 py-2 text-sm">
             {c.nav.cta}
             <ArrowRight size={15} aria-hidden />
@@ -77,14 +82,16 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={toggle}
+          <Link
+            href={otherLangHref}
+            hrefLang={otherLang}
+            lang={otherLang}
             aria-label={c.nav.switchLabel}
             className="inline-flex h-9 items-center gap-1 border-2 border-ink px-2 text-xs font-bold text-foreground"
           >
             <Languages size={13} aria-hidden />
             {c.nav.switchTo}
-          </button>
+          </Link>
           <button
             className="inline-flex h-9 w-9 items-center justify-center bg-ink text-background"
             onClick={() => setOpen(!open)}
