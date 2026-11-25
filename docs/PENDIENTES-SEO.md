@@ -255,6 +255,12 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Pedir indexación en GSC el 26-nov** de `/servicios/outbound-linkedin`
+      y `/servicios/cold-calling` (y sus versiones `/en/`): el 25-nov se
+      agotó el cupo diario tras pedir creación de webs y email marketing.
+      El sitemap se reenvió el 25-nov (154 URLs leídas) e IndexNow aceptó
+      las 154.
+
 Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
 
 - [ ] **`Organization`**: faltan `legalName` y `foundingDate` (necesito la
