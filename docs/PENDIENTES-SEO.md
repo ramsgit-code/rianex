@@ -19,6 +19,14 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 - [x] ~~**Subir de la posición 80 los artículos de «automatizar procesos con IA».** Por dónde empezar, ejemplos, herramientas y cómo implementar suman ~2.800 impresiones en 90 días en la posición 77-82 y 0 clics (Search Console, 24-nov). Revisar si se canibalizan entre sí y decidir cuál es la página principal de cada búsqueda antes de reescribir.
 - [x] **Títulos y descripciones para clics (24-nov-2026).** Seis páginas que ya salen en primera página sin clics: cross-selling por WhatsApp (pos. 7), /en/diagnostico (pos. 5-6), caso Tribeca Media (pos. 8,6, casi todo búsquedas de la marca), n8n 3 (pos. 10), Clay/Treg/ColdIQ (pos. 4-5) y GTM engineering. Títulos con la palabra exacta que se busca y una promesa que el contenido cumple. Medir el CTR en 2-3 semanas.
 
+- [ ] **IA selectiva: validar plazo y precio (25-nov-2026).** La ficha
+      `/servicios/ia-selectiva` dice que la medición y el mapa del flujo
+      llevan 1-2 semanas y el rediseño 2-4 más, y que la medición se cobra
+      como un discovery (desde 1.500 €) y el rediseño como una implantación.
+      Lo supuse yo con los precios ya publicados: confírmalo o dime qué
+      cambiar. La landing `/l/ia-selectiva` está lista para una campaña o
+      para el enlace de los mensajes de prospección a empresas que ya usan IA.
+
 - [ ] **Control con cámaras e IA: lo que queda abierto.** El 24-nov
       validaste el plazo (3 a 6 semanas), el precio (instalación más cuota
       mensual), que la prueba con grabaciones va aparte de la consultoría y
@@ -271,6 +279,16 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · Servicio **IA selectiva** (`/servicios/ia-selectiva`, ES/EN):
+  grupo propio «Optimizar la IA que ya usas» en `/servicios` y la home, con
+  sus usos al lado; respuesta directa, ejemplo con el pedido del vídeo, dónde
+  se usa, método en cuatro pasos, casos de Eventos Barcelona (8 pasos, la IA
+  decide en 2) y Tribeca Media (coste por llamada y tope), seis FAQ y el
+  vídeo de grabaciones reales. Landing `/l/ia-selectiva`, opción nueva en el
+  formulario (cuenta como automatización en el lead scoring), línea en el
+  chat, y el complementario «Control del coste de la IA» enlaza ahora al
+  servicio. El artículo `reducir-gasto-tokens-ia-selectiva` enlaza a la ficha.
 
 - 2026-11-24 · Vídeo de `reducir-gasto-tokens-ia-selectiva` rehecho con
   grabaciones reales (58 s): el mismo pedido ficticio ejecutado dos veces en

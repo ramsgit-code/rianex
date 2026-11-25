@@ -123,6 +123,7 @@ export const formContent = {
         "Ordenar mi CRM",
         "Montar un sistema desde cero",
         "Controlar mi negocio con cámaras e IA",
+        "Reducir el coste o los errores de la IA que ya uso",
         "Otro",
       ],
       urgencia: [
@@ -277,6 +278,7 @@ export const formContent = {
         "Tidy up my CRM",
         "Build a system from scratch",
         "Monitor my business with cameras and AI",
+        "Cut the cost or errors of the AI I already use",
         "Other",
       ],
       urgencia: [

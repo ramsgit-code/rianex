@@ -158,7 +158,7 @@ const es: HomeCopy = {
   },
   services: {
     title: "Servicios de automatización con IA",
-    lead: "Ocho servicios para automatizar lo que más se repite, uno para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
+    lead: "Ocho servicios para automatizar lo que más se repite, uno para que la IA que ya usas cueste menos y falle menos, otro para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
     all: "Ver todos los servicios en detalle",
   },
   audience: {
@@ -337,7 +337,7 @@ const en: HomeCopy = {
   },
   services: {
     title: "AI automation services",
-    lead: "Eight services to automate what repeats most, one to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
+    lead: "Eight services to automate what repeats most, one to make the AI you already use cost less and fail less, another to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
     all: "See every service in detail",
   },
   audience: {

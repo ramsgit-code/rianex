@@ -6,7 +6,7 @@ import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Label } from "@/components/ui/Label";
 import { SERVICIO_VIDEO } from "@/lib/servicio-media";
-import { sectoresDe } from "@/lib/content";
+import { sectoresDe, sectoresRotulo } from "@/lib/content";
 
 export function ServiciosView() {
   const { c, localize } = useLang();
@@ -75,7 +75,7 @@ export function ServiciosView() {
                 ))}
               {sectoresDe(group).length > 0 && (
                 <div className="flex flex-col gap-3 border-b-2 border-ink py-6 sm:flex-row sm:items-center sm:gap-6">
-                  <Label>{s.bySector}</Label>
+                  <Label>{sectoresRotulo(group) ?? s.bySector}</Label>
                   <ul className="flex flex-wrap gap-2">
                     {sectoresDe(group).map((x) => (
                       <li key={x.label}>

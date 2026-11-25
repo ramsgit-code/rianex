@@ -18,7 +18,8 @@ import type { Lang } from "@/lib/i18n";
 // Kit IA, formacion y asesoramiento (nov-2026) son servicios nuevos: sus plazos
 // y su forma de precio estan pendientes de validar por Ramiro
 // (docs/PENDIENTES-SEO.md). Lo mismo el control con camaras e IA (24-nov-2026),
-// que ademas no tiene caso propio todavia: ni cifras ni clientes.
+// que ademas no tiene caso propio todavia: ni cifras ni clientes. Y la IA
+// selectiva (25-nov-2026): plazos y forma de precio sin validar.
 
 export type CaseClient = "Hospital Capilar" | "Eventos Barcelona" | "Growth4U" | "Tribeca Media";
 
@@ -1030,6 +1031,215 @@ export const SERVICIOS: Record<string, Servicio> = {
           a: "At Eventos Barcelona each proposal took 1 to 3 days to go out. With the generator it goes out minutes after the call, and client response time dropped by 85%.",
         },
         { q: "How much does it cost?", a: PRECIO_EN },
+      ],
+    },
+  },
+
+  // ── IA selectiva (25-nov-2026) ──────────────────────────────────────────
+  // Para empresas que ya tienen agentes o flujos con IA en marcha: medir el
+  // coste de cada tarea, pasar a reglas lo que siempre se resuelve igual y
+  // dejar el modelo solo donde aporta. Incluye el antiguo complementario
+  // "Control del coste de la IA". Cifras: solo las de la prueba del vídeo (n8n
+  // con un modelo local pequeño y un pedido inventado: 13 veces menos tokens,
+  // 19 veces más rápido) y el caso de Eventos Barcelona tal como lo cuenta el
+  // artículo reducir-gasto-tokens-ia-selectiva. Plazos y forma de precio,
+  // pendientes de validar por Ramiro (docs/PENDIENTES-SEO.md).
+
+  "ia-selectiva": {
+    cases: ["Eventos Barcelona", "Tribeca Media"],
+    maintenance: true,
+    posts: [
+      "reducir-gasto-tokens-ia-selectiva",
+      "coste-agente-de-ia-en-produccion",
+      "revisar-sistema-de-agentes-ia-antes-de-escalar",
+      "agentes-de-ia-para-empresas-cuando-compensan",
+      "medir-un-proceso-antes-de-automatizarlo",
+      "cobrar-la-ia-por-resultado",
+    ],
+    es: {
+      seoTitle: "IA selectiva: menos coste y errores en tus agentes de IA",
+      metaDescription:
+        "Medimos cuánto cuesta cada tarea de tus agentes de IA y pasamos a reglas lo que siempre se resuelve igual. Menos tokens, respuestas más rápidas y menos errores.",
+      answer:
+        "La IA selectiva consiste en que tus agentes y flujos funcionen casi siempre con reglas, código o n8n, y llamen al modelo de IA solo donde hay que entender texto libre o decidir con criterio. Revisamos lo que ya tienes en marcha, medimos cuánto cuesta cada tarea en tokens, tiempo y errores, y pasamos a lógica fija lo que se resuelve siempre igual.",
+      outcomes: [
+        "Menos tokens por tarea, con el mismo modelo",
+        "Respuestas en segundos y siempre con las mismas reglas",
+        "El coste de cada tarea de IA, medido y con tope",
+      ],
+      flow: [
+        { label: "Llega", text: "Un pedido por correo: «40 cajas del modelo B, que no lleguen antes del día 15»." },
+        { label: "Reglas", text: "El flujo identifica al cliente, comprueba el stock y calcula el precio. Siempre se resuelve igual, así que no pasa por el modelo." },
+        { label: "La IA, solo aquí", text: "Un modelo lee la frase libre y devuelve un dato con formato fijo: entrega a partir del día 15." },
+        { label: "Hecho", text: "El flujo registra el pedido y contesta con la fecha correcta. Una llamada al modelo en lugar de seis." },
+      ],
+      fit: [
+        "Ya tienes agentes o flujos con IA en marcha, en atención al cliente, correos, pedidos o documentos, y se ejecutan cientos de veces a la semana.",
+        "La factura de IA sube cada mes y nadie sabe qué tarea la paga, o el agente se equivoca de vez en cuando y no está claro por qué.",
+        "Vas a montar un sistema nuevo con IA y quieres que salga barato de mantener desde el primer día.",
+      ],
+      notFit: [
+        "La IA se usa unas pocas veces al mes: el ahorro no paga el trabajo y lo mejor es dejarla como está.",
+        "La tarea es abierta y distinta cada vez, como investigar, programar o analizar: ahí un agente es la herramienta correcta y lo que toca es medirlo y ponerle tope, no quitarle la IA.",
+      ],
+      steps: [
+        { title: "Registrar y medir", desc: "Durante una o dos semanas registramos cada llamada al modelo con su tarea, sus tokens, su tiempo y su resultado. Así sale el coste real de cada tarea completa, que la factura del mes no enseña." },
+        { title: "Separar", desc: "Dibujamos el flujo paso a paso y en cada uno hacemos la misma pregunta: ante la misma entrada, ¿la respuesta correcta es siempre la misma? Si lo es, ese paso no necesita un modelo." },
+        { title: "Rediseñar", desc: "Lo fijo pasa a n8n, Make, tu CRM o código. Donde se queda el modelo elegimos el más pequeño que acierte, le mandamos solo el contexto que necesita y le pedimos un dato, no que ejecute la acción." },
+        { title: "Comparar y vigilar", desc: "Medimos lo mismo que al principio: coste por tarea, tiempo, errores y casos que pasan a una persona. Y dejamos avisos y un tope de gasto por si algo se dispara." },
+      ],
+      timeline:
+        "La medición y el mapa del flujo están en 1 a 2 semanas. El rediseño de un flujo lleva de 2 a 4 semanas más, según cuántos pasos cambien y si hay que tocar el CRM.",
+      caseFocus: {
+        "Eventos Barcelona":
+          "Ocho pasos entre el correo que entra y el seguimiento de la propuesta, y la IA decide solo en dos: qué tipo de contacto escribe y si habla de un proyecto nuevo. Esos dos los resuelve un modelo abierto en un servidor propio, sin coste por uso. La propuesta con su marca, el paso más vistoso, es una plantilla.",
+        "Tribeca Media":
+          "El coste de cada llamada a la IA se registra por cliente y tiene un tope diario, y el modelo se elige por su coste por respuesta correcta, no por el precio por token.",
+      },
+      uses: [
+        {
+          title: "Atención al cliente",
+          desc: "Horarios, precios, estado del pedido y citas, con botones y reglas. El modelo entiende las preguntas que no encajan y resume el caso cuando pasa a una persona.",
+        },
+        {
+          title: "Correos y pedidos",
+          desc: "Remitente, formato y alta en el CRM, con reglas. El modelo lee el texto libre: qué piden, para cuándo y si corre prisa.",
+        },
+        {
+          title: "Propuestas y documentos",
+          desc: "Plantilla con tu marca y los datos del CRM. El modelo redacta solo la parte que cambia de un cliente a otro, si la hay.",
+        },
+        {
+          title: "Flujos de n8n, Make o Zapier",
+          desc: "Muchos nodos de IA hacen lo que haría un filtro o un «Si». Los cambiamos y dejamos el modelo en los nodos donde aporta.",
+        },
+        {
+          title: "Asistentes internos",
+          desc: "Respuestas guardadas para las preguntas que se repiten y solo los documentos que hacen falta en cada consulta, en vez de mandar toda la base cada vez.",
+        },
+        {
+          title: "Agentes con herramientas",
+          desc: "Un agente que encadena diez pasos se queda con los que necesitan criterio; el resto lo hace un flujo fijo, y cuando algo falla se ve en qué paso.",
+        },
+      ],
+      faqs: [
+        {
+          q: "¿Qué es la IA selectiva?",
+          a: "Es diseñar los sistemas para que funcionen casi siempre con reglas, código o flujos, y llamen al modelo de IA solo en los pasos que necesitan entender lenguaje libre o decidir algo ambiguo. La IA se usa para construir el sistema y para esos pasos concretos, no para ejecutar cada paso.",
+        },
+        {
+          q: "¿Cuánto se ahorra?",
+          a: "Depende de cuántas veces se ejecute el proceso y de cuántos pasos pasen hoy por el modelo. En una prueba con el mismo pedido en n8n y el mismo modelo, la versión con IA selectiva gastó 13 veces menos tokens y contestó 19 veces más rápido que la que razonaba cada paso. Con poco volumen el ahorro en euros es pequeño y lo que más se nota es que el sistema deja de equivocarse; por eso medimos antes de prometer una cifra.",
+        },
+        {
+          q: "¿Sirve para un agente que montó otro proveedor?",
+          a: "Sí. Revisamos el sistema tal como está, en n8n, Make, Zapier, GoHighLevel o código, y te damos el mapa con lo que cambiaríamos y por qué. El rediseño lo podemos hacer nosotros o tu proveedor.",
+        },
+        {
+          q: "¿Usar menos la IA no empeora el resultado?",
+          a: "En los pasos que siempre se resuelven igual pasa lo contrario: una regla da siempre la misma respuesta correcta y un modelo no. Donde hace falta entender lenguaje, el modelo se queda. Antes y después comparamos el coste por tarea y la tasa de error, no el número de llamadas.",
+        },
+        {
+          q: "¿Hay que cambiar de modelo o de proveedor?",
+          a: "No hace falta. La mayor parte del ahorro sale de llamadas que desaparecen, y eso no lo iguala ningún modelo barato. Si en algún paso un modelo más pequeño acierta igual, lo proponemos comparando el coste por respuesta correcta, no el precio por token.",
+        },
+        {
+          q: "¿Cuánto cuesta?",
+          a: "La medición y el mapa del flujo se hacen como un discovery, desde 1.500 €. El rediseño es una implantación y su precio depende de cuántos flujos y pasos cambien. El precio exacto se confirma tras la consultoría gratuita, no antes.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "Selective AI: lower cost and fewer errors in your AI agents",
+      metaDescription:
+        "We measure what each task of your AI agents costs and move to rules whatever is always solved the same way. Fewer tokens, faster answers and fewer errors.",
+      answer:
+        "Selective AI means your agents and workflows run almost entirely on rules, code or n8n, and call the AI model only where free text has to be understood or a judgement call made. We review what you already have running, measure what each task costs in tokens, time and errors, and move to fixed logic whatever is always solved the same way.",
+      outcomes: [
+        "Fewer tokens per task, with the same model",
+        "Answers in seconds, always following the same rules",
+        "The cost of each AI task, measured and capped",
+      ],
+      flow: [
+        { label: "It arrives", text: "An order by email: “40 boxes of model B, not to arrive before the 15th”." },
+        { label: "Rules", text: "The workflow identifies the customer, checks stock and works out the price. It is always solved the same way, so it never reaches the model." },
+        { label: "AI, only here", text: "A model reads the free-text sentence and returns one piece of data in a fixed format: delivery from the 15th." },
+        { label: "Done", text: "The workflow logs the order and replies with the right date. One call to the model instead of six." },
+      ],
+      fit: [
+        "You already have AI agents or workflows running, in customer service, email, orders or documents, and they run hundreds of times a week.",
+        "The AI bill goes up every month and nobody knows which task is paying for it, or the agent gets things wrong now and then and it is not clear why.",
+        "You are about to build a new AI system and want it to be cheap to run from day one.",
+      ],
+      notFit: [
+        "AI is used a few times a month: the savings do not pay for the work and it is best left as it is.",
+        "The task is open-ended and different every time, like research, coding or analysis: there an agent is the right tool, and what it needs is measuring and a cap, not less AI.",
+      ],
+      steps: [
+        { title: "Log and measure", desc: "For one or two weeks we log every call to the model with its task, tokens, time and result. That gives the real cost of each complete task, which the monthly bill does not show." },
+        { title: "Separate", desc: "We draw the workflow step by step and ask the same question at each one: given the same input, is the right answer always the same? If so, that step does not need a model." },
+        { title: "Redesign", desc: "Fixed logic moves to n8n, Make, your CRM or code. Where the model stays, we pick the smallest one that gets it right, send it only the context it needs and ask it for a piece of data, not to carry out the action." },
+        { title: "Compare and watch", desc: "We measure the same things as at the start: cost per task, time, errors and cases handed to a person. And we leave alerts and a spending cap in case something spikes." },
+      ],
+      timeline:
+        "Measuring and mapping the workflow takes 1 to 2 weeks. Redesigning a workflow takes another 2 to 4 weeks, depending on how many steps change and whether the CRM has to be touched.",
+      caseFocus: {
+        "Eventos Barcelona":
+          "Eight steps between the incoming email and the proposal follow-up, and AI decides in only two: what kind of contact is writing and whether it is about a new project. Those two run on an open model on its own server, with no per-use cost. The branded proposal, the flashiest step, is a template.",
+        "Tribeca Media":
+          "The cost of every AI call is logged per client and has a daily cap, and the model is chosen by its cost per correct answer, not by price per token.",
+      },
+      uses: [
+        {
+          title: "Customer service",
+          desc: "Opening hours, prices, order status and bookings, with buttons and rules. The model understands the questions that do not fit and summarises the case when it goes to a person.",
+        },
+        {
+          title: "Email and orders",
+          desc: "Sender, format and CRM entry, with rules. The model reads the free text: what they want, by when and whether it is urgent.",
+        },
+        {
+          title: "Proposals and documents",
+          desc: "A template with your brand and CRM data. The model only writes the part that changes from one client to the next, if there is one.",
+        },
+        {
+          title: "n8n, Make or Zapier workflows",
+          desc: "Many AI nodes do what a filter or an “If” node would do. We swap them and keep the model in the nodes where it adds value.",
+        },
+        {
+          title: "Internal assistants",
+          desc: "Saved answers for repeated questions and only the documents each query needs, instead of sending the whole knowledge base every time.",
+        },
+        {
+          title: "Agents with tools",
+          desc: "An agent that chains ten steps keeps the ones that need judgement; a fixed workflow does the rest, and when something fails you can see which step.",
+        },
+      ],
+      faqs: [
+        {
+          q: "What is selective AI?",
+          a: "It means designing systems so they run almost entirely on rules, code or workflows, and call the AI model only in the steps that need to understand free text or decide something ambiguous. AI is used to build the system and for those specific steps, not to execute every step.",
+        },
+        {
+          q: "How much does it save?",
+          a: "It depends on how often the process runs and how many steps go through the model today. In a test with the same order in n8n and the same model, the selective AI version used 13 times fewer tokens and answered 19 times faster than the one that reasoned through every step. With low volume the saving in euros is small and what you notice most is that the system stops getting things wrong; that is why we measure before promising a figure.",
+        },
+        {
+          q: "Does it work for an agent another vendor built?",
+          a: "Yes. We review the system as it is, in n8n, Make, Zapier, GoHighLevel or code, and give you the map of what we would change and why. The redesign can be done by us or by your vendor.",
+        },
+        {
+          q: "Doesn't using AI less make the result worse?",
+          a: "In steps that are always solved the same way, the opposite happens: a rule always gives the same right answer and a model does not. Where language has to be understood, the model stays. Before and after we compare cost per task and error rate, not the number of calls.",
+        },
+        {
+          q: "Do we need to change model or provider?",
+          a: "No. Most of the saving comes from calls that disappear, and no cheap model can match that. If a smaller model gets a step just as right, we suggest it by comparing cost per correct answer, not price per token.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "Measuring and mapping the workflow is done as a discovery, starting at €1,500. The redesign is an implementation and its price depends on how many workflows and steps change. The exact price is confirmed after the free consultation, not before.",
+        },
       ],
     },
   },

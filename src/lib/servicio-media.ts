@@ -7,7 +7,9 @@
 //
 // El del agente de WhatsApp es una demo con una llamada recreada (clinica
 // ficticia) y la ficha lo dice. El de control con camaras (24-nov-2026) es una
-// simulacion con un restaurante y datos ficticios, y su nota lo dice.
+// simulacion con un restaurante y datos ficticios, y su nota lo dice. El de IA
+// selectiva (25-nov-2026) es el mismo del articulo: dos ejecuciones reales en
+// n8n con un modelo local pequeño y un pedido inventado.
 // Prospeccion B2B y los servicios de formacion y asesoramiento todavia no
 // tienen video.
 
@@ -40,6 +42,13 @@ export const SERVICIO_VIDEO: Record<string, ServicioVideo> = {
   "implementacion-crm-gohighlevel": v("servicio-implementacion-crm-gohighlevel", "PT54S"),
   "integracion-gohighlevel-hubspot": v("servicio-integracion-gohighlevel-hubspot", "PT1M"),
   "migracion-a-gohighlevel": v("servicio-migracion-a-gohighlevel", "PT58S"),
+  "ia-selectiva": {
+    ...v("ia-selectiva", "PT58S", "2026-11-24T20:30:00+01:00"),
+    note: {
+      es: "Grabación real: el mismo pedido procesado dos veces en n8n con un modelo pequeño en local. El pedido y la empresa son inventados.",
+      en: "Real recording: the same order processed twice in n8n with a small local model. The order and the company are fictional. Narrated in Spanish.",
+    },
+  },
   "control-con-camaras-ia": {
     ...v("servicio-control-con-camaras-ia", "PT1M29S", "2026-11-24T09:00:00+01:00"),
     note: {
