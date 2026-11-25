@@ -338,6 +338,13 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-25 · **«Propuestas comerciales»**: `/blog/propuestas-comerciales-automaticas`
+  con title y H1 «Propuestas comerciales automáticas con IA: hazlas en
+  minutos», description nueva, sección de partes de la propuesta (qué genera
+  la IA y qué revisa una persona), flujo paso a paso, CTA al diagnóstico a
+  mitad y al final, enlace al servicio de generador de propuestas y enlaces
+  contextuales desde los artículos de GTM engineering y de Clay/Treg/ColdIQ.
+  Pendiente: medir posición de "propuestas comerciales" en 2-3 semanas.
 - 2026-11-25 · Cuarta tanda. **Cifra sin fuente fuera**: el «30-60% de
   fuga» (dos artículos, la página de academias, la ficha de automatización y
   la calculadora) y el «cinco a diez veces el ahorro de horas» no tenían
