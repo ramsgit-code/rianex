@@ -4,14 +4,14 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Play } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { home } from "@/lib/home";
-import { sectoresDe } from "@/lib/content";
+import { sectoresDe, sectoresRotulo } from "@/lib/content";
 import { SERVICIO_VIDEO } from "@/lib/servicio-media";
 
 // "Servicios": las fichas de content.ts agrupadas como en /servicios, en
 // tarjetas kanban. El último grupo ("Otros servicios": kit, formación y
 // asesoramiento) va en grafito para separarlo de la automatización. Un grupo
-// de un solo servicio (control con cámaras) lleva al lado sus sectores, que en
-// castellano enlazan a las landings de /l/. Debajo, los complementarios en
+// de un solo servicio (control con cámaras, IA selectiva) lleva al lado sus
+// sectores o usos, que en castellano pueden enlazar a /l/ o al blog. Debajo, los complementarios en
 // lista. Cada tarjeta lleva a la página del servicio.
 export function Services() {
   const { lang, c, localize } = useLang();
@@ -104,7 +104,7 @@ export function Services() {
                   {sectors.length > 0 && (
                     <li className="flex flex-col justify-center border border-dashed border-ink/40 p-6 lg:col-span-2">
                       <span className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-accent-text">
-                        {s.bySector}
+                        {sectoresRotulo(group) ?? s.bySector}
                       </span>
                       <ul className="mt-4 flex flex-wrap gap-2">
                         {sectors.map((x) => (

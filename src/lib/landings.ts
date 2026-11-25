@@ -66,6 +66,11 @@ export const LANDINGS: Record<string, Landing> = {
     h1: "Pásate a GoHighLevel sin perder ni un contacto.",
     lead: "Migramos contactos, oportunidades, notas y automatizaciones desde HubSpot u otro CRM, con una prueba previa y los dos sistemas en paralelo hasta que todo cuadra.",
   },
+  "ia-selectiva": {
+    title: "IA selectiva: reduce el coste de tus agentes de IA",
+    h1: "Deja de pagar a la IA por pensar lo que ya está pensado.",
+    lead: "Medimos cuánto cuesta cada tarea de tus agentes y flujos de IA y pasamos a reglas lo que se resuelve siempre igual. Menos tokens, respuestas en segundos y menos errores, con el mismo modelo.",
+  },
   "control-con-camaras-ia": {
     title: "Control con cámaras e IA",
     h1: "Tus cámaras, midiendo y avisando por ti.",

@@ -352,7 +352,7 @@ export const content = {
       tag: "Servicios",
       title: "Servicios de automatización con IA",
       description:
-        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar—, uno para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
+        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar—, uno para que la IA que ya usas cueste menos y falle menos, otro para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Pide tu consultoría gratuita",
@@ -371,6 +371,20 @@ export const content = {
           title: "Operativa y CRM",
           desc: "Lo que el equipo repite cada semana, hecho solo con Claude, n8n, Make o Zapier, y tu CRM en GoHighLevel o HubSpot, conectado al resto de herramientas y con el pipeline a la vista.",
           slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Optimizar la IA que ya usas",
+          desc: "Para empresas que ya tienen agentes o flujos con IA en marcha: medimos cuánto cuesta cada tarea y pasamos a reglas lo que siempre se resuelve igual, para que el modelo trabaje solo donde aporta. Menos tokens, respuestas más rápidas y menos errores.",
+          slugs: ["ia-selectiva"],
+          sectorsLabel: "Dónde se aplica",
+          sectors: [
+            { label: "Atención al cliente" },
+            { label: "Correos y pedidos" },
+            { label: "Propuestas y documentos" },
+            { label: "Flujos de n8n, Make o Zapier" },
+            { label: "Asistentes internos" },
+            { label: "Cómo se calcula el ahorro", href: "/blog/reducir-gasto-tokens-ia-selectiva" },
+          ],
         },
         {
           title: "Control con cámaras e IA",
@@ -408,8 +422,8 @@ export const content = {
           },
           {
             title: "Control del coste de la IA",
-            desc: "Medimos cuánto gasta cada agente en modelos de IA y avisamos cuando el gasto se dispara o algo falla.",
-            href: "/blog/coste-agente-de-ia-en-produccion",
+            desc: "Medimos cuánto gasta cada agente en modelos de IA y avisamos cuando el gasto se dispara o algo falla. Es la última fase de la IA selectiva.",
+            href: "/servicios/ia-selectiva",
           },
           {
             title: "Medición del punto de partida",
@@ -542,6 +556,21 @@ export const content = {
             "Aplicación de propuestas en Vercel: web y PDF al momento",
             "Pipeline de propuestas en tu CRM para ver cómo evoluciona cada una",
             "Recordatorios de seguimiento automáticos",
+          ],
+        },
+        {
+          slug: "ia-selectiva",
+          area: "Coste y fiabilidad de la IA",
+          title: "IA selectiva",
+          tagline: "Tus agentes de IA, más baratos, más rápidos y con menos errores: el modelo solo donde hace falta.",
+          problem:
+            "Tus agentes razonan en cada ejecución cosas que siempre se resuelven igual: pagas tokens de más, las respuestas tardan y a veces el modelo falla en algo que una regla no fallaría nunca.",
+          forWho: "Empresas que ya tienen agentes o flujos con IA en marcha, montados por nosotros o por otros, y quieren que cuesten menos y fallen menos. También sirve para diseñar así un sistema nuevo desde el principio.",
+          deliverables: [
+            "Coste de cada tarea medido en tokens, tiempo y errores",
+            "Mapa del flujo: qué pasa a reglas y qué se queda en el modelo",
+            "Rediseño en n8n, Make, tu CRM o código",
+            "Avisos y tope de gasto para la IA que se queda",
           ],
         },
         {
@@ -1106,7 +1135,7 @@ export const content = {
       tag: "Services",
       title: "AI automation services",
       description:
-        "Eight services to automate what repeats most in your company —selling, serving customers, operations—, one to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
+        "Eight services to automate what repeats most in your company —selling, serving customers, operations—, one to make the AI you already use cost less and fail less, another to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Book your free consultation",
@@ -1125,6 +1154,19 @@ export const content = {
           title: "Operations and CRM",
           desc: "What the team repeats every week, done on its own with Claude, n8n, Make or Zapier, and your CRM on GoHighLevel or HubSpot, connected to your other tools and with the pipeline in view.",
           slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
+        },
+        {
+          title: "Optimise the AI you already use",
+          desc: "For companies that already have AI agents or workflows running: we measure what each task costs and move to rules whatever is always solved the same way, so the model only works where it adds value. Fewer tokens, faster answers and fewer errors.",
+          slugs: ["ia-selectiva"],
+          sectorsLabel: "Where it applies",
+          sectors: [
+            { label: "Customer service" },
+            { label: "Email and orders" },
+            { label: "Proposals and documents" },
+            { label: "n8n, Make or Zapier workflows" },
+            { label: "Internal assistants" },
+          ],
         },
         {
           title: "Camera monitoring with AI",
@@ -1162,8 +1204,8 @@ export const content = {
           },
           {
             title: "AI cost control",
-            desc: "We measure how much each agent spends on AI models and alert you when spend spikes or something fails.",
-            href: "/blog/coste-agente-de-ia-en-produccion",
+            desc: "We measure how much each agent spends on AI models and alert you when spend spikes or something fails. It is the last phase of selective AI.",
+            href: "/servicios/ia-selectiva",
           },
           {
             title: "Baseline measurement",
@@ -1296,6 +1338,21 @@ export const content = {
             "Proposal app on Vercel: web and PDF on the spot",
             "Proposal pipeline in your CRM to see how each one progresses",
             "Automatic follow-up reminders",
+          ],
+        },
+        {
+          slug: "ia-selectiva",
+          area: "AI cost and reliability",
+          title: "Selective AI",
+          tagline: "Your AI agents, cheaper, faster and with fewer errors: the model only where it is needed.",
+          problem:
+            "Your agents reason through things on every run that are always solved the same way: you pay for extra tokens, answers take longer and sometimes the model gets wrong something a rule would never miss.",
+          forWho: "Companies that already have AI agents or workflows running, built by us or by others, and want them to cost less and fail less. It also works for designing a new system this way from the start.",
+          deliverables: [
+            "Cost of each task measured in tokens, time and errors",
+            "Workflow map: what moves to rules and what stays with the model",
+            "Redesign in n8n, Make, your CRM or code",
+            "Alerts and a spending cap for the AI that stays",
           ],
         },
         {
@@ -1535,4 +1592,9 @@ export type SectorServicio = { label: string; href?: string };
 /** Los sectores de un grupo de /servicios, si los tiene (hoy solo control con cámaras). */
 export function sectoresDe(group: object): readonly SectorServicio[] {
   return "sectors" in group ? (group.sectors as readonly SectorServicio[]) : [];
+}
+
+/** Rótulo del bloque de sectores si no es "Por sector" (en IA selectiva, "Dónde se aplica"). */
+export function sectoresRotulo(group: object): string | undefined {
+  return "sectorsLabel" in group ? (group.sectorsLabel as string) : undefined;
 }
