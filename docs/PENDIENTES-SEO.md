@@ -13,6 +13,22 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Cifras sin fuente que conviene marcar como experiencia propia
+      (25-nov)**. Al buscar fuentes no apareció ninguna para estas frases:
+      «la fuga habitual está entre el 30% y el 60% de los contactos que
+      entran» (por dónde empezar y proyectos a medida) y «entre cinco y diez
+      veces mayor que el ahorro de horas» (proyectos a medida). Si salen de
+      tus proyectos, lo decimos así («en los proyectos que hemos medido…»);
+      si no, se quitan. También: «GTM engineer se popularizó a partir de
+      2024» (Clay dice que acuñó el término en 2023).
+- [ ] **Sortlist**: perfil en sortlist.com/agency/rianex con 3 reseñas
+      (5/5), 3 trabajos e índice de calidad del 58%. Lo que queda depende de
+      ti: foto del equipo (una foto buena tuya), revisar la lista de
+      servicios (hoy salen web, software, email marketing y growth marketing
+      por delante de Inteligencia Artificial) y, si quieres, conectar avisos
+      de oportunidades. «Destaca tu mejor trabajo» pide 3 trabajos por cada
+      categoría: no se rellena sin proyectos reales.
+
 - [ ] **Validar las dos páginas de sector nuevas (25-nov)**:
       `/soluciones/inmobiliarias` y `/soluciones/negocios-con-cita`. No tienen
       caso propio y lo dicen sin inventar cifras, pero prometen cosas que
@@ -243,19 +259,16 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
 
-- [ ] **Fuentes en los artículos**: 23 de 39 no enlazan a ninguna fuente
-      externa. Empezar por los de más impresiones: por dónde empezar,
-      proyectos de IA a medida, qué es GoHighLevel y qué es GTM Engineering.
-- [ ] **Dato propio citable**: la medición del vídeo de IA selectiva (6
-      llamadas, 1.436 tokens y 107,5 s frente a 1 llamada, 107 tokens y
-      5,6 s) merece un bloque propio con método, fecha y tabla.
 - [ ] **`Organization`**: faltan `legalName` y `foundingDate` (necesito la
       razón social y la fecha de alta), y cada perfil externo nuevo en
       `sameAs`. `contactPoint` ya está.
 - [ ] **Menores**: `/testimonios` (282 palabras) y `/soluciones` (341) son
-      finas, 17 artículos sin `updated`, y quedan 3 títulos por encima de 70
-      caracteres (`/servicios/control-con-camaras-ia` en los dos idiomas y la
-      traducción de recepción de clínica).
+      finas, 13 artículos sin `updated`.
+- [ ] **Fuentes en el resto de artículos**: el 25-nov se añadieron fuentes
+      verificadas a los cuatro de más impresiones. Quedan 19 artículos sin
+      ningún enlace externo. Mismo método: solo fuentes primarias que se han
+      abierto y que dicen exactamente lo que dice la frase, con
+      `[texto](url "follow")`, y lo mismo en la traducción.
 - [ ] **Artículos nuevos: traducción al inglés**. Desde el 25-nov cada
       artículo tiene su traducción en `src/content/blog-en/<slug>.mdx` (mismo
       nombre de fichero, enlaces internos con `/en`, sección «## Frequently
@@ -266,10 +279,6 @@ Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
 - [ ] **`lastmod` del sitemap**: desde el 25-nov sale de la constante
       `LASTMOD` de `src/app/sitemap.ts`, por sección. Hay que actualizarla en
       el mismo PR que cambie el contenido de una sección.
-
-- [ ] **Cifras clave arriba en cada caso** (modelo de venta, punto 4): un
-      bloque de 2-3 cifras y los servicios usados antes del texto, en
-      `CasoView.tsx`, con datos que ya están en `results` de `casos.ts`.
 
 - [ ] **Vídeo de prospección B2B**: es el único de los ocho servicios sin
       vídeo (`~/rianex-videos`, hace falta un visual nuevo). Tampoco tienen
@@ -338,13 +347,27 @@ Por orden de impacto:
       "automatizar procesos con ia" (66), y si aparecen clics. El techo lo
       pone la autoridad del dominio: el top 10 es Microsoft, Oracle, AWS,
       IBM e Informatica, y rianex.es tiene 0 enlaces externos.
-- [ ] **Imagen social por página**: las páginas que no son del blog comparten
-      `og.png`.
 - [ ] **Editor de blog del panel**: ya no publica en la web (el blog se lee de
       los `.mdx`). Decidir si se retira o se reconvierte.
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · Tercera tanda. **Fuentes** verificadas en los cuatro
+  artículos con más impresiones (por dónde empezar, proyectos de IA a
+  medida, qué es GoHighLevel y qué es GTM Engineering), 21 enlaces en total
+  y los mismos en inglés: documentación oficial de Zapier, Make, n8n,
+  GoHighLevel, Meta y Anthropic, el RGPD y la LSSI en el BOE, y Clay y
+  TechCrunch sobre el origen del puesto. **Dato propio**: la medición del
+  vídeo de IA selectiva, con método, fecha y tabla, en el artículo (ES y
+  EN). **Imagen social** propia para cada servicio, sector y caso en los dos
+  idiomas (`/og/p/<idioma>/<sección>/<slug>`); y una imagen general
+  por idioma (`/og/general/<idioma>`) para el resto: ninguna página usa
+  ya `og.png`, que llevaba «Recupera 10 horas/semana». **Cifras clave y
+  servicios usados** arriba en cada caso. Title de la ficha de cámaras
+  acortado a «Control con cámaras e IA: mesas, plazas y colas» (pasaba de
+  70 y casi repetía el del artículo). Indexación pedida en GSC para
+  `/soluciones/inmobiliarias` y `/soluciones/negocios-con-cita`.
 
 - 2026-11-25 · Auditoría, segunda tanda. **Inglés completo**: los 39
   artículos traducidos en `/en/blog/<slug>` (antes redirigían al

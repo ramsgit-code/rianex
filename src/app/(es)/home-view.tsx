@@ -58,7 +58,7 @@ const businessJsonLd = (lang: Lang) => ({
   alternateName: LD[lang].alternateName,
   url: SITE_URL,
   serviceType: LD[lang].serviceType,
-  image: `${SITE_URL}/og.png`,
+  image: `${SITE_URL}/og/general/${lang}`,
   slogan: "AI Workflow & Business Automation",
   description: LD[lang].description,
   audience: {

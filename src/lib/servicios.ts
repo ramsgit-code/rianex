@@ -1262,7 +1262,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     price: "quote",
     posts: ["camaras-con-ia-para-controlar-tu-negocio", "camaras-con-ia-en-supermercados", "rgpd-y-automatizacion-con-ia", "medir-un-proceso-antes-de-automatizarlo"],
     es: {
-      seoTitle: "Cámaras con IA para controlar tu negocio: mesas, plazas y colas",
+      seoTitle: "Control con cámaras e IA: mesas, plazas y colas",
       metaDescription:
         "Conectamos tus cámaras a una IA que mide mesas sin atender, plazas libres, colas y muelles ocupados, y avisa al encargado. Sin reconocimiento facial.",
       answer:
@@ -1362,7 +1362,7 @@ export const SERVICIOS: Record<string, Servicio> = {
       ],
     },
     en: {
-      seoTitle: "AI camera analytics for businesses: tables, parking and queues",
+      seoTitle: "AI camera monitoring: tables, parking and queues",
       metaDescription:
         "We connect your cameras to an AI that measures unattended tables, free parking spaces, queues and busy loading docks, and alerts the manager. No facial recognition.",
       answer:

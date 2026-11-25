@@ -2,6 +2,7 @@
 title: "Cómo reducir el gasto en tokens de IA: IA selectiva en 6 pasos"
 description: "El tokenmaxxing sale caro. Qué dice el S-1 de Anthropic sobre el consumo de IA y cómo hacer que tus sistemas llamen al modelo solo donde aporta."
 date: "2026-11-24"
+updated: "2026-11-25"
 tags: ["coste de la ia", "tokens", "agentes de ia", "n8n", "lean", "vídeo"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -95,6 +96,18 @@ En el sistema comercial que montamos para [Eventos Barcelona](/casos-de-exito/ev
 8. Recordatorio a las 48 horas y aviso al comercial a las 72: regla.
 
 La propuesta sale en unos ocho minutos desde el final de la llamada, cuando antes tardaba de uno a tres días, y el tiempo de respuesta al cliente ha bajado un 85 %. El paso más vistoso, la propuesta con su marca, es precisamente uno de los que no usa ningún modelo: es una plantilla.
+
+### Lo que medimos: el mismo pedido, dos veces
+
+El 24 de noviembre de 2026 ejecutamos el mismo pedido dos veces en un n8n aislado, con un modelo pequeño en local, y grabamos las dos ejecuciones (es el vídeo del principio). El pedido y la empresa son inventados. En la primera, un agente resolvía el pedido de principio a fin; en la segunda, el flujo hacía los pasos fijos con reglas y el modelo solo interpretaba el texto del pedido.
+
+| | Agente para todo | IA selectiva |
+|---|---|---|
+| Llamadas al modelo | 6 | 1 |
+| Tokens | 1.436 | 107 |
+| Tiempo hasta terminar | 107,5 s | 5,6 s |
+
+Son trece veces menos tokens y diecinueve veces menos tiempo en esta prueba. Es una sola ejecución con un modelo local, así que no es una media ni se traslada tal cual a otro proceso o a otro modelo. Lo que sí muestra es dónde se va el gasto: en los pasos que se repiten igual cada vez y que el agente vuelve a razonar.
 
 ## Cómo se hace: lean aplicado a la IA
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SectorView } from "@/app/(es)/soluciones/[slug]/SectorView";
 import { SECTOR_SLUGS, getSector } from "@/lib/sectores";
-import { translatedMetadata } from "@/lib/seo";
+import { fichaImage, translatedMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const s = getSector(slug, "en");
   if (!s) return {};
-  return translatedMetadata(`/soluciones/${slug}`, "en", s.seoTitle, s.metaDescription);
+  return translatedMetadata(`/soluciones/${slug}`, "en", s.seoTitle, s.metaDescription, fichaImage("en", "soluciones", slug));
 }
 
 export default async function SectorPage({ params }: { params: Promise<{ slug: string }> }) {
