@@ -13,6 +13,10 @@ import type { CaseClient } from "@/lib/servicios";
 // Inmobiliarias y negocios con cita previa tampoco tienen caso: salen de las
 // landings de nichos.ts y de la ficha del agente de WhatsApp en servicios.ts
 // (plazo, precio y preguntas), sin cifras de resultado ni caseClient.
+//
+// Industria y logistica (25-nov-2026): sin caso ni caseClient. La unica prueba
+// es la trayectoria del fundador (Nissan, Michelin, UCAV) tal y como la fija
+// POSICIONAMIENTO; Nissan y Michelin no son clientes y asi se dice.
 
 type Item = { title: string; desc: string };
 type Faq = { q: string; a: string };
@@ -317,7 +321,7 @@ export const SECTORES: Record<string, Sector> = {
     es: {
       seoTitle: "Automatización para empresas de eventos",
       metaDescription:
-        "Del formulario tras la llamada a la propuesta en web y PDF en minutos, con seguimiento automático. Cómo Eventos Barcelona bajó un 85% su tiempo de respuesta.",
+        "Del formulario tras la llamada a la propuesta en web y PDF en minutos, con seguimiento automático. El caso de Eventos Barcelona.",
       h1: "Automatización para empresas de eventos",
       answer:
         "En eventos gana quien responde primero: el cliente pide presupuesto a varios proveedores y se queda con quien llega antes. Automatizamos el tramo que va de la llamada a la propuesta. Un formulario de intake genera la propuesta en web y PDF en minutos dentro de GoHighLevel, y el seguimiento avisa si el cliente no la abre o no contesta.",
@@ -366,7 +370,7 @@ export const SECTORES: Record<string, Sector> = {
     en: {
       seoTitle: "Automation for event companies",
       metaDescription:
-        "From the form after the call to a web and PDF proposal in minutes, with automatic follow-up. How Eventos Barcelona cut its response time by 85%.",
+        "From the form after the call to a web and PDF proposal in minutes, with automatic follow-up. The Eventos Barcelona case.",
       h1: "Automation for event companies",
       answer:
         "In events, whoever answers first wins: the client asks several suppliers for a quote and stays with whoever arrives first. We automate the stretch from the call to the proposal. An intake form generates the proposal as a web page and PDF in minutes inside GoHighLevel, and follow-up alerts you if the client does not open it or reply.",
@@ -751,6 +755,136 @@ export const SECTORES: Record<string, Sector> = {
         {
           q: "How much does an AI agent for WhatsApp cost?",
           a: "The build falls within the implementation range, €5,000 to €25,000. What moves the price most is how many systems the agent has to check and how many exceptions your process has. Usage costs are separate and you pay them directly: Meta charges for template messages your business initiates (replying to someone who writes to you within 24 hours has no Meta fee), Vapi charges per call minute if there is a voice agent, and the AI model charges per use, or has a fixed cost on your own server.",
+        },
+      ],
+    },
+  },
+
+  "industria-logistica": {
+    index: 6,
+    services: ["automatizacion-procesos-ia", "desarrollo-software-a-medida", "control-con-camaras-ia", "asesoramiento-ia"],
+    posts: [
+      "medir-un-proceso-antes-de-automatizarlo",
+      "ejemplos-automatizacion-procesos-con-ia",
+      "propuestas-licitaciones-con-ia",
+      "camaras-con-ia-para-controlar-tu-negocio",
+      "agentes-de-ia-vps-propio-o-nube",
+    ],
+    es: {
+      seoTitle: "Automatización con IA para industria y logística",
+      metaDescription:
+        "Pedidos del correo al ERP, seguimiento de proveedores y OTIF, partes de calidad y cuadros de mando para fabricantes, distribuidores y empresas logísticas.",
+      h1: "Automatización con IA para industria y logística",
+      answer:
+        "En un fabricante, una distribuidora o un operador logístico, las horas se van en pasar pedidos del correo al ERP, perseguir a los proveedores por las fechas de entrega y montar a mano los partes de calidad y los cuadros de mando. Automatizamos esos procesos con IA y reglas, conectados a tu ERP, y desarrollamos la aplicación que falte. El método viene de plantas y cadenas de suministro: el fundador coordina la migración del ERP en la cadena de suministro de Nissan.",
+      painsTitle: "Dónde se van las horas",
+      pains: [
+        { title: "Pedidos que se teclean", desc: "Llegan por correo en PDF o en Excel, cada cliente con su formato, y alguien los pasa al ERP línea a línea. Un error en una referencia se descubre cuando el camión ya ha salido." },
+        { title: "Proveedores sin fecha", desc: "Confirmar plazos es una ronda de correos y llamadas cada semana. Cuando un retraso se conoce tarde, la planificación ya no tiene margen y el OTIF cae." },
+        { title: "Calidad e incidencias sueltas", desc: "Partes de calidad, no conformidades y reclamaciones en formularios o en hojas que nadie consolida, así que la misma incidencia vuelve a pasar." },
+        { title: "Informes montados a mano", desc: "Cada lunes alguien saca datos del ERP, los cruza en Excel y los envía. Cuando llegan a dirección, ya son de la semana pasada." },
+      ],
+      automationsTitle: "Qué automatizamos",
+      automations: [
+        { title: "Pedidos y documentos al ERP", desc: "La IA lee el pedido en PDF o en el cuerpo del correo, extrae cliente, referencias, cantidades y fechas, y lo deja en el ERP para que una persona lo valide. Lo mismo con albaranes, facturas de proveedor y certificados. Lo que no cuadra con el maestro de artículos se marca, no se inventa." },
+        { title: "Seguimiento de proveedores y OTIF", desc: "Peticiones de confirmación de fecha automáticas, lectura de las respuestas y aviso cuando una entrega se mueve. El OTIF por proveedor sale solo, cada semana." },
+        { title: "Partes de calidad e incidencias", desc: "Una aplicación para registrar incidencias desde planta o almacén, con foto, y seguirlas hasta el cierre, en lugar de hojas sueltas." },
+        { title: "Cuadros de mando para responsables", desc: "Los datos del ERP, del MES y de las hojas que sigan existiendo, en un panel que se actualiza solo con los indicadores que cada responsable revisa." },
+        { title: "Listas de compra y BOM normalizadas", desc: "Listas de materiales y pedidos de compra que llegan en formatos distintos, convertidos a vuestras referencias y unidades antes de entrar en el sistema." },
+        { title: "Muelles y almacén con cámaras", desc: "Las cámaras que ya tenéis miden cuánto tarda un camión en el muelle o cuándo se ocupa una zona, con avisos al momento y sin reconocimiento facial." },
+      ],
+      care: {
+        title: "Lo que hay que tocar con cuidado",
+        items: [
+          "El ERP es la fuente de verdad: empezamos leyendo y nada se escribe en él sin validación.",
+          "Los datos de producción y de clientes pueden quedarse en vuestros servidores, con modelos de IA que se ejecutan en local cuando hace falta.",
+          "Cada dato que extrae la IA lleva al lado el documento de origen, para revisarlo en segundos.",
+          "Todo queda registrado: qué entró, qué se cambió y quién lo aprobó.",
+        ],
+      },
+      metricsTitle: "Qué medimos",
+      metrics: [
+        "Minutos por pedido desde que llega el correo hasta que está en el ERP, y errores de grabación.",
+        "OTIF por proveedor y con cuántos días de antelación se conoce un retraso.",
+        "Horas a la semana dedicadas a montar informes y a consolidar incidencias.",
+      ],
+      timeline:
+        "Un primer proceso, como la entrada de pedidos o el seguimiento de proveedores, suele estar en marcha en 4 a 8 semanas desde la consultoría, según cómo se pueda conectar el ERP.",
+      faqs: [
+        {
+          q: "¿Os conectáis con SAP u otro ERP?",
+          a: "Sí, por la vía que permita el ERP: API, servicios web, un conector de integración o una base de datos de consulta. Empezamos leyendo, que no tiene riesgo, y solo escribimos en el ERP con validación y registro de cada cambio. Si el ERP no tiene API, trabajamos con las exportaciones que ya genera.",
+        },
+        {
+          q: "¿Los datos pueden quedarse en nuestras instalaciones?",
+          a: "Sí. La aplicación y el modelo de IA pueden ejecutarse en un servidor vuestro, sin enviar datos a servicios externos. Ya tenemos en producción un clasificador de correo con IA que funciona así, en un servidor propio y sin coste por uso.",
+        },
+        {
+          q: "¿Por dónde se empieza?",
+          a: "Por el proceso que más horas consume o que más errores mete en el ERP, medido antes de tocarlo: cuántos pedidos, cuántos minutos y cuántos errores. En la consultoría gratuita de 30 minutos vemos cuál es y qué datos hacen falta.",
+        },
+        {
+          q: "¿Qué cambia que el fundador venga de la industria?",
+          a: "Que conocemos el proceso antes de hablar de IA. Ramiro Pérez Rodero es ingeniero industrial y coordina la migración del ERP en la cadena de suministro de Nissan, donde ha llevado un presupuesto de logística de entrada de 3 M€ con más de 100 proveedores y cuadros de mando para más de 20 responsables en España, Reino Unido y Estados Unidos. En Michelin redujo un 6 % el tiempo de ciclo con simulación, y es profesor de Industria 4.0 en el máster de la UCAV. Es su trayectoria: Nissan y Michelin no son clientes de Rianex.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "AI automation for manufacturing and logistics",
+      metaDescription:
+        "Orders from email into the ERP, supplier follow-up and OTIF, quality reports and dashboards for manufacturers, distributors and logistics companies.",
+      h1: "AI automation for manufacturing and logistics",
+      answer:
+        "At a manufacturer, a distributor or a logistics operator, the hours go on moving orders from email into the ERP, chasing suppliers for delivery dates and building quality reports and dashboards by hand. We automate those processes with AI and rules, connected to your ERP, and build whatever app is missing. The method comes from plants and supply chains: the founder coordinates the ERP migration in Nissan's supply chain.",
+      painsTitle: "Where the hours go",
+      pains: [
+        { title: "Orders typed by hand", desc: "They arrive by email as PDF or Excel, each customer with its own format, and someone keys them into the ERP line by line. A wrong part number is found once the lorry has already left." },
+        { title: "Suppliers with no date", desc: "Confirming lead times is a round of emails and calls every week. When a delay is known late, planning has no slack left and OTIF drops." },
+        { title: "Scattered quality issues", desc: "Quality reports, non-conformities and complaints in loose forms or sheets nobody consolidates, so the same issue happens again." },
+        { title: "Reports built by hand", desc: "Every Monday someone pulls data from the ERP, cross-checks it in Excel and sends it. By the time it reaches management, it is last week's." },
+      ],
+      automationsTitle: "What we automate",
+      automations: [
+        { title: "Orders and documents into the ERP", desc: "AI reads the order in a PDF or the email body, extracts customer, part numbers, quantities and dates, and leaves it in the ERP for a person to validate. The same goes for delivery notes, supplier invoices and certificates. Anything that does not match the item master is flagged, not made up." },
+        { title: "Supplier follow-up and OTIF", desc: "Automatic requests to confirm dates, reading the replies and an alert when a delivery moves. OTIF per supplier comes out on its own, every week." },
+        { title: "Quality reports and incidents", desc: "An app to log incidents from the plant or warehouse, with a photo, and follow them through to closure, instead of loose sheets." },
+        { title: "Dashboards for managers", desc: "Data from the ERP, the MES and whatever sheets remain, in a dashboard that updates itself with the indicators each manager actually checks." },
+        { title: "Normalised purchase lists and BOMs", desc: "Bills of materials and purchase orders that arrive in different formats, converted to your part numbers and units before they enter the system." },
+        { title: "Docks and warehouse with cameras", desc: "The cameras you already have measure how long a lorry takes at the dock or when an area fills up, with instant alerts and no facial recognition." },
+      ],
+      care: {
+        title: "What needs careful handling",
+        items: [
+          "The ERP is the source of truth: we start by reading and nothing is written to it without validation.",
+          "Production and customer data can stay on your own servers, with AI models running locally when needed.",
+          "Every piece of data the AI extracts sits next to its source document, so it can be checked in seconds.",
+          "Everything is logged: what came in, what changed and who approved it.",
+        ],
+      },
+      metricsTitle: "What we measure",
+      metrics: [
+        "Minutes per order from the email arriving to the order being in the ERP, and keying errors.",
+        "OTIF per supplier and how many days in advance a delay becomes known.",
+        "Hours a week spent building reports and consolidating incidents.",
+      ],
+      timeline:
+        "A first process, such as order intake or supplier follow-up, is usually running 4 to 8 weeks after the consultation, depending on how the ERP can be connected.",
+      faqs: [
+        {
+          q: "Do you connect to SAP or other ERPs?",
+          a: "Yes, through whatever the ERP allows: an API, web services, an integration connector or a read-only database. We start by reading, which carries no risk, and only write to the ERP with validation and a log of every change. If the ERP has no API, we work with the exports it already produces.",
+        },
+        {
+          q: "Can the data stay on our premises?",
+          a: "Yes. The app and the AI model can run on a server of yours, with no data sent to outside services. We already have an AI email classifier in production that works this way, on its own server and with no per-use cost.",
+        },
+        {
+          q: "Where do we start?",
+          a: "With the process that takes the most hours or puts the most errors into the ERP, measured before we touch it: how many orders, how many minutes and how many errors. In the free 30-minute consultation we work out which one it is and what data is needed.",
+        },
+        {
+          q: "What difference does the founder's industrial background make?",
+          a: "We understand the process before talking about AI. Ramiro Pérez Rodero is an industrial engineer who coordinates the ERP migration in Nissan's supply chain, where he has handled a €3M inbound logistics budget with more than 100 suppliers and built dashboards for more than 20 managers in Spain, the UK and the US. At Michelin he cut cycle time by 6 % through simulation, and he teaches Industry 4.0 on the UCAV master's programme. This is his background: Nissan and Michelin are not Rianex clients.",
         },
       ],
     },

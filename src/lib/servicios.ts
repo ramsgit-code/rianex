@@ -25,6 +25,12 @@ import type { Lang } from "@/lib/i18n";
 // FAQ legales citan la LGTel art. 66, la Circular 1/2023 de la AEPD, la LOPDGDD
 // arts. 19 y 23, la LSSI art. 21, el Reglamento de IA art. 50 y el Acuerdo de
 // usuario de LinkedIn (8.2 y 3.4), comprobados el 25-nov-2026.
+//
+// Desarrollo de software a medida (25-nov-2026): vuelve como servicio porque
+// Ramiro vende software (POSICIONAMIENTO). Precio "quote" con la referencia de
+// la app interna (desde 6.000 € + 200 €/mes, 2-4 semanas), pendiente de que
+// Ramiro la valide. Casos: Tribeca (codigo en produccion) y EB (clasificador y
+// panel); la biblioteca de documentos es la de Rianex, sin nombrar a nadie.
 
 export type CaseClient = "Hospital Capilar" | "Eventos Barcelona" | "Growth4U" | "Tribeca Media";
 
@@ -1506,7 +1512,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "¿Cuánto tiempo ahorra?",
-          a: "En Eventos Barcelona cada propuesta tardaba entre 1 y 3 días en salir. Con el generador sale en minutos tras la llamada, y el tiempo de respuesta al cliente bajó un 85%.",
+          a: "En Eventos Barcelona cada propuesta tardaba entre 1 y 3 días en salir. Con el generador sale en unos 8 minutos tras la llamada.",
         },
         { q: "¿Cuánto cuesta?", a: PRECIO_ES },
       ],
@@ -1554,7 +1560,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "How much time does it save?",
-          a: "At Eventos Barcelona each proposal took 1 to 3 days to go out. With the generator it goes out minutes after the call, and client response time dropped by 85%.",
+          a: "At Eventos Barcelona each proposal took 1 to 3 days to go out. With the generator it goes out about 8 minutes after the call.",
         },
         { q: "How much does it cost?", a: PRECIO_EN },
       ],
@@ -1950,6 +1956,158 @@ export const SERVICIOS: Record<string, Servicio> = {
   },
 
   // ── Otros servicios: que el equipo use la IA (nov-2026) ─────────────────
+
+  "desarrollo-software-a-medida": {
+    cases: ["Tribeca Media", "Eventos Barcelona"],
+    price: "quote",
+    posts: [
+      "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
+      "agentes-de-ia-con-aprobacion-humana",
+      "agentes-de-ia-vps-propio-o-nube",
+      "revisar-sistema-de-agentes-ia-antes-de-escalar",
+      "medir-un-proceso-antes-de-automatizarlo",
+    ],
+    es: {
+      seoTitle: "Desarrollo de software a medida con IA para empresas",
+      metaDescription:
+        "Aplicaciones internas que sustituyen hojas de cálculo, portales de clientes, agentes de IA e integraciones con tu ERP o CRM, en producción y a tu nombre.",
+      answer:
+        "Desarrollamos software a medida cuando ninguna herramienta estándar cubre el proceso: aplicaciones internas que sustituyen una hoja de cálculo, portales y bibliotecas privadas de documentos para clientes, agentes de IA e integraciones con tu ERP, MES o CRM por API y MCP. Usamos Next.js, Python y Supabase o Postgres, en Vercel o en tu propio servidor, y el código y los datos quedan a nombre de tu empresa.",
+      outcomes: [
+        "La hoja de cálculo crítica convertida en una aplicación con usuarios, permisos e historial",
+        "Datos que pasan del ERP o el CRM a la aplicación sin copiar y pegar",
+        "Código, datos e infraestructura a nombre de tu empresa",
+      ],
+      flow: [
+        { label: "Hoy", text: "Cada día alguien rellena la hoja de producción y otra persona la copia para calcular las nóminas." },
+        { label: "Registro", text: "Cada encargado registra su turno en una aplicación web, desde el móvil o el ordenador, con los campos validados." },
+        { label: "Cálculo", text: "La aplicación aplica las reglas de horas y primas y avisa de lo que no cuadra." },
+        { label: "Cierre", text: "Dirección ve el parte del día en un panel y nóminas descarga el cierre del mes sin teclear." },
+      ],
+      fit: [
+        "Un proceso importante vive en una hoja de cálculo que se rompe, se duplica o solo entiende una persona.",
+        "Necesitas que clientes o proveedores consulten documentos, pedidos o estados sin enviarlos por correo.",
+        "Tienes un prototipo o un MVP que funciona en una demo y hay que llevarlo a producción con usuarios reales.",
+        "Tu ERP, MES o CRM tiene API y hace falta que hable con otras herramientas o con un agente de IA.",
+      ],
+      notFit: [
+        "Hay una herramienta estándar que hace lo que necesitas por una cuota razonable: te lo diremos antes de proponer un desarrollo.",
+        "El proceso todavía no está definido. Primero se define, y muchas veces basta con automatizarlo.",
+      ],
+      steps: [
+        { title: "Proceso y datos", desc: "Vemos cómo se hace hoy, quién lo usa y de dónde salen los datos. Sale un alcance cerrado por escrito: pantallas, integraciones, permisos y lo que queda fuera." },
+        { title: "Primera versión", desc: "Una versión que se usa con datos reales, no una maqueta. Las decisiones de diseño se toman sobre ella, con quien la va a usar cada día." },
+        { title: "Integraciones y pruebas", desc: "Conexión con el ERP, el CRM o el correo por API o MCP, pruebas automáticas en lo que mueve dinero y registro de lo que hace cada usuario y cada agente." },
+        { title: "Producción y traspaso", desc: "Despliegue en Vercel o en tu servidor, copias de seguridad, avisos si algo falla y documentación para que tu equipo u otro proveedor pueda seguir." },
+      ],
+      timeline:
+        "Una aplicación interna que sustituye una hoja de cálculo, de 2 a 4 semanas. Un portal, un agente o una integración con el ERP depende de cuántos sistemas toque: te damos el plazo por escrito en la consultoría gratuita.",
+      priceNote:
+        "Una aplicación interna que sustituye una hoja de cálculo parte de 6.000 € más 200 € al mes de mantenimiento (más IVA). Portales, agentes e integraciones se presupuestan a precio cerrado tras la consultoría gratuita, antes de empezar. El alojamiento y la base de datos van a nombre de tu empresa y se pagan directamente al proveedor.",
+      caseFocus: {
+        "Tribeca Media":
+          "Código en producción sobre el sistema de agentes de la agencia: el bloque de observabilidad (chequeos de salud con avisos, logs sin secretos y el coste de cada llamada a la IA por cliente), con 135 tests, el procesamiento de varios clientes en paralelo y un agente de Meta y Google Ads que propone cambios que una persona aprueba, en validación con un cliente piloto.",
+        "Eventos Barcelona":
+          "Un clasificador de correo con IA en un servidor propio, que lee el buzón y crea o actualiza las oportunidades en el CRM: en siete semanas creó 17 de las 50 oportunidades nuevas. Y trabajo sobre la aplicación de propuestas y el panel comercial: estados de cada propuesta, seguimiento de lectura, indicadores de venta y acceso del equipo con login.",
+      },
+      faqs: [
+        {
+          q: "¿Cuánto cuesta una aplicación a medida?",
+          a: "Una aplicación interna que sustituye una hoja de cálculo parte de 6.000 € más 200 € al mes de mantenimiento, con 2 a 4 semanas de plazo. Un portal, un agente o una integración con el ERP depende de cuántos sistemas toque y de cuántas excepciones tenga el proceso: te damos un precio cerrado por escrito antes de empezar.",
+        },
+        {
+          q: "¿El código es mío?",
+          a: "Sí. El repositorio, la base de datos y las cuentas de alojamiento van a nombre de tu empresa desde el primer día. Si un día dejamos de trabajar juntos, la aplicación sigue funcionando y otro equipo puede continuarla con la documentación que dejamos.",
+        },
+        {
+          q: "¿En qué se diferencia de automatizar procesos?",
+          a: "Automatizar es conectar las herramientas que ya tienes con reglas e IA, normalmente en n8n, Make o Zapier. Desarrollar a medida es construir la herramienta que falta: una aplicación con sus pantallas, sus usuarios y su base de datos. Muchos proyectos combinan las dos cosas, y si con automatizar basta, te lo decimos.",
+        },
+        {
+          q: "¿Hacéis portales privados de documentos para clientes?",
+          a: "Sí. Nuestra biblioteca de documentos para clientes funciona así: acceso con un enlace al correo o con Google, permisos por carpeta o por documento con caducidad, versiones y aviso cuando alguien abre un documento. Para tu empresa se monta con tu marca, tu dominio y tus usuarios.",
+        },
+        {
+          q: "¿Os conectáis con SAP u otro ERP?",
+          a: "Sí, por la vía que permita el ERP: API, servicios web o una base de datos de consulta. Con MCP, un agente de IA puede consultar el ERP con permisos limitados. Empezamos leyendo, que no tiene riesgo, y solo escribimos en el ERP con validación y registro de cada cambio.",
+        },
+        {
+          q: "Ya tenemos un MVP. ¿Lo lleváis a producción?",
+          a: "Sí. Antes de presupuestar revisamos el código: qué se aprovecha, qué falla y qué falta para producción, como usuarios y permisos, copias de seguridad, pruebas y avisos. Si conviene rehacer una parte, te decimos cuál y por qué.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "Custom software development with AI for businesses",
+      metaDescription:
+        "Internal apps that replace spreadsheets, client portals, AI agents and integrations with your ERP or CRM, running in production and in your company's name.",
+      answer:
+        "We build custom software when no off-the-shelf tool covers the process: internal apps that replace a spreadsheet, client portals and private document libraries, AI agents, and integrations with your ERP, MES or CRM through APIs and MCP. We use Next.js, Python and Supabase or Postgres, on Vercel or on your own server, and the code and data stay in your company's name.",
+      outcomes: [
+        "The critical spreadsheet turned into an app with users, permissions and history",
+        "Data that moves from the ERP or CRM into the app with no copy and paste",
+        "Code, data and infrastructure in your company's name",
+      ],
+      flow: [
+        { label: "Today", text: "Every day someone fills in the production sheet and someone else copies it to calculate payroll." },
+        { label: "Entry", text: "Each supervisor logs their shift in a web app, on a phone or a computer, with validated fields." },
+        { label: "Calculation", text: "The app applies the hours and bonus rules and flags anything that does not add up." },
+        { label: "Close", text: "Management sees the day's report on a dashboard and payroll downloads the month-end close with no typing." },
+      ],
+      fit: [
+        "An important process lives in a spreadsheet that breaks, gets duplicated or only one person understands.",
+        "You need clients or suppliers to check documents, orders or statuses without sending them by email.",
+        "You have a prototype or MVP that works in a demo and needs to go into production with real users.",
+        "Your ERP, MES or CRM has an API and needs to talk to other tools or to an AI agent.",
+      ],
+      notFit: [
+        "There is an off-the-shelf tool that does what you need for a reasonable fee: we will tell you before proposing a build.",
+        "The process is not defined yet. It needs defining first, and automating it is often enough.",
+      ],
+      steps: [
+        { title: "Process and data", desc: "We look at how it is done today, who uses it and where the data comes from. The result is a fixed scope in writing: screens, integrations, permissions and what is left out." },
+        { title: "First version", desc: "A version used with real data, not a mock-up. Design decisions are made on it, with the people who will use it every day." },
+        { title: "Integrations and testing", desc: "Connection to the ERP, CRM or email through APIs or MCP, automated tests on whatever moves money, and a log of what every user and every agent does." },
+        { title: "Production and handover", desc: "Deployment on Vercel or your server, backups, alerts if something fails and documentation so your team or another provider can carry on." },
+      ],
+      timeline:
+        "An internal app that replaces a spreadsheet takes 2 to 4 weeks. A portal, an agent or an ERP integration depends on how many systems it touches: we give you the timeline in writing in the free consultation.",
+      priceNote:
+        "An internal app that replaces a spreadsheet starts at €6,000 plus €200 a month for maintenance (VAT not included). Portals, agents and integrations get a fixed quote after the free consultation, before any work starts. Hosting and the database are in your company's name and paid directly to the provider.",
+      caseFocus: {
+        "Tribeca Media":
+          "Code in production on the agency's agent system: the observability block (health checks with alerts, logs without secrets and the cost of every AI call per client), with 135 tests, processing several clients in parallel, and a Meta and Google Ads agent that proposes changes a person approves, being validated with a pilot client.",
+        "Eventos Barcelona":
+          "An AI email classifier on its own server that reads the inbox and creates or updates opportunities in the CRM: in seven weeks it created 17 of the 50 new opportunities. Plus work on the proposal app and the sales dashboard: the status of each proposal, read tracking, sales indicators and team login.",
+      },
+      faqs: [
+        {
+          q: "How much does a custom app cost?",
+          a: "An internal app that replaces a spreadsheet starts at €6,000 plus €200 a month for maintenance, with a 2 to 4 week timeline. A portal, an agent or an ERP integration depends on how many systems it touches and how many exceptions the process has: we give you a fixed price in writing before we start.",
+        },
+        {
+          q: "Is the code mine?",
+          a: "Yes. The repository, the database and the hosting accounts are in your company's name from day one. If we stop working together one day, the app keeps running and another team can carry it on with the documentation we leave.",
+        },
+        {
+          q: "How is it different from process automation?",
+          a: "Automation connects the tools you already have with rules and AI, usually in n8n, Make or Zapier. Custom development builds the tool that is missing: an app with its own screens, users and database. Many projects combine both, and if automation is enough, we tell you.",
+        },
+        {
+          q: "Do you build private document portals for clients?",
+          a: "Yes. Our own client document library works like this: access through an email link or Google, permissions per folder or per document with expiry, versions and an alert when someone opens a document. For your company it is built with your brand, your domain and your users.",
+        },
+        {
+          q: "Do you connect to SAP or other ERPs?",
+          a: "Yes, through whatever the ERP allows: an API, web services or a read-only database. With MCP, an AI agent can query the ERP with limited permissions. We start by reading, which carries no risk, and only write to the ERP with validation and a log of every change.",
+        },
+        {
+          q: "We already have an MVP. Can you take it to production?",
+          a: "Yes. Before quoting we review the code: what can be kept, what fails and what is missing for production, such as users and permissions, backups, tests and alerts. If part of it is better rebuilt, we tell you which part and why.",
+        },
+      ],
+    },
+  },
 
   "kit-ia": {
     price: "quote",

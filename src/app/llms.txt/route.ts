@@ -3,6 +3,7 @@ import { CLUSTERS, type Cluster } from "@/lib/blog-schema";
 import { getAllPosts } from "@/lib/blog";
 import { SECTORES } from "@/lib/sectores";
 import { CASOS } from "@/lib/casos";
+import { LINEAS, ofertasDeLinea, precioTexto } from "@/lib/ofertas";
 
 // llms.txt generado en cada build, no escrito a mano.
 //
@@ -23,24 +24,31 @@ export const dynamic = "force-static";
 
 const CABECERA = `# Rianex
 
-> AI Workflow & Business Automation. Automatizamos con IA los flujos de
-> trabajo y los procesos de negocio que se repiten cada semana con Claude, n8n, Make, Zapier y tareas
-> programadas, conectados al CRM (GoHighLevel o HubSpot) y al resto de
-> herramientas: de la operativa del día a día al proceso comercial.
+> Agencia de automatización con IA para empresas B2B (AI Workflow & Business
+> Automation). Automatizamos los procesos y el proceso comercial, construimos
+> el software que haga falta y auditamos los sistemas de IA antes de que
+> escalen. Cuatro líneas: automatización de procesos con IA; captación y
+> go-to-market (outbound en LinkedIn, listas enriquecidas, cold calling,
+> email marketing, webs y señales de compra); software e IA a medida
+> (aplicaciones internas, portales, agentes, integraciones con ERP y MES);
+> auditoría y consultoría de IA (auditoría técnica de agentes, gasto en IA,
+> revisión independiente, formación).
 
 Estudio de ingeniería con base en Ávila, España. Trabaja en español para el
 mercado español y latinoamericano, y en inglés cuando el proyecto lo pide.
 
 ## Para quién
-Empresas que quieren automatizar con IA procesos que hoy se hacen a mano y se
-repiten cada semana: pasar datos entre herramientas, clasificar correos o
-pedidos, preparar informes y propuestas, atender consultas y hacer seguimiento
-a clientes. El sector importa menos que el proceso: si es frecuente, sigue
-reglas y su fallo cuesta dinero, se puede automatizar.
+Empresas B2B que quieren automatizar con IA procesos que hoy se hacen a mano,
+captar clientes de forma sistemática o comprobar que sus sistemas de IA
+aguantan antes de crecer. Sectores: agencias de marketing, empresas de
+eventos, clínicas, inmobiliarias, negocios con cita previa, e industria y
+logística.
 
 ## Qué hacemos
-- **Operativa y agentes de IA**: automatización con Claude, n8n, Make, Zapier y crons; agentes de IA que atienden y agendan citas por WhatsApp, Telegram y teléfono (voz con Vapi) para peluquerías, clínicas, fisioterapeutas o gestorías; GoHighLevel y HubSpot conectados con web, agenda, facturación y ERP.
-- **Proceso comercial automatizado**: prospección B2B autónoma en la nube y go-to-market (scoring con SABI, Clay y Databricks; email con Instantly o Lemlist; LinkedIn con Valley; todo en HubSpot o GoHighLevel); captación y cualificación de leads de Meta Ads en GoHighLevel; propuestas automáticas en una aplicación en Vercel con su pipeline en el CRM; implantación de CRM y migración de HubSpot a GoHighLevel con su histórico.
+- **Automatización de procesos con IA**: Claude, n8n, Make, Zapier y tareas programadas conectados al CRM (GoHighLevel o HubSpot) y al ERP; clasificación de correo y documentos con IA, también en servidor propio; agentes de WhatsApp, Telegram y voz.
+- **Captación y go-to-market**: outbound en LinkedIn, listas B2B enriquecidas con coste por acierto, cold calling, email marketing, webs que captan y señales de compra de empresas.
+- **Software e IA a medida**: aplicaciones internas que sustituyen hojas de cálculo, portales y bibliotecas privadas de documentos, agentes construidos a medida e integraciones con ERP y MES.
+- **Auditoría y consultoría de IA**: auditoría técnica de sistemas de agentes, auditoría del gasto en IA, revisión independiente del trabajo de otro proveedor, asesoramiento, formación y Kit IA.
 
 ## Cómo trabajamos
 Cuatro pasos: consultoría gratuita de 30 minutos, diseño del sistema, implementación y
@@ -51,8 +59,9 @@ implementación completa va de 5.000 € a 25.000 €, y hay un retainer mensual
 opcional de mantenimiento.
 
 ## Quién está detrás
-Ramiro Pérez Rodero, ingeniero industrial con experiencia en plantas industriales
-aplicada a la automatización de procesos de negocio.`;
+Ramiro Pérez Rodero, ingeniero industrial. Coordina la migración del ERP en la
+cadena de suministro de Nissan, es profesor de Industria 4.0 en el máster de la
+UCAV y trabajó en simulación de procesos en Michelin.`;
 
 export async function GET() {
   const posts = getAllPosts();
@@ -71,6 +80,18 @@ export async function GET() {
           .join("\n")
     );
   }
+
+  // Ofertas cerradas: alcance, plazo y precio de partida, por linea de trabajo.
+  secciones.push(
+    "## Ofertas cerradas\n" +
+      "Precios sin IVA; el precio exacto se cierra por escrito tras la consultoría gratuita.\n" +
+      LINEAS.flatMap((linea) =>
+        ofertasDeLinea(linea.id).map(
+          (o) =>
+            `- [${o.es.name}](${BASE_URL}/ofertas#${o.slug}) (${linea.es.name}): ${precioTexto(o, "es")}. Plazo: ${o.es.timeline.toLowerCase()}. ${o.es.problem}`
+        )
+      ).join("\n")
+  );
 
   secciones.push(`## Herramientas
 - [Calculadora de fuga de leads](${BASE_URL}/herramientas/calculadora-fuga-de-leads): calcula cuánto dinero se pierde al año por los leads que no llegan a una conversación y por el trabajo comercial manual. Gratis, sin registro.`);
@@ -94,6 +115,7 @@ export async function GET() {
   secciones.push(`## Páginas principales
 - [Inicio](${BASE_URL}/): qué automatizamos y cómo
 - [Servicios](${BASE_URL}/servicios): todos los servicios en detalle
+- [Ofertas cerradas](${BASE_URL}/ofertas): ocho trabajos con alcance, plazo y precio publicados
 - [Soluciones por sector](${BASE_URL}/soluciones): agencias de marketing, eventos, clínicas, inmobiliarias, negocios con cita previa y formación
 - [Casos de éxito](${BASE_URL}/casos-de-exito): implantaciones reales con su resultado
 - [Testimonios](${BASE_URL}/testimonios): opiniones de clientes

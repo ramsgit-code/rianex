@@ -16,6 +16,7 @@ export const TRANSLATED_ROUTES = [
   "/",
   "/servicios",
   "/soluciones",
+  "/ofertas",
   "/casos-de-exito",
   "/testimonios",
   "/blog",

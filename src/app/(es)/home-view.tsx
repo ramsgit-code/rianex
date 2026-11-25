@@ -9,6 +9,9 @@ import { Guias } from "@/components/sections/Guias";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Marquee } from "@/components/Marquee";
 import { JsonLd } from "@/components/JsonLd";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { localizePath } from "@/lib/i18n";
 import { prisma } from "@/lib/prisma";
 import { testimoniosPublicos } from "@/lib/testimonios";
 import { content } from "@/lib/content";
@@ -26,7 +29,7 @@ const LD = {
     alternateName: "Rianex, agencia de automatización con IA",
     serviceType: "Agencia de automatización con IA",
     description:
-      "AI Workflow & Business Automation: agencia que automatiza con IA los flujos de trabajo y los procesos de negocio de las empresas. Consultoría gratuita para detectar qué procesos automatizar y asesoramiento para implantarlo y adoptar la IA, con Claude, n8n, Make y Zapier conectados a su CRM (GoHighLevel o HubSpot).",
+      "Agencia de automatización con IA para empresas B2B: automatiza los procesos y el proceso comercial, construye software a medida y audita sistemas de IA antes de que escalen. Consultoría gratuita de 30 minutos y ofertas cerradas con precio publicado.",
     audienceType: "Empresas que quieren automatizar procesos con IA",
     geographicArea: ["España", "Latinoamérica"],
     place: "Rianex, Ávila (España)",
@@ -39,7 +42,7 @@ const LD = {
     alternateName: "Rianex, AI automation agency",
     serviceType: "AI automation agency",
     description:
-      "AI Workflow & Business Automation: an agency that automates companies' workflows and business processes with AI. A free consultation to find which processes to automate, and advisory to implement them and adopt AI, with Claude, n8n, Make and Zapier connected to the CRM (GoHighLevel or HubSpot).",
+      "AI automation agency for B2B companies: automates processes and the sales process, builds custom software and audits AI systems before they scale. A free 30-minute consultation and fixed-price offers with published prices.",
     audienceType: "Companies that want to automate processes with AI",
     geographicArea: ["Spain", "Latin America"],
     place: "Rianex, Ávila (Spain)",
@@ -131,6 +134,11 @@ const businessJsonLd = (lang: Lang) => ({
     "Migración de CRM",
     "CRM",
     "Lead qualification",
+    "Desarrollo de software a medida",
+    "Auditoría de sistemas de IA",
+    "Outbound en LinkedIn",
+    "Cold calling",
+    "Industria y logística",
   ],
   founder: {
     "@type": "Person",
@@ -189,6 +197,22 @@ export async function HomeView({ lang }: { lang: Lang }) {
       <Hero />
       <WhatWeDo />
       <Services />
+      {/* Ofertas cerradas: trabajos con alcance, plazo y precio publicados. */}
+      <section className="relative">
+        <div className="tape" />
+        <div className="section-wide">
+          <h2 className="section-title">{lang === "es" ? "Ofertas cerradas" : "Fixed-price offers"}</h2>
+          <p className="measure mt-4 text-lg leading-relaxed text-foreground-muted">
+            {lang === "es"
+              ? "Ocho trabajos con alcance, plazo y precio de partida publicados: auditorías de agentes y del gasto en IA, un clasificador de correo con IA, outbound en LinkedIn, radar de contenido, señales de compra y aplicaciones internas. Desde 1.500 € + IVA."
+              : "Eight pieces of work with published scope, timeline and starting price: agent and AI spend audits, an AI email classifier, LinkedIn outbound, a content radar, buying signals and internal apps. From €1,500 + VAT."}
+          </p>
+          <Link href={localizePath("/ofertas", lang)} className="btn-tape mt-8">
+            {lang === "es" ? "Ver las ofertas" : "See the offers"}
+            <ArrowRight size={16} aria-hidden />
+          </Link>
+        </div>
+      </section>
       <Audience />
       <Marquee />
       <Cases />

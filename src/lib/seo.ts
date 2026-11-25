@@ -98,6 +98,18 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
         "The same AI automation approach, tuned to marketing agencies, event companies, clinics and training academies, with real cases in each.",
     },
   },
+  "/ofertas": {
+    es: {
+      title: "Ofertas de automatización e IA a precio cerrado",
+      description:
+        "Ocho ofertas de IA con alcance, plazo y precio publicados: auditoría de agentes y de gasto en IA, clasificador de correo, outbound en LinkedIn y apps internas.",
+    },
+    en: {
+      title: "Fixed-price AI automation and audit offers",
+      description:
+        "Eight AI offers with published scope, timeline and price: agent and AI spend audits, an email classifier, LinkedIn outbound, buying signals and internal apps.",
+    },
+  },
   "/blog": {
     es: {
       title: "Blog de automatización con IA y GoHighLevel",

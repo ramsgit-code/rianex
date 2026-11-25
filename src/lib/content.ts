@@ -17,6 +17,7 @@ export const content = {
     nav: {
       links: [
         { href: "/servicios", label: "Servicios" },
+        { href: "/ofertas", label: "Ofertas" },
         { href: "/#para-quien", label: "Para quién" },
         { href: "/casos-de-exito", label: "Casos" },
         { href: "/sobre-mi", label: "Nosotros" },
@@ -28,7 +29,7 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "Automatización de procesos con IA para empresas",
+      eyebrow: "Automatización con IA, captación y software para empresas B2B",
       titlePre: "Automatiza ",
       titleRotating: [
         "tus procesos con IA",
@@ -46,11 +47,11 @@ export const content = {
       offeringTitle: "Qué hacemos",
       offering: [
         "Automatización de procesos con IA",
-        "Prospección B2B autónoma en la nube",
-        "Agentes de IA para WhatsApp, Telegram y voz",
-        "Captación de leads de Meta Ads en GoHighLevel",
-        "Implantación de CRM y propuestas automáticas",
-        "Migración de HubSpot a GoHighLevel",
+        "Captación: outbound en LinkedIn, listas y llamadas",
+        "Software e IA a medida",
+        "Auditoría de sistemas de IA y de su coste",
+        "CRM: GoHighLevel y HubSpot",
+        "Ofertas cerradas, con precio publicado",
       ],
       logosLabel: "Clientes con sistema activo",
     },
@@ -59,7 +60,7 @@ export const content = {
       tag: "Servicios",
       title: "Qué hacemos",
       subtitle:
-        "Automatizamos los procesos que se repiten en tu empresa, de la operativa del día a día al proceso comercial, conectados a las herramientas que ya usas.",
+        "Automatizamos los procesos y el proceso comercial de tu empresa, construimos el software que haga falta y auditamos los sistemas de IA antes de que escalen, conectado a las herramientas que ya usas.",
       chatLabel: "Ejemplo en vivo",
       kpiLabel: "En cifras",
       scrollHint: "Ver más servicios",
@@ -340,6 +341,7 @@ export const content = {
       cta: "Pide tu consultoría gratuita",
       links: [
         { href: "/servicios", label: "Servicios" },
+        { href: "/ofertas", label: "Ofertas cerradas" },
         { href: "/#para-quien", label: "Para quién trabajamos" },
         { href: "/casos-de-exito", label: "Casos de éxito" },
         { href: "/soluciones", label: "Soluciones" },
@@ -357,7 +359,7 @@ export const content = {
       tag: "Servicios",
       title: "Servicios de automatización con IA",
       description:
-        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar—, cuatro para captar clientes por un canal concreto (web, email, LinkedIn y teléfono), uno para que la IA que ya usas cueste menos y falle menos, otro para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
+        "Cuatro líneas de trabajo: automatizamos los procesos con IA, montamos la captación y el go-to-market, desarrollamos el software y los agentes que hagan falta, y auditamos la IA que ya usas antes de que escale. Dieciocho servicios que se contratan por separado o juntos en un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Pide tu consultoría gratuita",
@@ -366,40 +368,25 @@ export const content = {
       video: "Con vídeo",
       bySector: "Por sector",
       builtOn: "Construido sobre",
+      // Las cuatro líneas de POSICIONAMIENTO, en el mismo orden en ES y EN. Los
+      // slugs van como string[] para que la maqueta (Services.tsx) compare su
+      // número sin depender de la tupla exacta de cada grupo.
       groups: [
         {
-          title: "Vender y atender",
-          desc: "Captar clientes, contestar a cada uno a tiempo, cerrar la cita y enviar la propuesta: prospección autónoma, leads de Meta cualificados, agentes de WhatsApp, Telegram y voz, y propuestas automáticas.",
-          slugs: ["agente-ia-whatsapp", "outbound-b2b", "embudo-de-captacion", "generador-de-propuestas"],
+          title: "Automatización de procesos con IA",
+          desc: "Lo que el equipo repite cada semana con la operativa, el correo, los documentos, el CRM y el ERP, hecho solo con Claude, n8n, Make o Zapier, y tu CRM en GoHighLevel o HubSpot conectado al resto de herramientas.",
+          slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"] as readonly string[],
         },
         {
-          title: "Canales de captación",
-          desc: "Cada canal montado por separado y conectado a tu CRM, GoHighLevel o HubSpot: una web que capta y cualifica, email marketing a tus propios contactos, outbound en LinkedIn y llamadas en frío con cada llamada registrada.",
-          slugs: ["creacion-de-webs", "email-marketing", "outbound-linkedin", "cold-calling"],
+          title: "Captación y go-to-market",
+          desc: "Encontrar empresas que encajan, escribirles y llevarlas a una reunión: prospección autónoma con listas enriquecidas, outbound en LinkedIn, llamadas en frío, email marketing, una web que capta y leads de Meta cualificados, todo conectado a tu CRM.",
+          slugs: ["outbound-b2b", "outbound-linkedin", "cold-calling", "email-marketing", "creacion-de-webs", "embudo-de-captacion"] as readonly string[],
         },
         {
-          title: "Operativa y CRM",
-          desc: "Lo que el equipo repite cada semana, hecho solo con Claude, n8n, Make o Zapier, y tu CRM en GoHighLevel o HubSpot, conectado al resto de herramientas y con el pipeline a la vista.",
-          slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
-        },
-        {
-          title: "Optimizar la IA que ya usas",
-          desc: "Para empresas que ya tienen agentes o flujos con IA en marcha: medimos cuánto cuesta cada tarea y pasamos a reglas lo que siempre se resuelve igual, para que el modelo trabaje solo donde aporta. Menos tokens, respuestas más rápidas y menos errores.",
-          slugs: ["ia-selectiva"],
-          sectorsLabel: "Dónde se aplica",
-          sectors: [
-            { label: "Atención al cliente" },
-            { label: "Correos y pedidos" },
-            { label: "Propuestas y documentos" },
-            { label: "Flujos de n8n, Make o Zapier" },
-            { label: "Asistentes internos" },
-            { label: "Cómo se calcula el ahorro", href: "/blog/reducir-gasto-tokens-ia-selectiva" },
-          ],
-        },
-        {
-          title: "Control con cámaras e IA",
-          desc: "Las cámaras que ya tienes, convertidas en datos: cuánto espera una mesa, cuántas plazas quedan libres, cuánta cola hay o cuánto tarda un camión en el muelle, con avisos al momento y sin reconocimiento facial.",
-          slugs: ["control-con-camaras-ia"],
+          title: "Software e IA a medida",
+          desc: "Cuando la herramienta que hace falta no existe: aplicaciones internas, portales para clientes, agentes de IA para WhatsApp y voz, propuestas automáticas, control con las cámaras que ya tienes e integraciones con tu ERP o MES. Código y datos a nombre de tu empresa.",
+          slugs: ["desarrollo-software-a-medida", "agente-ia-whatsapp", "generador-de-propuestas", "control-con-camaras-ia"] as readonly string[],
+          sectorsLabel: "Cámaras con IA, por sector",
           sectors: [
             { label: "Restaurantes", href: "/l/camaras-ia-restaurantes" },
             { label: "Parkings", href: "/l/camaras-ia-parkings" },
@@ -411,9 +398,18 @@ export const content = {
           ],
         },
         {
-          title: "Otros servicios: IA para tu equipo",
-          desc: "Para que el equipo use la IA con criterio en su día a día: un kit para empezar con orden, formación práctica y asesoramiento para decidir qué automatizar y con quién.",
-          slugs: ["kit-ia", "formacion-ia-empresas", "asesoramiento-ia"],
+          title: "Auditoría y consultoría de IA",
+          desc: "Para decidir con datos y para que la IA que ya usas cueste menos y falle menos: revisión técnica de agentes, control del gasto en modelos, segunda opinión sobre el trabajo de otro proveedor, formación práctica y el Kit IA para empezar con orden.",
+          slugs: ["asesoramiento-ia", "ia-selectiva", "formacion-ia-empresas", "kit-ia"] as readonly string[],
+          sectorsLabel: "IA selectiva: dónde se aplica",
+          sectors: [
+            { label: "Atención al cliente" },
+            { label: "Correos y pedidos" },
+            { label: "Propuestas y documentos" },
+            { label: "Flujos de n8n, Make o Zapier" },
+            { label: "Asistentes internos" },
+            { label: "Cómo se calcula el ahorro", href: "/blog/reducir-gasto-tokens-ia-selectiva" },
+          ],
         },
       ],
       complementary: {
@@ -570,6 +566,21 @@ export const content = {
             "Aplicación de propuestas en Vercel: web y PDF al momento",
             "Pipeline de propuestas en tu CRM para ver cómo evoluciona cada una",
             "Recordatorios de seguimiento automáticos",
+          ],
+        },
+        {
+          slug: "desarrollo-software-a-medida",
+          area: "Software",
+          title: "Desarrollo de software a medida",
+          tagline: "Aplicaciones internas, portales y agentes de IA, en producción y a tu nombre.",
+          problem:
+            "El negocio funciona sobre hojas de cálculo que solo entiende una persona, herramientas que no se hablan entre sí y un ERP que nadie se atreve a tocar.",
+          forWho: "Empresas que necesitan una herramienta propia para un proceso concreto y no la encuentran hecha, o que tienen un prototipo que hay que llevar a producción.",
+          deliverables: [
+            "Aplicación interna o portal para clientes, con usuarios y permisos",
+            "Agentes de IA con aprobación humana donde la decisión cuesta dinero",
+            "Integración con tu ERP, MES o CRM por API y MCP",
+            "Código, datos e infraestructura a nombre de tu empresa",
           ],
         },
         {
@@ -786,6 +797,13 @@ export const content = {
           pain: "Peluquerías, estética, fisioterapia o centros deportivos: huecos vacíos por ausencias y mensajes contestados a deshoras.",
           solution: "Un agente que agenda 24/7, confirma y recuerda la cita, y rellena las cancelaciones con la lista de espera.",
         },
+        {
+          sector: "Industria",
+          slug: "industria-logistica",
+          title: "Industria y Logística",
+          pain: "Pedidos tecleados a mano en el ERP, proveedores perseguidos por correo e informes montados cada lunes.",
+          solution: "Pedidos del correo al ERP, seguimiento de proveedores y OTIF, partes de calidad y cuadros de mando que se actualizan solos.",
+        },
       ],
     },
 
@@ -947,6 +965,7 @@ export const content = {
     nav: {
       links: [
         { href: "/servicios", label: "Services" },
+        { href: "/ofertas", label: "Offers" },
         { href: "/#para-quien", label: "Who it's for" },
         { href: "/casos-de-exito", label: "Cases" },
         { href: "/sobre-mi", label: "About us" },
@@ -958,7 +977,7 @@ export const content = {
     },
 
     hero: {
-      eyebrow: "AI process automation for companies",
+      eyebrow: "AI automation, lead generation and software for B2B companies",
       titlePre: "Automate ",
       titleRotating: [
         "your processes with AI",
@@ -976,11 +995,11 @@ export const content = {
       offeringTitle: "What we do",
       offering: [
         "AI process automation",
-        "Autonomous B2B prospecting in the cloud",
-        "AI agents for WhatsApp, Telegram and voice",
-        "Meta Ads lead capture on GoHighLevel",
-        "CRM implementation and automated proposals",
-        "HubSpot to GoHighLevel migration",
+        "Lead generation: LinkedIn outbound, lists and calls",
+        "Custom software and AI",
+        "Audits of AI systems and their cost",
+        "CRM: GoHighLevel and HubSpot",
+        "Fixed-price offers, with published prices",
       ],
       logosLabel: "Clients with a live system",
     },
@@ -989,7 +1008,7 @@ export const content = {
       tag: "Services",
       title: "What we do",
       subtitle:
-        "We automate the processes that repeat in your company, from day-to-day operations to the sales process, connected to the tools you already use.",
+        "We automate your company's processes and sales process, build whatever software is needed and audit AI systems before they scale, connected to the tools you already use.",
       chatLabel: "Live example",
       kpiLabel: "By the numbers",
       scrollHint: "See more services",
@@ -1265,6 +1284,7 @@ export const content = {
       cta: "Book your free consultation",
       links: [
         { href: "/servicios", label: "Services" },
+        { href: "/ofertas", label: "Fixed-price offers" },
         { href: "/#para-quien", label: "Who we work with" },
         { href: "/casos-de-exito", label: "Case studies" },
         { href: "/soluciones", label: "Solutions" },
@@ -1282,7 +1302,7 @@ export const content = {
       tag: "Services",
       title: "AI automation services",
       description:
-        "Eight services to automate what repeats most in your company —selling, serving customers, operations—, four to win clients through a specific channel (website, email, LinkedIn and phone), one to make the AI you already use cost less and fail less, another to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
+        "Four lines of work: we automate processes with AI, set up lead generation and go-to-market, build whatever software and agents are needed, and audit the AI you already use before it scales. Eighteen services, hired on their own or together in one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Book your free consultation",
@@ -1293,37 +1313,20 @@ export const content = {
       builtOn: "Built on",
       groups: [
         {
-          title: "Sell and serve",
-          desc: "Finding clients, answering each one on time, booking the appointment and sending the proposal: autonomous prospecting, qualified Meta leads, WhatsApp, Telegram and voice agents, and automatic proposals.",
-          slugs: ["agente-ia-whatsapp", "outbound-b2b", "embudo-de-captacion", "generador-de-propuestas"],
+          title: "AI process automation",
+          desc: "What the team repeats every week across operations, email, documents, the CRM and the ERP, done on its own with Claude, n8n, Make or Zapier, and your CRM on GoHighLevel or HubSpot connected to your other tools.",
+          slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"] as readonly string[],
         },
         {
-          title: "Acquisition channels",
-          desc: "Each channel set up on its own and connected to your CRM, GoHighLevel or HubSpot: a website that captures and qualifies, email marketing to your own contacts, LinkedIn outbound and cold calls with every call logged.",
-          slugs: ["creacion-de-webs", "email-marketing", "outbound-linkedin", "cold-calling"],
+          title: "Lead generation and go-to-market",
+          desc: "Finding companies that fit, writing to them and getting them to a meeting: autonomous prospecting with enriched lists, LinkedIn outbound, cold calling, email marketing, a website that captures leads and qualified Meta leads, all connected to your CRM.",
+          slugs: ["outbound-b2b", "outbound-linkedin", "cold-calling", "email-marketing", "creacion-de-webs", "embudo-de-captacion"] as readonly string[],
         },
         {
-          title: "Operations and CRM",
-          desc: "What the team repeats every week, done on its own with Claude, n8n, Make or Zapier, and your CRM on GoHighLevel or HubSpot, connected to your other tools and with the pipeline in view.",
-          slugs: ["automatizacion-procesos-ia", "implementacion-crm-gohighlevel", "integracion-gohighlevel-hubspot", "migracion-a-gohighlevel"],
-        },
-        {
-          title: "Optimise the AI you already use",
-          desc: "For companies that already have AI agents or workflows running: we measure what each task costs and move to rules whatever is always solved the same way, so the model only works where it adds value. Fewer tokens, faster answers and fewer errors.",
-          slugs: ["ia-selectiva"],
-          sectorsLabel: "Where it applies",
-          sectors: [
-            { label: "Customer service" },
-            { label: "Email and orders" },
-            { label: "Proposals and documents" },
-            { label: "n8n, Make or Zapier workflows" },
-            { label: "Internal assistants" },
-          ],
-        },
-        {
-          title: "Camera monitoring with AI",
-          desc: "The cameras you already have, turned into data: how long a table waits, how many parking spaces are free, how long the queue is or how long a lorry takes at the dock, with instant alerts and no facial recognition.",
-          slugs: ["control-con-camaras-ia"],
+          title: "Custom software and AI",
+          desc: "When the tool you need does not exist: internal apps, client portals, AI agents for WhatsApp and voice, automatic proposals, monitoring with the cameras you already have and integrations with your ERP or MES. Code and data in your company's name.",
+          slugs: ["desarrollo-software-a-medida", "agente-ia-whatsapp", "generador-de-propuestas", "control-con-camaras-ia"] as readonly string[],
+          sectorsLabel: "AI cameras, by sector",
           sectors: [
             { label: "Restaurants" },
             { label: "Car parks" },
@@ -1335,9 +1338,17 @@ export const content = {
           ],
         },
         {
-          title: "Other services: AI for your team",
-          desc: "So the team uses AI with judgement every day: a kit to start properly, hands-on training and advisory to decide what to automate and with whom.",
-          slugs: ["kit-ia", "formacion-ia-empresas", "asesoramiento-ia"],
+          title: "AI audit and consulting",
+          desc: "To decide with data and make the AI you already use cost less and fail less: technical reviews of agents, control of model spend, a second opinion on another provider's work, hands-on training and the AI Kit to start properly.",
+          slugs: ["asesoramiento-ia", "ia-selectiva", "formacion-ia-empresas", "kit-ia"] as readonly string[],
+          sectorsLabel: "Selective AI: where it applies",
+          sectors: [
+            { label: "Customer service" },
+            { label: "Email and orders" },
+            { label: "Proposals and documents" },
+            { label: "n8n, Make or Zapier workflows" },
+            { label: "Internal assistants" },
+          ],
         },
       ],
       complementary: {
@@ -1494,6 +1505,21 @@ export const content = {
             "Proposal app on Vercel: web and PDF on the spot",
             "Proposal pipeline in your CRM to see how each one progresses",
             "Automatic follow-up reminders",
+          ],
+        },
+        {
+          slug: "desarrollo-software-a-medida",
+          area: "Software",
+          title: "Custom software development",
+          tagline: "Internal apps, portals and AI agents, in production and in your name.",
+          problem:
+            "The business runs on spreadsheets only one person understands, tools that do not talk to each other and an ERP nobody dares to touch.",
+          forWho: "Companies that need their own tool for a specific process and cannot find it ready-made, or that have a prototype that needs to go into production.",
+          deliverables: [
+            "Internal app or client portal, with users and permissions",
+            "AI agents with human approval where a decision costs money",
+            "Integration with your ERP, MES or CRM through APIs and MCP",
+            "Code, data and infrastructure in your company's name",
           ],
         },
         {
@@ -1709,6 +1735,13 @@ export const content = {
           title: "Appointment-Based Businesses",
           pain: "Hair salons, beauty centres, physiotherapy or sports centres: empty slots from no-shows and messages answered out of hours.",
           solution: "An agent that books 24/7, confirms and reminds the appointment, and fills cancellations from the waiting list.",
+        },
+        {
+          sector: "Industry",
+          slug: "industria-logistica",
+          title: "Manufacturing & Logistics",
+          pain: "Orders typed into the ERP by hand, suppliers chased by email and reports built every Monday.",
+          solution: "Orders from email into the ERP, supplier follow-up and OTIF, quality reports and dashboards that update themselves.",
         },
       ],
     },
