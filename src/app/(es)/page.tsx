@@ -13,7 +13,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { prisma } from "@/lib/prisma";
 import { testimoniosPublicos } from "@/lib/testimonios";
 import { content } from "@/lib/content";
-import { pageMetadata, RAMIRO, RIANEX_LINKEDIN } from "@/lib/seo";
+import { pageMetadata, PERSON_ID, RAMIRO, RIANEX_LINKEDIN } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata("/", "es");
 
@@ -99,6 +99,7 @@ const businessJsonLd = {
   ],
   founder: {
     "@type": "Person",
+    "@id": PERSON_ID,
     name: RAMIRO.name,
     jobTitle: "Ingeniero industrial",
     sameAs: [RAMIRO.linkedin],

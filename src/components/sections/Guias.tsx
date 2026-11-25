@@ -26,6 +26,18 @@ const DESTACADA = {
 };
 
 const GUIAS = [
+  // Ya sale en la posicion 4-8 para busquedas de compra: el enlace desde la
+  // home lleva la frase que se busca.
+  {
+    href: "/blog/propuestas-licitaciones-con-ia",
+    es: "IA para licitaciones: herramientas para redactar la oferta técnica",
+    en: "AI for public tenders: tools to draft the technical bid",
+  },
+  {
+    href: "/blog/n8n-vs-make-vs-zapier",
+    es: "n8n vs Make vs Zapier: cuál elegir",
+    en: "n8n vs Make vs Zapier: which to choose",
+  },
   {
     href: "/blog/agencia-automatizacion-vs-freelance-vs-equipo-interno",
     es: "Agencia de automatización, freelance o equipo interno",

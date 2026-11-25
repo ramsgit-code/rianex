@@ -9,7 +9,8 @@ import { SITE_URL } from "@/lib/seo";
 
 // Landings de campaña: por nicho (/l/clinicas, /l/empresas-de-eventos…) y por
 // servicio (/l/agente-ia-whatsapp…). Todas con noindex: las que posicionan
-// son /soluciones y /servicios, que son también su canonical cuando existen.
+// son /soluciones y /servicios. La canonical es la propia landing: noindex
+// junto a una canonical hacia otra URL son dos señales que se contradicen.
 
 export const dynamicParams = false;
 
@@ -20,9 +21,9 @@ export function generateStaticParams() {
 
 function datos(slug: string) {
   const n = NICHOS[slug];
-  if (n) return { title: n.title, description: n.lead, canonical: n.sector ? `/soluciones/${n.sector}` : `/l/${slug}` };
+  if (n) return { title: n.title, description: n.lead, canonical: `/l/${slug}` };
   const l = LANDINGS[slug];
-  if (l && getServicio(slug, "es")) return { title: l.title, description: l.lead, canonical: `/servicios/${slug}` };
+  if (l && getServicio(slug, "es")) return { title: l.title, description: l.lead, canonical: `/l/${slug}` };
   return null;
 }
 

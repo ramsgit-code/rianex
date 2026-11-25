@@ -43,6 +43,16 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // Vídeos, pósters y logos: sin esto se servían con max-age=0 y el
+      // navegador los revalidaba en cada visita. Un día en el navegador y una
+      // semana obsoleto-mientras-revalida: si se sustituye un vídeo con el
+      // mismo nombre, el cambio llega en un día.
+      {
+        source: "/:dir(videos|logos)/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
+        ],
+      },
       {
         source: "/:path*",
         headers: [
