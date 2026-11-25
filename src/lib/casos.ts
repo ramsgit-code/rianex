@@ -115,7 +115,7 @@ export const CASOS: Record<string, Caso> = {
     es: {
       seoTitle: "Caso Eventos Barcelona: propuestas en minutos, no en días",
       metaDescription:
-        "Propuestas que tardaban días y salen en minutos, correos clasificados por una IA en servidor propio, outbound en LinkedIn y todo el proceso comercial en GoHighLevel.",
+        "Propuestas que tardaban días salen en minutos, una IA en servidor propio clasifica el correo, outbound en LinkedIn y todo el proceso comercial en GoHighLevel.",
       h1: "Eventos Barcelona: de días a minutos por propuesta, y todo el proceso comercial automatizado",
       answer:
         "Eventos Barcelona tardaba días en preparar y gestionar cada propuesta, y para entonces el cliente ya había pedido presupuesto a otro. Montamos el sistema comercial completo: propuestas que salen en minutos tras la llamada, una IA en servidor propio que lee los correos que entran y crea la oportunidad en GoHighLevel, campañas de LinkedIn con las respuestas en el CRM y un panel para ver qué hacen distinto los clientes que compran.",
@@ -191,7 +191,7 @@ export const CASOS: Record<string, Caso> = {
     es: {
       seoTitle: "Tribeca Media: auditoría y agentes de IA para KEYWORKERS",
       metaDescription:
-        "Auditoría técnica de una plataforma de agentes de IA, plan de corrección a precio cerrado, control del coste de IA y un agente de Meta y Google Ads con aprobación.",
+        "Auditoría de una plataforma de agentes de IA, plan de corrección a precio cerrado, control del coste de IA y un agente de Meta y Google Ads con aprobación.",
       h1: "Tribeca Media: auditoría, coste de IA y agentes de performance y contenido para KEYWORKERS",
       answer:
         "Tribeca Media construye KEYWORKERS, una plataforma de agentes de IA para marketing. Empezamos con una auditoría técnica del código y del servidor en producción, que encontró problemas críticos de seguridad y de coste antes de escalar. Después vino el plan de corrección por bloques a precio cerrado, la observabilidad y el control del gasto en IA, y el Performance Agent: revisa Meta y Google Ads, propone cambios y no ejecuta nada sin aprobación.",
@@ -263,7 +263,7 @@ export const CASOS: Record<string, Caso> = {
     es: {
       seoTitle: "Caso Growth4U: outbound, enriquecimiento y GoHighLevel",
       metaDescription:
-        "Para Growth4U y sus clientes: funnel en GoHighLevel, enriquecimiento de listas B2B con coste por acierto, LinkedIn, llamadas en caliente y auditoría de atribución.",
+        "Para Growth4U y sus clientes: funnel en GoHighLevel, listas B2B enriquecidas con coste por acierto, LinkedIn, llamadas en caliente y auditoría de atribución.",
       h1: "Growth4U: el proceso comercial de la agencia y el outbound de sus clientes",
       answer:
         "Growth4U es una agencia de growth de Madrid. Montamos su funnel de captación en GoHighLevel y llevamos el outbound de varios de sus clientes B2B: listas enriquecidas con decisores, emails y móviles verificados, campañas en LinkedIn, llamadas en caliente cuando alguien acepta la invitación y la medición de dónde viene cada lead.",
