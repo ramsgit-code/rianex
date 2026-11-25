@@ -1,0 +1,165 @@
+---
+title: "Automating a clinic's front desk: WhatsApp, calls and appointments"
+description: "Which front desk tasks in a clinic are solved with rules, which with AI and which a person should handle, including out-of-hours enquiries."
+date: "2026-10-23"
+updated: "2026-11-11"
+tags: ["clinics", "front desk", "whatsapp", "scheduling", "ai"]
+cluster: "captacion"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+A clinic's front desk does three jobs at once: it looks after the patient standing in front of it, picks up the phone and answers WhatsApp. When all three happen together, one does not get done. It is almost always the WhatsApp, and it is almost always from someone who is not yet a patient.
+
+It is not a problem of attitude. There are more messages than hands, and many ask exactly the same thing. This article is only about the desk: which part a system can do and which part it should never touch.
+
+## The short answer
+
+Automating a clinic's front desk means that messages, missed calls and appointment handling get a response even when nobody is free. Rules cover the mechanical part: instant acknowledgement, missed call turned into a WhatsApp, reminders, confirmation and waiting list. AI comes in to understand messages written by hand, answer questions with the clinic's information and work out which treatment the person is interested in. Diagnosis, clinical advice, complaints and emergencies still belong to a person.
+
+## What the front desk does during the day
+
+If every task were written down for a week, the list would look like this:
+
+- Answering WhatsApp: prices, opening hours, where to park, whether you see children.
+- Picking up calls and returning the missed ones.
+- Booking an appointment while the patient waits on the phone.
+- Confirming, rescheduling and notifying the waiting list.
+
+Almost all of them repeat dozens of times a week and follow a criterion that can be explained in five minutes. They meet the four conditions in [where to start automating processes with AI](/en/blog/automatizar-procesos-con-ia-por-donde-empezar): frequency, stable rules, measurable time and consequences when they fail.
+
+Before changing anything, count how many messages and calls come in, how long it takes to reply and how many go unanswered. How to do it is in [measuring a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## Who does each task
+
+Each task is split between three owners: a fixed rule, an AI model or a person.
+
+| Front desk task | Rule | AI | Person |
+| --- | --- | --- | --- |
+| Acknowledging a message | Yes, instantly | Not needed | No |
+| Missed call | Automatic WhatsApp to the number | Not needed | Returns the call if the patient asks |
+| Questions about price, hours or location | Menu of options, if that is enough | Understands the question written by hand and answers with the clinic's information | If the question is not covered by that information |
+| Knowing which treatment is of interest | Form with options | Works it out from a free-text message and asks the missing question | Reviews the doubtful cases |
+| Booking an appointment | Link to the available slots | Proposes slots within the conversation | Cases with special conditions |
+| Confirming and reminding | Yes, with a reply that updates the calendar | Not needed | No |
+| Rescheduling and waiting list | Yes, notifying the next person on the list | Not needed | If there is a conflict |
+| Clinical advice, complaints, emergencies | Only to hand over | Only to detect and hand over | Always |
+
+The rules column is the longest. That is normal: almost all front desk work does not need AI.
+
+## What rules solve
+
+**Instant acknowledgement.** Every message gets a reply within seconds: that it has been received, when it will be answered and a link to request an appointment. The patient stops writing to the next clinic on the list.
+
+**Missed call to WhatsApp.** When nobody picks up the phone, the system sends a WhatsApp to that number: "We saw you called and we couldn't take it. Shall we write to you here, or would you rather we called you?". How to set up a channel like this is in [WhatsApp automation for sales](/en/blog/whatsapp-automatizacion-ventas).
+
+**Reminders and confirmation.** A message before the appointment with a one-tap reply. Confirming marks the calendar; cancelling frees the slot without anyone typing it in.
+
+**Waiting list.** The freed slot is offered automatically to whoever was waiting. Several front desk calls become one message.
+
+## Where AI helps
+
+Rules work when the patient presses buttons. The problem is that patients write the way they talk: "hi there, I wanted to know how much the cleaning thing costs and if you have anything on Thursday afternoon because I finish work late".
+
+A menu cannot handle that and a language model can. AI adds value in four things:
+
+- **Understanding free-text messages.** Knowing that this message asks for a price and for availability, even though it uses no keyword.
+- **Answering questions with the clinic's information.** Indicative prices, opening hours, location. Only with what the clinic has given it.
+- **Qualifying the treatment of interest.** Asking the missing question to find out what the patient is looking for and whether it fits what you offer. We cover it in [how to qualify leads automatically](/en/blog/como-cualificar-leads-automaticamente).
+- **Handing over to a person.** Detecting when the conversation goes beyond what was planned and passing it to the front desk with the summary already written.
+
+That is what is usually called a "virtual receptionist": an agent that replies and books within clear limits. We explain when it pays off in [AI agents for companies](/en/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+## What the agent never confirms without checking the system
+
+The most dangerous failure of an AI receptionist is not that it does not know something. It is answering with confidence something it has not checked.
+
+A test worth running before putting it to work: someone calls or writes late in the afternoon, nervous, and asks whether the doctor is still at the clinic because they need to come right now. A badly designed agent answers "yes, come straight away", because that is the answer that seems helpful. But it has not looked at anything. If the doctor has already left, that answer is much worse than "I don't know".
+
+Language models tend to give the answer that fits the conversation, even when they do not have the fact. That is why the rule cannot live only in the instructions: the agent only states what it has read in a system during that same conversation.
+
+- **Slots and availability:** only those it has read in the calendar at that moment.
+- **Who is at the clinic:** never, unless there is reliable, up-to-date data. If there is not, it gives the emergency phone number or hands the conversation to a person.
+- **Prices:** only those in the table the clinic has provided. If it is not there, it says the front desk will confirm it.
+- **Appointments:** it only treats an appointment as booked when the scheduling software has returned the created appointment.
+
+Before delivering it, we run a battery of difficult conversations and check that it makes nothing up in any of them: the out-of-hours emergency, the question about a specific professional, the price of something that is not on the list and the calendar that does not respond. The battery is repeated every time the model or the instructions change, because an agent that made nothing up yesterday may do so tomorrow. If the agent also takes calls, the same rules apply: we explain it in [a voice agent that answers on WhatsApp and books the appointment](/en/blog/agente-de-voz-whatsapp-agenda-citas).
+
+## What has to stay human
+
+There is a line that does not depend on how good the technology is.
+
+**Diagnosis and clinical advice.** The system does not interpret symptoms or recommend treatments: it refers to a professional.
+
+**Complaints.** An automatic reply to an annoyed patient annoys them more. The complaint goes to a person, with priority.
+
+**Emergencies.** If the message describes something urgent, the system does not try to handle it: it says who to call and alerts the team.
+
+It is not a technical limitation. It is where the responsibility lies.
+
+## The out-of-hours problem
+
+The question that best sums all this up is simple: what happens today with the enquiries that arrive out of hours?
+
+In many clinics the honest answer is "nothing until the next day". The Sunday night message is answered mid-morning on Monday, and by then whoever wrote has already booked somewhere else.
+
+Out of hours is where automation is most noticeable: it replaces nobody, it fills a silence. With instant acknowledgement, answers to the usual questions and a booking link, a Sunday enquiry can reach Monday as an appointment. And what does not resolve itself reaches the front desk sorted and with context.
+
+## The connection to your scheduling software
+
+The automation has to read the free slots and write the appointments in your scheduling software, not in a parallel calendar.
+
+Many programs that are common in clinics, such as Koibox, Doctoralia or Clinic Cloud, usually offer an API or some kind of integration, but what each one allows varies by program and by plan. It is the first thing to check. If there is no way to read and write the calendar, the design changes: a slot is offered and a person confirms it.
+
+In our setups, the conversation and the follow-up usually live in GoHighLevel and the clinical calendar remains the clinic's own. If you do not know it, here we explain [what GoHighLevel is](/en/blog/que-es-gohighlevel).
+
+## Health data: be careful with WhatsApp
+
+Health data is a special category under the GDPR, and asking for an appointment for a treatment already says something about someone's health. Four practical rules:
+
+- **Do not ask for clinical information over WhatsApp.** The system asks which service is of interest and when the person can come. Symptoms, history or tests are dealt with in the consultation or in the clinical software.
+- **Discreet messages.** A reminder says "you have an appointment tomorrow at 10", not the name of the treatment.
+- **Consent and records.** Knowing what each patient has accepted and being able to prove it.
+- **Saying that it is an AI.** Since August 2026, the agent has to disclose in the first message that it is an artificial intelligence. We explain it in [what the AI Act requires of your chatbot](/en/blog/ai-act-chatbot-decir-que-es-ia).
+
+We cover it in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
+
+## What to measure
+
+Three numbers, before and after:
+
+- **Time to first reply**, separating opening hours from out of hours.
+- **Percentage of appointments confirmed** before the day of the appointment.
+- **No-shows**: appointments the patient did not turn up to without giving notice.
+
+If they do not improve, look at where it gets stuck rather than adding more automations on top.
+
+The full picture of the clinic, beyond the desk, is in [automation for clinics: patient acquisition, scheduling and no-shows](/en/blog/automatizacion-para-clinicas-captacion-y-agenda) and on our [solutions for clinics](/en/soluciones/clinicas) page.
+
+## Frequently asked questions
+
+### Can a clinic's front desk be automated without losing the personal touch?
+
+Yes, if you automate what is repetitive and not the relationship. Acknowledgements, reminders and questions about opening hours add no personal touch; removing them leaves the front desk more time for whoever is in front of it.
+
+### What is a virtual receptionist for clinics?
+
+An agent that answers WhatsApp or the website chat, answers questions with the clinic's information and proposes an appointment, within certain limits. It does not diagnose or advise on treatments, and it hands the conversation to a person when needed.
+
+### How do you reply to patients who write out of hours?
+
+With instant acknowledgement, answers to the usual questions and a booking link. What is not resolved is left sorted for the front desk when it opens.
+
+### Can WhatsApp be connected to the clinic's scheduling software?
+
+It depends on the software. Many offer an API or an integration, and then the system can read slots and write appointments. If they do not, a slot is proposed and a person confirms it in the calendar.
+
+### What should an AI receptionist never say?
+
+Anything it has not checked in a system during the conversation: that there is a slot, that a professional is at the clinic, a price that is not in the clinic's table or that an appointment is booked before the calendar has created it. If it does not have the fact, it says so and hands the conversation to a person.
+
+### Is it legal to use automated WhatsApp in a clinic?
+
+Yes, with care. Health data is a special category: it is best not to ask for clinical information over WhatsApp, messages must not name the treatment and recorded consent is needed.
+
+If you want to know what happens today with the messages and calls that come into your clinic, the [free assessment](/en/diagnostico) is 30 minutes and it produces a specific list of what to automate at the front desk and in what order.

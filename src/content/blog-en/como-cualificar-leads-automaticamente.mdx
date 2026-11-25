@@ -1,0 +1,99 @@
+---
+title: "How to qualify leads automatically: scoring, signals and agents"
+description: "How to filter leads before you talk to them: a form with scoring, intent signals, an agent that researches the company and a person who approves."
+date: "2026-04-01"
+tags: ["lead qualification", "automation", "gohighlevel"]
+cluster: "captacion"
+author: "Ramiro Pérez Rodero"
+updated: "2026-11-16"
+draft: false
+---
+
+The time you lose talking to leads who were never going to buy is the highest cost in your sales process. And the worst part is that it does not show up in any report.
+
+A 20-minute call to discover that the budget is half of what you need, that they need it "for next year" or that it was filled in by someone curious with no real intent. Multiplied by 50 leads a month, that is more than 16 hours lost a month.
+
+## The short answer
+
+Qualifying leads automatically means deciding, before anyone on the team talks to a contact, how well they fit and what to do with them. The base is a form with questions that filter and an automatic score in the CRM. On top of that you add two layers: the signals of what the lead does afterwards (opens the proposal, goes back to the pricing page, replies) and an AI agent that researches the company and proposes a score with its reasons. The decision to discard a lead or to write to one is still taken by a person.
+
+## The real problem
+
+Manual qualification has a structural flaw: it depends on someone asking the right question at the right moment. That does not scale.
+
+When the team is busy, leads wait. When the team has time, it handles bad leads along with the good ones. The result: long conversations with low conversion and good leads that go cold because nobody answered them in time.
+
+## The practical solution
+
+An automatic qualification system has three components:
+
+**Multi-step form with conditional logic**
+
+Not a generic contact form. A form where every question has a purpose: to filter or to move forward. The questions that matter: specific type of need, available budget with real ranges, urgency of the project, current situation.
+
+Conditional logic shows different questions depending on the previous answers. A clinic lead sees questions about type of treatment and capacity. An agency lead sees questions about volume of proposals and current tools.
+
+**Automatic scoring in GoHighLevel**
+
+Each answer adds or subtracts points. A lead with a high budget, immediate urgency and a specific need arrives in your pipeline as **hot**. A lead with a low budget and no urgency goes into long-term nurturing, not into your calendar.
+
+In GHL it is set up with custom fields, automatic tags and workflow conditions. The full process: lead fills in the form → GHL calculates the score → assigns a tag (cold/warm/hot) → triggers the corresponding automation.
+
+**Automatic reply differentiated by level**
+
+A hot lead gets a WhatsApp message in the first 5 minutes with a link to book. A warm lead gets an email with relevant content and enters a follow-up sequence. A cold lead goes into 30-day nurturing.
+
+The sales team only gets a notification when a hot lead arrives. The system does the rest of the work.
+
+## Beyond the form: signals, an agent that researches and a person who approves
+
+The form scores what the lead says about themselves at one moment. It is missing two things: what they do afterwards and what can be known about their company without asking them.
+
+**Signals.** A warm lead who opens the proposal three times in one day, goes back to the pricing page or replies to a follow-up email is no longer the same lead who filled in the form. Signals raise or lower the score without anyone reviewing it by hand: in GoHighLevel or HubSpot it is done with open events, visits to specific pages and replies, which trigger a change of tag or stage.
+
+**An agent that researches the account.** In B2B sales, the form does not say how many people the company has, whether it is hiring, what tools it uses or whether it fits with your current clients. An AI agent can look it up on their website and in public sources, summarise it in a record inside the CRM and propose a score with the reasons in plain view: "fits: 40 employees, events sector, has posted two sales job openings this month". That is where CRMs are heading: Rox, which is building a CRM in which AI agents research accounts, recommend which ones to prioritise and prepare the first contact, [raised 100 million dollars](https://fortune.com/2026/11/11/rox-series-b-100-million-funding-take-on-salesforce/) in November 2026 to compete with Salesforce.
+
+**A person who approves.** The agent proposes; it does not discard anyone or write to anyone on its own. Discarding a good lead because of a misread piece of data costs more than the call you wanted to save, and a first message with a mistake about the client's company burns the contact. The salesperson sees the record, the score and the reasons, and decides in seconds. We explain how to design that step without it becoming a bottleneck in [AI agents with human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
+
+The order matters: first the form and the score, which are cheap and predictable rules. The signals, when the CRM already records what happens properly. The research agent, last, and only if you sell to companies and each lead is worth enough to research.
+
+## How to implement it step by step
+
+The process has four phases:
+
+- Define your qualification criteria: minimum budget, sector, minimum acceptable urgency. If you do not know what makes a lead good, the system cannot filter.
+- Build the form with the questions that matter. Typeform, native GHL forms or a custom build embedded in your website. What matters is the conditional logic.
+- Set up the scoring in GHL. One custom field per critical variable, a workflow that adds points according to the answers, an automatic tag with the final result.
+- Create the reply automations. WhatsApp + Calendly for hot leads. Follow-up email for warm leads. Nurturing sequence for cold leads.
+
+Implementation time is two to three weeks depending on the complexity of the process.
+
+## The result you can expect
+
+At [Hospital Capilar](/en/casos-de-exito/hospital-capilar), a project we did with Growth4U, the system combines a qualification quiz, automatic follow-up on WhatsApp and a Booking SDR that books the appointment in Koibox, their appointment software. In 8 weeks, the cost per patient fell by 32%. The team no longer spends the same time on a good lead as on one who was never going to be a patient: it talks to those who passed the first filter, such as a viable treatment or a compatible budget.
+
+A qualification system does not reduce leads. It sorts them so that you can work the best ones first and not lose any along the way.
+
+Qualification is usually the first process worth automating, and in [where to start automating processes with AI](/en/blog/automatizar-procesos-con-ia-por-donde-empezar) we explain why. Before building it, get your starting numbers: [how to measure a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo). If you have a clinic, the same approach applied to the front desk is in [automating a clinic's front desk](/en/blog/automatizar-recepcion-clinica).
+
+## Frequently asked questions
+
+### What is qualifying leads automatically?
+
+It is deciding without manual intervention how well each contact fits and what to do with them: book them, follow up with them or leave them in a long-term sequence. It is done with a form that filters, an automatic score in the CRM and, in the most complete systems, behaviour signals and an agent that researches the company.
+
+### What questions should a qualification form have?
+
+The ones that separate a good lead from a bad one in your business, normally the type of need, the budget in real ranges, the urgency and the current situation. Every question has to serve to filter or to move forward; if it does not change what you do with the lead, it is not needed.
+
+### Can an AI agent qualify leads on its own?
+
+It can research the company, summarise it and propose a score with its reasons. Discarding a lead or writing to them should be approved by a person, because a misread piece of data costs more than the review.
+
+### How long does it take to set up a qualification system?
+
+The base, which is the form, the score and automatic replies by level, is implemented in two to three weeks. The signals and the research agent are added later, when the base already works and is being measured.
+
+---
+
+If you want to know which qualification system you need for your business, start with the [free assessment](/en/diagnostico). In 30 minutes I analyse your current process and tell you exactly what would need to be built.

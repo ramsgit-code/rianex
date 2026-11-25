@@ -1,0 +1,190 @@
+---
+title: "How to reduce AI token spend: selective AI in 6 steps"
+description: "Tokenmaxxing is expensive. What Anthropic's S-1 says about AI consumption and how to make your systems call the model only where it adds value."
+date: "2026-11-24"
+tags: ["ai cost", "tokens", "ai agents", "n8n", "lean", "video"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+draft: false
+video: "/videos/ia-selectiva.mp4"
+videoPoster: "/videos/ia-selectiva.jpg"
+videoDuration: "PT58S"
+---
+
+Most companies that use AI use it for everything, and they pay for it every time they use it. The industry already has a name for this, half as a joke: *tokenmaxxing*. It means letting an agent think, try and repeat in a loop until it solves a task, without looking at how much it consumes. It works, and there are jobs for which I know nothing better. For many others it is like hiring a senior consultant to file your invoices.
+
+Anthropic, the company that makes Claude, began trading on 19 November, and its IPO prospectus puts figures on that consumption. We have checked them one by one against the original document, because some of the numbers going around these days do not match it. In this article I explain what those figures tell a company that already uses AI, and how we build systems at Rianex that call the model only in the steps where it is needed.
+
+## The short answer
+
+Selective AI means using AI to *build* the system and letting the system run almost always on ordinary logic: rules, code or a workflow in n8n. The model comes in only at the steps where free-form language has to be understood or something ambiguous has to be decided. The tokens are spent once, when building, and not on every run.
+
+To get there we apply *lean*, the method a factory uses to remove waste, in six steps: map the process, measure the cost per task, separate the deterministic from the ambiguous, choose the right-sized model for each step, trim the context and measure again. There is a quick test to tell whether a process is a candidate: if its rules can be written on a single sheet of paper, you do not need a model to reason through them on every run.
+
+## What tokenmaxxing is and why it is expensive
+
+An AI agent works in a loop: it reads the context, decides, acts, reviews the result and starts again. Each turn consumes *tokens*, the unit a model is billed in (what you send it plus what it answers). And each turn costs a little more than the one before, because the agent carries everything it has already done.
+
+For an open-ended task, that loop is exactly what you want. The waste appears when it is given repetitive, predictable work, such as classifying an email by its sender, validating a form or moving data from the CRM to a spreadsheet. In *lean* this is called overprocessing: doing more work than the result needs.
+
+You pay for it in three ways. The most visible is money: you pay to think through something that had already been thought through, and you pay on every run. The second is time, because each call to the model takes seconds and a rule takes milliseconds. The third is the one that worries me most, reliability. Given the same input, a model can answer differently and a rule in code cannot. And the more steps an agent chains together, the easier it is for one of them to go wrong without anyone seeing it.
+
+### The maths, in tokens
+
+The price per token changes every few months, so the calculation that holds up over time is the one in tokens. An example with round numbers, made up to show the order of magnitude: a six-step process that runs 300 times a day.
+
+- If the model takes part in all six steps and on each call reads about 4,000 tokens of instructions, tools and history, that is 24,000 input tokens per task: 7.2 million a day.
+- If it comes in at a single step, with the context trimmed to 1,000 tokens, that is 300,000 a day.
+
+Twenty-four times less, without changing provider or model. Your numbers will be different, and that is why the second step of the method is to measure them.
+
+## What Anthropic's S-1 says
+
+Anthropic filed its IPO prospectus, the [Form S-1](https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm), with the SEC on 26 October 2026. What matters to whoever pays the bill fits in a table:
+
+| S-1 data point | Figure |
+|---|---|
+| Revenue for the first half of 2026 | $16,286M ($1,163M a year earlier) |
+| Consumption revenue (pay per use, measured in tokens) | $13,064M, 80% |
+| Subscription revenue | $3,222M, 20% |
+| Net revenue retention at 30 September 2026 | ~900% |
+| Average spend of Claude Enterprise users who do not use Claude Code | Less than $75 a month |
+| Spend of the top-spending 5% among those who do use Claude Code | About 20 times that figure |
+
+The [final prospectus](https://www.sec.gov/Archives/edgar/data/2130357/000162828026074944/anthropicpbc-424b4.htm), dated 19 November, extends the data to nine months: $33,242M in revenue, of which 79% is still consumption.
+
+The 900% figure should be read slowly, because it is being quoted wrongly. It does not mean that customers spend "nine times more", but about nine times what they used to spend: those who were already paying a year ago spent in the third quarter of 2026 about nine times what they spent in the same quarter of 2025. Anthropic makes that calculation without counting Pro and Max subscriptions. For reference, the median for listed software companies is [109%](https://cloudedjudgement.substack.com/p/clouded-judgement-111926-security); the 108% that is also going around is the 2025 figure.
+
+To a company that uses AI, these figures say two things.
+
+The first is that the business of whoever sells you the model is for you to use it more. It would be unfair to say they do not help you spend less: the S-1 itself reports that Claude Opus 5.5 cut the cost per task by around 40% compared with Opus 5, between a price cut and better efficiency. But usage grows faster than the price falls. If it did not, retention would not be 900%.
+
+The second is where that growth comes from. The Claude Code figure gives a clue: among enterprise users of this agent, which works in a loop, the top-spending 5% pay about twenty times what someone who does not use it spends on average. Your company is not Anthropic's average customer and nobody is saying your bill will be multiplied by nine. But if your processes depend on agents that reason through every step, it is heading the same way: every new process you hand them is consumption that adds up, every month.
+
+## What selective AI is
+
+Selective AI uses AI to *build* the system, and lets the system run almost always on ordinary logic. The model comes in only at the steps that need to understand language or decide something ambiguous. And when it comes in it does not execute anything: it returns a piece of data in a fixed format (a day, a time slot, a category) and the workflow does the rest.
+
+An example: a padel club that takes bookings over WhatsApp.
+
+| Step | With an agent for everything | With selective AI |
+|---|---|---|
+| A message arrives | The model reads it and decides what to do | Buttons and keywords route it: book, cancel, opening hours |
+| Check free slots | The model calls the calendar | The workflow queries the calendar |
+| Confirm the booking | The model writes the confirmation | Template with day, time and court |
+| Reminder the day before | The model decides what to write | Scheduled task with a template |
+| "Is there anything on Thursday after lunch for four?" | The model | A small model turns it into day, time slot and players; the workflow finds the slot |
+| A complaint or an odd case | The model improvises | It goes to a person |
+
+With an agent for everything, every message goes through the model. With selective AI, a workflow in n8n or in the CRM handles opening hours, availability, confirmations and reminders with fixed rules, and the model only interprets the messages that do not fit any rule.
+
+For the person booking, the two versions are the same: they write and they get an answer. Inside, what changes is what each conversation costs, how long the answer takes and the fact that the system always does the same thing in the same situation. There is another advantage that nobody values until something fails. When the model gets it wrong, the error stays in one step and is visible, instead of bending a chain of ten.
+
+### A real case: the sales workflow at Eventos Barcelona
+
+In the sales system we built for [Eventos Barcelona](/en/casos-de-exito/eventos-barcelona) there are eight steps between the incoming email and the follow-up on the proposal. AI decides in two:
+
+1. Clean the email and discard automatic senders: rule.
+2. Find or create the contact in the CRM: rule.
+3. Is it a client, an artist or a supplier?: AI.
+4. Is it about a new project or one that is already open?: AI.
+5. Open the opportunity in its pipeline or add a note: rule.
+6. Generate the branded proposal: template.
+7. Send it and log it: rule.
+8. Reminder at 48 hours and alert to the salesperson at 72: rule.
+
+The proposal goes out about eight minutes after the end of the call, when it used to take one to three days, and the response time to the client has dropped by 85%. The most eye-catching step, the branded proposal, is precisely one of those that uses no model at all: it is a template.
+
+## How it is done: lean applied to AI
+
+In a factory, *lean* means removing the waste (*muda*) from every process. I am an industrial engineer and it is the method we use at Rianex with AI too: a token that adds nothing to the result is waste, just like a pallet that gets moved twice. There are six steps.
+
+### 1. Map the process
+
+Draw every step of the workflow, from input to output, and mark the ones where the model takes part today. With the drawing in front of you, steps almost always show up where the model does something that had already been decided: changing the format of a date, copying a field, choosing a branch that depends on a single checkbox. We explain how to get the map and the numbers in a week in [measuring a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
+
+### 2. Measure the cost per task
+
+Work out what each complete run costs in tokens, in time and in errors. The monthly bill does not say where the money goes. You need the cost of each booking, each proposal or each ticket, and to have it you must log every call to the model with its task, its model, its tokens and its cost, as we explain in [the cost of an AI agent in production](/en/blog/coste-agente-de-ia-en-produccion). Without that number, everything else is opinion.
+
+### 3. Separate the deterministic from the ambiguous
+
+For each step, a single question: given the same input, is the right answer always the same?
+
+If it is, the step moves to code or to a workflow in n8n. That is where validating, calculating, moving data and sending reminders end up. If free text has to be understood or judgement is needed, the model stays, and it is asked for a specific piece of data in a fixed format, not to carry out the action.
+
+Of the six, this is the step that saves the most. A call that disappears costs zero, and no cheap model can match that.
+
+### 4. Choose the right-sized model for each step
+
+A simple classification does not need the most powerful model. Use small, cheap models where they are enough and keep the large one for the hard parts, with a rule that decides which one comes in for each case. It is the pattern with which Revolut says it has cut its spend on AI for coding by around 90%, as we explain in [charging for AI by outcome](/en/blog/cobrar-la-ia-por-resultado). At Eventos Barcelona, the two AI steps are handled by an open model that runs on the company's own server, with no cost per use.
+
+That said, compare the cost per correct answer and not the price per token. A cheap model that fails a lot is not cheap.
+
+### 5. Trim the context and reuse
+
+Send the model only the information it needs, not the whole history. Put the fixed part of the instructions first to take advantage of the provider's cache, which charges much less for what is repeated on every call. Store the answers to questions that come up again and again. And whatever is not urgent, send in batches, which providers charge at half price.
+
+Anthropic's S-1 itself describes two levers of this kind in its models: an effort control, to decide on each request how much the model reasons, and a tool search that loads only the tools needed for the task instead of sending them all on every call.
+
+### 6. Measure again and standardise
+
+Compare before and after with the same four measures:
+
+| Metric | What it tells you |
+|---|---|
+| Cost per complete task | What you really pay for each booking, proposal or ticket |
+| Percentage of runs that reach the model | How much of the process is still "thinking" |
+| Response time | Whether the customer notices the difference |
+| Errors and handoffs to a person | Whether the saving has eaten into quality |
+
+What works becomes a template for the next process. It is the continuous improvement of a plant, applied to a workflow.
+
+## When an agent is worth it
+
+None of this is against agents. At Rianex we code with one every day and we would not swap it for a workflow. An agent is worth it when the task changes every time and getting it wrong costs more than the consumption. We go into this in [AI agents for business: when they are worth it](/en/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+| Situation | Best option |
+|---|---|
+| Repetitive process with clear rules (bookings, new CRM records, reminders) | Deterministic workflow and AI at specific points |
+| High volume and low value per run | Deterministic workflow and a small model |
+| Understanding free text from customers | Model only at that step |
+| Open-ended task that is different every time (research, coding, analysis) | Agent |
+| Prototype to validate an idea | Agent; optimise it afterwards |
+
+The last row has a catch. To validate an idea, an agent that does everything is the quickest thing to set up, and it is fine to start that way. The mistake is leaving it as it is once the process already repeats a hundred times a day.
+
+## Frequently asked questions
+
+### What is tokenmaxxing?
+
+It means letting an AI agent think, try and repeat in a loop until it solves a task, without looking at how much it consumes. The term is used half as a joke in the industry. It makes sense for open-ended tasks, but in repetitive processes you pay every time to reason through something that had already been decided.
+
+### What is selective AI?
+
+It means designing systems so that they run almost always on rules, code or workflows, and call the AI model only at the steps that need to understand free-form language or decide something ambiguous. AI is used to build the system, not to execute every step.
+
+### How much does Anthropic earn from consumption of its AI?
+
+According to its S-1, in the first half of 2026 its revenue was 16,286 million dollars, of which 13,064 million (80%) came from charging for consumption, measured in tokens, and 3,222 million from subscriptions. In the first nine months of the year, according to the final prospectus, it was 33,242 million, 79% from consumption.
+
+### What does a net revenue retention of 900% mean?
+
+That the customers who were already paying Anthropic a year ago spent in the third quarter of 2026 about nine times what they spent in the same quarter of 2025. Anthropic calculates it without counting Claude Pro and Max subscribers. The median for listed software companies is around 109%.
+
+### Doesn't using the model less make the result worse?
+
+In deterministic steps the opposite happens: a rule always gives the same correct answer and a model does not. Where language has to be understood, the model stays. What is compared before and after is the cost per task and the error rate, not the number of calls.
+
+### Can it be applied to an agent that is already running?
+
+Yes, and that is usually where it shows most. Its calls are logged for one or two weeks, you see which steps repeat with the same answer and those move to rules. The agent keeps the conversations that need it.
+
+### What tools is it built with?
+
+With the ones the company already has: a workflow in n8n or Make, the CRM itself (GoHighLevel, HubSpot) or custom code for the fixed logic, and a model from Anthropic, OpenAI or Google at the language steps. We compare the three workflow platforms in [n8n vs Make vs Zapier](/en/blog/n8n-vs-make-vs-zapier).
+
+## How much does each AI task cost you?
+
+If your company already uses AI in customer service, sales or operations, the first thing I would look at is how much each task costs and what part of that cost pays for something that had already been decided. At Rianex we design automations with [selective AI](/en/servicios/ia-selectiva): we review your current workflows, measure the cost per task and propose what to move to fixed logic and where to keep the model. Write to me at [hola@rianex.es](mailto:hola@rianex.es) or book the [free consultation](/en/diagnostico) and we will go through it with your numbers.

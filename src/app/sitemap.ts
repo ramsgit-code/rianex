@@ -3,7 +3,7 @@ import { getAllPosts } from "@/lib/blog";
 import { SERVICIO_SLUGS } from "@/lib/servicios";
 import { SECTOR_SLUGS } from "@/lib/sectores";
 import { CASO_SLUGS } from "@/lib/casos";
-import { ES_ONLY_ROUTES } from "@/lib/i18n";
+import { LEGAL_ROUTES } from "@/lib/i18n";
 
 const BASE_URL = "https://www.rianex.es";
 
@@ -43,13 +43,13 @@ const CHANGE_FREQ: Record<string, "yearly" | "monthly" | "weekly"> = {
 const LASTMOD = {
   home: "2026-11-25",
   servicios: "2026-11-25",
-  soluciones: "2026-11-24",
+  soluciones: "2026-11-25",
   casos: "2026-11-24",
   diagnostico: "2026-11-18",
   testimonios: "2026-11-01",
   sobreMi: "2026-11-01",
   calculadora: "2026-11-24",
-  legal: "2026-10-02",
+  legal: "2026-11-25",
 } as const;
 
 const STATIC_LASTMOD: Record<string, string> = {
@@ -110,21 +110,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const toolPages = bilingual("/herramientas/calculadora-fuga-de-leads", day(LASTMOD.calculadora), 0.8);
 
-  // Los articulos solo existen en castellano, asi que van sin hreflang.
-  const blogPages = posts.map((p) => ({
-    url: `${BASE_URL}/blog/${p.slug}`,
-    lastModified: p.updatedAt,
-    changeFrequency: "yearly" as const,
-    priority: 0.6,
-  }));
+  // Articulos: el original en castellano y, si existe, su traduccion, cada
+  // uno con su <loc> y el hreflang hacia los dos.
+  const traducidos = new Set(getAllPosts("en").map((p) => p.slug));
+  const blogPages = posts.flatMap((p) => {
+    const es = `${BASE_URL}/blog/${p.slug}`;
+    const en = `${BASE_URL}/en/blog/${p.slug}`;
+    const base = { lastModified: p.updatedAt, changeFrequency: "yearly" as const };
+    if (!traducidos.has(p.slug)) return [{ url: es, ...base, priority: 0.6 }];
+    const alternates = { languages: { "es-ES": es, en, "x-default": es } };
+    return [
+      { url: es, ...base, priority: 0.6, alternates },
+      { url: en, ...base, priority: 0.5, alternates },
+    ];
+  });
 
-  // Los textos legales solo existen en castellano, asi que van sin hreflang.
-  const legalPages = ES_ONLY_ROUTES.map((path) => ({
-    url: `${BASE_URL}${path}`,
-    lastModified: day(LASTMOD.legal),
-    changeFrequency: "yearly" as const,
-    priority: 0.3,
-  }));
+  const legalPages = LEGAL_ROUTES.flatMap((path) =>
+    bilingual(path, day(LASTMOD.legal), 0.3).map((e) => ({ ...e, changeFrequency: "yearly" as const, priority: 0.3 }))
+  );
 
   return [...staticPages, ...servicePages, ...sectorPages, ...casePages, ...toolPages, ...blogPages, ...legalPages];
 }

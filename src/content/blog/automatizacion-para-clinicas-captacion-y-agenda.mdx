@@ -2,6 +2,7 @@
 title: "Automatización para clínicas: captación, agenda y ausencias"
 description: "Llamadas perdidas, huecos vacíos y pacientes que no vuelven. Qué automatizar en una clínica y qué no se puede tocar por tratarse de datos de salud."
 date: "2026-09-28"
+updated: "2026-11-25"
 tags: ["clínicas", "salud", "automatización", "agenda"]
 cluster: "captacion"
 author: "Ramiro Pérez Rodero"
@@ -72,5 +73,23 @@ El segundo suele ser el más revelador, y el cuarto el que esconde más dinero.
 Si solo se puede hacer una cosa, los recordatorios con confirmación. Es lo más barato de montar, lo más rápido de notar y lo que menos roza la parte delicada de los datos.
 
 Con eso funcionando y medido, el siguiente paso es la respuesta inmediata a las solicitudes que entran fuera de horario: lo desarrollamos en [cómo automatizar la recepción de una clínica](/blog/automatizar-recepcion-clinica).
+
+## Preguntas frecuentes
+
+### ¿Qué se puede automatizar en una clínica?
+
+Por orden de retorno: la respuesta inmediata a cualquier solicitud, los recordatorios de cita con confirmación, la lista de espera cuando alguien cancela, la precualificación antes de la primera llamada y el seguimiento a los tres meses del tratamiento. Si solo se puede hacer una cosa, los recordatorios con confirmación, porque es lo más barato de montar y lo que menos roza la parte delicada de los datos.
+
+### ¿Cómo se reducen las ausencias de pacientes a las citas?
+
+Con recordatorios automáticos que pidan confirmación: uno al reservar, otro 48 horas antes y otro el mismo día. La respuesta del paciente tiene que actualizar la agenda sin que nadie la teclee. En clínicas sin recordatorios automáticos, la tasa de ausencias suele estar entre el 15% y el 30%.
+
+### ¿Qué cuidado hay que tener con los datos de salud al automatizar una clínica?
+
+Los datos de salud son categoría especial según el artículo 9 del RGPD, y pedir cita para un tratamiento concreto ya dice algo sobre la salud de alguien. Por eso el diagnóstico no va en el CRM comercial, que gestiona el contacto, el interés y la cita, mientras la historia clínica se queda en el software clínico. Los mensajes automáticos no deben nombrar el tratamiento, y un agente puede informar y agendar, pero no interpretar síntomas. Hace falta además un consentimiento explícito que se pueda demostrar.
+
+### ¿Hay que cambiar el software de gestión de la clínica para automatizar?
+
+No. La automatización se conecta al software clínico, no lo sustituye. El CRM lleva la captación y la conversación, y la agenda sigue siendo la del software clínico, sincronizada en un solo sentido. Cuando la agenda vive en dos sitios que se escriben mutuamente, acaban apareciendo citas duplicadas.
 
 En el [diagnóstico](/diagnostico) miramos esos cuatro números en tu clínica y sale qué automatizar primero, con la cuenta de lo que supone.

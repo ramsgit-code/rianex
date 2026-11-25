@@ -1,0 +1,149 @@
+---
+title: "AI agents with human approval: how to design it well"
+description: "What a person must approve when an AI agent touches money or customers: who approves, when it expires and what is never automated. With a real case."
+date: "2026-10-28"
+updated: "2026-11-11"
+tags: ["ai agents", "human approval", "human in the loop", "meta ads", "google ads"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+"Have a person approve it" is the phrase that reassures everyone when the talk turns to letting an AI agent touch campaigns, budgets or messages to customers. It is said in one line and built in several weeks, because a badly designed approval gives the feeling of control without giving control.
+
+This article sets out how we designed it in an agent that manages real Meta Ads and Google Ads campaigns, and which decisions are worth making before writing code.
+
+## The short answer
+
+An AI agent with human approval (also known as human in the loop) proposes actions and only executes them when a person with permission approves them. For it to work, six things are needed: separate the one that proposes from the one that executes, decide who can approve and check it on the server, make approvals expire, read the real state again before executing, keep out of the agent the actions that must never be automatic and log everything that happens. The limit figures go in the code, not in the model's instructions.
+
+## Why "asking for permission" is not enough
+
+The naive version is an "Approve" button under each proposal from the agent. It works in a demo and fails in production for four reasons:
+
+- **Proposals go stale.** The agent proposes pausing an ad on Monday morning. Nobody looks at it until Thursday. By then the ad may have recovered, or the campaign no longer exists. Approving on Thursday something thought out with Monday's data is approving blind.
+- **Not everyone who can see can decide.** In any company there are people who should see what the agent does but not move money. If the button appears for everyone, the rule depends on goodwill.
+- **The world changes between approval and execution.** Someone raises the budget by hand in Meta five minutes after lowering it was approved. If the agent executes with the figure it had noted down, it undoes a human change without anyone seeing it.
+- **Too many approvals get approved without being read.** If every action asks for two signatures, within two weeks people sign out of habit. Real control goes down even though on paper it goes up.
+
+## 50 million so that agents ask for permission
+
+The idea already moves money. On 10 November 2026, the Israeli company Bay [launched with 50 million dollars](https://siliconangle.com/2026/11/10/ai-security-startup-bay-launches-with-50m-to-vet-agent-actions-before-they-run/), with Battery Ventures leading its Series A, to review every action of an agent before it runs. Its product takes inventory of the agents on a company's laptops, cloud and applications, puts them under a single policy and blocks the actions it considers too risky. Its thesis: filtering what the agent is asked to do is not enough, because a harmless-looking request can end with an agent deleting a production database.
+
+Bay is designed for large companies with dozens of agents. An SME with one or two does not need a platform like that, but it does need the same principle: what is controlled is the action, not the conversation. That is what the design below does, with one difference. Where Bay blocks by policy, here a person decides.
+
+## The six design decisions
+
+### 1. The agent proposes; another process executes
+
+The agent does not hold the execute button. It writes a proposal with its reasoning and leaves it pending. The screen where it is approved only changes the status to "approved". A separate process, which runs every few minutes, picks up what has been approved and executes it against Meta or Google Ads.
+
+Separating it has two advantages. If execution fails (the Meta API returns an error, a permission has expired), the proposal is marked with the error and can be retried with a button, without asking the model for anything again. And the model never has a direct path to spending money: even if it gets it wrong or someone tricks it with an odd piece of text, the only thing it can do is propose.
+
+### 2. Who approves, checked on the server
+
+The roles have to be written down before building. In the case we describe below they ended up like this:
+
+| Role | View | Propose | Approve and activate | Change settings |
+|---|---|---|---|---|
+| Owner | Yes | Yes | Yes | Yes |
+| Administrator | Yes | Yes | Yes | Yes |
+| Member | Yes | Yes | No | No |
+
+What matters is where it is checked. Hiding the button on the screen is not enough: if someone calls the API directly, the server has to answer no. In our case, a member who tries to approve gets a permission error even if they reach the request by another route.
+
+### 3. Approvals expire
+
+A pending proposal expires after 24 hours. If nobody approves it within that time, it moves to "expired" and is never executed. Silence is not a yes.
+
+Expiry is applied in three places, because with only one there is always a gap:
+
+1. A periodic pass marks as expired everything pending that is past its deadline.
+2. The process that executes refuses to execute an approval past its deadline, in case the pass has not run.
+3. The approval screen refuses to approve something expired, even if the user has had it open since yesterday.
+
+### 4. Read again before touching
+
+Before executing, the agent reads the real value on the platform again. If it is going to lower a campaign's budget, it reads the budget the campaign has now in Meta, checks that the account is the right one and stores the previous value. With that value stored, the reduction can be undone.
+
+It is the same principle used by any system that moves money: do not trust the snapshot taken when the proposal was made.
+
+### 5. What is never automatic
+
+There are actions the agent can suggest but cannot execute, not even with approval:
+
+- **Raising the budget.** The agent can say that a campaign deserves more money. The decision and the change are made by a person on the platform.
+- **Simply activating a new campaign.** The campaigns the agent creates start paused. Activating them requires an extra confirmation from whoever approves.
+- **Spending outside what is allowed.** It can only work on accounts in an allowlist, in euros and with a daily spending cap per client.
+
+And a less obvious rule: **the limit figures do not go in the prompt.** The model does not know what the spending cap is or how much it can lower a budget. Those numbers live in the code that executes, which cannot be talked round. If the limit were written in the model's instructions, it would be enough for the model to make a mistake, or for someone to slip a piece of text into an ad or a comment, to get past it.
+
+### 6. Double sign-off only where it matters
+
+Activating a campaign is the only thing that allows a second sign-off from another person. And it is optional: it is a switch per client, off by default, which the administrator turns on if their company needs it. All other actions take a single approval.
+
+The reason is the one given at the start: if everything asks for two signatures, none of them gets read.
+
+## The detail nobody looks at: what time it is
+
+A daily cap, a 24-hour expiry and a task scheduled "at nine" depend on something that looks trivial: which time zone the system is in.
+
+In the project we describe below, part of the code counted days in Mexico time, where the operation was at the beginning, while the clients were in Spain. The nine o'clock morning audit actually went out at five in the afternoon, and the "day" of the creatives cap started at seven or eight in the morning in Spain. We moved everything to a single zone, Spain's, daylight saving changes included. It is an afternoon's fix, but if nobody looks at it, the caps do not protect the day you think they do.
+
+## From approval to autonomy
+
+Human approval does not have to be forever. The path we propose has three phases:
+
+1. **Shadow mode.** The agent proposes everything and executes nothing without approval. It is used to measure how many proposals it gets right.
+2. **Autonomy with caps.** When the track record justifies it, the owner (and only the owner) allows certain actions to run by themselves, with a cap per action: for example, three pauses a day at most or budget reductions of up to 30%. Anything above the cap goes back to asking for approval.
+3. **Continuous review.** Each autonomous action is logged just like the approved ones, and autonomy can be switched off in one click.
+
+What we do not recommend is skipping the first phase. Without weeks of reviewed proposals there is no way to know whether the agent deserves the trust.
+
+## A real case: Tribeca Media
+
+[Tribeca Media](/en/casos-de-exito/tribeca-media) builds KEYWORKERS, a platform that gives each client a team of AI agents for marketing. We built its Performance Agent, which [manages Meta Ads and Google Ads campaigns](/en/blog/agente-ia-meta-ads-google-ads): it reads them, detects what stops working and proposes pausing, lowering the budget or creating new campaigns.
+
+Everything above comes from that project: the separate executor with a retry button, the roles checked on the server, the expiry applied in three places, the re-read of the real budget with the previous value stored, the campaigns that start paused, the optional second sign-off and the move of everything to Spain time. The code is finished, with almost 1,000 automated tests, and is in validation with a pilot client, in shadow mode.
+
+## Checklist for your agent
+
+Before building an agent that touches money or customers, write in a document:
+
+1. Which actions it can propose and which it can execute with approval.
+2. Which actions it never executes.
+3. Who approves each one, and how the server checks it.
+4. How long a proposal lasts before it expires.
+5. Which value it reads again before executing and how each action is undone.
+6. Where the proposals, the approvals and what was executed are logged.
+7. In which time zone the caps and scheduled tasks count days.
+
+If any answer is "we will see", the agent is not ready to work on real accounts. If the system already exists and is going to grow, also review [what to look at before scaling it](/en/blog/revisar-sistema-de-agentes-ia-antes-de-escalar). To find out whether an agent pays off in your case, start with [when AI agents pay off](/en/blog/agentes-de-ia-para-empresas-cuando-compensan).
+
+## Frequently asked questions
+
+### What is human in the loop in an AI agent?
+
+It is the design in which a person reviews and approves the agent's actions before they are executed. The agent analyses and proposes; the person decides. It is used above all when the action moves money, talks to a customer or is hard to undo.
+
+### Doesn't human approval remove all the savings from the agent?
+
+No, because the expensive work is the analysis, not the click. The agent reviews all the campaigns twice a day, detects the problem, prepares the action and explains why. The person takes seconds to approve something that would have taken them an hour to find.
+
+### Why do approvals have to expire?
+
+Because a proposal is made with the data of one moment. After a day, that data may have changed and approving it would mean deciding on an old snapshot. If it expires, the agent will propose it again if it still makes sense, with new data.
+
+### Can an agent approve what another agent proposes?
+
+A second model can review a proposal and point out errors, and it is good practice for it to come from a different provider so that it does not share the same flaws. But whatever touches money or a customer should be approved by a person, at least until there is a track record that justifies giving autonomy with caps.
+
+### Are there tools that control agents' actions?
+
+Yes, and it is a growing market. Bay, for example, launched in November 2026 with 50 million dollars to review every action of a company's agents before it runs and block the risky ones. For an SME with few agents it is usually enough to design it inside the agent itself: the agent proposes, a person approves and the limits live in the code.
+
+### When can human approval be removed?
+
+When the agent has spent weeks in shadow mode, its proposals have been reviewed and the percentage it gets right is high. Then autonomy is given per action and with caps, never all at once, and it is decided by the person responsible for the business, not the technical team.
+
+If you want to put an agent to work on your campaigns or your customers and you are not sure where to set the limits, in the [free assessment](/en/diagnostico) we look at it on your real process.

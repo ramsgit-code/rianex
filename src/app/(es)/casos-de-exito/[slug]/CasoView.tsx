@@ -47,7 +47,7 @@ const LABELS = {
     stack: "Stack",
     services: "Services in this case",
     sector: "The solution for this sector",
-    guides: "Related guides (in Spanish)",
+    guides: "Related guides",
     video: "The case on video",
     videoNote: "Narrated in Spanish.",
   },
@@ -74,7 +74,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
     .map((s) => c.servicios.items.find((i) => i.slug === s))
     .filter((s) => s !== undefined);
   const sector = d.sector ? getSector(d.sector, lang) : null;
-  const posts = d.posts.map((s) => getPost(s)).filter((p) => p !== null);
+  const posts = d.posts.map((s) => getPost(s, lang) ?? getPost(s)).filter((p) => p !== null);
 
   const jsonLd: Record<string, unknown>[] = [
     {
@@ -277,7 +277,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
                 <ul className="mt-5 grid gap-4 md:grid-cols-2">
                   {posts.map((p) => (
                     <li key={p.slug}>
-                      <Link href={`/blog/${p.slug}`} className="card group block h-full">
+                      <Link href={`${lang === "en" ? "/en" : ""}/blog/${p.slug}`} className="card group block h-full">
                         <h3 className="font-semibold text-foreground group-hover:text-accent-text">
                           {p.title}
                         </h3>

@@ -1,0 +1,88 @@
+---
+title: "GoHighLevel integration with your stack: what works, what doesn't"
+description: "Webhooks, API and the connections that really hold up in production. What to integrate first and which mistakes break the sync after three months."
+date: "2026-09-24"
+updated: "2026-11-25"
+tags: ["gohighlevel", "integrations", "api", "webhooks"]
+cluster: "crm"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+An isolated CRM is an expensive address book. The value appears when it stops being a place where someone writes things down and becomes the place where the rest of the tools leave what they know.
+
+The practical question is not whether GoHighLevel integrates with what you already use. It almost always can. The question is which integrations hold up in production without breaking every two weeks, and that list is shorter.
+
+## The three ways to connect, and when to use each one
+
+**Native integration.** The one that comes ready-made. You turn it on and it works. It is the first option whenever it exists, because the maintenance is not yours. The limitation is that it does what it does, and if you need a field it does not cover, there is no way around it.
+
+**Webhooks.** GoHighLevel notifies another system when something happens: a contact comes in, a stage changes, an appointment is booked. It is the most robust way to connect things in real time, because there is no need to keep asking whether something has changed. If your integration can be a webhook, make it one.
+
+**API.** When you need to read or write on demand, or do something the webhook does not cover. It is the option with the most control and the one that creates the most maintenance work, because the provider's version changes are yours to solve.
+
+**Middleware connectors** such as Make or Zapier. Quick to set up and expensive to run when the volume grows, because you pay per execution. They are fine for validating an idea and turn out badly as permanent infrastructure for something that happens a thousand times a day.
+
+## What to integrate first
+
+The order matters, because each integration adds one more thing that can fail.
+
+**First, contact intake.** Website, forms and landing pages. It is what decides whether the CRM has data or not. Without this, nothing else matters.
+
+**Second, the conversation channel.** WhatsApp, email, phone. The history of what was said should live next to the contact record, and not on a sales rep's mobile. We go into this in [WhatsApp for sales](/en/blog/whatsapp-automatizacion-ventas).
+
+**Third, the calendar.** Booking should mean really blocking a slot in the calendar people look at, and a cancellation should free the slot without anyone touching it.
+
+**Fourth, invoicing.** A won opportunity should generate whatever it has to generate with no manual re-entry of data.
+
+Almost nobody needs more than this in the first months. Exotic integrations can wait until the four above are stable.
+
+## The four mistakes that break integrations after three months
+
+We have seen these enough times to name them.
+
+**Not defining which is the source of truth.** If a contact's phone number can be edited in the CRM and in the invoicing tool, and the two are synchronised, sooner or later they overwrite each other. For each piece of data you have to decide which system is in charge. The rest read and do not write.
+
+**Synchronising in both directions for no reason.** Two-way synchronisation multiplies the failure modes and is almost never needed. In most cases, one direction is enough and it is infinitely easier to debug.
+
+**Not handling failures.** A webhook that does not arrive, an API that returns an error, a request limit reached. If the failure is silent, you will find the problem weeks later, when someone notices that contacts are missing. Every integration needs a retry and an alert when something does not get in.
+
+**Deduplicating late or not deduplicating.** The same customer comes in through the form, writes on WhatsApp and calls. If there is no clear rule for what turns two records into one, in six months the database is full of duplicates and no automation trusts it. The usual rule is normalised email or phone, and it has to be applied from day one, not when the mess is already there.
+
+## The limits worth knowing
+
+For the sake of realism, three things that tend to surprise people.
+
+There are **request limits** on the API. For normal use they do not get in the way, but a bulk import or a synchronisation that queries too much reaches them. It is solved by spacing and batching, but you have to allow for it in the design.
+
+**Custom fields are identified by an id**, not by their name. If someone deletes a field and creates it again with the same name, the integrations that used it stop finding it. It is a classic source of silent failures.
+
+**Automations can get into a loop**. A workflow that updates a contact can trigger another workflow that updates it back. It is worth reviewing the entry conditions of each one before chaining them.
+
+## When to integrate and when to migrate
+
+If you already have a CRM that works and you only lack messaging and funnels, integrating works out better than moving: you keep what works and add what is missing.
+
+If you pay for several tools that do similar things and none of them talks to the others, integrating means laying pipes between things that should not be separate. There the move works out cheaper in the medium term, and we cover it in [migrating from HubSpot to GoHighLevel](/en/blog/migrar-de-hubspot-a-gohighlevel-sin-perder-historico).
+
+The question that settles it is simple: how many of your tools would still exist if the CRM did its job well? If the answer is almost all of them, integrate. If it is half, think about moving.
+
+## Frequently asked questions
+
+### Can GoHighLevel be integrated with the tools I already use?
+
+Almost always. There are three ways to do it: the native integration if it exists, webhooks so that GoHighLevel notifies another system when something happens and the API when you have to read or write on demand. What changes from one case to another is not whether it can be done, but which integrations hold up in production without breaking.
+
+### Which is better for integrating GoHighLevel: webhooks, API or Zapier?
+
+The native integration is the first option whenever it exists, because the maintenance is not yours. If there is none, the webhook is the most robust way to connect in real time, and the API gives more control in exchange for more maintenance. Connectors such as Make or Zapier are quick to set up and good for validating an idea, but you pay per execution and they get expensive when the volume grows.
+
+### What should I integrate first with GoHighLevel?
+
+First, contact intake from the website, forms and landing pages. Then the conversation channel, after that the calendar and finally invoicing. Almost nobody needs more than that in the first months, and each integration you add is one more thing that can fail.
+
+### Is it better to integrate GoHighLevel with my current CRM or to migrate to GoHighLevel?
+
+If you already have a CRM that works and you only lack messaging and funnels, integrating works out better. If you pay for several tools that do similar things and do not talk to each other, the move works out cheaper in the medium term. The question that settles it is how many of your tools would still exist if the CRM did its job well: if it is almost all of them, integrate, and if it is half, think about moving.
+
+In the [free assessment](/en/diagnostico) we review what you have connected today and you get a map of what to integrate first and what is not needed.

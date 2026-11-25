@@ -13,6 +13,31 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
+- [ ] **Validar las dos páginas de sector nuevas (25-nov)**:
+      `/soluciones/inmobiliarias` y `/soluciones/negocios-con-cita`. No tienen
+      caso propio y lo dicen sin inventar cifras, pero prometen cosas que
+      salen de las landings y de las fichas: respuesta «en minutos» a los
+      leads de los portales también de noche y en fin de semana, lectura del
+      correo de aviso del portal (y conexión por API si el software
+      inmobiliario la tiene), informe semanal automático al propietario,
+      plazo de 4 a 8 semanas («el primer agente suele estar atendiendo en la
+      semana 4»), precios generales (discovery desde 1.500 €, implantación
+      5.000-25.000 €), recordatorio al reservar y el día antes, lista de
+      espera, mensajes de recuperación y petición de reseñas. La de negocios
+      con cita lleva un bloque «A tener en cuenta» (el agente dice que es una
+      IA, no se nombra el tratamiento si hay datos de salud, hace falta la
+      API oficial de WhatsApp): si no lo quieres, se quita.
+- [ ] **Repasar las traducciones al inglés (25-nov)**: 39 artículos y los
+      dos textos legales. Las cifras van en notación inglesa (€1,500, 30%).
+      En los artículos de GTM, «tiene el código cerrado» se tradujo como
+      «is code-complete»: si querías decir código no abierto, se cambia. Los
+      textos legales en inglés dicen que la versión que vincula es la
+      castellana.
+- [ ] **Política de privacidad: falta Anthropic como encargado**. El chat de
+      precualificación manda las respuestas del lead a la API de Anthropic y
+      la sección 6 solo nombra GoHighLevel, Vercel, Supabase y Google. Dime
+      si lo añado (y subo la versión de la política).
+
 - [ ] **GEO: estar donde miran los asistentes (auditoría del 25-nov).** Claude
       no nombra a Rianex en ninguna de las 12 preguntas (informe del 4-nov),
       y buscando «Rianex agencia automatización IA Ávila» o «rianex.es» la web
@@ -212,33 +237,26 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
 
-- [ ] **Títulos que se cortan**: 42 de 71 páginas indexables pasan de 60
-      caracteres contando « | Rianex»; 13 pasan de 70. En el blog, quitar el
-      sufijo cuando el título ya pasa de 55. 12 descripciones pasan de 160.
-- [ ] **Preguntas frecuentes en los 8 artículos que no tienen** (y por tanto
-      sin `FAQPage`): RGPD el primero (22 enlaces internos), cuándo compensan
-      los agentes, propuestas comerciales, clínicas captación y agenda,
-      WhatsApp para ventas, integrar GoHighLevel, migrar de HubSpot y servidor
-      propio o nube.
 - [ ] **Fuentes en los artículos**: 23 de 39 no enlazan a ninguna fuente
       externa. Empezar por los de más impresiones: por dónde empezar,
       proyectos de IA a medida, qué es GoHighLevel y qué es GTM Engineering.
 - [ ] **Dato propio citable**: la medición del vídeo de IA selectiva (6
       llamadas, 1.436 tokens y 107,5 s frente a 1 llamada, 107 tokens y
       5,6 s) merece un bloque propio con método, fecha y tabla.
-- [ ] **Tarjetas de inmobiliarias y negocios con cita de la home**: siguen
-      enlazando a su landing `noindex` porque no hay página de sector (ver
-      más abajo «Páginas de sector»). Al crearlas, cambiar el enlace en
-      `src/lib/home.ts`. Los enlaces a las landings de cámaras se quedan:
-      no tienen equivalente indexable.
-- [ ] **`Organization`**: añadir `legalName`, `foundingDate` y
-      `contactPoint`, y cada perfil externo nuevo en `sameAs`.
-- [ ] **`llms.txt`**: dice «diagnóstico de 30 minutos» (la web dice
-      «consultoría gratuita») y lista Hospital Capilar por delante de los
-      casos propios. Valorar un `llms-full.txt`.
-- [ ] **Menores**: `manifest.webmanifest`, quitar la cabecera
-      `x-powered-by`, `/testimonios` (282 palabras) y `/soluciones` (341)
-      son finas, 25 artículos sin `updated`.
+- [ ] **`Organization`**: faltan `legalName` y `foundingDate` (necesito la
+      razón social y la fecha de alta), y cada perfil externo nuevo en
+      `sameAs`. `contactPoint` ya está.
+- [ ] **Menores**: `/testimonios` (282 palabras) y `/soluciones` (341) son
+      finas, 17 artículos sin `updated`, y quedan 3 títulos por encima de 70
+      caracteres (`/servicios/control-con-camaras-ia` en los dos idiomas y la
+      traducción de recepción de clínica).
+- [ ] **Artículos nuevos: traducción al inglés**. Desde el 25-nov cada
+      artículo tiene su traducción en `src/content/blog-en/<slug>.mdx` (mismo
+      nombre de fichero, enlaces internos con `/en`, sección «## Frequently
+      asked questions»). Un artículo nuevo sin traducir no rompe nada:
+      `/en/blog/<slug>` redirige al original (307) hasta que exista. Al
+      revisar un artículo castellano, revisar también su traducción. El radar
+      y cualquier sesión que publique deberían crear las dos versiones.
 - [ ] **`lastmod` del sitemap**: desde el 25-nov sale de la constante
       `LASTMOD` de `src/app/sitemap.ts`, por sección. Hay que actualizarla en
       el mismo PR que cambie el contenido de una sección.
@@ -246,16 +264,6 @@ Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
 - [ ] **Cifras clave arriba en cada caso** (modelo de venta, punto 4): un
       bloque de 2-3 cifras y los servicios usados antes del texto, en
       `CasoView.tsx`, con datos que ya están en `results` de `casos.ts`.
-
-- [ ] **Páginas de sector para negocios con cita previa e
-      inmobiliarias**: desde el 9 de noviembre la home las destaca en "Para
-      quién trabajamos", pero solo clínicas y eventos tienen página propia
-      en /soluciones. Hoy la tarjeta de negocios con cita lleva a
-      /servicios/agente-ia-whatsapp, y la de inmobiliarias a la implantación
-      de CRM. Con /soluciones/negocios-con-cita y /soluciones/inmobiliarias
-      (en `src/lib/sectores.ts`, sin casos inventados) habría páginas para
-      "agente WhatsApp inmobiliaria", "recordatorio de citas automático", etc.
-      Las agencias de marketing tampoco tienen página de sector.
 
 - [ ] **Vídeo de prospección B2B**: es el único de los ocho servicios sin
       vídeo (`~/rianex-videos`, hace falta un visual nuevo). Tampoco tienen
@@ -324,21 +332,31 @@ Por orden de impacto:
       "automatizar procesos con ia" (66), y si aparecen clics. El techo lo
       pone la autoridad del dominio: el top 10 es Microsoft, Oracle, AWS,
       IBM e Informatica, y rianex.es tiene 0 enlaces externos.
-- [ ] **Schema**: `BreadcrumbList` en las páginas que aún no lo llevan (ya
-      está en las de servicio).
-- [ ] **JSON-LD en las páginas que no tienen**: casos de éxito, soluciones,
-      listado del blog.
-- [ ] **`/en` sirve el JSON-LD de la home en castellano** (FAQ incluida):
-      traducirlo.
 - [ ] **Imagen social por página**: las páginas que no son del blog comparten
       `og.png`.
 - [ ] **Editor de blog del panel**: ya no publica en la web (el blog se lee de
       los `.mdx`). Decidir si se retira o se reconvierte.
-- [ ] **Traducir los artículos al inglés** (opcional): hoy `/en/blog/<slug>`
-      redirige al castellano.
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · Auditoría, segunda tanda. **Inglés completo**: los 39
+  artículos traducidos en `/en/blog/<slug>` (antes redirigían al
+  castellano), con hreflang recíproco, imagen social propia
+  (`/og/blog-en/<slug>`), JSON-LD en inglés y entrada en el sitemap;
+  `/en/privacidad` y `/en/cookies`; el listado `/en/blog`, las guías de la
+  home y las fichas de servicio, sector y caso enlazan a la traducción.
+  **Sectores**: `/soluciones/inmobiliarias` y `/soluciones/negocios-con-cita`
+  (ES y EN), y las tarjetas de la home ya enlazan a ellas. **Preguntas
+  frecuentes** en los 8 artículos que no tenían (ahora los 39 llevan
+  `FAQPage`); la última respuesta ya no arrastra el párrafo de cierre del
+  artículo. **JSON-LD** en `/blog`, `/casos-de-exito`, `/soluciones`,
+  `/diagnostico` y `/testimonios`, y el de `/en` en inglés, con
+  `contactPoint` y `WebSite` enlazado a la organización. **Títulos**: los
+  artículos de más de 55 caracteres van sin « | Rianex» (de 13 títulos por
+  encima de 70 quedan 3). `llms.txt` dice «consultoría gratuita» y lista
+  primero los casos propios; `manifest.webmanifest`; fuera la cabecera
+  `x-powered-by`. Sitemap: 146 URLs (73 inglesas).
 
 - 2026-11-25 · Auditoría técnica, SEO y GEO, primera tanda. (1) El selector
   de idioma es un enlace y no un botón, y las 30 URLs inglesas llevan su

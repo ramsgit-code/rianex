@@ -83,7 +83,7 @@ const LABELS = {
     readCase: "Read the full case study",
     caseVideo: "Case video available",
     faq: "Frequently asked questions",
-    guides: "Related guides (in Spanish)",
+    guides: "Related guides",
     others: "Other services",
   },
 } as const;
@@ -125,7 +125,7 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
       return { ficha, slug: caseSlug, hasVideo: Boolean(CASOS[caseSlug]?.video) };
     })
     .filter((x) => x !== null);
-  const posts = d.posts.map((s) => getPost(s)).filter((p) => p !== null);
+  const posts = d.posts.map((s) => getPost(s, lang) ?? getPost(s)).filter((p) => p !== null);
   const otros = c.servicios.items.filter((i) => i.slug !== slug);
   const mant = d.maintenance ? MANTENIMIENTO[lang] : null;
   const tiers =
@@ -537,7 +537,7 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
                 <ul className="mt-5 grid gap-4 md:grid-cols-2">
                   {posts.map((p) => (
                     <li key={p.slug}>
-                      <Link href={`/blog/${p.slug}`} className="card group block h-full">
+                      <Link href={`${lang === "en" ? "/en" : ""}/blog/${p.slug}`} className="card group block h-full">
                         <h3 className="font-semibold text-foreground group-hover:text-accent-text">
                           {p.title}
                         </h3>

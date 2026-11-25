@@ -2,6 +2,7 @@
 title: "Agentes de IA: servidor propio o servicio en la nube"
 description: "Coste, control de datos y dependencia del proveedor. Cuándo sale a cuenta un VPS propio para tus agentes y cuándo es complicarse sin motivo."
 date: "2026-09-20"
+updated: "2026-11-25"
 tags: ["agentes de ia", "vps", "infraestructura", "rgpd"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -69,5 +70,23 @@ Si no hay nadie que vaya a ocuparse, el servicio gestionado sale más barato aun
 Empezar en gestionado para validar que el agente resuelve algo real. Medir volumen y coste durante dos o tres meses. Y con esos datos decidir, en vez de decidirlo antes de saber nada.
 
 Lo único que conviene hacer desde el minuto uno es no atarse: mantener la lógica del agente y sus integraciones separadas de la plataforma concreta, para que mudarse sea un trabajo de días y no de meses.
+
+## Preguntas frecuentes
+
+### ¿Qué es mejor para un agente de IA, un servidor propio o un servicio en la nube?
+
+Depende del volumen, de los datos y de quién vaya a mantenerlo. El servicio gestionado es la opción correcta si estás validando, el volumen es bajo, no manejas datos sensibles y no tienes a nadie que se ocupe de un servidor. El servidor propio encaja cuando el volumen ya es alto, los datos son sensibles, necesitas integraciones que la plataforma no ofrece o el agente es parte de tu producto.
+
+### ¿Qué sale más barato, un VPS propio o una plataforma gestionada?
+
+Depende del volumen. El servicio gestionado tiene un coste variable que crece con el uso, y el servidor propio tiene un coste fijo más las llamadas al modelo, que son la parte barata. Para saberlo en tu caso, coge tu volumen mensual real, mira lo que costaría en el servicio gestionado y compáralo con el servidor más el consumo estimado del modelo. Si el negocio va a crecer, haz la cuenta también con el volumen del año que viene.
+
+### ¿Dónde conviene alojar un agente de IA que maneja datos sensibles?
+
+Con datos de salud, financieros o de cualquier categoría sensible, el sitio donde se procesan importa legalmente. Con un servidor propio en la Unión Europea controlas dónde se guarda cada cosa y cuánto tiempo. Un servicio gestionado también puede ser correcto, pero necesitas su contrato de encargo del tratamiento y saber dónde están sus servidores y qué hacen con lo que pasa por ellos.
+
+### ¿Qué mantenimiento exige un agente de IA en un servidor propio?
+
+Actualizaciones de seguridad, copias de seguridad, certificados y vigilancia de que el servidor sigue en pie. Lo sensato es dejarlo montado desde el principio: un aviso automático cuando deja de dar señales de vida, copias automáticas y un plan de qué hacer si se cae. Si no hay nadie que vaya a ocuparse, el servicio gestionado sale más barato aunque la hoja de cálculo diga lo contrario.
 
 Si quieres que miremos tus números, el [diagnóstico](/diagnostico) son 30 minutos y sale la cuenta hecha para tu caso.

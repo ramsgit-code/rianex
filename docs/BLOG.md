@@ -178,3 +178,17 @@ sin que lo lea alguien.
 
 La cola de temas está en `scripts/blog-agent.ts` y debe mantenerse alineada con
 lo que la web dice que hace. Si cambia el posicionamiento, cambia la cola.
+
+## Traducción al inglés
+
+Cada artículo tiene su traducción en `src/content/blog-en/<slug>.mdx`, con el
+mismo nombre de fichero que el original y el mismo frontmatter (title,
+description y tags en inglés; fechas, cluster y vídeo iguales).
+
+- Los enlaces internos de la traducción llevan `/en` (`/en/blog/<slug>`,
+  `/en/servicios/...`, `/en/diagnostico`). Los de `/l/` se quedan igual.
+- La sección de preguntas se titula `## Frequently asked questions`: es la
+  que busca el código para el `FAQPage`.
+- Un artículo sin traducción no rompe nada: `/en/blog/<slug>` redirige al
+  original (307) hasta que exista el fichero.
+- Si se revisa el original, se revisa la traducción en el mismo PR.

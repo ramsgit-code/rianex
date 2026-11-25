@@ -37,7 +37,7 @@ const LABELS = {
     readCase: "Read the full case study",
     faq: "Frequently asked questions",
     services: "Services that solve it",
-    guides: "Related guides (in Spanish)",
+    guides: "Related guides",
   },
 } as const;
 
@@ -63,7 +63,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
   const servicios = d.services
     .map((s) => c.servicios.items.find((i) => i.slug === s))
     .filter((s) => s !== undefined);
-  const posts = d.posts.map((s) => getPost(s)).filter((p) => p !== null);
+  const posts = d.posts.map((s) => getPost(s, lang) ?? getPost(s)).filter((p) => p !== null);
 
   const jsonLd = [
     {
@@ -266,7 +266,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
                 <ul className="mt-5 grid gap-4 md:grid-cols-2">
                   {posts.map((p) => (
                     <li key={p.slug}>
-                      <Link href={`/blog/${p.slug}`} className="card group block h-full">
+                      <Link href={`${lang === "en" ? "/en" : ""}/blog/${p.slug}`} className="card group block h-full">
                         <h3 className="font-semibold text-foreground group-hover:text-accent-text">
                           {p.title}
                         </h3>

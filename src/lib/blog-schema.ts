@@ -19,6 +19,15 @@ export const CLUSTERS = {
 
 export type Cluster = keyof typeof CLUSTERS;
 
+/** Nombre de cada cluster en las paginas en ingles. */
+export const CLUSTERS_EN: Record<Cluster, string> = {
+  "automatizacion-ia": "AI process automation",
+  "agentes-ia": "AI agents",
+  crm: "CRM, integrations and migrations",
+  captacion: "Lead capture and qualification",
+  outbound: "Go-to-market and B2B outbound",
+};
+
 export const AUTHORS = ["Ramiro Pérez Rodero"] as const;
 
 /**

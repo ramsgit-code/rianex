@@ -1,0 +1,108 @@
+---
+title: "Vapi vs Retell AI: voice agents for businesses in Spain"
+description: "Vapi or Retell AI to build a voice agent: real cost per minute, +34 numbers, data in the EU, GoHighLevel and n8n integrations, and which one fits your case."
+date: "2026-11-18"
+tags: ["vapi", "retell", "voice agent", "voice ai", "comparison", "telephony"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Vapi and Retell AI are the two most widely used platforms for building voice agents: an assistant that picks up the phone, understands what it is told, checks your calendar or your CRM and answers in a natural voice. Both work in Spanish. The differences lie in how they charge, how much technical knowledge they require and what happens with Spanish numbers and with the data.
+
+We build voice agents with Vapi. This comparison uses what both publish on their official websites and documentation as of 18 November 2026, and flags what comes only from their forums.
+
+## The short answer
+
+- **Vapi**, if there is someone technical to build it (a developer or an agency), you want to choose every piece (transcription, model, voice, telephony) and you are going to integrate it with your systems via API.
+- **Retell AI**, if you want to build and tune the agent from a visual editor without coding, with ready-made integrations with GoHighLevel, n8n and Cal.com.
+
+In both cases, a Spanish number (+34) has to be brought in from a carrier such as Twilio or via SIP, with their requirements. And neither hosts data in the EU on its standard plans.
+
+## Comparison in one table
+
+| | Vapi | Retell AI |
+|---|---|---|
+| Platform price | $0.05/min | $0.055/min for the voice engine |
+| Indicative total cost | $82–129 per 1,000 min (Vapi's estimate) | $0.07–0.31/min (Retell's range) |
+| What is paid separately | Transcription, model, voice and telephony, at each provider's price | Model, voice and telephony |
+| Trial credit | $5 | $10 |
+| Latency they state | Less than 500 ms on average | About 600 ms |
+| Spanish | Yes, depending on the transcription and voice provider | Yes; several dialects, list in their dashboard |
+| +34 numbers | Imported (Twilio, Telnyx, DIDWW) or SIP | Imported or SIP |
+| Data in the EU | EU region only with its Premier plan | Infrastructure in the US |
+| Certifications | SOC 2, HIPAA (paid add-on) and PCI | SOC 2 Type 1 and 2; HIPAA on Enterprise |
+| How it is built | Designed for API use (developers) | No-code visual editor and flow builder |
+
+Sources: [Vapi pricing](https://vapi.ai/pricing), [Retell pricing](https://www.retellai.com/pricing), [Vapi telephony](https://docs.vapi.ai/phone-calling), [Vapi EU region](https://docs.vapi.ai/security-and-privacy/eu-region) and [Retell data residency](https://www.retellai.com/glossary/data-residency). Neither of the two explains how it measures its latency.
+
+## What a minute really costs
+
+In both, the platform's price per minute is only one part. Every minute of a call goes through several pieces: transcribing what the person says, the language model that decides what to answer, the voice that says it and the phone line. Vapi charges $0.05/min and lets you pay each provider for its piece with no markup; its own estimate comes to between $82 and $129 per 1,000 minutes. Retell charges $0.055/min for the engine and adds the rest; its range goes from $0.07 to $0.31/min depending on the model and the voice.
+
+The voice and the model are what move the bill most. A premium voice or a large model can double the cost per minute. Retell also charges for the silences and the waiting time in the call.
+
+## Spanish numbers: what nobody tells you
+
+Vapi's free numbers are US only and for inbound calls only. According to its community, Retell does not sell Spanish numbers either. So, with either of them, a +34 number is contracted from a carrier (Twilio, Telnyx, DIDWW) or connected via SIP from your PBX.
+
+At Twilio, a Spanish geographic number requires an address in the province of the area code and a DNI or, for a company, a CIF and a registered address in Spain ([Twilio's requirements for Spain](https://www.twilio.com/en-us/guidelines/es/regulatory)).
+
+## Personal data and the GDPR
+
+Neither of the two hosts data in the EU on its standard plans: Vapi offers a European region only with its Premier plan, which is contracted by talking to sales, and Retell states that today it does not operate services inside the EU and covers the GDPR with a data processing agreement and standard contractual clauses. For a business with health data, such as a clinic, this has to be reviewed before starting (see [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia)).
+
+And since August 2026, the agent has to say at the start that it is an AI. We explain it in [what the AI Act requires of a chatbot or agent](/en/blog/ai-act-chatbot-decir-que-es-ia).
+
+## Vapi: what it does well and its limits
+
+**What it does well.** Freedom to choose each piece and change it: transcription, model, voice and telephony. It is designed to integrate via API with whatever you have, and it has tools for GoHighLevel (finding and creating contacts, checking availability and creating appointments). It states the lower latency of the two.
+
+**Honest limitations.**
+- The real cost is spread across four or five providers: several invoices have to be watched.
+- The EU region only exists on the Premier plan, and HIPAA is an add-on at $2,000/month.
+- It is designed for developers: without a technical profile, it is hard to set up well.
+
+## Retell AI: what it does well and its limits
+
+**What it does well.** A visual editor to build and tune the agent without coding, with its own integration with GoHighLevel, a node for n8n and a connection to Cal.com for checking slots and booking, changing and cancelling appointments. It includes 20 concurrent calls.
+
+**Honest limitations.**
+- No data hosting in the EU.
+- It also charges for silences and waiting time.
+- On its forum there are users reporting errors in the booking flow with Cal.com, whose old tools were retired on 31 October 2026.
+- Concurrent calls above 20 cost $8/month each.
+
+## Choose Vapi if…
+
+…you have a developer or an agency to build it, you want to control each piece and its cost, or the agent has to talk to your systems via API.
+
+## Choose Retell if…
+
+…you want someone without a technical profile to be able to build and change the agent, you use GoHighLevel, n8n or Cal.com and its ready-made integrations are enough for you.
+
+## What about GoHighLevel's voice?
+
+If you already use GoHighLevel, its Voice AI is a third option: it comes inside the CRM and charges per minute ($0.045/min for the engine plus the voice and the model). For booking appointments from the CRM itself it may be enough. We show it on video in [a voice agent that answers on WhatsApp and books the appointment for you](/en/blog/agente-de-voz-whatsapp-agenda-citas). If you are undecided between the three, in the [free consultation](/en/diagnostico) we look at your calls and tell you which one is worth it.
+
+## Frequently asked questions
+
+### How much does a voice agent cost per minute?
+
+Adding up platform, transcription, model, voice and telephony, between about $0.08 and $0.30 per minute depending on the pieces you choose. Vapi estimates between $82 and $129 per 1,000 minutes; Retell gives a range of $0.07 to $0.31/min.
+
+### Do Vapi and Retell speak Spanish well?
+
+Yes. In Vapi it depends on the transcription and voice provider you choose; in Retell you choose the language and the dialect in the dashboard. It is worth testing with real calls from your customers, with their accent and their background noise.
+
+### Can I use my Spanish phone number?
+
+Yes, by connecting it via SIP from your PBX or by bringing in a number from a carrier such as Twilio. Neither of the two sells Spanish numbers directly.
+
+### Which is easier to use?
+
+Retell, because of its no-code visual editor. Vapi is designed for developers and gives more control in exchange for more technical work.
+
+### Does the data stay in Europe?
+
+On the standard plans, no. Vapi offers an EU region only on its Premier plan; Retell does not operate inside the EU today and covers the GDPR with a data processing agreement and standard contractual clauses.

@@ -98,10 +98,10 @@ export function Footer() {
         <div className="mt-14 flex flex-col gap-3 border-t border-background/15 pt-6 text-xs text-background/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Rianex · {c.footer.rights}</p>
           <div className="flex items-center gap-5">
-            <Link href="/privacidad" className="hover:text-accent">
+            <Link href={lang === "en" ? "/en/privacidad" : "/privacidad"} className="hover:text-accent">
               {lang === "en" ? "Privacy policy" : "Política de privacidad"}
             </Link>
-            <Link href="/cookies" className="hover:text-accent">
+            <Link href={lang === "en" ? "/en/cookies" : "/cookies"} className="hover:text-accent">
               {lang === "en" ? "Cookie policy" : "Política de cookies"}
             </Link>
           </div>

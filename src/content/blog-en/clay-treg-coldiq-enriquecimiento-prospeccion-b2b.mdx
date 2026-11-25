@@ -1,0 +1,125 @@
+---
+title: "Clay vs Treg vs ColdIQ: which to choose for B2B data enrichment"
+description: "Clay, Treg and ColdIQ compared for B2B prospecting: what each one does, what Clay costs, what Treg adds with AI agents and when an agency pays off."
+date: "2026-10-28"
+tags: ["clay", "treg", "coldiq", "data enrichment", "b2b prospecting", "outbound"]
+cluster: "outbound"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Any B2B outbound depends on a list: which companies to write to, which person inside each one, with which email and with what reason to write now. Building that list is what is called **data enrichment**, and it is where prospecting has changed the most in the last two years.
+
+Today there are three ways to do it, and choosing badly is expensive in money or in time. This article explains each one with its numbers, and when each fits a Spanish company.
+
+## The short answer
+
+Enriching data means completing a list of companies with what is missing to write to them well: the person who decides, their verified email, the size of the company, whether it is hiring or has raised money. It can be done in three ways. **Clay** is a table-based platform that calls many data providers in a waterfall; it is the industry standard and charges by credits. **Treg** is a gateway that lets an AI agent, such as Claude Code, call those same providers directly, paying only per call. **ColdIQ** is an agency that builds and operates the whole system for you, with Clay at the centre. For a Spanish SME that is starting out, the sensible option is usually to build the process with a tool and have it in its own name, not to outsource it entirely.
+
+## What enriching data means, specifically
+
+An outbound list is built in layers, and each layer costs money:
+
+1. **Companies**: the ones that match your ideal customer by sector, size and country.
+2. **People**: inside each company, whoever holds the role that decides.
+3. **Contact**: each person's work email and, sometimes, their phone number.
+4. **Verification**: checking that the email exists and accepts mail. That a database has an address does not mean it works.
+5. **Signals**: what indicates that it is a good moment (open job postings, a funding round, a change of sales director) and what helps to personalise the message.
+
+No data provider has everything, and each one is more accurate in some markets than in others. That is why modern tools run **waterfalls** (also called *cascades*): if the first provider does not find the email, they ask the second, and so on.
+
+## Clay: the standard platform
+
+[Clay](https://www.clay.com) is a spreadsheet with superpowers: each column can call a data provider, an AI model or another tool, and each row fills itself in. It is what made the term GTM engineer popular, which we discuss in [what GTM Engineering is](/en/blog/que-es-gtm-engineering).
+
+**The good:**
+
+- More than a hundred data providers behind a single interface, with waterfalls already set up.
+- Visual: you can review row by row what each provider has found.
+- It connects with almost everything: CRM, sending tools, LinkedIn.
+
+**What you need to know:**
+
+- **Price.** According to its page in October 2026, the free plan includes 100 data credits and 500 actions per month, with tables of up to 200 rows. Paid plans start at around $185 per month (somewhat less with annual billing). Its FAQ says that an enrichment that returns nothing does not consume credits. It is worth checking the page before budgeting, because the plans have changed several times this year.
+- **Learning curve.** Building a table properly, with filters before paying and waterfalls in the right order, takes time. A badly built table spends credits enriching rows that are later discarded.
+- **It is in English and thinks about the United States.** Data providers are less accurate with small Spanish companies than with American software companies. It is worth testing with a few dozen rows of your own before launching a large list.
+
+## Treg: the AI agent calls the providers
+
+[Treg](https://treg.to) is much more recent and starts from a different idea: if an AI agent such as Claude Code can reason about a list, why not let it call the data providers directly, with no platform in between?
+
+It works as a gateway: with a single key, the agent accesses a catalogue of providers (company and people search, emails, verification, news, hiring) and pays for each call at the provider's price. According to its own pages, it adds no margin, searches that find nothing are not charged with the providers that report it, and you can use your own provider keys at no extra cost.
+
+**The good:**
+
+- **Very low cost per result.** In its published tests, a found email costs about two US cents, and a list of 50 companies came out at a few dollars in total.
+- **It fits those who already work with agents.** You describe the task to Claude Code ("50 clinics in Madrid with manager and verified email") and the agent chains search, enrichment and verification.
+- **No monthly subscription.** You pay for what you use.
+
+**What you need to know:**
+
+- **It is very new.** Almost all the information available comes from Treg itself or from people who promote it. Its figures are its own, from tests in specific markets, and they themselves warn that they are not a benchmark.
+- **It does not run waterfalls by itself.** You choose the provider (or you tell the agent); if it fails, it does not try the next one automatically.
+- **It does not send or manage replies.** It is the data layer. Sending, LinkedIn and the CRM are separate.
+- **Data protection.** We have not found clear public information about data retention and GDPR. With data on people in Europe, it is the first thing to ask.
+- **It needs someone who knows how to direct the agent.** Reviewing what it has done, setting a spending cap and checking the results is still a person's job.
+
+## ColdIQ: the agency that does it for you
+
+[ColdIQ](https://coldiq.com) is not a tool but a B2B outbound agency founded in 2023 that presents itself as a GTM Engineering agency and works with Clay as its central piece (it is listed as a partner in Clay's expert directory). It builds the complete system: ideal customer, lists, enrichment, email and LinkedIn sequences and, in some cases, LinkedIn ads. It also sells training for teams that want to do it themselves.
+
+**When an agency like this fits:**
+
+- You sell B2B software, mainly to English-speaking markets, and you want volume fast.
+- You have the budget for a monthly service and do not want to build anything in-house.
+
+**What you need to weigh up:**
+
+- **The system stays with them.** If you stop paying, what do you take with you? The lists, the Clay tables, the domains and the learnings should be in your name. Ask before signing.
+- **Cost.** Agencies of this type charge monthly fees that, for a Spanish SME, are usually high in relation to the volume of meetings it needs.
+- **Market.** Its experience is mainly with software companies and in international markets; the published results are its own and not independently verified.
+
+## How to choose
+
+| If… | What usually fits |
+|---|---|
+| You are starting out, and want to see whether outbound works in your market | Clay on the free plan or Treg with a small list, and measure |
+| You have a stable process and volume every week | Clay, with the tables in your name |
+| You already work with Claude Code or other agents and want the minimum cost | Treg, with a spending cap and human review |
+| You do not want to build anything in-house and you sell to English-speaking markets | An agency like ColdIQ |
+
+In the projects we build at Rianex we combine them depending on the case: Clay for lists that repeat every week, direct calls to providers from an agent when the list is a one-off, and in every case **separate email verification before sending**. Everything stays in the client's name: the accounts, the tables and the domains.
+
+## Five rules that apply to all three
+
+1. **Filter before paying.** Discard using the free data (sector, size, country) and enrich only what is left.
+2. **Test with your own rows.** Each provider's accuracy varies by market. Ten or twenty rows of your own say more than any comparison.
+3. **Verify every email.** High bounce rates damage the reputation of the sending mailboxes, and that affects the whole campaign.
+4. **Keep a record of where each piece of data comes from.** For quality and for the GDPR: if someone asks where you got their email, you have to be able to answer.
+5. **Set a spending cap.** Above all with agents: have it stop and ask before going over a figure.
+
+## Frequently asked questions
+
+### What is Clay and what is it for?
+
+Clay is a platform for building enriched prospecting lists: it starts from companies or people and, column by column, adds emails, job titles, company size or signals, calling more than a hundred data providers and AI models. It is used mainly for B2B outbound.
+
+### How much does Clay cost?
+
+In October 2026 it has a free plan with 100 data credits per month and paid plans from about $185 per month. The real cost depends on how many rows you enrich and with how many providers, so it is worth testing on the free plan with a small list.
+
+### What is Treg?
+
+A gateway that lets an AI agent, such as Claude Code, call company and people data providers directly with a single key, paying per call. It is an alternative to Clay for those who work with agents; it is very recent and worth testing with small lists.
+
+### Is ColdIQ a tool?
+
+No. It is a B2B outbound agency that builds and operates the system for its clients, with Clay as its main tool. It also offers training.
+
+### Is it legal to enrich contact data in Spain?
+
+The GDPR allows professional data to be processed with an appropriate legal basis, but it requires knowing where each piece of data comes from, informing the people concerned and deleting anyone who asks; the LSSI, in addition, limits unsolicited commercial email. We cover it in [B2B prospecting with AI](/en/blog/prospeccion-b2b-outbound-con-ia). This is not legal advice.
+
+### Can you set it up for us?
+
+Yes. Enrichment is one of the pieces of our [B2B outbound](/en/servicios/outbound-b2b) service, together with the sending infrastructure, the sequences and reply management. If you want to see it applied to your case, the [free assessment](/en/diagnostico) takes 30 minutes.

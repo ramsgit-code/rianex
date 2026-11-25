@@ -1,0 +1,127 @@
+---
+title: "What is GTM Engineering and what a GTM engineer does (explained)"
+description: "What GTM means, what a GTM engineer does, how it differs from RevOps and how to apply it in a Spanish SME without hiring anyone, with a real case."
+date: "2026-10-26"
+updated: "2026-10-28"
+tags: ["gtm engineering", "go-to-market", "sales", "automation", "ai", "sme"]
+cluster: "outbound"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+"GTM engineer" has become a common job title at software companies in the United States. In Spain almost nobody uses it yet, and when it does appear it usually comes with a list of American tools that an SME does not need.
+
+The underlying idea is useful to any company that sells: treat lead generation and sales as a system that is built, measured and improved, and not as a pile of tools and people putting out fires. This article explains what it is, what it is not and how it applies to a company of 5 to 100 people in Spain.
+
+## The short answer
+
+GTM Engineering (go-to-market engineering) means applying engineering to the process of taking a product to market and selling it: connecting the data, the tools and AI so that every contact is captured, qualified, answered and followed up without depending on someone remembering. A GTM engineer builds that system with code, automations and AI models, and measures it in sales, not in hours saved. An SME does not need to hire one: it needs to treat two or three sales processes as a product and build them well.
+
+## Where the term comes from
+
+Go-to-market is everything that happens between someone being able to buy from you and actually buying: marketing, sales and the part of the service that makes them come back. For years it has been carried by three roles: the salesperson, the marketer and, in large companies, sales operations (RevOps), which maintains the CRM and the reports.
+
+The term GTM engineer became popular from 2024 onwards at software companies in the United States, mostly around data enrichment tools such as Clay. It described someone who neither sells nor runs campaigns, but **builds the machinery**: finds and enriches contacts, decides who gets a message and when, connects the CRM to everything else and automates what a prospecting team used to do by hand.
+
+What made it grow was AI. Tasks that required reading or writing text (researching a company, qualifying a lead, writing a proposal, answering a message) can now be automated with a language model. Whoever knows how to set that up on top of the company's data multiplies what a small sales team can do.
+
+## What a GTM engineer does
+
+The tasks change from one company to another, but they almost always fall into these blocks:
+
+| Block | What they build | Example in an SME |
+|---|---|---|
+| Data | A single place where every contact and every opportunity lives | All leads in the CRM, not in the inboxes of three salespeople |
+| Qualification | Rules or AI that decide who to talk to first | Scoring each contact by fit and urgency |
+| Speed of response | Nobody waits | Replying within minutes on WhatsApp, also outside working hours |
+| Follow-up | No lead goes cold because someone forgot | Reminders and sequences based on what the contact did |
+| Proposals | The proposal goes out while the client is still keen | A proposal with the company's branding generated in minutes |
+| Advertising | Ad money moves according to the data | An agent that proposes pausing what is not working |
+| Measurement | Knowing which channel and which step bring sales | From first click to close, on one dashboard |
+
+The difference from someone who "configures tools" is engineering judgement: every piece is measured before and after, is tested, keeps a log of what it does and has someone answerable for it.
+
+## GTM Engineering, RevOps, marketing automation and agencies
+
+They overlap, and it is worth telling them apart to know what you are buying:
+
+| | What it does | How it measures its work |
+|---|---|---|
+| Marketing agency | Brings traffic and contacts through campaigns | Leads, cost per lead |
+| Marketing automation | Sets up emails, forms and workflows in a tool | Opens, active workflows |
+| RevOps | Maintains the CRM, the processes and the sales reports | Data quality, forecasting |
+| GTM Engineering | Builds the system that turns contacts into sales, with code and AI where needed | Speed of response, conversion, sales |
+
+In a large company these are different people. In an SME it is usually a single person, or an external provider, doing a bit of each. What the GTM Engineering view adds is order: first the data, then automation and AI, and everything measured against sales.
+
+## What changes in a Spanish SME
+
+The American version of the GTM engineer is designed for software companies that sell by cold email to thousands of accounts. A Spanish SME has a different problem and different rules:
+
+- **The bottleneck is usually inside, not outside.** Before looking for more contacts, most SMEs lose the ones they already have: a lead that waits a day for an answer, a proposal that takes three. Fixing that is cheaper than generating new demand and shows sooner. We explain it in [how to qualify leads automatically](/en/blog/como-cualificar-leads-automaticamente).
+- **WhatsApp rules.** In Spain the customer writes on WhatsApp; they do not fill in a form and wait for an email. A go-to-market system that does not handle WhatsApp gets half the conversation. See [WhatsApp for automating sales](/en/blog/whatsapp-automatizacion-ventas).
+- **Cold email is more restricted.** The mass cold email campaigns that work in the United States run into the LSSI and the GDPR here. The weight shifts to inbound, to the customer base you already have and to channels such as LinkedIn. What the law requires is in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
+- **There is no budget for ten tools.** An SME's stack fits in a CRM (GoHighLevel, HubSpot or whichever you already use), a connector and an AI model called only where needed. We go through it in [which tools to use](/en/blog/herramientas-ia-para-automatizar-procesos) and in [how to integrate GoHighLevel with your stack](/en/blog/integrar-gohighlevel-con-tu-stack).
+- **You do not need to hire a GTM engineer.** You need someone to build the two or three processes that matter most, the code and the accounts to be in the company's name, and someone inside to be responsible for keeping them working.
+
+## A real case: Tribeca Media
+
+[Tribeca Media](/en/casos-de-exito/tribeca-media) builds KEYWORKERS, a platform that gives each client a team of AI agents for marketing, working on their real advertising and social media accounts. It is GTM Engineering applied to the most expensive part of go-to-market: ad money.
+
+The starting point: their agent read the Meta Ads campaigns but did not act on them. It had no Google Ads, did not generate creatives and there was no way of knowing how much it spent on AI or when it failed. To serve many more clients, the agents had to be able to act, and to do so under control.
+
+What we built follows the order above:
+
+1. **Assessment and phased plan**, reviewing the code and the live system, prioritised by risk.
+2. **Observability and AI cost**: health checks with alerts, the cost of every call logged and a spending cap per client. Before letting an agent touch money, you have to be able to see what it does and how much it costs. Details in [the cost of an AI agent in production](/en/blog/coste-agente-de-ia-en-produccion).
+3. **The Performance Agent on Meta and Google Ads**: it reads the campaigns, detects what stops working and proposes pausing, lowering the budget or creating new campaigns, which are created paused. Raising the budget is never automatic. Details in [what an AI agent can do in Meta Ads and Google Ads](/en/blog/agente-ia-meta-ads-google-ads).
+4. **Human approval**: no action is executed without the sign-off of a person with permission. Approvals expire after 24 hours, every action is logged and a budget cut can be undone. How it is designed, in [AI agents with human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
+5. **Creatives with AI**: when a Meta ad fatigues, it generates a new image and leaves it ready for review. Only what is approved goes up to Meta.
+
+The Performance Agent is code-complete and is in validation with a pilot client, on top of almost 1,000 automated tests. We are now building the Content Agent, which prepares content pieces as previews, pending approval.
+
+The lesson any SME can take away: AI is not let loose on a client's money without three things first, which are being able to measure it, being able to stop it and having a person approve what matters.
+
+## Another case, closer to the sale
+
+At [Eventos Barcelona](/en/casos-de-exito/eventos-barcelona) the problem was not advertising but the proposal: it took one to three days to go out and, by then, the client had already asked others for a quote. Now the salesperson fills in a short form when the call ends and the proposal, with the company's branding, goes out in about eight minutes. It did not take a GTM team: it took treating that step of the sales process as something that is built. The method is in [automatic sales proposals](/en/blog/propuestas-comerciales-automaticas).
+
+## Where to start
+
+1. **Draw the customer journey** from the moment they find you until they pay, with every tool and every person involved. A step almost always shows up where contacts are lost without anyone seeing it.
+2. **Measure that step as it is today**: how long the reply takes, how many leads get no follow-up, how long the proposal takes. Without that snapshot you will not be able to show that anything changed. Method in [how to measure a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
+3. **Put the data in order**: a single place for contacts and opportunities. If you do not have a CRM, that is the first deliverable.
+4. **Automate that step**, with rules where they are enough and with AI only where something has to be read or written. An [AI agent](/en/blog/agentes-de-ia-para-empresas-cuando-compensan) is worth it when there is real conversation; for moving data, an automation is cheaper and more predictable.
+5. **Keep a person reviewing** what the AI decides, above all anything that touches money or a customer, and measure again after four weeks.
+
+If the bottleneck is not answering those who arrive, but that nobody arrives, then it is time to go out and find them: we cover it in [B2B prospecting with AI](/en/blog/prospeccion-b2b-outbound-con-ia), and we compare the enrichment tools in [Clay, Treg or ColdIQ](/en/blog/clay-treg-coldiq-enriquecimiento-prospeccion-b2b).
+
+## How much it costs
+
+A first, well-scoped go-to-market process (the reply to leads, qualification or proposals) takes four to eight weeks. At Rianex discovery starts at €1,500 and implementation runs from €5,000 to €25,000, depending on how many systems it touches and how many exceptions the process has. The breakdown is in [how much it costs to automate a process with AI](/en/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio).
+
+## Frequently asked questions
+
+### What is a GTM engineer?
+
+It is the person who builds a company's lead generation and sales system: connects the CRM to the rest of the tools, automates finding, qualifying and following up contacts, and uses AI at the steps that require reading or writing text. They do not sell or run campaigns; they build the machinery used by those who sell.
+
+### How is GTM Engineering different from RevOps?
+
+RevOps maintains the CRM, the processes and the sales reports. GTM Engineering builds new systems on top of them, with code, automations and AI, and measures them in conversion and sales. In an SME they are usually the same person or the same provider.
+
+### Does an SME need a GTM engineer?
+
+Not as a full-time position. It needs the two or three sales processes that matter most (the reply to leads, follow-up, proposals) to be built as a measured system. An external provider can do that, as long as the code and the accounts stay in the company's name.
+
+### What tools does a GTM engineer use?
+
+A CRM where the information lives (GoHighLevel, HubSpot or Salesforce), connectors such as n8n, Make or Zapier, data enrichment tools and language models via API. In a Spanish SME a CRM, a connector, WhatsApp and an AI model used only where needed are usually enough.
+
+### Is GTM Engineering the same as doing outbound?
+
+No. Outbound, writing cold to potential customers, is one of its applications and the best known in the United States. In Spain, with the LSSI and the GDPR, mass cold email is very restricted and most of the work lies in not losing the demand that already arrives and in selling more to existing customers.
+
+### Where do I start?
+
+With the step of the sales process where most contacts are lost, measured before touching anything. If you want to know which one it is in your case, the [free assessment](/en/diagnostico) takes 30 minutes and you leave with that step identified, or with the conclusion that it is not worth it yet.

@@ -1,3 +1,5 @@
+import { existsSync, readdirSync } from "node:fs";
+
 // Slugs que publicaba la version anterior del blog, cuando se servia desde la
 // base de datos. Google y los enlaces externos ya los conocen: cada uno manda
 // al articulo actual que cubre el mismo tema.
@@ -12,18 +14,30 @@ const SLUGS_ANTIGUOS = {
   "cuanto-cuesta-automatizar-un-proceso-con-ia": "proyectos-de-ia-a-medida-ejemplos-plazos-precio",
 };
 
+// Articulos sin traduccion al ingles: /en/blog/<slug> manda al original en
+// castellano. Temporal (307): en cuanto exista src/content/blog-en/<slug>.mdx
+// la URL inglesa pasa a servir la traduccion.
+const slugs = (dir) =>
+  existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith(".mdx")).map((f) => f.replace(/\.mdx$/, "")) : [];
+const TRADUCIDOS = new Set(slugs("./src/content/blog-en"));
+const SIN_TRADUCIR = slugs("./src/content/blog").filter((s) => !TRADUCIDOS.has(s));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // El blog se lee de los .mdx en el build. Si alguna ruta se regenera en
   // ejecucion tiene que encontrarlos tambien en la funcion desplegada.
   outputFileTracingIncludes: {
-    "/**": ["./src/content/blog/*.mdx"],
+    "/**": ["./src/content/blog/*.mdx", "./src/content/blog-en/*.mdx"],
   },
   async redirects() {
     return [
       ...Object.entries(SLUGS_ANTIGUOS).flatMap(([antiguo, actual]) => [
         { source: `/blog/${antiguo}`, destination: `/blog/${actual}`, permanent: true },
-        { source: `/en/blog/${antiguo}`, destination: `/blog/${actual}`, permanent: true },
+        {
+          source: `/en/blog/${antiguo}`,
+          destination: TRADUCIDOS.has(actual) ? `/en/blog/${actual}` : `/blog/${actual}`,
+          permanent: true,
+        },
       ]),
       // El servicio de agentes paso a centrarse en WhatsApp (octubre de 2026).
       { source: "/servicios/agentes-ia-vps", destination: "/servicios/agente-ia-whatsapp", permanent: true },
@@ -31,10 +45,15 @@ const nextConfig = {
       // El desarrollo a medida dejo de ser un servicio (octubre de 2026).
       { source: "/servicios/desarrollo-ia-a-medida", destination: "/servicios/automatizacion-procesos-ia", permanent: true },
       { source: "/en/servicios/desarrollo-ia-a-medida", destination: "/en/servicios/automatizacion-procesos-ia", permanent: true },
-      // Los articulos no tienen version en ingles: el original es el castellano.
-      { source: "/en/blog/:slug", destination: "/blog/:slug", permanent: true },
+      ...SIN_TRADUCIR.map((slug) => ({
+        source: `/en/blog/${slug}`,
+        destination: `/blog/${slug}`,
+        permanent: false,
+      })),
     ];
   },
+  // No anunciar el framework en cada respuesta.
+  poweredByHeader: false,
   experimental: {
     // 404 propio con dos layouts raiz: ver src/app/global-not-found.tsx.
     globalNotFound: true,

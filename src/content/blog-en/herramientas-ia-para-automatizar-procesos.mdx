@@ -1,0 +1,104 @@
+---
+title: "AI tools to automate processes: which ones to use in an SME"
+description: "The five families of AI tools to automate processes in an SME: what each one solves, what can be done without coding and when you need something custom."
+date: "2026-10-21"
+updated: "2026-11-24"
+tags: ["automation", "ai", "tools", "sme", "no-code"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+Anyone who searches for "AI to automate processes" usually finds two types of answer: lists of fifty tools with their logos, or articles that talk about digital transformation without naming a single one. Neither helps you decide what to use on Monday.
+
+The reality is simpler. The tools fall into five families, each one solves one type of problem and almost every project combines two or three. Knowing what each family does avoids the most expensive mistake: buying a tool and then looking for a process for it.
+
+## The short answer
+
+To automate processes in an SME you normally combine a place where the information lives (a CRM such as GoHighLevel or HubSpot), a connector that moves data between tools (Zapier, Make or n8n) and a language model (from OpenAI, Anthropic or Google) that is called only in the steps that need to read or write text. That solves most processes without coding. Custom development comes in when the process is specific to you, the volume is high or mistakes are expensive.
+
+If you do not yet know which process to automate, start with [AI process automation: where to start](/en/blog/automatizar-procesos-con-ia-por-donde-empezar) or with the [fifteen examples for an SME](/en/blog/ejemplos-automatizacion-procesos-con-ia). The tool is chosen afterwards.
+
+## The five families of tools
+
+### 1. AI assistants for the workplace
+
+ChatGPT, Claude, Gemini or Copilot used directly by each person: writing an email, summarising a document, preparing a table. They are useful and cheap, and the team should use them.
+
+But they do not automate processes. They help one person do their part faster, and the process still depends on that person remembering, opening the tool and copying the result somewhere else. If the goal is for something to happen on its own every time a form or an invoice arrives, this family is not enough.
+
+What they do well is act as a laboratory: testing by hand which instructions give a good result before putting them into an automatic process.
+
+### 2. CRMs and platforms with built-in automation
+
+GoHighLevel, HubSpot and similar. They store contacts, conversations and opportunities, and come with their own automation engines: when a contact comes in, create the record, assign it, send the message, schedule the reminder. Several already include AI features to draft replies or handle conversations.
+
+For sales and customer service processes, it is usually the central piece. The reason is practical: if the contacts are not in a single place, no automation is going to be reliable. We explain it in [integrating GoHighLevel with your stack](/en/blog/integrar-gohighlevel-con-tu-stack) and in [migrating from HubSpot to GoHighLevel](/en/blog/migrar-de-hubspot-a-gohighlevel-sin-perder-historico).
+
+### 3. Connectors between tools
+
+Zapier, Make and n8n. They let tools that do not talk to each other exchange data: when an email with an invoice arrives, read it, create the record in the accounting software and notify the team channel. All of them have steps that call AI models to classify, extract or write.
+
+The differences that matter in an SME:
+
+- **Zapier** is the easiest to start with and the one with the most integrations. It charges for each task run, so with high volume it gets expensive.
+- **Make** allows more complex flows with branches and loops at a lower cost per operation, in exchange for a somewhat steeper learning curve.
+- **n8n** can be hosted on your own server, which gives control over the data and a fixed cost, but someone has to maintain that server. If you already use it, check [what breaks with n8n 3.0](/en/blog/n8n-3-que-se-rompe-y-como-prepararte) before updating.
+
+For a process that crosses three or four tools and runs a few dozen times a day, any of the three will do. The choice is set by the volume, who is going to maintain it and where the data has to be.
+
+### 4. AI models through an API
+
+The same models from OpenAI, Anthropic or Google, but called from another system instead of from the chat. It is the piece that reads the email and decides what it is asking for, extracts the fields from a PDF or writes the tailored reply. You pay by usage, and at the volumes of an SME the cost is usually small next to the rest.
+
+They are almost never used alone: they sit inside a flow in the connector, the CRM or your own development. What matters when choosing is not so much which model is better in the abstract, but that the provider offers data processing terms that fit the GDPR and that the flow is prepared for when the model gets it wrong. We explain it in [GDPR and AI automation](/en/blog/rgpd-y-automatizacion-con-ia).
+
+### 5. Agents and custom development
+
+Systems that do not follow a fixed flow, but receive a goal, consult several sources and decide which step to take, normally with a person approving what matters. And, more generally, your own software for processes that no standard tool solves.
+
+It is the most powerful family and the most expensive to build and maintain. It makes sense when the process is what sets you apart, when the volume makes usage-based tools more expensive than building, or when mistakes have consequences that require your own validations. We explain when it pays off in [AI agents for companies](/en/blog/agentes-de-ia-para-empresas-cuando-compensan), in [custom AI projects](/en/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio) and, with examples and prices, in [custom AI projects](/en/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio).
+
+## Which combination fits each case
+
+Three situations that come up again and again, and the combination that usually suits them best:
+
+**Lead generation and sales follow-up.** A CRM with built-in automation as the central piece, AI inside the CRM itself or through an API to qualify and reply to free-text messages. A connector only if you need to bring in data from tools the CRM does not integrate.
+
+**Administrative tasks between tools.** Invoices, orders, new customer records that have to be passed from one system to another. A connector with an AI step to read the documents and a human review of whatever does not match.
+
+**A process of your own with high volume.** Custom development, with AI through an API and the CRM as the data source. Start with a pilot on the connector to validate the logic before building.
+
+## The four mistakes when choosing a tool
+
+**Choosing the tool before the process.** It is the most common one. A platform is bought because someone saw it in a demo and then people look for something to automate with it.
+
+**Putting AI where a rule is enough.** If the decision can be written as "if this happens, do that", a rule is cheaper, faster and more predictable than a model.
+
+**Building on scattered data.** A connector that reads from four different spreadsheets breaks every time someone changes a column. First you centralise, then you automate.
+
+**Forgetting who maintains it.** Every automation needs someone who gets an alert when it fails and knows how to fix it. If that person does not exist, the flow will work until the first change in one of the tools and after that nobody will know why it stopped.
+
+If you would rather we build it for you, this is how we work in [our automation service for companies](/en/servicios/automatizacion-procesos-ia): from the assessment to the working system.
+
+## Frequently asked questions
+
+### Which AI tool is best for automating processes?
+
+There is no single one. Most processes combine a CRM where the information lives, a connector such as Zapier, Make or n8n that moves the data and a language model that is used only where text has to be read or written. The combination depends on the process, the volume and who is going to maintain it.
+
+### Can you automate without coding?
+
+Yes, to a large extent. CRMs with built-in automation and connectors let you build flows with AI steps without writing code. You need to code when the process has many exceptions, the volume is high or you need your own validations.
+
+### Zapier, Make or n8n?
+
+Zapier is the easiest and has the most integrations, but it charges per task. Make allows more complex flows at a lower cost per operation. n8n can be hosted on your own server, with more control over the data and a fixed cost, in exchange for maintaining it. The full comparison, with prices and where each piece of data ends up, is in [n8n vs Make vs Zapier](/en/blog/n8n-vs-make-vs-zapier).
+
+### Is using ChatGPT in the company already automating?
+
+No. Assistants help each person do their part faster, but the process still depends on someone opening the tool and copying the result. Automating means the process runs on its own every time the trigger occurs.
+
+### Where do I start?
+
+With the process, not the tool. If you want us to look at it together, the [free assessment](/en/diagnostico) is 30 minutes and you come out knowing what to automate first and with which pieces, with or without us.

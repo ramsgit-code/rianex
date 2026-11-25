@@ -90,7 +90,7 @@ export const CALCULADORA_COPY = {
         a: "No. The maths runs in your browser and the numbers never leave it. If you accept analytics, the only thing recorded is that someone used the calculator.",
       },
     ],
-    guides: "Go deeper (in Spanish)",
+    guides: "Go deeper",
     servicesLink: "Lead capture and qualification funnels",
     servicesText: "The service that tackles leakage: instant response, scoring and follow-up.",
     home: "Home",
@@ -107,7 +107,7 @@ export function CalculadoraView({ lang }: { lang: Lang }) {
   const t = CALCULADORA_COPY[lang];
   const href = (p: string) => localizePath(p, lang);
   const pageUrl = `${SITE_URL}${href(CALCULADORA_PATH)}`;
-  const posts = POSTS.map((s) => getPost(s)).filter((p) => p !== null);
+  const posts = POSTS.map((s) => getPost(s, lang) ?? getPost(s)).filter((p) => p !== null);
 
   const jsonLd = [
     {
@@ -202,7 +202,7 @@ export function CalculadoraView({ lang }: { lang: Lang }) {
                 <ul className="mt-5 grid gap-4 md:grid-cols-3">
                   {posts.map((p) => (
                     <li key={p.slug}>
-                      <Link href={`/blog/${p.slug}`} className="card group block h-full">
+                      <Link href={`${lang === "en" ? "/en" : ""}/blog/${p.slug}`} className="card group block h-full">
                         <h3 className="font-semibold text-foreground group-hover:text-accent-text">{p.title}</h3>
                         <p className="mt-1.5 text-sm leading-relaxed text-foreground-muted">{p.description}</p>
                       </Link>

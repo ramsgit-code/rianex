@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useLang } from "@/components/LanguageProvider";
 import { setConsent, getConsent } from "@/lib/consent";
+import { stripLang } from "@/lib/i18n";
 
 // Se reexportan porque los importaba media web antes de que el estado del
 // aviso viviera en @/lib/consent.
@@ -36,7 +37,7 @@ export function CookieConsent() {
   const { lang } = useLang();
   const t = copy[lang];
   const pathname = usePathname();
-  const blocking = !NON_BLOCKING_ROUTES.includes(pathname);
+  const blocking = !NON_BLOCKING_ROUTES.includes(stripLang(pathname));
   const [visible, setVisible] = useState(false);
   const dialogRef = useRef<HTMLDivElement>(null);
   const acceptRef = useRef<HTMLButtonElement>(null);
@@ -121,7 +122,7 @@ export function CookieConsent() {
             </h2>
             <p id="cookie-consent-text" className="mt-4 text-base leading-relaxed text-foreground-muted sm:text-[17px]">
               {t.text}{" "}
-              <Link href="/cookies" className="text-accent-text underline underline-offset-2">
+              <Link href={lang === "en" ? "/en/cookies" : "/cookies"} className="text-accent-text underline underline-offset-2">
                 {t.link}
               </Link>
             </p>

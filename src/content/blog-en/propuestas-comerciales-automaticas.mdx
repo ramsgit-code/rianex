@@ -1,0 +1,80 @@
+---
+title: "Automated sales proposals in 8 minutes: how I do it"
+description: "From 3 days to 8 minutes per proposal. The system I built for an events company with GoHighLevel and automatic document generation."
+date: "2026-04-08"
+updated: "2026-11-25"
+tags: ["proposals", "automation", "gohighlevel"]
+cluster: "captacion"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+The customer asks for a quote. Your team writes it down. Someone starts preparing the proposal when they have time. They send it two days later. By then, the customer has already received proposals from three competitors and has probably chosen whoever replied first.
+
+This is the exact cycle Eventos Barcelona had when we started working together.
+
+## The real problem
+
+A manual sales proposal has four problems nobody wants to admit:
+
+It is slow. Between the call, the analysis of the request, the layout and the review, it takes between 1 and 3 days in companies that work well. In companies with a heavier workload, more.
+
+It is inconsistent. Each sales rep writes the proposal their own way. The format varies, prices are calculated differently, margins are applied in different ways. No two proposals are the same.
+
+It loses momentum. The customer who asks for a quote is warm right after the call. Two days later they are cold, they have talked to others and they have already settled on a direction in their head.
+
+It has no follow-up. The proposal is sent and nobody knows whether it was opened, whether it was read, or when. The sales rep calls "in case you have any questions" with no real information about the state of the lead.
+
+## The practical solution
+
+The automatic proposal system works like this:
+
+After the call with the customer, the sales rep fills in an internal intake form: type of service, dates, capacity, city, specific details of the event and the margin to apply. It takes between 3 and 5 minutes.
+
+The form triggers a webhook that automatically generates a personalised web proposal with all the customer's data. The proposal has its own URL, a professional design with the company's branding and a downloadable PDF.
+
+Within the next 60 seconds the customer receives an email with the link to their proposal. The CRM records the send and starts the automatic follow-up: if it has not been opened within 48 hours, it sends a reminder. If the proposal is opened but there is no reply within 72 hours, it notifies the sales rep.
+
+**8 minutes from the end of the call until the customer has the proposal in their inbox.**
+
+## How to implement it step by step
+
+- Design the post-call intake form. The fields you need: customer information, service details, variables that affect the price. This form is filled in by the sales rep, not the customer.
+- Set up the automatic generation of the proposal. In GHL you can do this with dynamic documents and custom fields. For more flexibility, a webhook that connects to a template in Google Docs or to a document system of your own.
+- Create the personalised proposal page. A URL like `tuempresa.com/propuestas/nombre-empresa` with the customer's data, the breakdown of services and the downloadable PDF.
+- Automate the sending and the follow-up. Automatic email on sending, open tracking, a reminder if there is no reply, a notification to the sales rep if there is any interaction.
+- Connect everything in the GHL pipeline. The proposal appears in the deal's pipeline with its status: sent, opened, in negotiation, accepted, rejected.
+
+The full implementation takes between 3 and 4 weeks depending on the complexity of the service catalogue.
+
+## The result you can expect
+
+Eventos Barcelona went from taking between 1 and 3 days per proposal to 8 minutes. The image it gives the customer changed completely: the customer receives a professional, personalised proposal with a PDF in less time than a coffee break.
+
+The conversion rate improved. Not because the proposal is cheaper, but because it arrives first. In services where several providers compete for the same customer, whoever replies first has a real advantage.
+
+The sales team stopped spending time laying out documents and started spending that time following up on the leads that had received a proposal. Which is, in fact, where the money is.
+
+If this is your first automation project, before choosing a process it is worth reading [where to start automating processes with AI](/en/blog/automatizar-procesos-con-ia-por-donde-empezar). And if what you prepare are bids for public tenders, you can see what changes in [tender proposals with AI](/en/blog/propuestas-licitaciones-con-ia).
+
+## Frequently asked questions
+
+### How do you automate a sales proposal?
+
+The sales rep fills in an internal form after the call, with the customer's data, the service and the variables that affect the price. That form triggers a webhook that generates a personalised web proposal, with its own URL and a downloadable PDF, and the customer receives the link by email. The CRM records the send and runs the follow-up: if it has not been opened within 48 hours, it sends a reminder, and if it is opened but there is no reply within 72 hours, it notifies the sales rep.
+
+### How long does it take to send a proposal with a system like this?
+
+Eight minutes from the end of the call until the customer has the proposal in their inbox. The sales rep takes between 3 and 5 minutes to fill in the form, and the email with the link goes out within the next 60 seconds. By hand, the usual time is between 1 and 3 days.
+
+### Can you generate automatic proposals with GoHighLevel?
+
+Yes. GoHighLevel does it with dynamic documents and custom fields. If you need more flexibility, you use a webhook that connects to a template in Google Docs or to a document system of your own. In both cases the proposal appears in the pipeline with its status: sent, opened, in negotiation, accepted or rejected.
+
+### How long does it take to implement an automatic proposal system?
+
+Between 3 and 4 weeks, depending on the complexity of the service catalogue. That period covers the intake form, the document generation, the proposal page, the sending with follow-up and the connection to the pipeline.
+
+---
+
+If you want to implement this system in your company, start with the [free assessment](/en/diagnostico). I analyse your current proposal process and tell you exactly what can be automated and how long it will take.

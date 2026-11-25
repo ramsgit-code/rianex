@@ -1,0 +1,129 @@
+---
+title: "GTM Engineering is not sending 5,000 emails with Clay"
+description: "Why GTM Engineering is not email volume but the architecture of the sales system: data, signals, decision, action, control and measurement. With a real case."
+date: "2026-11-03"
+tags: ["gtm engineering", "clay", "sales architecture", "crm", "sales", "ai"]
+cluster: "outbound"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+The joke is already going around LinkedIn: a GTM engineer is "an SDR with a Clay login". And there is some truth in it. Much of what is sold under that name consists of pulling a list, enriching it, running it through a model to write a "personalised" first line and sending thousands of emails. When the reply rate collapses, more domains are bought and more is sent.
+
+That is not engineering. It is volume with better tools. And in Spain, on top of that, it runs straight into the LSSI and the GDPR.
+
+If you want the full definition of the term, it is in [what is GTM Engineering](/en/blog/que-es-gtm-engineering). This article is about what it is not and how to build it properly.
+
+## The short answer
+
+GTM Engineering is not a tool or a sending volume: it is **the architecture of the sales system**. It is six layers that are designed together: where the data lives, which signals trigger an action, who decides (a rule, AI or a person), which channel is used to act, which controls stop an error from multiplying and how everything is measured against sales. Clay can be one piece of the data layer. If it is the only piece, what you have is a machine for sending emails, not a sales system.
+
+## Why "more emails" is not the answer
+
+The volume model has three problems that better prompts do not fix:
+
+- **It burns the market.** Every email that does not interest the person receiving it wears down a little of your brand and of your domain's reputation. In a small market, like that of many Spanish SMEs, potential customers are not infinite.
+- **It does not look at what you already have.** Most SMEs lose more sales on the contacts that already reach them (a form nobody answers for two days, a proposal that takes a week, a customer nobody offers the next thing to) than on the ones they are missing.
+- **It does not learn.** If the only things measured are opens and replies, you do not know what kind of customer buys, through which channel or after which step. Without that, the system can only do the same thing harder.
+
+Writing cold is not bad. It is one of the possible applications, and we cover it in [B2B prospecting with AI](/en/blog/prospeccion-b2b-outbound-con-ia). The mistake is confusing an application with the discipline.
+
+## The six layers of a sales system
+
+| Layer | The question it answers | If it is missing |
+|---|---|---|
+| Data | Where does every contact, every conversation and every opportunity live? | Each salesperson has their own truth and nobody knows what happened to a lead |
+| Signals | What event means it is time to act? | Action is driven by the calendar ("time for a campaign") or by memory |
+| Decision | Who decides what to do: a rule, AI or a person? | AI decides things that should be rules, or a person does by hand what a rule would solve |
+| Action | Through which channel and with what message? | Everything goes through the same channel, usually email |
+| Control | What stops an error from being repeated a thousand times? | An AI failure reaches every contact before anyone sees it |
+| Measurement | Which step and which channel bring sales? | What is easy to measure gets optimised, not what matters |
+
+### Data: a single place
+
+Everything starts in the CRM. Not because the CRM is magic, but because any automation or agent needs to know what has happened before with that contact. One case that sales teams value highly is the **CRM that updates itself**: notes from every call and every email, the next step and the stage of the opportunity, without the salesperson having to write it down. It is less eye-catching than an agent that prospects, and it usually returns more.
+
+Tools like Clay live here: they enrich a contact with data on the company, the job title or the technology it uses. They are useful when that data changes a decision. If it changes nothing, it is cost. We compare them in [Clay, Treg or ColdIQ](/en/blog/clay-treg-coldiq-enriquecimiento-prospeccion-b2b).
+
+### Signals: act on an event, not on the calendar
+
+A signal is an event that justifies an action: someone asks for a quote, opens the proposal three times, a customer has gone six months without buying, an ad starts to perform worse. The engineering work is to choose a few signals that really predict something and connect them to a specific action.
+
+### Decision: rule, AI or person
+
+This is the layer most often designed badly. The rule of thumb:
+
+- **Rule** when the decision can be written down: "if the form says more than 100 guests, it goes to the senior salesperson".
+- **AI** when text has to be read or written and a rule is not enough: classifying a free-form email, summarising a call, proposing the next step.
+- **Person** when the decision touches money, an important customer or cannot be reversed.
+
+And beware of the person who only signs. A study by Anthropic published on 27 October 2026 found that expert analysts followed the leaning of their AI agent in 86% of decisions, almost always without noticing. If the person reviews, they have to be given something to review with: the alternative, the assumptions and the time to think about it. We explain it in [AI agents with human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
+
+### Action: the channel your customer uses
+
+In Spain, a good part of an SME's sales goes through WhatsApp and the phone, not email. A well-designed sales system chooses the channel according to the signal: an immediate reply on [WhatsApp](/en/blog/whatsapp-automatizacion-ventas) to someone who has just asked for information, a branded proposal to someone who has just finished the call, an alert to the salesperson when a large customer comes back to the website.
+
+### Control: stop an error from multiplying
+
+This is the difference between assembling and building. A system that acts on its own needs limits: what it can do without asking, what needs approval, how much it can spend, what is logged and how it is undone. Without this layer, an AI that gets it wrong once gets it wrong a thousand times in a row.
+
+### Measurement: against sales
+
+Opens and replies do not pay salaries. You have to measure response time, the conversion of each step and, in the end, sales, before and after touching anything. The method is in [how to measure a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
+
+## A real case: ad money
+
+[Tribeca Media](/en/casos-de-exito/tribeca-media) builds KEYWORKERS, a platform that gives each client a team of AI agents for marketing working on their real advertising accounts. There is not a single cold email in it, and it is GTM Engineering from start to finish. Its Performance Agent, which we built with them, has all six layers:
+
+| Layer | How it is solved |
+|---|---|
+| Data | Each client's real Meta Ads and Google Ads campaigns |
+| Signals | An ad that fatigues or a campaign that stops working |
+| Decision | The agent proposes pausing, lowering the budget or creating a campaign, and generates a new creative when a Meta ad fatigues |
+| Action | It is executed in Meta or Google Ads only after approval. New campaigns are created paused |
+| Control | No action without the sign-off of a person with permission, approvals expire after 24 hours, raising the budget is never automatic, every action is logged and a budget cut can be undone |
+| Measurement | The cost of every call to the AI logged per client, with a daily cap, and almost 1,000 automated tests on the system |
+
+The Performance Agent is code-complete and is in validation with a pilot client. What interests us about the example is the order: the agent was not let loose on anyone's money until it could be measured, it could be stopped and a person approved what matters. We describe it in more detail in [an AI agent for Meta Ads and Google Ads](/en/blog/agente-ia-meta-ads-google-ads).
+
+## How to tell whether you are being sold volume or a system
+
+Five questions for the first meeting with any provider, including us:
+
+1. **What do you measure in the end?** If the answer is opens, replies or meetings booked and never sales, it is volume.
+2. **Where does the data stay?** If the contacts and conversations live in the provider's tool and not in your CRM, the system is not yours.
+3. **What does the AI decide and what does a person decide?** If they cannot answer step by step, nobody has designed it.
+4. **What happens when the AI gets it wrong?** Look for limits, logging and a way to undo.
+5. **What would you do with the contacts that already reach me?** If the whole proposal starts with "getting you more leads", you are probably leaving sales on the table with the ones you already have.
+
+## Where to start
+
+Not with the tool. Draw your customer's journey from the moment they find you until they pay, mark the step where most contacts are lost and measure it as it is today. Then decide, layer by layer, what is needed to fix that step. It is almost always less technology than it seems and more design.
+
+If you want to do it with someone by your side, in the [free consultation](/en/diagnostico) we review your sales process and you leave with the step to start with. If you already know that what you are missing is going out to find customers, look at our [autonomous prospecting and Go to Market](/en/servicios/outbound-b2b) service.
+
+## Frequently asked questions
+
+### Is GTM Engineering the same as doing outbound with Clay?
+
+No. Outbound with Clay, enriching a list and writing cold to many contacts, is one of the things a GTM engineer can build. GTM Engineering is designing the complete sales system: data, signals, decision, action, control and measurement, and measuring it against sales.
+
+### What is the architecture of a sales system?
+
+It is how the pieces that turn a contact into a sale are connected: where the information lives, which events trigger an action, who decides what to do, which channel is used to act, what limits the automation has and how the result is measured.
+
+### Do I need Clay to do GTM Engineering?
+
+No. Clay and similar tools are for enriching data on contacts and companies. They are useful when that data changes a decision, for example who to call first. Many Spanish SMEs have more to gain from putting their CRM in order and replying sooner to the contacts that already reach them.
+
+### Can you send cold email in Spain?
+
+With many restrictions. The LSSI and the GDPR restrict unsolicited commercial communications, and mass sending to personal addresses is especially sensitive. That is why in Spain it is better to rely more on LinkedIn, on the signals from the contacts you already have and on a fast reply to whoever writes to you.
+
+### What does AI do in a well-designed sales system?
+
+It reads and writes text where a rule is not enough: classifying an email, summarising a call, updating the CRM, proposing the next step or preparing a creative. Anything that touches money or an important customer is approved by a person, and everything it does is logged.
+
+### How much does it cost to build a sales system like this?
+
+It depends on how many layers are missing and how many tools have to be connected. A first, well-scoped step, such as the reply to leads or proposals, usually takes four to eight weeks. The breakdown is in [how much it costs to automate a process with AI](/en/blog/proyectos-de-ia-a-medida-ejemplos-plazos-precio).

@@ -1,0 +1,95 @@
+---
+title: "Clinic automation: lead capture, scheduling and no-shows"
+description: "Missed calls, empty slots and patients who do not come back. What to automate in a clinic and what you cannot touch because it is health data."
+date: "2026-09-28"
+updated: "2026-11-25"
+tags: ["clinics", "health", "automation", "scheduling"]
+cluster: "captacion"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+In a clinic, money is lost in three very specific places: the call nobody picked up, the slot that stayed empty and the patient who finished their treatment and did not come back.
+
+All three can be automated. And at the same time, a clinic processes health data, which is a special category, so not everything goes. It is worth separating what should be automated from what has to be handled with care.
+
+## Where the money is lost
+
+**The call nobody picked up.** There is not always someone free at reception. People looking for a clinic call several and stay with the first one that answers. Every missed call is a patient who went somewhere else, and it shows up in no report because it never came to exist.
+
+**The out-of-hours contact.** A large share of requests comes in during the evening, at night or at the weekend. If the reply arrives on Monday at ten, it arrives late.
+
+**The empty slot.** A no-show without notice is a block of the calendar that can no longer be sold. In clinics without automatic reminders, the no-show rate is usually between 15% and 30%.
+
+**The patient who does not come back.** They finished their treatment, they were happy and nobody wrote to them again. Winning back former patients is the cheapest thing there is and the thing that is done least.
+
+## What to automate, in order of return
+
+**First: an immediate reply to any request.** Wherever it comes from (form, WhatsApp, missed call), in under a minute there should be a reply that acknowledges the contact and offers the next step. This alone recovers a good part of what slips away.
+
+**Second: appointment reminders.** With confirmation. One when booking, another 48 hours before and another on the day. And the patient's reply should update the calendar without anyone typing it in. It is the automation with the best return of all in a clinic.
+
+**Third: an automatic waiting list.** When someone cancels, notify whoever was waiting for a slot for that treatment. It turns cancellations into appointments instead of an empty calendar.
+
+**Fourth: pre-qualification.** Knowing before the first call which treatment they are looking for, how urgent it is and whether it fits what you offer. It stops reception spending half an hour with someone who was never going to be a patient. We cover it in [how to qualify leads automatically](/en/blog/como-cualificar-leads-automaticamente).
+
+**Fifth: post-treatment follow-up.** A message after three months asking how things are going. It wins patients back and generates reviews, which is what brings in the next ones.
+
+## What has to be handled with care
+
+This is where a clinic differs from any other business, and where we see the most mistakes.
+
+**Health data is a special category.** Article 9 of the GDPR treats it separately. Someone asking for an appointment for a specific treatment already says something about their health, and that has consequences for how it is stored and who can see it.
+
+**Do not put the diagnosis in the sales CRM.** The separation that works: the CRM manages the contact, the interest and the appointment. The medical record lives in the clinical software, which is where it has to be. Crossing the two for convenience is the most expensive mistake you can make here.
+
+**Be careful with what automatic messages say.** A reminder that names the treatment is health information travelling over a channel that someone else using the same phone may read. It is enough to say "you have an appointment tomorrow at 10" without specifying what for.
+
+**No automatic diagnosing.** An agent can give information about services, prices and availability, and it can book. It must not interpret symptoms or advise on a treatment. That is not a technical limitation, it is where the line is.
+
+**Explicit, recorded consent.** Health data needs explicit consent, and you have to be able to prove it. We go into this in [GDPR and AI automation](/en/blog/rgpd-y-automatizacion-con-ia).
+
+## What connects to what
+
+A clinic usually has clinical management software with its own calendar. Automation does not replace it: it connects to it.
+
+The setup that works is for the CRM to manage lead capture and the conversation, and for the calendar to remain the one in the clinical software, synchronised in one direction only. When a booking is made from outside, it goes in there. When something changes there, it is reflected outside.
+
+Trying to have the calendar live in two places that write to each other ends in duplicate appointments and in slots that exist in one system and not in the other. That is the subject of [integrating GoHighLevel with your stack](/en/blog/integrar-gohighlevel-con-tu-stack).
+
+## What to measure
+
+Four numbers that almost no clinic has and that decide everything:
+
+- How many requests come in per month and through which channel.
+- How long it takes on average to give the first reply.
+- What percentage of appointments end in a no-show.
+- How many patients have not come back in the last twelve months.
+
+The second is usually the most revealing, and the fourth is the one that hides the most money.
+
+## Where to start
+
+If only one thing can be done, reminders with confirmation. It is the cheapest to set up, the fastest to notice and the one that touches the delicate part of the data least.
+
+With that working and measured, the next step is the immediate reply to requests that come in out of hours: we go into it in [how to automate a clinic's reception](/en/blog/automatizar-recepcion-clinica).
+
+## Frequently asked questions
+
+### What can be automated in a clinic?
+
+In order of return: the immediate reply to any request, appointment reminders with confirmation, the waiting list when someone cancels, pre-qualification before the first call and the follow-up three months after the treatment. If only one thing can be done, reminders with confirmation, because it is the cheapest to set up and the one that touches the delicate part of the data least.
+
+### How do you reduce patient no-shows?
+
+With automatic reminders that ask for confirmation: one when booking, another 48 hours before and another on the day. The patient's reply has to update the calendar without anyone typing it in. In clinics without automatic reminders, the no-show rate is usually between 15% and 30%.
+
+### What care does health data need when automating a clinic?
+
+Health data is a special category under Article 9 of the GDPR, and asking for an appointment for a specific treatment already says something about a person's health. That is why the diagnosis does not go in the sales CRM, which manages the contact, the interest and the appointment, while the medical record stays in the clinical software. Automatic messages must not name the treatment, and an agent can give information and book, but not interpret symptoms. You also need explicit consent that you can prove.
+
+### Do I have to change the clinic's management software to automate?
+
+No. Automation connects to the clinical software, it does not replace it. The CRM handles lead capture and the conversation, and the calendar remains the one in the clinical software, synchronised in one direction only. When the calendar lives in two places that write to each other, duplicate appointments end up appearing.
+
+In the [free assessment](/en/diagnostico) we look at those four numbers in your clinic and you get what to automate first, with the sums of what it means.

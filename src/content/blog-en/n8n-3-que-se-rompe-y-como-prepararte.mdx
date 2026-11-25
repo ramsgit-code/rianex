@@ -1,0 +1,133 @@
+---
+title: "n8n 3.0 in December: what breaks and an upgrade checklist"
+description: "What changes in n8n 3.0, which workflows stop working and the checklist to review your instance before upgrading: removed nodes, Docker, Slack and timeouts."
+date: "2026-10-26"
+tags: ["n8n", "automation", "migration", "self-hosted", "checklist"]
+cluster: "automatizacion-ia"
+author: "Ramiro Pérez Rodero"
+linkPolicy: "follow"
+updated: "2026-11-23"
+draft: false
+---
+
+**Status as of 23 November 2026:** the beta has been available since 27 October and the stable version is still planned for early December, with no fixed day. We will update this article when it is released.
+
+n8n announced its version 3.0 on 23 October. The beta is released on 27 October and the stable version is planned for early December. It is a real major upgrade: it removes nodes that are still inside many workflows in production, changes default values and cannot be rolled back.
+
+If your company has n8n workflows that move contacts, invoices or alerts, this is what is worth reviewing before pressing "update".
+
+## The short answer
+
+n8n 3.0 breaks workflows that use old nodes (Function, Cron, Interval, Item Lists, the old OpenAI node and the version 1 AI agents, among others), stops supporting installations with npm or npx (Docker only), requires a signing secret in Slack credentials and lowers the maximum time of a Code node from 5 minutes to 1. The upgrade cannot be undone: make a backup, open the **Migration Report** of your instance and test on a copy before touching production.
+
+## The dates
+
+| What | When |
+|---|---|
+| n8n 3.0 beta | 27 October 2026 (in the cloud, by choosing "3.0.0 Beta") |
+| Stable 3.x version | Early December 2026 |
+| End of support for n8n 1.x | 31 December 2026 |
+| Support for n8n 2.x | Security patches and critical bug fixes for 12 months from the stable release of version 3 |
+
+The dates come from the [official announcement on the n8n forum](https://community.n8n.io/t/announcing-n8n-version-3-0-coming-soon/324016). If you are still on 1.x, you have to move to 2 first and then to 3, and version 1 runs out of support at the end of the year.
+
+There is no hurry to run 3.0 on the first day. There is a hurry to know what is going to break for you, because 2.x will stop receiving new features and sooner or later you will have to make the jump.
+
+## What breaks
+
+Everything that follows comes from the [official list of 3.0 changes](https://docs.n8n.io/changelog/v30-breaking-changes). I have ordered it by what we see most in SME workflows.
+
+### Removed nodes: the workflow fails when it runs
+
+A workflow that uses any of these nodes will stop working. Most have a direct replacement:
+
+| Node that disappears | What to use instead |
+|---|---|
+| Function and Function Item | Code ("All Items" or "Each Item" mode) |
+| Cron and Interval | Schedule Trigger |
+| Item Lists | Split Out, Aggregate, Sort, Limit, Remove Duplicates or Summarize |
+| HTML Extract | HTML, Extract HTML Content operation |
+| Read Binary File(s) and Write Binary File | Read/Write Files from Disk |
+| Read PDF | Extract from File, Extract From PDF |
+| Workflow Trigger | n8n Trigger |
+| OpenAI (old) and OpenAI Assistant | The current OpenAI node, from the AI section |
+| OpenAI Model | OpenAI Chat Model |
+| HTTP Request Tool (old) | HTTP Request node connected to the Tool input of the AI Agent |
+| AI Agent version 1 (SQL, Conversational, ReAct, Plan and Execute, OpenAI Functions) | Current AI Agent (Tools Agent); for SQL, a Postgres or MySQL tool |
+| Old vector stores (In Memory, Pinecone, Supabase, Zep) | Simple, Pinecone or Supabase Vector Store |
+| Motorhead and Zep memory | Another compatible memory node |
+| SerpApi | HTTP Request calling SerpApi |
+
+Watch out for two cases with no substitute: **LangChain Code** and **Orbit** disappear without a replacement. If a workflow depends on them, that part has to be rebuilt.
+
+Recent 2.x versions no longer let you add these nodes to a new workflow, but old workflows that use them keep working until you upgrade. That is why they go unnoticed: they have been running for two years and nobody has opened them again.
+
+### Docker only for self-hosted installations
+
+n8n 3.0 can no longer be installed with npm or npx, and it stops publishing an executable package on npm. If you set up n8n on a server with "npm install -g n8n" and a process manager, you have to move to Docker before upgrading. Kubernetes and Helm are not affected.
+
+For production, n8n recommends Docker Compose with **Postgres** instead of the SQLite database that comes by default. If you are going to migrate anyway, it is a good moment to make both changes at once.
+
+### Changes that give no warning
+
+These do not raise an error when you upgrade. They change the behaviour and you find out when something stops arriving:
+
+- **The Code node cuts off at 60 seconds.** The default maximum time goes down from 300 to 60. A Code node that processes a large batch or waits for a slow API will start to fail. You can go back to the previous value with the **N8N_RUNNERS_TASK_TIMEOUT** variable.
+- **Slack requires a signing secret.** Without it, workflows with a Slack Trigger cannot be published and the trigger responds with a 401. If you send lead or error alerts through Slack, check it.
+- **The old Gmail Trigger starts behaving like version 1.4:** at most 10 emails per query by default (maximum 50), it ignores drafts and it does not fire on sent emails. A workflow that read invoices from the inbox can fall short on a day with a lot of volume.
+- **Unverified community nodes stop loading.** The default value of **N8N_UNVERIFIED_PACKAGES_ENABLED** becomes "false". If you installed a community node that is not verified, the workflow that uses it fails.
+- **If, Switch and other nodes with several outputs** with "Always Output Data" only add an empty item when all the outputs are empty. If a workflow relied on that empty item to continue, the path it takes changes.
+- **The files folder changes name**, from binaryData to storage. n8n does not start if both exist.
+- **Encryption key rotation is enabled by default.** Existing data can still be read; it requires no action, but it is worth knowing it is there if something to do with credentials behaves oddly.
+
+### Other removals
+
+- The **$getPairedItem** function disappears from expressions. It is replaced by $('node').item, itemMatching() or pairedItem().
+- **Chat Hub** comes disabled (it can be re-enabled in 3.x and disappears in 4.0).
+- **Import from URL** disappears from the editor, as do the **Ask AI** tab of the Code node and the Local File and URL sources of the Execute Sub-workflow node in its old versions.
+
+## Checklist before upgrading
+
+In this order:
+
+1. **Full backup.** Database, the n8n data folder and the encryption key. Version 3.0 cannot be taken back to 2.x: if something goes wrong, the backup is your only way back.
+2. **Open the Migration Report.** In Settings → Migration Report (only a global administrator can see it) n8n lists the workflows and settings of your instance that are going to fail. It is the starting point; it does not replace looking at each critical workflow.
+3. **Take inventory of what moves money.** Before fixing anything, note which workflows touch contacts, sales, invoices or alerts to customers. Those are tested first and watched afterwards.
+4. **Replace the removed nodes while on 2.x.** Change Function for Code, Cron for Schedule Trigger and the rest of the table, and check that the workflow gives the same result with real data. Doing it before upgrading lets you test calmly and with the safety net of the version that already works.
+5. **Review the Code nodes that take a long time.** Look in the execution history for the ones that go over a minute. Either you split them, or you set N8N_RUNNERS_TASK_TIMEOUT.
+6. **Add the signing secret to Slack** and review the community nodes you have installed.
+7. **If you installed with npm, move to Docker** (and, if you can, to Postgres) while you are still on 2.x.
+8. **Test 3.0 on a copy**, not in production. Restore the backup on another instance, upgrade that one and run the critical workflows end to end.
+9. **Upgrade at a quiet time** and with someone watching the executions for the first 48 hours. The failures in this upgrade are silent: an alert that does not arrive, a lead that does not enter the CRM.
+
+## What we do
+
+If your n8n workflows were built by someone who is no longer around, or nobody knows exactly what each one does, the upgrade is the excuse to find out. In the [free assessment](/en/diagnostico) we review your instance: which workflows break with 3.0, which ones move money and in what order it makes sense to fix them. It takes 30 minutes and you leave with the list.
+
+If you are deciding whether to stay with n8n or move to another tool, we compare it with Zapier and Make in [AI for automating processes: which tools to use](/en/blog/herramientas-ia-para-automatizar-procesos). And if your workflows handle personal data, the migration to Docker on your own server is a good moment to go over [what the GDPR requires](/en/blog/rgpd-y-automatizacion-con-ia).
+
+## Frequently asked questions
+
+### When is n8n 3.0 released?
+
+The beta is released on 27 October 2026 and the stable version is planned for early December 2026. n8n has not given an exact day for the stable release.
+
+### Do I have to upgrade to n8n 3.0 now?
+
+No. Version 2.x keeps receiving security patches and critical bug fixes for 12 months from the release of stable version 3, but it will no longer receive new features. What is urgent is to know what breaks for you and to start replacing the removed nodes while you are still on 2. If you are on 1.x, there is a hurry: its support ends on 31 December 2026.
+
+### Can I go back to 2.x if something fails?
+
+No. The upgrade to 3.x is one-way. The only way back is to restore a backup made before upgrading, which is why it is worth testing first on a copy of the instance.
+
+### Does it affect me if I use n8n Cloud?
+
+Yes for the removed nodes and the behaviour changes: a workflow with Function or Cron fails just the same in the cloud. The move to Docker and the files folder do not affect you, as they apply to self-hosted installations. In the cloud you can try the beta by choosing "3.0.0 Beta (early access)" when changing version.
+
+### How do I know which workflows are going to break?
+
+Open Settings → Migration Report in your instance: it lists the affected workflows and settings. Then review by hand the workflows that move money, because the behaviour changes (the Code node limit, the Gmail Trigger, the nodes with several outputs) do not always raise an error.
+
+### How much does it cost to migrate the workflows?
+
+It depends on how many workflows you have and how many use removed nodes. Replacing a Cron with a Schedule Trigger is a matter of minutes; rebuilding a version 1 AI agent or a workflow with LangChain Code takes longer. If you want to know for your case, in the [free assessment](/en/diagnostico) we review it with your instance in front of us.

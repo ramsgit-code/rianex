@@ -23,8 +23,8 @@ export const TRANSLATED_ROUTES = [
   "/diagnostico",
 ] as const;
 
-/** Rutas que solo existen en castellano (textos legales). */
-export const ES_ONLY_ROUTES = ["/privacidad", "/cookies"] as const;
+/** Textos legales: el castellano es el que vincula; el ingles es su traduccion. */
+export const LEGAL_ROUTES = ["/privacidad", "/cookies"] as const;
 
 export function langFromPathname(pathname: string): Lang {
   return pathname === EN_PREFIX || pathname.startsWith(`${EN_PREFIX}/`)

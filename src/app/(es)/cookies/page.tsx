@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
+import { translatedMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Política de cookies",
-  description:
-    "Información sobre el uso de cookies y tecnologías similares en el sitio web de Rianex.",
-  robots: { index: true, follow: true },
-  alternates: { canonical: "/cookies" },
-};
+export const metadata: Metadata = translatedMetadata(
+  "/cookies",
+  "es",
+  "Política de cookies",
+  "Información sobre el uso de cookies y tecnologías similares en el sitio web de Rianex."
+);
 
 const EMAIL = "hola@rianex.es";
 

@@ -1,0 +1,126 @@
+---
+title: "What to review in an AI agent system before scaling it"
+description: "Technical assessment of an AI agent system: the nine points to review before going from a few clients to many, and how to prioritise what comes out."
+date: "2026-10-28"
+tags: ["ai agents", "technical assessment", "audit", "scaling", "observability"]
+cluster: "agentes-ia"
+author: "Ramiro Pérez Rodero"
+draft: false
+---
+
+An AI agent system usually grows fast. First one agent works, then a second is added, then a portal so clients can see what they do, and within a few months there are several services talking to the same database. With five clients everything is fine. With fifty, what was a detail becomes the problem.
+
+That is why, before scaling, it is worth stopping and looking at the whole system calmly. This article covers what we review in a technical assessment of an agent system, what usually turns up and how the findings are ordered, based on the one we did for Tribeca Media's agent platform.
+
+## The short answer
+
+Before scaling an AI agent system you have to review nine things: whether what the documentation says really exists, what happens if the machine it runs on goes down, whether clients are processed in a queue, whether the database can be rebuilt from the repository, whether each client's data is isolated, whether the logs let you follow what happened, whether the tests cover what carries risk, whether the AI cost is measured in a single place and whether there is duplicated logic. The review is done in two layers, reading the code and checking the live system, because they do not always match. What comes out is ordered by risk and fixed in closed blocks.
+
+## Two layers: the code and the live system
+
+An assessment that only reads the code gets things wrong, and one that only looks at the running system does not explain why things happen. You need both:
+
+- **Reading the code**, all the repositories, not just the main agent's: what each service does, how they talk to each other, what is tested and what is not.
+- **Verifying live**, with read access to the production machine: which processes are really running, which tables the database has, which configuration is in use, what the logs say.
+
+The two layers correct each other. In the Tribeca assessment, the live verification changed two conclusions from the code reading for the better: the spending control, which looked broken in the code because of a mismatch, worked thanks to a default value in the database; and process supervision and backups did exist, although configured on the machine and not in the repository. A report based on the code alone would have raised the alarm for no reason.
+
+## The nine points to review
+
+### 1. What was planned versus what was built
+
+Systems that grow fast accumulate plans: a central orchestrator that was going to coordinate everything, a shared memory service, repositories created for pieces that were going to be split out. Part of that never gets built, and the documentation keeps describing it as if it existed.
+
+You have to draw an honest map of what exists today. And sometimes the best recommendation is not to build what is missing, but to accept the architecture that works: if a task scheduler, a shared database and alerts by messaging hold the product up, it is documented that way and the orchestrator is left for when it is really needed.
+
+### 2. What happens if the machine goes down
+
+Many agent systems start on a single server that concentrates everything: database, web services, scheduled tasks and bots. That is reasonable at the start, but you need to know what happens if that machine shuts down, and have three things:
+
+- automatic backups **stored off that machine**;
+- a restore tested at least once (a backup that has never been restored is a hope, not a backup);
+- a written plan for what to do if the machine is lost completely.
+
+### 3. Clients in a queue
+
+A scheduled task that goes through the clients one after another works with a few. With many, a client whose API is slow or that has hit its request limit delays everyone behind it. You have to check whether the calls to Meta, Google or each client's CRM are made in parallel and whether the waits between retries block the rest.
+
+### 4. Rebuilding the system from the repository
+
+The question is simple: if tomorrow the system had to be set up on another machine, could it be done with only what is in the repository? It usually fails in two places:
+
+- **The database**: tables that were created by hand and are not in any migration, or migrations with two different conventions and no tool keeping track.
+- **The service configuration**: how each process starts, with which variables and who restarts it if it goes down, stored only on the machine.
+
+### 5. Isolation between clients
+
+On a platform with several clients, every query has to filter by client. If that filter depends on each programmer remembering to write it in every query, sooner or later someone forgets. You have to review the routes that return data and consider having the database guarantee the isolation (with row-level security, for example) and not just the discipline of the code.
+
+### 6. Logs you can follow
+
+When something goes wrong with one specific client, you have to be able to reconstruct what happened. That requires logs with the real origin of each line, the client and the run it belongs to, rotation so they do not fill a disk and the guarantee that no token or password is written to them. And for the agent's decisions, an audit log that really gets written, with the previous state and the new one, whichever path the approval takes.
+
+### 7. Tests where the risk is
+
+It is common to find well-written tests in one corner of the system (the first agent) and none in the rest, right where the risk is: the portal clients see, the spending control, the routes that separate one client from another. You have to look at what the tests cover, whether they run by themselves before each deployment and whether they are run against a real database, even if it is a disposable copy, and not only with simulated data.
+
+### 8. A single account of the cost
+
+AI cost tends to fragment: each agent logs its spend in its own way, there are two limit formulas that never agreed with each other, the price of a model is written in the code and has gone stale, and some agent does not even count towards the global cap. It has to be brought into a single set of accounts with the prices in one place. The detail is in [the cost of an AI agent in production](/en/blog/coste-agente-de-ia-en-produccion).
+
+### 9. Duplicated logic
+
+When several services grow in parallel, the same thing ends up implemented twice: the database connection, the model client, the writing of an approval. Often one of the two versions is no longer used, but it is still there, and whoever edits one will not remember the other. You have to find them and leave only one, in a shared library.
+
+## An assessment also says what is fine
+
+Not everything that comes out is a problem, and it is worth saying so, because what works marks the way. In Tribeca's case, the campaign agent already chose a small model for routine work and a large one only for serious anomalies, a good idea that had to be extended to the rest of the agents. And the new portal followed a clear organisation that served as a pattern for the rest of the system.
+
+## How to prioritise what comes out
+
+A serious assessment returns many points. For it to be useful, each one carries its status, its risk, the quick fix, the better alternative if more is invested and an estimate of hours. Then they are ordered like this:
+
+| Priority | What goes in | Examples |
+|---|---|---|
+| Immediate | What can lose data or mix clients | Backups off the machine, isolation between clients, reproducible database |
+| Before growing | What breaks when going from a few clients to many | Clients in parallel, a single account of the cost, logs with client and run |
+| When possible | What makes the system more expensive to maintain | Duplicated logic, undivided monoliths, outdated documentation |
+
+With that list a plan is built in blocks. Each block has a closed scope, is verified before it is considered finished, and the next one does not start until the previous one is closed. That way the client decides block by block and never pays for a whole plan that may change halfway through.
+
+## A real case: Tribeca Media
+
+[Tribeca Media](/en/casos-de-exito/tribeca-media) builds KEYWORKERS, a platform that gives each client a team of AI agents for marketing. Before expanding its agents, we did the assessment in both layers: all the system's repositories and the live production machine. The result was a correction plan in blocks, prioritised by risk.
+
+Tribeca's own team carried out the first blocks on their own, with the assessment as a guide. That is the best sign that an assessment is useful: that it can be fixed without the person who wrote it.
+
+We took care of two blocks:
+
+- **Observability and cost.** A single alert bot per channel, a health check that tests the database, the backups and the services and alerts only when something changes, logs with rotation and without sensitive data, model prices in a single place, campaign audits in batches at half price with a daily cap per client and a global one, and the service configuration stored in the repository. It was closed with 135 automated tests passing and every database change tested against a real copy of Postgres.
+- **Scaling.** Clients are processed in parallel, so a slow one no longer delays the others, the backups have a replica off the main machine and there is a written procedure for restoring them.
+
+With that closed we built the [Meta Ads and Google Ads agent](/en/blog/agente-ia-meta-ads-google-ads), with [human approval](/en/blog/agentes-de-ia-con-aprobacion-humana) for everything and almost 1,000 automated tests.
+
+## Frequently asked questions
+
+### What is a technical assessment of an AI agent system?
+
+It is a review of the code and of the system in production to find out what is built, what fails, what risk each thing carries and in what order it should be fixed. It is also called a technical audit. The result is a report with a prioritised and estimated correction plan, not a list of opinions.
+
+### When is it worth doing?
+
+Before going from a few clients to many, before giving agents autonomy to act without approval, before adding new agents on a base nobody has reviewed and when the team that maintains the system changes.
+
+### Is access to production needed?
+
+For the second layer, yes, with read-only access agreed with the team. Without looking at the live system, the assessment is based on assumptions about what is running, and what is in the repository does not always match what runs.
+
+### Who makes the corrections afterwards?
+
+The client's team can make them, if the report is specific enough, or whoever did the assessment. At Tribeca both happened: their team fixed the first blocks and we did the observability, cost and scaling ones.
+
+### How long does it take?
+
+For a system with several services, a few days of work across the two layers. It takes longer if the documentation does not match the code, because you have to reconstruct what each piece does before judging it.
+
+If you have agents running and you are going to grow, in the [free assessment](/en/diagnostico) we review your system and you leave with a plan in blocks, ordered by risk. To find out beforehand whether an agent pays off in your case, see [when AI agents pay off](/en/blog/agentes-de-ia-para-empresas-cuando-compensan).
