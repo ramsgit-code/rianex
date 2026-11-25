@@ -12,7 +12,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { prisma } from "@/lib/prisma";
 import { testimoniosPublicos } from "@/lib/testimonios";
 import { content } from "@/lib/content";
-import { ORGANIZATION_ID, PERSON_ID, RAMIRO, RIANEX_LINKEDIN } from "@/lib/seo";
+import { ORGANIZATION_ID, PERSON_ID, RAMIRO, RIANEX_PERFILES } from "@/lib/seo";
 import type { Lang } from "@/lib/i18n";
 
 
@@ -74,7 +74,7 @@ const businessJsonLd = (lang: Lang) => ({
     url: `${SITE_URL}${LD[lang].prefix}/diagnostico`,
     availableLanguage: ["es", "en"],
   },
-  sameAs: [RIANEX_LINKEDIN],
+  sameAs: RIANEX_PERFILES,
   areaServed: ["ES", "Latinoamérica"],
   address: {
     "@type": "PostalAddress",

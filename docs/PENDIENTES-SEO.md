@@ -45,8 +45,14 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       terceros: upliora.es, clutch.co, javadex.es, sortlist, aisuperior.com,
       malt.com, ecosistemastartup.com, el directorio de agencias de Semrush y
       experts.n8n.io. Rianex no está en ninguno. Por orden: (1) perfiles en
-      Clutch (con una reseña verificada de Eventos Barcelona), Sortlist,
-      experts.n8n.io, directorio de partners de HighLevel, Malt y Google
+      Clutch (con una reseña verificada de Eventos Barcelona), Sortlist
+      (hecho el 25-nov: sortlist.com/agency/rianex, ya en `sameAs`; faltan
+      reseñas, trabajos y equipo para subir el índice de calidad del 42%),
+      experts.n8n.io (piloto cerrado con lista de espera: piden 3 clientes
+      activos con n8n, ser miembro activo de la comunidad y trabajar en
+      Reino Unido, Irlanda, norte de Europa o Norteamérica; mientras tanto,
+      perfil en community.n8n.io y plantillas en n8n.io/creators),
+      directorio de partners de HighLevel, Malt y Google
       Business Profile en Ávila, con el mismo nombre, descripción y URL;
       (2) escribir a upliora, aisuperior y ecosistemastartup para entrar en
       sus listas de agencias de automatización con IA en España; (3) los dos

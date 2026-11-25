@@ -26,6 +26,12 @@ export const RAMIRO = {
 };
 /** Pagina de empresa de Rianex en LinkedIn (pie de la web y schema). */
 export const RIANEX_LINKEDIN = "https://www.linkedin.com/company/rianex/";
+/**
+ * Perfiles de Rianex fuera de la web, para el `sameAs` del JSON-LD: es lo que
+ * permite a buscadores y asistentes unir la web con esos perfiles. Cada perfil
+ * nuevo (Clutch, Google Business Profile, n8n…) se añade aquí.
+ */
+export const RIANEX_PERFILES = [RIANEX_LINKEDIN, "https://www.sortlist.com/agency/rianex"];
 const BRAND = "Rianex";
 const OG_IMAGE = { url: "/og.png", width: 1200, height: 630, alt: BRAND };
 
