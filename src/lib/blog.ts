@@ -23,6 +23,8 @@ const BLOG_DIRS: Record<Lang, string> = {
 export type BlogPost = {
   slug: string;
   title: string;
+  /** Title corto para la SERP; sin el, se usa title. */
+  seoTitle: string | null;
   description: string;
   content: string;
   tags: string[];
@@ -62,6 +64,7 @@ export function getAllPosts(lang: Lang = "es"): BlogPost[] {
     .map(({ file, frontmatter, content }) => ({
       slug: file.replace(/\.mdx$/, ""),
       title: frontmatter.title,
+      seoTitle: frontmatter.seoTitle ?? null,
       description: frontmatter.description,
       content,
       tags: frontmatter.tags,

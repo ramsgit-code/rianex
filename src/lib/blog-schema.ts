@@ -47,6 +47,9 @@ export type LinkPolicy = (typeof LINK_POLICIES)[number];
 export const blogFrontmatterSchema = z.object({
   // Google corta el title en la SERP pasados ~70 caracteres.
   title: z.string().min(10).max(70, "El title debe caber en la SERP: 70 caracteres"),
+  // Title corto para la SERP si el titular pasa de 60 caracteres: Google corta
+  // ahi. El titular completo sigue en el H1, la tarjeta social y el JSON-LD.
+  seoTitle: z.string().min(10).max(60, "El seoTitle debe caber en 60 caracteres").optional(),
   // Por debajo de 70 se desaprovecha; por encima de 160 Google la corta.
   description: z
     .string()

@@ -52,6 +52,16 @@ const nextConfig = {
       })),
     ];
   },
+  // Version Markdown de cada articulo (src/app/md). beforeFiles: si no, la ruta
+  // dinamica /blog/[slug] se quedaria con "<slug>.md" y daria 404.
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/blog/:slug.md", destination: "/md/es/:slug" },
+        { source: "/en/blog/:slug.md", destination: "/md/en/:slug" },
+      ],
+    };
+  },
   // No anunciar el framework en cada respuesta.
   poweredByHeader: false,
   experimental: {

@@ -101,7 +101,9 @@ export async function GET() {
 - [Consultoría gratuita](${BASE_URL}/diagnostico): formulario de 30 minutos
 - [Blog](${BASE_URL}/blog): ${posts.length} artículos sobre automatización con IA
 
-La web está también en inglés bajo ${BASE_URL}/en, con los artículos del blog traducidos en ${BASE_URL}/en/blog.`);
+La web está también en inglés bajo ${BASE_URL}/en, con los artículos del blog traducidos en ${BASE_URL}/en/blog.
+
+Cada artículo tiene una versión en Markdown: basta con añadir \`.md\` a su URL (por ejemplo ${BASE_URL}/blog/${posts[0]?.slug ?? ""}.md).`);
 
   // El blog agrupado por cluster: le da al modelo la estructura tematica, que
   // es justo lo que un indice plano de titulos no transmite.

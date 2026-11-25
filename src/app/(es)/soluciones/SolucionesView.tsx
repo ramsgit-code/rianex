@@ -30,7 +30,7 @@ export function SolucionesView() {
 
             <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t-2 border-ink pt-5">
               <Link href={localize(`/soluciones/${item.slug}`)} className="inline-flex items-center gap-1.5 font-semibold text-foreground underline decoration-accent decoration-[3px] underline-offset-4 hover:text-accent-text">
-                {s.more}
+                {`${s.moreFor} ${item.title.toLowerCase()}`}
                 <ArrowRight size={16} aria-hidden />
               </Link>
               {"reference" in item && item.reference && (
@@ -42,6 +42,20 @@ export function SolucionesView() {
           </article>
         ))}
       </div>
+
+      <section className="mt-16">
+        <h2 className="font-display text-4xl font-extrabold uppercase leading-[0.95] text-foreground">
+          {s.faqTitle}
+        </h2>
+        <div className="mt-6 flex flex-col divide-y divide-ink border-y-2 border-ink">
+          {s.faq.map((f) => (
+            <div key={f.q} className="py-5">
+              <h3 className="text-lg font-semibold text-foreground">{f.q}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-foreground-muted">{f.a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <div className="mt-10">
         <Link href={localize("/casos-de-exito")} className="btn-secondary">

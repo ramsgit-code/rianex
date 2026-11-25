@@ -21,7 +21,7 @@ export function articleMetadata(slug: string, lang: Lang): Metadata {
   const url = ruta(slug, lang);
   const image = { url: imagen(slug, lang), width: 1200, height: 630, alt: post.title };
   // Los titulares largos van sin " | Rianex" (ver withBrand).
-  const title = withBrand(post.title);
+  const title = withBrand(post.seoTitle ?? post.title);
   return {
     title: { absolute: title },
     description: post.description,
@@ -29,6 +29,8 @@ export function articleMetadata(slug: string, lang: Lang): Metadata {
     // que no existe es peor que no declarar nada.
     alternates: {
       canonical: url,
+      // Version Markdown para asistentes de IA (src/app/md).
+      types: { "text/markdown": `${url}.md` },
       ...(hasTranslation(slug)
         ? {
             languages: {
