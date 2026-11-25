@@ -2,6 +2,7 @@
 title: "Qué revisar en un sistema de agentes de IA antes de escalarlo"
 description: "Diagnóstico técnico de un sistema de agentes de IA: los nueve puntos que conviene revisar antes de pasar de pocos clientes a muchos, y cómo priorizar lo que salga."
 date: "2026-10-28"
+updated: "2026-11-25"
 tags: ["agentes de ia", "diagnóstico técnico", "auditoría", "escalado", "observabilidad"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -38,12 +39,12 @@ Hay que hacer un mapa honesto de qué existe hoy. Y a veces la mejor recomendaci
 Muchos sistemas de agentes empiezan en un único servidor que lo concentra todo: base de datos, servicios web, tareas programadas y bots. Es razonable al principio, pero hay que saber qué pasa si esa máquina se apaga, y tener tres cosas:
 
 - copias de seguridad automáticas y **guardadas fuera de esa máquina**;
-- una restauración probada al menos una vez (una copia que nunca se ha restaurado es una esperanza, no una copia);
+- [una restauración probada al menos una vez](https://www.incibe.es/empresas/blog/no-te-arriesgues-haz-copias-seguridad "follow") (una copia que nunca se ha restaurado es una esperanza, no una copia);
 - un plan escrito de qué hacer si la máquina se pierde del todo.
 
 ### 3. Clientes en fila
 
-Una tarea programada que recorre los clientes uno detrás de otro funciona con pocos. Con muchos, un cliente cuya API va lenta o que ha llegado a su límite de peticiones retrasa a todos los que vienen detrás. Hay que comprobar si las llamadas a Meta, Google o el CRM de cada cliente se hacen en paralelo y si las esperas entre reintentos bloquean al resto.
+Una tarea programada que recorre los clientes uno detrás de otro funciona con pocos. Con muchos, un cliente cuya API va lenta o que [ha llegado a su límite de peticiones](https://developers.facebook.com/docs/marketing-api/overview/rate-limiting "follow") retrasa a todos los que vienen detrás. Hay que comprobar si las llamadas a Meta, Google o el CRM de cada cliente se hacen en paralelo y si las esperas entre reintentos bloquean al resto.
 
 ### 4. Reconstruir el sistema desde el repositorio
 
@@ -54,11 +55,11 @@ La pregunta es simple: si mañana hubiera que montar el sistema en otra máquina
 
 ### 5. Aislamiento entre clientes
 
-En una plataforma con varios clientes, cada consulta tiene que filtrar por cliente. Si ese filtro depende de que cada programador se acuerde de escribirlo en cada consulta, tarde o temprano alguien se lo olvida. Hay que revisar las rutas que devuelven datos y valorar que el aislamiento lo garantice la base de datos (con seguridad a nivel de fila, por ejemplo) y no solo la disciplina del código.
+En una plataforma con varios clientes, cada consulta tiene que filtrar por cliente. Si ese filtro depende de que cada programador se acuerde de escribirlo en cada consulta, tarde o temprano alguien se lo olvida. Hay que revisar las rutas que devuelven datos y valorar que el aislamiento lo garantice la base de datos ([con seguridad a nivel de fila, por ejemplo](https://www.postgresql.org/docs/current/ddl-rowsecurity.html "follow")) y no solo la disciplina del código.
 
 ### 6. Registros que se puedan seguir
 
-Cuando algo sale mal con un cliente concreto, hay que poder reconstruir qué pasó. Eso exige registros con el origen real de cada línea, el cliente y la ejecución a la que pertenece, rotación para que no llenen un disco y la garantía de que ningún token o contraseña se escribe en ellos. Y para las decisiones del agente, un registro de auditoría que se escriba de verdad, con el estado anterior y el nuevo, pase por donde pase la aprobación.
+Cuando algo sale mal con un cliente concreto, hay que poder reconstruir qué pasó. Eso exige registros con el origen real de cada línea, el cliente y la ejecución a la que pertenece, rotación para que no llenen un disco y la garantía de que [ningún token o contraseña se escribe en ellos](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html "follow"). Y para las decisiones del agente, un registro de auditoría que se escriba de verdad, con el estado anterior y el nuevo, pase por donde pase la aprobación.
 
 ### 7. Tests donde está el riesgo
 

@@ -17,7 +17,7 @@ Dicho eso, la mayor parte de los problemas que nos encontramos no son sutilezas 
 
 Casi todas las webs tienen una casilla de aceptación en el formulario. Muchas menos guardan la prueba de que se marcó.
 
-El artículo 7.1 del RGPD dice que el responsable tiene que **poder demostrar** que la persona consintió. Una casilla marcada en un navegador que ya se cerró no demuestra nada si el sistema no lo registró.
+[El artículo 7.1 del RGPD](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow") dice que el responsable tiene que **poder demostrar** que la persona consintió. Una casilla marcada en un navegador que ya se cerró no demuestra nada si el sistema no lo registró.
 
 Lo que hay que guardar junto a cada contacto es cuándo dio el consentimiento y a qué texto concreto. Si la política de privacidad cambia en marzo, tienes que poder distinguir a quien aceptó la versión de enero de quien aceptó la de abril.
 
@@ -29,13 +29,13 @@ Esto es un campo más en la base de datos y cinco minutos de trabajo si se hace 
 
 Aquí es donde falla la mayoría de webs españolas, y es fácil de comprobar.
 
-El artículo 22.2 de la LSSI exige consentimiento previo para almacenar información en el dispositivo del usuario, salvo que sea imprescindible para prestar el servicio. Y ojo, porque no habla solo de cookies: el almacenamiento local y el de sesión cuentan igual.
+[El artículo 22.2 de la LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758#a22 "follow") exige consentimiento previo para almacenar información en el dispositivo del usuario, salvo que sea imprescindible para prestar el servicio. Y ojo, porque no habla solo de cookies: el almacenamiento local y el de sesión cuentan igual.
 
 La analítica no es imprescindible para que la web funcione. Por tanto, necesita permiso antes de guardar nada, incluido un identificador de sesión propio.
 
 La prueba es sencilla: abre tu web en una ventana nueva, no toques el aviso de cookies y mira la pestaña de red del navegador. Si ves peticiones a tu propio endpoint de analítica o a Google antes de aceptar, tienes el problema.
 
-La forma correcta con Google Analytics es el modo consentimiento: la etiqueta arranca con todo denegado y solo pasa a medir de verdad cuando la persona acepta. Mientras tanto manda señales sin identificadores, que es lo que permite seguir teniendo datos agregados sin incumplir.
+La forma correcta con Google Analytics es [el modo consentimiento](https://developers.google.com/tag-platform/security/concepts/consent-mode "follow"): la etiqueta arranca con todo denegado y solo pasa a medir de verdad cuando la persona acepta. Mientras tanto manda señales sin identificadores, que es lo que permite seguir teniendo datos agregados sin incumplir.
 
 **El matiz que se pasa por alto:** el orden de carga. La declaración de consentimiento denegado tiene que ejecutarse antes de que cargue el script de medición. Si llega después, la cookie ya se escribió y da igual lo que digas luego.
 
@@ -57,7 +57,7 @@ Eso incluye lo evidente, como el CRM y el alojamiento, y lo que se olvida siempr
 
 Dos preguntas por cada uno:
 
-**Dónde se procesan.** Si es fuera del Espacio Económico Europeo, la transferencia necesita amparo. Hoy eso suele ser cláusulas contractuales tipo, y para Estados Unidos también el marco de adecuación, que conviene comprobar que el proveedor concreto tiene.
+**Dónde se procesan.** Si es fuera del Espacio Económico Europeo, la transferencia necesita amparo. Hoy eso suele ser cláusulas contractuales tipo, y para Estados Unidos también [el marco de adecuación](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/eu-us-data-transfers_en "follow"), que conviene comprobar que el proveedor concreto tiene.
 
 **Qué hacen con lo que pasa por ahí.** En los proveedores de IA esto importa especialmente: hay que comprobar si usan lo que les mandas para entrenar y si existe una opción de uso empresarial que lo excluya. Normalmente la hay, y normalmente no viene activada por defecto.
 
@@ -85,7 +85,7 @@ Seis comprobaciones que puedes hacer hoy:
 - Mira si guardas la fecha del consentimiento junto a cada contacto.
 - Lista todas las herramientas que tocan datos de clientes y compáralas con tu política de privacidad.
 - Comprueba si tu proveedor de IA está configurado para no usar tus datos en entrenamiento.
-- Si tienes un chatbot o un agente de voz, comprueba que dice que es una IA en el primer mensaje. Lo exige el AI Act desde agosto de 2026, y no sustituye a la información del RGPD: lo explicamos en [qué exige el AI Act a tu chatbot](/blog/ai-act-chatbot-decir-que-es-ia).
+- Si tienes un chatbot o un agente de voz, comprueba que dice que es una IA en el primer mensaje. Lo exige [el AI Act](https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81079 "follow") desde agosto de 2026, y no sustituye a la información del RGPD: lo explicamos en [qué exige el AI Act a tu chatbot](/blog/ai-act-chatbot-decir-que-es-ia).
 
 Si alguna falla, se arregla. Y sale mucho más barato arreglarlo ahora que cuando alguien pregunte.
 

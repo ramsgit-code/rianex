@@ -215,6 +215,12 @@ export const CASOS: Record<string, Caso> = {
         "Casi 1.000 tests automáticos sobre el sistema.",
         "Performance, con el código cerrado y en validación con un cliente piloto. Content, en construcción.",
       ],
+      // Reseña pública de Antonio en Sortlist (25-nov-2026).
+      quote: {
+        text: "La colaboración de Ramiro es espectacular.",
+        author: "Antonio",
+        role: "Country Manager · Tribeca Media",
+      },
     },
     en: {
       seoTitle: "Tribeca Media case: performance and content AI agents",
@@ -242,6 +248,12 @@ export const CASOS: Record<string, Caso> = {
         "Almost 1,000 automated tests on the system.",
         "Performance: code complete and being validated with a pilot client. Content: in progress.",
       ],
+      // Reseña pública de Antonio en Sortlist (25-nov-2026), traducida.
+      quote: {
+        text: "Working with Ramiro has been outstanding.",
+        author: "Antonio",
+        role: "Country Manager · Tribeca Media",
+      },
     },
   },
 

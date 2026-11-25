@@ -17,11 +17,11 @@ La pregunta práctica no es si GoHighLevel se integra con lo que ya usas. Casi s
 
 **Integración nativa.** La que viene hecha. Se activa y funciona. Es la primera opción siempre que exista, porque el mantenimiento no es tuyo. La limitación es que hace lo que hace, y si necesitas un campo que no contempla, no hay vuelta.
 
-**Webhooks.** GoHighLevel avisa a otro sistema cuando pasa algo: entra un contacto, cambia una etapa, se agenda una cita. Es la forma más robusta de conectar cosas en tiempo real, porque no hay que preguntar constantemente si ha cambiado algo. Si tu integración puede ser un webhook, que lo sea.
+**Webhooks.** [GoHighLevel avisa a otro sistema cuando pasa algo](https://marketplace.gohighlevel.com/docs/webhook/WebhookIntegrationGuide "follow"): entra un contacto, cambia una etapa, se agenda una cita. Es la forma más robusta de conectar cosas en tiempo real, porque no hay que preguntar constantemente si ha cambiado algo. Si tu integración puede ser un webhook, que lo sea.
 
 **API.** Cuando necesitas leer o escribir bajo demanda, o hacer algo que el webhook no cubre. Es la opción con más control y la que más trabajo de mantenimiento genera, porque los cambios de versión del proveedor son tuyos de resolver.
 
-**Conectores intermedios** tipo Make o Zapier. Rápidos de montar y caros de operar cuando el volumen sube, porque se paga por ejecución. Están bien para validar una idea y salen mal como infraestructura permanente de algo que ocurre mil veces al día.
+**Conectores intermedios** tipo [Make](https://www.make.com/en/pricing "follow") o [Zapier](https://zapier.com/pricing "follow"). Rápidos de montar y caros de operar cuando el volumen sube, porque se paga por ejecución. Están bien para validar una idea y salen mal como infraestructura permanente de algo que ocurre mil veces al día.
 
 ## Qué integrar primero
 
@@ -53,7 +53,7 @@ Estos los hemos visto suficientes veces como para nombrarlos.
 
 Por realismo, tres cosas que suelen sorprender.
 
-Hay **límites de peticiones** en la API. Para el uso normal no molestan, pero una importación masiva o una sincronización que consulta demasiado los alcanza. Se resuelve espaciando y agrupando, pero hay que contar con ello en el diseño.
+Hay **[límites de peticiones](https://marketplace.gohighlevel.com/docs/other/rate-limits "follow")** en la API. Para el uso normal no molestan, pero una importación masiva o una sincronización que consulta demasiado los alcanza. Se resuelve espaciando y agrupando, pero hay que contar con ello en el diseño.
 
 Los **campos personalizados se identifican por un id**, no por su nombre. Si alguien borra un campo y lo vuelve a crear con el mismo nombre, las integraciones que lo usaban dejan de encontrarlo. Es una fuente clásica de fallos silenciosos.
 

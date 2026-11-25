@@ -194,7 +194,7 @@ export const SECTORES: Record<string, Sector> = {
       pains: [
         { title: "La llamada que nadie cogió", desc: "Quien busca una clínica llama a varias y se queda con la primera que le atiende. Ese paciente no aparece en ningún informe porque nunca llegó a existir." },
         { title: "El contacto fuera de horario", desc: "Una parte grande de las solicitudes entra por la tarde, por la noche o el fin de semana. Si la respuesta llega el lunes a las diez, llega tarde." },
-        { title: "El hueco vacío", desc: "En clínicas sin recordatorios automáticos, la tasa de ausencias suele estar entre el 15% y el 30%. Cada ausencia es agenda que ya no se puede vender." },
+        { title: "El hueco vacío", desc: "Sin recordatorios automáticos, casi ninguna clínica sabe cuántas ausencias tiene a la semana. Cada una es agenda que ya no se puede vender." },
         { title: "El paciente que no vuelve", desc: "Terminó su tratamiento, quedó contento y nadie le volvió a escribir. Recuperar pacientes antiguos es lo más barato que existe y lo que menos se hace." },
       ],
       automationsTitle: "Qué automatizamos, por orden de retorno",
@@ -254,7 +254,7 @@ export const SECTORES: Record<string, Sector> = {
       pains: [
         { title: "The call nobody picked up", desc: "People looking for a clinic call several and stay with the first one that answers. That patient never shows up in any report because they never existed." },
         { title: "Out-of-hours enquiries", desc: "A large share of requests arrive in the evening, at night or at weekends. If the reply comes on Monday at ten, it is too late." },
-        { title: "The empty slot", desc: "In clinics without automated reminders, no-show rates are usually 15% to 30%. Every no-show is calendar time that can no longer be sold." },
+        { title: "The empty slot", desc: "Without automated reminders, almost no clinic knows how many no-shows it has each week. Every one is calendar time that can no longer be sold." },
         { title: "The patient who does not return", desc: "They finished treatment, were happy and nobody wrote to them again. Winning back past patients is the cheapest thing there is and the least done." },
       ],
       automationsTitle: "What we automate, by return",
@@ -432,7 +432,7 @@ export const SECTORES: Record<string, Sector> = {
       painsTitle: "Dónde se quedan los interesados",
       pains: [
         { title: "Solicitudes sin respuesta a tiempo", desc: "Muchas llegan por la tarde, de noche o en fin de semana. Quien busca formación pregunta en varios sitios y se queda con quien contesta primero." },
-        { title: "Interesados que nadie sigue", desc: "Pidieron información y nadie volvió a escribirles. En procesos sin sistema, la fuga habitual está entre el 30% y el 60% de los contactos." },
+        { title: "Interesados que nadie sigue", desc: "Pidieron información y nadie volvió a escribirles, y nadie sabe cuántos se pierden así." },
         { title: "Las mismas preguntas cada día", desc: "Fechas, horarios, precio, modalidad, plazas libres. Son repetitivas, pero exigen mirar algo, y el equipo se quema contestándolas." },
         { title: "Sin saber dónde se pierden", desc: "Sin el embudo medido no hay forma de saber si el problema está en la respuesta, en la información o en el seguimiento." },
       ],
@@ -477,7 +477,7 @@ export const SECTORES: Record<string, Sector> = {
       painsTitle: "Where enquiries get stuck",
       pains: [
         { title: "Enquiries not answered in time", desc: "Many arrive in the evening, at night or at weekends. People looking for training ask in several places and go with whoever answers first." },
-        { title: "Enquiries nobody follows up", desc: "They asked for information and nobody wrote back. In processes without a system, leakage is usually 30% to 60% of contacts." },
+        { title: "Enquiries nobody follows up", desc: "They asked for information and nobody wrote back, and nobody knows how many are lost that way." },
         { title: "The same questions every day", desc: "Dates, schedules, price, format, free places. They repeat, but require checking something, and the team burns out answering them." },
         { title: "No idea where they drop", desc: "Without a measured funnel there is no way to know whether the problem is the response, the information or the follow-up." },
       ],

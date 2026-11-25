@@ -17,11 +17,11 @@ The practical question is not whether GoHighLevel integrates with what you alrea
 
 **Native integration.** The one that comes ready-made. You turn it on and it works. It is the first option whenever it exists, because the maintenance is not yours. The limitation is that it does what it does, and if you need a field it does not cover, there is no way around it.
 
-**Webhooks.** GoHighLevel notifies another system when something happens: a contact comes in, a stage changes, an appointment is booked. It is the most robust way to connect things in real time, because there is no need to keep asking whether something has changed. If your integration can be a webhook, make it one.
+**Webhooks.** [GoHighLevel notifies another system when something happens](https://marketplace.gohighlevel.com/docs/webhook/WebhookIntegrationGuide "follow"): a contact comes in, a stage changes, an appointment is booked. It is the most robust way to connect things in real time, because there is no need to keep asking whether something has changed. If your integration can be a webhook, make it one.
 
 **API.** When you need to read or write on demand, or do something the webhook does not cover. It is the option with the most control and the one that creates the most maintenance work, because the provider's version changes are yours to solve.
 
-**Middleware connectors** such as Make or Zapier. Quick to set up and expensive to run when the volume grows, because you pay per execution. They are fine for validating an idea and turn out badly as permanent infrastructure for something that happens a thousand times a day.
+**Middleware connectors** such as [Make](https://www.make.com/en/pricing "follow") or [Zapier](https://zapier.com/pricing "follow"). Quick to set up and expensive to run when the volume grows, because you pay per execution. They are fine for validating an idea and turn out badly as permanent infrastructure for something that happens a thousand times a day.
 
 ## What to integrate first
 
@@ -53,7 +53,7 @@ We have seen these enough times to name them.
 
 For the sake of realism, three things that tend to surprise people.
 
-There are **request limits** on the API. For normal use they do not get in the way, but a bulk import or a synchronisation that queries too much reaches them. It is solved by spacing and batching, but you have to allow for it in the design.
+There are **[request limits](https://marketplace.gohighlevel.com/docs/other/rate-limits "follow")** on the API. For normal use they do not get in the way, but a bulk import or a synchronisation that queries too much reaches them. It is solved by spacing and batching, but you have to allow for it in the design.
 
 **Custom fields are identified by an id**, not by their name. If someone deletes a field and creates it again with the same name, the integrations that used it stop finding it. It is a classic source of silent failures.
 

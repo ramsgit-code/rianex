@@ -40,10 +40,10 @@ En los siguientes 60 segundos el cliente recibe un email con el link a su propue
 ## Cómo implementarlo paso a paso
 
 - Diseña el formulario de intake post-llamada. Los campos que necesitas: información del cliente, detalles del servicio, variables que afectan al precio. Este formulario lo rellena el comercial, no el cliente.
-- Configura la generación automática de la propuesta. En GHL puedes hacer esto con documentos dinámicos y custom fields. Para más flexibilidad, un webhook que conecte con una plantilla en Google Docs o un sistema de documentos propio.
+- Configura la generación automática de la propuesta. En GHL puedes hacer esto con [documentos dinámicos y custom fields](https://help.gohighlevel.com/support/solutions/articles/155000001301-how-to-create-and-send-document-or-contract-templates-automatically-in-a-workflow "follow"). Para más flexibilidad, un webhook que conecte con una [plantilla en Google Docs](https://developers.google.com/workspace/docs/api/how-tos/merge "follow") o un sistema de documentos propio.
 - Crea la página de propuesta personalizada. Una URL tipo `tuempresa.com/propuestas/nombre-empresa` con los datos del cliente, el desglose de servicios y el PDF descargable.
 - Automatiza el envío y el seguimiento. Email automático al enviar, tracking de apertura, recordatorio si no hay respuesta, notificación al comercial si hay interacción.
-- Conecta todo en el pipeline de GHL. La propuesta aparece en el pipeline del deal con su estado: enviada, abierta, en negociación, aceptada, rechazada.
+- Conecta todo en el [pipeline de GHL](https://help.gohighlevel.com/support/solutions/articles/155000001982-understanding-pipelines "follow"). La propuesta aparece en el pipeline del deal con su estado: enviada, abierta, en negociación, aceptada, rechazada.
 
 La implementación completa lleva entre 3 y 4 semanas dependiendo de la complejidad del catálogo de servicios.
 

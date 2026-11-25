@@ -2,7 +2,7 @@
 title: "Automatizar la recepción de una clínica: WhatsApp, llamadas y citas"
 description: "Qué tareas de recepción de una clínica se resuelven con reglas, cuáles con IA y cuáles debe llevar una persona, incluidas las consultas fuera de horario."
 date: "2026-10-23"
-updated: "2026-11-11"
+updated: "2026-11-25"
 tags: ["clínicas", "recepción", "whatsapp", "agenda", "ia"]
 cluster: "captacion"
 author: "Ramiro Pérez Rodero"
@@ -76,7 +76,7 @@ El fallo más peligroso de un recepcionista de IA no es no saber algo. Es contes
 
 Una prueba que conviene hacer antes de ponerlo a trabajar: alguien llama o escribe a última hora de la tarde, nervioso, y pregunta si el doctor sigue en la clínica porque necesita venir ya. Un agente mal diseñado contesta "sí, venga ahora mismo", porque es la respuesta que parece ayudar. Pero no ha mirado nada. Si el doctor ya se ha ido, esa respuesta es mucho peor que un "no lo sé".
 
-Los modelos de lenguaje tienden a dar la respuesta que encaja con la conversación, aunque no tengan el dato. Por eso la regla no puede ir solo en las instrucciones: el agente solo afirma lo que ha leído en un sistema durante esa misma conversación.
+Los modelos de lenguaje [tienden a dar la respuesta que encaja con la conversación](https://openai.com/index/why-language-models-hallucinate/ "follow"), aunque no tengan el dato. Por eso la regla no puede ir solo en las instrucciones: el agente solo afirma lo que ha leído en un sistema durante esa misma conversación.
 
 - **Huecos y disponibilidad:** solo los que ha leído en la agenda en ese momento.
 - **Quién está en la clínica:** nunca, salvo que haya un dato fiable y actualizado. Si no lo hay, da el teléfono de urgencias o pasa la conversación a una persona.
@@ -115,12 +115,12 @@ En nuestros montajes, la conversación y el seguimiento suelen vivir en GoHighLe
 
 ## Datos de salud: cuidado con WhatsApp
 
-Los datos de salud son categoría especial en el RGPD, y pedir cita para un tratamiento ya dice algo sobre la salud de alguien. Cuatro reglas prácticas:
+Los datos de salud son [categoría especial en el RGPD](https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/5-bases-legitimadoras-del-tratamiento/FAQ-0215-cuales-son-las-bases-de-legitimacion-para-el-tratamiento-de-las-categorias-especiales-de-datos "follow"), y [pedir cita para un tratamiento ya dice algo sobre la salud](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow") de alguien. Cuatro reglas prácticas:
 
 - **No pedir información clínica por WhatsApp.** El sistema pregunta qué servicio interesa y cuándo puede venir. Síntomas, historial o pruebas se tratan en consulta o en el software clínico.
 - **Mensajes discretos.** Un recordatorio dice "tienes cita mañana a las 10", no el nombre del tratamiento.
-- **Consentimiento y registro.** Saber qué ha aceptado cada paciente y poder demostrarlo.
-- **Decir que es una IA.** Desde agosto de 2026, el agente tiene que avisar en el primer mensaje de que es una inteligencia artificial. Lo explicamos en [qué exige el AI Act a tu chatbot](/blog/ai-act-chatbot-decir-que-es-ia).
+- **Consentimiento y registro.** Saber qué ha aceptado cada paciente y [poder demostrarlo](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow").
+- **Decir que es una IA.** Desde agosto de 2026, el agente [tiene que avisar en el primer mensaje](https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81079 "follow") de que es una inteligencia artificial. Lo explicamos en [qué exige el AI Act a tu chatbot](/blog/ai-act-chatbot-decir-que-es-ia).
 
 Lo desarrollamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
 

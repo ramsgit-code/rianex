@@ -2,6 +2,7 @@
 title: "A voice agent that answers on WhatsApp and books the appointment"
 description: "Video: how a voice agent takes a WhatsApp call, checks your calendar and leaves the appointment in the CRM. What you need and how it is kept under control."
 date: "2026-11-03"
+updated: "2026-11-25"
 tags: ["voice agent", "whatsapp", "gohighlevel", "voice ai", "appointments", "video"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -16,19 +17,19 @@ A voice agent answers the WhatsApp call, looks at your calendar and leaves the a
 
 ## The short answer
 
-Since 27 October 2026, the GoHighLevel voice agent (Voice AI) can answer calls that come in through WhatsApp and use tools during the call, such as the calendar. So someone who calls your WhatsApp to ask for an appointment gets it on the spot, out of hours too, and the appointment and the transcript are stored in the CRM. What does not come as standard is the design: what the agent can do on its own, when it hands over to a person and who reviews its calls.
+Since 27 October 2026, the GoHighLevel voice agent (Voice AI) [can answer calls that come in through WhatsApp](https://help.gohighlevel.com/support/solutions/articles/155000009268-voice-ai-for-whatsapp-calls "follow") and use tools during the call, such as the calendar. So someone who calls your WhatsApp to ask for an appointment gets it on the spot, out of hours too, and the appointment and the transcript are stored in the CRM. What does not come as standard is the design: what the agent can do on its own, when it hands over to a person and who reviews its calls.
 
 ## What happens on the call
 
 1. **The customer presses "call" on your company's WhatsApp.** If nobody on the team answers within a few seconds, or if it is out of hours, the agent takes the call. It can also take all of them, but that is not what we recommend to start with.
 2. **The agent understands what they want.** In the example, an appointment for Thursday afternoon.
-3. **It checks the free slots** in the calendar while it talks, through an MCP connection (the open standard that lets an agent use other tools) or through the CRM's own calendar.
+3. **It checks the free slots** in the calendar while it talks, through an MCP connection ([the open standard](https://modelcontextprotocol.io/docs/getting-started/intro "follow") that lets an agent use other tools) or [through the CRM's own calendar](https://help.gohighlevel.com/support/solutions/articles/155000005293-appointment-booking-in-voice-ai "follow").
 4. **It offers two options and confirms one.**
 5. **It leaves everything logged:** the appointment in the calendar, the contact and the transcript in the CRM, and a WhatsApp confirmation to the customer.
 
 ## What you need
 
-- **WhatsApp Business connected to GoHighLevel**, with calls enabled on the number.
+- **WhatsApp Business connected to GoHighLevel**, with [calls enabled on the number](https://help.gohighlevel.com/support/solutions/articles/155000007253-whatsapp-calling "follow").
 - **A calendar with the real slots**: the GoHighLevel one or an external one connected to it. If the calendar is not up to date, the agent will book wrongly with great confidence.
 - **A script of what it can and cannot do**: booking and changing appointments, yes; giving diagnoses, firm prices or cancelling without confirming, no.
 - **A route to hand over to a person**: emergencies, complaints, someone who asks for it or a question the agent cannot answer.
@@ -39,7 +40,7 @@ Everything GoHighLevel announced for agents that day, with what is in beta and w
 
 An agent that talks to your customers is not left alone. These are the minimums we put in place:
 
-- **Versions with rollback.** Every change to the agent is tested as a draft and, if it gets worse, you go back to the previous version. GoHighLevel has this in Labs, its area for features under test.
+- **Versions with rollback.** Every change to the agent is tested as a draft and, if it gets worse, you go back to the previous version. GoHighLevel [has this in Labs](https://help.gohighlevel.com/support/solutions/articles/155000009252-voice-ai-agent-versioning-create-test-compare-and-publish-versions "follow"), its area for features under test.
 - **A person listens to a sample of calls every week**, someone who knows the business. It is not enough to check whether the appointment was created: you have to hear how it was created.
 - **What the agent cannot resolve goes to a person**, with the call summary so that the customer does not have to repeat it.
 - **It is measured before and after**: unanswered calls, appointments booked and appointments that are later cancelled or end in a no-show.

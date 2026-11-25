@@ -21,7 +21,7 @@ This is what comes across, what does not and in which order it is best to do it.
 
 **Opportunities with their stage and amount.** They come across, although the stages of the old pipeline have to be mapped to those of the new one, and that mapping is a business decision that should not be delegated to whoever does the technical migration.
 
-**Notes and activities.** They come across if they are exported properly. The catch is that they are often exported without the reference to the contact, and then they arrive as a pile of text with no owner. You have to check that each note keeps its link.
+**Notes and activities.** They come across if they are exported properly, and it is better to do it through the API: GoHighLevel's CSV import accepts only one note per contact. The catch is that they are often exported without the reference to the contact, and then they arrive as a pile of text with no owner. You have to check that each note keeps its link.
 
 **Lists and segments.** They are not migrated as such, but they are rebuilt from the fields. If the segmentation is based on properties that do travel, it is rebuilt without losing anything.
 
@@ -43,7 +43,7 @@ The most expensive mistake is switching off the old one before the new one works
 
 **One: inventory.** Before exporting anything, list what there is. How many contacts, which custom fields, which automations are really active, which integrations depend on the current CRM. This phase is boring and it is the one that decides whether the migration goes well.
 
-**Two: rebuild the structure at the destination.** Create the custom fields, the pipeline with its stages and the tags before putting in a single contact. Importing data onto a structure that does not exist produces stray fields that then have to be cleaned up by hand.
+**Two: rebuild the structure at the destination.** [Create the custom fields](https://help.gohighlevel.com/support/solutions/articles/155000005143-csv-file-format-for-importing-contacts-and-opportunities "follow"), the pipeline with its stages and the tags before putting in a single contact. Importing data onto a structure that does not exist produces stray fields that then have to be cleaned up by hand.
 
 **Three: a test migration with a sample.** One hundred contacts, not all of them. Check that the fields arrive, that the notes keep their owner, that the opportunities land in the right stage. This is where the problems appear, and they appear cheaply.
 
@@ -65,9 +65,9 @@ If it is switched off on day one, those questions appear all the same, but with 
 
 Before closing the old account, store outside it:
 
-- A full export of contacts, companies and opportunities, in CSV.
+- [A full export of contacts, companies and opportunities](https://knowledge.hubspot.com/import-and-export/export-records "follow"), in CSV.
 - An export of notes and activities.
-- A screenshot or documentation of each active automation, even if you are not going to rebuild it.
+- [A screenshot or documentation of each active automation](https://knowledge.hubspot.com/account-management/export-your-content-and-data "follow"), even if you are not going to rebuild it.
 - The call recordings, if they are hosted there.
 - The list of connected integrations, to know what has to be reconnected.
 
@@ -81,9 +81,9 @@ A large account, with integrations to invoicing, website and telephony, goes to 
 
 ## What you gain and what you lose
 
-To be honest: HubSpot does things GoHighLevel does not, above all in advanced reporting and in the ecosystem of native integrations. And GoHighLevel does things that in HubSpot cost an additional module, above all messaging, funnels and automation with no contact limit.
+To be honest: HubSpot does things GoHighLevel does not, above all in advanced reporting and in the ecosystem of native integrations. And GoHighLevel does things that in HubSpot cost an additional module, above all messaging, funnels and automation [with no contact limit](https://www.gohighlevel.com/pricing "follow").
 
-The migration pays off when you pay for features you do not use, when the cost grows with every contact you add, or when you need WhatsApp and SMS integrated in the same place as the pipeline.
+The migration pays off when you pay for features you do not use, when [the cost grows with every contact you add](https://www.hubspot.com/marketing-contacts "follow"), or when you need WhatsApp and SMS integrated in the same place as the pipeline.
 
 It does not pay off if your team depends on complex reports or on native integrations that only exist there. In that case, integrating the two works out better than moving, and we cover it in [integrating GoHighLevel with your stack](/en/blog/integrar-gohighlevel-con-tu-stack).
 

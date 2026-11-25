@@ -143,7 +143,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "¿Cómo sé si me compensa?",
-          a: "Multiplica cuántas veces ocurre a la semana, cuántos minutos lleva y el coste por hora de quien lo hace: es lo que cuesta seguir haciéndolo a mano. Luego suma lo que se pierde. En procesos comerciales sin sistema, la fuga suele estar entre el 30% y el 60% de los contactos, y casi siempre pesa más que las horas.",
+          a: "Multiplica cuántas veces ocurre a la semana, cuántos minutos lleva y el coste por hora de quien lo hace: es lo que cuesta seguir haciéndolo a mano. Luego suma lo que se pierde. En un proceso comercial, los contactos que se pierden sin respuesta suelen pesar más que las horas: cuenta cuántos fueron el último mes.",
         },
         { q: "¿Cuánto cuesta?", a: PRECIO_ES },
       ],
@@ -193,7 +193,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "How do I know if it pays off?",
-          a: "Multiply how often it happens per week, how many minutes it takes and the hourly cost of whoever does it: that is the cost of keeping it manual. Then add what is lost. In sales processes without a system, leakage is usually 30% to 60% of contacts, and it almost always outweighs the hours.",
+          a: "Multiply how often it happens per week, how many minutes it takes and the hourly cost of whoever does it: that is the cost of keeping it manual. Then add what is lost. In a sales process, the contacts lost without a reply usually outweigh the hours: count how many there were last month.",
         },
         { q: "How much does it cost?", a: PRECIO_EN },
       ],

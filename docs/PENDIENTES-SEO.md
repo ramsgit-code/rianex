@@ -13,22 +13,13 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Para Ramiro (requieren login o una decisión)
 
-- [ ] **Cifras sin fuente que conviene marcar como experiencia propia
-      (25-nov)**. Al buscar fuentes no apareció ninguna para estas frases:
-      «la fuga habitual está entre el 30% y el 60% de los contactos que
-      entran» (por dónde empezar y proyectos a medida) y «entre cinco y diez
-      veces mayor que el ahorro de horas» (proyectos a medida). Si salen de
-      tus proyectos, lo decimos así («en los proyectos que hemos medido…»);
-      si no, se quitan. También: «GTM engineer se popularizó a partir de
-      2024» (Clay dice que acuñó el término en 2023).
 - [ ] **Sortlist**: perfil en sortlist.com/agency/rianex con 3 reseñas
-      (5/5), 3 trabajos e índice de calidad del 58%. Lo que queda depende de
-      ti: foto del equipo (una foto buena tuya), revisar la lista de
-      servicios (hoy salen web, software, email marketing y growth marketing
-      por delante de Inteligencia Artificial) y, si quieres, conectar avisos
-      de oportunidades. «Destaca tu mejor trabajo» pide 3 trabajos por cada
-      categoría: no se rellena sin proyectos reales.
-
+      (5/5), 3 trabajos e índice de calidad del 58%; «Inteligencia
+      Artificial» es ya el primer servicio. Lo que queda depende de ti: foto
+      del equipo (una foto buena tuya) y decidir si quitas los servicios que
+      no vendes (creación de sitios web, email marketing). «Destaca tu mejor
+      trabajo» pide 3 trabajos por categoría: no se rellena sin proyectos
+      reales.
 - [ ] **Validar las dos páginas de sector nuevas (25-nov)**:
       `/soluciones/inmobiliarias` y `/soluciones/negocios-con-cita`. No tienen
       caso propio y lo dicen sin inventar cifras, pero prometen cosas que
@@ -49,11 +40,6 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       «is code-complete»: si querías decir código no abierto, se cambia. Los
       textos legales en inglés dicen que la versión que vincula es la
       castellana.
-- [ ] **Política de privacidad: falta Anthropic como encargado**. El chat de
-      precualificación manda las respuestas del lead a la API de Anthropic y
-      la sección 6 solo nombra GoHighLevel, Vercel, Supabase y Google. Dime
-      si lo añado (y subo la versión de la política).
-
 - [ ] **GEO: estar donde miran los asistentes (auditoría del 25-nov).** Claude
       no nombra a Rianex en ninguna de las 12 preguntas (informe del 4-nov),
       y buscando «Rianex agencia automatización IA Ávila» o «rianex.es» la web
@@ -250,8 +236,6 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       /servicios/agente-ia-whatsapp usa el rango general de implementación
       (5.000-25.000 €) y explica los costes de uso de Meta y del modelo. Si
       tienes un precio de partida propio para este servicio, pásamelo.
-- [ ] **Testimonio de Tribeca**: la página del caso no lleva cita. Si Antonio
-      da una frase, se añade en `src/lib/casos.ts`.
 - [ ] **Página de LinkedIn de Rianex**: pegar el eslogan y la descripción
       nuevos (en `linkedin/textos-linkedin-es.md` de tu carpeta local).
 
@@ -264,11 +248,12 @@ Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
       `sameAs`. `contactPoint` ya está.
 - [ ] **Menores**: `/testimonios` (282 palabras) y `/soluciones` (341) son
       finas, 13 artículos sin `updated`.
-- [ ] **Fuentes en el resto de artículos**: el 25-nov se añadieron fuentes
-      verificadas a los cuatro de más impresiones. Quedan 19 artículos sin
-      ningún enlace externo. Mismo método: solo fuentes primarias que se han
-      abierto y que dicen exactamente lo que dice la frase, con
-      `[texto](url "follow")`, y lo mismo en la traducción.
+- [ ] **Revisar con calma (25-nov), salió al buscar fuentes**: el agente
+      de Tribeca usa GPT Image 2, que OpenAI marca ya como obsoleto; la
+      llamada por WhatsApp de GoHighLevel (artículo del agente de voz) sigue
+      en beta y pide que el número no use Coexistence y un límite de 2.000
+      conversaciones; «es la automatización con mejor retorno» (clínicas) y
+      «quien busca una clínica llama a varias» no tienen fuente.
 - [ ] **Artículos nuevos: traducción al inglés**. Desde el 25-nov cada
       artículo tiene su traducción en `src/content/blog-en/<slug>.mdx` (mismo
       nombre de fichero, enlaces internos con `/en`, sección «## Frequently
@@ -352,6 +337,26 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · Cuarta tanda. **Cifra sin fuente fuera**: el «30-60% de
+  fuga» (dos artículos, la página de academias, la ficha de automatización y
+  la calculadora) y el «cinco a diez veces el ahorro de horas» no tenían
+  fuente ni medición propia publicada; ahora se pide contar la fuga propia
+  y la calculadora dice que su 30% es un valor de ejemplo. Si tienes datos
+  medidos en tus proyectos, se vuelve a poner como experiencia propia.
+  **Privacidad**: Anthropic añadido como encargado (el chat de
+  precualificación), en ES y EN; versión de la política 2026-11 (se guarda
+  con cada lead). **Caso Tribeca**: cita de Antonio (Country Manager),
+  sacada de su reseña pública en Sortlist. **Sortlist**: IA como primer
+  servicio. **Fuentes en los 39 artículos**: 78 citas verificadas nuevas en
+  los 19 que no tenían (las mismas en inglés), de Meta, GoHighLevel,
+  HubSpot, Make, Zapier, n8n, Google, OpenAI, AEPD, BOE (RGPD, LSSI, AI
+  Act) e INE. Corregido lo que no se sostenía al contrastarlo: el «80%
+  menos de probabilidades de convertir» (el estudio que se suele citar mide
+  otra cosa), el 15-30% de ausencias en clínicas (sin fuente), Make ya no
+  cobra por operación sino por créditos, Meta cobra desde octubre también
+  los mensajes de servicio por encima de un volumen, y la importación por
+  CSV de GoHighLevel admite una sola nota por contacto.
 
 - 2026-11-25 · Tercera tanda. **Fuentes** verificadas en los cuatro
   artículos con más impresiones (por dónde empezar, proyectos de IA a

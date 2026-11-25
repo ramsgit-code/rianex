@@ -40,10 +40,10 @@ Within the next 60 seconds the customer receives an email with the link to their
 ## How to implement it step by step
 
 - Design the post-call intake form. The fields you need: customer information, service details, variables that affect the price. This form is filled in by the sales rep, not the customer.
-- Set up the automatic generation of the proposal. In GHL you can do this with dynamic documents and custom fields. For more flexibility, a webhook that connects to a template in Google Docs or to a document system of your own.
+- Set up the automatic generation of the proposal. In GHL you can do this with [dynamic documents and custom fields](https://help.gohighlevel.com/support/solutions/articles/155000001301-how-to-create-and-send-document-or-contract-templates-automatically-in-a-workflow "follow"). For more flexibility, a webhook that connects to a [template in Google Docs](https://developers.google.com/workspace/docs/api/how-tos/merge "follow") or to a document system of your own.
 - Create the personalised proposal page. A URL like `tuempresa.com/propuestas/nombre-empresa` with the customer's data, the breakdown of services and the downloadable PDF.
 - Automate the sending and the follow-up. Automatic email on sending, open tracking, a reminder if there is no reply, a notification to the sales rep if there is any interaction.
-- Connect everything in the GHL pipeline. The proposal appears in the deal's pipeline with its status: sent, opened, in negotiation, accepted, rejected.
+- Connect everything in the [GHL pipeline](https://help.gohighlevel.com/support/solutions/articles/155000001982-understanding-pipelines "follow"). The proposal appears in the deal's pipeline with its status: sent, opened, in negotiation, accepted, rejected.
 
 The full implementation takes between 3 and 4 weeks depending on the complexity of the service catalogue.
 

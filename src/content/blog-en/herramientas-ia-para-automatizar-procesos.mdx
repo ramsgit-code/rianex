@@ -2,7 +2,7 @@
 title: "AI tools to automate processes: which ones to use in an SME"
 description: "The five families of AI tools to automate processes in an SME: what each one solves, what can be done without coding and when you need something custom."
 date: "2026-10-21"
-updated: "2026-11-24"
+updated: "2026-11-25"
 tags: ["automation", "ai", "tools", "sme", "no-code"]
 cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
@@ -41,17 +41,17 @@ Zapier, Make and n8n. They let tools that do not talk to each other exchange dat
 
 The differences that matter in an SME:
 
-- **Zapier** is the easiest to start with and the one with the most integrations. It charges for each task run, so with high volume it gets expensive.
-- **Make** allows more complex flows with branches and loops at a lower cost per operation, in exchange for a somewhat steeper learning curve.
-- **n8n** can be hosted on your own server, which gives control over the data and a fixed cost, but someone has to maintain that server. If you already use it, check [what breaks with n8n 3.0](/en/blog/n8n-3-que-se-rompe-y-como-prepararte) before updating.
+- **Zapier** is the easiest to start with and the one with the most integrations. [It charges for each task run](https://zapier.com/pricing "follow"), so with high volume it gets expensive.
+- **Make** [allows more complex flows with branches and loops](https://help.make.com/router "follow") at a lower usage-based price, in exchange for a somewhat steeper learning curve.
+- **n8n** [can be hosted on your own server](https://docs.n8n.io/hosting/ "follow"), which gives control over the data and a fixed cost, but someone has to maintain that server. If you already use it, check [what breaks with n8n 3.0](/en/blog/n8n-3-que-se-rompe-y-como-prepararte) before updating.
 
 For a process that crosses three or four tools and runs a few dozen times a day, any of the three will do. The choice is set by the volume, who is going to maintain it and where the data has to be.
 
 ### 4. AI models through an API
 
-The same models from OpenAI, Anthropic or Google, but called from another system instead of from the chat. It is the piece that reads the email and decides what it is asking for, extracts the fields from a PDF or writes the tailored reply. You pay by usage, and at the volumes of an SME the cost is usually small next to the rest.
+The same models from OpenAI, Anthropic or Google, but called from another system instead of from the chat. It is the piece that reads the email and decides what it is asking for, extracts the fields from a PDF or writes the tailored reply. [You pay by usage](https://platform.claude.com/docs/en/about-claude/pricing "follow"), and at the volumes of an SME the cost is usually small next to the rest.
 
-They are almost never used alone: they sit inside a flow in the connector, the CRM or your own development. What matters when choosing is not so much which model is better in the abstract, but that the provider offers data processing terms that fit the GDPR and that the flow is prepared for when the model gets it wrong. We explain it in [GDPR and AI automation](/en/blog/rgpd-y-automatizacion-con-ia).
+They are almost never used alone: they sit inside a flow in the connector, the CRM or your own development. What matters when choosing is not so much which model is better in the abstract, but that the provider offers [data processing terms that fit the GDPR](https://www.anthropic.com/legal/data-processing-addendum "follow") and that the flow is prepared for when the model gets it wrong. We explain it in [GDPR and AI automation](/en/blog/rgpd-y-automatizacion-con-ia).
 
 ### 5. Agents and custom development
 
@@ -93,7 +93,7 @@ Yes, to a large extent. CRMs with built-in automation and connectors let you bui
 
 ### Zapier, Make or n8n?
 
-Zapier is the easiest and has the most integrations, but it charges per task. Make allows more complex flows at a lower cost per operation. n8n can be hosted on your own server, with more control over the data and a fixed cost, in exchange for maintaining it. The full comparison, with prices and where each piece of data ends up, is in [n8n vs Make vs Zapier](/en/blog/n8n-vs-make-vs-zapier).
+Zapier is the easiest and has the most integrations, but it charges per task. Make allows more complex flows at a lower usage-based price. n8n can be hosted on your own server, with more control over the data and a fixed cost, in exchange for maintaining it. The full comparison, with prices and where each piece of data ends up, is in [n8n vs Make vs Zapier](/en/blog/n8n-vs-make-vs-zapier).
 
 ### Is using ChatGPT in the company already automating?
 

@@ -17,7 +17,7 @@ That said, most of the problems we find are not legal subtleties. They are four 
 
 Almost every website has an acceptance checkbox on its form. Far fewer keep proof that it was ticked.
 
-Article 7.1 of the GDPR says the controller must **be able to demonstrate** that the person consented. A checkbox ticked in a browser that has since been closed proves nothing if the system did not record it.
+[Article 7.1 of the GDPR](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow") says the controller must **be able to demonstrate** that the person consented. A checkbox ticked in a browser that has since been closed proves nothing if the system did not record it.
 
 What you need to store with each contact is when they gave consent and to which exact text. If the privacy policy changes in March, you must be able to tell who accepted the January version from who accepted the April one.
 
@@ -29,13 +29,13 @@ This is one more field in the database and five minutes of work if it is done at
 
 This is where most Spanish websites fail, and it is easy to check.
 
-Article 22.2 of the LSSI requires prior consent to store information on the user's device, unless it is essential to provide the service. And note that it does not only cover cookies: local storage and session storage count just the same.
+[Article 22.2 of the LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758#a22 "follow") requires prior consent to store information on the user's device, unless it is essential to provide the service. And note that it does not only cover cookies: local storage and session storage count just the same.
 
 Analytics is not essential for the website to work. So it needs permission before storing anything, including a session identifier of your own.
 
 The test is simple: open your website in a new window, do not touch the cookie notice and look at the network tab of the browser. If you see requests to your own analytics endpoint or to Google before accepting, you have the problem.
 
-The correct way with Google Analytics is consent mode: the tag starts with everything denied and only begins to measure properly when the person accepts. In the meantime it sends signals without identifiers, which is what lets you keep aggregate data without breaking the rule.
+The correct way with Google Analytics is [consent mode](https://developers.google.com/tag-platform/security/concepts/consent-mode "follow"): the tag starts with everything denied and only begins to measure properly when the person accepts. In the meantime it sends signals without identifiers, which is what lets you keep aggregate data without breaking the rule.
 
 **The detail that gets missed:** the loading order. The declaration of denied consent has to run before the measurement script loads. If it arrives later, the cookie has already been written and whatever you say afterwards makes no difference.
 
@@ -57,7 +57,7 @@ That includes the obvious ones, such as the CRM and the hosting, and the ones th
 
 Two questions for each one:
 
-**Where the data is processed.** If it is outside the European Economic Area, the transfer needs a legal safeguard. Today that usually means standard contractual clauses, and for the United States also the adequacy framework, which you should check that the specific provider has.
+**Where the data is processed.** If it is outside the European Economic Area, the transfer needs a legal safeguard. Today that usually means standard contractual clauses, and for the United States also [the adequacy framework](https://commission.europa.eu/law/law-topic/data-protection/international-dimension-data-protection/eu-us-data-transfers_en "follow"), which you should check that the specific provider has.
 
 **What they do with what passes through.** With AI providers this matters especially: you have to check whether they use what you send them for training and whether there is a business option that excludes it. Usually there is one, and usually it is not turned on by default.
 
@@ -85,7 +85,7 @@ Six checks you can do today:
 - See whether you store the consent date with each contact.
 - List every tool that touches customer data and compare it with your privacy policy.
 - Check whether your AI provider is configured not to use your data for training.
-- If you have a chatbot or a voice agent, check that it says it is an AI in the first message. The AI Act requires it from August 2026, and it does not replace the information the GDPR asks for: we explain it in [what the AI Act requires of your chatbot](/en/blog/ai-act-chatbot-decir-que-es-ia).
+- If you have a chatbot or a voice agent, check that it says it is an AI in the first message. [The AI Act](https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81079 "follow") requires it from August 2026, and it does not replace the information the GDPR asks for: we explain it in [what the AI Act requires of your chatbot](/en/blog/ai-act-chatbot-decir-que-es-ia).
 
 If any of them fails, it can be fixed. And it is much cheaper to fix it now than when someone asks.
 

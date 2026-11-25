@@ -2,6 +2,7 @@
 title: "AI agent for Meta Ads and Google Ads: what it can do"
 description: "What an AI agent can do today with your Meta Ads and Google Ads campaigns: read, pause, lower budgets, create ads and creatives, and what it must not do."
 date: "2026-10-28"
+updated: "2026-11-25"
 tags: ["ai agents", "meta ads", "google ads", "advertising", "ai creatives"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -41,9 +42,9 @@ Each row of the table is a business decision made before writing code. We explai
 
 ## Creatives when an ad fatigues
 
-On Meta, an ad shown many times to the same people loses strength: frequency goes up, click-through rate goes down and cost goes up. The solution is to change the creative, and that is where an agent contributes more than a report.
+On Meta, [an ad shown many times to the same people loses strength](https://developers.facebook.com/documentation/ads-commerce/marketing-api/ads-webhooks/creative-fatigue "follow"): frequency goes up, click-through rate goes down and cost goes up. The solution is to change the creative, and that is where an agent contributes more than a report.
 
-When it detects fatigue, the agent generates a new image with an image model (in our case, GPT Image 2) from the original ad and leaves it next to the proposal, ready for review. Three rules make it safe:
+When it detects fatigue, the agent generates a new image with an image model (in our case, [GPT Image 2](https://developers.openai.com/api/docs/models/gpt-image-2 "follow")) from the original ad and leaves it next to the proposal, ready for review. Three rules make it safe:
 
 - **Daily image cap per client**, with prior reservation: before generating, the agent reserves its slot within the cap. If the limit has been reached, it does not generate.
 - **The images are not public** until they are approved. They are stored privately, with no address that anyone could open.
@@ -53,9 +54,9 @@ The cost, measured in production, is about 4 cents per image at medium quality. 
 
 ## How it connects to the accounts
 
-**Meta** is connected by OAuth: the administrator of the client's Business Manager gives permission from a screen, without passing passwords. Each client has its own connection, and the agent can only work on the ad accounts on an allowlist, in euros and with a daily spending cap per client for what it creates.
+**Meta** is connected by OAuth: the administrator of the client's Business Manager [gives permission from a screen](https://developers.facebook.com/docs/facebook-login/facebook-login-for-business "follow"), without passing passwords. Each client has its own connection, and the agent can only work on the ad accounts on an allowlist, in euros and with a daily spending cap per client for what it creates.
 
-**Google Ads** has two paths. The quick one is to work from the agency's manager account (MCC), which already has access to its clients' accounts. The right one in the medium term is for each client to connect their account with their own permission, which requires Google to verify the application. That verification takes its time and should be requested at the start of the project, not at the end.
+**Google Ads** has two paths. The quick one is to work from the agency's [manager account (MCC)](https://support.google.com/google-ads/answer/6139186 "follow"), which already has access to its clients' accounts. The right one in the medium term is for each client to connect their account with their own permission, which [requires Google to verify the application](https://developers.google.com/google-ads/api/docs/productionize/secure-credentials "follow"). That verification takes its time and should be requested at the start of the project, not at the end.
 
 A practical detail: to test the agent you need a test account that looks like a real one, with campaigns and ad groups. An empty account, or one in another currency, is no use for validating anything.
 
