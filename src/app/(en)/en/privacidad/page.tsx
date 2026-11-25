@@ -32,7 +32,7 @@ export default function PrivacyPage() {
     <PageShell tag="Legal" title="Privacy policy">
       <div className="max-w-2xl">
         <p className="mb-6 text-sm text-muted">
-          Last updated: July 2026. This is a translation of the{" "}
+          Last updated: November 2026. This is a translation of the{" "}
           <a href="/privacidad" hrefLang="es" className={link}>
             Spanish policy
           </a>
@@ -88,8 +88,11 @@ export default function PrivacyPage() {
         <H>6. Recipients</H>
         <P>
           To provide the service we use technology providers that act as data processors:
-          GoHighLevel (CRM and chat), Vercel (web hosting), Supabase (database) and Google
-          (Analytics, automatic translation of content and site verification in Search Console).
+          GoHighLevel (CRM and chat), Vercel (web hosting), Supabase (database), Google
+          (Analytics, automatic translation of content and site verification in Search Console)
+          and Anthropic (the AI assistant that, after the form, asks you a few questions to
+          prepare the consultation: it receives your answers and the form data the conversation
+          needs).
           These providers may be located outside the European Economic Area, in which case
           transfers are covered by the safeguards set out in the GDPR (standard contractual
           clauses). We do not share your data with third parties for commercial purposes.

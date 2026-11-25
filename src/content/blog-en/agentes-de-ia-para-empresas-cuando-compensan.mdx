@@ -19,7 +19,7 @@ A chatbot answers. An agent acts.
 
 A chatbot receives a message, looks for the closest answer and returns it. If the question does not fit, it replies with something generic or hands the conversation to a person. Its only effect on the world is the text it writes.
 
-An agent receives a request, decides what has to be done, does it in the company's systems and replies with the result. It checks a calendar and books a slot. It looks up an order and confirms its status. It qualifies a contact and puts it in the pipeline with its score. It sends an alert to the right person.
+An agent receives a request, [decides what has to be done](https://www.anthropic.com/engineering/building-effective-agents "follow"), does it in the company's systems and replies with the result. It checks a calendar and books a slot. It looks up an order and confirms its status. It qualifies a contact and puts it in the pipeline with its score. It sends an alert to the right person.
 
 The practical difference is that the chatbot takes work off the person who writes and the agent takes work off the person who works. Only the second one removes hours.
 
@@ -31,7 +31,7 @@ After a fair number of implementations, agents perform clearly in three situatio
 
 **When the first contact arrives out of hours.** This is the most profitable case and the least considered. In service businesses, a large share of contacts comes in during the evening, at night or at the weekend, exactly when nobody answers. An agent that qualifies and books at eleven at night recovers contacts that would otherwise be lost, because people looking for a service write to several places and stay with the first one that replies.
 
-**When the input is free text.** A structured form can be processed with rules. A message written by hand cannot. If your process starts with people describing their problem in their own words, there is work there that only a model can do well.
+**When the input is [free text](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf "follow").** A structured form can be processed with rules. A message written by hand cannot. If your process starts with people describing their problem in their own words, there is work there that only a model can do well.
 
 ## When it is not worth it
 
@@ -51,13 +51,13 @@ The model is the cheap part. The work is somewhere else.
 
 **The connections.** Every system the agent needs to reach is integration work: CRM, calendar, invoicing, warehouse. Most of the effort goes here, and it is the part no demo shows.
 
-**The limits.** You have to decide what the agent can do on its own and what has to go through a person. Cancelling an appointment, applying a discount, promising a deadline. This is not a technical decision, it is a business one, and it has to be made before building. How to design it is in [AI agents with human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
+**The limits.** You have to decide what the agent can do on its own and [what has to go through a person](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf "follow"). Cancelling an appointment, applying a discount, promising a deadline. This is not a technical decision, it is a business one, and it has to be made before building. How to design it is in [AI agents with human approval](/en/blog/agentes-de-ia-con-aprobacion-humana).
 
 **The edge cases.** What happens when the system does not respond, when someone writes something that makes no sense, when they ask for something that was not planned for. A serious agent has a handover to a person at every one of those points, and that handover has to be designed.
 
 **The maintenance.** Processes change, prices change, opening hours change. An agent that is not updated starts giving false information, and that is worse than not having one.
 
-**The usage.** Each call to the model costs little, but an agent running on its own across many customers adds up. It has to be measured from day one: we explain it in [the cost of an AI agent in production](/en/blog/coste-agente-de-ia-en-produccion).
+**The usage.** [Each call to the model costs little](https://platform.claude.com/docs/en/about-claude/pricing "follow"), but an agent running on its own across many customers adds up. It has to be measured from day one: we explain it in [the cost of an AI agent in production](/en/blog/coste-agente-de-ia-en-produccion).
 
 ## Where the agent lives
 

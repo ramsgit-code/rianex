@@ -27,7 +27,7 @@ export default function PrivacidadPage() {
   return (
     <PageShell tag="Legal" title="Política de privacidad">
       <div className="max-w-2xl">
-        <p className="mb-6 text-sm text-muted">Última actualización: julio de 2026</p>
+        <p className="mb-6 text-sm text-muted">Última actualización: noviembre de 2026</p>
 
         <H>1. Responsable del tratamiento</H>
         <P>
@@ -82,8 +82,11 @@ export default function PrivacidadPage() {
         <P>
           Para prestar el servicio utilizamos proveedores tecnológicos que actúan como
           encargados del tratamiento: GoHighLevel (CRM y chat), Vercel (alojamiento
-          web), Supabase (base de datos) y Google (Analytics, traducción automática de
-          contenidos y verificación del sitio en Search Console). Estos
+          web), Supabase (base de datos), Google (Analytics, traducción automática de
+          contenidos y verificación del sitio en Search Console) y Anthropic (el
+          asistente de IA que, después del formulario, te hace unas preguntas para
+          preparar la consultoría: recibe tus respuestas y los datos del formulario
+          necesarios para la conversación). Estos
           proveedores pueden estar ubicados fuera del Espacio Económico Europeo, en cuyo
           caso las transferencias se amparan en las garantías previstas por el RGPD
           (cláusulas contractuales tipo). No cedemos tus datos a terceros con fines

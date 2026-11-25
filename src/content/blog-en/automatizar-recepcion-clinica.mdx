@@ -2,7 +2,7 @@
 title: "Automating a clinic's front desk: WhatsApp, calls and appointments"
 description: "Which front desk tasks in a clinic are solved with rules, which with AI and which a person should handle, including out-of-hours enquiries."
 date: "2026-10-23"
-updated: "2026-11-11"
+updated: "2026-11-25"
 tags: ["clinics", "front desk", "whatsapp", "scheduling", "ai"]
 cluster: "captacion"
 author: "Ramiro Pérez Rodero"
@@ -76,7 +76,7 @@ The most dangerous failure of an AI receptionist is not that it does not know so
 
 A test worth running before putting it to work: someone calls or writes late in the afternoon, nervous, and asks whether the doctor is still at the clinic because they need to come right now. A badly designed agent answers "yes, come straight away", because that is the answer that seems helpful. But it has not looked at anything. If the doctor has already left, that answer is much worse than "I don't know".
 
-Language models tend to give the answer that fits the conversation, even when they do not have the fact. That is why the rule cannot live only in the instructions: the agent only states what it has read in a system during that same conversation.
+Language models [tend to give the answer that fits the conversation](https://openai.com/index/why-language-models-hallucinate/ "follow"), even when they do not have the fact. That is why the rule cannot live only in the instructions: the agent only states what it has read in a system during that same conversation.
 
 - **Slots and availability:** only those it has read in the calendar at that moment.
 - **Who is at the clinic:** never, unless there is reliable, up-to-date data. If there is not, it gives the emergency phone number or hands the conversation to a person.
@@ -115,12 +115,12 @@ In our setups, the conversation and the follow-up usually live in GoHighLevel an
 
 ## Health data: be careful with WhatsApp
 
-Health data is a special category under the GDPR, and asking for an appointment for a treatment already says something about someone's health. Four practical rules:
+Health data is a [special category under the GDPR](https://www.aepd.es/preguntas-frecuentes/2-tus-obligaciones-como-responsable-del-tratamiento/5-bases-legitimadoras-del-tratamiento/FAQ-0215-cuales-son-las-bases-de-legitimacion-para-el-tratamiento-de-las-categorias-especiales-de-datos "follow"), and [asking for an appointment for a treatment already says something about](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow") someone's health. Four practical rules:
 
 - **Do not ask for clinical information over WhatsApp.** The system asks which service is of interest and when the person can come. Symptoms, history or tests are dealt with in the consultation or in the clinical software.
 - **Discreet messages.** A reminder says "you have an appointment tomorrow at 10", not the name of the treatment.
-- **Consent and records.** Knowing what each patient has accepted and being able to prove it.
-- **Saying that it is an AI.** Since August 2026, the agent has to disclose in the first message that it is an artificial intelligence. We explain it in [what the AI Act requires of your chatbot](/en/blog/ai-act-chatbot-decir-que-es-ia).
+- **Consent and records.** Knowing what each patient has accepted and [being able to prove it](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow").
+- **Saying that it is an AI.** Since August 2026, the agent [has to disclose in the first message](https://www.boe.es/buscar/doc.php?id=DOUE-L-2024-81079 "follow") that it is an artificial intelligence. We explain it in [what the AI Act requires of your chatbot](/en/blog/ai-act-chatbot-decir-que-es-ia).
 
 We cover it in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
 

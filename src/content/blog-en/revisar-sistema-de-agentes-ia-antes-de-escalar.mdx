@@ -2,6 +2,7 @@
 title: "What to review in an AI agent system before scaling it"
 description: "Technical assessment of an AI agent system: the nine points to review before going from a few clients to many, and how to prioritise what comes out."
 date: "2026-10-28"
+updated: "2026-11-25"
 tags: ["ai agents", "technical assessment", "audit", "scaling", "observability"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -38,12 +39,12 @@ You have to draw an honest map of what exists today. And sometimes the best reco
 Many agent systems start on a single server that concentrates everything: database, web services, scheduled tasks and bots. That is reasonable at the start, but you need to know what happens if that machine shuts down, and have three things:
 
 - automatic backups **stored off that machine**;
-- a restore tested at least once (a backup that has never been restored is a hope, not a backup);
+- [a restore tested at least once](https://www.incibe.es/empresas/blog/no-te-arriesgues-haz-copias-seguridad "follow") (a backup that has never been restored is a hope, not a backup);
 - a written plan for what to do if the machine is lost completely.
 
 ### 3. Clients in a queue
 
-A scheduled task that goes through the clients one after another works with a few. With many, a client whose API is slow or that has hit its request limit delays everyone behind it. You have to check whether the calls to Meta, Google or each client's CRM are made in parallel and whether the waits between retries block the rest.
+A scheduled task that goes through the clients one after another works with a few. With many, a client whose API is slow or that [has hit its request limit](https://developers.facebook.com/docs/marketing-api/overview/rate-limiting "follow") delays everyone behind it. You have to check whether the calls to Meta, Google or each client's CRM are made in parallel and whether the waits between retries block the rest.
 
 ### 4. Rebuilding the system from the repository
 
@@ -54,11 +55,11 @@ The question is simple: if tomorrow the system had to be set up on another machi
 
 ### 5. Isolation between clients
 
-On a platform with several clients, every query has to filter by client. If that filter depends on each programmer remembering to write it in every query, sooner or later someone forgets. You have to review the routes that return data and consider having the database guarantee the isolation (with row-level security, for example) and not just the discipline of the code.
+On a platform with several clients, every query has to filter by client. If that filter depends on each programmer remembering to write it in every query, sooner or later someone forgets. You have to review the routes that return data and consider having the database guarantee the isolation ([with row-level security, for example](https://www.postgresql.org/docs/current/ddl-rowsecurity.html "follow")) and not just the discipline of the code.
 
 ### 6. Logs you can follow
 
-When something goes wrong with one specific client, you have to be able to reconstruct what happened. That requires logs with the real origin of each line, the client and the run it belongs to, rotation so they do not fill a disk and the guarantee that no token or password is written to them. And for the agent's decisions, an audit log that really gets written, with the previous state and the new one, whichever path the approval takes.
+When something goes wrong with one specific client, you have to be able to reconstruct what happened. That requires logs with the real origin of each line, the client and the run it belongs to, rotation so they do not fill a disk and the guarantee that [no token or password is written to them](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html "follow"). And for the agent's decisions, an audit log that really gets written, with the previous state and the new one, whichever path the approval takes.
 
 ### 7. Tests where the risk is
 

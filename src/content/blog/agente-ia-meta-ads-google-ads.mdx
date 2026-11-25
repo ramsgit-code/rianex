@@ -2,6 +2,7 @@
 title: "Agente de IA para Meta Ads y Google Ads: qué puede hacer"
 description: "Qué puede hacer hoy un agente de IA con tus campañas de Meta Ads y Google Ads: leer, pausar, bajar presupuesto, crear anuncios y creatividades, y qué no debe hacer."
 date: "2026-10-28"
+updated: "2026-11-25"
 tags: ["agentes de ia", "meta ads", "google ads", "publicidad", "creatividades con ia"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -41,9 +42,9 @@ Cada fila de la tabla es una decisión de negocio tomada antes de escribir códi
 
 ## Creatividades cuando un anuncio se fatiga
 
-En Meta, un anuncio que se enseña muchas veces a las mismas personas pierde fuerza: sube la frecuencia, baja el porcentaje de clics y sube el coste. La solución es cambiar la creatividad, y ahí es donde un agente aporta más que un informe.
+En Meta, [un anuncio que se enseña muchas veces a las mismas personas pierde fuerza](https://developers.facebook.com/documentation/ads-commerce/marketing-api/ads-webhooks/creative-fatigue "follow"): sube la frecuencia, baja el porcentaje de clics y sube el coste. La solución es cambiar la creatividad, y ahí es donde un agente aporta más que un informe.
 
-Cuando detecta fatiga, el agente genera una imagen nueva con un modelo de imagen (en nuestro caso, GPT Image 2) a partir del anuncio original y la deja junto a la propuesta, lista para revisar. Tres reglas lo hacen seguro:
+Cuando detecta fatiga, el agente genera una imagen nueva con un modelo de imagen (en nuestro caso, [GPT Image 2](https://developers.openai.com/api/docs/models/gpt-image-2 "follow")) a partir del anuncio original y la deja junto a la propuesta, lista para revisar. Tres reglas lo hacen seguro:
 
 - **Tope diario de imágenes por cliente**, con reserva previa: antes de generar, el agente reserva su hueco en el tope. Si se ha llegado al límite, no genera.
 - **Las imágenes no son públicas** hasta que se aprueban. Se guardan en privado, sin una dirección que cualquiera pueda abrir.
@@ -53,9 +54,9 @@ El coste, medido en producción, es de unos 4 céntimos por imagen en calidad me
 
 ## Cómo se conecta a las cuentas
 
-**Meta** se conecta por OAuth: el administrador del Business Manager del cliente da permiso desde una pantalla, sin pasar contraseñas. Cada cliente tiene su conexión, y el agente solo puede trabajar sobre las cuentas publicitarias de una lista blanca, en euros y con un tope de gasto diario por cliente para lo que crea.
+**Meta** se conecta por OAuth: el administrador del Business Manager del cliente [da permiso desde una pantalla](https://developers.facebook.com/docs/facebook-login/facebook-login-for-business "follow"), sin pasar contraseñas. Cada cliente tiene su conexión, y el agente solo puede trabajar sobre las cuentas publicitarias de una lista blanca, en euros y con un tope de gasto diario por cliente para lo que crea.
 
-**Google Ads** tiene dos caminos. El rápido es trabajar desde la cuenta de administrador (MCC) de la agencia, que ya tiene acceso a las cuentas de sus clientes. El correcto a medio plazo es que cada cliente conecte su cuenta con su propio permiso, lo que exige que Google verifique la aplicación. Esa verificación lleva su tiempo y conviene pedirla al principio del proyecto, no al final.
+**Google Ads** tiene dos caminos. El rápido es trabajar desde [la cuenta de administrador (MCC)](https://support.google.com/google-ads/answer/6139186 "follow") de la agencia, que ya tiene acceso a las cuentas de sus clientes. El correcto a medio plazo es que cada cliente conecte su cuenta con su propio permiso, lo que [exige que Google verifique la aplicación](https://developers.google.com/google-ads/api/docs/productionize/secure-credentials "follow"). Esa verificación lleva su tiempo y conviene pedirla al principio del proyecto, no al final.
 
 Un detalle práctico: para probar el agente hace falta una cuenta de prueba que se parezca a una real, con campañas y grupos de anuncios. Una cuenta vacía, o en otra moneda, no sirve para validar nada.
 

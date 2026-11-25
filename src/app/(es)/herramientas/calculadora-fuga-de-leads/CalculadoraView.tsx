@@ -31,7 +31,7 @@ export const CALCULADORA_COPY = {
     ],
     defaultsTitle: "De dónde salen los valores por defecto",
     defaults:
-      "Son un ejemplo para que veas cómo funciona: cámbialos por los tuyos. El 30% de fuga es el extremo bajo de lo habitual en procesos comerciales sin sistema, que suele estar entre el 30% y el 60%. Si no conoces tu fuga, cuenta cuántos contactos del último mes no llegaron a hablar con nadie.",
+      "Son un ejemplo para que veas cómo funciona: cámbialos por los tuyos. El 30% de fuga es un valor de ejemplo, no una media del sector. Si no conoces tu fuga, cuenta cuántos contactos del último mes no llegaron a hablar con nadie.",
     whyTitle: "Por qué la fuga pesa más que las horas",
     why:
       "En los procesos comerciales, el dinero no está en las horas que se ahorran, sino en lo que se deja de perder: el contacto que no recibe respuesta a tiempo se va con otro, y la propuesta que sale tres días tarde llega cuando el cliente ya ha decidido. Por eso la cifra de la fuga suele ser bastante mayor que la del trabajo manual, y es la que decide si automatizar compensa.",
@@ -71,7 +71,7 @@ export const CALCULADORA_COPY = {
     ],
     defaultsTitle: "Where the default values come from",
     defaults:
-      "They are an example so you can see how it works: replace them with yours. The 30% leakage is the low end of what is usual in sales processes without a system, typically 30% to 60%. If you do not know your leakage, count how many contacts last month never got to talk to anyone.",
+      "They are an example so you can see how it works: replace them with yours. The 30% leakage is an example value, not an industry average. If you do not know your leakage, count how many contacts last month never got to talk to anyone.",
     whyTitle: "Why leakage outweighs the hours",
     why:
       "In sales processes the money is not in the hours saved but in what stops being lost: a contact who does not get a timely reply goes elsewhere, and a proposal sent three days late arrives after the client has decided. That is why the leakage figure is usually much larger than the manual work one, and it is what decides whether automating pays off.",

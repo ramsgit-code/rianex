@@ -21,7 +21,7 @@ Esto es lo que se lleva, lo que no y en qué orden conviene hacerlo.
 
 **Oportunidades con su etapa y su importe.** Se llevan, aunque hay que mapear las etapas del pipeline viejo a las del nuevo, y ese mapeo es una decisión de negocio que conviene no delegar en quien hace la migración técnica.
 
-**Notas y actividades.** Se llevan si se exportan bien. El detalle está en que muchas veces se exportan sin la referencia al contacto, y entonces llegan como un montón de texto sin dueño. Hay que comprobar que cada nota mantiene su vínculo.
+**Notas y actividades.** Se llevan si se exportan bien, y conviene hacerlo por API: la importación por CSV de GoHighLevel admite una sola nota por contacto. El detalle está en que muchas veces se exportan sin la referencia al contacto, y entonces llegan como un montón de texto sin dueño. Hay que comprobar que cada nota mantiene su vínculo.
 
 **Listas y segmentaciones.** No se migran como tales, pero se reconstruyen a partir de los campos. Si la segmentación se basa en propiedades que sí viajan, se rehace sin perder nada.
 
@@ -43,7 +43,7 @@ El error más caro es apagar lo viejo antes de que lo nuevo funcione. Este orden
 
 **Uno: inventario.** Antes de exportar nada, listar qué hay. Cuántos contactos, qué campos personalizados, qué automatizaciones están activas de verdad, qué integraciones dependen del CRM actual. Esta fase es aburrida y es la que decide si la migración sale bien.
 
-**Dos: reconstruir la estructura en destino.** Crear los campos personalizados, el pipeline con sus etapas y las etiquetas antes de meter un solo contacto. Importar datos sobre una estructura que no existe genera campos sueltos que luego hay que limpiar a mano.
+**Dos: reconstruir la estructura en destino.** [Crear los campos personalizados](https://help.gohighlevel.com/support/solutions/articles/155000005143-csv-file-format-for-importing-contacts-and-opportunities "follow"), el pipeline con sus etapas y las etiquetas antes de meter un solo contacto. Importar datos sobre una estructura que no existe genera campos sueltos que luego hay que limpiar a mano.
 
 **Tres: migración de prueba con una muestra.** Cien contactos, no todos. Comprobar que llegan los campos, que las notas mantienen su dueño, que las oportunidades caen en la etapa correcta. Aquí es donde aparecen los problemas, y aparecen barato.
 
@@ -65,9 +65,9 @@ Si se apaga el día uno, esas preguntas aparecen igual, pero sin sitio donde mir
 
 Antes de cerrar la cuenta antigua, guarda fuera:
 
-- Exportación completa de contactos, empresas y oportunidades, en CSV.
+- [Exportación completa de contactos, empresas y oportunidades](https://knowledge.hubspot.com/import-and-export/export-records "follow"), en CSV.
 - Exportación de notas y actividades.
-- Captura o documentación de cada automatización activa, aunque no la vayas a rehacer.
+- [Captura o documentación de cada automatización activa](https://knowledge.hubspot.com/account-management/export-your-content-and-data "follow"), aunque no la vayas a rehacer.
 - Las grabaciones de llamadas, si están alojadas ahí.
 - La lista de integraciones conectadas, para saber qué hay que reconectar.
 
@@ -81,9 +81,9 @@ Una cuenta grande, con integraciones a facturación, web y telefonía, se va a s
 
 ## Lo que ganas y lo que pierdes
 
-Por honestidad: HubSpot hace cosas que GoHighLevel no hace, sobre todo en informes avanzados y en el ecosistema de integraciones nativas. Y GoHighLevel hace cosas que en HubSpot cuestan un módulo adicional, sobre todo mensajería, embudos y automatización sin límite de contactos.
+Por honestidad: HubSpot hace cosas que GoHighLevel no hace, sobre todo en informes avanzados y en el ecosistema de integraciones nativas. Y GoHighLevel hace cosas que en HubSpot cuestan un módulo adicional, sobre todo mensajería, embudos y automatización [sin límite de contactos](https://www.gohighlevel.com/pricing "follow").
 
-La migración compensa cuando pagas por funcionalidades que no usas, cuando el coste crece con cada contacto que añades, o cuando necesitas WhatsApp y SMS integrados en el mismo sitio que el pipeline.
+La migración compensa cuando pagas por funcionalidades que no usas, cuando [el coste crece con cada contacto que añades](https://www.hubspot.com/marketing-contacts "follow"), o cuando necesitas WhatsApp y SMS integrados en el mismo sitio que el pipeline.
 
 No compensa si tu equipo depende de informes complejos o de integraciones nativas que solo existen allí. En ese caso, integrar los dos sale mejor que mudarse, y lo contamos en [integrar GoHighLevel con tu stack](/blog/integrar-gohighlevel-con-tu-stack).
 
