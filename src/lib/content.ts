@@ -352,7 +352,7 @@ export const content = {
       tag: "Servicios",
       title: "Servicios de automatización con IA",
       description:
-        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar—, uno para que la IA que ya usas cueste menos y falle menos, otro para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
+        "Ocho servicios para automatizar lo que más se repite en tu empresa —vender, atender, operar—, cuatro para captar clientes por un canal concreto (web, email, LinkedIn y teléfono), uno para que la IA que ya usas cueste menos y falle menos, otro para controlar la operación con las cámaras que ya tienes y tres para que tu equipo aprenda a usar la IA. Se contratan por separado o juntos en un mismo proyecto.",
       problemLabel: "Problema:",
       forWhoLabel: "Para quién:",
       cta: "Pide tu consultoría gratuita",
@@ -366,6 +366,11 @@ export const content = {
           title: "Vender y atender",
           desc: "Captar clientes, contestar a cada uno a tiempo, cerrar la cita y enviar la propuesta: prospección autónoma, leads de Meta cualificados, agentes de WhatsApp, Telegram y voz, y propuestas automáticas.",
           slugs: ["agente-ia-whatsapp", "outbound-b2b", "embudo-de-captacion", "generador-de-propuestas"],
+        },
+        {
+          title: "Canales de captación",
+          desc: "Cada canal montado por separado y conectado a tu CRM, GoHighLevel o HubSpot: una web que capta y cualifica, email marketing a tus propios contactos, outbound en LinkedIn y llamadas en frío con cada llamada registrada.",
+          slugs: ["creacion-de-webs", "email-marketing", "outbound-linkedin", "cold-calling"],
         },
         {
           title: "Operativa y CRM",
@@ -556,6 +561,66 @@ export const content = {
             "Aplicación de propuestas en Vercel: web y PDF al momento",
             "Pipeline de propuestas en tu CRM para ver cómo evoluciona cada una",
             "Recordatorios de seguimiento automáticos",
+          ],
+        },
+        {
+          slug: "creacion-de-webs",
+          area: "Web",
+          title: "Creación de páginas web",
+          tagline: "Una web rápida que capta, cualifica y mete cada contacto en tu CRM.",
+          problem:
+            "Tu web es un folleto: tarda en cargar, no aparece en Google y los pocos formularios que llegan acaban en un correo que nadie mira a tiempo.",
+          forWho: "Empresas que necesitan una web nueva o rehacer la que tienen, y quieren que funcione como canal de captación conectado a GoHighLevel o HubSpot.",
+          deliverables: [
+            "Web en Next.js sobre Vercel, o embudos en GoHighLevel si encaja mejor",
+            "Formularios y cuestionarios que cualifican y crean el contacto en tu CRM",
+            "SEO técnico y GEO de base: velocidad, indexación, datos estructurados y llms.txt",
+            "Google Analytics 4 y Search Console configurados, y aviso al equipo con cada contacto",
+          ],
+        },
+        {
+          slug: "email-marketing",
+          area: "Email",
+          title: "Email marketing automatizado",
+          tagline: "Tus contactos, segmentados y con el correo que toca en cada momento.",
+          problem:
+            "Tienes cientos o miles de contactos en el CRM que no reciben nada, o reciben todos la misma newsletter, y no sabes qué correo trae ventas.",
+          forWho: "Empresas con una base propia de clientes y contactos, en GoHighLevel o HubSpot, que quieren newsletters, nurturing y reactivación que salgan solos.",
+          deliverables: [
+            "Segmentación de la base por etapa, interés y actividad",
+            "Secuencias automáticas de bienvenida, nurturing, reactivación y postventa",
+            "Entregabilidad: dominio autenticado (SPF, DKIM y DMARC), bajas y limpieza de rebotes",
+            "Newsletter con plantilla propia y medición de lo que acaba en venta",
+          ],
+        },
+        {
+          slug: "outbound-linkedin",
+          area: "LinkedIn",
+          title: "Outbound en LinkedIn",
+          tagline: "Invitaciones y mensajes a quien decide, con cada respuesta en tu CRM.",
+          problem:
+            "Tus clientes están en LinkedIn, pero escribir a mano a cada uno no escala y los mensajes genéricos no los contesta nadie.",
+          forWho: "Empresas B2B cuyo comprador es un cargo concreto (dirección, compras, RR. HH., tecnología) y está activo en LinkedIn.",
+          deliverables: [
+            "Perfil de LinkedIn preparado para quien lo visita después de la invitación",
+            "Búsquedas en Sales Navigator por sector, tamaño, cargo y zona",
+            "Secuencias de invitación y mensajes con Valley, aprobados antes de enviar",
+            "Respuestas clasificadas en GoHighLevel o HubSpot, con enlace para reservar reunión",
+          ],
+        },
+        {
+          slug: "cold-calling",
+          area: "Teléfono",
+          title: "Cold calling B2B",
+          tagline: "Llamadas en frío con lista, guion y cada llamada registrada en el CRM.",
+          problem:
+            "Llamar en frío sin método quema la lista: números que no existen, nadie sabe a quién se llamó ni qué se dijo, y los interesados se pierden sin seguimiento.",
+          forWho: "Empresas B2B con un ticket que justifica una conversación y un comprador que contesta antes al teléfono que al email.",
+          deliverables: [
+            "Lista de empresas y cargos con teléfono verificado, cruzada con los sistemas de exclusión publicitaria",
+            "Guiones y respuestas a objeciones por segmento",
+            "Marcador conectado al CRM: cada llamada, su resultado y el siguiente paso registrados",
+            "Agentes de voz con IA en Vapi solo donde la ley lo permite, avisando de que son una IA",
           ],
         },
         {
@@ -1149,7 +1214,7 @@ export const content = {
       tag: "Services",
       title: "AI automation services",
       description:
-        "Eight services to automate what repeats most in your company —selling, serving customers, operations—, one to make the AI you already use cost less and fail less, another to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
+        "Eight services to automate what repeats most in your company —selling, serving customers, operations—, four to win clients through a specific channel (website, email, LinkedIn and phone), one to make the AI you already use cost less and fail less, another to monitor operations with the cameras you already have and three to help your team learn to use AI. Hire them on their own or together in one project.",
       problemLabel: "Problem:",
       forWhoLabel: "For whom:",
       cta: "Book your free consultation",
@@ -1163,6 +1228,11 @@ export const content = {
           title: "Sell and serve",
           desc: "Finding clients, answering each one on time, booking the appointment and sending the proposal: autonomous prospecting, qualified Meta leads, WhatsApp, Telegram and voice agents, and automatic proposals.",
           slugs: ["agente-ia-whatsapp", "outbound-b2b", "embudo-de-captacion", "generador-de-propuestas"],
+        },
+        {
+          title: "Acquisition channels",
+          desc: "Each channel set up on its own and connected to your CRM, GoHighLevel or HubSpot: a website that captures and qualifies, email marketing to your own contacts, LinkedIn outbound and cold calls with every call logged.",
+          slugs: ["creacion-de-webs", "email-marketing", "outbound-linkedin", "cold-calling"],
         },
         {
           title: "Operations and CRM",
@@ -1352,6 +1422,66 @@ export const content = {
             "Proposal app on Vercel: web and PDF on the spot",
             "Proposal pipeline in your CRM to see how each one progresses",
             "Automatic follow-up reminders",
+          ],
+        },
+        {
+          slug: "creacion-de-webs",
+          area: "Website",
+          title: "Website creation",
+          tagline: "A fast website that captures, qualifies and puts every contact in your CRM.",
+          problem:
+            "Your website is a brochure: it loads slowly, doesn't show up on Google, and the few form submissions end up in an inbox nobody checks in time.",
+          forWho: "Companies that need a new website or a rebuild, and want it to work as an acquisition channel connected to GoHighLevel or HubSpot.",
+          deliverables: [
+            "Website in Next.js on Vercel, or GoHighLevel funnels if they fit better",
+            "Forms and quizzes that qualify and create the contact in your CRM",
+            "Technical SEO and GEO basics: speed, indexing, structured data and llms.txt",
+            "Google Analytics 4 and Search Console set up, and a team alert for every contact",
+          ],
+        },
+        {
+          slug: "email-marketing",
+          area: "Email",
+          title: "Automated email marketing",
+          tagline: "Your contacts, segmented, getting the right email at the right time.",
+          problem:
+            "You have hundreds or thousands of contacts in the CRM who get nothing, or all get the same newsletter, and you don't know which email brings sales.",
+          forWho: "Companies with their own base of customers and contacts, in GoHighLevel or HubSpot, that want newsletters, nurturing and reactivation that run on their own.",
+          deliverables: [
+            "Database segmented by stage, interest and activity",
+            "Automated welcome, nurturing, reactivation and after-sales sequences",
+            "Deliverability: authenticated domain (SPF, DKIM and DMARC), unsubscribes and bounce cleanup",
+            "Newsletter with its own template and tracking of what ends in a sale",
+          ],
+        },
+        {
+          slug: "outbound-linkedin",
+          area: "LinkedIn",
+          title: "LinkedIn outbound",
+          tagline: "Invitations and messages to decision-makers, with every reply in your CRM.",
+          problem:
+            "Your customers are on LinkedIn, but writing to each one by hand doesn't scale and nobody answers generic messages.",
+          forWho: "B2B companies whose buyer is a specific role (management, purchasing, HR, technology) and is active on LinkedIn.",
+          deliverables: [
+            "LinkedIn profile ready for whoever visits it after the invitation",
+            "Sales Navigator searches by industry, size, role and region",
+            "Invitation and message sequences in Valley, approved before sending",
+            "Replies classified in GoHighLevel or HubSpot, with a link to book a meeting",
+          ],
+        },
+        {
+          slug: "cold-calling",
+          area: "Phone",
+          title: "B2B cold calling",
+          tagline: "Cold calls with a list, a script and every call logged in the CRM.",
+          problem:
+            "Cold calling without a method burns the list: numbers that don't exist, nobody knows who was called or what was said, and interested prospects get lost without follow-up.",
+          forWho: "B2B companies with a deal size that justifies a conversation and a buyer who picks up the phone sooner than they answer email.",
+          deliverables: [
+            "List of companies and roles with verified numbers, checked against advertising opt-out registers",
+            "Scripts and objection handling per segment",
+            "Dialler connected to the CRM: every call, its outcome and the next step logged",
+            "AI voice agents on Vapi only where the law allows, saying they are an AI",
           ],
         },
         {
