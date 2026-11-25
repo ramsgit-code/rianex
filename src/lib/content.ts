@@ -71,7 +71,7 @@ export const content = {
           desc: "Con Claude, n8n, Make, Zapier o tareas programadas: tu operativa funciona sola.",
           kpis: [
             { value: "8 min", label: "de la llamada a la propuesta enviada, antes 1-3 días (Eventos Barcelona)" },
-            { value: "−85%", label: "tiempo de respuesta al cliente (Eventos Barcelona)" },
+            { value: "17", label: "oportunidades en 7 semanas creadas por una IA que lee el correo (Eventos Barcelona)" },
             { value: "4-6 sem", label: "para tener el primer proceso en producción" },
           ],
         },
@@ -110,7 +110,7 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "Los leads de tus campañas de Meta, cualificados y agendados en automático.",
           kpis: [
-            { value: "−32%", label: "coste por paciente en 8 semanas (Hospital Capilar, con Growth4U)" },
+            { value: "8", label: "workflows en producción en una clínica, con WhatsApp 24/7 (Hospital Capilar, con Growth4U)" },
             { value: "< 1 min", label: "en dar la primera respuesta a cada lead nuevo" },
             { value: "4", label: "niveles de scoring: frío, templado, caliente y premium" },
           ],
@@ -146,8 +146,8 @@ export const content = {
           solution:
             "Creamos un formulario de intake que se rellena justo después de la llamada y genera la propuesta automáticamente en GoHighLevel, lista para revisar y enviar en minutos, con recordatorios de seguimiento programados.",
           stack: ["GoHighLevel"],
-          metric: "−85%",
-          metricLabel: "tiempo de respuesta al cliente",
+          metric: "8 min",
+          metricLabel: "por propuesta tras la llamada; antes, días",
         },
         {
           client: "Tribeca Media",
@@ -188,8 +188,8 @@ export const content = {
           solution:
             "Con Growth4U, montamos un sistema en GoHighLevel que cualifica cada lead con un quiz de scoring, hace seguimiento automático por WhatsApp y, con un Booking SDR, agenda la cita directamente en Koibox. Todo el embudo queda medido de punta a punta: conversión, abandono, citas y ventas.",
           stack: ["GoHighLevel", "WhatsApp", "Koibox"],
-          metric: "−32%",
-          metricLabel: "coste por paciente (CPP) en 8 semanas",
+          metric: "24/7",
+          metricLabel: "WhatsApp y citas directas en Koibox",
         },
       ],
     },
@@ -1001,7 +1001,7 @@ export const content = {
           desc: "With Claude, n8n, Make, Zapier or scheduled jobs: your operation runs itself.",
           kpis: [
             { value: "8 min", label: "from the call to the proposal sent, previously 1-3 days (Eventos Barcelona)" },
-            { value: "−85%", label: "client response time (Eventos Barcelona)" },
+            { value: "17", label: "opportunities in 7 weeks created by an AI that reads the inbox (Eventos Barcelona)" },
             { value: "4-6 wks", label: "to get the first process into production" },
           ],
         },
@@ -1040,7 +1040,7 @@ export const content = {
           slug: "embudo-de-captacion",
           desc: "Leads from your Meta campaigns, qualified and booked automatically.",
           kpis: [
-            { value: "−32%", label: "cost per patient in 8 weeks (Hospital Capilar, with Growth4U)" },
+            { value: "8", label: "workflows in production at a clinic, with 24/7 WhatsApp (Hospital Capilar, with Growth4U)" },
             { value: "< 1 min", label: "to give every new lead a first reply" },
             { value: "4", label: "scoring levels: cold, warm, hot and premium" },
           ],
@@ -1075,8 +1075,8 @@ export const content = {
           solution:
             "We created an intake form filled right after the call, which generates the proposal automatically in GoHighLevel, ready to review and send in minutes, with follow-up reminders scheduled in.",
           stack: ["GoHighLevel"],
-          metric: "−85%",
-          metricLabel: "client response time",
+          metric: "8 min",
+          metricLabel: "per proposal after the call; previously, days",
         },
         {
           client: "Tribeca Media",
@@ -1117,8 +1117,8 @@ export const content = {
           solution:
             "With Growth4U, we built a GoHighLevel system that qualifies every lead with a scoring quiz, runs automated WhatsApp follow-up and, with a Booking SDR, books the appointment straight into Koibox. The whole funnel is measured end to end: conversion, drop-off, appointments and sales.",
           stack: ["GoHighLevel", "WhatsApp", "Koibox"],
-          metric: "−32%",
-          metricLabel: "cost per patient (CPP) in 8 weeks",
+          metric: "24/7",
+          metricLabel: "WhatsApp and bookings straight into Koibox",
         },
       ],
     },

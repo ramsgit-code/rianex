@@ -347,7 +347,7 @@ export const SECTORES: Record<string, Sector> = {
       faqs: [
         {
           q: "¿Cuánto tarda en salir una propuesta?",
-          a: "En Eventos Barcelona pasó de 1 a 3 días a unos 8 minutos desde el final de la llamada, y el tiempo de respuesta al cliente bajó un 85%.",
+          a: "En Eventos Barcelona pasó de 1 a 3 días a unos 8 minutos desde el final de la llamada.",
         },
         {
           q: "¿Quién rellena el formulario?",
@@ -396,7 +396,7 @@ export const SECTORES: Record<string, Sector> = {
       faqs: [
         {
           q: "How long does a proposal take to go out?",
-          a: "At Eventos Barcelona it went from 1–3 days to about 8 minutes from the end of the call, and client response time dropped by 85%.",
+          a: "At Eventos Barcelona it went from 1–3 days to about 8 minutes from the end of the call.",
         },
         {
           q: "Who fills in the form?",

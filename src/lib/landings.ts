@@ -8,7 +8,7 @@
 // servicio-media.ts, para que landing y ficha digan siempre lo mismo.
 //
 // Regla: las cifras solo de casos publicados (Eventos Barcelona: de 1-3 días a
-// 8 minutos y −85% de tiempo de respuesta).
+// unos 8 minutos por propuesta).
 
 export type Landing = {
   /** Titular: el resultado que compra el visitante. */

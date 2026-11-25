@@ -104,9 +104,9 @@ const es: HomeCopy = {
     proofTitle: "Resultados en empresas con sistema activo",
     proof: [
       { tag: "Rapidez", metric: "8 min", label: "de la llamada a la propuesta enviada; antes, 1-3 días", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
-      { tag: "Atención", metric: "−85%", label: "de tiempo de respuesta al cliente", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
+      { tag: "Correo", metric: "17", label: "de 50 oportunidades nuevas en 7 semanas, creadas por la IA que lee el correo", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
       { tag: "Control", metric: "0", label: "cambios en campañas de Meta y Google Ads sin el visto bueno de una persona", client: "Tribeca Media", href: "/casos-de-exito/tribeca-media" },
-      { tag: "Alcance", metric: "100%", label: "del proceso comercial automatizado: captar, puntuar y hacer seguimiento", client: "Growth4U", href: "/casos-de-exito/growth4u" },
+      { tag: "Datos", metric: "9 → 26%", label: "de contactos con móvil en una lista B2B, en un día", client: "Growth4U", href: "/casos-de-exito/growth4u" },
     ],
     logosLabel: "Empresas con sistema activo",
   },
@@ -284,9 +284,9 @@ const en: HomeCopy = {
     proofTitle: "Results at companies with a live system",
     proof: [
       { tag: "Speed", metric: "8 min", label: "from call to proposal sent; previously 1-3 days", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
-      { tag: "Service", metric: "−85%", label: "customer response time", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
+      { tag: "Inbox", metric: "17", label: "of 50 new opportunities in 7 weeks, created by the AI that reads the inbox", client: "Eventos Barcelona", href: "/casos-de-exito/eventos-barcelona" },
       { tag: "Control", metric: "0", label: "changes to Meta and Google Ads campaigns without a person's sign-off", client: "Tribeca Media", href: "/casos-de-exito/tribeca-media" },
-      { tag: "Scope", metric: "100%", label: "of the sales process automated: capture, scoring and follow-up", client: "Growth4U", href: "/casos-de-exito/growth4u" },
+      { tag: "Data", metric: "9 → 26%", label: "of contacts with a mobile in a B2B list, in one day", client: "Growth4U", href: "/casos-de-exito/growth4u" },
     ],
     logosLabel: "Companies with a live system",
   },
