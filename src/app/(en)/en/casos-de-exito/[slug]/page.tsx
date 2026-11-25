@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CasoView } from "@/app/(es)/casos-de-exito/[slug]/CasoView";
 import { CASO_SLUGS, getCaso } from "@/lib/casos";
-import { translatedMetadata } from "@/lib/seo";
+import { fichaImage, translatedMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = getCaso(slug, "en");
   if (!c) return {};
-  return translatedMetadata(`/casos-de-exito/${slug}`, "en", c.seoTitle, c.metaDescription);
+  return translatedMetadata(`/casos-de-exito/${slug}`, "en", c.seoTitle, c.metaDescription, fichaImage("en", "casos-de-exito", slug));
 }
 
 export default async function CasoPage({ params }: { params: Promise<{ slug: string }> }) {

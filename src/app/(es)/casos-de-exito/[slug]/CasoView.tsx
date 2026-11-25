@@ -27,6 +27,8 @@ const LABELS = {
     home: "Inicio",
     back: "Todos los casos",
     answer: "En resumen",
+    keyFigures: "Cifras clave",
+    usedServices: "Servicios usados",
     context: "El punto de partida",
     built: "Qué montamos",
     results: "Resultado",
@@ -41,6 +43,8 @@ const LABELS = {
     home: "Home",
     back: "All case studies",
     answer: "In short",
+    keyFigures: "Key figures",
+    usedServices: "Services used",
     context: "Starting point",
     built: "What we built",
     results: "Result",
@@ -146,6 +150,39 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
                 {t.answer}
               </p>
               <p className="mt-3 text-lg leading-relaxed text-foreground">{d.answer}</p>
+            </section>
+          </Reveal>
+
+          {/* Cifras clave y servicios arriba, antes de la historia: es lo que
+              busca quien compara proveedores (modelo de venta, punto 4). Sale
+              de los resultados del caso, sin datos nuevos. */}
+          <Reveal>
+            <section aria-label={t.keyFigures}>
+              <p className="font-display text-[12px] font-bold uppercase tracking-[0.08em] text-foreground">
+                {t.keyFigures}
+              </p>
+              <ul className="mt-3 grid gap-3 sm:grid-cols-3">
+                {d.results.slice(0, 3).map((r) => (
+                  <li key={r} className="flex gap-2 border-2 border-ink bg-white p-4 text-sm leading-snug text-foreground">
+                    <Check size={16} aria-hidden className="mt-0.5 shrink-0 text-accent-text" />
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+              {servicios.length > 0 && (
+                <p className="mt-4 flex flex-wrap items-center gap-2 text-sm text-foreground-muted">
+                  <span className="font-semibold text-foreground">{t.usedServices}:</span>
+                  {servicios.map((sv) => (
+                    <Link
+                      key={sv.slug}
+                      href={href(`/servicios/${sv.slug}`)}
+                      className="border border-ink px-2 py-0.5 text-foreground hover:bg-accent"
+                    >
+                      {sv.title}
+                    </Link>
+                  ))}
+                </p>
+              )}
             </section>
           </Reveal>
 

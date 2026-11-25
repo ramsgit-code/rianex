@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       siteName: "Rianex",
       title,
       description: m.description,
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: "Rianex" }],
+      images: [{ url: "/og/general/es", width: 1200, height: 630, alt: "Rianex" }],
     },
   };
 }

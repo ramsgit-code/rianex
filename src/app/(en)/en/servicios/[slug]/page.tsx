@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ServicioView } from "@/app/(es)/servicios/[slug]/ServicioView";
 import { SERVICIO_SLUGS, getServicio } from "@/lib/servicios";
-import { translatedMetadata } from "@/lib/seo";
+import { fichaImage, translatedMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -18,7 +18,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const s = getServicio(slug, "en");
   if (!s) return {};
-  return translatedMetadata(`/servicios/${slug}`, "en", s.seoTitle, s.metaDescription);
+  return translatedMetadata(`/servicios/${slug}`, "en", s.seoTitle, s.metaDescription, fichaImage("en", "servicios", slug));
 }
 
 export default async function ServicioPage({ params }: { params: Promise<{ slug: string }> }) {

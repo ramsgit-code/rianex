@@ -2,7 +2,7 @@
 title: "Custom AI projects for companies: price, timelines and examples"
 description: "Custom AI projects for companies: €5,000 to €25,000 and 4 to 8 weeks. Real examples in production and a free 30-minute assessment."
 date: "2026-10-21"
-updated: "2026-11-24"
+updated: "2026-11-25"
 tags: ["ai", "ai projects", "custom", "price", "examples", "agents"]
 cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
@@ -27,7 +27,7 @@ Four misunderstandings are worth clearing up before we get to examples, because 
 
 **It is not training your own model.** The models from OpenAI, Anthropic or Google already read, summarise and write better than a model trained from scratch by a mid-sized company ever could. What gets built to measure is everything around them: where they get their information, which rules they have to follow, which system they write to and who reviews what they do.
 
-**It is not starting with an application.** Today anyone can have an app running in an afternoon with Lovable or Claude Code, and that does not solve the problem of almost any company. Most projects that work have no new screens. They work inside what the team already uses: the CRM, the inbox, WhatsApp, the order sheet. What gets built is workflows, integrations and agents, usually on tools such as n8n, Make or the model's API. Sometimes the process does call for a small piece of software, like the application that generates the proposals at Eventos Barcelona, and then it is built as one more part of the system, not as an end in itself.
+**It is not starting with an application.** Today anyone can have an app running in an afternoon with Lovable or Claude Code, and that does not solve the problem of almost any company. Most projects that work have no new screens. They work inside what the team already uses: the CRM, the inbox, WhatsApp, the order sheet. What gets built is workflows, integrations and agents, usually on tools such as [n8n](https://docs.n8n.io/advanced-ai/ "follow"), Make or the model's API. Sometimes the process does call for a small piece of software, like the application that generates the proposals at Eventos Barcelona, and then it is built as one more part of the system, not as an end in itself.
 
 **It is not a chatbot on the website.** A chatbot is one of the possible forms, and rarely the most profitable one. The biggest return is in processes nobody sees from outside: what happens between a contact coming in and someone replying, or between a document arriving and someone typing it into another system.
 
@@ -40,7 +40,7 @@ Before commissioning a custom project, rule out the two cheaper options. This ta
 | Option | What it is | When it fits | When it falls short |
 |---|---|---|---|
 | **Off-the-shelf tool** | Software that already includes the AI feature (the CRM assistant, an invoice reader, a WhatsApp chatbot) | The process is standard and the tool covers almost everything you need | Your process has steps of its own or has to talk to systems the tool does not integrate |
-| **Configured automation** | Rules in the CRM or in a connector such as Make, Zapier or n8n, with the odd AI step | The process crosses two or three tools and its decisions fit into rules | There is a lot of free text to interpret, many exceptions or expensive errors |
+| **Configured automation** | Rules in the CRM or in a connector such as Make, [Zapier](https://help.zapier.com/hc/en-us/articles/8496342944013-Create-AI-powered-actions-with-AI-by-Zapier "follow") or n8n, with the odd AI step | The process crosses two or three tools and its decisions fit into rules | There is a lot of free text to interpret, many exceptions or expensive errors |
 | **Custom AI project** | A system designed for your process, with AI at the decision points, validations and human review | The process is frequent, touches several systems, needs judgement and costs money when it fails | Volume is low or the process is not yet defined |
 
 If an off-the-shelf tool covers what you need and the process is not what sets you apart, buy it: it is cheaper and someone else maintains it. We cover the families of tools and what each one solves in [AI for automating processes: which tools to use](/en/blog/herramientas-ia-para-automatizar-procesos).
@@ -83,7 +83,7 @@ That is the golden rule for any agent: it proposes and a person approves, at lea
 
 A demo that works does not mean the system will hold up on Monday morning with real data. Almost every project that fails to reach production trips over the same four stones:
 
-**The AI is given the whole flow.** The more steps an agent chains on its own, the more mistakes it makes, and the errors pile up without anyone seeing them. At Eventos Barcelona, of the eight steps from the email to the proposal follow-up, the AI decides only two: what type of sender it is and whether the email is about a new project or an open one. Cleaning the email, finding the contact, opening the opportunity, generating the proposal, sending it and chasing it are rules. When the AI gets it wrong, the error is small and visible.
+**The AI is given the whole flow.** The more steps an agent chains on its own, the more mistakes it makes, and [the errors pile up](https://www.anthropic.com/engineering/building-effective-agents "follow") without anyone seeing them. At Eventos Barcelona, of the eight steps from the email to the proposal follow-up, the AI decides only two: what type of sender it is and whether the email is about a new project or an open one. Cleaning the email, finding the contact, opening the opportunity, generating the proposal, sending it and chasing it are rules. When the AI gets it wrong, the error is small and visible.
 
 **There are no baseline numbers.** If nobody measured how many cases came in, how long they took and how many were lost, there is no way to prove the project works, and it gets cancelled after the first bad month. We explain how to measure it in a week in [measuring a process before automating it](/en/blog/medir-un-proceso-antes-de-automatizarlo).
 
@@ -113,7 +113,7 @@ The cost of a custom AI project has five parts. The first two are paid once; the
 | **Discovery** | From €1,500, and it can be contracted on its own | Once, at the start |
 | **Implementation** | From €5,000 to €25,000 | Once, usually in phases |
 | **Tool licences** | Those of the CRM, the connector or the hosting, in your name | Every month, depending on each tool's plan |
-| **AI model usage** | Paid per use to the model provider | Every month, depending on volume |
+| **AI model usage** | [Paid per use](https://platform.claude.com/docs/en/about-claude/pricing "follow") to the model provider | Every month, depending on volume |
 | **Maintenance** | Optional monthly retainer | Every month, if you contract it |
 
 Within the implementation range, the project lands higher or lower depending on its size:
@@ -150,9 +150,9 @@ It does not matter who you do it with. Before accepting a quote for custom AI, c
 - **What the AI decides and what is a rule.** If the answer is "the AI does everything", the system will be hard to debug and expensive to maintain.
 - **Who owns what is built and where it lives.** The reasonable arrangement is for the workflows, the code and the tool accounts to be in your name, so that you can change provider without starting from zero.
 - **What happens when the model gets it wrong.** There must be a manual way out, alerts and someone who finds out.
-- **What maintenance includes.** Models change version, third-party APIs change their terms and processes evolve. A system without maintenance starts to degrade within months.
+- **What maintenance includes.** [Models change version](https://platform.claude.com/docs/en/about-claude/model-deprecations "follow"), third-party APIs change their terms and processes evolve. A system without maintenance starts to degrade within months.
 - **What happens if something changes in three months and it stops working.** If the answer is a new quote, today's price is not the price. A quote far below the others usually leaves out defining the process, testing with real cases or maintenance.
-- **How personal data is handled.** Which data goes out to the model provider, under which contract and in which region. We go through it in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
+- **How personal data is handled.** Which data goes out to the model provider, [under which contract](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow") and in which region. We go through it in [GDPR and automation with AI](/en/blog/rgpd-y-automatizacion-con-ia).
 
 ## How to tell whether your company needs a custom project
 

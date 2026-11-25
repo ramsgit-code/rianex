@@ -2,7 +2,7 @@
 title: "Proyectos de IA a medida para empresas: precio, plazos y ejemplos"
 description: "Proyectos de IA a medida para empresas: de 5.000 a 25.000 € y de 4 a 8 semanas. Ejemplos reales en producción y diagnóstico gratis de 30 minutos."
 date: "2026-10-21"
-updated: "2026-11-24"
+updated: "2026-11-25"
 tags: ["ia", "proyectos de ia", "a medida", "precio", "ejemplos", "agentes"]
 cluster: "automatizacion-ia"
 author: "Ramiro Pérez Rodero"
@@ -27,7 +27,7 @@ Conviene despejar cuatro malentendidos antes de hablar de ejemplos, porque cada 
 
 **No es entrenar tu propio modelo.** Los modelos de OpenAI, Anthropic o Google ya leen, resumen y redactan mejor de lo que un modelo entrenado desde cero por una empresa mediana podría hacerlo nunca. Lo que se construye a medida es todo lo que los rodea: de dónde sacan la información, qué reglas tienen que cumplir, en qué sistema escriben y quién revisa lo que hacen.
 
-**No es empezar por una aplicación.** Hoy cualquiera tiene una app funcionando en una tarde con Lovable o Claude Code, y eso no resuelve el problema de casi ninguna empresa. La mayoría de proyectos que funcionan no tienen pantallas nuevas. Trabajan dentro de lo que el equipo ya usa: el CRM, la bandeja de entrada, WhatsApp, la hoja de pedidos. Lo que se construye son flujos, integraciones y agentes, normalmente sobre herramientas como n8n, Make o la API del modelo. A veces el proceso sí pide un pequeño software, como la aplicación que genera las propuestas de Eventos Barcelona, y entonces se construye como una pieza más del sistema, no como un fin en sí mismo.
+**No es empezar por una aplicación.** Hoy cualquiera tiene una app funcionando en una tarde con Lovable o Claude Code, y eso no resuelve el problema de casi ninguna empresa. La mayoría de proyectos que funcionan no tienen pantallas nuevas. Trabajan dentro de lo que el equipo ya usa: el CRM, la bandeja de entrada, WhatsApp, la hoja de pedidos. Lo que se construye son flujos, integraciones y agentes, normalmente sobre herramientas como [n8n](https://docs.n8n.io/advanced-ai/ "follow"), Make o la API del modelo. A veces el proceso sí pide un pequeño software, como la aplicación que genera las propuestas de Eventos Barcelona, y entonces se construye como una pieza más del sistema, no como un fin en sí mismo.
 
 **No es un chatbot en la web.** Un chatbot es una de las formas posibles, y rara vez la más rentable. Donde más retorno hay es en procesos que nadie ve desde fuera: lo que pasa entre que entra un contacto y alguien le responde, o entre que llega un documento y alguien lo teclea en otro sistema.
 
@@ -40,7 +40,7 @@ Antes de encargar un proyecto a medida conviene descartar las dos opciones más 
 | Opción | Qué es | Cuándo encaja | Cuándo se queda corta |
 |---|---|---|---|
 | **Herramienta de catálogo** | Un software que ya trae la función con IA (el asistente del CRM, un lector de facturas, un chatbot de WhatsApp) | El proceso es estándar y la herramienta cubre casi todo lo que necesitas | Tu proceso tiene pasos propios o tiene que hablar con sistemas que la herramienta no integra |
-| **Automatización configurada** | Reglas en el CRM o en un conector como Make, Zapier o n8n, con algún paso de IA | El proceso cruza dos o tres herramientas y sus decisiones caben en reglas | Hay mucho texto libre que interpretar, muchas excepciones o errores caros |
+| **Automatización configurada** | Reglas en el CRM o en un conector como Make, [Zapier](https://help.zapier.com/hc/en-us/articles/8496342944013-Create-AI-powered-actions-with-AI-by-Zapier "follow") o n8n, con algún paso de IA | El proceso cruza dos o tres herramientas y sus decisiones caben en reglas | Hay mucho texto libre que interpretar, muchas excepciones o errores caros |
 | **Proyecto de IA a medida** | Un sistema diseñado para tu proceso, con IA en los puntos de decisión, validaciones y revisión humana | El proceso es frecuente, toca varios sistemas, necesita criterio y su fallo cuesta dinero | El volumen es bajo o el proceso aún no está definido |
 
 Si una herramienta de catálogo cubre lo que necesitas y el proceso no es lo que te diferencia, cómprala: es más barata y la mantiene otro. Qué familias de herramientas hay y qué resuelve cada una lo contamos en [IA para automatizar procesos: qué herramientas usar](/blog/herramientas-ia-para-automatizar-procesos).
@@ -83,7 +83,7 @@ Esa es la regla de oro de cualquier agente: propone y una persona aprueba, al me
 
 Que una demo funcione no significa que el sistema aguante el lunes por la mañana con datos reales. Casi todos los proyectos que no llegan a producción tropiezan en las mismas cuatro piedras:
 
-**Se le da a la IA todo el flujo.** Cuantos más pasos encadena un agente por su cuenta, más se equivoca, y los errores se acumulan sin que nadie lo vea. En Eventos Barcelona, de los ocho pasos que van del correo al seguimiento de la propuesta, la IA decide solo dos: qué tipo de remitente es y si habla de un proyecto nuevo o de uno abierto. Limpiar el correo, buscar el contacto, abrir la oportunidad, generar la propuesta, enviarla y recordarla son reglas. Cuando la IA se equivoca, el error es pequeño y se ve.
+**Se le da a la IA todo el flujo.** Cuantos más pasos encadena un agente por su cuenta, más se equivoca, y [los errores se acumulan](https://www.anthropic.com/engineering/building-effective-agents "follow") sin que nadie lo vea. En Eventos Barcelona, de los ocho pasos que van del correo al seguimiento de la propuesta, la IA decide solo dos: qué tipo de remitente es y si habla de un proyecto nuevo o de uno abierto. Limpiar el correo, buscar el contacto, abrir la oportunidad, generar la propuesta, enviarla y recordarla son reglas. Cuando la IA se equivoca, el error es pequeño y se ve.
 
 **No hay números de partida.** Si nadie midió cuántos casos entraban, cuánto se tardaba y cuántos se perdían, no hay forma de demostrar que el proyecto funciona, y al primer mes malo se cancela. Cómo medirlo en una semana lo contamos en [medir un proceso antes de automatizarlo](/blog/medir-un-proceso-antes-de-automatizarlo).
 
@@ -113,7 +113,7 @@ El coste de un proyecto de IA a medida tiene cinco partes. Las dos primeras se p
 | **Discovery** | Desde 1.500 €, y se puede contratar sola | Una vez, al principio |
 | **Implementación** | De 5.000 € a 25.000 € | Una vez, normalmente por fases |
 | **Licencias de herramientas** | Las del CRM, el conector o el alojamiento, a tu nombre | Cada mes, según el plan de cada herramienta |
-| **Consumo del modelo de IA** | Se paga por uso al proveedor del modelo | Cada mes, según el volumen |
+| **Consumo del modelo de IA** | [Se paga por uso](https://platform.claude.com/docs/en/about-claude/pricing "follow") al proveedor del modelo | Cada mes, según el volumen |
 | **Mantenimiento** | Retainer mensual opcional | Cada mes, si lo contratas |
 
 Dentro de la horquilla de implementación, el proyecto cae más arriba o más abajo según su tamaño:
@@ -150,9 +150,9 @@ Da igual con quién lo hagas. Antes de aceptar un presupuesto de IA a medida, co
 - **Qué decide la IA y qué es regla.** Si la respuesta es "la IA lo hace todo", el sistema será difícil de depurar y caro de mantener.
 - **De quién es lo construido y dónde vive.** Lo razonable es que los flujos, el código y las cuentas de las herramientas estén a tu nombre, para que puedas cambiar de proveedor sin empezar de cero.
 - **Qué pasa cuando el modelo se equivoca.** Debe haber una salida manual, avisos y alguien que se entere.
-- **Qué incluye el mantenimiento.** Los modelos cambian de versión, las APIs de terceros cambian sus condiciones y los procesos evolucionan. Un sistema sin mantenimiento empieza a degradarse en meses.
+- **Qué incluye el mantenimiento.** [Los modelos cambian de versión](https://platform.claude.com/docs/en/about-claude/model-deprecations "follow"), las APIs de terceros cambian sus condiciones y los procesos evolucionan. Un sistema sin mantenimiento empieza a degradarse en meses.
 - **Qué pasa si dentro de tres meses algo cambia y deja de funcionar.** Si la respuesta es un presupuesto nuevo, el precio de hoy no es el precio. Un presupuesto muy por debajo de los demás suele dejar fuera la definición del proceso, las pruebas con casos reales o el mantenimiento.
-- **Cómo se tratan los datos personales.** Qué datos salen hacia el proveedor del modelo, con qué contrato y en qué región. Lo repasamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
+- **Cómo se tratan los datos personales.** Qué datos salen hacia el proveedor del modelo, [con qué contrato](https://www.boe.es/buscar/doc.php?id=DOUE-L-2016-80807 "follow") y en qué región. Lo repasamos en [RGPD y automatización con IA](/blog/rgpd-y-automatizacion-con-ia).
 
 ## Cómo saber si tu empresa necesita un proyecto a medida
 

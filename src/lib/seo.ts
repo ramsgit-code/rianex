@@ -33,7 +33,8 @@ export const RIANEX_LINKEDIN = "https://www.linkedin.com/company/rianex/";
  */
 export const RIANEX_PERFILES = [RIANEX_LINKEDIN, "https://www.sortlist.com/agency/rianex"];
 const BRAND = "Rianex";
-const OG_IMAGE = { url: "/og.png", width: 1200, height: 630, alt: BRAND };
+/** Imagen social general de cada idioma (ver src/app/og/general). */
+const ogImage = (lang: Lang) => ({ url: `/og/general/${lang}`, width: 1200, height: 630, alt: BRAND });
 
 type PageCopy = { title: string; description: string };
 
@@ -147,9 +148,12 @@ export function translatedMetadata(
   path: string,
   lang: Lang,
   title: string,
-  description: string
+  description: string,
+  /** Imagen social propia (ruta relativa); sin ella, la general. */
+  image?: string
 ): Metadata {
   const localized = localizePath(path, lang);
+  const og = image ? { ...ogImage(lang), url: image, alt: title } : ogImage(lang);
   const url = `${SITE_URL}${localized === "/" ? "" : localized}`;
   const fullTitle = `${title} | ${BRAND}`;
 
@@ -166,15 +170,20 @@ export function translatedMetadata(
       siteName: BRAND,
       title: fullTitle,
       description,
-      images: [OG_IMAGE],
+      images: [og],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [OG_IMAGE.url],
+      images: [og.url],
     },
   };
+}
+
+/** Imagen social de una ficha de servicio, sector o caso. */
+export function fichaImage(lang: Lang, seccion: "servicios" | "soluciones" | "casos-de-exito", slug: string) {
+  return `/og/p/${lang}/${seccion}/${slug}`;
 }
 
 /** Metadata base de cada layout raiz: lo que hereda una pagina que no declara el suyo. */

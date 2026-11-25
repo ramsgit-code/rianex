@@ -2,6 +2,7 @@
 title: "How to reduce AI token spend: selective AI in 6 steps"
 description: "Tokenmaxxing is expensive. What Anthropic's S-1 says about AI consumption and how to make your systems call the model only where it adds value."
 date: "2026-11-24"
+updated: "2026-11-25"
 tags: ["ai cost", "tokens", "ai agents", "n8n", "lean", "video"]
 cluster: "agentes-ia"
 author: "Ramiro Pérez Rodero"
@@ -95,6 +96,18 @@ In the sales system we built for [Eventos Barcelona](/en/casos-de-exito/eventos-
 8. Reminder at 48 hours and alert to the salesperson at 72: rule.
 
 The proposal goes out about eight minutes after the end of the call, when it used to take one to three days, and the response time to the client has dropped by 85%. The most eye-catching step, the branded proposal, is precisely one of those that uses no model at all: it is a template.
+
+### What we measured: the same order, twice
+
+On 24 November 2026 we ran the same order twice in an isolated n8n instance, with a small local model, and recorded both runs (it is the video at the top). The order and the company are fictional. In the first run, an agent handled the order from start to finish; in the second, the workflow did the fixed steps with rules and the model only interpreted the text of the order.
+
+| | One agent for everything | Selective AI |
+|---|---|---|
+| Model calls | 6 | 1 |
+| Tokens | 1,436 | 107 |
+| Time to finish | 107.5 s | 5.6 s |
+
+That is thirteen times fewer tokens and nineteen times less time in this test. It is a single run with a local model, so it is not an average and it does not carry over as is to another process or another model. What it does show is where the spend goes: into the steps that repeat the same way every time and that the agent reasons about again.
 
 ## How it is done: lean applied to AI
 
