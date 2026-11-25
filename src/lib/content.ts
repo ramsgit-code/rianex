@@ -720,6 +720,26 @@ export const content = {
       caseLabel: "Caso:",
       link: "Ver los casos",
       more: "Ver la solución para el sector",
+      moreFor: "Ver la solución para",
+      faqTitle: "Preguntas frecuentes",
+      faq: [
+        {
+          q: "¿Trabajáis solo con estos sectores?",
+          a: "No. Estos son los sectores con página propia, y trabajamos también con empresas de servicios y B2B. El sector importa menos que el proceso: si la tarea es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar.",
+        },
+        {
+          q: "¿Por qué proceso se empieza?",
+          a: "Por el que más cuesta hoy, en horas o en clientes que se pierden. Conviene medirlo antes de automatizar (cuánto tarda y cuánto se pierde) para poder comparar el resultado después.",
+        },
+        {
+          q: "¿Hay que cambiar de herramientas?",
+          a: "No necesariamente. Elegimos según tu caso y lo que ya usáis, no al revés: la automatización se conecta a vuestro CRM, agenda, correo, WhatsApp o software del sector. Si el CRM se queda corto, también implantamos GoHighLevel o HubSpot y migramos los datos.",
+        },
+        {
+          q: "¿Cómo sé si mi caso encaja?",
+          a: "En la consultoría gratuita de 30 minutos: vemos cómo se hace hoy el proceso y te decimos qué automatizar, integrar o migrar primero.",
+        },
+      ],
       items: [
         {
           sector: "Marketing",
@@ -1624,6 +1644,26 @@ export const content = {
       caseLabel: "Case:",
       link: "See the cases",
       more: "See the solution for this sector",
+      moreFor: "See the solution for",
+      faqTitle: "Frequently asked questions",
+      faq: [
+        {
+          q: "Do you only work with these industries?",
+          a: "No. These are the industries with their own page, and we also work with service and B2B companies. The industry matters less than the process: if the task is frequent, follows rules and its failure costs money, it can be automated.",
+        },
+        {
+          q: "Which process do you start with?",
+          a: "The one that costs the most today, in hours or in lost customers. It is worth measuring it before automating (how long it takes and how much is lost) so the result can be compared afterwards.",
+        },
+        {
+          q: "Do we have to change our tools?",
+          a: "Not necessarily. We choose based on your case and what you already use, not the other way round: the automation connects to your CRM, calendar, email, WhatsApp or industry software. If the CRM falls short, we also implement GoHighLevel or HubSpot and migrate the data.",
+        },
+        {
+          q: "How do I know if my case fits?",
+          a: "In the free 30-minute consultation: we look at how the process runs today and tell you what to automate, integrate or migrate first.",
+        },
+      ],
       items: [
         {
           sector: "Marketing",

@@ -75,8 +75,13 @@ export function ListingJsonLd({ path, lang }: { path: Ruta; lang: Lang }) {
       : {}),
   };
 
-  // Preguntas frecuentes de la pagina, si las tiene (hoy solo /diagnostico).
-  const faq = path === "/diagnostico" ? content[lang].diagnostico.faq : [];
+  // Preguntas frecuentes de la pagina, si las tiene.
+  const faq =
+    path === "/diagnostico"
+      ? content[lang].diagnostico.faq
+      : path === "/soluciones"
+        ? content[lang].soluciones.faq
+        : [];
 
   return (
     <>

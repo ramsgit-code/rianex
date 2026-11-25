@@ -266,22 +266,16 @@ Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
 - [ ] **`Organization`**: faltan `legalName` y `foundingDate` (necesito la
       razón social y la fecha de alta), y cada perfil externo nuevo en
       `sameAs`. `contactPoint` ya está.
-- [ ] **Menores**: `/soluciones` (264 palabras) es fina, y `/testimonios`
-      solo crecerá con más opiniones (desde el 25-nov enlaza a las reseñas de
-      Sortlist y a los casos). 13 artículos sin `updated`.
-- [ ] **Títulos de artículo de más de 60 caracteres (25-nov)**: quedan 31
-      (18 en castellano y 13 en inglés) que pasan de 60 sin la marca, así que
-      Google corta el final. No los toqué porque varios se cambiaron el 24-nov
-      para medir el CTR (proyectos de IA a medida, licitaciones, cross-selling,
-      Clay/Treg/ColdIQ, GTM). Revisar a mediados de diciembre con Search
-      Console: si uno tiene impresiones y CTR cero, acortarlo dejando la
-      búsqueda al principio. Lista: `page_checks` del plugin claude-seo,
-      hallazgo `title-too-long`.
-- [ ] **GEO opcional, prioridad baja**: una línea `Content-Signal` en
-      robots.txt (`search=yes, ai-input=yes, ai-train=yes`, lo que ya permite
-      hoy) y versión Markdown de los artículos (`/blog/<slug>.md` o
-      `Accept: text/markdown`). Google dice que no usa Content-Signal y ningún
-      asistente confirma que pida el Markdown.
+- [ ] **Menores**: `/testimonios` solo crecerá con más opiniones (desde el
+      25-nov enlaza a las reseñas de Sortlist y a los casos). 13 artículos sin
+      `updated`.
+- [ ] **Medir los títulos cortos del 25-nov hacia el 16 de diciembre**: 31
+      artículos llevan desde el PR #93 un `seoTitle` de 60 caracteres o menos
+      (el H1 no cambia). Varios ya se habían cambiado el 24-nov para medir el
+      CTR (proyectos de IA a medida, licitaciones, cross-selling, Clay/Treg/
+      ColdIQ, GTM, el pilar): la medición de esos cambios queda mezclada con
+      esta, Ramiro lo decidió así. En Search Console, CTR y posición de cada
+      uno frente a las cuatro semanas anteriores al 24-nov.
 - [ ] **Repetir la auditoría con claude-seo**: el plugin está instalado en el
       Claude Code de Ramiro (`claude-seo@agricidaniel-claude-seo`, 2.6.2). En
       una sesión nueva, `/seo audit https://www.rianex.es`; o, más barato, sus
@@ -376,6 +370,23 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · Séptima tanda (claude-seo, segunda parte), a petición de
+  Ramiro. (1) **Títulos cortos**: campo `seoTitle` opcional en el
+  frontmatter (máximo 60) para el `<title>`; el titular largo sigue en el H1,
+  la tarjeta social y el JSON-LD. Puesto en los 31 artículos (18 ES y 13 EN)
+  que pasaban de 60, con la búsqueda principal al principio. Con esto ninguna
+  página del sitemap pasa de 60. (2) **Markdown para asistentes**: cada
+  artículo se sirve también en `/blog/<slug>.md` y `/en/blog/<slug>.md`
+  (`src/app/md`, rewrite `beforeFiles` en `next.config.mjs`), con la
+  canónica al HTML en la cabecera `Link`, `<link rel="alternate"
+  type="text/markdown">` en la página y una línea en `llms.txt`. (3)
+  **robots.txt** pasa a route handler (`src/app/robots.txt/route.ts`) para
+  añadir `Content-Signal: search=yes, ai-input=yes, ai-train=yes` en cada
+  grupo; mismo contenido que antes más `Disallow: /md/` (la ruta interna).
+  (4) **`/soluciones`** de 264 a 428 palabras: cuatro preguntas frecuentes
+  con `FAQPage` (ES y EN) y enlaces que nombran el sector («Ver la solución
+  para inmobiliarias») en vez de seis «Ver la solución para el sector».
 
 - 2026-11-25 · Sexta tanda, con el plugin **claude-seo** (2.6.2):
   comprobaciones deterministas en las 154 URLs del sitemap (página a página,
