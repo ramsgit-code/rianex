@@ -140,6 +140,9 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
               alt={d.client}
               width={dim.width}
               height={dim.height}
+              // 32 px de alto: sin sizes se bajaba la version de 1920 px.
+              sizes="170px"
+              loading="eager"
               className="h-8 w-auto max-w-[170px] object-contain opacity-90"
             />
           </div>

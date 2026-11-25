@@ -151,7 +151,7 @@ export function Services() {
                       href={localize(it.href)}
                       className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 hover:text-accent-text"
                     >
-                      {s.complementary.more}
+                      {"cta" in it && it.cta ? it.cta : s.complementary.more}
                       <ArrowUpRight size={14} aria-hidden />
                     </Link>
                   )}

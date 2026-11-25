@@ -252,6 +252,7 @@ export function ProofBand({ casos, line }: { casos: CasoLanding[]; line?: string
               alt={logo.alt}
               width={logo.w}
               height={logo.h}
+              sizes="120px"
               className={`${logo.cls} w-auto object-contain opacity-75`}
             />
           ))}

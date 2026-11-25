@@ -1,12 +1,17 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Quote, ArrowRight, Loader2, CheckCircle, Upload, X } from "lucide-react";
+import Link from "next/link";
+import { Quote, ArrowRight, ArrowUpRight, Loader2, CheckCircle, Upload, X } from "lucide-react";
 import { useLang } from "@/components/LanguageProvider";
 import { PageShell } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/Reveal";
 import { fileToAvatar } from "@/lib/avatar";
 import type { TestimonialItem } from "@/components/sections/Testimonials";
+import { localizePath } from "@/lib/i18n";
+import { RIANEX_PERFILES } from "@/lib/seo";
+
+const SORTLIST = RIANEX_PERFILES.find((u) => u.includes("sortlist.com"))!;
 
 const inputClass =
   "bg-background border border-border px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:outline-none focus:border-accent transition-colors";
@@ -90,6 +95,24 @@ export function TestimoniosView({ items }: { items: TestimonialItem[] }) {
       ) : (
         <p className="text-sm text-muted">{t.empty}</p>
       )}
+
+      {/* reseñas fuera de la web y casos: la pagina solo tenia dos opiniones */}
+      <section className="mt-14 max-w-3xl">
+        <h2 className="font-display text-2xl font-extrabold uppercase leading-none text-foreground">
+          {t.moreTitle}
+        </h2>
+        <p className="mt-3 text-[15px] leading-relaxed text-foreground-muted">{t.moreDesc}</p>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <a href={SORTLIST} target="_blank" rel="noopener" className="btn-secondary">
+            {t.moreSortlist}
+            <ArrowUpRight size={14} aria-hidden />
+          </a>
+          <Link href={localizePath("/casos-de-exito", lang)} className="btn-secondary">
+            {t.moreCases}
+            <ArrowRight size={14} aria-hidden />
+          </Link>
+        </div>
+      </section>
 
       {/* formulario */}
       <div className="mt-14 max-w-xl">

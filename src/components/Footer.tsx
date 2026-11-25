@@ -41,6 +41,9 @@ export function Footer() {
               alt="Rianex"
               width={1145}
               height={253}
+              // 28 px de alto, unos 127 de ancho: sin sizes se bajaba la
+              // version de 1200 px (3840 en pantallas retina) en cada pagina.
+              sizes="130px"
               className="h-7 w-auto"
             />
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-background/70">{c.footer.tagline}</p>

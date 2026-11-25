@@ -1,6 +1,7 @@
 import { JsonLd } from "@/components/JsonLd";
 import { getAllPosts } from "@/lib/blog";
 import { CASOS } from "@/lib/casos";
+import { content } from "@/lib/content";
 import { SECTORES } from "@/lib/sectores";
 import { ORGANIZATION_ID, SITE_URL } from "@/lib/seo";
 import type { Lang } from "@/lib/i18n";
@@ -74,10 +75,26 @@ export function ListingJsonLd({ path, lang }: { path: Ruta; lang: Lang }) {
       : {}),
   };
 
+  // Preguntas frecuentes de la pagina, si las tiene (hoy solo /diagnostico).
+  const faq = path === "/diagnostico" ? content[lang].diagnostico.faq : [];
+
   return (
     <>
       <JsonLd data={breadcrumb} />
       <JsonLd data={page} />
+      {faq.length > 0 && (
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faq.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }}
+        />
+      )}
     </>
   );
 }

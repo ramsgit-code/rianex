@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { BlogPostContent } from "./BlogPostContent";
 import { getPost, getPostFaqs, getRelatedPosts, hasTranslation } from "@/lib/blog";
 import { CLUSTERS, CLUSTERS_EN } from "@/lib/blog-schema";
-import { PERSON_ID, ORGANIZATION_ID, RAMIRO, SITE_URL } from "@/lib/seo";
+import { PERSON_ID, ORGANIZATION_ID, RAMIRO, SITE_URL, withBrand } from "@/lib/seo";
 import type { Lang } from "@/lib/i18n";
 
 // Metadata y pagina de un articulo, para las dos rutas: /blog/<slug> (el
@@ -20,9 +20,8 @@ export function articleMetadata(slug: string, lang: Lang): Metadata {
   if (!post) return { title: lang === "en" ? "Article not found" : "Artículo no encontrado" };
   const url = ruta(slug, lang);
   const image = { url: imagen(slug, lang), width: 1200, height: 630, alt: post.title };
-  // Los titulares largos van sin " | Rianex": con la marca pasaban de 60
-  // caracteres y Google los cortaba justo en lo que no aporta.
-  const title = post.title.length > 55 ? post.title : `${post.title} | ${BRAND}`;
+  // Los titulares largos van sin " | Rianex" (ver withBrand).
+  const title = withBrand(post.title);
   return {
     title: { absolute: title },
     description: post.description,

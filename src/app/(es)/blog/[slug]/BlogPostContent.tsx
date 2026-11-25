@@ -62,6 +62,8 @@ export function BlogPostContent({ post }: { post: Post }) {
                   alt=""
                   width={28}
                   height={28}
+                  // Primera imagen del articulo y encima del pliegue: sin lazy.
+                  loading="eager"
                   className="h-7 w-7 rounded-full border border-border object-cover"
                 />
                 {post.author.name}

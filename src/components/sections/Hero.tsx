@@ -93,6 +93,11 @@ export function Hero() {
                   alt={`Logotipo de ${logo.alt}`}
                   width={logo.w}
                   height={logo.height}
+                  // Se ven a 32-40 px de alto (unos 120 px de ancho como mucho):
+                  // sin sizes, Next servia la version de 1080 px. Arriba del todo,
+                  // sin lazy.
+                  sizes="120px"
+                  loading="eager"
                   className={`${logo.h} w-auto object-contain`}
                 />
               </a>

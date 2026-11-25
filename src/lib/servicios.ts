@@ -1158,7 +1158,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     en: {
       seoTitle: "AI agent for WhatsApp, Telegram and voice: 24/7 bookings",
       metaDescription:
-        "An AI agent that answers on WhatsApp, Telegram or the phone, qualifies and books appointments 24/7 into your calendar. For salons, clinics, physios and accountants.",
+        "An AI agent that answers on WhatsApp, Telegram or phone, qualifies and books appointments 24/7 in your calendar. For salons, clinics, physios and accountants.",
       answer:
         "An AI agent for WhatsApp replies to every customer within seconds, at any hour, checks your calendar and CRM, qualifies the contact and books the appointment without anyone on the team touching a phone. It runs on the official WhatsApp Business API, on Telegram too, and on the phone with a voice agent built on Vapi. It connects to GoHighLevel, HubSpot or your booking software and hands the conversation to a person when needed.",
       fit: [
@@ -1355,7 +1355,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     es: {
       seoTitle: "Cualificación de leads de Meta Ads en GoHighLevel",
       metaDescription:
-        "Los leads de tus campañas de Meta entran en GoHighLevel, se puntúan solos, los buenos agendan en tu calendario y el resto recibe seguimiento por WhatsApp y correo.",
+        "Los leads de Meta Ads entran en GoHighLevel, se puntúan solos, los buenos agendan en tu calendario y el resto recibe seguimiento por WhatsApp y correo.",
       answer:
         "Un sistema de captación en GoHighLevel filtra solo quién vale tu tiempo entre los leads de tus campañas de Meta. El lead entra desde un formulario de Meta Lead Ads, una landing o un quiz, recibe una puntuación —frío, templado, caliente o premium— y los buenos agendan en tu calendario con un Booking SDR, mientras el resto entra en seguimiento por WhatsApp y correo. Tu equipo habla solo con quien tiene intención real.",
       fit: [
@@ -1408,7 +1408,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     en: {
       seoTitle: "Qualifying Meta Ads leads on GoHighLevel",
       metaDescription:
-        "Leads from your Meta campaigns land in GoHighLevel, get scored on their own, the good ones book into your calendar and the rest get WhatsApp and email follow-up.",
+        "Leads from your Meta campaigns land in GoHighLevel, get scored on their own, the good ones book in your calendar and the rest get WhatsApp and email follow-up.",
       answer:
         "A lead capture system on GoHighLevel filters out, on its own, the leads from your Meta campaigns that are not worth your time. The lead comes in through a Meta Lead Ads form, a landing page or a quiz, gets a score —cold, warm, hot or premium— and the good ones book into your calendar through a Booking SDR, while the rest go into WhatsApp and email follow-up. Your team only talks to people with real intent.",
       fit: [
@@ -1466,7 +1466,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     es: {
       seoTitle: "Generador automático de propuestas comerciales",
       metaDescription:
-        "Un formulario al colgar la llamada, la propuesta en web y PDF al momento en una aplicación en Vercel y su seguimiento en el pipeline de tu CRM. En minutos, no días.",
+        "Un formulario al colgar la llamada, la propuesta en web y PDF en una aplicación en Vercel y su seguimiento en el pipeline de tu CRM. En minutos, no días.",
       answer:
         "Un generador de propuestas convierte lo que hablas en la llamada en una propuesta lista para revisar y enviar en minutos. Rellenas un formulario de intake al colgar, una aplicación en Vercel genera la propuesta en web y PDF, la vincula a la oportunidad en tu CRM y programa los recordatorios de seguimiento. En el pipeline ves cómo evoluciona cada propuesta, y llega mientras el cliente todavía está interesado.",
       fit: [
@@ -1881,7 +1881,7 @@ export const SERVICIOS: Record<string, Servicio> = {
     en: {
       seoTitle: "AI camera monitoring: tables, parking and queues",
       metaDescription:
-        "We connect your cameras to an AI that measures unattended tables, free parking spaces, queues and busy loading docks, and alerts the manager. No facial recognition.",
+        "We connect your cameras to an AI that measures unattended tables, free parking spaces, queues and busy docks and alerts the manager. No facial recognition.",
       answer:
         "Camera monitoring with AI means using the cameras you already have to measure what happens in your business without anyone writing it down: how long a table waits to be served, how long it takes to clear, how many parking spaces are free or how many people are queuing. A vision model analyses the video, stores times and counts by zone and alerts the manager when something goes over the limit. It does not identify anyone.",
       outcomes: [
