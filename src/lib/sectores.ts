@@ -246,7 +246,7 @@ export const SECTORES: Record<string, Sector> = {
     en: {
       seoTitle: "Automation for clinics: patient intake and booking",
       metaDescription:
-        "Instant response, reminders with confirmation, waiting lists and pre-qualification for clinics, connected to your clinical software and careful with health data.",
+        "Instant replies, reminders with confirmation, waitlists and pre-qualification for clinics, connected to your clinical software and careful with health data.",
       h1: "Automation for clinics and hospitals",
       answer:
         "A clinic loses money in three places: the call nobody picked up, the slot left empty and the patient who never comes back. We automate instant response, reminders with confirmation, waiting lists and pre-qualification on GoHighLevel, connected to your clinical software and without moving medical records out of where they belong.",

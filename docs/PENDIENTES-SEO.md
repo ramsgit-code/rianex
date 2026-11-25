@@ -266,8 +266,28 @@ Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
 - [ ] **`Organization`**: faltan `legalName` y `foundingDate` (necesito la
       razón social y la fecha de alta), y cada perfil externo nuevo en
       `sameAs`. `contactPoint` ya está.
-- [ ] **Menores**: `/testimonios` (282 palabras) y `/soluciones` (341) son
-      finas, 13 artículos sin `updated`.
+- [ ] **Menores**: `/soluciones` (264 palabras) es fina, y `/testimonios`
+      solo crecerá con más opiniones (desde el 25-nov enlaza a las reseñas de
+      Sortlist y a los casos). 13 artículos sin `updated`.
+- [ ] **Títulos de artículo de más de 60 caracteres (25-nov)**: quedan 31
+      (18 en castellano y 13 en inglés) que pasan de 60 sin la marca, así que
+      Google corta el final. No los toqué porque varios se cambiaron el 24-nov
+      para medir el CTR (proyectos de IA a medida, licitaciones, cross-selling,
+      Clay/Treg/ColdIQ, GTM). Revisar a mediados de diciembre con Search
+      Console: si uno tiene impresiones y CTR cero, acortarlo dejando la
+      búsqueda al principio. Lista: `page_checks` del plugin claude-seo,
+      hallazgo `title-too-long`.
+- [ ] **GEO opcional, prioridad baja**: una línea `Content-Signal` en
+      robots.txt (`search=yes, ai-input=yes, ai-train=yes`, lo que ya permite
+      hoy) y versión Markdown de los artículos (`/blog/<slug>.md` o
+      `Accept: text/markdown`). Google dice que no usa Content-Signal y ningún
+      asistente confirma que pida el Markdown.
+- [ ] **Repetir la auditoría con claude-seo**: el plugin está instalado en el
+      Claude Code de Ramiro (`claude-seo@agricidaniel-claude-seo`, 2.6.2). En
+      una sesión nueva, `/seo audit https://www.rianex.es`; o, más barato, sus
+      comprobaciones deterministas por URL (`page_checks.py`,
+      `sitemap_discovery.py`, `transport_check.py`, `agentic_check.py`) con
+      `~/.claude/plugins/cache/agricidaniel-claude-seo/claude-seo/2.6.2/scripts/claude-seo run <script>`.
 - [ ] **Revisar con calma (25-nov), salió al buscar fuentes**: la
       llamada por WhatsApp de GoHighLevel (artículo del agente de voz) sigue
       en beta y pide que el número no use Coexistence y un límite de 2.000
@@ -356,6 +376,28 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-25 · Sexta tanda, con el plugin **claude-seo** (2.6.2):
+  comprobaciones deterministas en las 154 URLs del sitemap (página a página,
+  sitemap, TLS y cabeceras, acceso de agentes de IA, precarga y validador de
+  JSON-LD). Ningún fallo crítico ni alto: todas con canonical propio, un H1,
+  hreflang recíproco, JSON-LD válido, alt y dimensiones en las imágenes, y
+  sin títulos ni descripciones duplicados. Corregido: (1) « | Rianex» solo
+  cuando el title completo cabe en 60 caracteres (`withBrand` en
+  `src/lib/seo.ts`; antes se añadía hasta 55 de base y salían títulos de
+  64): 29 títulos dejan de cortarse en la SERP. (2) 19 meta descriptions de
+  161 a 180 caracteres recortadas a 160 o menos; el esquema del blog baja el
+  máximo de 165 a 160. (3) `/diagnostico` tenía 83 palabras: ahora explica
+  cómo es la consultoría (formulario, llamada, chat opcional) y lleva cuatro
+  preguntas frecuentes con `FAQPage`, en ES y EN, con los precios ya
+  publicados y sin prometer el entregable escrito. (4) `/testimonios` enlaza
+  a las reseñas de Sortlist y a los casos. (5) Los «Saber más / Learn more»
+  de los servicios complementarios llevan texto propio. (6) Imágenes: el
+  logo del pie bajaba la versión de 1200 px (3840 en retina) en todas las
+  páginas para verse a 127 px; los logos de cabecera, casos, landings y la
+  franja de clientes llevan `sizes`, y la foto del autor y los logos que se
+  ven arriba ya no se cargan en diferido. (7) Títulos de los textos legales
+  más descriptivos.
 
 - 2026-11-25 · Quinta tanda, a petición de Ramiro. **Cuatro servicios
   nuevos** en ES y EN: creación de webs, email marketing, outbound en

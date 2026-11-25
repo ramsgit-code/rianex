@@ -33,6 +33,17 @@ export const RIANEX_LINKEDIN = "https://www.linkedin.com/company/rianex/";
  */
 export const RIANEX_PERFILES = [RIANEX_LINKEDIN, "https://www.sortlist.com/agency/rianex"];
 const BRAND = "Rianex";
+/** Largo maximo de un title antes de que Google lo corte en la SERP. */
+export const TITLE_MAX = 60;
+/**
+ * Title con " | Rianex" solo si el conjunto cabe en TITLE_MAX caracteres.
+ * Si no cabe, va sin marca: Google cortaba justo la marca o, peor, el final
+ * de la busqueda, y suele añadir el nombre del sitio por su cuenta.
+ */
+export function withBrand(title: string): string {
+  const branded = `${title} | ${BRAND}`;
+  return branded.length <= TITLE_MAX ? branded : title;
+}
 /** Imagen social general de cada idioma (ver src/app/og/general). */
 const ogImage = (lang: Lang) => ({ url: `/og/general/${lang}`, width: 1200, height: 630, alt: BRAND });
 
@@ -48,7 +59,7 @@ const PAGES: Record<string, Record<Lang, PageCopy>> = {
     en: {
       title: "AI Automation Agency in Ávila, Spain",
       description:
-        "AI automation agency (AI Workflow & Business Automation): we automate your company's workflows with AI agents —customer service, sales, scheduling and paperwork. Free consultation.",
+        "AI automation agency (AI Workflow & Business Automation): we automate customer service, sales, scheduling and paperwork with AI agents. Free consultation.",
     },
   },
   "/servicios": {
@@ -155,7 +166,7 @@ export function translatedMetadata(
   const localized = localizePath(path, lang);
   const og = image ? { ...ogImage(lang), url: image, alt: title } : ogImage(lang);
   const url = `${SITE_URL}${localized === "/" ? "" : localized}`;
-  const fullTitle = `${title} | ${BRAND}`;
+  const fullTitle = withBrand(title);
 
   return {
     // absolute: el title ya lleva la marca, que el template no la duplique.

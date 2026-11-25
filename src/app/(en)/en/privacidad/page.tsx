@@ -7,7 +7,7 @@ import { translatedMetadata } from "@/lib/seo";
 export const metadata: Metadata = translatedMetadata(
   "/privacidad",
   "en",
-  "Privacy policy",
+  "Privacy policy: what data we process and your rights",
   "How Rianex processes personal data under the GDPR and the Spanish data protection act (LOPDGDD)."
 );
 

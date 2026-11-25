@@ -7,7 +7,7 @@ import { translatedMetadata } from "@/lib/seo";
 export const metadata: Metadata = translatedMetadata(
   "/cookies",
   "en",
-  "Cookie policy",
+  "Cookie policy: which cookies we use and how to manage them",
   "How the Rianex website uses cookies and similar technologies, and how to accept or reject them."
 );
 

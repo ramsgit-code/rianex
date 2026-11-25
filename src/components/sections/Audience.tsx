@@ -156,6 +156,7 @@ export function Audience() {
                       alt={cl.client}
                       width={size.w}
                       height={size.h}
+                      sizes="180px"
                       className={`${size.cls} w-auto max-w-[180px] object-contain`}
                     />
                   </span>

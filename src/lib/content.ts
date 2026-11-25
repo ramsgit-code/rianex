@@ -201,6 +201,11 @@ export const content = {
       pageTitle: "Testimonios",
       pageDesc:
         "Opiniones reales de clientes con sistema activo. ¿Trabajaste con nosotros? Cuéntalo.",
+      moreTitle: "Más reseñas y casos con cifras",
+      moreDesc:
+        "Las reseñas de nuestros clientes también están en nuestro perfil de Sortlist, una plataforma independiente para elegir agencia. En los casos de éxito está el detalle de cada proyecto: qué había antes, qué montamos y qué cambió.",
+      moreSortlist: "Ver las reseñas en Sortlist",
+      moreCases: "Ver los casos de éxito",
       formTitle: "Deja tu testimonio",
       nameLabel: "Tu nombre *",
       companyLabel: "Empresa",
@@ -424,21 +429,25 @@ export const content = {
             title: "Auditoría de agentes y automatizaciones",
             desc: "Revisamos un sistema de IA que ya tienes, hecho por nosotros o por otros, antes de escalarlo: qué falla, qué cuesta y qué reforzar primero.",
             href: "/blog/revisar-sistema-de-agentes-ia-antes-de-escalar",
+            cta: "Qué revisamos antes de escalar",
           },
           {
             title: "Control del coste de la IA",
             desc: "Medimos cuánto gasta cada agente en modelos de IA y avisamos cuando el gasto se dispara o algo falla. Es la última fase de la IA selectiva.",
             href: "/servicios/ia-selectiva",
+            cta: "Ver el servicio de IA selectiva",
           },
           {
             title: "Medición del punto de partida",
             desc: "Antes de automatizar, medimos cuánto tarda y cuánto se pierde hoy, para comparar el resultado después.",
             href: "/blog/medir-un-proceso-antes-de-automatizarlo",
+            cta: "Cómo medir un proceso",
           },
           {
             title: "Calculadora de fuga de leads",
             desc: "Gratis y sin registro: cuánto dinero se pierde al año por los leads que no llegan a una conversación.",
             href: "/herramientas/calculadora-fuga-de-leads",
+            cta: "Abrir la calculadora",
           },
         ],
       },
@@ -870,6 +879,40 @@ export const content = {
         "Recomendación concreta de sistema",
         "Para empresas con procesos manuales que se repiten cada semana",
       ],
+      howTitle: "Cómo es la consultoría gratuita de automatización",
+      how: [
+        {
+          title: "El formulario",
+          desc: "Cinco pasos cortos: contacto, tu negocio, tu mercado, cómo trabajáis hoy (CRM, WhatsApp, cuánto tarda una propuesta) y qué quieres conseguir. Lo leemos antes de la llamada.",
+        },
+        {
+          title: "La llamada",
+          desc: "30 minutos. Al terminar el formulario puedes elegir hora en el calendario. Vemos cómo se hace hoy el proceso y qué sistema encaja: automatización, agente de IA, CRM o una combinación.",
+        },
+        {
+          title: "Si quieres adelantar",
+          desc: "Puedes contarle tu caso por chat a nuestro asistente de IA, unos 3 minutos, y llegamos a la llamada con él entendido. Es opcional.",
+        },
+      ],
+      faqTitle: "Preguntas frecuentes",
+      faq: [
+        {
+          q: "¿Cuánto cuesta la consultoría?",
+          a: "Nada, y no compromete a nada. Si después seguimos, el discovery (diagnóstico, arquitectura y diseño del sistema) va de 1.500 € a 15.000 € y la implementación de 5.000 € a 25.000 €. El precio exacto depende del alcance y se confirma en la consultoría, no antes.",
+        },
+        {
+          q: "¿Qué tengo que preparar?",
+          a: "Nada especial. Ayuda tener claro qué proceso os quita más tiempo, cuántas veces se repite a la semana y qué herramientas usáis: CRM, correo, hojas de cálculo o WhatsApp.",
+        },
+        {
+          q: "¿Para qué empresas tiene sentido?",
+          a: "Para empresas con procesos manuales que se repiten cada semana: pasar datos entre herramientas, atender consultas, preparar propuestas o hacer seguimiento a clientes. El sector importa menos que el proceso: si es frecuente, sigue reglas y su fallo cuesta dinero, se puede automatizar.",
+        },
+        {
+          q: "¿Trabajáis fuera de España?",
+          a: "Sí. Trabajamos con empresas de España y Latinoamérica, en español, y en inglés cuando el proyecto lo pide.",
+        },
+      ],
     },
 
     blog: {
@@ -1067,6 +1110,11 @@ export const content = {
       pageTitle: "Testimonials",
       pageDesc:
         "Real feedback from clients with a live system. Worked with us? Share it.",
+      moreTitle: "More reviews and cases with numbers",
+      moreDesc:
+        "Our clients' reviews are also on our Sortlist profile, an independent platform for choosing an agency. The case studies cover each project in detail: what was there before, what we built and what changed.",
+      moreSortlist: "Read the reviews on Sortlist",
+      moreCases: "See the case studies",
       formTitle: "Leave a testimonial",
       nameLabel: "Your name *",
       companyLabel: "Company",
@@ -1285,21 +1333,25 @@ export const content = {
             title: "Agent and automation audit",
             desc: "We review an AI system you already have, built by us or by others, before you scale it: what fails, what it costs and what to reinforce first.",
             href: "/blog/revisar-sistema-de-agentes-ia-antes-de-escalar",
+            cta: "What we review before scaling",
           },
           {
             title: "AI cost control",
             desc: "We measure how much each agent spends on AI models and alert you when spend spikes or something fails. It is the last phase of selective AI.",
             href: "/servicios/ia-selectiva",
+            cta: "See the selective AI service",
           },
           {
             title: "Baseline measurement",
             desc: "Before automating, we measure how long things take and how much is lost today, so the result can be compared afterwards.",
             href: "/blog/medir-un-proceso-antes-de-automatizarlo",
+            cta: "How to measure a process",
           },
           {
             title: "Lead leakage calculator",
             desc: "Free, no sign-up: how much money is lost each year to leads that never reach a conversation.",
             href: "/herramientas/calculadora-fuga-de-leads",
+            cta: "Open the calculator",
           },
         ],
       },
@@ -1730,6 +1782,40 @@ export const content = {
         "Analysis of your current process",
         "A concrete system recommendation",
         "For companies with manual processes that repeat every week",
+      ],
+      howTitle: "How the free process automation assessment works",
+      how: [
+        {
+          title: "The form",
+          desc: "Five short steps: contact details, your business, your market, how you work today (CRM, WhatsApp, how long a proposal takes) and what you want to achieve. We read it before the call.",
+        },
+        {
+          title: "The call",
+          desc: "30 minutes. When you finish the form you can pick a time in the calendar. We look at how the process runs today and which system fits: automation, an AI agent, a CRM or a mix.",
+        },
+        {
+          title: "If you want to get ahead",
+          desc: "You can tell our AI assistant about your case by chat, about 3 minutes, and we arrive at the call with it understood. It is optional.",
+        },
+      ],
+      faqTitle: "Frequently asked questions",
+      faq: [
+        {
+          q: "How much does the assessment cost?",
+          a: "Nothing, and it commits you to nothing. If we carry on afterwards, discovery (diagnosis, architecture and system design) ranges from €1,500 to €15,000 and implementation from €5,000 to €25,000. The exact price depends on the scope and is confirmed in the assessment, not before.",
+        },
+        {
+          q: "What do I need to prepare?",
+          a: "Nothing special. It helps to know which process takes up most of your time, how many times a week it repeats and which tools you use: CRM, email, spreadsheets or WhatsApp.",
+        },
+        {
+          q: "Which companies is it for?",
+          a: "Companies with manual processes that repeat every week: moving data between tools, answering enquiries, preparing proposals or following up with customers. The industry matters less than the process: if it is frequent, follows rules and its failure costs money, it can be automated.",
+        },
+        {
+          q: "Do you work outside Spain?",
+          a: "Yes. We work with companies in Spain and Latin America, in Spanish, and in English when the project calls for it.",
+        },
       ],
     },
 

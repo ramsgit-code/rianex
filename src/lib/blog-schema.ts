@@ -47,11 +47,11 @@ export type LinkPolicy = (typeof LINK_POLICIES)[number];
 export const blogFrontmatterSchema = z.object({
   // Google corta el title en la SERP pasados ~70 caracteres.
   title: z.string().min(10).max(70, "El title debe caber en la SERP: 70 caracteres"),
-  // Por debajo de 70 se desaprovecha; por encima de 165 se corta.
+  // Por debajo de 70 se desaprovecha; por encima de 160 Google la corta.
   description: z
     .string()
     .min(70, "La meta description se queda corta: minimo 70 caracteres")
-    .max(165, "La meta description se corta pasados 165 caracteres"),
+    .max(160, "La meta description se corta pasados 160 caracteres"),
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "La fecha debe ser AAAA-MM-DD"),
   // Ultima revision de fondo. Va a dateModified y al lastmod del sitemap; un
   // retoque de erratas no cuenta como actualizacion.

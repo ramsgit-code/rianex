@@ -28,7 +28,7 @@ export function CasosView() {
   return (
     <PageShell tag={cs.tag} title={cs.title} description={cs.description} wide>
       <div className="border-t-[6px] border-accent">
-        {c.cases.items.map((item) => {
+        {c.cases.items.map((item, i) => {
           const dim = LOGO_DIMENSIONS[item.logo] ?? { width: 300, height: 90 };
           return (
             <article key={item.client} className="grid grid-cols-1 gap-8 border-b-2 border-ink py-10 lg:grid-cols-12 lg:gap-10">
@@ -39,6 +39,8 @@ export function CasosView() {
                     alt={item.client}
                     width={dim.width}
                     height={dim.height}
+                    sizes="160px"
+                    loading={i === 0 ? "eager" : "lazy"}
                     className="h-8 w-auto max-w-[160px] object-contain"
                   />
                   <span className="tag mb-0">{item.sector}</span>
