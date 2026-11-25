@@ -393,6 +393,15 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-25 · Repaso con claude-seo de las 160 URLs del sitemap tras el
+  reposicionamiento. Las tres descripciones nuevas de casos en castellano
+  (Eventos Barcelona, Growth4U, Tribeca Media) pasaban de 160 caracteres y
+  quedan en 155–158 sin cambiar lo que dicen. Las seis páginas nuevas
+  (`/ofertas`, desarrollo de software y la de industria, ES y EN) salen
+  limpias: título y descripción en rango, una H1, canónica, hreflang y
+  JSON-LD válido. El redirect de `desarrollo-ia-a-medida` da 308. Queda lo
+  de siempre: `/testimonios` corta y el aviso Low de `wide-dom-node`.
+
 - 2026-11-25 · **Reposicionamiento con lo que Rianex hace de verdad**
   (inventario de las carpetas de EB, Tribeca, Growth4U, herramientas propias
   y LinkedIn, en `~/Documents/rianex web/inventario-2026-11-25/`). Cuatro
