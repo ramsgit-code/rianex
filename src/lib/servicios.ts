@@ -19,7 +19,12 @@ import type { Lang } from "@/lib/i18n";
 // y su forma de precio estan pendientes de validar por Ramiro
 // (docs/PENDIENTES-SEO.md). Lo mismo el control con camaras e IA (24-nov-2026),
 // que ademas no tiene caso propio todavia: ni cifras ni clientes. Y la IA
-// selectiva (25-nov-2026): plazos y forma de precio sin validar.
+// selectiva (25-nov-2026): plazos y forma de precio sin validar. Y los cuatro
+// de canal (25-nov-2026): creacion de webs, email marketing, outbound en
+// LinkedIn y cold calling. Sin casos ni plazos publicados; precio "quote". Las
+// FAQ legales citan la LGTel art. 66, la Circular 1/2023 de la AEPD, la LOPDGDD
+// arts. 19 y 23, la LSSI art. 21, el Reglamento de IA art. 50 y el Acuerdo de
+// usuario de LinkedIn (8.2 y 3.4), comprobados el 25-nov-2026.
 
 export type CaseClient = "Hospital Capilar" | "Eventos Barcelona" | "Growth4U" | "Tribeca Media";
 
@@ -477,7 +482,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "¿Email o LinkedIn?",
-          a: "Los dos, coordinados. Hay cargos que leen el correo y otros que solo contestan en LinkedIn. Una secuencia que combina los dos canales llega a más gente sin insistir más en ninguno.",
+          a: "Los dos, coordinados. Hay cargos que leen el correo y otros que solo contestan en LinkedIn. Una secuencia que combina los dos canales llega a más gente sin insistir más en ninguno. Si solo quieres LinkedIn, o llamar por teléfono, el outbound en LinkedIn y el cold calling B2B se contratan por separado.",
         },
         {
           q: "¿Es legal el email en frío en España?",
@@ -539,7 +544,7 @@ export const SERVICIOS: Record<string, Servicio> = {
         },
         {
           q: "Email or LinkedIn?",
-          a: "Both, coordinated. Some roles read email and others only reply on LinkedIn. A sequence combining both channels reaches more people without pushing harder on either.",
+          a: "Both, coordinated. Some roles read email and others only reply on LinkedIn. A sequence combining both channels reaches more people without pushing harder on either. If you only want LinkedIn, or phone calls, LinkedIn outbound and B2B cold calling are available as separate services.",
         },
         {
           q: "Is cold email legal in Spain?",
@@ -548,6 +553,518 @@ export const SERVICIOS: Record<string, Servicio> = {
         {
           q: "What happens to replies?",
           a: "They are classified automatically (interested, not now, wrong person, unsubscribe) and go into your CRM, HubSpot or GoHighLevel, with the conversation history. Interested ones get a link to book a meeting, and \"not now\" replies go back into the sequence later on.",
+        },
+      ],
+    },
+  },
+
+  "creacion-de-webs": {
+    price: "quote",
+    posts: [
+      "como-cualificar-leads-automaticamente",
+      "integrar-gohighlevel-con-tu-stack",
+      "que-es-gohighlevel",
+      "gohighlevel-vs-hubspot",
+    ],
+    es: {
+      seoTitle: "Creación de páginas web para empresas",
+      metaDescription:
+        "Webs para empresas que captan y cualifican contactos: rápidas, indexables, con SEO y GEO de base y cada formulario conectado a GoHighLevel o HubSpot.",
+      answer:
+        "Creamos páginas web para empresas pensadas para captar y cualificar contactos: rápidas, legibles para Google y para los asistentes de IA, y con cada formulario conectado a tu CRM, GoHighLevel o HubSpot. Las hacemos en Next.js sobre Vercel, como esta web, o con los embudos de GoHighLevel cuando lo que hace falta son landings que tu equipo edite sin programar. Cada contacto entra en el CRM con su origen y el equipo recibe el aviso al momento.",
+      outcomes: [
+        "Una web que carga rápido y que Google puede indexar entera",
+        "Cada formulario crea el contacto en tu CRM con su origen",
+        "Sabes qué páginas y qué campañas traen contactos",
+      ],
+      flow: [
+        { label: "Visita", text: "Alguien llega desde Google, un anuncio o un asistente de IA." },
+        { label: "Formulario", text: "Rellena un formulario o un cuestionario corto que pregunta solo lo que importa." },
+        { label: "CRM", text: "El contacto entra en GoHighLevel o HubSpot con su origen y sus respuestas." },
+        { label: "Respuesta", text: "El equipo recibe el aviso y el contacto recibe el correo o el WhatsApp que toca." },
+      ],
+      fit: [
+        "No tienes web, o la que tienes no trae contactos y no sabes por qué.",
+        "Tu web es lenta, no aparece en Google o nadie en la empresa puede tocarla.",
+        "Quieres que cada contacto de la web entre en el CRM con su origen, sin copiar nada a mano.",
+      ],
+      notFit: [
+        "Buscas una tienda online con un catálogo grande y pasarela de pago: hay plataformas hechas para eso.",
+        "Solo quieres cambiar el diseño, sin tocar formularios ni CRM.",
+      ],
+      steps: [
+        { title: "Objetivo y estructura", desc: "Qué tiene que conseguir la web, para quién es cada página y a qué búsquedas tiene que responder. Sale un mapa de páginas antes de diseñar nada." },
+        { title: "Diseño y textos", desc: "Diseño propio, textos que responden en la primera frase a lo que busca cada visita y formularios que preguntan solo lo necesario." },
+        { title: "Desarrollo y CRM", desc: "Next.js sobre Vercel o embudos de GoHighLevel, con cada formulario conectado a tu CRM y avisos al equipo." },
+        { title: "SEO, GEO y medida", desc: "Velocidad, sitemap, metadatos por página, datos estructurados y llms.txt, y Google Analytics 4 y Search Console configurados para ver qué trae contactos." },
+      ],
+      timeline:
+        "Depende del número de páginas, de los textos que haya que escribir y de las integraciones. Te lo damos por escrito en la consultoría gratuita, antes de empezar.",
+      priceNote:
+        "Precio cerrado según el número de páginas y de integraciones, que te damos en la consultoría gratuita. El dominio y el alojamiento van a nombre de tu empresa y se pagan directamente al proveedor.",
+      faqs: [
+        {
+          q: "¿Next.js o GoHighLevel?",
+          a: "Next.js sobre Vercel cuando la web tiene que posicionar en Google, cargar muy rápido y crecer con artículos y páginas de servicio. Los embudos de GoHighLevel cuando lo que necesitas son landings de campaña que tu equipo cree y edite sin programar, ya dentro del CRM. Se pueden combinar: la web en Next.js y las landings de campaña en GoHighLevel.",
+        },
+        {
+          q: "¿La web es mía?",
+          a: "Sí. El dominio, el código y la cuenta de alojamiento van a nombre de tu empresa. Si un día dejamos de trabajar juntos, la web sigue funcionando y puedes llevarla a otro proveedor.",
+        },
+        {
+          q: "¿Qué es el GEO?",
+          a: "Preparar la web para que los asistentes de IA, como ChatGPT, Perplexity o los resúmenes de Google, puedan leerla y citarla: cada página responde en su primera frase a lo que se busca, el texto está en el HTML que leen los rastreadores y la web publica datos estructurados y un llms.txt. No garantiza que te citen, pero sin eso es difícil que lo hagan.",
+        },
+        {
+          q: "¿Podéis rehacer la web que ya tengo?",
+          a: "Sí. Revisamos qué páginas tienen visitas o enlaces, las conservamos o las redirigimos a su nueva dirección para no perder lo ganado en Google y, si el CRM ya recibe contactos de la web, mantenemos los mismos campos.",
+        },
+        {
+          q: "¿Quién la actualiza después?",
+          a: "Si está en GoHighLevel, tu equipo edita las páginas desde el propio CRM. Si está en Next.js, el contenido vive en el código: los cambios los hacemos nosotros con el mantenimiento mensual o los hace tu equipo técnico.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "Website creation for businesses",
+      metaDescription:
+        "Business websites that capture and qualify leads: fast, indexable, with SEO and GEO basics and every form connected to GoHighLevel or HubSpot.",
+      answer:
+        "We build business websites designed to capture and qualify leads: fast, readable by Google and by AI assistants, and with every form connected to your CRM, GoHighLevel or HubSpot. We build them in Next.js on Vercel, like this site, or with GoHighLevel funnels when what you need are landing pages your team can edit without coding. Every contact lands in the CRM with its source and the team is notified straight away.",
+      outcomes: [
+        "A website that loads fast and that Google can index in full",
+        "Every form creates the contact in your CRM with its source",
+        "You know which pages and campaigns bring in contacts",
+      ],
+      flow: [
+        { label: "Visit", text: "Someone arrives from Google, an ad or an AI assistant." },
+        { label: "Form", text: "They fill in a form or a short quiz that only asks what matters." },
+        { label: "CRM", text: "The contact lands in GoHighLevel or HubSpot with its source and answers." },
+        { label: "Reply", text: "The team gets notified and the contact gets the right email or WhatsApp message." },
+      ],
+      fit: [
+        "You have no website, or the one you have brings no contacts and you don't know why.",
+        "Your site is slow, doesn't show up on Google or nobody in the company can change it.",
+        "You want every website contact to land in the CRM with its source, with no copying by hand.",
+      ],
+      notFit: [
+        "You need an online shop with a large catalogue and payment gateway: there are platforms built for that.",
+        "You only want a new look, without touching forms or the CRM.",
+      ],
+      steps: [
+        { title: "Goal and structure", desc: "What the site has to achieve, who each page is for and which searches it has to answer. A page map comes out before any design." },
+        { title: "Design and copy", desc: "Custom design, copy that answers what each visitor is looking for in the first sentence, and forms that only ask what is needed." },
+        { title: "Build and CRM", desc: "Next.js on Vercel or GoHighLevel funnels, with every form connected to your CRM and alerts to the team." },
+        { title: "SEO, GEO and measurement", desc: "Speed, sitemap, per-page metadata, structured data and llms.txt, plus Google Analytics 4 and Search Console set up to see what brings in contacts." },
+      ],
+      timeline:
+        "It depends on the number of pages, the copy to be written and the integrations. We give it to you in writing in the free consultation, before we start.",
+      priceNote:
+        "A fixed price based on the number of pages and integrations, which we give you in the free consultation. The domain and hosting are in your company's name and paid directly to the provider.",
+      faqs: [
+        {
+          q: "Next.js or GoHighLevel?",
+          a: "Next.js on Vercel when the site has to rank on Google, load very fast and grow with articles and service pages. GoHighLevel funnels when you need campaign landing pages your team can create and edit without coding, already inside the CRM. They can be combined: the site in Next.js and the campaign landing pages in GoHighLevel.",
+        },
+        {
+          q: "Is the website mine?",
+          a: "Yes. The domain, the code and the hosting account are in your company's name. If we stop working together one day, the site keeps running and you can take it to another provider.",
+        },
+        {
+          q: "What is GEO?",
+          a: "Preparing the site so AI assistants such as ChatGPT, Perplexity or Google's AI summaries can read and cite it: every page answers the query in its first sentence, the text is in the HTML that crawlers read, and the site publishes structured data and an llms.txt file. It does not guarantee being cited, but without it being cited is unlikely.",
+        },
+        {
+          q: "Can you rebuild the website I already have?",
+          a: "Yes. We check which pages have traffic or links, keep them or redirect them to their new address so you don't lose what you have earned on Google and, if the CRM already receives contacts from the site, we keep the same fields.",
+        },
+        {
+          q: "Who updates it afterwards?",
+          a: "On GoHighLevel, your team edits the pages from the CRM itself. On Next.js, the content lives in the code: changes are made by us under monthly maintenance or by your technical team.",
+        },
+      ],
+    },
+  },
+
+  "email-marketing": {
+    price: "quote",
+    posts: [
+      "rgpd-y-automatizacion-con-ia",
+      "como-cualificar-leads-automaticamente",
+      "cross-selling-por-whatsapp",
+      "gohighlevel-vs-hubspot",
+    ],
+    es: {
+      seoTitle: "Email marketing automatizado para empresas",
+      metaDescription:
+        "Newsletters, secuencias de nurturing y reactivación para tus propios contactos, segmentadas en GoHighLevel o HubSpot y con el dominio autenticado.",
+      answer:
+        "El email marketing automatizado es enviar a tus propios contactos el correo que toca según quiénes son y qué han hecho, sin prepararlo a mano cada vez. Lo montamos en tu CRM, GoHighLevel o HubSpot: segmentamos la base, dejamos secuencias de bienvenida, nurturing, reactivación y postventa, una newsletter con plantilla propia y el dominio autenticado para llegar a la bandeja de entrada. La IA ayuda a redactar; lo que se envía lo apruebas tú.",
+      outcomes: [
+        "Cada contacto recibe el correo que toca según su etapa y su interés",
+        "Los contactos dormidos reciben una secuencia de reactivación, no se quedan olvidados",
+        "Sabes qué correo acaba en reunión o en venta, no solo cuántos lo abrieron",
+      ],
+      flow: [
+        { label: "Contacto", text: "Alguien descarga una guía, pide presupuesto o compra por primera vez." },
+        { label: "Segmento", text: "El CRM lo etiqueta según lo que pidió y la etapa en la que está." },
+        { label: "Secuencia", text: "Recibe los correos de su secuencia; si hace clic o contesta, se avisa al comercial." },
+        { label: "Venta", text: "Quien muestra interés pasa al pipeline y quien se da de baja sale de todos los envíos." },
+      ],
+      fit: [
+        "Tienes una base de clientes y contactos propia que hoy no recibe nada, o recibe lo mismo todo el mundo.",
+        "Captas leads que no compran en el primer contacto y necesitan seguimiento durante semanas o meses.",
+        "Ya usas GoHighLevel o HubSpot, o vas a implantarlo, y quieres que el correo salga desde ahí.",
+      ],
+      notFit: [
+        "Quieres escribir en frío a empresas que no te conocen: eso es la prospección autónoma, con dominios y buzones aparte.",
+        "Tus contactos no han dado permiso para recibir comunicaciones comerciales ni son clientes tuyos: primero hay que construir la base.",
+      ],
+      steps: [
+        { title: "Base y permisos", desc: "Revisamos de dónde viene cada contacto y si puede recibir comunicaciones comerciales, quitamos duplicados y rebotes y definimos los segmentos." },
+        { title: "Dominio y entregabilidad", desc: "Autenticamos el dominio de envío con SPF, DKIM y DMARC, configuramos las bajas y el tratamiento de rebotes, y subimos el volumen poco a poco si el dominio no enviaba antes." },
+        { title: "Secuencias y newsletter", desc: "Bienvenida, nurturing, reactivación y postventa, disparadas por lo que hace cada contacto en la web o en el CRM. La newsletter, con plantilla propia y calendario." },
+        { title: "Medida", desc: "Aperturas y clics, pero sobre todo respuestas, reuniones y ventas por secuencia, en el panel del CRM." },
+      ],
+      timeline:
+        "Depende del tamaño de la base y del número de secuencias. Te lo damos por escrito en la consultoría gratuita, antes de empezar.",
+      priceNote:
+        "Precio cerrado según el número de secuencias y el estado de la base, que te damos en la consultoría gratuita. La herramienta de envío va a nombre de tu empresa y se paga directamente al proveedor.",
+      faqs: [
+        {
+          q: "¿Es legal enviar email marketing a mis contactos?",
+          a: "Sí, con permiso. El artículo 21 de la LSSI prohíbe enviar publicidad por correo electrónico que el destinatario no haya solicitado o autorizado expresamente, salvo que haya una relación contractual previa: entonces puedes escribir a tus clientes sobre productos o servicios de tu empresa parecidos a los que contrataron, si obtuviste sus datos de forma lícita. En todos los casos, cada correo tiene que incluir una forma sencilla y gratuita de darse de baja. Por eso lo primero que revisamos es de dónde viene cada contacto, y las bajas se aplican solas en el CRM.",
+        },
+        {
+          q: "¿En qué se diferencia de la prospección por email?",
+          a: "En a quién se escribe. El email marketing va a tus propios contactos: clientes, leads y gente que se ha suscrito. La prospección en frío escribe a empresas que no te conocen, sale de dominios y buzones aparte y tiene su propio servicio, la prospección autónoma B2B.",
+        },
+        {
+          q: "¿Qué herramienta usáis?",
+          a: "La que ya tengas, si sirve. GoHighLevel y HubSpot envían correo desde el propio CRM, y así cada apertura, clic y respuesta queda en la ficha del contacto. Si envías con otra herramienta, la conectamos al CRM para no perder ese historial.",
+        },
+        {
+          q: "¿Por qué mis correos acaban en spam?",
+          a: "Las causas habituales son un dominio sin autenticar, listas con direcciones que ya no existen, envíos masivos de golpe desde un dominio que no enviaba y correos sin forma de darse de baja. Lo revisamos todo antes del primer envío y vigilamos rebotes y quejas después.",
+        },
+        {
+          q: "¿Qué hace la IA?",
+          a: "Ayuda a redactar variantes de asunto y de texto, a resumir qué ha hecho cada contacto para elegir su secuencia y a clasificar las respuestas. Ningún correo nuevo sale sin que lo revise una persona.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "Automated email marketing for businesses",
+      metaDescription:
+        "Newsletters, nurturing and reactivation sequences for your own contacts, segmented in GoHighLevel or HubSpot and sent from an authenticated domain.",
+      answer:
+        "Automated email marketing means sending your own contacts the right email based on who they are and what they have done, without preparing it by hand each time. We build it in your CRM, GoHighLevel or HubSpot: we segment the database and set up welcome, nurturing, reactivation and after-sales sequences, a newsletter with its own template and an authenticated domain to reach the inbox. AI helps write; you approve what gets sent.",
+      outcomes: [
+        "Every contact gets the right email for their stage and interest",
+        "Dormant contacts get a reactivation sequence instead of being forgotten",
+        "You know which email ends in a meeting or a sale, not just how many opened it",
+      ],
+      flow: [
+        { label: "Contact", text: "Someone downloads a guide, asks for a quote or buys for the first time." },
+        { label: "Segment", text: "The CRM tags them by what they asked for and the stage they are in." },
+        { label: "Sequence", text: "They get the emails in their sequence; if they click or reply, a salesperson is alerted." },
+        { label: "Sale", text: "Anyone showing interest moves to the pipeline, and anyone who unsubscribes leaves every send." },
+      ],
+      fit: [
+        "You have your own base of customers and contacts that gets nothing today, or everyone gets the same.",
+        "You capture leads that don't buy on first contact and need follow-up for weeks or months.",
+        "You already use GoHighLevel or HubSpot, or are about to, and want email to go out from there.",
+      ],
+      notFit: [
+        "You want to cold-email companies that don't know you: that is autonomous prospecting, with separate domains and inboxes.",
+        "Your contacts have not agreed to receive marketing and are not your customers: the base has to be built first.",
+      ],
+      steps: [
+        { title: "Database and permissions", desc: "We check where each contact came from and whether they can receive marketing, remove duplicates and bounces and define the segments." },
+        { title: "Domain and deliverability", desc: "We authenticate the sending domain with SPF, DKIM and DMARC, set up unsubscribes and bounce handling, and raise volume gradually if the domain did not send before." },
+        { title: "Sequences and newsletter", desc: "Welcome, nurturing, reactivation and after-sales, triggered by what each contact does on the website or in the CRM. The newsletter, with its own template and calendar." },
+        { title: "Measurement", desc: "Opens and clicks, but above all replies, meetings and sales per sequence, on the CRM dashboard." },
+      ],
+      timeline:
+        "It depends on the size of the database and the number of sequences. We give it to you in writing in the free consultation, before we start.",
+      priceNote:
+        "A fixed price based on the number of sequences and the state of the database, which we give you in the free consultation. The sending tool is in your company's name and paid directly to the provider.",
+      faqs: [
+        {
+          q: "Is it legal to send email marketing to my contacts in Spain?",
+          a: "Yes, with permission. Article 21 of Spain's LSSI prohibits sending advertising by email that the recipient has not requested or expressly authorised, unless there is a prior contractual relationship: then you may write to your customers about your own company's products or services similar to the ones they bought, provided you obtained their details lawfully. In every case, each email must include a simple, free way to unsubscribe. That is why the first thing we check is where each contact came from, and unsubscribes are applied automatically in the CRM.",
+        },
+        {
+          q: "How is it different from email prospecting?",
+          a: "In who gets the email. Email marketing goes to your own contacts: customers, leads and people who subscribed. Cold prospecting writes to companies that don't know you, goes out from separate domains and inboxes, and is its own service, autonomous B2B prospecting.",
+        },
+        {
+          q: "Which tool do you use?",
+          a: "Whatever you already have, if it works. GoHighLevel and HubSpot send email from the CRM itself, so every open, click and reply is recorded on the contact. If you send with another tool, we connect it to the CRM so that history is not lost.",
+        },
+        {
+          q: "Why do my emails land in spam?",
+          a: "The usual causes are an unauthenticated domain, lists with addresses that no longer exist, sudden mass sends from a domain that was not sending before, and emails with no way to unsubscribe. We check all of it before the first send and watch bounces and complaints afterwards.",
+        },
+        {
+          q: "What does the AI do?",
+          a: "It helps write subject and body variants, summarises what each contact has done to pick their sequence, and classifies replies. No new email goes out without a person reviewing it.",
+        },
+      ],
+    },
+  },
+
+  "outbound-linkedin": {
+    price: "quote",
+    posts: [
+      "prospeccion-b2b-outbound-con-ia",
+      "que-es-gtm-engineering",
+      "clay-treg-coldiq-enriquecimiento-prospeccion-b2b",
+      "gtm-engineering-no-es-mandar-emails-con-clay",
+    ],
+    es: {
+      seoTitle: "Outbound en LinkedIn para empresas B2B",
+      metaDescription:
+        "Invitaciones y mensajes en LinkedIn a quien decide: perfil preparado, búsquedas en Sales Navigator, secuencias en Valley y respuestas en tu CRM.",
+      answer:
+        "El outbound en LinkedIn es escribir a quien decide en las empresas que encajan contigo, con invitaciones y mensajes personalizados y seguimiento programado, desde tu propio perfil. Preparamos el perfil, buscamos a las personas con Sales Navigator, montamos las secuencias en Valley con mensajes que revisa una persona antes de salir, y cada respuesta entra en GoHighLevel o HubSpot con un enlace para reservar reunión.",
+      outcomes: [
+        "Invitaciones y mensajes a los cargos que deciden, cada semana",
+        "Un perfil que explica qué haces a quien lo visita después de la invitación",
+        "Cada respuesta en tu CRM, clasificada y con su siguiente paso",
+      ],
+      flow: [
+        { label: "Búsqueda", text: "Sales Navigator encuentra a los cargos que encajan en las empresas objetivo." },
+        { label: "Invitación", text: "Sale una invitación con una nota corta que habla de su empresa." },
+        { label: "Mensajes", text: "Si acepta, recibe mensajes espaciados; si contesta, la secuencia se para." },
+        { label: "Reunión", text: "La respuesta entra en tu CRM y quien tiene interés reserva reunión." },
+      ],
+      fit: [
+        "Vendes B2B y tu comprador es un cargo concreto que usa LinkedIn.",
+        "Ya escribes a mano por LinkedIn y no te da la semana para hacerlo con constancia.",
+        "Quieres un canal de prospección sin montar dominios ni buzones de email.",
+      ],
+      notFit: [
+        "Vendes a particulares: LinkedIn sirve para hablar con profesionales.",
+        "No quieres que se escriba desde tu perfil ni desde el de tu equipo: el canal funciona porque escribe una persona real.",
+      ],
+      steps: [
+        { title: "Cliente ideal y perfil", desc: "A quién escribimos y por qué, y el perfil de quien envía preparado: titular, extracto y publicaciones que expliquen qué hace la empresa." },
+        { title: "Listas en Sales Navigator", desc: "Búsquedas guardadas por sector, tamaño, cargo y zona, que alimentan las campañas." },
+        { title: "Secuencias en Valley", desc: "Invitación y mensajes de seguimiento con volúmenes diarios prudentes, ritmo de persona y aprobación de los mensajes antes de enviarlos." },
+        { title: "CRM y ajuste", desc: "Las respuestas se clasifican y entran en GoHighLevel o HubSpot. Con los datos de las primeras semanas cambiamos el segmento o el mensaje que no acaba en reunión." },
+      ],
+      timeline:
+        "Depende de si hay que preparar el perfil y de cuántos segmentos se lancen. Te lo damos por escrito en la consultoría gratuita. A diferencia del email en frío, no hay buzones que calentar.",
+      priceNote:
+        "Precio cerrado según el número de perfiles y de segmentos, que te damos en la consultoría gratuita. Sales Navigator y Valley van a nombre de tu empresa y se pagan directamente al proveedor.",
+      faqs: [
+        {
+          q: "¿Me pueden restringir la cuenta de LinkedIn?",
+          a: "Puede pasar, y te lo decimos antes de empezar. El Acuerdo de usuario de LinkedIn (apartado 8.2) prohíbe usar software o scripts para extraer perfiles y datos, y usar bots u otros métodos automatizados no autorizados para añadir contactos o enviar mensajes; LinkedIn se reserva el derecho a restringir, suspender o cerrar la cuenta de quien lo incumpla (apartado 3.4). Para reducir ese riesgo trabajamos con volúmenes diarios prudentes, ritmo de persona, búsquedas en Sales Navigator, que es la herramienta de LinkedIn, y mensajes personalizados que alguien revisa antes de salir. Aun así, cualquier herramienta de automatización de terceros tiene riesgo, y la decisión de usarla es tuya.",
+        },
+        {
+          q: "¿Desde qué perfil se escribe?",
+          a: "Desde el tuyo o el de quien vende en tu equipo. Es lo que hace que la gente conteste: ve a una persona real de una empresa real. Por eso preparamos el perfil antes de enviar nada.",
+        },
+        {
+          q: "¿Necesito Sales Navigator?",
+          a: "Es lo que recomendamos. Es la herramienta de búsqueda de LinkedIn para ventas, con filtros por sector, tamaño, cargo y zona que la búsqueda normal no tiene. La licencia va a nombre de quien envía.",
+        },
+        {
+          q: "¿En qué se diferencia de la prospección autónoma?",
+          a: "La prospección autónoma combina email y LinkedIn, con scoring de empresas y dominios aparte. Este servicio es solo LinkedIn: tiene sentido si tu comprador está ahí o si quieres empezar por un canal antes de montar el sistema completo.",
+        },
+        {
+          q: "¿Qué pasa con las respuestas?",
+          a: "Se clasifican (interesado, no ahora, no es la persona, no le interesa) y entran en GoHighLevel o HubSpot con la conversación. A quien tiene interés le llega el enlace para reservar reunión, y quien dice «no ahora» vuelve a la lista más adelante.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "LinkedIn outbound for B2B companies",
+      metaDescription:
+        "LinkedIn invitations and messages to decision-makers: profile ready, Sales Navigator searches, Valley sequences and every reply in your CRM.",
+      answer:
+        "LinkedIn outbound means writing to the decision-makers at the companies that fit you, with personalised invitations and messages and scheduled follow-up, from your own profile. We prepare the profile, find the people with Sales Navigator, build the sequences in Valley with messages a person reviews before they go out, and every reply lands in GoHighLevel or HubSpot with a link to book a meeting.",
+      outcomes: [
+        "Invitations and messages to the roles that decide, every week",
+        "A profile that explains what you do to anyone who visits it after the invitation",
+        "Every reply in your CRM, classified and with its next step",
+      ],
+      flow: [
+        { label: "Search", text: "Sales Navigator finds the roles that fit at the target companies." },
+        { label: "Invitation", text: "An invitation goes out with a short note about their company." },
+        { label: "Messages", text: "If they accept, they get spaced-out messages; if they reply, the sequence stops." },
+        { label: "Meeting", text: "The reply lands in your CRM and anyone interested books a meeting." },
+      ],
+      fit: [
+        "You sell B2B and your buyer is a specific role that uses LinkedIn.",
+        "You already write on LinkedIn by hand and the week is too short to do it consistently.",
+        "You want a prospecting channel without setting up email domains or inboxes.",
+      ],
+      notFit: [
+        "You sell to consumers: LinkedIn is for talking to professionals.",
+        "You don't want messages sent from your profile or your team's: the channel works because a real person is writing.",
+      ],
+      steps: [
+        { title: "Ideal customer and profile", desc: "Who we write to and why, and the sender's profile ready: headline, summary and posts that explain what the company does." },
+        { title: "Sales Navigator lists", desc: "Saved searches by industry, size, role and region that feed the campaigns." },
+        { title: "Valley sequences", desc: "Invitation and follow-up messages with careful daily volumes, a human pace and messages approved before they are sent." },
+        { title: "CRM and tuning", desc: "Replies are classified and go into GoHighLevel or HubSpot. With the data from the first weeks we change the segment or message that does not end in meetings." },
+      ],
+      timeline:
+        "It depends on whether the profile needs work and how many segments are launched. We give it to you in writing in the free consultation. Unlike cold email, there are no inboxes to warm up.",
+      priceNote:
+        "A fixed price based on the number of profiles and segments, which we give you in the free consultation. Sales Navigator and Valley are in your company's name and paid directly to the provider.",
+      faqs: [
+        {
+          q: "Can my LinkedIn account be restricted?",
+          a: "It can happen, and we tell you before we start. LinkedIn's User Agreement (section 8.2) prohibits using software or scripts to scrape profiles and data, and using bots or other unauthorised automated methods to add contacts or send messages; LinkedIn reserves the right to restrict, suspend or terminate the account of anyone who breaches it (section 3.4). To reduce that risk we work with careful daily volumes, a human pace, searches in Sales Navigator, which is LinkedIn's own tool, and personalised messages someone reviews before they go out. Even so, any third-party automation tool carries risk, and the decision to use it is yours.",
+        },
+        {
+          q: "Which profile are messages sent from?",
+          a: "Yours, or that of whoever sells in your team. That is what makes people reply: they see a real person from a real company. That is why we prepare the profile before anything is sent.",
+        },
+        {
+          q: "Do I need Sales Navigator?",
+          a: "It is what we recommend. It is LinkedIn's search tool for sales, with filters by industry, size, role and region that normal search lacks. The licence is in the sender's name.",
+        },
+        {
+          q: "How is it different from autonomous prospecting?",
+          a: "Autonomous prospecting combines email and LinkedIn, with company scoring and separate domains. This service is LinkedIn only: it makes sense if your buyer is there or if you want to start with one channel before building the full system.",
+        },
+        {
+          q: "What happens to replies?",
+          a: "They are classified (interested, not now, wrong person, not interested) and go into GoHighLevel or HubSpot with the conversation. Interested people get the link to book a meeting, and \"not now\" replies go back on the list later on.",
+        },
+      ],
+    },
+  },
+
+  "cold-calling": {
+    price: "quote",
+    posts: [
+      "prospeccion-b2b-outbound-con-ia",
+      "rgpd-y-automatizacion-con-ia",
+      "ai-act-chatbot-decir-que-es-ia",
+      "vapi-vs-retell",
+    ],
+    es: {
+      seoTitle: "Cold calling B2B: llamadas en frío con CRM",
+      metaDescription:
+        "Llamadas en frío a empresas con lista cruzada con la Lista Robinson, guiones por segmento, marcador y cada llamada registrada en GoHighLevel o HubSpot.",
+      answer:
+        "El cold calling B2B es llamar a empresas que no te conocen para abrir una conversación con quien decide. Lo montamos conectado a tu CRM, GoHighLevel o HubSpot: listas de empresas y cargos cruzadas con los sistemas de exclusión publicitaria, guiones por segmento, bloques de llamadas con marcador y cada llamada registrada con su resultado. La IA resume las llamadas y, solo donde la ley lo permite, llama un agente de voz que avisa de que es una IA.",
+      outcomes: [
+        "Quien llama tiene la lista, el guion y el historial en una sola pantalla",
+        "Cada llamada registrada en el CRM con su resultado y su siguiente paso",
+        "Ningún interesado sin seguimiento: la reunión o la tarea se crean al colgar",
+      ],
+      flow: [
+        { label: "Lista", text: "Empresas y cargos que encajan, con teléfono y sin quien está en los sistemas de exclusión." },
+        { label: "Bloque", text: "Quien llama marca desde el CRM con el guion de su segmento delante." },
+        { label: "Registro", text: "Al colgar, el resultado queda en la ficha con un resumen de la conversación." },
+        { label: "Siguiente paso", text: "Si hay interés, se agenda la reunión; si no, el CRM programa la siguiente llamada o el correo." },
+      ],
+      fit: [
+        "Vendes B2B con un ticket que justifica una conversación por teléfono.",
+        "Tu comprador contesta antes al teléfono que al email o a LinkedIn.",
+        "Ya llamáis, pero sin una lista ordenada, sin guion y sin registro de lo que pasa en cada llamada.",
+      ],
+      notFit: [
+        "Quieres llamar a particulares que no te conocen: la ley lo restringe desde 2023 y este servicio es para B2B.",
+        "Todavía no sabes a quién vendes ni qué le ofreces: primero eso, después la lista.",
+      ],
+      steps: [
+        { title: "Cliente ideal y lista", desc: "Empresas y cargos que encajan, con teléfono de contacto profesional verificado y cruzados con los sistemas de exclusión publicitaria antes de llamar." },
+        { title: "Guion y objeciones", desc: "Una apertura que dice quién llama y para qué, preguntas para cualificar y respuestas a las objeciones habituales de cada segmento." },
+        { title: "Marcador y CRM", desc: "El marcador del propio CRM o uno externo conectado, los resultados de llamada configurados y las tareas y reuniones que se crean solas según el resultado." },
+        { title: "Bloques y medida", desc: "Llamadas en bloques fijos de tiempo y un panel con llamadas, conversaciones, reuniones y ventas por segmento y por guion." },
+      ],
+      timeline:
+        "Depende del tamaño de la lista y de si hay que montar el CRM o solo conectarlo. Te lo damos por escrito en la consultoría gratuita, antes de empezar.",
+      priceNote:
+        "Precio cerrado según el alcance, que te damos en la consultoría gratuita. Las líneas, el marcador y las bases de datos de contactos van a nombre de tu empresa y se pagan directamente al proveedor.",
+      faqs: [
+        {
+          q: "¿Es legal hacer llamadas en frío a empresas en España?",
+          a: "Sí, con condiciones. Desde el 29 de junio de 2023, el artículo 66.1.b de la Ley 11/2022 General de Telecomunicaciones reconoce el derecho a no recibir llamadas comerciales no deseadas, salvo que haya consentimiento previo u otra base legal del RGPD, que en la práctica es el interés legítimo. La Circular 1/2023 de la AEPD presume lícito llamar a personas que trabajan en una empresa, a autónomos y a profesionales cuando la llamada tiene que ver con su actividad profesional (artículo 19 de la LOPDGDD), pero pide ponderar ese interés legítimo antes de empezar, consultar los sistemas de exclusión publicitaria, como la Lista Robinson (artículo 23 de la LOPDGDD), y al inicio de cada llamada decir quién llama, que es una llamada comercial y que la persona puede oponerse. Si dice que no, no se la vuelve a llamar. Si tu sector es sensible, revísalo con tu asesor legal.",
+        },
+        {
+          q: "¿Puede llamar un agente de IA?",
+          a: "Solo en casos concretos. El artículo 66.1.a de la misma ley exige consentimiento previo para las llamadas comerciales automáticas sin intervención humana, así que un agente de voz no hace llamadas comerciales en frío. Lo usamos para llamar a quien lo ha pedido, por ejemplo un lead que deja su teléfono en un formulario, para confirmar citas o para atender las llamadas que entran. Además, desde el 2 de agosto de 2026 el artículo 50 del Reglamento europeo de IA obliga a informar a la persona de que habla con una IA, de forma clara y a más tardar en la primera interacción, así que el agente lo dice al empezar. Lo montamos en Vapi.",
+        },
+        {
+          q: "¿Se graban las llamadas?",
+          a: "Se puede, y la Circular 1/2023 de la AEPD cita la grabación como forma de demostrar que la llamada cumple la normativa. Si se graba, se avisa al empezar. Con la grabación, la IA transcribe y resume la llamada en la ficha del contacto.",
+        },
+        {
+          q: "¿De dónde salen los teléfonos?",
+          a: "De tus propios contactos y de bases de datos de empresas y herramientas de enriquecimiento como Clay. Se verifican antes de llamar para no perder bloques en números que no existen, y se cruzan con los sistemas de exclusión publicitaria.",
+        },
+        {
+          q: "¿En qué se diferencia de la prospección autónoma?",
+          a: "La prospección autónoma escribe por email y LinkedIn sin que nadie intervenga. El cold calling necesita a una persona al teléfono y encaja cuando tu comprador contesta antes una llamada que un mensaje. Se pueden combinar: llamar a las empresas que ya han contestado un correo o aceptado una invitación.",
+        },
+      ],
+    },
+    en: {
+      seoTitle: "B2B cold calling with every call in your CRM",
+      metaDescription:
+        "Cold calls to companies with lists checked against Spain's opt-out registers, scripts per segment, a dialler and every call logged in GoHighLevel or HubSpot.",
+      answer:
+        "B2B cold calling means calling companies that don't know you to open a conversation with the decision-maker. We build it connected to your CRM, GoHighLevel or HubSpot: lists of companies and roles checked against advertising opt-out registers, scripts per segment, call blocks with a dialler and every call logged with its outcome. AI summarises the calls and, only where the law allows it, a voice agent calls and says it is an AI.",
+      outcomes: [
+        "The caller has the list, the script and the history on one screen",
+        "Every call logged in the CRM with its outcome and next step",
+        "No interested prospect left without follow-up: the meeting or task is created on hang-up",
+      ],
+      flow: [
+        { label: "List", text: "Companies and roles that fit, with phone numbers and without anyone on the opt-out registers." },
+        { label: "Block", text: "The caller dials from the CRM with the script for their segment in front of them." },
+        { label: "Log", text: "On hang-up, the outcome is saved on the record with a summary of the conversation." },
+        { label: "Next step", text: "If there is interest, the meeting is booked; if not, the CRM schedules the next call or email." },
+      ],
+      fit: [
+        "You sell B2B with a deal size that justifies a phone conversation.",
+        "Your buyer picks up the phone sooner than they answer email or LinkedIn.",
+        "You already call, but without an ordered list, a script or a record of what happens on each call.",
+      ],
+      notFit: [
+        "You want to call consumers who don't know you: Spanish law restricts it since 2023 and this service is for B2B.",
+        "You don't yet know who you sell to or what you offer: that first, the list later.",
+      ],
+      steps: [
+        { title: "Ideal customer and list", desc: "Companies and roles that fit, with verified business contact numbers, checked against the advertising opt-out registers before calling." },
+        { title: "Script and objections", desc: "An opening that says who is calling and why, questions to qualify and answers to each segment's usual objections." },
+        { title: "Dialler and CRM", desc: "The CRM's own dialler or an external one connected to it, call outcomes set up, and tasks and meetings created automatically from each outcome." },
+        { title: "Blocks and measurement", desc: "Calls in fixed time blocks and a dashboard with calls, conversations, meetings and sales by segment and script." },
+      ],
+      timeline:
+        "It depends on the size of the list and whether the CRM has to be built or only connected. We give it to you in writing in the free consultation, before we start.",
+      priceNote:
+        "A fixed price based on scope, which we give you in the free consultation. Phone lines, the dialler and contact databases are in your company's name and paid directly to the provider.",
+      faqs: [
+        {
+          q: "Is cold calling companies legal in Spain?",
+          a: "Yes, with conditions. Since 29 June 2023, article 66.1.b of Spain's General Telecommunications Law (Ley 11/2022) gives people the right not to receive unwanted commercial calls unless there is prior consent or another legal basis under the GDPR, which in practice means legitimate interest. Circular 1/2023 of the Spanish data protection authority (AEPD) presumes it lawful to call people who work at a company, the self-employed and professionals when the call concerns their professional activity (article 19 of the LOPDGDD), but requires weighing that legitimate interest before starting, checking the advertising opt-out registers such as the Lista Robinson (article 23 of the LOPDGDD), and, at the start of every call, saying who is calling, that it is a sales call and that the person can object. If they say no, they are not called again. If your sector is sensitive, check it with your legal adviser.",
+        },
+        {
+          q: "Can an AI agent make the calls?",
+          a: "Only in specific cases. Article 66.1.a of the same law requires prior consent for automated commercial calls without human intervention, so a voice agent does not make cold sales calls. We use it to call people who asked for it, such as a lead who leaves their number on a form, to confirm appointments or to answer incoming calls. In addition, from 2 August 2026 article 50 of the EU AI Act requires telling people they are talking to an AI, clearly and at the latest at the first interaction, so the agent says so at the start. We build it on Vapi.",
+        },
+        {
+          q: "Are calls recorded?",
+          a: "They can be, and the AEPD's Circular 1/2023 cites recording as a way to show the call complies with the rules. If a call is recorded, the person is told at the start. With the recording, AI transcribes and summarises the call on the contact's record.",
+        },
+        {
+          q: "Where do the phone numbers come from?",
+          a: "From your own contacts and from company databases and enrichment tools such as Clay. They are verified before calling so blocks are not wasted on numbers that don't exist, and checked against the advertising opt-out registers.",
+        },
+        {
+          q: "How is it different from autonomous prospecting?",
+          a: "Autonomous prospecting writes by email and LinkedIn with no one involved. Cold calling needs a person on the phone and fits when your buyer picks up a call sooner than they answer a message. They can be combined: calling the companies that have already replied to an email or accepted an invitation.",
         },
       ],
     },

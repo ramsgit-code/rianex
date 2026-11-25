@@ -20,6 +20,20 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       no vendes (creación de sitios web, email marketing). «Destaca tu mejor
       trabajo» pide 3 trabajos por categoría: no se rellena sin proyectos
       reales.
+- [ ] **Validar los cuatro servicios de canal (25-nov)**: `/servicios/creacion-de-webs`,
+      `/servicios/email-marketing`, `/servicios/outbound-linkedin` y
+      `/servicios/cold-calling`, en el grupo nuevo «Canales de captación» de
+      /servicios y de la portada. Sin casos, sin plazos y sin precio publicado
+      (se da en la consultoría). Revisar lo que prometen: Next.js en Vercel o
+      embudos de GoHighLevel, cambios en Next.js con el mantenimiento
+      mensual, que ningún correo nuevo sale sin revisión, mensajes de LinkedIn
+      aprobados antes de enviar en Valley, quién hace las llamadas (la ficha
+      no lo dice), marcador del CRM, grabación y resumen con IA, y que el
+      agente de voz no hace llamadas comerciales en frío. Las FAQ legales
+      (LGTel art. 66, Circular 1/2023 de la AEPD, LOPDGDD arts. 19 y 23, LSSI
+      art. 21, Reglamento de IA art. 50, Acuerdo de usuario de LinkedIn 8.2
+      y 3.4) están comprobadas en la fuente el 25-nov. El formulario de
+      diagnóstico no tiene opción para estos servicios.
 - [ ] **Validar las dos páginas de sector nuevas (25-nov)**:
       `/soluciones/inmobiliarias` y `/soluciones/negocios-con-cita`. No tienen
       caso propio y lo dicen sin inventar cifras, pero prometen cosas que
@@ -248,8 +262,7 @@ Pendiente de la auditoría del 25-nov (segunda tanda), por impacto:
       `sameAs`. `contactPoint` ya está.
 - [ ] **Menores**: `/testimonios` (282 palabras) y `/soluciones` (341) son
       finas, 13 artículos sin `updated`.
-- [ ] **Revisar con calma (25-nov), salió al buscar fuentes**: el agente
-      de Tribeca usa GPT Image 2, que OpenAI marca ya como obsoleto; la
+- [ ] **Revisar con calma (25-nov), salió al buscar fuentes**: la
       llamada por WhatsApp de GoHighLevel (artículo del agente de voz) sigue
       en beta y pide que el número no use Coexistence y un límite de 2.000
       conversaciones; «es la automatización con mejor retorno» (clínicas) y
@@ -338,13 +351,30 @@ Por orden de impacto:
 
 ## Hecho
 
+- 2026-11-25 · Quinta tanda, a petición de Ramiro. **Cuatro servicios
+  nuevos** en ES y EN: creación de webs, email marketing, outbound en
+  LinkedIn y cold calling B2B, en un grupo nuevo «Canales de captación» de
+  `/servicios` y la home, sin precio ni plazo publicados, con FAQ legales
+  contrastadas en el BOE (Ley 11/2022 art. 66, Circular 1/2023 de la AEPD,
+  LOPDGDD arts. 19 y 23, LSSI art. 21, AI Act art. 50) y en las condiciones
+  de uso de LinkedIn. Opción nueva en el formulario («Captar clientes: web,
+  email, LinkedIn o llamadas»), antes de «Otro». **Fuentes locales**:
+  Archivo y JetBrains Mono se sirven desde `src/fonts` (mismos ficheros que
+  daba Google), así que el build ya no depende de Google Fonts. **Sortlist**:
+  descripción y habilidades en Growth Marketing (LinkedIn, telemarketing,
+  llamadas salientes, generación de leads B2B), Email Marketing y Creación
+  de Sitios Web; Sortlist no tiene categorías propias de LinkedIn ni de
+  llamadas.
+
 - 2026-11-25 · **«Propuestas comerciales»**: `/blog/propuestas-comerciales-automaticas`
   con title y H1 «Propuestas comerciales automáticas con IA: hazlas en
   minutos», description nueva, sección de partes de la propuesta (qué genera
   la IA y qué revisa una persona), flujo paso a paso, CTA al diagnóstico a
   mitad y al final, enlace al servicio de generador de propuestas y enlaces
   contextuales desde los artículos de GTM engineering y de Clay/Treg/ColdIQ.
-  Pendiente: medir posición de "propuestas comerciales" en 2-3 semanas.
+  Pendiente: medir posición de "propuestas comerciales" en 2-3 semanas, y
+  actualizar su traducción (`src/content/blog-en/propuestas-comerciales-automaticas.mdx`),
+  que se quedó con la versión anterior.
 - 2026-11-25 · Cuarta tanda. **Cifra sin fuente fuera**: el «30-60% de
   fuga» (dos artículos, la página de academias, la ficha de automatización y
   la calculadora) y el «cinco a diez veces el ahorro de horas» no tenían

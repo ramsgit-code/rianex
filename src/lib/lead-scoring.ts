@@ -8,6 +8,8 @@ export type LeadTier = "cold" | "warm" | "hot" | "premium";
 // por posicion en las dos listas. El 9 es el control con camaras e IA y el
 // 10, la IA selectiva.
 const OBJETIVOS_AUTOMATIZACION = new Set<string>(
+  // Índices de opts.objetivo; «Captar clientes» (11) no es automatización y
+  // no suma: la opción nueva va siempre antes de «Otro», que es la última.
   [0, 1, 5, 6, 9, 10].flatMap((i) => [formContent.es.opts.objetivo[i], formContent.en.opts.objetivo[i]])
 );
 

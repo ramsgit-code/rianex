@@ -1,4 +1,4 @@
-import { Archivo, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { PublicLayout } from "@/components/PublicLayout";
 import type { Lang } from "@/lib/i18n";
 
@@ -7,18 +7,26 @@ import type { Lang } from "@/lib/i18n";
 // se corregia al hidratar, que es tarde para los rastreadores que no ejecutan
 // JavaScript. Los dos montan este mismo documento.
 
+// Las fuentes se sirven desde el repositorio (src/fonts, subconjunto latino
+// de Google Fonts, licencia OFL). Antes se descargaban de Google en cada
+// build con next/font/google, y cuando Google no respondia el despliegue
+// fallaba entero ("An error occurred in next/font").
+
 // Archivo con eje de anchura: condensada para los rótulos (titulares) y
 // normal para el texto, una sola familia como la señalética de una planta.
-const archivo = Archivo({
-  subsets: ["latin"],
-  axes: ["wdth"],
+const archivo = localFont({
+  src: "../fonts/archivo-latin-variable.woff2",
+  weight: "100 900",
+  style: "normal",
+  declarations: [{ prop: "font-stretch", value: "62% 125%" }],
   variable: "--font-archivo",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["500", "600"],
+const jetbrainsMono = localFont({
+  src: "../fonts/jetbrains-mono-latin-variable.woff2",
+  weight: "500 600",
+  style: "normal",
   variable: "--font-mono",
   display: "swap",
 });
