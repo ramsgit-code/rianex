@@ -25,9 +25,7 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
         con la auditoría (3 críticos, 9 altos, 6 medios; 64 % y 73 %);
         Growth4U con sus clientes sin nombre; Hospital Capilar sin el −32 %
         y sin su cita (la cita decía que bajó el coste por paciente).
-      - **Nissan en `/sobre-mi`** con sus cifras (3 M€, −5 %, entregas a
-        tiempo >95 %, 20+ responsables): mira la política de Nissan sobre
-        redes y webs comerciales.
+      - **Nissan**: se nombra el puesto, nunca cifras (decisión del 25-nov).
       - **Servicio de software a medida** y **página de industria y
         logística** (sin caso industrial propio todavía: se apoya en tu
         trayectoria).
@@ -415,7 +413,9 @@ Por orden de impacto:
   reescritos** con lo que dicen los documentos; fuera el −32 % de Hospital
   Capilar y el −85 % de Eventos Barcelona en toda la web, el blog y el chat
   (sin documento que los respalde). **`/sobre-mi`** con la trayectoria
-  (Nissan, UCAV, Michelin, Busch) y Person con ocupaciones y formación.
+  (Nissan, UCAV, Michelin, Busch) y Person con ocupaciones y formación. El
+  mismo día, a petición de Ramiro, fuera todas las cifras de Nissan (web,
+  textos de LinkedIn y base del bot): solo se nombra el puesto.
 
 - 2026-11-25 · Séptima tanda (claude-seo, segunda parte), a petición de
   Ramiro. (1) **Títulos cortos**: campo `seoTitle` opcional en el

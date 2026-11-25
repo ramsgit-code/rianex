@@ -2,8 +2,8 @@ import type { Lang } from "@/lib/i18n";
 
 // Trayectoria de Ramiro para /sobre-mi y el JSON-LD de la persona. Sale de
 // sus textos de LinkedIn (linkedin/linkedin-experience-pro-en.md y
-// textos-linkedin-es.md); publicar Nissan y sus cifras lo autorizó él el
-// 25-nov-2026. No añadir nada que no esté en esos textos.
+// textos-linkedin-es.md). Nissan se puede nombrar, pero SIN cifras (decisión
+// de Ramiro del 25-nov-2026). No añadir nada que no esté en esos textos.
 
 export type Puesto = { org: string; role: string; desc: string };
 
@@ -15,7 +15,7 @@ export const TRAYECTORIA: Record<Lang, { title: string; lead: string; items: Pue
       {
         org: "Nissan",
         role: "Business Analyst y jefe de proyecto · Transformación digital de la cadena de suministro",
-        desc: "Coordino la migración del ERP entre logística, calidad, ingeniería y producción, y he definido los requisitos y especificaciones funcionales del ERP interno con un equipo técnico externo. He gestionado un presupuesto de logística de entrada de 3 M€ con más de 100 proveedores (−5 % de coste y entregas a tiempo por encima del 95 %) y cuadros de mando para más de 20 responsables en España, Reino Unido y Estados Unidos.",
+        desc: "Coordino la migración del ERP entre logística, calidad, ingeniería y producción, y he definido los requisitos y especificaciones funcionales del ERP interno con un equipo técnico externo. También he gestionado la logística de entrada con proveedores internacionales y he montado cuadros de mando para responsables de España, Reino Unido y Estados Unidos.",
       },
       {
         org: "Universidad Católica de Ávila (UCAV)",
@@ -49,7 +49,7 @@ export const TRAYECTORIA: Record<Lang, { title: string; lead: string; items: Pue
       {
         org: "Nissan",
         role: "Business Analyst and Project Manager · Supply chain digital transformation",
-        desc: "I coordinate the ERP migration across logistics, quality, engineering and production, and defined the requirements and functional specs for the internal ERP with an external tech team. I have managed a €3M inbound logistics budget with 100+ suppliers (−5% cost and on-time delivery above 95%) and KPI dashboards for 20+ stakeholders in Spain, the UK and the US.",
+        desc: "I coordinate the ERP migration across logistics, quality, engineering and production, and defined the requirements and functional specs for the internal ERP with an external tech team. I have also managed inbound logistics with international suppliers and built KPI dashboards for managers in Spain, the UK and the US.",
       },
       {
         org: "Universidad Católica de Ávila (UCAV)",

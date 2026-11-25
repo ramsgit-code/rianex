@@ -310,7 +310,7 @@ export const OFERTAS: Oferta[] = [
       ],
       timeline: "2-4 semanas",
       proof:
-        "Detrás hay un ingeniero industrial que coordina la migración del ERP de la cadena de suministro de Nissan y ha hecho cuadros de mando para más de 20 responsables en España, Reino Unido y EE. UU.",
+        "Detrás hay un ingeniero industrial que coordina la migración del ERP de la cadena de suministro de Nissan, con cuadros de mando para responsables en varios países.",
       links: [{ label: "Quién está detrás", href: "/sobre-mi" }],
     },
     en: {
@@ -328,7 +328,7 @@ export const OFERTAS: Oferta[] = [
       ],
       timeline: "2-4 weeks",
       proof:
-        "Behind it is an industrial engineer who coordinates the ERP migration in Nissan's supply chain and has built dashboards for more than 20 managers in Spain, the UK and the US.",
+        "Behind it is an industrial engineer who coordinates the ERP migration in Nissan's supply chain, with dashboards for managers in several countries.",
       links: [{ label: "Who is behind it", href: "/sobre-mi" }],
     },
   },
