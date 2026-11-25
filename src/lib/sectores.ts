@@ -825,7 +825,7 @@ export const SECTORES: Record<string, Sector> = {
         },
         {
           q: "¿Qué cambia que el fundador venga de la industria?",
-          a: "Que conocemos el proceso antes de hablar de IA. Ramiro Pérez Rodero es ingeniero industrial y coordina la migración del ERP en la cadena de suministro de Nissan, donde ha llevado un presupuesto de logística de entrada de 3 M€ con más de 100 proveedores y cuadros de mando para más de 20 responsables en España, Reino Unido y Estados Unidos. En Michelin redujo un 6 % el tiempo de ciclo con simulación, y es profesor de Industria 4.0 en el máster de la UCAV. Es su trayectoria: Nissan y Michelin no son clientes de Rianex.",
+          a: "Que conocemos el proceso antes de hablar de IA. Ramiro Pérez Rodero es ingeniero industrial y coordina la migración del ERP en la cadena de suministro de Nissan, donde también ha montado cuadros de mando para responsables en varios países. En Michelin redujo un 6 % el tiempo de ciclo con simulación, y es profesor de Industria 4.0 en el máster de la UCAV. Es su trayectoria: Nissan y Michelin no son clientes de Rianex.",
         },
       ],
     },
@@ -884,7 +884,7 @@ export const SECTORES: Record<string, Sector> = {
         },
         {
           q: "What difference does the founder's industrial background make?",
-          a: "We understand the process before talking about AI. Ramiro Pérez Rodero is an industrial engineer who coordinates the ERP migration in Nissan's supply chain, where he has handled a €3M inbound logistics budget with more than 100 suppliers and built dashboards for more than 20 managers in Spain, the UK and the US. At Michelin he cut cycle time by 6 % through simulation, and he teaches Industry 4.0 on the UCAV master's programme. This is his background: Nissan and Michelin are not Rianex clients.",
+          a: "We understand the process before talking about AI. Ramiro Pérez Rodero is an industrial engineer who coordinates the ERP migration in Nissan's supply chain, where he has also built dashboards for managers in several countries. At Michelin he cut cycle time by 6 % through simulation, and he teaches Industry 4.0 on the UCAV master's programme. This is his background: Nissan and Michelin are not Rianex clients.",
         },
       ],
     },
