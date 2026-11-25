@@ -1,6 +1,6 @@
 ---
-title: "Propuestas comerciales en 8 minutos: cómo lo hago"
-description: "De 3 días a 8 minutos por propuesta. El sistema que implementé para una empresa de eventos con GoHighLevel y generación automática de documentos."
+title: "Propuestas comerciales automáticas con IA: hazlas en minutos"
+description: "Propuestas comerciales automáticas: menos tiempo por propuesta y sin errores de copiar y pegar. Así se monta y te lo analizamos en un diagnóstico gratis."
 date: "2026-04-08"
 updated: "2026-11-25"
 tags: ["propuestas", "automatización", "gohighlevel"]
@@ -11,7 +11,21 @@ draft: false
 
 El cliente pide presupuesto. Tu equipo lo apunta. Alguien se pone a preparar la propuesta cuando tiene tiempo. La envía dos días después. Para entonces, el cliente ya recibió la propuesta de tres competidores y probablemente eligió a quien respondió antes.
 
-Este es el ciclo exacto que tenía Eventos Barcelona cuando empezamos a trabajar juntos.
+Este es el ciclo exacto que tenía Eventos Barcelona cuando empezamos a trabajar juntos. Con **propuestas comerciales automáticas con IA** el comercial deja de maquetar documentos y de copiar datos de un sitio a otro, que es donde se cuelan los errores. Aquí tienes cómo se monta.
+
+## Qué debe tener una propuesta comercial (y qué partes se pueden automatizar)
+
+Casi todas las propuestas comparten las mismas partes. Lo útil es saber cuáles puede preparar la IA a partir del CRM o de las notas de la llamada y cuáles debe revisar una persona antes de enviarlas:
+
+- **Resumen del problema del cliente.** La IA lo redacta a partir de las notas de la llamada y de la ficha del CRM. Una persona comprueba que refleja lo que el cliente dijo de verdad.
+- **Solución propuesta.** La IA la arma desde tu plantilla y tu catálogo de servicios, adaptada a lo que pidió el cliente. Una persona revisa que es lo que realmente quieres vender.
+- **Alcance.** Sale de los campos del formulario o del CRM (qué se incluye y qué no). Una persona valida que no se promete de más.
+- **Plazos.** Se rellenan con las fechas del CRM o del formulario. Una persona confirma que son viables.
+- **Precio.** El cálculo lo hace la plantilla con las variables del formulario y el margen aplicable, sin que nadie teclee cifras. Una persona lo revisa siempre: es la parte que no se envía sin ojos humanos.
+- **Condiciones.** Texto fijo de la plantilla (forma de pago, validez, cancelación). Solo se revisa cuando cambian.
+- **Siguiente paso.** El enlace para aceptar o reservar una llamada va en la plantilla, y el seguimiento lo lleva el CRM.
+
+La regla práctica: la IA y la plantilla preparan, la persona decide sobre precio, alcance y plazos.
 
 ## El problema real
 
@@ -37,13 +51,17 @@ En los siguientes 60 segundos el cliente recibe un email con el link a su propue
 
 **8 minutos desde el final de la llamada hasta que el cliente tiene la propuesta en el email.**
 
-## Cómo implementarlo paso a paso
+Si ya tienes claro que quieres este sistema, puedes pedir el [diagnóstico gratuito](/diagnostico) y vemos qué parte de tus propuestas se automatiza primero. La versión de servicio, con lo que incluye, está en el [generador automático de propuestas comerciales](/servicios/generador-de-propuestas).
 
-- Diseña el formulario de intake post-llamada. Los campos que necesitas: información del cliente, detalles del servicio, variables que afectan al precio. Este formulario lo rellena el comercial, no el cliente.
-- Configura la generación automática de la propuesta. En GHL puedes hacer esto con [documentos dinámicos y custom fields](https://help.gohighlevel.com/support/solutions/articles/155000001301-how-to-create-and-send-document-or-contract-templates-automatically-in-a-workflow "follow"). Para más flexibilidad, un webhook que conecte con una [plantilla en Google Docs](https://developers.google.com/workspace/docs/api/how-tos/merge "follow") o un sistema de documentos propio.
-- Crea la página de propuesta personalizada. Una URL tipo `tuempresa.com/propuestas/nombre-empresa` con los datos del cliente, el desglose de servicios y el PDF descargable.
-- Automatiza el envío y el seguimiento. Email automático al enviar, tracking de apertura, recordatorio si no hay respuesta, notificación al comercial si hay interacción.
-- Conecta todo en el [pipeline de GHL](https://help.gohighlevel.com/support/solutions/articles/155000001982-understanding-pipelines "follow"). La propuesta aparece en el pipeline del deal con su estado: enviada, abierta, en negociación, aceptada, rechazada.
+## Cómo automatizar tus propuestas comerciales paso a paso
+
+El flujo tiene cinco pasos: datos del CRM o de la reunión, plantilla, generación con IA, revisión y envío con seguimiento.
+
+- **Datos del CRM o de la reunión.** Diseña el formulario de intake post-llamada: información del cliente, detalles del servicio y variables que afectan al precio. Lo rellena el comercial, no el cliente, o se alimenta de la ficha del CRM y de las notas de la llamada.
+- **Plantilla.** Prepara la propuesta con las partes fijas (condiciones, siguiente paso) y los huecos que se rellenan con los datos. En GHL puedes hacerlo con [documentos dinámicos y custom fields](https://help.gohighlevel.com/support/solutions/articles/155000001301-how-to-create-and-send-document-or-contract-templates-automatically-in-a-workflow "follow"). Para más flexibilidad, un webhook que conecte con una [plantilla en Google Docs](https://developers.google.com/workspace/docs/api/how-tos/merge "follow") o un sistema de documentos propio.
+- **Generación con IA.** Al enviar el formulario, un webhook genera la propuesta: la plantilla se rellena con los datos y la IA redacta el resumen del problema y la solución. El resultado es una página con URL propia, como `tuempresa.com/propuestas/nombre-empresa`, con el desglose de servicios y el PDF descargable.
+- **Revisión.** Una persona revisa precio, alcance y plazos antes de que salga nada. Es la parte que no se automatiza del todo, a propósito.
+- **Envío con seguimiento.** Email automático al cliente, tracking de apertura, recordatorio si no hay respuesta y aviso al comercial si hay interacción. Todo queda en el [pipeline de GHL](https://help.gohighlevel.com/support/solutions/articles/155000001982-understanding-pipelines "follow") con su estado: enviada, abierta, en negociación, aceptada, rechazada.
 
 La implementación completa lleva entre 3 y 4 semanas dependiendo de la complejidad del catálogo de servicios.
 
