@@ -8,6 +8,9 @@ import { localizePath, type Lang } from "@/lib/i18n";
 import { getSector } from "@/lib/sectores";
 import { getPost } from "@/lib/blog";
 import { RAMIRO, SITE_URL } from "@/lib/seo";
+import { LASTMOD } from "@/lib/lastmod";
+import { fuentesSector } from "@/lib/fuentes";
+import { PageSources } from "@/components/PageSources";
 
 // Pagina de un sector. Componente de servidor por lo mismo que la de cada
 // servicio: el texto tiene que estar en el HTML que leen los rastreadores.
@@ -17,26 +20,26 @@ const LABELS = {
     home: "Inicio",
     back: "Todos los sectores",
     answer: "En resumen",
-    timeline: "Plazo",
+    timeline: "¿Cuánto tarda?",
     caseLabel: "Caso real",
     challenge: "Reto",
     solution: "Solución",
     readCase: "Leer el caso completo",
     faq: "Preguntas frecuentes",
-    services: "Servicios que lo resuelven",
+    services: "¿Qué servicios lo resuelven?",
     guides: "Guías relacionadas",
   },
   en: {
     home: "Home",
     back: "All sectors",
     answer: "In short",
-    timeline: "Timeline",
+    timeline: "How long does it take?",
     caseLabel: "Real case",
     challenge: "Challenge",
     solution: "Solution",
     readCase: "Read the full case study",
     faq: "Frequently asked questions",
-    services: "Services that solve it",
+    services: "Which services solve it?",
     guides: "Related guides",
   },
 } as const;
@@ -65,10 +68,26 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
     .filter((s) => s !== undefined);
   const posts = d.posts.map((s) => getPost(s, lang) ?? getPost(s)).filter((p) => p !== null);
 
-  const jsonLd = [
+  const fuentes = fuentesSector(slug, lang);
+  const jsonLd: Record<string, unknown>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": pageUrl,
+      url: pageUrl,
+      name: d.seoTitle,
+      description: d.metaDescription,
+      inLanguage: lang === "es" ? "es-ES" : "en",
+      dateModified: LASTMOD.soluciones,
+      mainEntity: { "@id": `${pageUrl}#servicio` },
+      ...(fuentes.length > 0 && {
+        citation: fuentes.map((f) => ({ "@type": "CreativeWork", name: f.label, url: f.url })),
+      }),
+    },
     {
       "@context": "https://schema.org",
       "@type": "Service",
+      "@id": `${pageUrl}#servicio`,
       name: d.h1,
       description: d.answer,
       url: pageUrl,
@@ -279,6 +298,7 @@ export function SectorView({ slug, lang }: { slug: string; lang: Lang }) {
             </Reveal>
           )}
 
+          <PageSources lang={lang} updated={LASTMOD.soluciones} sources={fuentes} />
         </div>
       </PageShell>
     </>

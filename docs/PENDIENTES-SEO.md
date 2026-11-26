@@ -275,6 +275,12 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
 
 ## Código
 
+- [ ] **Markdown para asistentes también en las fichas** (26-nov-2026). Hoy
+      solo los artículos tienen versión `.md` (`/blog/<slug>.md`). Servicios,
+      sectores, casos y /ofertas podrían tenerla con la misma ruta, generada
+      de `servicios.ts`, `sectores.ts`, `casos.ts` y `ofertas.ts`. Poco
+      urgente: `llms.txt` ya las resume y el HTML está entero en el servidor.
+
 - [ ] **Pedir indexación en GSC el 26-nov** de `/servicios/outbound-linkedin`
       y `/servicios/cold-calling` (y sus versiones `/en/`): el 25-nov se
       agotó el cupo diario tras pedir creación de webs y email marketing.
@@ -390,6 +396,23 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-26 · Repaso GEO de las 160 URLs del sitemap (respuesta directa,
+  preguntas en los H2, FAQ, fechas, autor, fuentes externas, cifras). El blog
+  ya cumplía; las páginas comerciales no tenían fecha ni fuentes. Cambios:
+  (1) línea «Actualizado el … por Ramiro Pérez Rodero» y `WebPage` con
+  `dateModified` en servicios, sectores, casos y /ofertas, con la fecha de
+  `src/lib/lastmod.ts`, que ahora comparten el sitemap, el JSON-LD y la
+  página; (2) bloque «Fuentes» y `citation` en las nueve fichas que citan
+  normas (cold calling, email marketing, outbound B2B y LinkedIn, agente de
+  WhatsApp, cámaras, formación, clínicas y negocios con cita), con el ancla
+  del artículo en el BOE, comprobadas el 26-nov (`src/lib/fuentes.ts`); sin
+  fuentes de adorno en el resto; (3) títulos de sección en forma de pregunta
+  en servicios, sectores y casos («¿Cuánto cuesta?», «¿Qué problema tenía
+  Eventos Barcelona?»); (4) /ofertas con una pregunta de precio y plazo por
+  oferta y su `FAQPage`, sacada de los mismos datos de las tarjetas;
+  (5) arreglos: el `dateModified` de los casos seguía en el 3-oct y el
+  lastmod de /sobre-mi en el 1-nov aunque se cambiaron el 25-nov.
 
 - 2026-11-25 · Repaso con claude-seo de las 160 URLs del sitemap tras el
   reposicionamiento. Las tres descripciones nuevas de casos en castellano

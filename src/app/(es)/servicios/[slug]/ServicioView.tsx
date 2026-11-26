@@ -11,6 +11,9 @@ import { CASOS, casoSlug } from "@/lib/casos";
 import { MANTENIMIENTO } from "@/lib/mantenimiento";
 import { getPost } from "@/lib/blog";
 import { SITE_URL } from "@/lib/seo";
+import { LASTMOD } from "@/lib/lastmod";
+import { fuentesServicio } from "@/lib/fuentes";
+import { PageSources } from "@/components/PageSources";
 
 // Pagina de un servicio. Componente de servidor a proposito: todo el texto
 // (respuesta directa, FAQ, metodo) tiene que estar en el HTML que leen los
@@ -31,19 +34,19 @@ const LABELS = {
     video: "Míralo en un minuto",
     videoDemo: "Demo con una llamada recreada en una clínica ficticia.",
     videoNote: "",
-    outcomes: "Qué consigues",
+    outcomes: "¿Qué consigues?",
     flow: "Así funciona",
     flowNote: "Ejemplo ilustrativo",
     uses: "Dónde se usa",
     useLink: "Ver cómo funciona",
-    problem: "El problema",
-    forWho: "Para quién",
-    includes: "Qué incluye",
+    problem: "¿Qué problema resuelve?",
+    forWho: "¿Para quién es?",
+    includes: "¿Qué incluye?",
     fit: "Encaja si…",
     notFit: "No encaja si…",
-    method: "Cómo lo hacemos",
-    timeline: "Plazo",
-    price: "Inversión",
+    method: "¿Cómo lo hacemos?",
+    timeline: "¿Cuánto tarda?",
+    price: "¿Cuánto cuesta?",
     priceNote: "El precio exacto se confirma en la consultoría gratuita, no antes.",
     cases: "Casos reales",
     challenge: "Reto",
@@ -62,19 +65,19 @@ const LABELS = {
     video: "Watch it in a minute",
     videoDemo: "Demo with a recreated call at a fictional clinic. Narrated in Spanish.",
     videoNote: "Narrated in Spanish.",
-    outcomes: "What you get",
+    outcomes: "What do you get?",
     flow: "How it works",
     flowNote: "Illustrative example",
     uses: "Where it is used",
     useLink: "See how it works",
-    problem: "The problem",
-    forWho: "Who it is for",
-    includes: "What is included",
+    problem: "What problem does it solve?",
+    forWho: "Who is it for?",
+    includes: "What is included?",
     fit: "A good fit if…",
     notFit: "Not a fit if…",
-    method: "How we do it",
-    timeline: "Timeline",
-    price: "Investment",
+    method: "How do we do it?",
+    timeline: "How long does it take?",
+    price: "How much does it cost?",
     priceNote: "The exact price is confirmed in the free consultation, not before.",
     cases: "Real cases",
     challenge: "Challenge",
@@ -135,10 +138,26 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
         ? c.pricing.tiers
         : [];
 
+  const fuentes = fuentesServicio(slug, lang);
   const jsonLd: Record<string, unknown>[] = [
     {
       "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": pageUrl,
+      url: pageUrl,
+      name: d.seoTitle,
+      description: d.metaDescription,
+      inLanguage: lang === "es" ? "es-ES" : "en",
+      dateModified: LASTMOD.servicios,
+      mainEntity: { "@id": `${pageUrl}#servicio` },
+      ...(fuentes.length > 0 && {
+        citation: fuentes.map((f) => ({ "@type": "CreativeWork", name: f.label, url: f.url })),
+      }),
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "Service",
+      "@id": `${pageUrl}#servicio`,
       name: base.title,
       description: d.answer,
       url: pageUrl,
@@ -566,6 +585,8 @@ export function ServicioView({ slug, lang }: { slug: string; lang: Lang }) {
               ))}
             </ul>
           </nav>
+
+          <PageSources lang={lang} updated={LASTMOD.servicios} sources={fuentes} />
         </div>
       </PageShell>
     </>

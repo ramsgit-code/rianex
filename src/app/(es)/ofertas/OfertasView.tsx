@@ -5,11 +5,14 @@ import { Reveal } from "@/components/Reveal";
 import { JsonLd } from "@/components/JsonLd";
 import { localizePath, type Lang } from "@/lib/i18n";
 import { ORGANIZATION_ID, SITE_URL } from "@/lib/seo";
+import { LASTMOD } from "@/lib/lastmod";
+import { PageSources } from "@/components/PageSources";
 import {
   LINEAS,
   ofertasDeLinea,
   precioCuota,
   precioProyecto,
+  precioTexto,
   rotuloPrecio,
   type Oferta,
   type ProofKind,
@@ -45,6 +48,10 @@ const LABELS = {
     closingCta: "Pide tu consultoría gratuita",
     services: "Ver todos los servicios",
     catalog: "Ofertas cerradas de Rianex",
+    faqTitle: "¿Cuánto cuesta y cuánto tarda cada oferta?",
+    faqQ: "{name}: ¿cuánto cuesta y cuánto tarda?",
+    faqPlazo: "Plazo",
+    faqFor: "Pensado para",
   },
   en: {
     home: "Home",
@@ -70,6 +77,10 @@ const LABELS = {
     closingCta: "Book your free consultation",
     services: "See all services",
     catalog: "Rianex fixed-price offers",
+    faqTitle: "How much does each offer cost and how long does it take?",
+    faqQ: "{name}: how much does it cost and how long does it take?",
+    faqPlazo: "Timeline",
+    faqFor: "Built for",
   },
 } as const;
 
@@ -147,7 +158,51 @@ function buildJsonLd(lang: Lang) {
     })),
   };
 
-  return [breadcrumb, catalog];
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: preguntas(lang).map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
+  const page = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": url,
+    url,
+    name: t.title,
+    inLanguage: lang === "en" ? "en" : "es-ES",
+    dateModified: LASTMOD.ofertas,
+    mainEntity: { "@id": `${url}#catalogo` },
+  };
+
+  return [page, breadcrumb, catalog, faq];
+}
+
+const capital = (x: string) => x.charAt(0).toUpperCase() + x.slice(1);
+// Minuscula inicial salvo siglas ("B2B", "IA"): no si le sigue otra mayuscula o un numero.
+const minuscula = (x: string) => (/^[A-ZÁÉÍÓÚ](?![A-Z0-9])/.test(x) ? x.charAt(0).toLowerCase() + x.slice(1) : x);
+
+/**
+ * Una pregunta por oferta con su precio, plazo y para quien: lo que se pregunta
+ * a un asistente («cuanto cuesta un clasificador de correo con IA»). Sale de
+ * los mismos datos que las tarjetas, sin texto nuevo.
+ */
+function preguntas(lang: Lang) {
+  const t = LABELS[lang];
+  return LINEAS.flatMap((linea) =>
+    ofertasDeLinea(linea.id).map((o) => {
+      const copy = o[lang];
+      return {
+        slug: o.slug,
+        q: t.faqQ.replace("{name}", copy.name),
+        a: `${capital(precioTexto(o, lang))}. ${t.faqPlazo}: ${minuscula(copy.timeline)}. ${t.faqFor} ${minuscula(copy.forWho)}`,
+      };
+    }),
+  );
 }
 
 function SmallTitle({ children }: { children: React.ReactNode }) {
@@ -322,6 +377,24 @@ export function OfertasView({ lang }: { lang: Lang }) {
             </section>
           ))}
 
+          <section>
+            <h2 className="font-display text-3xl font-extrabold uppercase leading-[0.95] text-foreground md:text-4xl">
+              {t.faqTitle}
+            </h2>
+            <div className="mt-6 flex flex-col divide-y divide-ink border-y-2 border-ink">
+              {preguntas(lang).map((f) => (
+                <div key={f.slug} className="py-5">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    <a href={`#${f.slug}`} className="hover:text-accent-text">
+                      {f.q}
+                    </a>
+                  </h3>
+                  <p className="measure mt-2 text-sm leading-relaxed text-foreground-muted">{f.a}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <section className="border-2 border-ink bg-white p-6 sm:p-10">
             <h2 className="font-display text-3xl font-extrabold uppercase leading-[0.95] text-foreground md:text-4xl">
               {t.closingTitle}
@@ -337,6 +410,8 @@ export function OfertasView({ lang }: { lang: Lang }) {
               </Link>
             </div>
           </section>
+
+          <PageSources lang={lang} updated={LASTMOD.ofertas} />
         </div>
       </PageShell>
     </>

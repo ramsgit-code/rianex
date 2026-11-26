@@ -10,6 +10,8 @@ import { CASOS_PUBLICADOS, getCaso } from "@/lib/casos";
 import { getSector } from "@/lib/sectores";
 import { getPost } from "@/lib/blog";
 import { RAMIRO, SITE_URL } from "@/lib/seo";
+import { LASTMOD } from "@/lib/lastmod";
+import { PageSources } from "@/components/PageSources";
 
 // Pagina de un caso de exito. Componente de servidor: la historia completa
 // (contexto, que se monto, resultado y cita del cliente) tiene que estar en el
@@ -29,9 +31,9 @@ const LABELS = {
     answer: "En resumen",
     keyFigures: "Cifras clave",
     usedServices: "Servicios usados",
-    context: "El punto de partida",
-    built: "Qué montamos",
-    results: "Resultado",
+    context: "¿Qué problema tenía {c}?",
+    built: "¿Qué montó Rianex para {c}?",
+    results: "¿Qué cambió en {c}?",
     stack: "Stack",
     services: "Servicios de este caso",
     sector: "La solución para el sector",
@@ -45,9 +47,9 @@ const LABELS = {
     answer: "In short",
     keyFigures: "Key figures",
     usedServices: "Services used",
-    context: "Starting point",
-    built: "What we built",
-    results: "Result",
+    context: "What problem did {c} have?",
+    built: "What did Rianex build for {c}?",
+    results: "What changed at {c}?",
     stack: "Stack",
     services: "Services in this case",
     sector: "The solution for this sector",
@@ -90,7 +92,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
       mainEntityOfPage: pageUrl,
       image: `${SITE_URL}${ficha.logo}`,
       datePublished: CASOS_PUBLICADOS,
-      dateModified: CASOS_PUBLICADOS,
+      dateModified: LASTMOD.casos,
       inLanguage: lang === "es" ? "es-ES" : "en",
       author: { "@type": "Person", name: RAMIRO.name, url: `${SITE_URL}/sobre-mi`, sameAs: [RAMIRO.linkedin] },
       publisher: { "@type": "Organization", name: "Rianex", url: SITE_URL },
@@ -210,7 +212,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
           <Reveal>
             <section className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
               <div>
-                <SectionTitle>{t.context}</SectionTitle>
+                <SectionTitle>{t.context.replace("{c}", d.client)}</SectionTitle>
                 <div className="mt-4 flex flex-col gap-3">
                   {d.context.map((p) => (
                     <p key={p} className="leading-relaxed text-foreground-muted">{p}</p>
@@ -229,7 +231,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
 
           <Reveal>
             <section>
-              <SectionTitle>{t.built}</SectionTitle>
+              <SectionTitle>{t.built.replace("{c}", d.client)}</SectionTitle>
               <ol className="mt-6 grid gap-5 sm:grid-cols-2">
                 {d.built.map((b, i) => (
                   <li key={b.title} className="card">
@@ -257,7 +259,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
 
           <Reveal>
             <section>
-              <SectionTitle>{t.results}</SectionTitle>
+              <SectionTitle>{t.results.replace("{c}", d.client)}</SectionTitle>
               <ul className="mt-5 flex flex-col gap-3">
                 {d.results.map((r) => (
                   <li key={r} className="flex items-start gap-2.5 leading-relaxed text-foreground-muted">
@@ -330,6 +332,7 @@ export function CasoView({ slug, lang }: { slug: string; lang: Lang }) {
             </Reveal>
           )}
 
+          <PageSources lang={lang} updated={LASTMOD.casos} />
         </div>
       </PageShell>
     </>
