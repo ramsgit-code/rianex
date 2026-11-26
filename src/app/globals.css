@@ -91,21 +91,16 @@ a {
   }
 }
 
-/* Aviso de cookies. En casi toda la web es un modal que bloquea hasta que el
-   visitante elige: la pagina de detras no hace scroll. En /cookies y
-   /privacidad va abajo sin bloquear y le reservamos su altura al final de la
-   pagina para que no tape el texto de la politica. */
-:root[data-cookie-banner="blocking"] {
-  overflow: hidden;
-}
-
+/* Aviso de cookies: tarjeta pequena abajo que no bloquea. Mientras esta
+   abierto le reservamos su altura al final de la pagina para que no tape el
+   pie. */
 :root[data-cookie-banner="visible"] body {
-  padding-bottom: 17rem;
+  padding-bottom: 9rem;
 }
 
 @media (min-width: 640px) {
   :root[data-cookie-banner="visible"] body {
-    padding-bottom: 15rem;
+    padding-bottom: 11rem;
   }
 }
 

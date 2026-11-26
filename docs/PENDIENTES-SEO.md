@@ -104,8 +104,8 @@ impresiones va a "por dónde empezar". GA4: 26 sesiones, ningún
       original, y la amplío.
 - [ ] **Core Web Vitals sin medir**: el 25-nov la API de PageSpeed dio cuota
       agotada. Pasar pagespeed.web.dev a la home, `/diagnostico` y un
-      artículo, en móvil, y mirar sobre todo si el aviso de cookies (modal
-      que bloquea) es el elemento más grande de la primera pantalla.
+      artículo, en móvil. Desde el 26-nov el aviso de cookies es una
+      tarjeta pequeña abajo y ya no debería ser el elemento más grande.
 
 - [ ] **Dónde buscar clics (24-nov-2026).** En 90 días, el 89% de las impresiones sin marca está más allá de la posición 50 y solo el 1% en el top 10: las búsquedas genéricas («automatización de procesos con IA», «agentes de IA») no traerán clics en meses. Prioridad: búsquedas de compra donde ya salimos en el top 20 (licitaciones: «busco una herramienta para redactar ofertas técnicas…» en la 6-8), búsquedas entre la 4 y la 15, y artículos para búsquedas concretas en nichos con poca competencia en español (GoHighLevel en español, qué es n8n). El informe semanal de Rizzo ya elige así. Lo que mueve la búsqueda genérica son enlaces externos.
 - [x] **«Proyectos de IA a medida» vuelve al principio del título (24-nov-2026).** El #73 lo había cambiado a «Precio de…» y apartó la única búsqueda sin marca con volumen en el top 30 (101 impresiones en 90 días, posición 30). Título: «Proyectos de IA a medida para empresas: precio, plazos y ejemplos»; H2 con «en producción» (posición 13). Regla: al cambiar el título de una página con impresiones, la búsqueda que las trae va al principio. Medir en 2-3 semanas.
@@ -396,6 +396,13 @@ Por orden de impacto:
 - [ ] **Textos legales con `noindex`** (prioridad baja).
 
 ## Hecho
+
+- 2026-11-26 · Aviso de cookies otra vez pequeño y sin bloquear, a
+  petición de Ramiro: tarjeta de 22rem abajo a la izquierda en escritorio y
+  barra de ~136 px abajo en móvil, sin fondo oscuro, sin bloquear el scroll
+  y sin robar el foco. Rechazar sigue al mismo tamaño que Aceptar. Mientras
+  no se elige, Analytics sigue denegado y el chat no carga. Deshace el modal
+  del 24-nov: vigilar en GA4 si bajan las sesiones medidas.
 
 - 2026-11-26 · Repaso GEO de las 160 URLs del sitemap (respuesta directa,
   preguntas en los H2, FAQ, fechas, autor, fuentes externas, cifras). El blog
