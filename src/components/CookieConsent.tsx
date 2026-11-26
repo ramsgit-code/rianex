@@ -27,9 +27,10 @@ const copy = {
   },
 } as const;
 
-// Aviso pequeño en una esquina: no tapa la web, no bloquea el scroll y no
-// roba el foco. Mientras el visitante no elige, Analytics sigue denegado
-// (Consent Mode en RootDocument) y el chat no se carga.
+// Aviso pequeño abajo a la derecha (en móvil, barra abajo): a la izquierda
+// tapaba el email del hero. No bloquea el scroll ni roba el foco. Mientras
+// el visitante no elige, Analytics sigue denegado (Consent Mode en
+// RootDocument) y el chat, que va en esa esquina, no se carga.
 export function CookieConsent() {
   const { lang } = useLang();
   const t = copy[lang];
@@ -64,7 +65,7 @@ export function CookieConsent() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-x-2 bottom-2 z-[70] border-2 border-ink border-t-4 border-t-accent bg-white p-3 sm:inset-x-auto sm:bottom-4 sm:left-4 sm:w-[22rem] sm:p-4"
+          className="fixed inset-x-2 bottom-2 z-[70] border-2 border-ink border-t-4 border-t-accent bg-white p-3 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:p-4"
         >
           <p className="text-[13px] leading-snug text-foreground-muted sm:text-sm">
             {t.text}{" "}

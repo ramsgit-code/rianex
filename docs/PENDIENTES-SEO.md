@@ -398,7 +398,7 @@ Por orden de impacto:
 ## Hecho
 
 - 2026-11-26 · Aviso de cookies otra vez pequeño y sin bloquear, a
-  petición de Ramiro: tarjeta de 22rem abajo a la izquierda en escritorio y
+  petición de Ramiro: tarjeta de 22rem abajo a la derecha en escritorio (a la izquierda tapaba el email del hero) y
   barra de ~136 px abajo en móvil, sin fondo oscuro, sin bloquear el scroll
   y sin robar el foco. Rechazar sigue al mismo tamaño que Aceptar. Mientras
   no se elige, Analytics sigue denegado y el chat no carga. Deshace el modal
