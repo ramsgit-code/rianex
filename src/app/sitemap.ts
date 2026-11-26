@@ -4,6 +4,7 @@ import { SERVICIO_SLUGS } from "@/lib/servicios";
 import { SECTOR_SLUGS } from "@/lib/sectores";
 import { CASO_SLUGS } from "@/lib/casos";
 import { LEGAL_ROUTES } from "@/lib/i18n";
+import { LASTMOD } from "@/lib/lastmod";
 
 const BASE_URL = "https://www.rianex.es";
 
@@ -32,28 +33,8 @@ const CHANGE_FREQ: Record<string, "yearly" | "monthly" | "weekly"> = {
   "/sobre-mi": "yearly",
 };
 
-/**
- * Fecha del ultimo cambio real de contenido de cada seccion. Antes todas las
- * paginas salian con la fecha del despliegue: cada build marcaba la web entera
- * como modificada, y Google deja de fiarse del lastmod cuando no coincide con
- * cambios de verdad (tambien del de los articulos, que si es bueno).
- *
- * Se actualiza a mano, en el mismo PR que cambia el contenido de la seccion.
- * Las fichas de una seccion comparten fecha: es menos fino que una por pagina,
- * pero no miente.
- */
-const LASTMOD = {
-  home: "2026-11-25",
-  servicios: "2026-11-25",
-  soluciones: "2026-11-25",
-  ofertas: "2026-11-25",
-  casos: "2026-11-25",
-  diagnostico: "2026-11-25",
-  testimonios: "2026-11-25",
-  sobreMi: "2026-11-01",
-  calculadora: "2026-11-24",
-  legal: "2026-11-25",
-} as const;
+// Fechas de cada seccion: src/lib/lastmod.ts (tambien las usan el JSON-LD y
+// la linea «Actualizado el…» de las fichas).
 
 const STATIC_LASTMOD: Record<string, string> = {
   "/": LASTMOD.home,

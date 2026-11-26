@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ORGANIZATION_ID, pageMetadata, PERSON_ID, RAMIRO, SITE_URL } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
+import { LASTMOD } from "@/lib/lastmod";
 import { SobreMiView } from "./SobreMiView";
 
 export const metadata: Metadata = pageMetadata("/sobre-mi", "es");
@@ -12,6 +13,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   url: `${SITE_URL}/sobre-mi`,
+  dateModified: LASTMOD.sobreMi,
   mainEntity: {
     "@type": "Person",
     "@id": PERSON_ID,
